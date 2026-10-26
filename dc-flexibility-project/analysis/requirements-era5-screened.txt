@@ -1,0 +1,11 @@
+numpy
+pandas
+pyarrow
+xarray
+zarr==2.18.3
+requests
+PyYAML
+paramiko
+cdsapi==0.7.7
+ecmwf-datastores-client==0.5.3
+netCDF4
