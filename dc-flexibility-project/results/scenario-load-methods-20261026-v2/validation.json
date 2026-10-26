@@ -1,0 +1,124 @@
+{
+  "status": "passed",
+  "annual_cases": [
+    {
+      "source": "lisa_cpu",
+      "size_mw": 1,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "lisa_cpu",
+      "size_mw": 10,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "lisa_cpu",
+      "size_mw": 100,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "lisa_cpu",
+      "size_mw": 500,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "acme_cpu",
+      "size_mw": 1,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "acme_cpu",
+      "size_mw": 10,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "acme_cpu",
+      "size_mw": 100,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "acme_cpu",
+      "size_mw": 500,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "acme_gpu",
+      "size_mw": 1,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "acme_gpu",
+      "size_mw": 10,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "acme_gpu",
+      "size_mw": 100,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "acme_gpu",
+      "size_mw": 500,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "asi_gpu",
+      "size_mw": 1,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "asi_gpu",
+      "size_mw": 10,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "asi_gpu",
+      "size_mw": 100,
+      "hours": 8760,
+      "status": "passed"
+    },
+    {
+      "source": "asi_gpu",
+      "size_mw": 500,
+      "hours": 8760,
+      "status": "passed"
+    }
+  ],
+  "hourly_records": 140160,
+  "replay_maps": 4,
+  "phase_cases": 490,
+  "leap_year_actual_weather_cases": 2,
+  "invalid_phase_rejections": [
+    -24,
+    1,
+    7416
+  ],
+  "checks": [
+    "source_hash",
+    "exact_source_mapping",
+    "resource_integral",
+    "calendar",
+    "power_balance",
+    "heat_balance",
+    "annual_integral",
+    "capacity_rounding_scaling",
+    "idle_power",
+    "cycle_it_repetition",
+    "phase_baseline"
+  ],
+  "code_sha256": "61743eb0b08eee2452ba707862b15ff6218c5f95bb234cb39fc24541410408f2"
+}

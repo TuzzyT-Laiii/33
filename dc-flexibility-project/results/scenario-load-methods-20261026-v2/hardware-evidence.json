@@ -1,0 +1,37 @@
+{
+  "checked_date": "2026-10-26",
+  "scope": "compute_node_pools",
+  "examples": [
+    {
+      "system": "ARCHER2",
+      "cpu_only_main_nodes": 5860,
+      "separate_gpu_development_nodes": 4,
+      "url": "https://www.archer2.ac.uk/about/hardware.html"
+    },
+    {
+      "system": "Frontier",
+      "cpu_per_gpu_node": 1,
+      "mi250x_packages_per_node": 4,
+      "gcd_per_node": 8,
+      "url": "https://docs.olcf.ornl.gov/systems/frontier_user_guide.html"
+    },
+    {
+      "system": "Perlmutter",
+      "cpu_only_nodes": 3072,
+      "gpu_nodes": 1792,
+      "a100_per_gpu_node": 4,
+      "cpu_node_fraction": 0.631578947368421,
+      "gpu_node_fraction": 0.3684210526315789,
+      "it_power_fraction": null,
+      "url": "https://docs.nersc.gov/systems/perlmutter/architecture/"
+    },
+    {
+      "system": "Lisa_paper_snapshot",
+      "cpu_only_nodes": 287,
+      "gpu_nodes": 51,
+      "gpu_job_energy_fraction": 0.3868,
+      "energy_fraction_scope": "paper_Table_V_job_attributed_energy_not_installed_capacity",
+      "url": "https://arxiv.org/html/2409.08949v1"
+    }
+  ]
+}

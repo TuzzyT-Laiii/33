@@ -1,0 +1,41 @@
+{
+  "report": "CPU_GPU算力中心_需求模式与柔性约束负荷报告_20261026_v2.pdf",
+  "page_count": 16,
+  "report_sha256": "31f41421fb7a6f81cfaa199aed13bbd64ed283d75198903a71863f867d5856cd",
+  "source_code_sha256": "dabddca733f4ee0ae05fd8ce852cc1c2441ddb435b3b5ac43e22fa240869f4ee",
+  "input_validation_sha256": "cdd50b9e8687e335d829d1d32cd21b378aaa732be6cac7441261f563193ab4c6",
+  "lisa_validation_sha256": "e5608db3b6d2cc766896a5c9052815faeac5e766313e366663f5f9cd1d9417a7",
+  "version": "20261026-v2",
+  "figure_source_manifest_sha256": "5f426288404d2e57245d44257c1759ea5a224c72949c707fc29465f7bf3b2d99",
+  "figures": 6,
+  "power_examples": "8 cases × 24 hours",
+  "permission_status": "unknown",
+  "software": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.1",
+    "matplotlib": "3.10.7"
+  },
+  "files_sha256": {
+    "01-task-runtime-distributions.pdf": "6c6b317a144eae8842173bc2220974c3e831d5b5234e2bf673b3eaad5da23f6f",
+    "01-task-runtime-distributions.png": "db7a141883e9a3797adc7f4777ed3f3b14d7886bb48a9339c464b9a88d0778dc",
+    "02-lisa-cpu-resource-profile.pdf": "8b65e3c673c58a7fe63e78fcc9389a6fbc0be0023fa5855b73c0fbc2079d8eb0",
+    "02-lisa-cpu-resource-profile.png": "6488ff4f3a8ffff802d9647e08e0d73f7df5dd81bd28d85b99a4571d7cbc0786",
+    "03-acme-gpu-type-composition.pdf": "20e6dc988365dee2152995479eeea3e25450a66a576293fa9a2ff208a8944130",
+    "03-acme-gpu-type-composition.png": "0a8ab93fa028debded51e540c3fdf91f8a86a4c96201c58602d9568fa59e3fea",
+    "04-asi-gpu-hourly-types.pdf": "d18bc1a246ff0d54c2fa787762442f8a21345e8f6082eec6b11fba6d32d12627",
+    "04-asi-gpu-hourly-types.png": "d1d2f998b165a7e89322f510d113de2eae616574e627b63628bdc76307438f56",
+    "05-reference-node-power.pdf": "0980a69d8fc788efba1e0417e7eeaa45fdad6ccee29bc0aec7f5b7efdb3f45f6",
+    "05-reference-node-power.png": "fb1207f7b6f4a92d6b90a04c1ca3db87663be68ea3a4b1ee989b443d9620e5ea",
+    "06-reference-facility-power.pdf": "58713e4fc2f4df7b355c0506bb55033d9ba31231549772e77f65a2076cd0b35e",
+    "06-reference-facility-power.png": "0aa647fa555c16de36944040acd5aa0e4c5e8cef0811e881901275fee9fd6d82",
+    "acme-gpu-type-summary.csv": "e3ab34f73b6db6fa05eab7b1fa0af41baae2c014170049f1453ab9ab12f2c917",
+    "asi-gpu-type-summary.csv": "d082962eaf8da7bb80b6d765fcdb6e26d28bb936abe1a42c9a32061d7cf0d4a7",
+    "CPU_GPU算力中心_需求模式与柔性约束负荷报告_20261026_v2.md": "325ace68626ab24db9268781a7fbde33d81dc8ec2331743adc4ba3a2a2b91c1f",
+    "CPU_GPU算力中心_需求模式与柔性约束负荷报告_20261026_v2.pdf": "31f41421fb7a6f81cfaa199aed13bbd64ed283d75198903a71863f867d5856cd",
+    "demand-shape-summary.csv": "cb23203f9219c8290fb9e5f7de2e381fa254a7db6e0dd7b9a0ada0ea3a17260d",
+    "lisa-cpu-daily-core-demand.csv": "c03c877e340444267c05b10da5bffc518b33ad528fc547ea68eafa5244edee4d",
+    "power-24h-summary.csv": "7d7f10b5971a73aba33c5d6834b01b8675e7c33743c871a6ab90864552143cae",
+    "README.md": "6f2c6245f830aa4f590bccacd6bd8a6766733c640e261b3ef12cc31b2eb80d6b",
+    "report-statistics.json": "7f0c7f897370bb4f89ee345e99b3354931ff5fa4e13e1ac7ee4f90c8e4f4502f"
+  }
+}

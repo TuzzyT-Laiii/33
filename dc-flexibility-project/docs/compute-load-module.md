@@ -165,6 +165,21 @@ python analysis/global_grid_compute_load.py --root /data3/dataset/ljt/global-gri
 
 中心节点是当前网格比较的代表位置。拥有设施位置或更合适的网格平均天气时，可直接使用标准温湿度接口；多个点的天气组合应明确空间权重及先后处理顺序，冷却响应存在非线性。
 
+## 新任务数据的全年构造入口
+
+[实际配置与全年负荷说明](../results/scenario-load-methods-20261026-v2/README.md)给出 CPU 计算型、GPU 加速型与混合设备的依据、三项情境维度以及 8760 小时处理结果。GPU 整机已经包含宿主 CPU；混合 IT 配比由对应节点数量和匹配整机功率推导。
+
+在项目根目录运行：
+
+```bash
+python analysis/build_task_annual_loads.py --year 2025 --grid-id g05_r100_c592 --weather-path data/processed/era5-landuse-trial/g05_r100_c592-hourly.parquet
+python analysis/verify_task_annual_loads.py
+```
+
+入口复用 `global_grid_compute_load.grid_weather` 的网格映射和 ERA5 转换，读取已核验 Lisa/Acme/ASI 小时需求。`annual_task_profiles.replay_hourly(source, times, phase_hours=0)` 依次循环完整观测窗口，不改变其平均目标，不添加季节变化。全年资源路径可直接传给 `ComputeLoadModel.calculate`；完整日历、取整、冷却与外推检查沿用现有模块。
+
+已生成 2025 年 16 条、140160 条小时负荷记录与 490 组日相位汇总，另用真实 2024 年天气核验 CPU/GPU 的 8784 小时接口。完整曲线保存在 `data/processed/task-annual-loads-20261026-v2/`；按网格与年份分别保存。现有默认资源库保持独立版本。ASI 一日循环为演示，Acme CPU 为开发诊断，来源归一化及功率映射的适用范围见说明。
+
 ## 7. 与供电求解器连接
 
 [prepare_compute_solver_input.py](../analysis/prepare_compute_solver_input.py) 按相同 UTC 小时连接负荷与现有风光容量因子；保留新模块的设施功率和 PUE。供电输入至少包含 `time_utc`、`pv_capacity_factor`、`wind_capacity_factor`，小时必须与负荷完全一致。

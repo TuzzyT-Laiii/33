@@ -1,0 +1,192 @@
+{
+  "lisa_cpu_complete_days": 309,
+  "lisa_cpu_daily_mean_allocated_cores": 3508.0891400350592,
+  "lisa_cpu_daily_coefficient_of_variation": 0.2689922003814465,
+  "lisa_cpu_daily_p10_p50_p90": {
+    "0.1": 2197.2391296296296,
+    "0.5": 3792.5307060185187,
+    "0.9": 4456.747902777778
+  },
+  "lisa_display_week_source_start": "2022-01-31 00:00:00",
+  "acme_gpu_type_summary": {
+    "Debug": {
+      "valid_jobs": 537,
+      "allocated_gpu_hours": 20422.804166666665,
+      "median_runtime_s": 295.0,
+      "job_share_pct": 2.6979501607717045,
+      "gpu_hour_share_pct": 1.4158860017187573
+    },
+    "Eval": {
+      "valid_jobs": 18469,
+      "allocated_gpu_hours": 3357.670833333333,
+      "median_runtime_s": 44.0,
+      "job_share_pct": 92.79039389067523,
+      "gpu_hour_share_pct": 0.23278287802687989
+    },
+    "Other": {
+      "valid_jobs": 250,
+      "allocated_gpu_hours": 36952.77,
+      "median_runtime_s": 249.5,
+      "job_share_pct": 1.2560289389067523,
+      "gpu_hour_share_pct": 2.5618866704470027
+    },
+    "Pretrain": {
+      "valid_jobs": 640,
+      "allocated_gpu_hours": 1378184.1266666667,
+      "median_runtime_s": 635.0,
+      "job_share_pct": 3.215434083601286,
+      "gpu_hour_share_pct": 95.5476827184803
+    },
+    "SFT": {
+      "valid_jobs": 8,
+      "allocated_gpu_hours": 3487.182222222222,
+      "median_runtime_s": 3241.5,
+      "job_share_pct": 0.04019292604501608,
+      "gpu_hour_share_pct": 0.24176173132706616
+    }
+  },
+  "asi_type_summary": {
+    "dev": {
+      "gpu_hours": 115298.62238888889,
+      "observations": 39956,
+      "gpu_hour_share_pct": 3.720826748633218
+    },
+    "offline_inference": {
+      "gpu_hours": 692977.7241666666,
+      "observations": 938370,
+      "gpu_hour_share_pct": 22.363233825895094
+    },
+    "online_inference": {
+      "gpu_hours": 1534784.9971111112,
+      "observations": 1609573,
+      "gpu_hour_share_pct": 49.52937816889567
+    },
+    "other": {
+      "gpu_hours": 43738.23333333334,
+      "observations": 5444,
+      "gpu_hour_share_pct": 1.4114859757449356
+    },
+    "training": {
+      "gpu_hours": 702571.4527777778,
+      "observations": 211151,
+      "gpu_hour_share_pct": 22.672835114234424
+    },
+    "unknown": {
+      "gpu_hours": 9365.626833333334,
+      "observations": 12054,
+      "gpu_hour_share_pct": 0.30224016659666453
+    }
+  },
+  "power_24h_summary": [
+    {
+      "hardware": "cpu",
+      "reference_it_mw": 1,
+      "hours": 24,
+      "mean_it_mw": 0.23027839580439813,
+      "cooling_mwh": 1.020512012954471,
+      "facility_mwh": 6.579426319821632,
+      "peak_facility_mw": 0.5202034442902499,
+      "energy_weighted_pue": 1.1904840763210902
+    },
+    {
+      "hardware": "cpu",
+      "reference_it_mw": 10,
+      "hours": 24,
+      "mean_it_mw": 2.303412790364583,
+      "cooling_mwh": 10.207906890912689,
+      "facility_mwh": 65.81222995496077,
+      "peak_facility_mw": 5.203454987534641,
+      "energy_weighted_pue": 1.1904840763210902
+    },
+    {
+      "hardware": "cpu",
+      "reference_it_mw": 100,
+      "hours": 24,
+      "mean_it_mw": 23.034127903645828,
+      "cooling_mwh": 102.07906890912687,
+      "facility_mwh": 658.1222995496078,
+      "peak_facility_mw": 52.034549875346414,
+      "energy_weighted_pue": 1.1904840763210902
+    },
+    {
+      "hardware": "cpu",
+      "reference_it_mw": 500,
+      "hours": 24,
+      "mean_it_mw": 115.17063951822918,
+      "cooling_mwh": 510.39534454563443,
+      "facility_mwh": 3290.611497748039,
+      "peak_facility_mw": 260.17274937673204,
+      "energy_weighted_pue": 1.19048407632109
+    },
+    {
+      "hardware": "gpu",
+      "reference_it_mw": 1,
+      "hours": 24,
+      "mean_it_mw": 0.9438321816393742,
+      "cooling_mwh": 1.284739696318387,
+      "facility_mwh": 23.968784106399102,
+      "peak_facility_mw": 1.0253809552836624,
+      "energy_weighted_pue": 1.0581323218201295
+    },
+    {
+      "hardware": "gpu",
+      "reference_it_mw": 10,
+      "hours": 24,
+      "mean_it_mw": 9.486313283256761,
+      "cooling_mwh": 12.912722710454297,
+      "facility_mwh": 240.9065927982147,
+      "peak_facility_mw": 10.305947567512062,
+      "energy_weighted_pue": 1.0581323218201293
+    },
+    {
+      "hardware": "gpu",
+      "reference_it_mw": 100,
+      "hours": 24,
+      "mean_it_mw": 94.87912998818861,
+      "cooling_mwh": 129.14900235363314,
+      "facility_mwh": 2409.4721785602214,
+      "peak_facility_mw": 103.07685501334579,
+      "energy_weighted_pue": 1.0581323218201295
+    },
+    {
+      "hardware": "gpu",
+      "reference_it_mw": 500,
+      "hours": 24,
+      "mean_it_mw": 474.40364851875364,
+      "cooling_mwh": 645.7558993927107,
+      "facility_mwh": 12047.564018090146,
+      "peak_facility_mw": 515.3929647358414,
+      "energy_weighted_pue": 1.0581323218201295
+    }
+  ],
+  "demand_shapes": {
+    "Lisa CPU 分配核心": {
+      "complete_days": 309,
+      "hours": 7416,
+      "hourly_cv": 0.3242248239864435,
+      "hourly_peak_to_mean": 1.542533494444192,
+      "zero_hour_fraction": 0.00013484358144552318
+    },
+    "Acme CPU 分配核心": {
+      "complete_days": 90,
+      "hours": 2160,
+      "hourly_cv": 26.773415012917273,
+      "hourly_peak_to_mean": 1239.7383155447212,
+      "zero_hour_fraction": 0.8032407407407407
+    },
+    "Acme GPU 分配卡数": {
+      "complete_days": 90,
+      "hours": 2160,
+      "hourly_cv": 0.49545190890851776,
+      "hourly_peak_to_mean": 1.7325936109417377,
+      "zero_hour_fraction": 0.03148148148148148
+    },
+    "ASI GPU 归属资源份额": {
+      "complete_days": 1,
+      "hours": 24,
+      "hourly_cv": 0.015479792628726348,
+      "hourly_peak_to_mean": 1.0318927187669775,
+      "zero_hour_fraction": 0.0
+    }
+  }
+}

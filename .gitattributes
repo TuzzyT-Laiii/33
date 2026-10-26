@@ -29,3 +29,29 @@ dc-flexibility-project/analysis/audit_lisa_tasks.py text eol=lf
 dc-flexibility-project/analysis/verify_task_trace_inputs.py text eol=lf
 dc-flexibility-project/docs/task-trace-flexibility.md text eol=lf
 dc-flexibility-project/data/metadata/task-trace-audit-20261026/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# 任务负荷报告的图件、正文和汇总保留生成时的校验值。
+dc-flexibility-project/analysis/build_task_driven_load_report.py text eol=lf
+dc-flexibility-project/results/task-driven-load-report-20261026/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/task-driven-load-report-20261026/*.pdf binary
+dc-flexibility-project/results/task-driven-load-report-20261026/*.png binary
+
+# 需求模式报告 v2 保留生成文件与图件指纹。
+dc-flexibility-project/analysis/build_task_driven_load_report_v2.py text eol=lf
+dc-flexibility-project/results/task-driven-load-report-20261026-v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/task-driven-load-report-20261026-v2/*.pdf binary
+dc-flexibility-project/results/task-driven-load-report-20261026-v2/*.png binary
+
+# 简明计算说明及情境参数保留生成时的校验值。
+dc-flexibility-project/analysis/build_scenario_load_methods_note.py text eol=lf
+dc-flexibility-project/results/scenario-load-methods-20261026/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/scenario-load-methods-20261026/*.pdf binary
+
+# 实际配置和年度任务重放保留跨平台文件校验值。
+dc-flexibility-project/analysis/annual_task_profiles.py text eol=lf
+dc-flexibility-project/analysis/build_task_annual_loads.py text eol=lf
+dc-flexibility-project/analysis/verify_task_annual_loads.py text eol=lf
+dc-flexibility-project/analysis/build_scenario_load_methods_note_v2.py text eol=lf
+dc-flexibility-project/results/scenario-load-methods-20261026-v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/scenario-load-methods-20261026-v2/*.pdf binary
+dc-flexibility-project/results/scenario-load-methods-20261026-v2/*.png binary

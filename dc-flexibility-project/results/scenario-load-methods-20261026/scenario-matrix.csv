@@ -1,0 +1,37 @@
+﻿scenario_id,reference_it_mw,center_mode,cpu_capacity_fraction,gpu_capacity_fraction,demand_mode,source,cpu_budget_mw,gpu_budget_mw,cpu_nodes,cpu_cores,gpu_nodes,reference_h100_count,installed_reference_it_mw,exogenous_input,data_readiness,calculation_status
+1MW_cpu_dominant_research,1,CPU 主导,0.75,0.25,科研超算,Lisa,0.75,0.25,1373,175744,29,232,0.994128,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+1MW_cpu_dominant_llm_development,1,CPU 主导,0.75,0.25,大模型开发,Acme Kalos,0.75,0.25,1373,175744,29,232,0.994128,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+1MW_cpu_dominant_production_ai,1,CPU 主导,0.75,0.25,生产 AI 服务,ASI,0.75,0.25,1373,175744,29,232,0.994128,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+1MW_gpu_dominant_research,1,GPU 主导,0.25,0.75,科研超算,Lisa,0.25,0.75,457,58496,88,704,0.991362,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+1MW_gpu_dominant_llm_development,1,GPU 主导,0.25,0.75,大模型开发,Acme Kalos,0.25,0.75,457,58496,88,704,0.991362,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+1MW_gpu_dominant_production_ai,1,GPU 主导,0.25,0.75,生产 AI 服务,ASI,0.25,0.75,457,58496,88,704,0.991362,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+1MW_balanced_research,1,均衡,0.5,0.5,科研超算,Lisa,0.5,0.5,915,117120,59,472,0.99696,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+1MW_balanced_llm_development,1,均衡,0.5,0.5,大模型开发,Acme Kalos,0.5,0.5,915,117120,59,472,0.99696,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+1MW_balanced_production_ai,1,均衡,0.5,0.5,生产 AI 服务,ASI,0.5,0.5,915,117120,59,472,0.99696,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+10MW_cpu_dominant_research,10,CPU 主导,0.75,0.25,科研超算,Lisa,7.5,2.5,13736,1758208,296,2368,9.995136,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+10MW_cpu_dominant_llm_development,10,CPU 主导,0.75,0.25,大模型开发,Acme Kalos,7.5,2.5,13736,1758208,296,2368,9.995136,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+10MW_cpu_dominant_production_ai,10,CPU 主导,0.75,0.25,生产 AI 服务,ASI,7.5,2.5,13736,1758208,296,2368,9.995136,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+10MW_gpu_dominant_research,10,GPU 主导,0.25,0.75,科研超算,Lisa,2.5,7.5,4578,585984,889,7112,9.993858,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+10MW_gpu_dominant_llm_development,10,GPU 主导,0.25,0.75,大模型开发,Acme Kalos,2.5,7.5,4578,585984,889,7112,9.993858,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+10MW_gpu_dominant_production_ai,10,GPU 主导,0.25,0.75,生产 AI 服务,ASI,2.5,7.5,4578,585984,889,7112,9.993858,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+10MW_balanced_research,10,均衡,0.5,0.5,科研超算,Lisa,5.0,5.0,9157,1172096,593,4744,9.998712,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+10MW_balanced_llm_development,10,均衡,0.5,0.5,大模型开发,Acme Kalos,5.0,5.0,9157,1172096,593,4744,9.998712,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+10MW_balanced_production_ai,10,均衡,0.5,0.5,生产 AI 服务,ASI,5.0,5.0,9157,1172096,593,4744,9.998712,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+100MW_cpu_dominant_research,100,CPU 主导,0.75,0.25,科研超算,Lisa,75.0,25.0,137362,17582336,2965,23720,99.994602,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+100MW_cpu_dominant_llm_development,100,CPU 主导,0.75,0.25,大模型开发,Acme Kalos,75.0,25.0,137362,17582336,2965,23720,99.994602,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+100MW_cpu_dominant_production_ai,100,CPU 主导,0.75,0.25,生产 AI 服务,ASI,75.0,25.0,137362,17582336,2965,23720,99.994602,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+100MW_gpu_dominant_research,100,GPU 主导,0.25,0.75,科研超算,Lisa,25.0,75.0,45787,5860736,8896,71168,99.992982,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+100MW_gpu_dominant_llm_development,100,GPU 主导,0.25,0.75,大模型开发,Acme Kalos,25.0,75.0,45787,5860736,8896,71168,99.992982,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+100MW_gpu_dominant_production_ai,100,GPU 主导,0.25,0.75,生产 AI 服务,ASI,25.0,75.0,45787,5860736,8896,71168,99.992982,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+100MW_balanced_research,100,均衡,0.5,0.5,科研超算,Lisa,50.0,50.0,91575,11721600,5931,47448,99.99828,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+100MW_balanced_llm_development,100,均衡,0.5,0.5,大模型开发,Acme Kalos,50.0,50.0,91575,11721600,5931,47448,99.99828,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+100MW_balanced_production_ai,100,均衡,0.5,0.5,生产 AI 服务,ASI,50.0,50.0,91575,11721600,5931,47448,99.99828,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+500MW_cpu_dominant_research,500,CPU 主导,0.75,0.25,科研超算,Lisa,375.0,125.0,686813,87912064,14827,118616,499.991508,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+500MW_cpu_dominant_llm_development,500,CPU 主导,0.75,0.25,大模型开发,Acme Kalos,375.0,125.0,686813,87912064,14827,118616,499.991508,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+500MW_cpu_dominant_production_ai,500,CPU 主导,0.75,0.25,生产 AI 服务,ASI,375.0,125.0,686813,87912064,14827,118616,499.991508,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+500MW_gpu_dominant_research,500,GPU 主导,0.25,0.75,科研超算,Lisa,125.0,375.0,228937,29303936,44483,355864,499.991292,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+500MW_gpu_dominant_llm_development,500,GPU 主导,0.25,0.75,大模型开发,Acme Kalos,125.0,375.0,228937,29303936,44483,355864,499.991292,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+500MW_gpu_dominant_production_ai,500,GPU 主导,0.25,0.75,生产 AI 服务,ASI,125.0,375.0,228937,29303936,44483,355864,499.991292,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run
+500MW_balanced_research,500,均衡,0.5,0.5,科研超算,Lisa,250.0,250.0,457875,58608000,29655,237240,499.9914,当地逐小时干球温度及相对湿度或露点,CPU 作业已核验；GPU 需求须补齐监测与卡数口径,design_only_not_run
+500MW_balanced_llm_development,500,均衡,0.5,0.5,大模型开发,Acme Kalos,250.0,250.0,457875,58608000,29655,237240,499.9914,当地逐小时干球温度及相对湿度或露点,CPU/GPU 作业已核验；资源分母与功率映射保留代理性质,design_only_not_run
+500MW_balanced_production_ai,500,均衡,0.5,0.5,生产 AI 服务,ASI,250.0,250.0,457875,58608000,29655,237240,499.9914,当地逐小时干球温度及相对湿度或露点,GPU 一天已核验；独立 CPU 池需求待补，完整时间段待扩展,design_only_not_run

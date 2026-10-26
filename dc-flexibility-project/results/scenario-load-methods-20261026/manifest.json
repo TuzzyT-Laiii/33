@@ -1,0 +1,21 @@
+{
+  "document": "算力中心_情境设计与负荷计算说明_20261026.pdf",
+  "pages": 6,
+  "scenarios": 36,
+  "calculation_status": "design_only_not_run",
+  "exogenous_input": "hourly_local_temperature_and_humidity",
+  "flexibility_role": "separate_control_design_not_scenario_axis",
+  "source_code_sha256": "04b7e5275987aa15d012aeef78ef959ce347b2b3e33d09491f4778074799042b",
+  "parameter_sha256": {
+    "cpu-measured-power-anchors.csv": "89b2dbb240e62e75968fb9677e63552038ca3b08b4c634fe4904dc42708f0c0f",
+    "gpu-measured-power-anchors.csv": "4edf12f481b85005505cb71a7fcae1faa25388effdd7f0f068e396bf34ccd15b"
+  },
+  "cooling_sha256": "9ca6712fa38dd451b5c8bda472ca0a618f27a01fb0362bfcb44f661a2af7443b",
+  "files_sha256": {
+    "README.md": "c96a9281d1d175b38815e2e51cbf81ebf4433ab492707d965962957d7e7cd123",
+    "scenario-matrix.csv": "1e18b9c9abbe8e2e96ca93b71aac02d19864db9c34556328759498158d7fd43e",
+    "scenario-matrix.json": "ecdd6e11f090b586e79ac071de5d726f785506a3baeac7c7e3a23b6ef9cd9404",
+    "算力中心_情境设计与负荷计算说明_20261026.md": "2c20692a901e228bb17f6f2eac389cc808222066a8af32bba704753dbe669762",
+    "算力中心_情境设计与负荷计算说明_20261026.pdf": "afcb492d70746171bcb6b7b345fda09f770c0b56584b4bd51389847eb0b24b6d"
+  }
+}

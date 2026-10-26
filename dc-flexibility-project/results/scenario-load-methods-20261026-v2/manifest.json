@@ -1,0 +1,25 @@
+{
+  "document": "算力中心_实际配置与8760小时负荷计算说明_20261026_v2.pdf",
+  "pages": 9,
+  "design_cells": 36,
+  "computed_annual_curves": 16,
+  "hours_per_curve": 8760,
+  "total_hourly_records": 140160,
+  "phase_cases": 490,
+  "source_code_sha256": "197e94f122ee45432b0eeee3d2ff57b6f9b7f750e674ceeaaf1ccb5c9a280d96",
+  "mixed_it_fraction_status": "requires_matched_node_power_not_assumed",
+  "files_sha256": {
+    "annual-hourly-curves.pdf": "3f802fa75bda78e7983bc7332a0039aa8e0b1ea63a29bed7388d8a163b47bde9",
+    "annual-hourly-curves.png": "21dc4217fbae3894f28eeb1eb26649e4ce2c8466faf4df484ed61f9db01a0929",
+    "annual-load-summary.csv": "ec9f2c53c53e229d6b38ced49abadd15433f1ecede6fa11760909020ae880d83",
+    "annual-phase-sensitivity.csv": "9a4385a9fb9350b47b3e3b5b7e9da2cb0f46c4f44c5ad87a3f0757975f69cd3e",
+    "annualization-manifest.json": "49e37801919f45409a26a8c8ab8fd1d694db62489a10498c1210f96cf38cfd83",
+    "hardware-evidence.json": "937fdac9fa9367676ed7920898ee4d436b2b6b09fe55d94fabbbdf1cbaf55f86",
+    "README.md": "697ad41746ca2963a29b3d949015c525b3462429684a99b937f990acd58001c3",
+    "scenario-matrix.csv": "d5e606feb4e22e64733fee7589292013dea64ef06dcbf8206d3a0c5181038a7e",
+    "scenario-matrix.json": "158e0d3191a7ecf687a49c0df29df8dd6685ea50f39f386ca2875893a5a33323",
+    "validation.json": "bca6a55eb5052cfa3d1f8d5ca0ec2abf348d2919ffab0b8b1142e05ccabed258",
+    "算力中心_实际配置与8760小时负荷计算说明_20261026_v2.md": "c069f81966756cfece6dfa7c32176b4e857f3ed44d65265a248e96e2314231fc",
+    "算力中心_实际配置与8760小时负荷计算说明_20261026_v2.pdf": "b587cfb06a344d632392b18e11b82416c9c0e3d3c6f2076745858250ebba2eb9"
+  }
+}
