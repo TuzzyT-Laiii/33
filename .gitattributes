@@ -55,3 +55,8 @@ dc-flexibility-project/analysis/build_scenario_load_methods_note_v2.py text eol=
 dc-flexibility-project/results/scenario-load-methods-20261026-v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/scenario-load-methods-20261026-v2/*.pdf binary
 dc-flexibility-project/results/scenario-load-methods-20261026-v2/*.png binary
+
+# 单机数量情境保留参数、说明和源程序的跨平台校验值。
+dc-flexibility-project/analysis/build_server_count_scenarios.py text eol=lf
+dc-flexibility-project/results/server-count-scenarios-20261027/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/server-count-scenarios-20261027/*.pdf binary

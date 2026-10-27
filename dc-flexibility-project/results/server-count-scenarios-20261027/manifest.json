@@ -1,0 +1,20 @@
+{
+  "document": "算力中心_单机CPU_GPU典型数量配比与需求来源说明_20261027.pdf",
+  "pages": 8,
+  "checked_date": "2026-10-27",
+  "ratio_basis": "per_server_physical_CPU_package_and_GPU_device_counts",
+  "configurations": 3,
+  "design_cells": 36,
+  "new_hourly_curves_computed": 0,
+  "source_code_sha256": "c2b02b3d8097e8b77c6c6b9a377bc104a7eea93adba95a2e37192638265a12be",
+  "files_sha256": {
+    "README.md": "b533f6220a522fd176984795974f4fc5da13e77fbaa89e86df234e134097d316",
+    "scenario-matrix.csv": "d74e01b27e1a0f69b1cff8bbb68d8e0470d92ff9cfa07b694388cc1f8d7a4ee3",
+    "scenario-matrix.json": "f49e62f4a5e6f7d812b978aa6c502820e081fb395a9c20723791c9715d6b730e",
+    "server-configurations.csv": "457751f178fd16ebad627e63e57cc5802509eade2dc1d50661208afe15337f6e",
+    "server-configurations.json": "a102d22fabaa6f28287937ec1d25730c4b8802131abb82d80fbe569518a730e7",
+    "validation.json": "1d590aeafe90f811e510fe99367576d6ef21b25f8661ef502cd99f2b80978377",
+    "算力中心_单机CPU_GPU典型数量配比与需求来源说明_20261027.md": "60693ad59c9179bb4b4b8a8044308ceebc0fb969c3ac84e979955177d23919a3",
+    "算力中心_单机CPU_GPU典型数量配比与需求来源说明_20261027.pdf": "8053636db1413ecbd60203f2e8284d92de41a8cc05f57ba073ead8e90348ea6f"
+  }
+}

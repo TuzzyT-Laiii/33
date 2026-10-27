@@ -43,6 +43,8 @@ CPU 另输出核心占用代理数与累计核心代理小时；GPU 输出申请
 
 ## 2. 设备规模与 IT 功率
 
+当前单机设备情境见[三种 CPU/GPU 数量配比](../results/server-count-scenarios-20261027/README.md)：2 颗 CPU 配 1、2、8 个 GPU。它们按服务器内物理数量定义，CPU 已包含宿主；每类需要匹配的整机联合功率响应，数量比不作为 IT 功率份额。该参数工作包保留未知整机功率和台数，下面的纯设备池参考实现及既有结果按原版本使用。
+
 CPU 参考硬件为 HPE DL385 Gen10 Plus，2×EPYC 7763、128 物理核心、256 GB 内存。GPU 参考硬件为 8×H100 HGX 整机，含宿主 CPU 与内存。CPU 采用 SPECpower 的 11 个实测点；GPU 采用 Latif 等 Table I 的空闲、实际任务和 CPU/GPU 联合压力点。标定表随模块保存在 [assets](../analysis/compute_load/assets/)，计算时不访问网络。
 
 设 IT 参考规模为 S MW，单节点高负载参考功率为 p_ref W：
