@@ -3,6 +3,8 @@
   "checks": [
     "device_counts",
     "core_counts",
+    "rackmount_form_factors",
+    "scenario_hardware_consistency",
     "unknown_power_preserved",
     "36_unique_cells",
     "CSV_JSON_consistency",
@@ -15,5 +17,5 @@
   "design_cells": 36,
   "source_links": 10,
   "existing_annual_pdf_sha256": "b587cfb06a344d632392b18e11b82416c9c0e3d3c6f2076745858250ebba2eb9",
-  "pdf_sha256": "8053636db1413ecbd60203f2e8284d92de41a8cc05f57ba073ead8e90348ea6f"
+  "pdf_sha256": "400416415fbb5a647032a728cb3e5785841027e116c390b5ca6f7bf64285abae"
 }

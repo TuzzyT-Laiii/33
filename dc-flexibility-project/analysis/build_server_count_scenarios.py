@@ -40,11 +40,12 @@ def configurations():
         rows.append({"configuration_id":code, "label":label, "cpu_packages_per_node":2,
             "gpu_devices_per_node":gpu_count, "cpu_gpu_device_count_ratio":f"2:{gpu_count}",
             "ratio_basis":"physical_CPU_packages_to_GPU_devices_per_complete_server",
-            "vendor_platform":"Lenovo ThinkSystem SR650 V3", "cpu_model":"Intel Xeon Gold 6448Y",
+            "vendor_platform":"Lenovo ThinkSystem SR650 V3", "server_form_factor":"rackmount", "rack_units_per_node":2,
+            "cpu_model":"Intel Xeon Gold 6448Y",
             "cpu_cores_per_package":32, "cpu_cores_per_node":64, "cpu_tdp_w_per_package":225,
             "gpu_model":"NVIDIA H100 PCIe", "gpu_memory_gb_per_device":80, "gpu_tdp_w_per_device":350,
             "evidence_type":"manufacturer_supported_options_research_selection_not_fixed_factory_bundle",
-            "source_url":REFERENCES[0][1], "source_sections":"Processors; GPU adapters, Table 84; configuration rules",
+            "source_url":REFERENCES[0][1], "source_sections":"Abstract; Processors; GPU adapters, Table 84; configuration rules",
             "selection_scope":"双路与一/两张 H100 由受支持选件和插槽规则组合选取；未取得销售频率统计",
             "gpu_slots":"2" if gpu_count == 1 else "2,5",
             "chassis_selection":"16x2.5-inch front bays; no middle/rear drive bays; GPU thermal kit and qualified fans/PSUs",
@@ -56,11 +57,12 @@ def configurations():
     rows.append({"configuration_id":"C28", "label":"GPU 数量较多", "cpu_packages_per_node":2,
         "gpu_devices_per_node":8, "cpu_gpu_device_count_ratio":"2:8",
         "ratio_basis":"physical_CPU_packages_to_GPU_devices_per_complete_server",
-        "vendor_platform":"NVIDIA DGX H100", "cpu_model":"Intel Xeon 8480C",
+        "vendor_platform":"NVIDIA DGX H100", "server_form_factor":"rackmount", "rack_units_per_node":8,
+        "cpu_model":"Intel Xeon 8480C",
         "cpu_cores_per_package":56, "cpu_cores_per_node":112, "cpu_tdp_w_per_package":None,
         "gpu_model":"NVIDIA H100 SXM", "gpu_memory_gb_per_device":80, "gpu_tdp_w_per_device":None,
         "evidence_type":"manufacturer_documented_fixed_complete_system", "source_url":REFERENCES[1][1],
-        "source_sections":"Component Description, Table 1; Power Specifications, Table 3",
+        "source_sections":"Component Description, Table 1; Mechanical Specifications, Table 2; Power Specifications, Table 3",
         "selection_scope":"固定八卡整机；DGX B200 官方配置也支持 2:8 架构的跨代实例",
         "gpu_slots":"HGX/NVSwitch integrated baseboard", "chassis_selection":"DGX H100 8U fixed system",
         "two_gpu_max_inlet_c":None, "inlet_scope":"以对应 DGX 官方环境规格为准",
@@ -77,9 +79,10 @@ def scenario_rows(catalog):
         rows.append({"scenario_id":f"{size}MW_{config['configuration_id']}_{source.split()[0].lower()}",
             "reference_it_mw":size, "configuration_id":config["configuration_id"],
             "cpu_packages_per_node":2, "gpu_devices_per_node":config["gpu_devices_per_node"],
+            "cpu_cores_per_node":config["cpu_cores_per_node"], "rack_units_per_node":config["rack_units_per_node"],
             "cpu_gpu_device_count_ratio":config["cpu_gpu_device_count_ratio"], "demand_orientation":business,
             "demand_source":source, "ratio_basis":"physical_device_counts_per_complete_server",
-            "node_count":None, "total_cpu_packages":None, "total_gpu_devices":None,
+            "node_count":None, "total_cpu_packages":None, "total_cpu_cores":None, "total_gpu_devices":None,
             "measured_reference_node_w":None, "cpu_it_power_share":None, "gpu_it_power_share":None,
             "power_calculation_status":"requires_configuration_matched_whole_node_calibration",
             "demand_readiness": {"Lisa":"CPU 作业已核验；对应 GPU 使用与同机联合占用待核对",
@@ -139,18 +142,20 @@ def main():
     p("单机 CPU/GPU 典型数量配比<br/>与需求来源说明", ParagraphStyle("Title",parent=heading,fontSize=20,leading=29))
     p("用户确认口径：每台服务器的 CPU 颗数∶GPU 数量 · 2026 年 10 月 27 日",small)
     chapter("1 三种情境采用哪些实际配置", True)
+    p("研究基本单元为数据中心内的一台完整机架式服务器。SR650 V3 为双路 2U 通用服务器，DGX H100 为 8U 加速服务器；U 表示机架内设备的高度单位。[1,2]")
     table([["情境", "单机数量", "参考平台", "证据性质"],
         ["C21：CPU 数量较多", "2 CPU∶1 GPU", "双路 SR650 V3＋1 张 H100 PCIe", "从厂商支持选件与插槽规则中选取 [1]"],
         ["C22：两类数量相等", "2 CPU∶2 GPU", "双路 SR650 V3＋2 张 H100 PCIe", "厂商明确列出两卡位置及温度条件 [1]"],
         ["C28：GPU 数量较多", "2 CPU∶8 GPU", "DGX H100：2 颗 Xeon 8480C＋8 张 H100", "官方固定整机配置 [2]"]], [.24,.18,.32,.26])
     p("三种情境覆盖双路通用服务器的少卡选配和八卡专用加速服务器。单卡与双卡为厂商支持项构成的研究配置；本次没有取得装机销量或市场频率，因此‘典型’表示可核查的代表性架构。")
-    p("CPU 按物理处理器封装/插槽数量计，GPU 按 PCIe 卡或 SXM 加速器模块数量计。两颗 CPU 配两张 GPU 的数量为一比一；CPU 核心数、算力、功率及全年电量分别计算。")
+    p("CPU 按物理处理器封装/插槽数量计，GPU 按 PCIe 卡或 SXM 加速器模块数量计。两颗 CPU 各含几十个物理核心：C21/C22 每台共 64 核，C28 每台共 112 核。两颗 CPU 配两张 GPU 的数量为一比一；算力、功率及全年电量分别计算。")
     p("三种单机均配有宿主 CPU。宿主负责该服务器的通用处理和 GPU 任务配套；整机功率已经包含宿主时，其功耗随整机计入。DGX B200 官方同样采用 2 颗 CPU＋8 张 GPU，提供另一代的八卡架构实例。[3]",small)
     p("三种情境同时记录 CPU 型号、GPU 接口与整机结构差异；结果比较描述这些实际架构组合，不能把全部差异归因于 CPU/GPU 数量比例。",small)
 
     chapter("2 固定的设备参数与适用条件")
     table([["参数", "C21", "C22", "C28"],
-        ["CPU 数量", "2", "2", "2"],
+        ["机箱形态", "2U 机架式", "2U 机架式", "8U 机架式"],
+        ["物理 CPU 颗数/台", "2", "2", "2"],
         ["CPU 参考选件", "Xeon Gold 6448Y", "Xeon Gold 6448Y", "Xeon 8480C"],
         ["CPU 核心数/台", "64（2×32）", "64（2×32）", "112（2×56）"],
         ["GPU 型号/数量", "H100 PCIe×1", "H100 PCIe×2", "H100 SXM×8"],
@@ -165,10 +170,11 @@ def main():
     p("C22 的芯片 TDP 合计为 CPU 450 W、GPU 700 W，CPU 在这两部分 TDP 之和中约占 39.1%；它仍是 CPU/GPU 数量相等的情境。TDP 用于描述器件规格，整机还包括内存、机内互联、存储、风扇和电源转换，全年功率需由运行与测量确定。")
 
     chapter("3 三种单机配置怎样接入负荷计算")
-    p("基础设计为 1、10、100、500 MW × C21/C22/C28 × 科研超算/大模型开发/生产 AI 服务，共 36 个设计单元。MW 表示参考高负载 IT 预算；确定每台对应整机的参考功率 p_ref 后，才据此换算台数。")
+    p("基础设计为 1、10、100、500 MW × C21/C22/C28 × 科研超算/大模型开发/生产 AI 服务，共 36 个设计单元。MW 表示数据中心参考高负载 IT 预算。服务器台数根据完整 IT 清单中分配给计算节点的预算换算，公共网络及独立存储的预算另行计入。")
     section("同台 CPU/GPU 的联合响应")
     p("对配置 k，读取对应硬件的整机响应 p_k(u_CPU,h,u_GPU,h)，保留同一时段 CPU、GPU、内存及任务关系。p_k 已包含整机所有被测组件；CPU 颗数与 GPU 数量用于定义设备和资源上限。")
-    p("台数 N_k=floor(S×10<sup>6</sup>/p_k,ref)。小时计算节点功率 P_node,h=N_k p_k(u_CPU,h,u_GPU,h)/10<sup>6</sup>，其中 p 以 W 计、S 与 P 以 MW 计。CPU 颗数=2N_k，GPU 数量=g_kN_k。")
+    p("记计算节点预算为 S_node≤S，台数 N_k=floor(S_node×10<sup>6</sup>/p_k,ref)。小时计算节点功率 P_node,h=N_k p_k(u_CPU,h,u_GPU,h)/10<sup>6</sup>，其中 p 以 W 计、S 与 P 以 MW 计。CPU 颗数=2N_k，物理核心数=c_kN_k（c_k 为 64、64、112），GPU 数量=g_kN_k（g_k 为 1、2、8）。")
+    p("完整服务器功率包含 CPU、GPU、内存、主板、机内存储、网卡、风扇和电源转换损耗；这些部分随整机计入 IT。机房冷却设备的耗电在设施侧单独计算。",small)
     p("不同 CPU/GPU 型号需要对应性能与功率标定；PCIe 与 SXM 卡也保留不同硬件标识。增加 GPU 数量会改变互联、内存、风扇和任务性能，整机功率不能仅由卡数比推算。")
     section("散热、温湿度与全年结果")
     p("公共网络和独立存储的 IT 功率按清单另加，得到 P_IT,h。散热需求 Q_h≈P_IT,h；使用当地逐小时温度及露点/相对湿度、冷却技术参数计算 P_cool,h，再形成 P_fac,h=P_IT,h+P_cool,h+P_other,h。")
@@ -216,7 +222,7 @@ def main():
     for label,url in REFERENCES:
         p(f'<a href="{url}" color="#1C5675">{escape(label)}</a>',small)
     section("参数与结果文件")
-    p("server-configurations.csv/json 记录每台 CPU/GPU 数量、CPU 核心、型号、显存、部分 TDP、证据类型和完整整机功率状态。scenario-matrix.csv/json 提供 36 个规模×单机配置×需求设计单元，未知功率与台数为空。",small)
+    p("server-configurations.csv/json 记录机架形态、U 数、每台 CPU/GPU 数量、CPU 核心、型号、显存、部分 TDP、证据类型和完整整机功率状态。scenario-matrix.csv/json 提供 36 个规模×单机配置×需求设计单元，包含单台核心数与 U 数，未知功率、台数和总核心数为空。",small)
     p("在项目根目录运行：<br/>python analysis/build_server_count_scenarios.py<br/>参数核验与生成文件 SHA-256 见 manifest.json、validation.json。既有年度算法与结果见 results/scenario-load-methods-20261026-v2/。",small)
 
     def footer(canvas,doc):
@@ -248,15 +254,21 @@ def main():
         raise ValueError("三种单机数量与设计不一致")
     if table_readback.cpu_cores_per_node.tolist()!=[64,64,112]:
         raise ValueError("CPU 核心数量与选定型号不一致")
+    if table_readback.rack_units_per_node.tolist()!=[2,2,8] or not table_readback.server_form_factor.eq("rackmount").all():
+        raise ValueError("服务器形态与厂商机架规格不一致")
+    for config in catalog:
+        subset = matrix_readback[matrix_readback.configuration_id.eq(config["configuration_id"])]
+        if not subset.cpu_cores_per_node.eq(config["cpu_cores_per_node"]).all() or not subset.rack_units_per_node.eq(config["rack_units_per_node"]).all():
+            raise ValueError(f"情境表与服务器参数不一致：{config['configuration_id']}")
     for field in ("measured_reference_node_w","cpu_it_power_share","gpu_it_power_share"):
         if not table_readback[field].isna().all() or not matrix_readback[field].isna().all():
             raise ValueError("未识别的功率参数必须保留为空")
-    if len(matrix_readback)!=36 or not matrix_readback.scenario_id.is_unique or not matrix_readback.node_count.isna().all():
+    if len(matrix_readback)!=36 or not matrix_readback.scenario_id.is_unique or not matrix_readback.node_count.isna().all() or not matrix_readback.total_cpu_cores.isna().all():
         raise ValueError("情境表行数、唯一性或台数状态不一致")
     baseline = PROJECT/"results/scenario-load-methods-20261026-v2/算力中心_实际配置与8760小时负荷计算说明_20261026_v2.pdf"
     if sha256(baseline)!="b587cfb06a344d632392b18e11b82416c9c0e3d3c6f2076745858250ebba2eb9":
         raise ValueError("既有年度报告与输入版本不一致")
-    validation = {"status":"passed", "checks":["device_counts", "core_counts", "unknown_power_preserved", "36_unique_cells",
+    validation = {"status":"passed", "checks":["device_counts", "core_counts", "rackmount_form_factors", "scenario_hardware_consistency", "unknown_power_preserved", "36_unique_cells",
         "CSV_JSON_consistency", "source_links", "PDF_bounds", "annual_baseline_preserved"],
         "pages":pages, "configurations":3, "design_cells":36, "source_links":len(set(links)),
         "existing_annual_pdf_sha256":sha256(baseline), "pdf_sha256":sha256(pdf)}

@@ -10,7 +10,11 @@
 
 单卡与双卡为厂商支持选件构成的研究配置，八卡为官方固定整机。数量比例用于定义每台设备组成，功率、算力及全年电量分别核算；当前没有三类配置市场占比的统计依据。
 
-- [单机配置 CSV](server-configurations.csv)与[JSON](server-configurations.json)：CPU/GPU 数量、核心、型号、显存、部分器件 TDP、证据类型与功率标定状态。
+研究基本单元为完整机架式服务器：C21/C22 均为 2U、双路共 64 个 CPU 物理核心；C28 为 8U、双路共 112 个 CPU 物理核心。CPU 颗数按物理处理器封装计数，GPU 按 PCIe 卡或 SXM 模块计数。整机 IT 包含 CPU、GPU、内存、主板、网卡、机内存储、风扇及电源转换损耗，机房冷却耗电单独计算。
+
+四档 MW 规模表示完整 IT 预算；服务器台数使用分配给计算节点的预算与匹配整机参考功率换算，公共网络及独立存储的预算另行计入。CPU 总颗数、总物理核心数与 GPU 总数量随服务器台数累计。
+
+- [单机配置 CSV](server-configurations.csv)与[JSON](server-configurations.json)：机架形态、U 数、CPU/GPU 数量、核心、型号、显存、部分器件 TDP、证据类型与功率标定状态。
 - [36 个设计单元 CSV](scenario-matrix.csv)与[JSON](scenario-matrix.json)：四档规模×三种单机数量配置×三类需求导向，保留气象输入与独立柔性控制定义。
 - [生成核验](validation.json)与[文件校验值](manifest.json)。
 
