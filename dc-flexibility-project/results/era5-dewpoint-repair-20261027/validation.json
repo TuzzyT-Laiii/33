@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-27T10:16:58.259895+00:00",
+  "checked_utc": "2026-10-27T10:33:45.284309+00:00",
   "selection_manifest_sha256": "eac76e0284de44a914c6e3d9383049918105f2fc062e348b146d734b0deca4a9",
   "source_metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
   "block": "lat-084-lon-290",
@@ -36,5 +36,15 @@
   },
   "existing_wind_nan_filled": 125580,
   "wind_proof_rejected_for_dewpoint": true,
+  "received_official_annual_files": [
+    {
+      "year": 2023,
+      "hours": 8760,
+      "nodes": 10,
+      "all_finite": true,
+      "sha256": "241152665dc105a5d9353794239fa0bb67496fbf5722639dd436db221aa68b41",
+      "bytes": 779410
+    }
+  ],
   "official_dewpoint_validation": "pending_official_files_and_exact_overlap"
 }

@@ -51,11 +51,32 @@ def verify_repair(root):
     with unittest.TestCase().assertRaisesRegex(ValueError, '变量或重合时段证明'):
         apply_verified_source_repair(root, 'lat-068-lon-228', 'd2m', wind_points,
                                      times, wind_values, sha(selection_path), metadata_sha)
+    received = []
+    for year in (2023, 2024, 2025, 2026):
+        raw = root / 'data/raw/era5-eligible-cds-repairs/lat-084-lon-290' / f'dewpoint-{year}.nc'
+        if not raw.exists():
+            continue
+        receipt = json.loads(raw.with_suffix('.json').read_text())
+        if sha(raw) != receipt['sha256'] or receipt['request']['variable'] != ['2m_dewpoint_temperature']:
+            raise ValueError('露点年度原文的SHA或请求变量不同')
+        expected = times[pd.DatetimeIndex(times).year == year]
+        with xr.open_dataset(raw) as annual:
+            if not np.array_equal(annual.valid_time.values, expected) or annual.d2m.attrs.get('units') != 'K':
+                raise ValueError('露点年度原文的整点或单位不同')
+            extracted = annual.d2m.sel(
+                latitude=xr.DataArray(selected.latitude.to_numpy(), dims='weather_point'),
+                longitude=xr.DataArray((selected.longitude_0_360.to_numpy() + 180) % 360 - 180,
+                                       dims='weather_point')).values
+            if extracted.shape != (len(expected), 10) or extracted.dtype != np.dtype('float32') or not np.isfinite(extracted).all():
+                raise ValueError('露点年度官方原文的节点、类型或有限值异常')
+        received.append({'year': year, 'hours': len(expected), 'nodes': 10,
+                         'all_finite': True, 'sha256': receipt['sha256'], 'bytes': raw.stat().st_size})
     proof_path = root / 'data/metadata/buildability-20261025/weather-cds-repairs/lat-084-lon-290.json'
     dewpoint = 'pending_official_files_and_exact_overlap'
     if proof_path.exists():
         proof = json.loads(proof_path.read_text())
-        if proof['status'] in ('awaiting_overlap_validation', 'verified'):
+        checkpoint = root / 'checkpoints/era5-eligible-blocks/lat-084-lon-290.json'
+        if proof['status'] == 'verified' and checkpoint.exists():
             dewpoint = verify(root, 'lat-084-lon-290')
     report = {'checked_utc': utc_now(), 'selection_manifest_sha256': sha(selection_path),
               'source_metadata_sha256': metadata_sha, 'block': 'lat-084-lon-290',
@@ -65,6 +86,7 @@ def verify_repair(root):
               'existing_wind_repair': wind_result,
               'existing_wind_nan_filled': wind_proof['replaced_nan_count'],
               'wind_proof_rejected_for_dewpoint': True,
+              'received_official_annual_files': received,
               'official_dewpoint_validation': dewpoint}
     write_json(root / 'results/buildability-20261025/dewpoint-recovery-validation.json', report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
