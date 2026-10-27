@@ -1,0 +1,40 @@
+{
+  "checked_utc": "2026-10-27T10:16:58.259895+00:00",
+  "selection_manifest_sha256": "eac76e0284de44a914c6e3d9383049918105f2fc062e348b146d734b0deca4a9",
+  "source_metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "block": "lat-084-lon-290",
+  "variable": "d2m",
+  "selected_points": 10,
+  "hours": 26305,
+  "original_nan_values": 131280,
+  "original_missing_hours": 13128,
+  "existing_wind_repair": {
+    "formal_block": {
+      "label": "lat-068-lon-228",
+      "points": 12,
+      "status": "reused_verified",
+      "source_bytes": 0,
+      "output_bytes": 8151277
+    },
+    "verified_overlap": {
+      "u100": {
+        "original_nan_count": 125580,
+        "verified_overlap_count": 190080,
+        "max_abs_overlap_difference": 0.0,
+        "exact_overlap_equal": true
+      },
+      "v100": {
+        "original_nan_count": 0,
+        "verified_overlap_count": 315660,
+        "max_abs_overlap_difference": 0.0,
+        "exact_overlap_equal": true
+      }
+    },
+    "source_supplements": [
+      "u100"
+    ]
+  },
+  "existing_wind_nan_filled": 125580,
+  "wind_proof_rejected_for_dewpoint": true,
+  "official_dewpoint_validation": "pending_official_files_and_exact_overlap"
+}

@@ -72,18 +72,25 @@ def retain_equivalent_source(cache, key, incoming, receipt):
     return retained
 
 
-def apply_verified_wind_repair(root, label, name, points, times, values, selection_sha, metadata_sha):
-    if name not in ('u100', 'v100') or np.isinf(values).any():
-        raise ValueError('定向风数据补取仅适用于已核查的NaN缺失值')
+def apply_verified_source_repair(root, label, name, points, times, values, selection_sha, metadata_sha):
+    if name not in ('u100', 'v100', 'd2m') or np.isinf(values).any():
+        raise ValueError('定向源数据补取仅适用于已核查变量的NaN缺失值')
     path = root / 'data/metadata/buildability-20261025/weather-cds-repairs' / (label + '.json')
     record = json.loads(path.read_text())
+    variables = tuple(record.get('variables', ('u100', 'v100')))
+    prefix = record.get('source_file_prefix', 'wind')
+    if ((prefix, variables) not in (('wind', ('u100', 'v100')), ('dewpoint', ('d2m',)))
+            or name not in variables
+            or not record['checks'][name]['exact_overlap_equal']
+            or record['checks'][name]['verified_overlap_count'] <= 0):
+        raise ValueError('CDS补取变量或重合时段证明不符合要求')
     if (record['status'] != 'verified' or record['block'] != label or record['hours'] != 26305
             or record['official_dataset'] != 'reanalysis-era5-single-levels'
             or record['selection_manifest_sha256'] != selection_sha or record['source_metadata_sha256'] != metadata_sha
             or record['native_flat_indices'] != points.native_flat_index.astype(int).tolist()):
         raise ValueError('CDS补取证明与合格节点、时间或来源版本不一致')
     for source in record['raw_sources']:
-        raw = root / 'data/raw/era5-eligible-cds-repairs' / label / (f"wind-{source['request']['year'][0]}.nc")
+        raw = root / 'data/raw/era5-eligible-cds-repairs' / label / (f"{prefix}-{source['request']['year'][0]}.nc")
         if str(raw) != source['path'] or hashlib.sha256(raw.read_bytes()).hexdigest() != source['sha256']:
             raise ValueError('CDS补取原文的路径或SHA不一致')
     output = root / 'data/interim/era5-eligible-cds-repairs' / (label + '.parquet')
@@ -98,7 +105,7 @@ def apply_verified_wind_repair(root, label, name, points, times, values, selecti
         raise ValueError('CDS补取数据仍有缺失或类型错误')
     present = np.isfinite(values)
     if not np.array_equal(official[present], values[present]):
-        raise ValueError('CDS补取与现有有效风数据不完全一致')
+        raise ValueError('CDS补取与现有有效数据不完全一致')
     repaired = values.copy()
     missing = np.isnan(values)
     repaired[missing] = official[missing]
@@ -106,3 +113,9 @@ def apply_verified_wind_repair(root, label, name, points, times, values, selecti
              'raw_sources': record['raw_sources'], 'replaced_nan_count': int(missing.sum()),
              'unchanged_finite_values': int(present.sum()), 'method': '只使用已核验官方原文中同时间同节点的数值补齐NaN'}
     return repaired, proof
+
+
+def apply_verified_wind_repair(root, label, name, points, times, values, selection_sha, metadata_sha):
+    if name not in ('u100', 'v100'):
+        raise ValueError('风数据补取接口要求风变量')
+    return apply_verified_source_repair(root, label, name, points, times, values, selection_sha, metadata_sha)
