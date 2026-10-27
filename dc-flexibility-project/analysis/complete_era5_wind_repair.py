@@ -20,7 +20,7 @@ def verify(root, label):
             item['exact_overlap_equal'] and item['verified_overlap_count'] > 0 for item in report['checks'].values()):
         raise ValueError('CDS补取与ARCO的重合时段未通过逐值一致性验证')
     for source in report['raw_sources']:
-        if source['dataset'] != 'reanalysis-era5-single-levels' or sha(Path(source['path'])) != source['sha256']:
+        if source['dataset'] not in ('reanalysis-era5-single-levels', report['official_dataset']) or sha(Path(source['path'])) != source['sha256']:
             raise ValueError('CDS补取原文来源或SHA不一致')
     selection_path = root / 'data/metadata/buildability-20261025/selection-manifest.json'
     selection = json.loads(selection_path.read_text())
@@ -49,10 +49,10 @@ def verify(root, label):
             'source_supplements': list(checkpoint.get('source_supplements', {}))}
 
 
-def run(root, label, start_formal, group='wind', monthly=False):
+def run(root, label, start_formal, group='wind', monthly=False, missing_only=False):
     state_path = root / 'status' / f'era5-{group}-repair-controller.json'
     state = {'status': 'preparing', 'block': label, 'group': group,
-             'strategy': 'monthly_sequential_with_existing_annual_reuse' if monthly else 'annual',
+             'strategy': 'missing_months_and_july_overlap' if missing_only else ('monthly_sequential_with_existing_annual_reuse' if monthly else 'annual'),
              'pid': os.getpid(), 'started_utc': utc_now()}
     write_json(state_path, state)
     try:
@@ -60,13 +60,17 @@ def run(root, label, start_formal, group='wind', monthly=False):
                    '--root', str(root), '--block', label, '--group', group]
         if monthly:
             command.append('--monthly')
+        if missing_only:
+            command.append('--missing-only')
+            state['requested_months'] = [f'2024-{month:02d}' for month in range(1, 8)]
+            write_json(state_path, state)
         subprocess.run(command, check=True)
         state.update(status='validating', updated_utc=utc_now())
         write_json(state_path, state)
         state.update(verification=verify(root, label), status='verified', updated_utc=utc_now())
         write_json(state_path, state)
         if start_formal:
-            subprocess.run([sys.executable, str(root / 'analysis/grid_job_manager.py'), '--start', 'era5-eligible'], check=True)
+            subprocess.run([sys.executable, str(root / 'analysis/grid_job_manager.py'), '--start', 'era5-eligible', '--ensure-running'], check=True)
             state.update(status='formal_acquisition_resumed', updated_utc=utc_now())
             write_json(state_path, state)
     except (ValueError, OSError, subprocess.CalledProcessError) as error:
@@ -83,7 +87,8 @@ if __name__ == '__main__':
     parser.add_argument('--start-formal', action='store_true')
     parser.add_argument('--group', choices=('wind', 'dewpoint'), default='wind')
     parser.add_argument('--monthly', action='store_true')
+    parser.add_argument('--missing-only', action='store_true')
     args = parser.parse_args()
     with (args.root.resolve() / f'.era5-{args.group}-repair-controller.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        run(args.root.resolve(), args.block, args.start_formal, args.group, args.monthly)
+        run(args.root.resolve(), args.block, args.start_formal, args.group, args.monthly, args.missing_only)

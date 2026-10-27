@@ -1,0 +1,1355 @@
+{
+  "checked_utc": "2026-10-27T14:16:19.452762+00:00",
+  "source_sha256": {
+    "acquire_eligible_era5_weather.py": "e0c6c195581f7c5d6dcf652d6dd9d56096c6d79e82b8be20b595e28d7b79d04b",
+    "complete_era5_wind_repair.py": "e26f6d644f2eeba6a045476fbfd7699f16cb8cf3d2fd15cfe2759daa77cde7a1",
+    "era5_source_validation.py": "88cc3b59089300f69e7ddfdc4dd7302e662651c056d3793decd9a4c765bf0918",
+    "prepare_era5_wind_repair.py": "72a7bd8a8995bcbaf4148556ca147698baa3a86f1f058d34bf09dabc3831d1f3",
+    "era5_block_quarantine.py": "ef1e5aec0184094facd0c834540905874f20acf6cc46be6a7bb9f063e456ba02",
+    "era5_dewpoint_candidate.py": "c4fc222ad12d8dd5d1879341981b04ff61104ec5dd3c462ba21256c880f48739",
+    "grid_job_manager.py": "baa4fa57ff4c19a1b184248df28091c13c80d8beb25f568133e90d53c03f1853",
+    "monitor_grid_jobs.py": "ded61a52a2465d4bc3ddd1ed8d94ee084a81a87d72f3fda63583b5257b858f77",
+    "try_era5_dewpoint_alternatives.py": "bd9dddeaf0b3f1ee1bbe1bc899e8110031fa3c15bd31f013a36b0a23e8ed4e82",
+    "verify_era5_block_isolation.py": "f7f8ad0219acf368621a806b49dfaa89a6c8b4375fa2aab73ab3830f4dae27b5",
+    "read_era5_formal_progress.py": "99b9a492f4fb3aa241d93b1d7b25f840ed9c3ee9a170919d20ef623ebf2aa52f"
+  },
+  "syntax": "passed",
+  "evidence": {
+    "formal_progress": {
+      "checked_utc": "2026-10-27T14:16:18.854986+00:00",
+      "formal_completed_blocks": 5232,
+      "total_required_blocks": 18422,
+      "isolated_pending_blocks": {
+        "lat-084-lon-290": {
+          "status": "awaiting_dewpoint_repair",
+          "variables": [
+            "d2m"
+          ],
+          "native_flat_indices": [
+            550520,
+            550521,
+            550522,
+            551960,
+            551961,
+            551962,
+            553400,
+            553401,
+            553402,
+            553403
+          ],
+          "original_nan_count": 131280,
+          "reason": "缺失2023至2024年6月露点，2023已获官方原文；等待2024年前六个月及7月重合校验",
+          "july_2024_finite_values": 7440,
+          "july_2024_min_kelvin": 292.98486328125,
+          "july_2024_max_kelvin": 298.31573486328125,
+          "counts_as_complete": false,
+          "proof_status": "not_available",
+          "formal_completed": false
+        },
+        "lat-091-lon-353": {
+          "label": "lat-091-lon-353",
+          "status": "awaiting_source_repair",
+          "variables": [
+            "u100"
+          ],
+          "native_flat_indices": [
+            509012,
+            509013,
+            509014,
+            510452,
+            510453,
+            510454,
+            511892,
+            513332,
+            513333,
+            513334
+          ],
+          "original_nan_count": 104650,
+          "missing_count_per_node": [
+            10465,
+            10465,
+            10465,
+            10465,
+            10465,
+            10465,
+            10465,
+            10465,
+            10465,
+            10465
+          ],
+          "first_missing_utc": "2024-10-22T00:00:00.000000000",
+          "last_missing_utc": "2026-01-01T00:00:00.000000000",
+          "selection_manifest_sha256": "eac76e0284de44a914c6e3d9383049918105f2fc062e348b146d734b0deca4a9",
+          "source_metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+          "detected_utc": "2026-10-27T14:03:16.668805+00:00",
+          "counts_as_complete": false,
+          "reason": "source_nan_values_verified",
+          "proof_status": "not_available",
+          "formal_completed": false
+        }
+      },
+      "other_blocks_completed": 5232,
+      "other_blocks_target": 18420,
+      "repaired_isolated_blocks": [],
+      "overall_complete": false,
+      "formal": {
+        "status": "downloading",
+        "started_utc": "2026-10-27T13:59:38.930447+00:00",
+        "updated_utc": "2026-10-27T14:16:18.482426+00:00",
+        "completed_blocks": 5232,
+        "completed_points": 68625,
+        "workers": 4,
+        "total_blocks": 18422,
+        "total_points": 257354,
+        "source_bytes_this_attempt": 0,
+        "selection_manifest_sha256": "eac76e0284de44a914c6e3d9383049918105f2fc062e348b146d734b0deca4a9",
+        "source_metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+        "quarantined_blocks": [
+          "lat-084-lon-290",
+          "lat-091-lon-353"
+        ],
+        "quarantined_block_count": 2,
+        "other_blocks_target": 18420,
+        "quarantine_reason": "awaiting_dewpoint_repair",
+        "last_completed_block": "lat-101-lon-284"
+      },
+      "manager": {
+        "job": "era5-eligible",
+        "status": "running",
+        "manager_pid": 80621,
+        "started_utc": "2026-10-27T13:59:38.105862+00:00",
+        "command": [
+          "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python",
+          "-u",
+          "/data3/dataset/ljt/global-grid-flexibility-20261023/analysis/acquire_eligible_era5_weather.py",
+          "--root",
+          "/data3/dataset/ljt/global-grid-flexibility-20261023",
+          "--workers",
+          "4"
+        ],
+        "worker_pid": 80623
+      },
+      "dewpoint_controller": {
+        "status": "preparing",
+        "block": "lat-084-lon-290",
+        "group": "dewpoint",
+        "strategy": "missing_months_and_july_overlap",
+        "pid": 57849,
+        "started_utc": "2026-10-27T13:55:10.985286+00:00",
+        "requested_months": [
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07"
+        ]
+      },
+      "dewpoint_repair": {
+        "status": "fetching_official_dewpoint",
+        "block": "lat-084-lon-290",
+        "variables": [
+          "d2m"
+        ],
+        "strategy": "missing_months_and_july_overlap",
+        "started_utc": "2026-10-27T13:55:26.102109+00:00",
+        "jobs": {
+          "2023": {
+            "status": "downloaded",
+            "request_id": "3eafd448-dd1e-4506-a539-dacae388e9a3"
+          },
+          "2024-01": {
+            "status": "accepted",
+            "request_id": "21a9bba4-96a9-42c5-b3f0-6bdc6bd79b9c"
+          }
+        },
+        "updated_utc": "2026-10-27T14:16:11.230244+00:00"
+      },
+      "alternatives": {
+        "timeseries": {
+          "status": "incompatible",
+          "started_utc": "2026-10-27T14:09:19.657958+00:00",
+          "source": "reanalysis-era5-single-levels-timeseries",
+          "block": "lat-084-lon-290",
+          "received_nodes": 10,
+          "updated_utc": "2026-10-27T14:09:51.678859+00:00",
+          "checked_utc": "2026-10-27T14:09:51.674255+00:00",
+          "comparison": {
+            "official_2023_01": {
+              "count": 7440,
+              "finite_pair_count": 0,
+              "candidate_nan_count": 7440,
+              "candidate_inf_count": 0,
+              "unequal_count": 7440,
+              "max_abs_difference": null,
+              "mean_abs_difference": null,
+              "quantiles_0_50_95_99_100": [],
+              "exact_equal": false
+            },
+            "arco_2024_07": {
+              "count": 7440,
+              "finite_pair_count": 7440,
+              "candidate_nan_count": 0,
+              "candidate_inf_count": 0,
+              "unequal_count": 0,
+              "max_abs_difference": 0.0,
+              "mean_abs_difference": 0.0,
+              "quantiles_0_50_95_99_100": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "exact_equal": true
+            }
+          },
+          "missing_values_2024_jan_jun": 43680,
+          "candidate_finite": false,
+          "raw_sources": [
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -5.5,
+                  "longitude": 110.0
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "9719794b-6839-4b51-81d1-4968899b3a17",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/550520.nc",
+              "sha256": "fcf8b41a23f7fde30d730c9be56d146263285926b9f7ce6b8e5518101b002933",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -5.5,
+                  "longitude": 110.25
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "77a06e83-6b67-4a4d-8c12-c0608621a525",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/550521.nc",
+              "sha256": "9af45650b6129dcbd6016050d4e9406d6217950baba3b927e607f8ace6a6653f",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -5.5,
+                  "longitude": 110.5
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "7a2cba32-a26d-4eea-98a5-83a4d09d04d8",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/550522.nc",
+              "sha256": "0e3f19c5ba0d54a6c0ef2c59636c1e534fcb6c753dcea8cbeb245d04da8de6bc",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -5.75,
+                  "longitude": 110.0
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "ece8b1e2-80e6-4dac-8866-7309478b7cc2",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/551960.nc",
+              "sha256": "33bd7bfb59742f4d493064bc8254466e83d32f6a1358e051484a54baa31a4fea",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -5.75,
+                  "longitude": 110.25
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "e7e3fd13-02c5-4516-83fa-9e223bda7d95",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/551961.nc",
+              "sha256": "743efb8b348e6090d8274bd5ef9594e98e802303e2521a2518a2ff186920d3d8",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -5.75,
+                  "longitude": 110.5
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "fef875ab-28df-4b58-9ed3-84e64beee5d4",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/551962.nc",
+              "sha256": "fd47fd6a63b535d95c7790a56efd480e1793b1eeb555fa61bd95ed562cada4ae",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -6.0,
+                  "longitude": 110.0
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "697c3fbb-4763-4200-88aa-9c873966b142",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/553400.nc",
+              "sha256": "9bca2e638e245d535b185110a9654c86172bd5b66e00786d80ef787302ba9677",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -6.0,
+                  "longitude": 110.25
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "ae8e6c8a-552c-4050-9f30-8c1c6a8ef8b6",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/553401.nc",
+              "sha256": "9b644c6810d7f983fcf3242ac7e279c36ad94b24a7c389b3e6596cffa4170d3e",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -6.0,
+                  "longitude": 110.5
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "5190c97c-dc19-438b-8da4-952462a6276c",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/553402.nc",
+              "sha256": "eb0d6b8c5590c792396adfc8f395cd559ceb010d0e5a264d07aacbc63d39ff36",
+              "bytes": 181505
+            },
+            {
+              "dataset": "reanalysis-era5-single-levels-timeseries",
+              "source_layout": "point_timeseries",
+              "request": {
+                "variable": [
+                  "2m_dewpoint_temperature"
+                ],
+                "date": [
+                  "2023-01-01",
+                  "2024-07-31"
+                ],
+                "location": {
+                  "latitude": -6.0,
+                  "longitude": 110.75
+                },
+                "data_format": "netcdf"
+              },
+              "request_id": "600f2dc0-0677-4155-a5c3-bf84d62c257a",
+              "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/553403.nc",
+              "sha256": "e23082cd9a95962e4770d929c22bed4cffd4c0073d4fc8f49763dbf5dbc8dbf8",
+              "bytes": 181505
+            }
+          ]
+        },
+        "ncar": {
+          "status": "failed",
+          "started_utc": "2026-10-27T13:51:05.820162+00:00",
+          "source": "ncar",
+          "block": "lat-084-lon-290",
+          "month": "202301",
+          "updated_utc": "2026-10-27T14:09:11.296236+00:00",
+          "error_type": "FSTimeoutError",
+          "error": "匿名公共桶月文件已定位，提取10个节点时HTTP Range读取超时；未得到可比较数据",
+          "checked_utc": "2026-10-27T14:09:11.296226+00:00",
+          "process_active": false,
+          "comparison_computed": false,
+          "published": false
+        }
+      },
+      "count_basis": "实际完成回执及对应Parquet存在；本次不重算全量SHA，状态与完整科学验证分别报告"
+    },
+    "behavior_validation": {
+      "checked_utc": "2026-10-27T14:13:14.956389+00:00",
+      "status": "passed",
+      "quarantine": [
+        "lat-084-lon-290",
+        "lat-091-lon-353"
+      ],
+      "baseline_3273_unchanged": true,
+      "concurrent_reuse": [
+        {
+          "label": "lat-084-lon-294",
+          "points": 9,
+          "status": "reused_verified",
+          "source_bytes": 0,
+          "output_bytes": 5681012
+        },
+        {
+          "label": "lat-084-lon-294",
+          "points": 9,
+          "status": "reused_verified",
+          "source_bytes": 0,
+          "output_bytes": 5681012
+        }
+      ],
+      "idempotent_start": {
+        "job": "era5-eligible",
+        "status": "already_running",
+        "manager_pid": 80621
+      },
+      "monitor": {
+        "job": "era5-eligible",
+        "target": 1,
+        "completed": 0,
+        "formal_completed_blocks": 4946,
+        "latest_completion_utc": "2026-10-27T14:13:10.890946+00:00",
+        "errors": [],
+        "error_count": 0,
+        "sampled_checkpoint_count": 10,
+        "sampled_checkpoint_files": [
+          "lat-032-lon-153.json",
+          "lat-077-lon-112.json",
+          "lat-099-lon-188.json",
+          "lat-099-lon-189.json",
+          "lat-099-lon-190.json",
+          "lat-099-lon-191.json",
+          "lat-099-lon-192.json",
+          "lat-099-lon-193.json",
+          "lat-099-lon-194.json",
+          "lat-099-lon-195.json"
+        ],
+        "all_checkpoint_contents_rechecked": false,
+        "actual_progress": {
+          "status": "downloading",
+          "total_blocks": 18422,
+          "completed_blocks": 4946,
+          "total_points": 257354,
+          "completed_points": 64801,
+          "quarantined_blocks": [
+            "lat-084-lon-290",
+            "lat-091-lon-353"
+          ],
+          "quarantined_block_count": 2,
+          "other_blocks_target": 18420
+        },
+        "count_basis": "完成计数0或1表示整个流程是否完成；actual_progress保存DEM、土地或天气块实际进度；枚举完成记录并抽查最多10份，不重做全量科研计算",
+        "progress_status": "downloading",
+        "heartbeat_utc": "2026-10-27T14:13:10.906004+00:00",
+        "heartbeat_age_seconds": 0,
+        "sampled_latest_completion_age_seconds": 0,
+        "manager_reported_status": "running",
+        "manager_reported_pid": 80621,
+        "worker_reported_pid": 80623,
+        "reported_manager_identity_matches": true,
+        "reported_worker_identity_matches": true,
+        "processes": {
+          "workers": [
+            {
+              "pid": 80623,
+              "ppid": 80621,
+              "pgid": 80621
+            }
+          ],
+          "worker_descendant_count": 0,
+          "managers": [
+            {
+              "pid": 80621,
+              "ppid": 1,
+              "pgid": 80621
+            }
+          ],
+          "access_denied_count": 0
+        },
+        "locks": {
+          "manager": "not_probed_readonly",
+          "worker": "not_probed_readonly"
+        },
+        "error_category": "worker_exited_without_error_detail",
+        "error_recoverable": true,
+        "error_detail": "",
+        "error_fingerprint": "644095f6d15b9971a2e527a5cd6092cbf1f52986ca17d104ce0e5bc76d659d01",
+        "last_progress_utc": "2026-10-25T03:58:28.790584+00:00",
+        "same_count_checks": 65,
+        "progress_since_previous_check": false,
+        "restart_allowed": false,
+        "recovery_budget": {
+          "day_asia_shanghai": "2026-10-27",
+          "action_history_utc": [],
+          "actions_last24h": 0,
+          "error_action_counts": {
+            "341ad824f9aa8d6a59300391fbc530b6a5708f983f3b2adc121fa696c0030bf6": 1
+          },
+          "last_restart_utc": "2026-10-25T19:10:01.483820+00:00",
+          "last_restart_completed_count": 0,
+          "last_error_fingerprint": "341ad824f9aa8d6a59300391fbc530b6a5708f983f3b2adc121fa696c0030bf6",
+          "consecutive_same_error": 1
+        },
+        "status": "running",
+        "reason": "active_worker_verified"
+      },
+      "scope": "真实筛选清单、冻结原文、正式输出及活跃管理器；未构造数据或替换外部系统"
+    },
+    "parquet_readback": {
+      "checked_utc": "2026-10-27T14:09:31.388430+00:00",
+      "baseline_blocks": 3273,
+      "formal_blocks": 4650,
+      "new_blocks": 1377,
+      "sample": "lat-084-lon-294",
+      "sample_readback": "passed",
+      "hours": 26305,
+      "points": 9,
+      "existing_3273_checkpoints_unchanged": true,
+      "quarantine_has_completion_record": false
+    },
+    "timeseries_comparison": {
+      "checked_utc": "2026-10-27T14:09:51.674255+00:00",
+      "source": "reanalysis-era5-single-levels-timeseries",
+      "block": "lat-084-lon-290",
+      "comparison": {
+        "official_2023_01": {
+          "count": 7440,
+          "finite_pair_count": 0,
+          "candidate_nan_count": 7440,
+          "candidate_inf_count": 0,
+          "unequal_count": 7440,
+          "max_abs_difference": null,
+          "mean_abs_difference": null,
+          "quantiles_0_50_95_99_100": [],
+          "exact_equal": false
+        },
+        "arco_2024_07": {
+          "count": 7440,
+          "finite_pair_count": 7440,
+          "candidate_nan_count": 0,
+          "candidate_inf_count": 0,
+          "unequal_count": 0,
+          "max_abs_difference": 0.0,
+          "mean_abs_difference": 0.0,
+          "quantiles_0_50_95_99_100": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "exact_equal": true
+        }
+      },
+      "missing_values_2024_jan_jun": 43680,
+      "candidate_finite": false,
+      "status": "incompatible",
+      "raw_sources": [
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -5.5,
+              "longitude": 110.0
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "9719794b-6839-4b51-81d1-4968899b3a17",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/550520.nc",
+          "sha256": "fcf8b41a23f7fde30d730c9be56d146263285926b9f7ce6b8e5518101b002933",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -5.5,
+              "longitude": 110.25
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "77a06e83-6b67-4a4d-8c12-c0608621a525",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/550521.nc",
+          "sha256": "9af45650b6129dcbd6016050d4e9406d6217950baba3b927e607f8ace6a6653f",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -5.5,
+              "longitude": 110.5
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "7a2cba32-a26d-4eea-98a5-83a4d09d04d8",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/550522.nc",
+          "sha256": "0e3f19c5ba0d54a6c0ef2c59636c1e534fcb6c753dcea8cbeb245d04da8de6bc",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -5.75,
+              "longitude": 110.0
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "ece8b1e2-80e6-4dac-8866-7309478b7cc2",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/551960.nc",
+          "sha256": "33bd7bfb59742f4d493064bc8254466e83d32f6a1358e051484a54baa31a4fea",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -5.75,
+              "longitude": 110.25
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "e7e3fd13-02c5-4516-83fa-9e223bda7d95",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/551961.nc",
+          "sha256": "743efb8b348e6090d8274bd5ef9594e98e802303e2521a2518a2ff186920d3d8",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -5.75,
+              "longitude": 110.5
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "fef875ab-28df-4b58-9ed3-84e64beee5d4",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/551962.nc",
+          "sha256": "fd47fd6a63b535d95c7790a56efd480e1793b1eeb555fa61bd95ed562cada4ae",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -6.0,
+              "longitude": 110.0
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "697c3fbb-4763-4200-88aa-9c873966b142",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/553400.nc",
+          "sha256": "9bca2e638e245d535b185110a9654c86172bd5b66e00786d80ef787302ba9677",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -6.0,
+              "longitude": 110.25
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "ae8e6c8a-552c-4050-9f30-8c1c6a8ef8b6",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/553401.nc",
+          "sha256": "9b644c6810d7f983fcf3242ac7e279c36ad94b24a7c389b3e6596cffa4170d3e",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -6.0,
+              "longitude": 110.5
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "5190c97c-dc19-438b-8da4-952462a6276c",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/553402.nc",
+          "sha256": "eb0d6b8c5590c792396adfc8f395cd559ceb010d0e5a264d07aacbc63d39ff36",
+          "bytes": 181505
+        },
+        {
+          "dataset": "reanalysis-era5-single-levels-timeseries",
+          "source_layout": "point_timeseries",
+          "request": {
+            "variable": [
+              "2m_dewpoint_temperature"
+            ],
+            "date": [
+              "2023-01-01",
+              "2024-07-31"
+            ],
+            "location": {
+              "latitude": -6.0,
+              "longitude": 110.75
+            },
+            "data_format": "netcdf"
+          },
+          "request_id": "600f2dc0-0677-4155-a5c3-bf84d62c257a",
+          "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/timeseries/553403.nc",
+          "sha256": "e23082cd9a95962e4770d929c22bed4cffd4c0073d4fc8f49763dbf5dbc8dbf8",
+          "bytes": 181505
+        }
+      ]
+    },
+    "ncar_failure": {
+      "checked_utc": "2026-10-27T14:09:11.295178+00:00",
+      "launcher": {
+        "pid": 29986,
+        "command": [
+          "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python",
+          "/data3/dataset/ljt/global-grid-flexibility-20261023/analysis/try_era5_dewpoint_alternatives.py",
+          "--root",
+          "/data3/dataset/ljt/global-grid-flexibility-20261023",
+          "--source",
+          "ncar"
+        ],
+        "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/dewpoint-alternative-ncar-20261027T135101Z.log",
+        "started_utc": "2026-10-27T13:51:01.629806+00:00"
+      },
+      "prior_state": {
+        "status": "reading_public_month",
+        "started_utc": "2026-10-27T13:51:05.820162+00:00",
+        "source": "ncar",
+        "block": "lat-084-lon-290",
+        "month": "202301",
+        "updated_utc": "2026-10-27T13:51:10.188195+00:00"
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/dewpoint-alternative-ncar-20261027T135101Z.log",
+      "log_last_modified_utc": "2026-10-27T13:54:27.230689+00:00",
+      "last_trace_line": "fsspec.exceptions.FSTimeoutError",
+      "extracted_files": 0,
+      "comparison_computed": false,
+      "published": false
+    },
+    "latest_monitor_check": {
+      "checked_utc": "2026-10-27T14:14:45.534057+00:00",
+      "job": {
+        "job": "era5-eligible",
+        "target": 1,
+        "completed": 0,
+        "formal_completed_blocks": 5107,
+        "latest_completion_utc": "2026-10-27T14:14:49.397413+00:00",
+        "errors": [],
+        "error_count": 0,
+        "sampled_checkpoint_count": 10,
+        "sampled_checkpoint_files": [
+          "lat-032-lon-153.json",
+          "lat-078-lon-103.json",
+          "lat-100-lon-231.json",
+          "lat-100-lon-255.json",
+          "lat-100-lon-256.json",
+          "lat-100-lon-257.json",
+          "lat-100-lon-258.json",
+          "lat-100-lon-259.json",
+          "lat-100-lon-260.json",
+          "lat-100-lon-272.json"
+        ],
+        "all_checkpoint_contents_rechecked": false,
+        "actual_progress": {
+          "status": "downloading",
+          "total_blocks": 18422,
+          "completed_blocks": 5107,
+          "total_points": 257354,
+          "completed_points": 67034,
+          "quarantined_blocks": [
+            "lat-084-lon-290",
+            "lat-091-lon-353"
+          ],
+          "quarantined_block_count": 2,
+          "other_blocks_target": 18420
+        },
+        "count_basis": "完成计数0或1表示整个流程是否完成；actual_progress保存DEM、土地或天气块实际进度；枚举完成记录并抽查最多10份，不重做全量科研计算",
+        "progress_status": "downloading",
+        "heartbeat_utc": "2026-10-27T14:14:49.405162+00:00",
+        "heartbeat_age_seconds": 0,
+        "sampled_latest_completion_age_seconds": 0,
+        "manager_reported_status": "running",
+        "manager_reported_pid": 80621,
+        "worker_reported_pid": 80623,
+        "reported_manager_identity_matches": true,
+        "reported_worker_identity_matches": true,
+        "processes": {
+          "workers": [
+            {
+              "pid": 80623,
+              "ppid": 80621,
+              "pgid": 80621
+            }
+          ],
+          "worker_descendant_count": 0,
+          "managers": [
+            {
+              "pid": 80621,
+              "ppid": 1,
+              "pgid": 80621
+            }
+          ],
+          "access_denied_count": 0
+        },
+        "locks": {
+          "manager": "not_probed_readonly",
+          "worker": "not_probed_readonly"
+        },
+        "error_category": "worker_exited_without_error_detail",
+        "error_recoverable": true,
+        "error_detail": "",
+        "error_fingerprint": "644095f6d15b9971a2e527a5cd6092cbf1f52986ca17d104ce0e5bc76d659d01",
+        "last_progress_utc": "2026-10-27T14:14:49.397413+00:00",
+        "same_count_checks": 0,
+        "progress_since_previous_check": true,
+        "restart_allowed": false,
+        "recovery_budget": {
+          "day_asia_shanghai": "2026-10-27",
+          "action_history_utc": [],
+          "actions_last24h": 0,
+          "error_action_counts": {},
+          "last_restart_utc": "2026-10-25T19:10:01.483820+00:00",
+          "last_restart_completed_count": 0,
+          "last_error_fingerprint": null,
+          "consecutive_same_error": 0
+        },
+        "status": "running",
+        "reason": "active_worker_verified"
+      }
+    }
+  },
+  "timeseries_requests": [
+    {
+      "request_id": "9719794b-6839-4b51-81d1-4968899b3a17",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -5.5,
+          "longitude": 110.0
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T13:51:13.138898+00:00"
+    },
+    {
+      "request_id": "77a06e83-6b67-4a4d-8c12-c0608621a525",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -5.5,
+          "longitude": 110.25
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T13:55:33.136354+00:00"
+    },
+    {
+      "request_id": "7a2cba32-a26d-4eea-98a5-83a4d09d04d8",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -5.5,
+          "longitude": 110.5
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T13:56:29.432251+00:00"
+    },
+    {
+      "request_id": "ece8b1e2-80e6-4dac-8866-7309478b7cc2",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -5.75,
+          "longitude": 110.0
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T13:58:56.412546+00:00"
+    },
+    {
+      "request_id": "e7e3fd13-02c5-4516-83fa-9e223bda7d95",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -5.75,
+          "longitude": 110.25
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T13:59:39.844497+00:00"
+    },
+    {
+      "request_id": "fef875ab-28df-4b58-9ed3-84e64beee5d4",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -5.75,
+          "longitude": 110.5
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T14:02:01.363633+00:00"
+    },
+    {
+      "request_id": "697c3fbb-4763-4200-88aa-9c873966b142",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -6.0,
+          "longitude": 110.0
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T14:03:11.528276+00:00"
+    },
+    {
+      "request_id": "ae8e6c8a-552c-4050-9f30-8c1c6a8ef8b6",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -6.0,
+          "longitude": 110.25
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T14:03:52.360089+00:00"
+    },
+    {
+      "request_id": "5190c97c-dc19-438b-8da4-952462a6276c",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -6.0,
+          "longitude": 110.5
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T14:04:54.069512+00:00"
+    },
+    {
+      "request_id": "600f2dc0-0677-4155-a5c3-bf84d62c257a",
+      "dataset": "reanalysis-era5-single-levels-timeseries",
+      "request": {
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "date": [
+          "2023-01-01",
+          "2024-07-31"
+        ],
+        "location": {
+          "latitude": -6.0,
+          "longitude": 110.75
+        },
+        "data_format": "netcdf"
+      },
+      "created_utc": "2026-10-27T14:05:56.557645+00:00"
+    }
+  ],
+  "cancelled_2025_01": [
+    {
+      "cancelled_utc": "2026-10-27T13:47:53.664512+00:00",
+      "before_status": "accepted",
+      "request": {
+        "dataset": "reanalysis-era5-single-levels",
+        "request": {
+          "product_type": [
+            "reanalysis"
+          ],
+          "variable": [
+            "2m_dewpoint_temperature"
+          ],
+          "year": [
+            "2025"
+          ],
+          "month": [
+            "01"
+          ],
+          "day": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"
+          ],
+          "time": [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00"
+          ],
+          "area": [
+            -5.5,
+            110.0,
+            -6.0,
+            110.75
+          ],
+          "data_format": "netcdf",
+          "download_format": "unarchived"
+        },
+        "request_id": "132ba5e7-d276-48ac-b5ba-68cdd5935fa8",
+        "created_utc": "2026-10-27T11:46:48.824705+00:00"
+      },
+      "acknowledgement": {
+        "processID": "reanalysis-era5-single-levels",
+        "type": "process",
+        "jobID": "132ba5e7-d276-48ac-b5ba-68cdd5935fa8",
+        "status": "dismissed",
+        "created": "2026-10-27T11:46:48.684290",
+        "updated": "2026-10-27T13:47:53.514249",
+        "metadata": {
+          "origin": "api"
+        }
+      },
+      "reason": "用户限定2024年1至7月；2025年原文有效，无需补取"
+    }
+  ],
+  "official_january_request": {
+    "dataset": "reanalysis-era5-single-levels",
+    "request": {
+      "product_type": [
+        "reanalysis"
+      ],
+      "variable": [
+        "2m_dewpoint_temperature"
+      ],
+      "year": [
+        "2024"
+      ],
+      "month": [
+        "01"
+      ],
+      "day": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31"
+      ],
+      "time": [
+        "00:00",
+        "01:00",
+        "02:00",
+        "03:00",
+        "04:00",
+        "05:00",
+        "06:00",
+        "07:00",
+        "08:00",
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+        "23:00"
+      ],
+      "area": [
+        -5.5,
+        110.0,
+        -6.0,
+        110.75
+      ],
+      "data_format": "netcdf",
+      "download_format": "unarchived"
+    },
+    "request_id": "21a9bba4-96a9-42c5-b3f0-6bdc6bd79b9c",
+    "created_utc": "2026-10-27T12:07:55.872297+00:00"
+  },
+  "observed_rate": {
+    "from_utc": "2026-10-27T14:09:31.388430+00:00",
+    "to_utc": "2026-10-27T14:16:18.854986+00:00",
+    "from_blocks": 4650,
+    "to_blocks": 5232,
+    "elapsed_seconds": 407.466556,
+    "blocks_per_hour": 5142.017103361975
+  }
+}

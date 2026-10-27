@@ -20,6 +20,19 @@ from acquire_buildability_protection import sha, utc_now, write_json
 from trial_era5_landuse_download import CachedHTTPStore, SOURCE_URL, VARIABLES
 
 
+class SourceNaNError(ValueError):
+    def __init__(self, label, variable, values, native, times, selection_sha, metadata_sha):
+        missing = np.isnan(values)
+        affected = np.any(missing, axis=1)
+        self.record = {'label': label, 'status': 'awaiting_source_repair', 'variables': [variable],
+                       'native_flat_indices': native.tolist(), 'original_nan_count': int(missing.sum()),
+                       'missing_count_per_node': missing.sum(axis=0).astype(int).tolist(),
+                       'first_missing_utc': str(times[affected][0]), 'last_missing_utc': str(times[affected][-1]),
+                       'selection_manifest_sha256': selection_sha, 'source_metadata_sha256': metadata_sha,
+                       'detected_utc': utc_now(), 'counts_as_complete': False, 'reason': 'source_nan_values_verified'}
+        super().__init__(f'ERA5原文存在NaN，已记录待补取：{label}/{variable}')
+
+
 class LockedHTTPStore(CachedHTTPStore):
     def __getitem__(self, key):
         directory = Path(self.path) / ".object-locks"
@@ -67,6 +80,14 @@ def open_source(root):
 
 
 def process_block(root, label, points, selection_sha, metadata_sha, times):
+    directory = root / 'checkpoints/era5-eligible-block-locks'
+    directory.mkdir(parents=True, exist_ok=True)
+    with (directory / (label + '.lock')).open('a+') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        return process_locked_block(root, label, points, selection_sha, metadata_sha, times)
+
+
+def process_locked_block(root, label, points, selection_sha, metadata_sha, times):
     output = root / "data/processed/era5-eligible-2023-2025" / (label + ".parquet")
     checkpoint = root / "checkpoints/era5-eligible-blocks" / (label + ".json")
     native = points.native_flat_index.to_numpy(dtype=np.int32)
@@ -103,6 +124,8 @@ def process_block(root, label, points, selection_sha, metadata_sha, times):
                     values, source_supplements[name] = apply_verified_source_repair(
                         root, label, name, points, times, values, selection_sha, metadata_sha)
                 if values.shape != (26305, len(points)) or values.dtype != np.dtype("float32") or not np.isfinite(values).all():
+                    if values.shape == (26305, len(points)) and values.dtype == np.dtype('float32') and not np.isinf(values).any() and np.isnan(values).any():
+                        raise SourceNaNError(label, name, values, native, times, selection_sha, metadata_sha)
                     raise ValueError(f"ERA5空间块存在小时缺失、非有限值或形状错误：{label}/{name}")
                 converted = values / np.float32(divisor)
                 source_digests[name] = hashlib.sha256(np.ascontiguousarray(values).tobytes()).hexdigest()
@@ -183,10 +206,27 @@ def run(args):
                  selection_manifest_sha256=selection_sha, source_metadata_sha256=metadata_sha, updated_utc=utc_now())
     write_json(status_path, state)
     selected_blocks = blocks if args.limit_blocks is None else blocks[:args.limit_blocks]
+    from era5_block_quarantine import quarantined_blocks
+
+    pending = quarantined_blocks(root, selection_sha, metadata_sha, blocks)
+    runnable = [(label, part) for label, part in selected_blocks if label not in pending]
+    state.update(quarantined_blocks=list(pending), quarantined_block_count=len(pending),
+                 other_blocks_target=len(blocks) - len(pending),
+                 quarantine_reason='awaiting_dewpoint_repair' if pending else None)
+    write_json(status_path, state)
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        futures = {pool.submit(process_block, root, label, part, selection_sha, metadata_sha, times): label for label, part in selected_blocks}
+        futures = {pool.submit(process_block, root, label, part, selection_sha, metadata_sha, times): label for label, part in runnable}
         for future in as_completed(futures):
             error = future.exception()
+            if isinstance(error, SourceNaNError):
+                record = error.record
+                write_json(root / 'data/metadata/buildability-20261025/weather-block-defects' / (record['label'] + '.json'), record)
+                pending[record['label']] = record
+                state.update(quarantined_blocks=list(pending), quarantined_block_count=len(pending),
+                             other_blocks_target=len(blocks) - len(pending), updated_utc=utc_now())
+                write_json(status_path, state)
+                print(json.dumps({'event': 'source_block_quarantined', **record}, ensure_ascii=False), flush=True)
+                continue
             if error is not None:
                 for pending in futures:
                     pending.cancel()
@@ -199,12 +239,29 @@ def run(args):
                          last_completed_block=result["label"], updated_utc=utc_now())
             write_json(status_path, state)
             print(json.dumps(state, ensure_ascii=False), flush=True)
+    # 同一块的锁保护补取控制器与正式工作进程的发布及完成回执。
+    still_pending = quarantined_blocks(root, selection_sha, metadata_sha, blocks)
+    for label, part in selected_blocks:
+        if label in pending and label not in still_pending:
+            result = process_block(root, label, part, selection_sha, metadata_sha, times)
+            state.update(completed_blocks=state['completed_blocks'] + 1,
+                         completed_points=state['completed_points'] + result['points'])
+    state.update(quarantined_blocks=list(still_pending), quarantined_block_count=len(still_pending))
+    if still_pending and args.limit_blocks is None:
+        if state['completed_blocks'] != len(blocks) - len(still_pending):
+            raise ValueError('隔离之外的正式块尚未全部处理')
+        state.update(status='waiting_for_repairs', updated_utc=utc_now(),
+                     other_blocks_complete=True, remaining_blocks=list(still_pending))
+        write_json(status_path, state)
+        write_json(root / 'results/buildability-20261025/weather-acquisition-summary.json', state)
+        return 75
     if args.limit_blocks is None and (state["completed_blocks"] != len(blocks) or state["completed_points"] != len(points)):
         raise ValueError("ERA5完成空间块或节点数量与合格用地计划不一致")
     state.update(status="complete" if args.limit_blocks is None else "limit_reached", updated_utc=utc_now(), completed_utc=utc_now())
     write_json(status_path, state)
     write_json(root / "results/buildability-20261025/weather-acquisition-summary.json", state)
     print(json.dumps(state, ensure_ascii=False), flush=True)
+    return 0
 
 
 def main():
@@ -240,7 +297,7 @@ def main():
         return
     with (args.root / ".era5-eligible-acquisition.lock").open("a+") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        run(args)
+        raise SystemExit(run(args))
 
 
 if __name__ == "__main__":

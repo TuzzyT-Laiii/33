@@ -20,29 +20,56 @@ ECMWF的源文件按日延长时间轴，包含研究窗口以后的数据。压
 
 ## 官方露点温度定向补取
 
-`lat-084-lon-290/d2m`的10个授权天气节点在2023年1月1日00:00至2024年6月30日23:00（UTC）各缺少13,128小时，共131,280个NaN。该块的原始文件已经到齐，正式整理的有限值检查会识别这些空值并停止。
+`lat-084-lon-290/d2m`的10个授权天气节点在2023年1月1日00:00至2024年6月30日23:00（UTC）各缺少13,128小时，共131,280个NaN。2023年的官方原文已取得。2024年7月冻结原文中的7,440个露点值全部有效，作为独立重合月份。
 
-补取使用CDS的`reanalysis-era5-single-levels`产品，仅请求`2m_dewpoint_temperature`及该源块内授权节点的包围区域。年度文件覆盖既定2023—2025年及2026年1月1日00:00右边界；提取和校验仅使用最终筛选清单中的10个节点。三年完整值用于与已有有效时段逐值比较，全部检查通过后仅填充NaN，冻结ARCO原文保留。
+补取使用CDS的`reanalysis-era5-single-levels`产品，仅请求`2m_dewpoint_temperature`及该源块内授权节点的包围区域。当前控制器使用`--monthly --missing-only`，只继续获取2024年1—7月；1—6月补齐NaN，7月与冻结原文逐值比较。既有2023官方原文复用；2025年及2026年右边界直接保留冻结原文有效值。生成的数值表仍覆盖全部26,305小时、精确节点、K单位、float32和全部有限值；原有效值全部保持一致。
 
 `--group dewpoint`使用独立的露点状态文件、进程锁和持久请求编号。控制器依次执行官方原文下载、单位与小时校验、有效重合值完全一致性校验、正式块生成和接续既有整理任务。已有风数据证明保持兼容，补取证明的变量集合必须与当前变量匹配。
 
 ```bash
 ROOT=/data3/dataset/ljt/global-grid-flexibility-20261023
-"$ROOT/.venv/bin/python" "$ROOT/analysis/complete_era5_wind_repair.py" --root "$ROOT" --block lat-084-lon-290 --group dewpoint --start-formal
+"$ROOT/.venv/bin/python" "$ROOT/analysis/complete_era5_wind_repair.py" --root "$ROOT" --block lat-084-lon-290 --group dewpoint --monthly --missing-only --start-formal
 "$ROOT/.venv/bin/python" "$ROOT/analysis/verify_era5_dewpoint_repair.py" --root "$ROOT"
 ```
 
 露点状态为`status/era5-dewpoint-repair.json`和`status/era5-dewpoint-repair-controller.json`。真实验证脚本核对露点原始缺失、已有官方风原文的填补结果、有效值保留及变量证明隔离；露点官方文件和逐值校验未完成时，结果明确记录为待完成。
 
-露点补取可增加`--monthly`参数，将尚未到齐的2024、2025年拆分为每月请求，按顺序提交和下载，遵循CDS排队数量限制。已经到齐的2023年文件直接复用，既定2026年1月1日00:00右边界仍须获取。保留原年度请求记录；年度先完成时下载并复用年度原文，该年度后续月份停止提交。若年度请求触发队列数量上限，在核对变量、区域、年份和等待状态后撤销已被月度方案替代的年度请求，完整归档原请求与撤销回执。月度原文及其独立请求、SHA回执保存在`dewpoint-monthly/`，正式证明只采用一套无重复的年度或月度数据。
+月度原文、独立请求编号及SHA回执保存在`dewpoint-monthly/`。2024年1月沿用既有编号；2025年1月请求撤销并归档。后续月份按顺序获取，队列满时保留当前编号；不重复提交相同请求。原年度模式保留用于风数据恢复及历史命令兼容。
 
-月度文件仍须覆盖原有全部26,305整点；完整拼接、单位、节点、float32、全部有限值以及所有已有有效值的逐值一致性检查继续执行。`verify_era5_dewpoint_repair.py`逐份检查实际到齐月度原文，并报告小时数、SHA和有效重合值数量。控制器保持先校验、再生成正式块、再接续`era5-eligible`的执行顺序。CDS接口未提供预计等待时长时，不推算队列剩余时间。
+控制器在补齐并严格校验后生成正式块，再通过`grid_job_manager --ensure-running`接续整理。管理器已经运行时复用现有进程；每个空间块有独立发布锁，已有完成回执继续复核复用。CDS接口未提供预计等待时长时，不推算队列剩余时间。
 
 ```bash
-"$ROOT/.venv/bin/python" "$ROOT/analysis/complete_era5_wind_repair.py" --root "$ROOT" --block lat-084-lon-290 --group dewpoint --monthly --start-formal
+"$ROOT/.venv/bin/python" "$ROOT/analysis/complete_era5_wind_repair.py" --root "$ROOT" --block lat-084-lon-290 --group dewpoint --monthly --missing-only --start-formal
 ```
 
 按月请求方式参考[ECMWF CDS效率建议](https://confluence.ecmwf.int/spaces/CKB/pages/174856258/Climate+Data+Store+CDS+documentation)。切换策略前先核对并结束原控制器及其补取子进程，确认退出后启动唯一新控制器；服务端请求和已下载原文继续保留。
+
+## 按块隔离与整体完成
+
+`weather-block-quarantine.json`明确记录已核查的露点隔离块、授权节点、冻结清单SHA、缺失数量及原因。正式工作进程继续整理其他块。遇到新的、形状与float32正确且仅含NaN的源数据缺失时，记录`weather-block-defects/<block>.json`后继续；其他数据类型、无穷值、文件损坏、SHA、磁盘及环境错误仍明确终止。
+
+隔离块不生成完成回执、不计入完成块数。最后仍有隔离块时，工作进程返回75，管理器和监控显示`waiting_for_repairs`。只有全部18,422块和257,354节点通过完整校验，才能写入整体完成状态。补取证明通过后，同一块的锁保证控制器和正式工作进程共同复用唯一输出；管理器启动锁及恢复请求处理负责衔接结束阶段的并发启动。
+
+`monitor --check`同时给出真实完成回执数量、其余块进度、隔离数量和进程身份。每小时监控保持原有计划，不为隔离块重复重启工作进程。
+
+每小时另运行`read_era5_formal_progress.py --root ROOT`，读取它实际生成的`results/buildability-20261025/formal-progress-latest.json`。分别报告`other_blocks_completed/other_blocks_target`、`isolated_pending_blocks`中的变量和补取证明状态、露点控制器的月份状态以及两个替代来源的结果。`formal_completed_blocks`采用实际完成回执及对应Parquet文件，避免将重启时的逐个复核计数误报为文件减少；本次状态统计不重新计算全量SHA。整体完成始终需要全部18,422块。
+
+## 并行替代来源
+
+`try_era5_dewpoint_alternatives.py --source timeseries`使用独立数据集`reanalysis-era5-single-levels-timeseries`，按10个精确节点顺序请求。2023年覆盖用于校验已有官方原文，2024年1—7月用于补齐和重合比较。返回的ZIP由标准`zipfile`读取，原始压缩包及SHA保留。
+
+`--source ncar`使用匿名AWS公共桶`nsf-ncar-era5`的`e5.oper.an.sfc`月文件和`VAR_2D`露点，通过HTTP Range读取10个节点。先比较2023年1月官方原文和2024年7月冻结原文；每个重合月均有7,440个数值。任何差异均记录最大值、均值、分位数和不相等数量，禁止发布。网络失败单独记录，不作为数值一致的证据。
+
+只有两个完整重合月完全一致、全部NaN可补齐、原有效值全部保持、小时/坐标/单位/float32全部通过后，候选来源才竞争同一证明发布锁。首先通过者生成正式块，其他控制器复用已核验结果。
+
+```bash
+"$ROOT/.venv/bin/python" "$ROOT/analysis/try_era5_dewpoint_alternatives.py" --root "$ROOT" --source timeseries
+"$ROOT/.venv/bin/python" "$ROOT/analysis/try_era5_dewpoint_alternatives.py" --root "$ROOT" --source ncar
+"$ROOT/.venv/bin/python" "$ROOT/analysis/verify_era5_block_isolation.py" --root "$ROOT"
+"$ROOT/.venv/bin/python" "$ROOT/analysis/read_era5_formal_progress.py" --root "$ROOT"
+```
+
+点位请求格式来自[ECMWF示例](https://era-explorer.climate.copernicus.eu/notebooks/content/temperature/temperature_annual_timeseries.html)，NCAR桶及数据布局来自[AWS官方目录](https://registry.opendata.aws/nsf-ncar-era5/)。
 
 ## 运行与核查
 
