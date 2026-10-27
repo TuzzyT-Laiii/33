@@ -1,4 +1,5 @@
 import argparse
+import calendar
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import fcntl
 import json
@@ -21,7 +22,9 @@ REPAIR_GROUPS = {
 }
 
 
-def prepare(root, label, group='wind'):
+def prepare(root, label, group='wind', monthly=False):
+    if monthly and group != 'dewpoint':
+        raise ValueError('按月加速仅适用于本次露点补取')
     variables, cds_variables, expected_units = REPAIR_GROUPS[group]
     selection_path = root / 'data/metadata/buildability-20261025/selection-manifest.json'
     selection = json.loads(selection_path.read_text())
@@ -72,6 +75,7 @@ def prepare(root, label, group='wind'):
     dataset = 'reanalysis-era5-single-levels'
     state_path = root / 'status' / f'era5-{group}-repair.json'
     state = {'status': f'fetching_official_{group}', 'block': label, 'variables': list(variables),
+             'strategy': 'monthly_sequential_with_existing_annual_reuse' if monthly else 'annual',
              'started_utc': utc_now(), 'jobs': {}}
     state_lock = threading.Lock()
     stopped = threading.Event()
@@ -84,23 +88,69 @@ def prepare(root, label, group='wind'):
             state['updated_utc'] = utc_now()
             write_json(state_path, state)
 
-    def fetch(year):
-        if stopped.is_set():
-            raise RuntimeError('其他年度请求失败，停止继续提交')
+    def request_for(year, month=None):
         request = {'product_type': ['reanalysis'],
                    'variable': list(cds_variables),
                    'year': [str(year)], 'month': [f'{month:02d}' for month in range(1, 13)] if year < 2026 else ['01'],
                    'day': [f'{day:02d}' for day in range(1, 32)] if year < 2026 else ['01'],
                    'time': [f'{hour:02d}:00' for hour in range(24)] if year < 2026 else ['00:00'],
                    'area': area, 'data_format': 'netcdf', 'download_format': 'unarchived'}
-        target = directory / f'{group}-{year}.nc'
+        if month is not None:
+            request['month'] = [f'{month:02d}']
+            request['day'] = [f'{day:02d}' for day in range(1, calendar.monthrange(year, month)[1] + 1)]
+        return request
+
+    annual_received = {}
+    annual_locks = {year: threading.Lock() for year in (2024, 2025)}
+    annual_checked = {year: 0.0 for year in (2024, 2025)}
+
+    def completed_annual(year):
+        # 保留既有年度队列；年度先返回时复用原文，后续月份不再提交。
+        with annual_locks[year]:
+            if year in annual_received:
+                return True
+            if time.monotonic() - annual_checked[year] < 60:
+                return False
+            annual_checked[year] = time.monotonic()
+            target = directory / f'{group}-{year}.nc'
+            saved_path = target.with_suffix('.request.json')
+            if target.exists():
+                annual_received[year] = fetch(year)
+                return True
+            if not saved_path.exists():
+                return False
+            saved = json.loads(saved_path.read_text())
+            if saved['dataset'] != dataset or saved['request'] != request_for(year):
+                raise ValueError('保留的年度请求与本次补取范围不一致')
+            client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
+                            progress=False, timeout=60, maximum_tries=3, retry_after=2)
+            remote = client.get_remote(saved['request_id'])
+            status = remote.status
+            update(year, status, remote.request_id)
+            if status == 'successful':
+                annual_received[year] = fetch(year)
+                return True
+            if status not in ('accepted', 'running'):
+                raise RuntimeError(f'保留的CDS年度请求失败：{remote.request_id}/{status}')
+            return False
+
+    def fetch(year, month=None):
+        if stopped.is_set():
+            raise RuntimeError('其他补取请求失败，停止继续提交')
+        period = str(year) if month is None else f'{year}-{month:02d}'
+        if month is not None and completed_annual(year):
+            update(period, 'covered_by_annual')
+            return None
+        request = request_for(year, month)
+        target = directory / f'{group}-{year}.nc' if month is None else directory / f'{group}-monthly/{period}.nc'
+        target.parent.mkdir(parents=True, exist_ok=True)
         receipt_path = target.with_suffix('.json')
         if target.exists():
             record = json.loads(receipt_path.read_text())
             if record['request'] != request or record['sha256'] != sha(target):
                 raise ValueError('已有CDS原文与定向请求不一致')
         else:
-            update(year, 'connecting')
+            update(period, 'connecting')
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
                             progress=False, timeout=60, maximum_tries=3, retry_after=2, sleep_max=15)
             request_path = target.with_suffix('.request.json')
@@ -117,13 +167,37 @@ def prepare(root, label, group='wind'):
                 write_json(request_path, {'dataset': dataset, 'request': request, 'request_id': remote.request_id, 'created_utc': utc_now()})
             if remote.collection_id != dataset or remote.request != request:
                 raise ValueError('CDS服务端请求内容与本研究区域不同')
+            quota_rejections = 0
             while True:
                 if stopped.is_set():
                     raise RuntimeError('其他年度请求失败；现有CDS请求编号已保留')
+                if month is not None and completed_annual(year):
+                    update(period, 'covered_by_annual', remote.request_id)
+                    return None
                 status = remote.status
-                update(year, status, remote.request_id)
+                update(period, status, remote.request_id)
                 if status == 'successful':
                     break
+                if status == 'rejected' and monthly:
+                    response = remote.session.get(remote.url + '/results', headers=remote.headers, timeout=60)
+                    if response.status_code != 400:
+                        raise RuntimeError(f'CDS拒绝详情返回异常：{response.status_code}')
+                    rejection = response.json()
+                    expected = 'Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially'
+                    if rejection.get('traceback') != expected or quota_rejections >= 3:
+                        raise RuntimeError(f'CDS请求拒绝：{remote.request_id}/{rejection}')
+                    quota_rejections += 1
+                    archived = request_path.with_name(request_path.stem + f'.quota-rejected-{remote.request_id}.json')
+                    request_path.replace(archived)
+                    write_json(archived.with_suffix('.reason.json'), rejection)
+                    update(period, 'waiting_for_queue_slot', remote.request_id)
+                    time.sleep(60)
+                    remote = client.submit(dataset, request)
+                    write_json(request_path, {'dataset': dataset, 'request': request,
+                                             'request_id': remote.request_id, 'created_utc': utc_now()})
+                    if remote.collection_id != dataset or remote.request != request:
+                        raise ValueError('CDS重试请求内容与授权范围不同')
+                    continue
                 if status not in ('accepted', 'running'):
                     raise RuntimeError(f'CDS定向请求失败：{remote.request_id}/{status}')
                 time.sleep(15)
@@ -132,28 +206,39 @@ def prepare(root, label, group='wind'):
             record = {'dataset': dataset, 'request': request, 'downloaded_utc': utc_now(),
                       'request_id': remote.request_id,
                       'sha256': sha(temporary), 'bytes': temporary.stat().st_size, 'path': str(target)}
+            if month is not None:
+                record['source_layout'] = 'monthly'
             write_json(receipt_path, record)
             temporary.replace(target)
-        update(year, 'downloaded', record.get('request_id'))
+        update(period, 'downloaded', record.get('request_id'))
         print(json.dumps({'event': 'official_source_received', 'block': label, 'year': year,
-                          'bytes': record['bytes'], 'utc': utc_now()}), flush=True)
+                          'month': month, 'bytes': record['bytes'], 'utc': utc_now()}), flush=True)
         return record
 
-    with ThreadPoolExecutor(max_workers=2) as executor:
-        futures = {executor.submit(fetch, year): year for year in range(2023, 2027)}
-        received = {}
-        for future in as_completed(futures):
-            error = future.exception()
-            if error is not None:
-                stopped.set()
-                for pending in futures:
-                    pending.cancel()
-                with state_lock:
-                    state.update(status='failed', failed_year=futures[future], error_type=type(error).__name__, updated_utc=utc_now())
-                    write_json(state_path, state)
-                raise error
-            received[futures[future]] = future.result()
-        records = [received[year] for year in range(2023, 2027)]
+    received = {}
+    if monthly:
+        periods = [(2023, None), (2024, 1), (2025, 1), (2026, None)] + [
+            (year, month) for month in range(2, 13) for year in (2024, 2025)]
+        for year, month in periods:
+            received[(year, month)] = fetch(year, month)
+    else:
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            futures = {executor.submit(fetch, year): (year, None) for year in range(2023, 2027)}
+            for future in as_completed(futures):
+                error = future.exception()
+                if error is not None:
+                    stopped.set()
+                    for pending in futures:
+                        pending.cancel()
+                    with state_lock:
+                        state.update(status='failed', failed_year=futures[future], error_type=type(error).__name__, updated_utc=utc_now())
+                        write_json(state_path, state)
+                    raise error
+                received[futures[future]] = future.result()
+    records = [record for (year, month), record in received.items()
+               if record is not None and (month is None or year not in annual_received)]
+    records.extend(annual_received.values())
+    records.sort(key=lambda item: (item['request']['year'][0], item['request']['month'][0]))
     datasets = [xr.open_dataset(record['path']) for record in records]
     combined = xr.concat(datasets, dim='valid_time').sortby('valid_time')
     if combined.indexes['valid_time'].has_duplicates or combined.indexes['valid_time'].get_indexer(times).min() < 0:
@@ -200,7 +285,8 @@ if __name__ == '__main__':
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--block', required=True)
     parser.add_argument('--group', choices=REPAIR_GROUPS, default='wind')
+    parser.add_argument('--monthly', action='store_true')
     args = parser.parse_args()
     with (args.root.resolve() / f'.era5-{args.group}-repair.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        prepare(args.root.resolve(), args.block, args.group)
+        prepare(args.root.resolve(), args.block, args.group, args.monthly)

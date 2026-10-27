@@ -34,6 +34,16 @@ ROOT=/data3/dataset/ljt/global-grid-flexibility-20261023
 
 露点状态为`status/era5-dewpoint-repair.json`和`status/era5-dewpoint-repair-controller.json`。真实验证脚本核对露点原始缺失、已有官方风原文的填补结果、有效值保留及变量证明隔离；露点官方文件和逐值校验未完成时，结果明确记录为待完成。
 
+露点补取可增加`--monthly`参数，将尚未到齐的2024、2025年拆分为每月请求，按顺序提交和下载，遵循CDS排队数量限制。已经到齐的2023年文件直接复用，既定2026年1月1日00:00右边界仍须获取。保留原年度请求记录；年度先完成时下载并复用年度原文，该年度后续月份停止提交。若年度请求触发队列数量上限，在核对变量、区域、年份和等待状态后撤销已被月度方案替代的年度请求，完整归档原请求与撤销回执。月度原文及其独立请求、SHA回执保存在`dewpoint-monthly/`，正式证明只采用一套无重复的年度或月度数据。
+
+月度文件仍须覆盖原有全部26,305整点；完整拼接、单位、节点、float32、全部有限值以及所有已有有效值的逐值一致性检查继续执行。`verify_era5_dewpoint_repair.py`逐份检查实际到齐月度原文，并报告小时数、SHA和有效重合值数量。控制器保持先校验、再生成正式块、再接续`era5-eligible`的执行顺序。CDS接口未提供预计等待时长时，不推算队列剩余时间。
+
+```bash
+"$ROOT/.venv/bin/python" "$ROOT/analysis/complete_era5_wind_repair.py" --root "$ROOT" --block lat-084-lon-290 --group dewpoint --monthly --start-formal
+```
+
+按月请求方式参考[ECMWF CDS效率建议](https://confluence.ecmwf.int/spaces/CKB/pages/174856258/Climate+Data+Store+CDS+documentation)。切换策略前先核对并结束原控制器及其补取子进程，确认退出后启动唯一新控制器；服务端请求和已下载原文继续保留。
+
 ## 运行与核查
 
 复用已有服务器Python环境，参考依赖见`analysis/requirements-era5-screened.txt`。需要已有最终选择清单、分批选择清单及冻结源元数据；本次运行不重新执行用地筛选。凭据通过既有CDS配置读取，SSH使用已有别名与主机校验，凭据内容不进入日志或仓库。
