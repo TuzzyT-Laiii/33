@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": [
+    "device_counts",
+    "core_counts",
+    "rackmount_form_factors",
+    "scenario_hardware_consistency",
+    "unknown_power_preserved",
+    "36_unique_cells",
+    "CSV_JSON_consistency",
+    "source_links",
+    "PDF_bounds",
+    "annual_baseline_preserved"
+  ],
+  "pages": 8,
+  "configurations": 3,
+  "design_cells": 36,
+  "source_links": 10,
+  "existing_annual_pdf_sha256": "b587cfb06a344d632392b18e11b82416c9c0e3d3c6f2076745858250ebba2eb9",
+  "pdf_sha256": "400416415fbb5a647032a728cb3e5785841027e116c390b5ca6f7bf64285abae"
+}
