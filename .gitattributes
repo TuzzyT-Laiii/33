@@ -75,3 +75,13 @@ dc-flexibility-project/data/metadata/typical-load-curves-20261028.json -text whi
 dc-flexibility-project/results/typical-load-curves-20261028/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/typical-load-curves-20261028/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261028/*.png binary
+
+# 冷却模型v2的源程序、参数与核验结果保留跨平台校验值。
+dc-flexibility-project/analysis/build_cooling_recalibration.py text eol=lf
+dc-flexibility-project/analysis/replay_facility_cooling.py text eol=lf
+dc-flexibility-project/analysis/verify_cooling_v2.py text eol=lf
+dc-flexibility-project/analysis/requirements-cooling-v2.txt text eol=lf
+dc-flexibility-project/results/cooling-recalibration-20261028-v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/cooling-recalibration-20261028-v2/*.pdf binary
+dc-flexibility-project/results/cooling-recalibration-20261028-v2/*.png binary
+dc-flexibility-project/data/metadata/cooling-recalibration-20261028-v2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

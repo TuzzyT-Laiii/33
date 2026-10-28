@@ -1,0 +1,57 @@
+{
+  "base_commit": "8b7c6eb",
+  "created_at_utc": "2026-10-28T10:38:16.125891+00:00",
+  "weather_sha256": "3154937c8e60ac9b18bf1d5015c6b3e98346073fecbc13ccdb8b11c472a1b635",
+  "mapping_sha256": "de4adac7f155c691463481a77c09b618c488f6daca9861f5a915a753e38df088",
+  "legacy_PR13_manifest_sha256": "8bd9af5027f199a271b1b0140d139d2b335d860aeb84513f6f3e96a1e56fadfe",
+  "frozen_IT_inputs": [
+    {
+      "file": "C20-Lisa-central.parquet",
+      "sha256": "f1a25641020772077a8700766999bb7dfb45acd88b53e0b31b01ede0e65ec46c",
+      "capacity_mw": 9.9996
+    },
+    {
+      "file": "R-GB200-Acme-central.parquet",
+      "sha256": "9209f26c25020e46fcc4ba5cccb1262c4269907248a55464498f3cc5cc882e82",
+      "capacity_mw": 9.96
+    }
+  ],
+  "climate_file_sha256": "2a6db19761919d3e20b4cad3f2d8d4f599d1e107e92e7c269160983b7ec76e96",
+  "model": {
+    "cooling_version": "cooling-20261028-v2",
+    "cooling_type": "air",
+    "parameter_set": "central",
+    "cooling_code_sha256": "28cb8ddddd672df1efcec1e7b7e0c966c8f8a2270660364b61388b34220b2256",
+    "parameters_sha256": "a8957220d99994bd2df6fe6bdc186b370188e408de72670ee79760908f7ddc1c",
+    "scope": "封闭循环机房；风冷采用水侧经济器及水冷冷机；直接液冷采用干冷器、水侧经济器及补冷，残余空气热量进入风冷支路。工程情境参数，未作目标设施实测拟合。",
+    "parameters_are_scenario_assumptions": true
+  },
+  "fixed_protocol": "8760 UTC hours of actual 2025 weather; constant IT=7MW, installed reference=10MW; controlled thermal experiment, not observed workload",
+  "replay_scope": "only two frozen PR13 IT inputs as spot checks; no complete typical-load-curve rebuild",
+  "software": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.1",
+    "matplotlib": "3.10.7"
+  },
+  "code_sha256": {
+    "build_cooling_recalibration.py": "914515de9ecd4b4fe6fb7e7903320f8b4c9d36457399049ee9a007e9da034338",
+    "replay_facility_cooling.py": "00df1b02e0688f041eeb9e271a764244f6c5b7a626fea41ef9b44068f8ae0feb",
+    "compute_load/cooling.py": "28cb8ddddd672df1efcec1e7b7e0c966c8f8a2270660364b61388b34220b2256",
+    "compute_load/model.py": "9b41b9569ccbd7b5276c3a838f2b02eab3c09ce16dbd1f36c1860bc3c7c137ac"
+  },
+  "files_sha256": {
+    "annual-comparison.csv": "eaf35d3c586a8db81e781c226e0c797fd795d18aa45ef070c7159a1e71b5bc02",
+    "C20-Lisa-2025-hourly.csv": "551850024de2733f5d3d42e0794a64f5a0ea84d4f7f8918cdd9ff77d3ebbcfce",
+    "central-power-components.csv": "f7afb67bc74c521c017bc40e2f0d1f98dda7fbfe64f55576ff543d7b6c940ee0",
+    "climate-validation.csv": "059dd7323dece30037f82f27e30543c3f685b24a70c666f2eb9d9eed803dd161",
+    "extreme-conditions.csv": "e4593a66ae2adb9a50944b8ddb2588f02da03068073d9a9b9ed721aa8eaf41a1",
+    "g05_r100_c592-2025-hourly.csv": "efb6317b3d0a4c768aa3a6ea42a7133d03f88002815ac6fe53c659bb60d2e80c",
+    "legacy-diagnosis.json": "c94710104d9f451cd4eb6b2b24af8a96c0140ff38bb7070fff8d8e1f027871a4",
+    "legacy-weather-bins.csv": "c6808ab1207eb041ae80e4f7f21bd6657a333917ce14dabda11e7a54ed50f0e3",
+    "parameter-register.csv": "52ee9a59c9ca5496cec9687d236e3cde8b0d53eb512f55984d793ee652ba8edf",
+    "pue-temperature-response.pdf": "f58b4369923596f5e3aae99245e72a9089acbda61b6a2fbc95df563c9e3b4f79",
+    "pue-temperature-response.png": "663157784c18c90eabaf2d3e6bee059badb2948e22361ce704ae1c763a781b54",
+    "R-GB200-Acme-2025-hourly.csv": "75bc3e9d5ffe9dac9efb5a83416d7cb4f1db1c55498258d7f5fb441482a4da0f",
+    "response-curves.csv": "038197069e2c39c540f4ba701617180b1915aebbb193a5ab889131f08fe5e905"
+  }
+}

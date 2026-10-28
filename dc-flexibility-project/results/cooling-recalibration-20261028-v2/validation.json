@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-10-28T10:38:22.336889+00:00",
+  "analytic_boundary_rows": 227430,
+  "boundary_experiment": "-40..50°C × RH0..100% × IT/C0.05,0.25,0.7,1,1.1; not weather observations",
+  "maximum_heat_balance_residual_mw": 1.0658141036401503e-14,
+  "nonnegative_components": true,
+  "temperature_monotonic_above_minus15": true,
+  "humidity_monotonic": true,
+  "sensitivity_order": true,
+  "legacy_exact_regression_rows": 35088,
+  "leap_year_hours": 8784,
+  "regular_year_hours": 8760,
+  "invalid_input_checks": 17,
+  "native_ERA5_adapter_and_replay": true,
+  "idempotent_resume": true,
+  "PR13_IT_unchanged": true,
+  "stale_legacy_columns_excluded": true,
+  "external_validation_scope": "public annual PUE consistency only; no matched facility meter/weather data, no empirical error or coverage claim",
+  "model": {
+    "cooling_version": "cooling-20261028-v2",
+    "cooling_type": "direct_liquid",
+    "parameter_set": "central",
+    "cooling_code_sha256": "28cb8ddddd672df1efcec1e7b7e0c966c8f8a2270660364b61388b34220b2256",
+    "parameters_sha256": "a8957220d99994bd2df6fe6bdc186b370188e408de72670ee79760908f7ddc1c",
+    "scope": "封闭循环机房；风冷采用水侧经济器及水冷冷机；直接液冷采用干冷器、水侧经济器及补冷，残余空气热量进入风冷支路。工程情境参数，未作目标设施实测拟合。",
+    "parameters_are_scenario_assumptions": true
+  },
+  "verification_code_sha256": "1e82c30a1ce183bc73ce28baf3b6906b4ab0d88e14753dad4c8b7289f8e8e266"
+}
