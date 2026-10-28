@@ -1,0 +1,56 @@
+{
+  "source": "SURF Lisa Zenodo v3",
+  "source_url": "https://zenodo.org/records/13685426",
+  "license": "CC-BY-4.0",
+  "inputs": {
+    "slurm_table_cleaned.zip": {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/lisa/slurm_table_cleaned.zip",
+      "bytes": 19682182,
+      "md5": "ae697e29d3d4ce10c4b1ab670b82d06c",
+      "sha256": "639c74c1785667d3a3e564fd35c28b79593f0d52bab41dca89cc60c9e0704247"
+    },
+    "node_hardware_info.parquet": {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/lisa/node_hardware_info.parquet",
+      "bytes": 8763,
+      "md5": "9c004d3ac06a97f6de1e0917640a9464",
+      "sha256": "08ad762ee71ab03dbbbb0e7d945968af66ff07e7eee00fa827ae97c9ae8884b6"
+    }
+  },
+  "rows": 1596963,
+  "gpu_partition_rows": 201338,
+  "job_schema": {
+    "id": "int32",
+    "submit_date": "datetime64[ns]",
+    "start_date": "datetime64[ns]",
+    "end_date": "datetime64[ns]",
+    "node": "object",
+    "nodetypes": "object",
+    "numnodes": "int32",
+    "numcores": "int32",
+    "state": "object"
+  },
+  "gpu_first_start": "2021-12-27 16:59:32",
+  "gpu_last_end": "2022-11-01 13:58:54",
+  "full_calendar_days": 308,
+  "full_day_begin": "2021-12-28 00:00:00",
+  "full_day_end_exclusive": "2022-11-01 00:00:00",
+  "gpu_partition_host_core_hours": 3844783.8558333335,
+  "gpu_request_count_field": null,
+  "gpu_allocated_count_field": null,
+  "gpu_utilization_field": null,
+  "gpu_power_field": null,
+  "hardware_gpu_count": 210,
+  "hardware_count_scope": "节点静态库存，不能确定共享分区各作业的 GPU 分配数",
+  "gpu_occupancy_usable": false,
+  "usable_gpu_occupancy_days": 0,
+  "monitoring_local_to_source_dir": [],
+  "monitoring_published": {
+    "sampling_seconds": 30,
+    "prom_table_cleaned.zip_bytes": 10242740338,
+    "prom_slurm_joined.zip_bytes": 6895904211,
+    "downloaded_this_task": false
+  },
+  "timezone": "源时间未携带时区",
+  "conclusion": "GPU 分区存在；现有作业及硬件原文不足以构造 GPU 卡小时；完整监测待获取核验",
+  "original_bytes_preserved": true
+}

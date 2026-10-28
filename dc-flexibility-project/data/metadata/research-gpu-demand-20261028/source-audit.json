@@ -1,0 +1,243 @@
+{
+  "lisa": {
+    "source": "SURF Lisa Zenodo v3",
+    "source_url": "https://zenodo.org/records/13685426",
+    "license": "CC-BY-4.0",
+    "inputs": {
+      "slurm_table_cleaned.zip": {
+        "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/lisa/slurm_table_cleaned.zip",
+        "bytes": 19682182,
+        "md5": "ae697e29d3d4ce10c4b1ab670b82d06c",
+        "sha256": "639c74c1785667d3a3e564fd35c28b79593f0d52bab41dca89cc60c9e0704247"
+      },
+      "node_hardware_info.parquet": {
+        "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/lisa/node_hardware_info.parquet",
+        "bytes": 8763,
+        "md5": "9c004d3ac06a97f6de1e0917640a9464",
+        "sha256": "08ad762ee71ab03dbbbb0e7d945968af66ff07e7eee00fa827ae97c9ae8884b6"
+      }
+    },
+    "rows": 1596963,
+    "gpu_partition_rows": 201338,
+    "job_schema": {
+      "id": "int32",
+      "submit_date": "datetime64[ns]",
+      "start_date": "datetime64[ns]",
+      "end_date": "datetime64[ns]",
+      "node": "object",
+      "nodetypes": "object",
+      "numnodes": "int32",
+      "numcores": "int32",
+      "state": "object"
+    },
+    "gpu_first_start": "2021-12-27 16:59:32",
+    "gpu_last_end": "2022-11-01 13:58:54",
+    "full_calendar_days": 308,
+    "full_day_begin": "2021-12-28 00:00:00",
+    "full_day_end_exclusive": "2022-11-01 00:00:00",
+    "gpu_partition_host_core_hours": 3844783.8558333335,
+    "gpu_request_count_field": null,
+    "gpu_allocated_count_field": null,
+    "gpu_utilization_field": null,
+    "gpu_power_field": null,
+    "hardware_gpu_count": 210,
+    "hardware_count_scope": "节点静态库存，不能确定共享分区各作业的 GPU 分配数",
+    "gpu_occupancy_usable": false,
+    "usable_gpu_occupancy_days": 0,
+    "monitoring_local_to_source_dir": [],
+    "monitoring_published": {
+      "sampling_seconds": 30,
+      "prom_table_cleaned.zip_bytes": 10242740338,
+      "prom_slurm_joined.zip_bytes": 6895904211,
+      "downloaded_this_task": false
+    },
+    "timezone": "源时间未携带时区",
+    "conclusion": "GPU 分区存在；现有作业及硬件原文不足以构造 GPU 卡小时；完整监测待获取核验",
+    "original_bytes_preserved": true
+  },
+  "adopted": {
+    "source": "MIT Supercloud 202201 科研 GPU 作业",
+    "source_url": "https://registry.opendata.aws/dcc/",
+    "documentation_url": "https://github.com/MIT-AI-Accelerator/MIT-Supercloud-Dataset",
+    "citation": "Samsi et al. (2021), The MIT Supercloud Dataset, DOI:10.1109/HPEC49654.2021.9622850",
+    "license": "CC-BY-NC-ND-4.0",
+    "acquisition": {
+      "source": "MIT Supercloud 202201",
+      "license": "CC-BY-NC-ND-4.0",
+      "files": [
+        {
+          "file": "LICENSE",
+          "url": "https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/LICENSE",
+          "bytes": 285,
+          "etag": "29f85ca0556f4aab4d9d7c71ba1b2bec",
+          "sha256": "a68e8239ee146c3e58c8988b66b176708310d2595095bf8d16ebb65da728dd0f",
+          "etag_verified": true,
+          "seconds": 0.00027861102716997266
+        },
+        {
+          "file": "README.md",
+          "url": "https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/README.md",
+          "bytes": 7616,
+          "etag": "2610677d74465d3ad93a1b0752305120",
+          "sha256": "915b12d2110266fe4cad8a8d0f831f75d3ae08cf9ba42d106ac82a5a5f84c771",
+          "etag_verified": true,
+          "seconds": 0.00019473303109407425
+        },
+        {
+          "file": "tres-mapping.txt",
+          "url": "https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/tres-mapping.txt",
+          "bytes": 111,
+          "etag": "f20e46c6fc7f0e16a2706f56e45e2b4d",
+          "sha256": "4897c5cf1575664217f93d9c66cda3c06cae9d90f827a5dadc5483044dd64a51",
+          "etag_verified": true,
+          "seconds": 8.300499757751822e-05
+        },
+        {
+          "file": "slurm-log.csv",
+          "url": "https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/slurm-log.csv",
+          "bytes": 103165427,
+          "etag": "1932a6e350a9bf90d86abb7f60520f3b-13",
+          "sha256": "27259e5b8e6daecd80b7853126af40ba759bc25edc9053fc174ef7a4f186aa01",
+          "etag_verified": true,
+          "seconds": 0.2442906440119259
+        },
+        {
+          "file": "gpu/0000/10508503867162-r2998125-n208530.csv",
+          "url": "https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/gpu/0000/10508503867162-r2998125-n208530.csv",
+          "bytes": 172937,
+          "etag": "2be7f4d1523a243308c62e4c1e2e8f21",
+          "sha256": "1d7f67e50ce17b0f312110c44c9d7be6e051d2c358fe527d867822534d42d673",
+          "etag_verified": true,
+          "seconds": 2.573397442989517
+        },
+        {
+          "file": "gpu/0000/13025374489198-r8937440-n976057.csv",
+          "url": "https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/gpu/0000/13025374489198-r8937440-n976057.csv",
+          "bytes": 248160,
+          "etag": "1e6166ae3f07d9f15f1d0886d8e8d2a3",
+          "sha256": "bf9e30419894f8b78591b6d25c3013540842b91aab0489e4ed30103819a8af3b",
+          "etag_verified": true,
+          "seconds": 3.5994947950239293
+        }
+      ],
+      "downloaded_bytes": 103594536,
+      "raw_data_location": "/data3/dataset/ljt/lisa-gpu-demand-20261028/data/raw/mit-supercloud-202201",
+      "telemetry_sample_files": [
+        "gpu/0000/10508503867162-r2998125-n208530.csv",
+        "gpu/0000/13025374489198-r8937440-n976057.csv"
+      ],
+      "full_cluster_telemetry_downloaded": false
+    },
+    "job_schema": {
+      "id_job": "int64",
+      "id_array_job": "int64",
+      "id_array_task": "int64",
+      "id_user": "int64",
+      "kill_requid": "int64",
+      "nodes_alloc": "int64",
+      "nodelist": "object",
+      "cpus_req": "int64",
+      "derived_ec": "int64",
+      "exit_code": "int64",
+      "gres_used": "float64",
+      "array_max_tasks": "int64",
+      "array_task_pending": "int64",
+      "constraints": "object",
+      "flags": "int64",
+      "mem_req": "uint64",
+      "partition": "object",
+      "priority": "int64",
+      "state": "int64",
+      "timelimit": "int64",
+      "time_submit": "int64",
+      "time_eligible": "int64",
+      "time_start": "int64",
+      "time_end": "int64",
+      "time_suspended": "int64",
+      "track_steps": "int64",
+      "tres_alloc": "object",
+      "tres_req": "object",
+      "job_type": "object",
+      "gpu_allocated": "float64",
+      "gpu_requested": "float64",
+      "host_cpu_allocated": "int64"
+    },
+    "total_job_rows": 395914,
+    "gpu_requested_rows": 98176,
+    "gpu_allocated_rows": 99344,
+    "selected_gpu_execution_rows": 98176,
+    "excluded_allocated_gpu_invalid_interval": 0,
+    "excluded_allocated_gpu_suspended": 0,
+    "gpu_requested_without_allocation": 0,
+    "gpu_allocation_without_request": 1168,
+    "selection_rule": "GPU 请求数与分配数均大于零、执行区间有效且无暂停累计；排除只有整节点 GPU 预留而没有 GPU 请求的作业",
+    "zero_duration_selected": 0,
+    "selected_state_counts": {
+      "3": 70443,
+      "4": 14859,
+      "5": 8578,
+      "6": 2950,
+      "11": 1326,
+      "7": 19,
+      "1024": 1
+    },
+    "gpu_first_start": "2021-02-05 21:35:15",
+    "gpu_last_end": "2021-10-01 15:01:58",
+    "full_day_begin": "2021-02-06 00:00:00",
+    "full_day_end_exclusive": "2021-10-01 00:00:00",
+    "full_calendar_days": 237,
+    "observed_hours": 5688,
+    "nonzero_gpu_days": 235,
+    "gpu_resource_ids": {
+      "1001": "gpu:tesla",
+      "1002": "gpu:volta"
+    },
+    "cpu_scope": "同一批实际分配 GPU 的执行作业，其 tres_alloc 的 CPU 数量；不含独立 CPU 作业",
+    "quantity_scope": "执行区间内分配资源小时；未将分配量解释为实测活跃利用率或功率",
+    "timezone": "保留由源 epoch 秒得到的源时间；未核实其真实当地时区，不连接天气",
+    "coverage_quality": "时间跨度内的完整 24 小时时间窗；日志采集完整性与漏报率未独立证明",
+    "power_and_performance_mapping": "Tesla/Volta 向 H100 的性能、显存、活跃利用率和功率映射待核定",
+    "validation": {
+      "gpu_hours_conserved": 1460190.6641666666,
+      "gpu_independent_overlap_checks": 48,
+      "host_cpu_hours_conserved": 19648477.246944446,
+      "host_cpu_independent_overlap_checks": 48
+    },
+    "observed_hourly_sha256": "474348642d7d86c2eecaa9c53dbfdd9d22364566f015bb3e837075f9a3bd27d0",
+    "telemetry_samples": [
+      {
+        "file": "gpu/0000/10508503867162-r2998125-n208530.csv",
+        "rows": 3672,
+        "schema": {
+          "timestamp": "float64",
+          "gpu_index": "int64",
+          "utilization_gpu_pct": "int64",
+          "utilization_memory_pct": "int64",
+          "memory_free_MiB": "int64",
+          "memory_used_MiB": "int64",
+          "temperature_gpu": "int64",
+          "temperature_memory": "int64",
+          "power_draw_W": "float64",
+          "pcie_link_width_current": "int64"
+        }
+      },
+      {
+        "file": "gpu/0000/13025374489198-r8937440-n976057.csv",
+        "rows": 5670,
+        "schema": {
+          "timestamp": "float64",
+          "gpu_index": "int64",
+          "utilization_gpu_pct": "int64",
+          "utilization_memory_pct": "int64",
+          "memory_free_MiB": "int64",
+          "memory_used_MiB": "int64",
+          "temperature_gpu": "int64",
+          "temperature_memory": "int64",
+          "power_draw_W": "float64",
+          "pcie_link_width_current": "int64"
+        }
+      }
+    ],
+    "telemetry_scope": "两份小样本仅核验字段，未用于集群活跃利用率或功率外推"
+  }
+}

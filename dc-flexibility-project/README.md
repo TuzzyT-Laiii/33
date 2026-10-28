@@ -14,7 +14,7 @@
 
 [任务记录粒度与柔性约束](docs/task-trace-flexibility.md)提供秒级 CPU/GPU 作业、ASI 小时类型与优先级数据的读取和资源累计接口，并说明任务类别、服务期限和抢占权限的证据范围。
 
-[CPU/GPU 服务器与整柜情境](results/server-count-scenarios-20261028/README.md)包含纯 CPU 的 C20、原有 C21/C22/C28 和 GPU 主导的 R-GB200 整柜。四档 IT 规模分别采用 13 个允许的配置×需求组合，共 52 个设计单元；每个单元标注风冷或直接液冷。GB200 的运行功率与独立液冷气象模型待标定，Alibaba CPU 2018 待下载核验。[20261027 版](results/server-count-scenarios-20261027/README.md)保留原样。
+[CPU/GPU 服务器与整柜情境 v2](results/server-count-scenarios-20261028-v2/README.md)包含纯 CPU 的 C20、C21/C22/C28 和 GPU 主导的 R-GB200 整柜。C20 科研需求保留 Lisa CPU；C21/C22/C28 科研需求采用 MIT Supercloud 明确请求 GPU 的作业及同作业宿主 CPU 分配，已核验 98,176 条作业、237 个完整日时间窗。四档 IT 规模各有 13 个允许组合，共 52 个设计单元。Lisa 现有作业文件缺少 GPU 卡数和利用率/功率，证据与一周、全年日均占用示意见新版说明；典型功率曲线待统一重算。GB200 运行功率与液冷模型、Alibaba CPU 全表仍待核验。[20261028 原版](results/server-count-scenarios-20261028/README.md)与[20261027 版](results/server-count-scenarios-20261027/README.md)保留原样。
 
 [全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存 8760 小时重放方法、16 条既有参考曲线和相位检查。当前五类配置的功率与台数/柜数采用新版参数说明中的标定状态；逐小时气象作为外生输入，柔性权限独立成章。
 
