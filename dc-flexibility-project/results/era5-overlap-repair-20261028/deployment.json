@@ -1,0 +1,31 @@
+{
+  "base_commit": "04bc3506cc09dc486b59a569f511e26aea175bfc",
+  "before": {
+    "prepare_era5_wind_repair.py": "72a7bd8a8995bcbaf4148556ca147698baa3a86f1f058d34bf09dabc3831d1f3",
+    "complete_era5_wind_repair.py": "e26f6d644f2eeba6a045476fbfd7699f16cb8cf3d2fd15cfe2759daa77cde7a1",
+    "era5_source_validation.py": "88cc3b59089300f69e7ddfdc4dd7302e662651c056d3793decd9a4c765bf0918",
+    "era5_dewpoint_candidate.py": "c4fc222ad12d8dd5d1879341981b04ff61104ec5dd3c462ba21256c880f48739",
+    "verify_era5_dewpoint_repair.py": "4c26ad023853c188283019e6313c6cf8461df51957f22b6379e2afbf9ea77ce7"
+  },
+  "after": {
+    "prepare_era5_wind_repair.py": "69064c10a330ecd6a95c281c7d5d3e8e8b411a0ea87cd210aa731dfb98b3fe88",
+    "complete_era5_wind_repair.py": "e5316ccd8392c2c3df3283d7d9c237c356f5ebbde5d0ba366df99f7911cc3ea2",
+    "era5_source_validation.py": "85cc30fb32ea0196b197f3d7b0f919adc5990499873327df8be9eae4c6d8d87f",
+    "era5_dewpoint_candidate.py": "9a932f572a8433feec978450af83667b3ba07592788f735184123c10da22ff0a",
+    "verify_era5_dewpoint_repair.py": "285670a276e274ae9e245cae9c3c51a17e4906ccebbfffde966dc9399c4c0b7b"
+  },
+  "baseline_content_checks": {
+    "prepare_era5_wind_repair.py": "content_identical_after_newline_normalization",
+    "complete_era5_wind_repair.py": "content_identical_after_newline_normalization",
+    "era5_source_validation.py": "content_identical_after_newline_normalization",
+    "era5_dewpoint_candidate.py": "content_identical_after_newline_normalization",
+    "verify_era5_dewpoint_repair.py": "content_identical_after_newline_normalization"
+  },
+  "previous_release": {
+    "prepare_era5_wind_repair.py": "6821b862db5fe059bca927a319a5fa186ed4ef6a8c3713d92d056a4de00e37ad",
+    "complete_era5_wind_repair.py": "e5316ccd8392c2c3df3283d7d9c237c356f5ebbde5d0ba366df99f7911cc3ea2",
+    "era5_source_validation.py": "85cc30fb32ea0196b197f3d7b0f919adc5990499873327df8be9eae4c6d8d87f",
+    "era5_dewpoint_candidate.py": "9a932f572a8433feec978450af83667b3ba07592788f735184123c10da22ff0a",
+    "verify_era5_dewpoint_repair.py": "285670a276e274ae9e245cae9c3c51a17e4906ccebbfffde966dc9399c4c0b7b"
+  }
+}

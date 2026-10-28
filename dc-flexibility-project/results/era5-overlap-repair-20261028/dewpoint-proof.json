@@ -1,0 +1,774 @@
+{
+  "block": "lat-084-lon-290",
+  "variables": [
+    "d2m"
+  ],
+  "source_file_prefix": "dewpoint",
+  "selection_manifest_sha256": "eac76e0284de44a914c6e3d9383049918105f2fc062e348b146d734b0deca4a9",
+  "source_metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "hours": 26305,
+  "native_flat_indices": [
+    550520,
+    550521,
+    550522,
+    551960,
+    551961,
+    551962,
+    553400,
+    553401,
+    553402,
+    553403
+  ],
+  "official_dataset": "reanalysis-era5-single-levels",
+  "raw_sources": [
+    {
+      "dataset": "reanalysis-era5-single-levels",
+      "request": {
+        "product_type": [
+          "reanalysis"
+        ],
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "year": [
+          "2023"
+        ],
+        "month": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12"
+        ],
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31"
+        ],
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "area": [
+          -5.5,
+          110.0,
+          -6.0,
+          110.75
+        ],
+        "data_format": "netcdf",
+        "download_format": "unarchived"
+      },
+      "downloaded_utc": "2026-10-27T10:26:09.054341+00:00",
+      "request_id": "3eafd448-dd1e-4506-a539-dacae388e9a3",
+      "sha256": "241152665dc105a5d9353794239fa0bb67496fbf5722639dd436db221aa68b41",
+      "bytes": 779410,
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-2023.nc"
+    },
+    {
+      "dataset": "reanalysis-era5-single-levels",
+      "request": {
+        "product_type": [
+          "reanalysis"
+        ],
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "year": [
+          "2024"
+        ],
+        "month": [
+          "01"
+        ],
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31"
+        ],
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "area": [
+          -5.5,
+          110.0,
+          -6.0,
+          110.75
+        ],
+        "data_format": "netcdf",
+        "download_format": "unarchived"
+      },
+      "downloaded_utc": "2026-10-27T16:05:42.697671+00:00",
+      "request_id": "21a9bba4-96a9-42c5-b3f0-6bdc6bd79b9c",
+      "sha256": "496435ebbfb15bdc5cbea243056c8afc578efe2249076b8d9fcd7cffd1a8f5d3",
+      "bytes": 93281,
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-01.nc",
+      "source_layout": "monthly"
+    },
+    {
+      "dataset": "reanalysis-era5-single-levels",
+      "request": {
+        "product_type": [
+          "reanalysis"
+        ],
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "year": [
+          "2024"
+        ],
+        "month": [
+          "02"
+        ],
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29"
+        ],
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "area": [
+          -5.5,
+          110.0,
+          -6.0,
+          110.75
+        ],
+        "data_format": "netcdf",
+        "download_format": "unarchived"
+      },
+      "downloaded_utc": "2026-10-27T17:48:30.055232+00:00",
+      "request_id": "ed78e8dc-dd5d-474d-80bd-71e833ac66b6",
+      "sha256": "6864730c9407790284118d50ca0cfe51707c7462da4f0054e4047039e123844a",
+      "bytes": 90738,
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-02.nc",
+      "source_layout": "monthly"
+    },
+    {
+      "dataset": "reanalysis-era5-single-levels",
+      "request": {
+        "product_type": [
+          "reanalysis"
+        ],
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "year": [
+          "2024"
+        ],
+        "month": [
+          "03"
+        ],
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31"
+        ],
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "area": [
+          -5.5,
+          110.0,
+          -6.0,
+          110.75
+        ],
+        "data_format": "netcdf",
+        "download_format": "unarchived"
+      },
+      "downloaded_utc": "2026-10-27T19:12:31.063197+00:00",
+      "request_id": "42062e8d-f051-4959-8f8b-6ac074c860b8",
+      "sha256": "db212de74503a36c451c63222088366ab7c909b3ac561a5e7f7341f326593303",
+      "bytes": 93351,
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-03.nc",
+      "source_layout": "monthly"
+    },
+    {
+      "dataset": "reanalysis-era5-single-levels",
+      "request": {
+        "product_type": [
+          "reanalysis"
+        ],
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "year": [
+          "2024"
+        ],
+        "month": [
+          "04"
+        ],
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "area": [
+          -5.5,
+          110.0,
+          -6.0,
+          110.75
+        ],
+        "data_format": "netcdf",
+        "download_format": "unarchived"
+      },
+      "downloaded_utc": "2026-10-27T20:45:15.358586+00:00",
+      "request_id": "749fd7bb-2bc1-424e-8477-f827288a17b3",
+      "sha256": "2e2592447cd34993e9fd8fffe4f81fb51ba8a8054e830b4a3c01122c0de3d1bb",
+      "bytes": 91932,
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-04.nc",
+      "source_layout": "monthly"
+    },
+    {
+      "dataset": "reanalysis-era5-single-levels",
+      "request": {
+        "product_type": [
+          "reanalysis"
+        ],
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "year": [
+          "2024"
+        ],
+        "month": [
+          "05"
+        ],
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31"
+        ],
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "area": [
+          -5.5,
+          110.0,
+          -6.0,
+          110.75
+        ],
+        "data_format": "netcdf",
+        "download_format": "unarchived"
+      },
+      "downloaded_utc": "2026-10-27T22:03:36.730604+00:00",
+      "request_id": "aabbf9fb-4aa7-4da7-9fa1-90d010e36bec",
+      "sha256": "f7e8bdc032f67d6a4a801765c471bb55b6b756a2db7a92f1c0efd94f16902c97",
+      "bytes": 92919,
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-05.nc",
+      "source_layout": "monthly"
+    },
+    {
+      "dataset": "reanalysis-era5-single-levels",
+      "request": {
+        "product_type": [
+          "reanalysis"
+        ],
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "year": [
+          "2024"
+        ],
+        "month": [
+          "06"
+        ],
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "area": [
+          -5.5,
+          110.0,
+          -6.0,
+          110.75
+        ],
+        "data_format": "netcdf",
+        "download_format": "unarchived"
+      },
+      "downloaded_utc": "2026-10-27T23:21:57.976804+00:00",
+      "request_id": "aa410498-d1f5-4dba-b9ce-938f2cf3f741",
+      "sha256": "837a9e126259977f345b529bf2973afad394b4421760c2d486ed7051a614565c",
+      "bytes": 91868,
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-06.nc",
+      "source_layout": "monthly"
+    },
+    {
+      "dataset": "reanalysis-era5-single-levels",
+      "request": {
+        "product_type": [
+          "reanalysis"
+        ],
+        "variable": [
+          "2m_dewpoint_temperature"
+        ],
+        "year": [
+          "2024"
+        ],
+        "month": [
+          "07"
+        ],
+        "day": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31"
+        ],
+        "time": [
+          "00:00",
+          "01:00",
+          "02:00",
+          "03:00",
+          "04:00",
+          "05:00",
+          "06:00",
+          "07:00",
+          "08:00",
+          "09:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+          "21:00",
+          "22:00",
+          "23:00"
+        ],
+        "area": [
+          -5.5,
+          110.0,
+          -6.0,
+          110.75
+        ],
+        "data_format": "netcdf",
+        "download_format": "unarchived"
+      },
+      "downloaded_utc": "2026-10-28T00:32:06.117931+00:00",
+      "request_id": "c3ade2fb-875e-490c-b044-8b55f3c5edec",
+      "sha256": "bec25a78300a69c29ed8bc3e7283f31e743fac901a917c63c2617752f941dbdc",
+      "bytes": 93077,
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-07.nc",
+      "source_layout": "monthly"
+    }
+  ],
+  "checks": {
+    "d2m": {
+      "verified_overlap_count": 7440,
+      "max_abs_overlap_difference": 3.0517578125e-05,
+      "mean_abs_overlap_difference": 2.70720451108871e-06,
+      "overlap_absolute_tolerance": 0.0001,
+      "overlap_within_tolerance": true,
+      "exact_overlap_equal": false,
+      "original_nan_count": 131280,
+      "overlap_units": "K",
+      "unchanged_original_finite_count": 131770,
+      "overlap_source": "official_month_vs_frozen_arco",
+      "overlap_period": "2024-07"
+    }
+  },
+  "missing_only": true,
+  "created_utc": "2026-10-28T09:01:13.220481+00:00",
+  "acceptance": "2024-07有效重合值绝对差≤1e-4 K；仅使用官方同时间同节点数值填补NaN，保留全部原有效值",
+  "status": "verified",
+  "verified_utc": "2026-10-28T09:01:13.389590+00:00",
+  "output_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/interim/era5-eligible-cds-repairs/lat-084-lon-290.parquet",
+  "output_sha256": "394313a871d29c747eda8f24b2d70d276d8225a920c587c8287cdb4973a809f0",
+  "output_bytes": 1074238
+}
