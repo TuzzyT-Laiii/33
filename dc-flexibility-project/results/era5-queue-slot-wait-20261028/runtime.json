@@ -1,0 +1,149 @@
+{
+  "checked_utc": "2026-10-28T14:03:53.225328+00:00",
+  "status": "passed",
+  "active_cds_jobs": {
+    "a3a6ec4e-e781-45ae-be72-c409ada88f83": "accepted",
+    "1f52dfb9-06d2-4a23-8396-131f9a4375f5": "accepted",
+    "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0": "accepted"
+  },
+  "formal_completed_blocks": 18418,
+  "global_gate": {
+    "checked_utc": "2026-10-28T14:01:54.065542+00:00",
+    "max_active_requests": 2,
+    "active_requests": {
+      "a3a6ec4e-e781-45ae-be72-c409ada88f83": "accepted",
+      "1f52dfb9-06d2-4a23-8396-131f9a4375f5": "accepted",
+      "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0": "accepted"
+    },
+    "active_count": 3
+  },
+  "deployment_sha256": {
+    "era5_cds_request.py": "85c33de7d6bac0831de33cfbc76f912f913b9d3c6630bb1d1bb7c9c2632cf186",
+    "prepare_era5_wind_repair.py": "22d0f50364b4903d3f16ddc22a3a2752608f2d4d775db99e131580dc9db080f3",
+    "verify_era5_queue_wait.py": "240357ccc8aa88927dbd12f2483fc7f80c2b0c07184347fdbd6d3c8c1cee0ee8"
+  },
+  "all_three_other_controllers_and_workers_unchanged": true,
+  "base_commit": "c9d59f5200cd7ee2107868941e4c6225d31707be",
+  "deployed_utc": "2026-10-28T14:01:37.872751+00:00",
+  "server_baseline_normalized_sha256": {
+    "era5_cds_request.py": "7b9c5125a933e4d6e5d9eaa81de4811a1a2041270cd6e9e389dcd55a5a0adce1",
+    "prepare_era5_wind_repair.py": "0ef81c82708f1a8d6cd1099a37beadc96181a322197aea1ddb269022413d2687",
+    "complete_era5_wind_repair.py": "d0fa18ffe05bc2e73e4c574d4b02a15a4483cec47cb3dc252c9ad7f90e09c333",
+    "era5_source_validation.py": "5410bf7105e5857ba638ae43f8f55ce28a6c7f22c16f1658747c903c718fa55d"
+  },
+  "published_content_matches_commit_after_removing_cr": true,
+  "launch_command": [
+    "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python",
+    "/data3/dataset/ljt/global-grid-flexibility-20261023/analysis/complete_era5_wind_repair.py",
+    "--root",
+    "/data3/dataset/ljt/global-grid-flexibility-20261023",
+    "--block",
+    "lat-160-lon-101",
+    "--group",
+    "wind",
+    "--start-formal"
+  ],
+  "blocks": {
+    "lat-091-lon-353": {
+      "pid": 1382519,
+      "worker_pids": [
+        "1382832"
+      ],
+      "controller_status": "preparing",
+      "jobs": {
+        "2024": {
+          "status": "accepted",
+          "request_id": "a3a6ec4e-e781-45ae-be72-c409ada88f83",
+          "retry_count": 1,
+          "retry_limit": 5,
+          "next_retry_utc": null
+        }
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-091-lon-353.20261028T125526Z.log",
+      "log_has_traceback": false
+    },
+    "lat-144-lon-101": {
+      "pid": 1382520,
+      "worker_pids": [
+        "1382831"
+      ],
+      "controller_status": "preparing",
+      "jobs": {
+        "2024": {
+          "status": "accepted",
+          "request_id": "1f52dfb9-06d2-4a23-8396-131f9a4375f5",
+          "retry_count": 1,
+          "retry_limit": 5,
+          "next_retry_utc": null
+        }
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-144-lon-101.20261028T125526Z.log",
+      "log_has_traceback": false
+    },
+    "lat-160-lon-101": {
+      "pid": 1672228,
+      "worker_pids": [
+        "1672320"
+      ],
+      "controller_status": "preparing",
+      "jobs": {
+        "2023": {
+          "status": "waiting_for_queue_slot",
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "retry_count": 1,
+          "retry_limit": 5,
+          "next_retry_utc": "2026-10-28T14:58:08.003879+00:00",
+          "queue_wait_attempts": 6,
+          "queue_wait_seconds": 0.0,
+          "queue_wait_deadline_utc": "2026-10-31T12:58:36.879963+00:00",
+          "global_gate": {
+            "checked_utc": "2026-10-28T14:01:54.065542+00:00",
+            "max_active_requests": 2,
+            "active_requests": {
+              "a3a6ec4e-e781-45ae-be72-c409ada88f83": "accepted",
+              "1f52dfb9-06d2-4a23-8396-131f9a4375f5": "accepted",
+              "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0": "accepted"
+            },
+            "active_count": 3
+          }
+        }
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-160-lon-101.20261028T140137Z.log",
+      "log_has_traceback": false
+    },
+    "lat-168-lon-278": {
+      "pid": 1204610,
+      "worker_pids": [
+        "1204693"
+      ],
+      "controller_status": "preparing",
+      "jobs": {
+        "2024": {
+          "status": "downloaded",
+          "request_id": "c3b07b86-e16a-4e70-a004-460f977f48eb"
+        },
+        "2023": {
+          "status": "accepted",
+          "request_id": "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0"
+        }
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-168-lon-278.20261028T122521Z.log",
+      "log_has_traceback": false
+    }
+  },
+  "migrated_request": {
+    "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+    "legacy_retry_count": 5,
+    "retry_count": 1,
+    "retry_budget_version": 2,
+    "retry_exhausted": false,
+    "pending_resubmission": true,
+    "pending_retry_kind": "queue",
+    "queue_wait_attempts": 6,
+    "queue_wait_started_utc": "2026-10-28T12:58:36.879963+00:00",
+    "queue_wait_seconds": 0.0,
+    "queue_wait_deadline_utc": "2026-10-31T12:58:36.879963+00:00",
+    "next_retry_utc": "2026-10-28T14:58:08.003879+00:00"
+  },
+  "preserved_history_entries": 6
+}
