@@ -1,0 +1,141 @@
+{
+  "checked_utc": "2026-10-28T14:18:22.610570+00:00",
+  "status": "passed",
+  "blocks": {
+    "lat-091-lon-353": {
+      "pid": 1382519,
+      "alive": true,
+      "worker_pids": [
+        "1382832"
+      ],
+      "controller_status": "preparing",
+      "controller_updated_utc": null,
+      "jobs": {
+        "2024": {
+          "status": "accepted",
+          "request_id": "a3a6ec4e-e781-45ae-be72-c409ada88f83",
+          "retry_count": 1,
+          "retry_limit": 5,
+          "next_retry_utc": null
+        }
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-091-lon-353.20261028T125526Z.log",
+      "log_has_traceback": false
+    },
+    "lat-144-lon-101": {
+      "pid": 1382520,
+      "alive": false,
+      "worker_pids": [],
+      "controller_status": "failed",
+      "controller_updated_utc": "2026-10-28T14:11:13.004442+00:00",
+      "jobs": {
+        "2024": {
+          "status": "accepted",
+          "request_id": "1f52dfb9-06d2-4a23-8396-131f9a4375f5",
+          "retry_count": 1,
+          "retry_limit": 5,
+          "next_retry_utc": null
+        }
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-144-lon-101.20261028T125526Z.log",
+      "log_has_traceback": true
+    },
+    "lat-160-lon-101": {
+      "pid": 1672228,
+      "alive": true,
+      "worker_pids": [
+        "1672320"
+      ],
+      "controller_status": "preparing",
+      "controller_updated_utc": null,
+      "jobs": {
+        "2023": {
+          "status": "waiting_for_queue_slot",
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "retry_count": 1,
+          "retry_limit": 5,
+          "next_retry_utc": "2026-10-28T14:58:08.003879+00:00",
+          "queue_wait_attempts": 6,
+          "queue_wait_seconds": 0.0,
+          "queue_wait_deadline_utc": "2026-10-31T12:58:36.879963+00:00",
+          "global_gate": {
+            "checked_utc": "2026-10-28T14:01:54.065542+00:00",
+            "max_active_requests": 2,
+            "active_requests": {
+              "a3a6ec4e-e781-45ae-be72-c409ada88f83": "accepted",
+              "1f52dfb9-06d2-4a23-8396-131f9a4375f5": "accepted",
+              "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0": "accepted"
+            },
+            "active_count": 3
+          }
+        }
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-160-lon-101.20261028T140137Z.log",
+      "log_has_traceback": false
+    },
+    "lat-168-lon-278": {
+      "pid": 1204610,
+      "alive": true,
+      "worker_pids": [
+        "1204693"
+      ],
+      "controller_status": "preparing",
+      "controller_updated_utc": null,
+      "jobs": {
+        "2024": {
+          "status": "downloaded",
+          "request_id": "c3b07b86-e16a-4e70-a004-460f977f48eb"
+        },
+        "2023": {
+          "status": "running",
+          "request_id": "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0"
+        }
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-168-lon-278.20261028T122521Z.log",
+      "log_has_traceback": false
+    }
+  },
+  "active_cds_jobs": {
+    "a3a6ec4e-e781-45ae-be72-c409ada88f83": "accepted",
+    "1f52dfb9-06d2-4a23-8396-131f9a4375f5": "accepted",
+    "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0": "running"
+  },
+  "formal_completed_blocks": 18418,
+  "original_processes": {
+    "1382519": {
+      "alive": true,
+      "identity_unchanged_if_alive": true
+    },
+    "1382832": {
+      "alive": true,
+      "identity_unchanged_if_alive": true
+    },
+    "1382520": {
+      "alive": false,
+      "identity_unchanged_if_alive": true
+    },
+    "1382831": {
+      "alive": false,
+      "identity_unchanged_if_alive": true
+    },
+    "1204610": {
+      "alive": true,
+      "identity_unchanged_if_alive": true
+    },
+    "1204693": {
+      "alive": true,
+      "identity_unchanged_if_alive": true
+    }
+  },
+  "deployment_sha256": {
+    "era5_cds_request.py": "85c33de7d6bac0831de33cfbc76f912f913b9d3c6630bb1d1bb7c9c2632cf186",
+    "prepare_era5_wind_repair.py": "22d0f50364b4903d3f16ddc22a3a2752608f2d4d775db99e131580dc9db080f3",
+    "verify_era5_queue_wait.py": "240357ccc8aa88927dbd12f2483fc7f80c2b0c07184347fdbd6d3c8c1cee0ee8"
+  },
+  "lat_144_controller_exit": {
+    "updated_utc": "2026-10-28T14:11:13.004442+00:00",
+    "error_type": "SSLError",
+    "reason": "SSL UNEXPECTED_EOF_WHILE_READING",
+    "existing_cds_job_status": "accepted"
+  }
+}

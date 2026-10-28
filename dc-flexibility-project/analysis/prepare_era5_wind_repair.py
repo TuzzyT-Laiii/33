@@ -17,7 +17,7 @@ import xarray as xr
 
 from acquire_buildability_protection import sha, utc_now, write_json
 from acquire_eligible_era5_weather import open_source
-from era5_cds_request import PersistentCDSRequest, saved_job_status
+from era5_cds_request import CDSRequestGate, PersistentCDSRequest, saved_job_status
 from era5_source_validation import overlap_check_passed, overlap_statistics
 
 
@@ -160,7 +160,8 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
                             progress=False, timeout=60, maximum_tries=3, retry_after=2, session=cds_read_session())
             job = PersistentCDSRequest(client, dataset, request_for(year), saved_path,
-                                       lambda status, request_id, **details: update(year, status, request_id, **details), stopped)
+                                       lambda status, request_id, **details: update(year, status, request_id, **details),
+                                       stopped, gate=CDSRequestGate(root, client))
             status = job.poll()
             if status == 'successful':
                 annual_received[year] = fetch(year)
@@ -200,7 +201,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                 known_id = matched[0]['request_id'] if matched else None
             job = PersistentCDSRequest(client, dataset, request, request_path,
                                        lambda status, request_id, **details: update(period, status, request_id, **details),
-                                       stopped, known_id)
+                                       stopped, known_id, gate=CDSRequestGate(root, client))
             while True:
                 if missing_only and repair_ready():
                     return None
@@ -248,7 +249,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                 saved = json.loads(saved_path.read_text()) if saved_path.exists() else None
                 if saved and (saved['dataset'] != dataset or saved['request'] != request_for(year)):
                     raise ValueError('已有风数据请求与授权年份或区域不同')
-                status = saved_job_status(client, saved['request_id']) if saved and not target.exists() else None
+                status = saved_job_status(client, saved['request_id']) if saved and saved.get('request_id') and not target.exists() else None
                 if target.exists() or status in ('accepted', 'running', 'successful'):
                     ready_years.append(year)
                 elif status == 'dismissed':
