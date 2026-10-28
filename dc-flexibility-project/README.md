@@ -14,9 +14,9 @@
 
 [任务记录粒度与柔性约束](docs/task-trace-flexibility.md)提供秒级 CPU/GPU 作业、ASI 小时类型与优先级数据的读取和资源累计接口，并说明任务类别、服务期限和抢占权限的证据范围。
 
-[单机 CPU/GPU 三种数量情境](results/server-count-scenarios-20261027/README.md)按实际厂商配置选取每台 2∶1、2∶2、2∶8 三种 CPU/GPU 数量配比，并提供参数与 36 个规模×配置×需求设计单元。数量、功率与算力分别核算，ASI 的作用及其他可用数据来源随文说明。
+[CPU/GPU 服务器与整柜情境](results/server-count-scenarios-20261028/README.md)包含纯 CPU 的 C20、原有 C21/C22/C28 和 GPU 主导的 R-GB200 整柜。四档 IT 规模分别采用 13 个允许的配置×需求组合，共 52 个设计单元；每个单元标注风冷或直接液冷。GB200 的运行功率与独立液冷气象模型待标定，Alibaba CPU 2018 待下载核验。[20261027 版](results/server-count-scenarios-20261027/README.md)保留原样。
 
-[全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存 8760 小时重放方法、16 条既有参考曲线和相位检查。新三类单机数量配置的功率与台数采用其参数说明中的标定状态；逐小时气象作为外生输入，柔性权限独立成章。
+[全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存 8760 小时重放方法、16 条既有参考曲线和相位检查。当前五类配置的功率与台数/柜数采用新版参数说明中的标定状态；逐小时气象作为外生输入，柔性权限独立成章。
 
 [任务来源与柔性文献历史报告](results/task-driven-load-report-20261026-v2/README.md)保存来源波动、六组图、四档规模的功率示例和 ASI 柔性文献结果；当前设备定义与年度计算采用上述实际配置说明。[初始报告](results/task-driven-load-report-20261026/README.md)保留。
 

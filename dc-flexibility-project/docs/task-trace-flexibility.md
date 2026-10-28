@@ -4,7 +4,7 @@
 
 [任务来源与柔性文献历史报告](../results/task-driven-load-report-20261026-v2/README.md)保存来源波动、功率示例和柔性文献对照；[初始报告](../results/task-driven-load-report-20261026/README.md)保留。
 
-[单机 CPU/GPU 数量情境与来源说明](../results/server-count-scenarios-20261027/README.md)定义 2∶1、2∶2、2∶8 三种厂商配置实例，并说明联合 CPU/GPU 需求、ASI 作用及其他公开来源。[年度构造工作包](../results/scenario-load-methods-20261026-v2/README.md)保存既有 16 条全年参考路径和 490 组相位检查。
+[CPU/GPU 服务器与整柜情境及来源说明](../results/server-count-scenarios-20261028/README.md)定义五种厂商配置、52 个设计单元：C20 纯 CPU 仅配 Lisa CPU 作业和 Alibaba Cluster Trace 2018；R-GB200 整柜仅配 Acme、ASI；原 C21/C22/C28 各配 Lisa、Acme、ASI。Alibaba 2018 本次未下载，`demand_readiness` 保留待下载与字段实值核验状态；向新 CPU/GPU 的性能及联合占用映射仍待核定。[年度构造工作包](../results/scenario-load-methods-20261026-v2/README.md)保存既有 16 条全年参考路径和 490 组相位检查。
 
 ASI 提供生产 AI 小时业务类型、优先级、GPU 归属资源与库存，可帮助构造生产需求和筛选柔性候选；CPU 物理插槽数量及业务截止权限仍需其他依据。Lisa、Acme、ASI 是工作区当前已详细核验主样本。Microsoft Philly 的训练任务与同服务器 CPU/GPU 分钟监测、Alibaba CPU 2018 的在线/批处理混部、Google 2019 PowerData 的关联电力域功率，也分别适合对应研究问题；本轮只核对这三项的官方说明，未下载计算。
 

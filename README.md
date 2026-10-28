@@ -3,6 +3,7 @@
 本仓库维护两条研究主线：方向一“24小时无碳电力匹配与供需柔性”，方向三“无碳供能转型中的最优储能”。2026年10月19日完成第一步的工作区整理、情境规格、数据模板和首1–2日行动清单；参数确认、数据恢复和研究计算仍按任务表推进。
 
 - [通用网格负荷模块：算法、接口与全球网格接入](dc-flexibility-project/docs/compute-load-module.md)
+- [CPU/GPU 服务器与整柜情境：五种配置、52 个设计单元（20261028）](dc-flexibility-project/results/server-count-scenarios-20261028/README.md)
 - [CPU/GPU 需求模式与柔性约束负荷报告（20261026-v2）](dc-flexibility-project/results/task-driven-load-report-20261026-v2/README.md)
 - [CPU/GPU 温湿度耦合负荷：报告、参数与数据入口（20261025-v4）](dc-flexibility-project/results/compute-center-data-audit-20261022/coupled-power-weather-20261025-v4/README.md)
 - [开始阅读项目说明](dc-flexibility-project/README.md)
