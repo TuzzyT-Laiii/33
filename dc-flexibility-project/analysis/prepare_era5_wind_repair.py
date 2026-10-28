@@ -15,7 +15,14 @@ from acquire_buildability_protection import sha, utc_now, write_json
 from acquire_eligible_era5_weather import open_source
 
 
-def prepare(root, label):
+REPAIR_GROUPS = {
+    'wind': (('u100', 'v100'), ('100m_u_component_of_wind', '100m_v_component_of_wind'), 'm s**-1'),
+    'dewpoint': (('d2m',), ('2m_dewpoint_temperature',), 'K'),
+}
+
+
+def prepare(root, label, group='wind'):
+    variables, cds_variables, expected_units = REPAIR_GROUPS[group]
     selection_path = root / 'data/metadata/buildability-20261025/selection-manifest.json'
     selection = json.loads(selection_path.read_text())
     if selection['status'] != 'complete' or not selection['protected_areas_applied'] or not selection['slope_applied']:
@@ -35,6 +42,7 @@ def prepare(root, label):
         proof = json.loads(proof_path.read_text())
         if proof['status'] == 'verified':
             if (proof['selection_manifest_sha256'] != sha(selection_path)
+                    or tuple(proof.get('variables', ('u100', 'v100'))) != variables
                     or proof['native_flat_indices'] != points.native_flat_index.astype(int).tolist()
                     or proof['source_metadata_sha256'] != sha(root / 'data/raw/era5-eligible-ecmwf-geo/.zmetadata')
                     or sha(Path(proof['output_path'])) != proof['output_sha256']):
@@ -47,26 +55,27 @@ def prepare(root, label):
     source, session, times, metadata_sha = open_source(root)
     original = {}
     with source:
-        for name in ('u100', 'v100'):
+        for name in variables:
             original[name] = source[name].sel(time=times).sel(
                 latitude=xr.DataArray(points.latitude.to_numpy(), dims='weather_point'),
                 longitude=xr.DataArray(((points.longitude_0_360.to_numpy() + 180) % 360 - 180), dims='weather_point')).values
     session.close()
     if not any(np.isnan(value).any() for value in original.values()):
-        raise ValueError('该空间块没有需要补取的风数据缺失值')
+        raise ValueError('该空间块没有指定变量需要补取的缺失值')
     if any(np.isinf(value).any() for value in original.values()):
-        raise ValueError('风数据存在无穷值，需要单独核查')
+        raise ValueError('指定变量存在无穷值，需要单独核查')
     area = [float(points.latitude.max()), float(((points.longitude_0_360 + 180) % 360 - 180).min()),
             float(points.latitude.min()), float(((points.longitude_0_360 + 180) % 360 - 180).max())]
     directory = root / 'data/raw/era5-eligible-cds-repairs' / label
     directory.mkdir(parents=True, exist_ok=True)
     key = json.loads((root / '.codex-temp/buildability-20261025/cds-credential.json').read_text())['key']
     dataset = 'reanalysis-era5-single-levels'
-    state_path = root / 'status/era5-wind-repair.json'
-    state = {'status': 'fetching_official_wind', 'block': label, 'started_utc': utc_now(), 'jobs': {}}
+    state_path = root / 'status' / f'era5-{group}-repair.json'
+    state = {'status': f'fetching_official_{group}', 'block': label, 'variables': list(variables),
+             'started_utc': utc_now(), 'jobs': {}}
     state_lock = threading.Lock()
     stopped = threading.Event()
-    known_path = root / '.codex-temp/buildability-20261025/cds-wind-repair/known-jobs.json'
+    known_path = root / '.codex-temp/buildability-20261025' / f'cds-{group}-repair/known-jobs.json'
     known = json.loads(known_path.read_text())['jobs'] if known_path.exists() else []
 
     def update(year, status, request_id=None):
@@ -79,12 +88,12 @@ def prepare(root, label):
         if stopped.is_set():
             raise RuntimeError('其他年度请求失败，停止继续提交')
         request = {'product_type': ['reanalysis'],
-                   'variable': ['100m_u_component_of_wind', '100m_v_component_of_wind'],
+                   'variable': list(cds_variables),
                    'year': [str(year)], 'month': [f'{month:02d}' for month in range(1, 13)] if year < 2026 else ['01'],
                    'day': [f'{day:02d}' for day in range(1, 32)] if year < 2026 else ['01'],
                    'time': [f'{hour:02d}:00' for hour in range(24)] if year < 2026 else ['00:00'],
                    'area': area, 'data_format': 'netcdf', 'download_format': 'unarchived'}
-        target = directory / f'wind-{year}.nc'
+        target = directory / f'{group}-{year}.nc'
         receipt_path = target.with_suffix('.json')
         if target.exists():
             record = json.loads(receipt_path.read_text())
@@ -152,9 +161,9 @@ def prepare(root, label):
     table = pd.DataFrame({'time': np.repeat(times, len(points)),
                           'native_flat_index': np.tile(points.native_flat_index.to_numpy(dtype=np.int32), len(times))})
     checks = {}
-    for name in ('u100', 'v100'):
-        if combined[name].attrs.get('units') != 'm s**-1':
-            raise ValueError('CDS风数据单位与研究要求不同')
+    for name in variables:
+        if combined[name].attrs.get('units') != expected_units:
+            raise ValueError('CDS指定变量单位与研究要求不同')
         values = combined[name].sel(valid_time=times).sel(
             latitude=xr.DataArray(points.latitude.to_numpy(), dims='weather_point'),
             longitude=xr.DataArray(((points.longitude_0_360.to_numpy() + 180) % 360 - 180), dims='weather_point')).values
@@ -175,6 +184,7 @@ def prepare(root, label):
     for dataset_object in datasets:
         dataset_object.close()
     report = {'status': 'awaiting_overlap_validation', 'created_utc': utc_now(), 'block': label,
+              'variables': list(variables), 'source_file_prefix': group,
               'selection_manifest_sha256': sha(selection_path), 'source_metadata_sha256': metadata_sha,
               'hours': 26305, 'native_flat_indices': points.native_flat_index.astype(int).tolist(),
               'official_dataset': dataset, 'raw_sources': records, 'checks': checks,
@@ -189,7 +199,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--block', required=True)
+    parser.add_argument('--group', choices=REPAIR_GROUPS, default='wind')
     args = parser.parse_args()
-    with (args.root.resolve() / '.era5-wind-repair.lock').open('a+') as lock:
+    with (args.root.resolve() / f'.era5-{args.group}-repair.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        prepare(args.root.resolve(), args.block)
+        prepare(args.root.resolve(), args.block, args.group)

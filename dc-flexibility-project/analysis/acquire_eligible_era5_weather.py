@@ -97,10 +97,10 @@ def process_block(root, label, points, selection_sha, metadata_sha, times):
                 values = source[name].sel(time=times).isel(latitude=xr.DataArray(lat_indices, dims="weather_point"),
                                                          longitude=xr.DataArray(lon_indices, dims="weather_point")).values
                 repair_path = root / "data/metadata/buildability-20261025/weather-cds-repairs" / (label + ".json")
-                if name in ("u100", "v100") and np.isnan(values).any() and repair_path.exists():
-                    from era5_source_validation import apply_verified_wind_repair
+                if name in ("u100", "v100", "d2m") and np.isnan(values).any() and repair_path.exists():
+                    from era5_source_validation import apply_verified_source_repair
 
-                    values, source_supplements[name] = apply_verified_wind_repair(
+                    values, source_supplements[name] = apply_verified_source_repair(
                         root, label, name, points, times, values, selection_sha, metadata_sha)
                 if values.shape != (26305, len(points)) or values.dtype != np.dtype("float32") or not np.isfinite(values).all():
                     raise ValueError(f"ERA5空间块存在小时缺失、非有限值或形状错误：{label}/{name}")

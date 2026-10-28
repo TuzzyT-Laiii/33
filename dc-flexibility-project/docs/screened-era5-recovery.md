@@ -18,6 +18,22 @@ ECMWF的源文件按日延长时间轴，包含研究窗口以后的数据。压
 
 `complete_era5_wind_repair.py`依次执行获取、校验、生成正式块和恢复既有`era5-eligible`任务。控制进程独立于SSH会话运行；它与原始数据中转分别记录状态。年度CDS请求排队期间，原始数据下载可以继续。
 
+## 官方露点温度定向补取
+
+`lat-084-lon-290/d2m`的10个授权天气节点在2023年1月1日00:00至2024年6月30日23:00（UTC）各缺少13,128小时，共131,280个NaN。该块的原始文件已经到齐，正式整理的有限值检查会识别这些空值并停止。
+
+补取使用CDS的`reanalysis-era5-single-levels`产品，仅请求`2m_dewpoint_temperature`及该源块内授权节点的包围区域。年度文件覆盖既定2023—2025年及2026年1月1日00:00右边界；提取和校验仅使用最终筛选清单中的10个节点。三年完整值用于与已有有效时段逐值比较，全部检查通过后仅填充NaN，冻结ARCO原文保留。
+
+`--group dewpoint`使用独立的露点状态文件、进程锁和持久请求编号。控制器依次执行官方原文下载、单位与小时校验、有效重合值完全一致性校验、正式块生成和接续既有整理任务。已有风数据证明保持兼容，补取证明的变量集合必须与当前变量匹配。
+
+```bash
+ROOT=/data3/dataset/ljt/global-grid-flexibility-20261023
+"$ROOT/.venv/bin/python" "$ROOT/analysis/complete_era5_wind_repair.py" --root "$ROOT" --block lat-084-lon-290 --group dewpoint --start-formal
+"$ROOT/.venv/bin/python" "$ROOT/analysis/verify_era5_dewpoint_repair.py" --root "$ROOT"
+```
+
+露点状态为`status/era5-dewpoint-repair.json`和`status/era5-dewpoint-repair-controller.json`。真实验证脚本核对露点原始缺失、已有官方风原文的填补结果、有效值保留及变量证明隔离；露点官方文件和逐值校验未完成时，结果明确记录为待完成。
+
 ## 运行与核查
 
 复用已有服务器Python环境，参考依赖见`analysis/requirements-era5-screened.txt`。需要已有最终选择清单、分批选择清单及冻结源元数据；本次运行不重新执行用地筛选。凭据通过既有CDS配置读取，SSH使用已有别名与主机校验，凭据内容不进入日志或仓库。
