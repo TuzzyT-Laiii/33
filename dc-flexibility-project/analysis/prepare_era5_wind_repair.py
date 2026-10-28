@@ -11,8 +11,6 @@ from ecmwf.datastores import Client
 import numpy as np
 import pandas as pd
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 import xarray as xr
 
 from acquire_buildability_protection import sha, utc_now, write_json
@@ -28,11 +26,8 @@ REPAIR_GROUPS = {
 
 
 def cds_read_session():
-    session = requests.Session()
-    session.mount('https://', HTTPAdapter(max_retries=Retry(
-        total=8, connect=8, read=8, status=8, backoff_factor=1,
-        status_forcelist=(429, 500, 502, 503, 504), allowed_methods=('GET',))))
-    return session
+    # 网络等待统一交给持久请求管理，确保每次失败都记录并计入24小时预算。
+    return requests.Session()
 
 
 def prepare(root, label, group='wind', monthly=False, missing_only=False):
@@ -158,7 +153,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
             if saved['dataset'] != dataset or saved['request'] != request_for(year):
                 raise ValueError('保留的年度请求与本次补取范围不一致')
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
-                            progress=False, timeout=60, maximum_tries=3, retry_after=2, session=cds_read_session())
+                            progress=False, timeout=60, maximum_tries=1, session=cds_read_session())
             job = PersistentCDSRequest(client, dataset, request_for(year), saved_path,
                                        lambda status, request_id, **details: update(year, status, request_id, **details),
                                        stopped, gate=CDSRequestGate(root, client))
@@ -190,7 +185,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
         else:
             update(period, 'connecting')
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
-                            progress=False, timeout=60, maximum_tries=3, retry_after=2, sleep_max=15,
+                            progress=False, timeout=60, maximum_tries=1, sleep_max=15,
                             session=cds_read_session())
             request_path = target.with_suffix('.request.json')
             known_id = None
@@ -216,7 +211,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                 time.sleep(15)
             remote = job.remote
             temporary = target.with_suffix('.nc.part')
-            remote.download(str(temporary))
+            job.download(temporary)
             record = {'dataset': dataset, 'request': request, 'downloaded_utc': utc_now(),
                       'request_id': remote.request_id,
                       'sha256': sha(temporary), 'bytes': temporary.stat().st_size, 'path': str(target)}
@@ -239,7 +234,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
     else:
         if group == 'wind':
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
-                            progress=False, timeout=60, maximum_tries=3, retry_after=2, session=cds_read_session())
+                            progress=False, timeout=60, maximum_tries=1, session=cds_read_session())
             ready_years = []
             dismissed_years = []
             remaining_years = []
@@ -249,7 +244,13 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                 saved = json.loads(saved_path.read_text()) if saved_path.exists() else None
                 if saved and (saved['dataset'] != dataset or saved['request'] != request_for(year)):
                     raise ValueError('已有风数据请求与授权年份或区域不同')
-                status = saved_job_status(client, saved['request_id']) if saved and saved.get('request_id') and not target.exists() else None
+                status = None
+                if saved and saved.get('request_id') and not target.exists():
+                    job = PersistentCDSRequest(client, dataset, request_for(year), saved_path,
+                                               lambda status, request_id, year=year, **details: update(
+                                                   year, status, request_id, **details),
+                                               stopped, gate=CDSRequestGate(root, client))
+                    status = job.network_call('priority_status', lambda: saved_job_status(client, saved['request_id']))
                 if target.exists() or status in ('accepted', 'running', 'successful'):
                     ready_years.append(year)
                 elif status == 'dismissed':
