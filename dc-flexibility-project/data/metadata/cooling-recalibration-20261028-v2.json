@@ -1,0 +1,124 @@
+{
+  "task": "2026-10-28需求A：风冷重标定与GB200直接液冷设施模型",
+  "base_commit": "8b7c6eb",
+  "branch": "codex/cooling-model-recalibration-20261028",
+  "model_version": "cooling-20261028-v2",
+  "input_version_policy": "PR13的天气、映射和两个中央IT文件按原清单SHA-256核对，仅以只读方式使用；原模型、参数及全部典型负荷结果保留。",
+  "source_facts_policy": "公开资料提供设备结构、温度环境等级、设计热量占比及厂商示例性能。具体工程设定和跨工况/跨厂商迁移逐项标记assumption，并保留low/central/high。",
+  "sources": [
+    {
+      "source_id": "ashrae",
+      "url": "https://www.ashrae.org/file%20library/technical%20resources/bookstore/supplemental%20files/therm-gdlns-5th-r-e-refcard.pdf",
+      "retrieved_at_utc": "2026-10-28T10:29:02.096423+00:00",
+      "sha256": "f76c6baed2ab93e61532a76e383d66f1690eb048da877b27c4328658078178ca",
+      "read_scope": "完整PDF文本；重点Tables2.1、2.2、3.1和说明脚注",
+      "verified_facts": "A1-A4推荐18-27°C，H1推荐18-22°C；设施供液W27/W32/W40/W45上限27/32/40/45°C，所有W级最低2°C。",
+      "parameter_transfer": "送风、供液的具体设定及具体设备兼容性为assumption。"
+    },
+    {
+      "source_id": "doe",
+      "url": "https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design_0.pdf",
+      "retrieved_at_utc": "2026-10-28T10:29:04.120730+00:00",
+      "sha256": "f4db5c015154933482e84f1946dcafc297d8ad526db90d2985df35232d8ab0c2",
+      "read_scope": "完整PDF文本；重点Sections4-6、8.6-8.7",
+      "verified_facts": "空气输送、经济器、冷机、泵、UPS与配电分别计量；现代双变换UPS效率可达95%以上。",
+      "parameter_transfer": "本模型的空气/水回路压降、温差、泵风机效率及控制、电气损耗组合均为assumption。"
+    },
+    {
+      "source_id": "daikin",
+      "url": "https://tahoeweb.daikinapplied.com/api/general/DownloadDocumentByName/media/CAT%20605-8.pdf/",
+      "retrieved_at_utc": "2026-10-28T10:29:12.623502+00:00",
+      "sha256": "520f6ac8ccf68d2589716c3776377ee06819227b079f2a90aa13c59ab87b2ca6",
+      "read_scope": "完整30页PDF文本；重点印刷页8、14、17-22",
+      "verified_facts": "满载示例COP6.5；IPLV另列，未用其代替满载效率。AHRI参考冷冻水44°F、冷凝器进水85°F。",
+      "parameter_transfer": "把示例归一化到参考温度、Carnot温升修正、部分负载惩罚和COP上限均为assumption；没有取得完整选型性能曲线。"
+    },
+    {
+      "source_id": "nvidia",
+      "url": "https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html",
+      "retrieved_at_utc": "2026-10-28T10:29:00.708480+00:00",
+      "sha256": "97dbc45676abec7422faf8573335a6795bc46931759efce45269f9b4c418957b",
+      "read_scope": "完整正文；Compute Trays、Power Shelves",
+      "verified_facts": "36 Grace CPU和72 Blackwell GPU；CPU/GPU冷板液冷，网络/存储及电源有空气散热；整柜约120kW。",
+      "parameter_transfer": "不改变PR13整柜IT功率假设；NVIDIA该页没有给出本研究的35°C设定及87.1%比例。"
+    },
+    {
+      "source_id": "qct",
+      "url": "https://blog.qct.io/wp-content/uploads/2025/04/QCT-Qoolrack-Stand-Alone_Advanced-Liquid-Cooling-for-NVIDIA-GB200-NVL72-Systems.pdf",
+      "retrieved_at_utc": "2026-10-28T10:29:03.748253+00:00",
+      "sha256": "d25dc36e6866f4800e8385254be4bd8799e40e42515280e36dd0749d74d96ee3",
+      "read_scope": "完整4页PDF文本；重点第3-4页",
+      "verified_facts": "GB200最高入口液温45°C、回液65°C、机柜流量可到130L/min；115kW液冷、17kW风冷。",
+      "parameter_transfer": "35°C二次供液、5K CDU换热温差及固定热量比例跨厂商/部分负载迁移为assumption；资料中侧车性能没有移作室外干冷器性能。"
+    },
+    {
+      "source_id": "vertiv",
+      "url": "https://www.vertiv.com/4aad4c/globalassets/shared/liebert-xdu1350-coolant-distribution-unit-installation-and-commissioning-guide-sl-70625.pdf",
+      "verified_on_utc_date": "2026-10-28",
+      "sha256": null,
+      "read_method": "web工具读取PDF正文及技术数据章节；直接HTTP下载返回403，未将错误响应视作原文",
+      "read_scope": "Installation and Commissioning Guide, Section4, Table4.5, printed p21",
+      "verified_facts": "典型总电功率20.2kW。",
+      "parameter_transfer": "20.2/1350构成CDU总电功率情境比例，包含二次循环泵和控制；不代表目标CDU全工况实测。"
+    },
+    {
+      "source_id": "vertiv_capacity",
+      "url": "https://www.vertiv.com/fr-emea/products-catalog/thermal-management/high-density-solutions/liebert-xdu1350-coolant-distribution-unit/",
+      "verified_on_utc_date": "2026-10-28",
+      "sha256": null,
+      "read_method": "web工具读取产品正文和技术信息",
+      "verified_facts": "1350kW级液液CDU；额定容量依赖温差和流量。",
+      "parameter_transfer": "与旧手册典型功率组合为assumption。"
+    },
+    {
+      "source_id": "lbnl",
+      "url": "https://escholarship.org/content/qt32d6m0d1/qt32d6m0d1.pdf",
+      "doi": "10.71468/P1WC7Q",
+      "verified_on_utc_date": "2026-10-28",
+      "sha256": null,
+      "read_method": "web工具读取80页PDF及相关完整章节；直接HTTP返回202且正文为空，未记录原文哈希",
+      "read_scope": "2024 United States Data Center Energy Usage Report, printed pp39-48, Tables4.2-4.3",
+      "verified_facts": "区分IT风冷与液冷、经济器和补冷；2023年美国总体PUE约1.4，hyperscale/colocation低于1.4。",
+      "validation_use": "外部量级校验；该报告为模型与调查综合估计，不称其为目标设施实测数据。"
+    },
+    {
+      "source_id": "uptime",
+      "url": "https://uptimeinstitute.com/uptime_assets/7425ec68d479c5d78a743df94a79b114ed9f9c73f13b6460949d2b8e73373209-GA-2024-07-uptime-institute-global-data-center-survey-results-2024.pdf",
+      "verified_on_utc_date": "2026-10-28",
+      "sha256": null,
+      "read_method": "web工具读取官方2024 executive summary PDF正文",
+      "read_scope": "PDF pp4-5, Industry benchmarks and Figure2",
+      "verified_facts": "PUE回答n=526，平均1.56；近期新建设施常见1.3或更低。",
+      "validation_use": "不同设施类型和年龄的年度调查参照；不拟合或强制指定单个网格PUE。"
+    },
+    {
+      "source_id": "esif",
+      "url": "https://www.nlr.gov/computational-science/hpc-data-center",
+      "verified_on_utc_date": "2026-10-28",
+      "sha256": null,
+      "read_method": "web工具读取完整官方正文",
+      "verified_facts": "位于ESIF，采用温水液冷；无机械或压缩机冷源，塔与thermosyphon排热；官方年化PUE1.036。",
+      "validation_use": "诊断原经验模型的系统迁移边界；不称其为普通风冷标定。"
+    },
+    {
+      "source_id": "google",
+      "url": "https://www.datacenters.google/efficiency/",
+      "retrieved_at_utc": "2026-10-28T10:29:06.297936+00:00",
+      "sha256": "3ddd4fee631c8c987fda423d4221aac47bc9d2d0dc509d4ae1ac1544eee30437",
+      "read_scope": "完整正文及年度表；本研究选2024 Q4全年滚动值，避免混用年份",
+      "verified_facts": "2024 Q4 fleet trailing-twelve-month PUE为1.09；包含全年各季节及辅助系统边界。",
+      "validation_use": "公开实测的高效率端参照，未将其作为与本次气候/设备相同的独立误差样本。"
+    }
+  ],
+  "archive_policy": "原文只在当前worktree的忽略目录读取；公共仓库保存来源链接、相关事实、参数、校验值和本研究派生结果。",
+  "validation_boundary": "公开年度实测/调查的量级一致性校验，以及真实气象下的物理行为与守恒检查；尚无目标设施同步气象和分项电表形成的独立误差验证。",
+  "latest_related_PR_review": {
+    "pr": 13,
+    "checked_at_utc": "2026-10-28T10:41:44.967285+00:00",
+    "interfaces": ["paginated_issue_comments", "paginated_inline_comments", "paginated_reviews", "paginated_review_threads_and_nested_comments"],
+    "comments": 0,
+    "inline_comments": 0,
+    "reviews": 0,
+    "review_threads": 0
+  }
+}

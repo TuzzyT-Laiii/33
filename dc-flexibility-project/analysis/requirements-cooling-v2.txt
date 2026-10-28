@@ -1,0 +1,2 @@
+-r compute_load/requirements.txt
+matplotlib>=3.8,<4

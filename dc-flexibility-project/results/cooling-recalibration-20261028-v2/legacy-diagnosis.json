@@ -1,0 +1,72 @@
+{
+  "grid_id": "g05_r100_c592",
+  "year": 2025,
+  "hours": 8760,
+  "native_flat_index": 289905,
+  "weather_min_max": {
+    "temperature_c": [
+      -12.514837646484352,
+      40.14223632812502
+    ],
+    "dew_point_c": [
+      -32.29717102050779,
+      28.075372314453148
+    ],
+    "relative_humidity_pct": [
+      4.779446580450374,
+      100.0
+    ]
+  },
+  "legacy_bounds": {
+    "temperature_c": [
+      -19.309561127037913,
+      38.126902686225044
+    ],
+    "dew_point_c": [
+      -29.415963828791096,
+      17.679418533959762
+    ],
+    "it_fraction": [
+      0.2314820497155412,
+      1.0
+    ]
+  },
+  "outside_hours": 1903,
+  "outside_by_condition": {
+    "dry_below": 0,
+    "dry_above": 17,
+    "dew_below": 9,
+    "dew_above": 1877
+  },
+  "overlap_hours": 0,
+  "outside_combinations": [
+    {
+      "dry_below": false,
+      "dry_above": false,
+      "dew_below": false,
+      "dew_above": false,
+      "hours": 6857
+    },
+    {
+      "dry_below": false,
+      "dry_above": false,
+      "dew_below": false,
+      "dew_above": true,
+      "hours": 1877
+    },
+    {
+      "dry_below": false,
+      "dry_above": true,
+      "dew_below": false,
+      "dew_above": false,
+      "hours": 17
+    },
+    {
+      "dry_below": false,
+      "dry_above": false,
+      "dew_below": true,
+      "dew_above": false,
+      "hours": 9
+    }
+  ]
+}

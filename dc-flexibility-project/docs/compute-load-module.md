@@ -2,6 +2,8 @@
 
 模块版本：`compute-load-20261025-v1`。功率标定与冷却参数版本：`20261025-v4`。代码入口为 [compute_load](../analysis/compute_load/__init__.py)，全球网格入口为 [global_grid_compute_load.py](../analysis/global_grid_compute_load.py)。
 
+新增显式选择的设施冷却版本 `cooling-20261028-v2`，支持 `cooling_type="air"` / `"direct_liquid"` 和 `low` / `central` / `high` 参数情境，见第9节及[诊断、参数与校验报告](../results/cooling-recalibration-20261028-v2/README.md)。原 `ComputeLoadModel`、全球入口默认行为、标定资产及已发布结果保持原版本。GB200 使用对应整柜 IT 功率调用新冷却接口；H100 的资源功率映射不转换成 GB200。
+
 本模块给定一个网格完整 UTC 年的逐小时温湿度、CPU/GPU 资源需求曲线和 IT 参考规模，输出每小时的 IT、散热需求、冷却及设施总负荷。默认规模为 1、10、100、500 MW，每个网格、每年输出 8 条全年曲线。同一套资源需求与设备可以在不同网格比较，气象改变冷却和配套用电。
 
 ## 1. 输入、输出与单位
@@ -76,7 +78,7 @@ CPU 空闲为 120 W，最高标定点的相对负载为 0.995、功率 546 W；G
 
 ## 3. 散热、温湿度与冷却电功率
 
-新版矩阵逐单元记录 `cooling_type`：44 个为 `air`，8 个 GB200 单元为 `direct_liquid`。本节现有冷却/气象耦合按风冷机房设计；GB200 的 CPU/GPU 采用冷板直接液冷，仍有残余风冷部件，需要独立的供液、CDU/泵、风机与换热参数。液冷可采用更高供液温度，干冷器和冷却塔对干球/湿球条件的响应不同，具体数值待官方规格或测量核定。本次未实现新液冷模型，现有系数不能直接用于 GB200 的设施负荷计算。
+新版矩阵逐单元记录 `cooling_type`：44 个为 `air`，8 个 GB200 单元为 `direct_liquid`。本节保留旧版 ESIF 经验响应的定义和复现方法。ESIF 的公开设计实际采用温水液冷和无机械冷机冷源，因此旧系数向普通风冷设施的迁移没有系统匹配验证。GB200 的供液、CDU、干冷器和残余风冷支路由第9节的新版本计算。
 
 小时尺度忽略蓄热及额外建筑得热，采用 Q_IT,t ≈ P_IT,t。散热是热量指标；设施电功率由电功率分项求和。
 
@@ -213,3 +215,48 @@ python analysis/global_grid_flex_solver.py --hourly /path/to/solver-input.parque
 - [PsychroLib：湿空气计算、SI 单位及数组支持](https://github.com/psychrometrics/psychrolib)
 - [SciPy linprog：固定需求供电线性规划](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html)
 - [Apache Arrow Dataset：按节点筛选既有 Parquet 天气](https://arrow.apache.org/docs/python/dataset.html)
+
+## 9. 版本化风冷与 GB200 直接液冷设施模型
+
+实现：[cooling.py](../analysis/compute_load/cooling.py)；机器可读参数：[cooling-20261028-v2.json](../analysis/compute_load/assets/cooling-20261028-v2.json)。每项参数记录单位、中央/高/低值、来源链接和 assumption 性质；完整推导、旧模型外推诊断及公开数据校验见[新报告](../results/cooling-recalibration-20261028-v2/README.md)。该版本是物理与半经验工程情境，缺少目标机房独立实测拟合；`outside_empirical_validation=True` 明确保留此边界。
+
+室外干球支持 −40～50°C，室外 RH 支持包含端点的 0～100%。湿球采用 PsychroLib SI，默认气压101325 Pa并标记 `pressure_assumed`；可输入 `pressure_pa`，支持30000～110000 Pa且要求蒸气分压低于总压。超出支持温度、湿度或气压范围立即报错。完整年校验为8760/8784个UTC小时；`full_year=False`仅用于响应实验或连续小时片段。RH=0的露点为负无穷，湿球及所有电功率仍可计算。露点输入与近饱和0.01°C舍入规则沿用旧定义；同时提供湿度和露点时，v2允许0.3个百分点的绝对RH差。
+
+风冷支路采用22°C机房送风、12 K空气升温、16°C冷冻水及6 K供回水温差。IT热量、设施电气损耗、机房风机和水泵自身热量共同进入盘管。空气流量由热量/温差计算，风机电功率由流量×压降/效率计算。冷却塔湿球温差5 K，经济器换热温差2 K：湿球≤9°C为完全自然冷却，9～15°C为部分自然冷却，更高时采用冷机。冷机COP用Daikin的6.5满载示例作参考，按有效蒸发与冷凝温度的Carnot比值修正，附加部分负载损失和COP上限；温度修正曲线为假设。
+
+直接液冷支路将IT热量的115/132≈87.1%送入CDU，其余12.9%连同室内辅助损耗进入上述风冷支路。中央二次供液35°C、CDU温差5 K，设施一次供液30°C，位于ASHRAE W32设施水温上限以内；此分类不认证具体设备。一次回液40°C，干冷器出液与室外干球温差5 K：干球≤25°C可完全干冷，25～35°C为部分干冷，剩余热量先采用塔侧经济器，再采用高温冷机补冷。CDU总用电包含二次循环泵与控制，设施一次泵单独计算。
+
+两类设施均计入IT路径UPS/配电效率96%/98%、固定电气损耗0.5%安装容量、照明与控制0.8%安装容量；冷却设备直接供电，馈线损耗集总于设备参数。冷塔与干冷器风机、自身水泵热量及低温伴热分别计算。室内空气封闭循环、湿度固定50%，室外湿度通过湿球影响冷源；本模型不计算直接引入室外空气的潜热负荷。完整设施电功率为IT、冷却和其他损耗之和，年度PUE为设施电量/IT电量；当IT=0时小时PUE未定义，输出缺失值并保留待机功率。
+
+独立 Python API可用于全年需求重放或全球网格逐小时供电输入：
+
+```python
+from compute_load import CoolingModel
+
+model = CoolingModel(cooling_type="direct_liquid", parameter_set="central")
+facility = model.calculate(weather, gb200_it_mw, installed_reference_it_mw=9.96)
+# weather为一个完整UTC年，gb200_it_mw为与天气等长的整柜交流IT功率。
+# 风冷调用使用cooling_type="air"；显式旧版使用version="cooling-20261025-v1"。
+```
+
+`installed_reference_it_mw`必须来自IT配置记录，不能用全年平均IT替代。原IT内部PSU和机内风机已经计入输入IT，设施模型只计算上游配电和机房辅助设备。高低参数联合改变设备效率、温差、流量与液冷热量占比；它们构成敏感性情境，不表示统计置信区间。
+
+[replay_facility_cooling.py](../analysis/replay_facility_cooling.py) 接收已存在的IT曲线，保存独立版本目录、小时结果及清单。输入须包含 `time_utc`、`it_mw` 和唯一 `installed_reference_it_mw`，或显式传入 `--capacity-mw`。可复用曲线内天气、独立标准天气，或经现有 `grid_weather()` 读取全球网格原生ERA5节点：
+
+```bash
+python analysis/replay_facility_cooling.py --it-curve /path/to/gb200-it.parquet --cooling-type direct_liquid --parameter-set central --native-weather /path/to/g05_r100_c592-hourly.parquet --mapping /path/to/grid-weather-mapping.parquet --grid-id g05_r100_c592 --output-dir /path/to/cooling-results
+```
+
+原生天气转换继续使用row_offset=1、col_offset=1的唯一中心节点和明确的开尔文转换；IT与天气UTC小时必须完全匹配。标准天气使用 `--weather`，省略天气参数时读取IT曲线内的天气列。输出按 `版本/冷却类型/参数情境/grid_id/年份/输入名/` 分开，清单核对IT文件、实际天气值、参数、代码和结果校验值；模型或输入变化要求独立目录。Windows输出采用扩展绝对路径支持较深的worktree目录。
+
+调用者在全球网格循环内将每个网格已得到的IT路径传给同一个 `CoolingModel.calculate()` 即可，IT映射、任务权限和供电优化保持各自边界。新接口不会把旧风冷分项或旧外推标记复制为v2输出。`cooling_to_it_ratio`为冷却功率/IT功率，`cooling_to_facility_ratio`为冷却功率/设施功率；`heat_balance_residual_mw`用于热量守恒复核。v2不使用旧版ESIF残差带，也不向CD/CSD优化添加未经定义的柔性权限。
+
+安装、定向生成和验证：
+
+```bash
+python -m pip install -r analysis/requirements-cooling-v2.txt
+python analysis/build_cooling_recalibration.py --input-project /path/to/restored-project --typical-project /path/to/PR13-project
+python analysis/verify_cooling_v2.py --input-project /path/to/restored-project --typical-project /path/to/PR13-project
+```
+
+本次只生成温湿度响应图、一个网格的标准热负荷对照、两个冻结的PR13 IT输入抽查及五种真实气候量级检查，典型负荷曲线库按原版本保留。
