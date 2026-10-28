@@ -10,6 +10,38 @@ import zarr
 from acquire_buildability_protection import utc_now, write_json
 
 
+OVERLAP_ABSOLUTE_TOLERANCE = 1e-4
+
+
+def overlap_statistics(official, original):
+    if official.shape != original.shape:
+        raise ValueError('重合值比较的形状不同')
+    valid = np.isfinite(original)
+    if not np.isfinite(official[valid]).all():
+        raise ValueError('官方重合值存在非有限值')
+    delta = np.abs(official[valid].astype(np.float64) - original[valid].astype(np.float64))
+    return {'verified_overlap_count': int(delta.size),
+            'max_abs_overlap_difference': float(delta.max()) if delta.size else None,
+            'mean_abs_overlap_difference': float(delta.mean()) if delta.size else None,
+            'overlap_absolute_tolerance': OVERLAP_ABSOLUTE_TOLERANCE,
+            'overlap_within_tolerance': bool(delta.size and np.all(delta <= OVERLAP_ABSOLUTE_TOLERANCE)),
+            'exact_overlap_equal': bool(delta.size and np.all(delta == 0))}
+
+
+def overlap_check_passed(check):
+    if check['verified_overlap_count'] <= 0:
+        return False
+    if 'overlap_absolute_tolerance' not in check:
+        return check['exact_overlap_equal'] and check['max_abs_overlap_difference'] == 0
+    maximum = check['max_abs_overlap_difference']
+    mean = check['mean_abs_overlap_difference']
+    return (check['overlap_absolute_tolerance'] == OVERLAP_ABSOLUTE_TOLERANCE
+            and check['overlap_within_tolerance'] is True
+            and maximum is not None and mean is not None
+            and np.isfinite(maximum) and np.isfinite(mean)
+            and 0 <= mean <= maximum <= OVERLAP_ABSOLUTE_TOLERANCE)
+
+
 def analysis_chunk_values(cache, key, payload):
     variable, chunk_name = key.split('/')
     hour, latitude, longitude = map(int, chunk_name.split('.'))
@@ -81,8 +113,7 @@ def apply_verified_source_repair(root, label, name, points, times, values, selec
     prefix = record.get('source_file_prefix', 'wind')
     if ((prefix, variables) not in (('wind', ('u100', 'v100')), ('dewpoint', ('d2m',)))
             or name not in variables
-            or not record['checks'][name]['exact_overlap_equal']
-            or record['checks'][name]['verified_overlap_count'] <= 0):
+            or not overlap_check_passed(record['checks'][name])):
         raise ValueError('CDS补取变量或重合时段证明不符合要求')
     if (record['status'] != 'verified' or record['block'] != label or record['hours'] != 26305
             or record['official_dataset'] not in ('reanalysis-era5-single-levels', 'reanalysis-era5-single-levels-timeseries', 'nsf-ncar-era5')

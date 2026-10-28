@@ -10,16 +10,28 @@ import time
 from ecmwf.datastores import Client
 import numpy as np
 import pandas as pd
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import xarray as xr
 
 from acquire_buildability_protection import sha, utc_now, write_json
 from acquire_eligible_era5_weather import open_source
+from era5_source_validation import overlap_check_passed, overlap_statistics
 
 
 REPAIR_GROUPS = {
     'wind': (('u100', 'v100'), ('100m_u_component_of_wind', '100m_v_component_of_wind'), 'm s**-1'),
     'dewpoint': (('d2m',), ('2m_dewpoint_temperature',), 'K'),
 }
+
+
+def cds_read_session():
+    session = requests.Session()
+    session.mount('https://', HTTPAdapter(max_retries=Retry(
+        total=8, connect=8, read=8, status=8, backoff_factor=1,
+        status_forcelist=(429, 500, 502, 503, 504), allowed_methods=('GET',))))
+    return session
 
 
 def prepare(root, label, group='wind', monthly=False, missing_only=False):
@@ -82,7 +94,8 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
     directory.mkdir(parents=True, exist_ok=True)
     key = json.loads((root / '.codex-temp/buildability-20261025/cds-credential.json').read_text())['key']
     dataset = 'reanalysis-era5-single-levels'
-    state_path = root / 'status' / f'era5-{group}-repair.json'
+    scope = group if group == 'dewpoint' else f'{group}-{label}'
+    state_path = root / 'status' / f'era5-{scope}-repair.json'
     state = {'status': f'fetching_official_{group}', 'block': label, 'variables': list(variables),
              'strategy': 'missing_months_and_july_overlap' if missing_only else ('monthly_sequential_with_existing_annual_reuse' if monthly else 'annual'),
              'started_utc': utc_now(), 'jobs': {}}
@@ -138,7 +151,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
             if saved['dataset'] != dataset or saved['request'] != request_for(year):
                 raise ValueError('保留的年度请求与本次补取范围不一致')
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
-                            progress=False, timeout=60, maximum_tries=3, retry_after=2)
+                            progress=False, timeout=60, maximum_tries=3, retry_after=2, session=cds_read_session())
             remote = client.get_remote(saved['request_id'])
             status = remote.status
             update(year, status, remote.request_id)
@@ -169,7 +182,8 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
         else:
             update(period, 'connecting')
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
-                            progress=False, timeout=60, maximum_tries=3, retry_after=2, sleep_max=15)
+                            progress=False, timeout=60, maximum_tries=3, retry_after=2, sleep_max=15,
+                            session=cds_read_session())
             request_path = target.with_suffix('.request.json')
             if request_path.exists():
                 saved = json.loads(request_path.read_text())
@@ -197,20 +211,42 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                 update(period, status, remote.request_id)
                 if status == 'successful':
                     break
-                if status == 'rejected' and monthly:
+                if status == 'rejected' and (monthly or group == 'wind'):
                     response = remote.session.get(remote.url + '/results', headers=remote.headers, timeout=60)
                     if response.status_code != 400:
                         raise RuntimeError(f'CDS拒绝详情返回异常：{response.status_code}')
                     rejection = response.json()
                     expected = 'Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially'
-                    if rejection.get('traceback') != expected or quota_rejections >= 3:
+                    if rejection.get('traceback') != expected or (group != 'wind' and quota_rejections >= 3):
                         raise RuntimeError(f'CDS请求拒绝：{remote.request_id}/{rejection}')
                     quota_rejections += 1
                     archived = request_path.with_name(request_path.stem + f'.quota-rejected-{remote.request_id}.json')
                     request_path.replace(archived)
                     write_json(archived.with_suffix('.reason.json'), rejection)
                     update(period, 'waiting_for_queue_slot', remote.request_id)
-                    time.sleep(60)
+                    print(json.dumps({'event': 'waiting_for_queue_slot', 'block': label,
+                                      'period': period, 'request_id': remote.request_id, 'utc': utc_now()}), flush=True)
+                    if group == 'wind':
+                        def queued_requests():
+                            jobs = client.get_jobs(status=['accepted'], limit=100)
+                            queued = set()
+                            while jobs is not None:
+                                for request_id in jobs.request_ids:
+                                    reply = client.get_remote(request_id).json
+                                    if reply['processID'] == dataset and reply['status'] == 'accepted':
+                                        queued.add(request_id)
+                                jobs = jobs.next
+                            return queued
+
+                        waiting = queued_requests()
+                        while True:
+                            time.sleep(60)
+                            current = queued_requests()
+                            if not waiting or waiting - current:
+                                break
+                            update(period, 'waiting_for_queue_slot', remote.request_id)
+                    else:
+                        time.sleep(60)
                     remote = client.submit(dataset, request)
                     write_json(request_path, {'dataset': dataset, 'request': request,
                                              'request_id': remote.request_id, 'created_utc': utc_now()})
@@ -242,19 +278,37 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
         for year, month in periods:
             received[(year, month)] = fetch(year, month)
     else:
-        with ThreadPoolExecutor(max_workers=2) as executor:
-            futures = {executor.submit(fetch, year): (year, None) for year in range(2023, 2027)}
-            for future in as_completed(futures):
-                error = future.exception()
-                if error is not None:
-                    stopped.set()
-                    for pending in futures:
-                        pending.cancel()
-                    with state_lock:
-                        state.update(status='failed', failed_year=futures[future], error_type=type(error).__name__, updated_utc=utc_now())
-                        write_json(state_path, state)
-                    raise error
-                received[futures[future]] = future.result()
+        if group == 'wind':
+            client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
+                            progress=False, timeout=60, maximum_tries=3, retry_after=2, session=cds_read_session())
+            ready_years = []
+            remaining_years = []
+            for year in range(2023, 2027):
+                target = directory / f'{group}-{year}.nc'
+                saved_path = target.with_suffix('.request.json')
+                saved = json.loads(saved_path.read_text()) if saved_path.exists() else None
+                if saved and (saved['dataset'] != dataset or saved['request'] != request_for(year)):
+                    raise ValueError('已有风数据请求与授权年份或区域不同')
+                if target.exists() or (saved and client.get_remote(saved['request_id']).status in ('accepted', 'running', 'successful')):
+                    ready_years.append(year)
+                else:
+                    remaining_years.append(year)
+            for year in ready_years + remaining_years:
+                received[(year, None)] = fetch(year)
+        else:
+            with ThreadPoolExecutor(max_workers=2) as executor:
+                futures = {executor.submit(fetch, year): (year, None) for year in range(2023, 2027)}
+                for future in as_completed(futures):
+                    error = future.exception()
+                    if error is not None:
+                        stopped.set()
+                        for pending in futures:
+                            pending.cancel()
+                        with state_lock:
+                            state.update(status='failed', failed_year=futures[future], error_type=type(error).__name__, updated_utc=utc_now())
+                            write_json(state_path, state)
+                        raise error
+                    received[futures[future]] = future.result()
     if missing_only and repair_ready():
         print(json.dumps({'status': 'verified_alternative_ready', 'block': label}), flush=True)
         return
@@ -276,6 +330,9 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
         official = combined[name].sel(valid_time=covered_times).sel(
             latitude=xr.DataArray(points.latitude.to_numpy(), dims='weather_point'),
             longitude=xr.DataArray(((points.longitude_0_360.to_numpy() + 180) % 360 - 180), dims='weather_point')).values
+        if (official.dtype != np.dtype('float32') or not np.isfinite(official).all()
+                or official.shape != (len(covered_times), len(points))):
+            raise ValueError('官方补取原文的类型、坐标或完整性不符合要求')
         if missing_only:
             positions = pd.Index(times).get_indexer(covered_times)
             if (positions.min() < 0 or official.dtype != np.dtype('float32') or not np.isfinite(official).all()
@@ -283,23 +340,29 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                 raise ValueError('限定月份补取的时间、类型、坐标或数值无效')
             covered_original = original[name][positions]
             overlap = np.isfinite(covered_original)
-            difference = np.abs(official[overlap].astype(np.float64) - covered_original[overlap].astype(np.float64))
-            if int(overlap.sum()) != int(july.sum()) * len(points) or not np.array_equal(official[overlap], covered_original[overlap]):
-                raise ValueError(f'2024-07有效重合值不完全一致：最大差值{float(difference.max()) if difference.size else None}')
+            comparison = overlap_statistics(official, covered_original)
+            if int(overlap.sum()) != int(july.sum()) * len(points) or not overlap_check_passed(comparison):
+                raise ValueError(f'2024-07有效重合值超过绝对容差：{comparison}')
             values = original[name].copy()
             patch = np.isnan(covered_original)
             selected = values[positions].copy()
             selected[patch] = official[patch]
             values[positions] = selected
         else:
-            values = official
+            comparison = overlap_statistics(official, original[name])
+            if not overlap_check_passed(comparison):
+                raise ValueError(f'{name}有效重合值超过绝对容差：{comparison}')
+            values = original[name].copy()
+            patch = np.isnan(values)
+            values[patch] = official[patch]
         if values.shape != original[name].shape or values.dtype != np.dtype('float32') or not np.isfinite(values).all():
             raise ValueError('CDS定向原文的形状、类型或完整性不符合要求')
         valid = np.isfinite(original[name])
-        difference = np.abs(values[valid].astype(np.float64) - original[name][valid].astype(np.float64))
-        checks[name] = {'original_nan_count': int(np.isnan(original[name]).sum()), 'verified_overlap_count': int(valid.sum()),
-                        'max_abs_overlap_difference': float(difference.max()) if difference.size else None,
-                        'exact_overlap_equal': bool(np.array_equal(values[valid], original[name][valid]))}
+        if not np.array_equal(values[valid], original[name][valid]):
+            raise ValueError('补取数值表改变了冻结原文中的有效值')
+        checks[name] = {**comparison, 'original_nan_count': int(np.isnan(original[name]).sum()),
+                        'overlap_units': expected_units, 'unchanged_original_finite_count': int(valid.sum()),
+                        'overlap_source': 'official_vs_frozen_arco'}
         if missing_only:
             checks[name].update(verified_overlap_count=int(overlap.sum()), overlap_period='2024-07',
                                 unchanged_original_finite_count=int(valid.sum()), overlap_source='official_month_vs_frozen_arco')
@@ -312,7 +375,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                   'selection_manifest_sha256': sha(selection_path), 'source_metadata_sha256': metadata_sha,
                   'hours': 26305, 'native_flat_indices': points.native_flat_index.astype(int).tolist(),
                   'official_dataset': dataset, 'raw_sources': records, 'checks': checks, 'missing_only': True,
-                  'created_utc': utc_now(), 'acceptance': '2024-07逐值完全一致；仅使用官方同时间同节点数值填补NaN，保留全部原有效值'}
+                  'created_utc': utc_now(), 'acceptance': '2024-07有效重合值绝对差≤1e-4 K；仅使用官方同时间同节点数值填补NaN，保留全部原有效值'}
         report = publish_candidate(root, table, report)
         for dataset_object in datasets:
             dataset_object.close()
@@ -348,6 +411,7 @@ if __name__ == '__main__':
     parser.add_argument('--monthly', action='store_true')
     parser.add_argument('--missing-only', action='store_true')
     args = parser.parse_args()
-    with (args.root.resolve() / f'.era5-{args.group}-repair.lock').open('a+') as lock:
+    scope = args.group if args.group == 'dewpoint' else f'{args.group}-{args.block}'
+    with (args.root.resolve() / f'.era5-{scope}-repair.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         prepare(args.root.resolve(), args.block, args.group, args.monthly, args.missing_only)

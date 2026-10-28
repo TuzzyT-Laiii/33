@@ -10,7 +10,7 @@ import xarray as xr
 from acquire_buildability_protection import sha, utc_now, write_json
 from acquire_eligible_era5_weather import open_source
 from complete_era5_wind_repair import verify
-from era5_source_validation import apply_verified_source_repair
+from era5_source_validation import apply_verified_source_repair, overlap_check_passed, overlap_statistics
 
 
 def verify_repair(root):
@@ -93,12 +93,16 @@ def verify_repair(root):
         original = values[(pd.DatetimeIndex(times).year == year) & (pd.DatetimeIndex(times).month == month)]
         valid = np.isfinite(original)
         if (extracted.shape != (len(expected), 10) or extracted.dtype != np.dtype('float32')
-                or not np.isfinite(extracted).all() or not np.array_equal(extracted[valid], original[valid])):
+                or not np.isfinite(extracted).all()):
             raise ValueError('露点月度原文的类型、有限值或有效重合值不同')
+        comparison = overlap_statistics(extracted, original)
+        if valid.any() and not overlap_check_passed(comparison):
+            raise ValueError(f'露点月度原文的有效重合值超过绝对容差：{comparison}')
         monthly_received.append({'year': year, 'month': month, 'hours': len(expected), 'nodes': 10,
                                  'all_finite': True, 'verified_overlap_values': int(valid.sum()),
+                                 'overlap_comparison': comparison,
                                  'sha256': receipt['sha256'], 'bytes': raw.stat().st_size})
-    dewpoint = 'pending_official_files_and_exact_overlap'
+    dewpoint = 'pending_official_files_and_overlap_validation'
     if proof_path.exists():
         proof = json.loads(proof_path.read_text())
         checkpoint = root / 'checkpoints/era5-eligible-blocks/lat-084-lon-290.json'

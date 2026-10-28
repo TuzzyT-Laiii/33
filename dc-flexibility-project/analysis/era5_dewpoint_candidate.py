@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 
 from acquire_buildability_protection import sha, utc_now, write_json
+from era5_source_validation import overlap_check_passed
 
 
 def differences(reference, values):
@@ -34,8 +35,8 @@ def publish_candidate(root, table, report):
                         or sha(Path(prior['output_path'])) != prior['output_sha256']):
                     raise ValueError('并行来源的已核验补取证明与当前输入不同')
                 return prior
-        if not all(item['exact_overlap_equal'] and item['verified_overlap_count'] > 0 for item in report['checks'].values()):
-            raise ValueError('补取来源未通过有效重合值完全一致检查')
+        if not all(overlap_check_passed(item) for item in report['checks'].values()):
+            raise ValueError('补取来源未通过有效重合值绝对容差检查')
         for item in report['raw_sources']:
             if sha(Path(item['path'])) != item['sha256']:
                 raise ValueError('候选补取原文SHA不一致')

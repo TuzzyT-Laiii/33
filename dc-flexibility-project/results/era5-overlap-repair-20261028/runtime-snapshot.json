@@ -1,0 +1,298 @@
+{
+  "checked_utc": "2026-10-28T09:29:20.885068+00:00",
+  "process_checked_utc": "2026-10-28T09:29:20.640320+00:00",
+  "formal_completed_blocks": 18418,
+  "total_required_blocks": 18422,
+  "overall_complete": false,
+  "formal_state": {
+    "status": "waiting_for_repairs",
+    "started_utc": "2026-10-28T09:01:15.538846+00:00",
+    "updated_utc": "2026-10-28T09:28:20.743492+00:00",
+    "completed_blocks": 18418,
+    "completed_points": 257304,
+    "workers": 4,
+    "total_blocks": 18422,
+    "total_points": 257354,
+    "source_bytes_this_attempt": 0,
+    "selection_manifest_sha256": "eac76e0284de44a914c6e3d9383049918105f2fc062e348b146d734b0deca4a9",
+    "source_metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+    "quarantined_blocks": [
+      "lat-091-lon-353",
+      "lat-144-lon-101",
+      "lat-160-lon-101",
+      "lat-168-lon-278"
+    ],
+    "quarantined_block_count": 4,
+    "other_blocks_target": 18418,
+    "quarantine_reason": "awaiting_dewpoint_repair",
+    "last_completed_block": "lat-173-lon-117",
+    "other_blocks_complete": true,
+    "remaining_blocks": [
+      "lat-091-lon-353",
+      "lat-144-lon-101",
+      "lat-160-lon-101",
+      "lat-168-lon-278"
+    ]
+  },
+  "server_code_sha256": {
+    "prepare_era5_wind_repair.py": "69064c10a330ecd6a95c281c7d5d3e8e8b411a0ea87cd210aa731dfb98b3fe88",
+    "complete_era5_wind_repair.py": "e5316ccd8392c2c3df3283d7d9c237c356f5ebbde5d0ba366df99f7911cc3ea2",
+    "era5_source_validation.py": "85cc30fb32ea0196b197f3d7b0f919adc5990499873327df8be9eae4c6d8d87f",
+    "era5_dewpoint_candidate.py": "9a932f572a8433feec978450af83667b3ba07592788f735184123c10da22ff0a",
+    "verify_era5_dewpoint_repair.py": "285670a276e274ae9e245cae9c3c51a17e4906ccebbfffde966dc9399c4c0b7b"
+  },
+  "blocks": {
+    "lat-084-lon-290": {
+      "variables": [
+        "d2m"
+      ],
+      "formal_checkpoint_present": true,
+      "controller_pid": 4184879,
+      "controller_status": "formal_acquisition_resumed",
+      "controller_identity_matches": false,
+      "locks_held": {
+        ".era5-dewpoint-repair.lock": false,
+        ".era5-dewpoint-repair-controller.lock": false
+      },
+      "fetch_state": {
+        "status": "verified",
+        "block": "lat-084-lon-290",
+        "variables": [
+          "d2m"
+        ],
+        "strategy": "missing_months_and_july_overlap",
+        "started_utc": "2026-10-28T09:01:10.211982+00:00",
+        "jobs": {
+          "2023": {
+            "status": "downloaded",
+            "request_id": "3eafd448-dd1e-4506-a539-dacae388e9a3"
+          },
+          "2024-01": {
+            "status": "downloaded",
+            "request_id": "21a9bba4-96a9-42c5-b3f0-6bdc6bd79b9c"
+          },
+          "2024-02": {
+            "status": "downloaded",
+            "request_id": "ed78e8dc-dd5d-474d-80bd-71e833ac66b6"
+          },
+          "2024-03": {
+            "status": "downloaded",
+            "request_id": "42062e8d-f051-4959-8f8b-6ac074c860b8"
+          },
+          "2024-04": {
+            "status": "downloaded",
+            "request_id": "749fd7bb-2bc1-424e-8477-f827288a17b3"
+          },
+          "2024-05": {
+            "status": "downloaded",
+            "request_id": "aabbf9fb-4aa7-4da7-9fa1-90d010e36bec"
+          },
+          "2024-06": {
+            "status": "downloaded",
+            "request_id": "aa410498-d1f5-4dba-b9ce-938f2cf3f741"
+          },
+          "2024-07": {
+            "status": "downloaded",
+            "request_id": "c3ade2fb-875e-490c-b044-8b55f3c5edec"
+          }
+        },
+        "updated_utc": "2026-10-28T09:01:13.454406+00:00"
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-084-lon-290.20261028T085825Z.log",
+      "log_has_traceback": false,
+      "jobs": [],
+      "proof_checks": {
+        "d2m": {
+          "verified_overlap_count": 7440,
+          "max_abs_overlap_difference": 3.0517578125e-05,
+          "mean_abs_overlap_difference": 2.70720451108871e-06,
+          "overlap_absolute_tolerance": 0.0001,
+          "overlap_within_tolerance": true,
+          "exact_overlap_equal": false,
+          "original_nan_count": 131280,
+          "overlap_units": "K",
+          "unchanged_original_finite_count": 131770,
+          "overlap_source": "official_month_vs_frozen_arco",
+          "overlap_period": "2024-07"
+        }
+      },
+      "formal_output_sha256": "e99fd84dbb576644563fbe024ace2dc7ce3b40cceb4fe79e163451116a3cb0b9"
+    },
+    "lat-091-lon-353": {
+      "variables": [
+        "u100"
+      ],
+      "formal_checkpoint_present": false,
+      "controller_pid": 170460,
+      "controller_status": "preparing",
+      "controller_identity_matches": true,
+      "locks_held": {
+        ".era5-wind-lat-091-lon-353-repair.lock": true,
+        ".era5-wind-lat-091-lon-353-repair-controller.lock": true
+      },
+      "fetch_state": {
+        "status": "fetching_official_wind",
+        "block": "lat-091-lon-353",
+        "variables": [
+          "u100",
+          "v100"
+        ],
+        "strategy": "annual",
+        "started_utc": "2026-10-28T09:26:18.258308+00:00",
+        "jobs": {
+          "2024": {
+            "status": "accepted",
+            "request_id": "261e355a-9856-4d8a-9145-75660a95efc9"
+          }
+        },
+        "updated_utc": "2026-10-28T09:29:09.650008+00:00"
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-091-lon-353.20261028T092435Z.log",
+      "log_has_traceback": false,
+      "jobs": [
+        {
+          "year": "2024",
+          "request_id": "261e355a-9856-4d8a-9145-75660a95efc9",
+          "status": "accepted",
+          "created": "2026-10-28T09:02:09.903253",
+          "started": null,
+          "finished": null
+        }
+      ]
+    },
+    "lat-144-lon-101": {
+      "variables": [
+        "v100"
+      ],
+      "formal_checkpoint_present": false,
+      "controller_pid": 170657,
+      "controller_status": "preparing",
+      "controller_identity_matches": true,
+      "locks_held": {
+        ".era5-wind-lat-144-lon-101-repair.lock": true,
+        ".era5-wind-lat-144-lon-101-repair-controller.lock": true
+      },
+      "fetch_state": {
+        "status": "fetching_official_wind",
+        "block": "lat-144-lon-101",
+        "variables": [
+          "u100",
+          "v100"
+        ],
+        "strategy": "annual",
+        "started_utc": "2026-10-28T09:26:17.269296+00:00",
+        "jobs": {
+          "2024": {
+            "status": "accepted",
+            "request_id": "0b420db8-cca6-4711-b650-e0d382f9fae4"
+          }
+        },
+        "updated_utc": "2026-10-28T09:29:10.862808+00:00"
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-144-lon-101.20261028T092437Z.log",
+      "log_has_traceback": false,
+      "jobs": [
+        {
+          "year": "2024",
+          "request_id": "0b420db8-cca6-4711-b650-e0d382f9fae4",
+          "status": "accepted",
+          "created": "2026-10-28T09:02:09.866954",
+          "started": null,
+          "finished": null
+        }
+      ]
+    },
+    "lat-160-lon-101": {
+      "variables": [
+        "u100"
+      ],
+      "formal_checkpoint_present": false,
+      "controller_pid": 170876,
+      "controller_status": "preparing",
+      "controller_identity_matches": true,
+      "locks_held": {
+        ".era5-wind-lat-160-lon-101-repair.lock": true,
+        ".era5-wind-lat-160-lon-101-repair-controller.lock": true
+      },
+      "fetch_state": {
+        "status": "fetching_official_wind",
+        "block": "lat-160-lon-101",
+        "variables": [
+          "u100",
+          "v100"
+        ],
+        "strategy": "annual",
+        "started_utc": "2026-10-28T09:26:18.364529+00:00",
+        "jobs": {
+          "2023": {
+            "status": "waiting_for_queue_slot",
+            "request_id": "696e3df6-089c-4885-9b92-caf39315f4cb"
+          }
+        },
+        "updated_utc": "2026-10-28T09:28:14.573682+00:00"
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-160-lon-101.20261028T092438Z.log",
+      "log_has_traceback": false,
+      "jobs": [
+        {
+          "year": "2023",
+          "request_id": "696e3df6-089c-4885-9b92-caf39315f4cb",
+          "status": "rejected",
+          "created": "2026-10-28T09:27:56.610452",
+          "started": null,
+          "finished": "2026-10-28T09:28:02.516526",
+          "rejection": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/696e3df6-089c-4885-9b92-caf39315f4cb/results",
+            "trace_id": "f5a7b63f-b2c0-49dc-9cdd-14309be1d3d9",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          }
+        }
+      ]
+    },
+    "lat-168-lon-278": {
+      "variables": [
+        "u100"
+      ],
+      "formal_checkpoint_present": false,
+      "controller_pid": 171053,
+      "controller_status": "preparing",
+      "controller_identity_matches": true,
+      "locks_held": {
+        ".era5-wind-lat-168-lon-278-repair.lock": true,
+        ".era5-wind-lat-168-lon-278-repair-controller.lock": true
+      },
+      "fetch_state": {
+        "status": "fetching_official_wind",
+        "block": "lat-168-lon-278",
+        "variables": [
+          "u100",
+          "v100"
+        ],
+        "strategy": "annual",
+        "started_utc": "2026-10-28T09:26:18.607163+00:00",
+        "jobs": {
+          "2024": {
+            "status": "accepted",
+            "request_id": "c3b07b86-e16a-4e70-a004-460f977f48eb"
+          }
+        },
+        "updated_utc": "2026-10-28T09:29:17.508811+00:00"
+      },
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-168-lon-278.20261028T092439Z.log",
+      "log_has_traceback": false,
+      "jobs": [
+        {
+          "year": "2024",
+          "request_id": "c3b07b86-e16a-4e70-a004-460f977f48eb",
+          "status": "accepted",
+          "created": "2026-10-28T09:02:09.656530",
+          "started": null,
+          "finished": null
+        }
+      ]
+    }
+  }
+}

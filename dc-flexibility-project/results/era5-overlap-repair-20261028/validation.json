@@ -1,0 +1,62 @@
+{
+  "checked_utc": "2026-10-28T09:26:35.058823+00:00",
+  "block": "lat-084-lon-290",
+  "hours": 26305,
+  "nodes": 10,
+  "official_overlap": {
+    "verified_overlap_count": 7440,
+    "max_abs_overlap_difference": 3.0517578125e-05,
+    "mean_abs_overlap_difference": 2.70720451108871e-06,
+    "overlap_absolute_tolerance": 0.0001,
+    "overlap_within_tolerance": true,
+    "exact_overlap_equal": false
+  },
+  "real_mismatched_hours_rejected": {
+    "verified_overlap_count": 7440,
+    "max_abs_overlap_difference": 1.41766357421875,
+    "mean_abs_overlap_difference": 0.13838087512600805,
+    "overlap_absolute_tolerance": 0.0001,
+    "overlap_within_tolerance": false,
+    "exact_overlap_equal": false
+  },
+  "replaced_nan_count": 131280,
+  "unchanged_original_finite_count": 131770,
+  "all_variables_float32_and_finite": true,
+  "formal_output_sha256": "e99fd84dbb576644563fbe024ace2dc7ce3b40cceb4fe79e163451116a3cb0b9",
+  "proof_sha256": "fed538f16f6b91d7226cde02ee61ffcae0a67381b6d8ee8fefb2a7b3c73434f0",
+  "official_raw_sources": [
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-2023.nc",
+      "sha256": "241152665dc105a5d9353794239fa0bb67496fbf5722639dd436db221aa68b41"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-01.nc",
+      "sha256": "496435ebbfb15bdc5cbea243056c8afc578efe2249076b8d9fcd7cffd1a8f5d3"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-02.nc",
+      "sha256": "6864730c9407790284118d50ca0cfe51707c7462da4f0054e4047039e123844a"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-03.nc",
+      "sha256": "db212de74503a36c451c63222088366ab7c909b3ac561a5e7f7341f326593303"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-04.nc",
+      "sha256": "2e2592447cd34993e9fd8fffe4f81fb51ba8a8054e830b4a3c01122c0de3d1bb"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-05.nc",
+      "sha256": "f7e8bdc032f67d6a4a801765c471bb55b6b756a2db7a92f1c0efd94f16902c97"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-06.nc",
+      "sha256": "837a9e126259977f345b529bf2973afad394b4421760c2d486ed7051a614565c"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly/2024-07.nc",
+      "sha256": "bec25a78300a69c29ed8bc3e7283f31e743fac901a917c63c2617752f941dbdc"
+    }
+  ],
+  "existing_exact_wind_proof_compatible": true
+}

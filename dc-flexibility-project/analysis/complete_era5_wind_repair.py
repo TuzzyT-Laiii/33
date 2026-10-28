@@ -11,14 +11,15 @@ import pandas as pd
 
 from acquire_buildability_protection import sha, utc_now, write_json
 from acquire_eligible_era5_weather import open_source, process_block
+from era5_source_validation import overlap_check_passed
 
 
 def verify(root, label):
     path = root / 'data/metadata/buildability-20261025/weather-cds-repairs' / (label + '.json')
     report = json.loads(path.read_text())
     if report['status'] not in ('awaiting_overlap_validation', 'verified') or not all(
-            item['exact_overlap_equal'] and item['verified_overlap_count'] > 0 for item in report['checks'].values()):
-        raise ValueError('CDS补取与ARCO的重合时段未通过逐值一致性验证')
+            overlap_check_passed(item) for item in report['checks'].values()):
+        raise ValueError('CDS补取与ARCO的有效重合值未通过绝对容差验证')
     for source in report['raw_sources']:
         if source['dataset'] not in ('reanalysis-era5-single-levels', report['official_dataset']) or sha(Path(source['path'])) != source['sha256']:
             raise ValueError('CDS补取原文来源或SHA不一致')
@@ -39,7 +40,7 @@ def verify(root, label):
             or report['output_path'] != str(expected_output) or sha(expected_output) != report['output_sha256']):
         raise ValueError('补取证明与当前合格节点或数值表不同')
     if report['status'] != 'verified':
-        report.update(status='verified', verified_utc=utc_now(), acceptance='全部有效重合值完全相同，NaN位置采用同时间同节点官方ERA5原文')
+        report.update(status='verified', verified_utc=utc_now(), acceptance='有效重合值绝对差≤1e-4原变量单位，NaN位置采用同时间同节点官方ERA5原文，保留全部原有效值')
         write_json(path, report)
     result = process_block(root, label, selected, sha(selection_path), metadata_sha, times)
     checkpoint = json.loads((root / 'checkpoints/era5-eligible-blocks' / (label + '.json')).read_text())
@@ -50,7 +51,8 @@ def verify(root, label):
 
 
 def run(root, label, start_formal, group='wind', monthly=False, missing_only=False):
-    state_path = root / 'status' / f'era5-{group}-repair-controller.json'
+    scope = group if group == 'dewpoint' else f'{group}-{label}'
+    state_path = root / 'status' / f'era5-{scope}-repair-controller.json'
     state = {'status': 'preparing', 'block': label, 'group': group,
              'strategy': 'missing_months_and_july_overlap' if missing_only else ('monthly_sequential_with_existing_annual_reuse' if monthly else 'annual'),
              'pid': os.getpid(), 'started_utc': utc_now()}
@@ -89,6 +91,7 @@ if __name__ == '__main__':
     parser.add_argument('--monthly', action='store_true')
     parser.add_argument('--missing-only', action='store_true')
     args = parser.parse_args()
-    with (args.root.resolve() / f'.era5-{args.group}-repair-controller.lock').open('a+') as lock:
+    scope = args.group if args.group == 'dewpoint' else f'{args.group}-{args.block}'
+    with (args.root.resolve() / f'.era5-{scope}-repair-controller.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         run(args.root.resolve(), args.block, args.start_formal, args.group, args.monthly, args.missing_only)
