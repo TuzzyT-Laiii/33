@@ -17,6 +17,7 @@ import xarray as xr
 
 from acquire_buildability_protection import sha, utc_now, write_json
 from acquire_eligible_era5_weather import open_source
+from era5_cds_request import PersistentCDSRequest, saved_job_status
 from era5_source_validation import overlap_check_passed, overlap_statistics
 
 
@@ -99,6 +100,11 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
     state = {'status': f'fetching_official_{group}', 'block': label, 'variables': list(variables),
              'strategy': 'missing_months_and_july_overlap' if missing_only else ('monthly_sequential_with_existing_annual_reuse' if monthly else 'annual'),
              'started_utc': utc_now(), 'jobs': {}}
+    if state_path.exists():
+        previous = json.loads(state_path.read_text())
+        if previous['block'] != label or previous['variables'] != list(variables):
+            raise ValueError('已有补取状态与当前空间块或变量不同')
+        state['jobs'] = previous['jobs']
     state_lock = threading.Lock()
     stopped = threading.Event()
     known_path = root / '.codex-temp/buildability-20261025' / f'cds-{group}-repair/known-jobs.json'
@@ -110,9 +116,10 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
         proof = json.loads(proof_path.read_text())
         return proof['status'] == 'verified'
 
-    def update(year, status, request_id=None):
+    def update(year, status, request_id=None, **details):
         with state_lock:
-            state['jobs'][str(year)] = {'status': status, 'request_id': request_id}
+            job = state['jobs'].setdefault(str(year), {})
+            job.update(status=status, request_id=request_id, **details)
             state['updated_utc'] = utc_now()
             write_json(state_path, state)
 
@@ -152,9 +159,9 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                 raise ValueError('保留的年度请求与本次补取范围不一致')
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
                             progress=False, timeout=60, maximum_tries=3, retry_after=2, session=cds_read_session())
-            remote = client.get_remote(saved['request_id'])
-            status = remote.status
-            update(year, status, remote.request_id)
+            job = PersistentCDSRequest(client, dataset, request_for(year), saved_path,
+                                       lambda status, request_id, **details: update(year, status, request_id, **details), stopped)
+            status = job.poll()
             if status == 'successful':
                 annual_received[year] = fetch(year)
                 return True
@@ -185,77 +192,28 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                             progress=False, timeout=60, maximum_tries=3, retry_after=2, sleep_max=15,
                             session=cds_read_session())
             request_path = target.with_suffix('.request.json')
-            if request_path.exists():
-                saved = json.loads(request_path.read_text())
-                if saved['request'] != request or saved['dataset'] != dataset:
-                    raise ValueError('CDS持久请求与当前合格区域请求不同')
-                remote = client.get_remote(saved['request_id'])
-            else:
+            known_id = None
+            if not request_path.exists():
                 matched = [job for job in known if job['request'] == request and job['status'] in ('accepted', 'running', 'successful')]
                 if len(matched) > 1:
                     raise ValueError('同一CDS补取请求存在多个可用编号，需要核查')
-                remote = client.get_remote(matched[0]['request_id']) if matched else client.submit(dataset, request)
-                write_json(request_path, {'dataset': dataset, 'request': request, 'request_id': remote.request_id, 'created_utc': utc_now()})
-            if remote.collection_id != dataset or remote.request != request:
-                raise ValueError('CDS服务端请求内容与本研究区域不同')
-            quota_rejections = 0
+                known_id = matched[0]['request_id'] if matched else None
+            job = PersistentCDSRequest(client, dataset, request, request_path,
+                                       lambda status, request_id, **details: update(period, status, request_id, **details),
+                                       stopped, known_id)
             while True:
                 if missing_only and repair_ready():
                     return None
                 if stopped.is_set():
                     raise RuntimeError('其他年度请求失败；现有CDS请求编号已保留')
                 if month is not None and not missing_only and completed_annual(year):
-                    update(period, 'covered_by_annual', remote.request_id)
+                    update(period, 'covered_by_annual', job.remote.request_id)
                     return None
-                status = remote.status
-                update(period, status, remote.request_id)
+                status = job.poll()
                 if status == 'successful':
                     break
-                if status == 'rejected' and (monthly or group == 'wind'):
-                    response = remote.session.get(remote.url + '/results', headers=remote.headers, timeout=60)
-                    if response.status_code != 400:
-                        raise RuntimeError(f'CDS拒绝详情返回异常：{response.status_code}')
-                    rejection = response.json()
-                    expected = 'Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially'
-                    if rejection.get('traceback') != expected or (group != 'wind' and quota_rejections >= 3):
-                        raise RuntimeError(f'CDS请求拒绝：{remote.request_id}/{rejection}')
-                    quota_rejections += 1
-                    archived = request_path.with_name(request_path.stem + f'.quota-rejected-{remote.request_id}.json')
-                    request_path.replace(archived)
-                    write_json(archived.with_suffix('.reason.json'), rejection)
-                    update(period, 'waiting_for_queue_slot', remote.request_id)
-                    print(json.dumps({'event': 'waiting_for_queue_slot', 'block': label,
-                                      'period': period, 'request_id': remote.request_id, 'utc': utc_now()}), flush=True)
-                    if group == 'wind':
-                        def queued_requests():
-                            jobs = client.get_jobs(status=['accepted'], limit=100)
-                            queued = set()
-                            while jobs is not None:
-                                for request_id in jobs.request_ids:
-                                    reply = client.get_remote(request_id).json
-                                    if reply['processID'] == dataset and reply['status'] == 'accepted':
-                                        queued.add(request_id)
-                                jobs = jobs.next
-                            return queued
-
-                        waiting = queued_requests()
-                        while True:
-                            time.sleep(60)
-                            current = queued_requests()
-                            if not waiting or waiting - current:
-                                break
-                            update(period, 'waiting_for_queue_slot', remote.request_id)
-                    else:
-                        time.sleep(60)
-                    remote = client.submit(dataset, request)
-                    write_json(request_path, {'dataset': dataset, 'request': request,
-                                             'request_id': remote.request_id, 'created_utc': utc_now()})
-                    if remote.collection_id != dataset or remote.request != request:
-                        raise ValueError('CDS重试请求内容与授权范围不同')
-                    continue
-                if status not in ('accepted', 'running'):
-                    raise RuntimeError(f'CDS定向请求失败：{remote.request_id}/{status}')
                 time.sleep(15)
+            remote = job.remote
             temporary = target.with_suffix('.nc.part')
             remote.download(str(temporary))
             record = {'dataset': dataset, 'request': request, 'downloaded_utc': utc_now(),
@@ -282,6 +240,7 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
             client = Client(url='https://cds.climate.copernicus.eu/api', key=key, cleanup=False,
                             progress=False, timeout=60, maximum_tries=3, retry_after=2, session=cds_read_session())
             ready_years = []
+            dismissed_years = []
             remaining_years = []
             for year in range(2023, 2027):
                 target = directory / f'{group}-{year}.nc'
@@ -289,11 +248,14 @@ def prepare(root, label, group='wind', monthly=False, missing_only=False):
                 saved = json.loads(saved_path.read_text()) if saved_path.exists() else None
                 if saved and (saved['dataset'] != dataset or saved['request'] != request_for(year)):
                     raise ValueError('已有风数据请求与授权年份或区域不同')
-                if target.exists() or (saved and client.get_remote(saved['request_id']).status in ('accepted', 'running', 'successful')):
+                status = saved_job_status(client, saved['request_id']) if saved and not target.exists() else None
+                if target.exists() or status in ('accepted', 'running', 'successful'):
                     ready_years.append(year)
+                elif status == 'dismissed':
+                    dismissed_years.append(year)
                 else:
                     remaining_years.append(year)
-            for year in ready_years + remaining_years:
+            for year in ready_years + dismissed_years + remaining_years:
                 received[(year, None)] = fetch(year)
         else:
             with ThreadPoolExecutor(max_workers=2) as executor:
