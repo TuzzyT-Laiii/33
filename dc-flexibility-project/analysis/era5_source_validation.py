@@ -85,21 +85,47 @@ def apply_verified_source_repair(root, label, name, points, times, values, selec
             or record['checks'][name]['verified_overlap_count'] <= 0):
         raise ValueError('CDS补取变量或重合时段证明不符合要求')
     if (record['status'] != 'verified' or record['block'] != label or record['hours'] != 26305
-            or record['official_dataset'] != 'reanalysis-era5-single-levels'
+            or record['official_dataset'] not in ('reanalysis-era5-single-levels', 'reanalysis-era5-single-levels-timeseries', 'nsf-ncar-era5')
             or record['selection_manifest_sha256'] != selection_sha or record['source_metadata_sha256'] != metadata_sha
             or record['native_flat_indices'] != points.native_flat_index.astype(int).tolist()):
         raise ValueError('CDS补取证明与合格节点、时间或来源版本不一致')
+    if record['official_dataset'] != 'reanalysis-era5-single-levels':
+        comparisons = record['alternative_comparisons']
+        if set(comparisons) != {'official_2023_01', 'arco_2024_07'} or not all(
+                item['exact_equal'] and item['count'] == 744 * len(points) and item['max_abs_difference'] == 0
+                for item in comparisons.values()):
+            raise ValueError('替代来源未通过两个完整月份的逐值一致检查')
     for source in record['raw_sources']:
         directory = root / 'data/raw/era5-eligible-cds-repairs' / label
-        year = source['request']['year'][0]
-        if source.get('source_layout') == 'monthly':
+        layout = source.get('source_layout')
+        if layout == 'point_timeseries':
+            if record['official_dataset'] != 'reanalysis-era5-single-levels-timeseries' or source['dataset'] != record['official_dataset']:
+                raise ValueError('点位时间序列来源与证明不同')
+            request = source['request']
+            location = request['location']
+            matches = points.loc[(points.latitude == location['latitude']) &
+                                 (((points.longitude_0_360 + 180) % 360 - 180) == location['longitude'])]
+            if len(matches) != 1 or request['variable'] != ['2m_dewpoint_temperature'] or request['date'] != ['2023-01-01', '2024-07-31']:
+                raise ValueError('点位时间序列范围不符合授权')
+            raw = directory / 'timeseries' / f'{int(matches.native_flat_index.iloc[0])}.nc'
+        elif layout == 'ncar_extracted':
+            if record['official_dataset'] != 'nsf-ncar-era5' or source['dataset'] != 'nsf-ncar-era5' or source['month'] not in ['202301', *[f'2024{month:02d}' for month in range(1, 8)]]:
+                raise ValueError('NCAR补取来源或月份不符合授权')
+            if not source['source_url'].startswith('https://nsf-ncar-era5.s3.us-west-2.amazonaws.com/e5.oper.an.sfc/' + source['month'] + '/e5.oper.an.sfc.128_168_2d.'):
+                raise ValueError('NCAR补取原始对象不符合来源约束')
+            raw = directory / 'ncar' / (source['month'] + '.nc')
+        elif layout == 'monthly':
+            year = source['request']['year'][0]
             if prefix != 'dewpoint' or len(source['request']['month']) != 1 or year not in ('2024', '2025'):
                 raise ValueError('CDS按月原文的变量或时段超出授权补取范围')
             month = source['request']['month'][0]
             if month not in {f'{value:02d}' for value in range(1, 13)}:
                 raise ValueError('CDS按月原文月份无效')
+            if record.get('missing_only') and (year != '2024' or int(month) > 7):
+                raise ValueError('限定缺失月份的CDS原文超出2024年1至7月')
             raw = directory / f'{prefix}-monthly/{year}-{month}.nc'
         elif source.get('source_layout') is None:
+            year = source['request']['year'][0]
             raw = directory / f'{prefix}-{year}.nc'
         else:
             raise ValueError('未知的CDS原文时间布局')

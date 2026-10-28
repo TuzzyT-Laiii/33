@@ -22,9 +22,11 @@ REPAIR_GROUPS = {
 }
 
 
-def prepare(root, label, group='wind', monthly=False):
+def prepare(root, label, group='wind', monthly=False, missing_only=False):
     if monthly and group != 'dewpoint':
         raise ValueError('按月加速仅适用于本次露点补取')
+    if missing_only and (not monthly or group != 'dewpoint'):
+        raise ValueError('限定缺失月份要求按月露点补取')
     variables, cds_variables, expected_units = REPAIR_GROUPS[group]
     selection_path = root / 'data/metadata/buildability-20261025/selection-manifest.json'
     selection = json.loads(selection_path.read_text())
@@ -63,6 +65,13 @@ def prepare(root, label, group='wind', monthly=False):
                 latitude=xr.DataArray(points.latitude.to_numpy(), dims='weather_point'),
                 longitude=xr.DataArray(((points.longitude_0_360.to_numpy() + 180) % 360 - 180), dims='weather_point')).values
     session.close()
+    if missing_only:
+        missing = np.isnan(original['d2m'])
+        expected_missing = np.repeat(((times >= np.datetime64('2023-01-01')) &
+                                      (times < np.datetime64('2024-07-01')))[:, None], len(points), axis=1)
+        july = (times >= np.datetime64('2024-07-01')) & (times < np.datetime64('2024-08-01'))
+        if not np.array_equal(missing, expected_missing) or not np.isfinite(original['d2m'][july]).all():
+            raise ValueError('缺失月份或2024-07有效重合月不符合本次授权')
     if not any(np.isnan(value).any() for value in original.values()):
         raise ValueError('该空间块没有指定变量需要补取的缺失值')
     if any(np.isinf(value).any() for value in original.values()):
@@ -75,12 +84,18 @@ def prepare(root, label, group='wind', monthly=False):
     dataset = 'reanalysis-era5-single-levels'
     state_path = root / 'status' / f'era5-{group}-repair.json'
     state = {'status': f'fetching_official_{group}', 'block': label, 'variables': list(variables),
-             'strategy': 'monthly_sequential_with_existing_annual_reuse' if monthly else 'annual',
+             'strategy': 'missing_months_and_july_overlap' if missing_only else ('monthly_sequential_with_existing_annual_reuse' if monthly else 'annual'),
              'started_utc': utc_now(), 'jobs': {}}
     state_lock = threading.Lock()
     stopped = threading.Event()
     known_path = root / '.codex-temp/buildability-20261025' / f'cds-{group}-repair/known-jobs.json'
     known = json.loads(known_path.read_text())['jobs'] if known_path.exists() else []
+
+    def repair_ready():
+        if not proof_path.exists():
+            return False
+        proof = json.loads(proof_path.read_text())
+        return proof['status'] == 'verified'
 
     def update(year, status, request_id=None):
         with state_lock:
@@ -135,10 +150,12 @@ def prepare(root, label, group='wind', monthly=False):
             return False
 
     def fetch(year, month=None):
+        if missing_only and repair_ready():
+            return None
         if stopped.is_set():
             raise RuntimeError('其他补取请求失败，停止继续提交')
         period = str(year) if month is None else f'{year}-{month:02d}'
-        if month is not None and completed_annual(year):
+        if month is not None and not missing_only and completed_annual(year):
             update(period, 'covered_by_annual')
             return None
         request = request_for(year, month)
@@ -169,9 +186,11 @@ def prepare(root, label, group='wind', monthly=False):
                 raise ValueError('CDS服务端请求内容与本研究区域不同')
             quota_rejections = 0
             while True:
+                if missing_only and repair_ready():
+                    return None
                 if stopped.is_set():
                     raise RuntimeError('其他年度请求失败；现有CDS请求编号已保留')
-                if month is not None and completed_annual(year):
+                if month is not None and not missing_only and completed_annual(year):
                     update(period, 'covered_by_annual', remote.request_id)
                     return None
                 status = remote.status
@@ -217,8 +236,9 @@ def prepare(root, label, group='wind', monthly=False):
 
     received = {}
     if monthly:
-        periods = [(2023, None), (2024, 1), (2025, 1), (2026, None)] + [
-            (year, month) for month in range(2, 13) for year in (2024, 2025)]
+        periods = ([(2023, None)] + [(2024, month) for month in range(1, 8)]) if missing_only else (
+            [(2023, None), (2024, 1), (2025, 1), (2026, None)] + [
+                (year, month) for month in range(2, 13) for year in (2024, 2025)])
         for year, month in periods:
             received[(year, month)] = fetch(year, month)
     else:
@@ -235,13 +255,16 @@ def prepare(root, label, group='wind', monthly=False):
                         write_json(state_path, state)
                     raise error
                 received[futures[future]] = future.result()
+    if missing_only and repair_ready():
+        print(json.dumps({'status': 'verified_alternative_ready', 'block': label}), flush=True)
+        return
     records = [record for (year, month), record in received.items()
                if record is not None and (month is None or year not in annual_received)]
     records.extend(annual_received.values())
     records.sort(key=lambda item: (item['request']['year'][0], item['request']['month'][0]))
     datasets = [xr.open_dataset(record['path']) for record in records]
     combined = xr.concat(datasets, dim='valid_time').sortby('valid_time')
-    if combined.indexes['valid_time'].has_duplicates or combined.indexes['valid_time'].get_indexer(times).min() < 0:
+    if combined.indexes['valid_time'].has_duplicates or (not missing_only and combined.indexes['valid_time'].get_indexer(times).min() < 0):
         raise ValueError('CDS定向原文存在重复或缺少研究小时')
     table = pd.DataFrame({'time': np.repeat(times, len(points)),
                           'native_flat_index': np.tile(points.native_flat_index.to_numpy(dtype=np.int32), len(times))})
@@ -249,9 +272,27 @@ def prepare(root, label, group='wind', monthly=False):
     for name in variables:
         if combined[name].attrs.get('units') != expected_units:
             raise ValueError('CDS指定变量单位与研究要求不同')
-        values = combined[name].sel(valid_time=times).sel(
+        covered_times = combined.valid_time.values if missing_only else times
+        official = combined[name].sel(valid_time=covered_times).sel(
             latitude=xr.DataArray(points.latitude.to_numpy(), dims='weather_point'),
             longitude=xr.DataArray(((points.longitude_0_360.to_numpy() + 180) % 360 - 180), dims='weather_point')).values
+        if missing_only:
+            positions = pd.Index(times).get_indexer(covered_times)
+            if (positions.min() < 0 or official.dtype != np.dtype('float32') or not np.isfinite(official).all()
+                    or official.shape != (len(covered_times), len(points))):
+                raise ValueError('限定月份补取的时间、类型、坐标或数值无效')
+            covered_original = original[name][positions]
+            overlap = np.isfinite(covered_original)
+            difference = np.abs(official[overlap].astype(np.float64) - covered_original[overlap].astype(np.float64))
+            if int(overlap.sum()) != int(july.sum()) * len(points) or not np.array_equal(official[overlap], covered_original[overlap]):
+                raise ValueError(f'2024-07有效重合值不完全一致：最大差值{float(difference.max()) if difference.size else None}')
+            values = original[name].copy()
+            patch = np.isnan(covered_original)
+            selected = values[positions].copy()
+            selected[patch] = official[patch]
+            values[positions] = selected
+        else:
+            values = official
         if values.shape != original[name].shape or values.dtype != np.dtype('float32') or not np.isfinite(values).all():
             raise ValueError('CDS定向原文的形状、类型或完整性不符合要求')
         valid = np.isfinite(original[name])
@@ -259,8 +300,26 @@ def prepare(root, label, group='wind', monthly=False):
         checks[name] = {'original_nan_count': int(np.isnan(original[name]).sum()), 'verified_overlap_count': int(valid.sum()),
                         'max_abs_overlap_difference': float(difference.max()) if difference.size else None,
                         'exact_overlap_equal': bool(np.array_equal(values[valid], original[name][valid]))}
+        if missing_only:
+            checks[name].update(verified_overlap_count=int(overlap.sum()), overlap_period='2024-07',
+                                unchanged_original_finite_count=int(valid.sum()), overlap_source='official_month_vs_frozen_arco')
         table[name] = values.reshape(-1)
     output = root / 'data/interim/era5-eligible-cds-repairs' / (label + '.parquet')
+    if missing_only:
+        from era5_dewpoint_candidate import publish_candidate
+
+        report = {'block': label, 'variables': list(variables), 'source_file_prefix': group,
+                  'selection_manifest_sha256': sha(selection_path), 'source_metadata_sha256': metadata_sha,
+                  'hours': 26305, 'native_flat_indices': points.native_flat_index.astype(int).tolist(),
+                  'official_dataset': dataset, 'raw_sources': records, 'checks': checks, 'missing_only': True,
+                  'created_utc': utc_now(), 'acceptance': '2024-07逐值完全一致；仅使用官方同时间同节点数值填补NaN，保留全部原有效值'}
+        report = publish_candidate(root, table, report)
+        for dataset_object in datasets:
+            dataset_object.close()
+        state.update(status='verified', updated_utc=utc_now())
+        write_json(state_path, state)
+        print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
+        return
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix('.parquet.part')
     table.to_parquet(temporary, index=False, compression='zstd')
@@ -273,6 +332,7 @@ def prepare(root, label, group='wind', monthly=False):
               'selection_manifest_sha256': sha(selection_path), 'source_metadata_sha256': metadata_sha,
               'hours': 26305, 'native_flat_indices': points.native_flat_index.astype(int).tolist(),
               'official_dataset': dataset, 'raw_sources': records, 'checks': checks,
+              'missing_only': missing_only,
               'output_path': str(output), 'output_sha256': sha(output), 'output_bytes': output.stat().st_size}
     write_json(root / 'data/metadata/buildability-20261025/weather-cds-repairs' / (label + '.json'), report)
     state.update(status='awaiting_overlap_validation', updated_utc=utc_now())
@@ -286,7 +346,8 @@ if __name__ == '__main__':
     parser.add_argument('--block', required=True)
     parser.add_argument('--group', choices=REPAIR_GROUPS, default='wind')
     parser.add_argument('--monthly', action='store_true')
+    parser.add_argument('--missing-only', action='store_true')
     args = parser.parse_args()
     with (args.root.resolve() / f'.era5-{args.group}-repair.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        prepare(args.root.resolve(), args.block, args.group, args.monthly)
+        prepare(args.root.resolve(), args.block, args.group, args.monthly, args.missing_only)
