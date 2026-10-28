@@ -1,0 +1,146 @@
+{
+  "recorded_at_utc": "2026-10-28T09:49:55.844382+00:00",
+  "configuration_input_commit": "04125cf8fccc12217eb257e7449d7490ab160b14",
+  "configuration_dependency_pr": "https://github.com/TuzzyT-Laiii/33/pull/12",
+  "public_sources": [
+    {
+      "source_id": "spec_sr650",
+      "url": "https://www.spec.org/power_ssj2008/results/res2023q3/power_ssj2008-20230619-01282.html",
+      "http_status": 200,
+      "downloaded_bytes": 37323,
+      "sha256": "b9d2cee42eeaf30e91902f122e24d5f2d5be94a2f35336d5bfd9b71c316e7091",
+      "retrieved_at_utc": "2026-10-28T09:29:32.041523+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "spec_6448y",
+      "url": "https://www.spec.org/power_ssj2008/results/res2024q1/power_ssj2008-20240227-01377.html",
+      "http_status": 200,
+      "downloaded_bytes": 37404,
+      "sha256": "e5d9013d8dee4dfad83f5a6f37172f23dfde83f748c779bd4ae8b1a56ca34c35",
+      "retrieved_at_utc": "2026-10-28T09:29:33.286338+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "sr650_guide",
+      "url": "https://lenovopress.lenovo.com/lp1601-thinksystem-sr650-v3-server",
+      "http_status": 200,
+      "downloaded_bytes": 3663059,
+      "sha256": "e69d66bda84d81f9daeef01229a2f27326a89e8134a6c8bf2593bbf93f6debe8",
+      "retrieved_at_utc": "2026-10-28T09:49:52.307660+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "h100",
+      "url": "https://lenovopress.lenovo.com/lp1732-thinksystem-nvidia-h100-pcie-gen5-gpu",
+      "http_status": 200,
+      "downloaded_bytes": 384351,
+      "sha256": "4948308e35ceeef91c95082ed804fa89fc023cd447fd9e439e2fb51821982830",
+      "retrieved_at_utc": "2026-10-28T09:29:36.199167+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "dgx_h100",
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "http_status": 200,
+      "downloaded_bytes": 45842,
+      "sha256": "a70c13291fa999b55062ee70452648fbbbff1b677867c814bdc83e6825d2993d",
+      "retrieved_at_utc": "2026-10-28T09:29:34.920129+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "gb200_hardware",
+      "url": "https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html",
+      "http_status": 200,
+      "downloaded_bytes": 33529,
+      "sha256": "97dbc45676abec7422faf8573335a6795bc46931759efce45269f9b4c418957b",
+      "retrieved_at_utc": "2026-10-28T09:32:31.492006+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "gb200_1200",
+      "url": "https://www.supermicro.com/en/pressreleases/supermicro-grows-ai-optimized-product-portfolio-new-generation-systems-and-rack",
+      "http_status": 200,
+      "downloaded_bytes": 124948,
+      "sha256": "900b443f88e3be4f1e46d12018e96b6740bae6e144f75f57eb03e46c7453e2fb",
+      "retrieved_at_utc": "2026-10-28T09:32:33.514013+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "grace",
+      "url": "https://docs.nvidia.com/dccpu/grace-perf-tuning-guide/power-thermals.html",
+      "http_status": 200,
+      "downloaded_bytes": 52566,
+      "sha256": "e4509fa325721decfd98876c7a8a08b56363a2046fa80a5ed2283534f53b9e25",
+      "retrieved_at_utc": "2026-10-28T09:29:41.355033+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "h100_paper",
+      "url": "https://arxiv.org/html/2412.08602v2",
+      "http_status": 200,
+      "downloaded_bytes": 95864,
+      "sha256": "9c696c891b1a11504af54c58d17142fc1db0c9692edb37f98c83955629478a70",
+      "retrieved_at_utc": "2026-10-28T09:29:44.658407+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "alibaba",
+      "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2018/trace_2018.md",
+      "http_status": 200,
+      "downloaded_bytes": 6527,
+      "sha256": "daea8423c65cd24995500fcb6da103b1d4dec505f7b13ff2f6975caae0ede2fc",
+      "retrieved_at_utc": "2026-10-28T09:32:29.253642+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    },
+    {
+      "source_id": "alibaba_fetch",
+      "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2018/fetchData.sh",
+      "http_status": 200,
+      "downloaded_bytes": 582,
+      "sha256": "99ad99ce1379cc12d5e0842500df2c5e76dd41c03a774b1d54e84361b7212dcf",
+      "retrieved_at_utc": "2026-10-28T09:32:30.085539+00:00",
+      "read_scope": "full_text_retrieved; relevant_tables_and_sections_read",
+      "redistribution": "link_and_fact_extract_only"
+    }
+  ],
+  "usage": "公开来源的整机测量与器件规格作为依据；目标设备组件分解、空载及利用率转换保留assumption标记",
+  "license_scope": "公开网页仅归档URL、访问时间、校验值和相关事实；原始研究迹遵循既有来源审阅记录",
+  "source_trace_metadata": "data/metadata/task-trace-audit-20261026/asi-acme-validation.json",
+  "alibaba_2018": {
+    "status": "pending; partial_download_not_used",
+    "server": "pku-test",
+    "required_tables": [
+      "machine_usage",
+      "machine_meta"
+    ],
+    "public_usage_archive_bytes": 1774523160,
+    "usage_sha256_official": "3e6ee87fd204bb85b9e234c5c75a5096580fdabc8f085b224033080090753a7a",
+    "machine_meta_sha256_official": "b5b1b786b22cd413a3674b8f2ebfb2f02fac991c95df537f363ef2797c8f6d55",
+    "size_check_method": "HEAD request on pku-test; Content-Length",
+    "download_observation": "约3分钟后7.2MiB，平均约40KB/s，预计约12小时",
+    "action": "本任务启动的curl已停止；不完整文件仅存服务器专用目录，未参与负荷构造",
+    "partial_file": "/home/ljt/.codex-temp/typical-load-curves-20261028/data/raw/alibaba2018/machine_usage.tar.gz.part",
+    "scope": "本轮只尝试machine_usage；machine_meta尚未下载；没有获取container或batch表"
+  },
+  "liquid_cooling": {
+    "status": "pending",
+    "output_policy": "IT_only; facility_cooling_and_PUE_null",
+    "required_evidence": [
+      "CDU与泵效率",
+      "供回液温度及流量",
+      "残余风冷",
+      "室外温度对应的排热与制冷耗电"
+    ]
+  }
+}

@@ -64,3 +64,14 @@ dc-flexibility-project/results/server-count-scenarios-20261027/*.pdf binary
 # CPU 与 GB200 整柜情境保留生成文件的原始字节与校验值。
 dc-flexibility-project/results/server-count-scenarios-20261028/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/server-count-scenarios-20261028/*.pdf binary
+
+# 典型负荷曲线与功率参数保留跨平台校验值。
+dc-flexibility-project/analysis/typical_power_models.py text eol=lf
+dc-flexibility-project/analysis/build_typical_load_curves.py text eol=lf
+dc-flexibility-project/analysis/plot_typical_load_curves.py text eol=lf
+dc-flexibility-project/analysis/verify_typical_load_curves.py text eol=lf
+dc-flexibility-project/analysis/requirements-typical-load-curves.txt text eol=lf
+dc-flexibility-project/data/metadata/typical-load-curves-20261028.json -text
+dc-flexibility-project/results/typical-load-curves-20261028/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/typical-load-curves-20261028/*.pdf binary
+dc-flexibility-project/results/typical-load-curves-20261028/*.png binary
