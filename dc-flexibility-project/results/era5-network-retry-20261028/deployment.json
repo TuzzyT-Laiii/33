@@ -1,0 +1,118 @@
+{
+  "base_commit": "84a950660816e7308d8d7cf5113a285a07724a77",
+  "implementation_commit": "4496663",
+  "pull_request": "https://github.com/TuzzyT-Laiii/33/pull/18",
+  "server_root": "/data3/dataset/ljt/global-grid-flexibility-20261023",
+  "baseline_checked_utc": "2026-10-28T14:47:52.252103+00:00",
+  "deployed_utc": "2026-10-28T14:47:52.663261+00:00",
+  "readback_checked_utc": "2026-10-28T14:48:41.694699+00:00",
+  "content_comparison": "SHA-256 after removing every carriage return byte (\\r)",
+  "normalized_sha256_before": {
+    "era5_cds_request.py": "048a0f6c4b879555cbd15f30fcbc4d12d5932fd3ed22cf23604217b9348bf669",
+    "prepare_era5_wind_repair.py": "22e8960459006540cbcfc2e44d939fd2b63e492d9bdbafae1939cfb428fe6ecb"
+  },
+  "normalized_sha256_after": {
+    "era5_cds_request.py": "f3b18c1b63f71505e9e3b9be42d96a27acbeadfd440038fda692a19b27f8864a",
+    "prepare_era5_wind_repair.py": "b79e91fff0b6441737855860a2c0caf73f8c7f5d2fe33c66b92cd13d4b1757f7"
+  },
+  "verification_script_normalized_sha256": "47a43c6fa829b08f3fee4b05d20c1808106e48baeaa36ae31712cb4ad04129b8",
+  "scientific_and_controller_sha256_unchanged": {
+    "era5_source_validation.py": "5410bf7105e5857ba638ae43f8f55ce28a6c7f22c16f1658747c903c718fa55d",
+    "complete_era5_wind_repair.py": "d0fa18ffe05bc2e73e4c574d4b02a15a4483cec47cb3dc252c9ad7f90e09c333"
+  },
+  "all_controller_identities_preserved": true,
+  "controllers_restarted": false,
+  "activation": "新代码在控制器下次启动时生效；现有进程继续使用已加载代码",
+  "controllers": {
+    "lat-091-lon-353": {
+      "pid": 1382519,
+      "start_ticks": "40540729",
+      "command": "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/complete_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-091-lon-353 --group wind --start-formal",
+      "children": {
+        "1382832": {
+          "command": "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/prepare_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-091-lon-353 --group wind",
+          "start_ticks": "40540781"
+        }
+      },
+      "controller_status": "preparing",
+      "repair_updated_utc": "2026-10-28T14:44:17.021415+00:00",
+      "jobs": {
+        "2024": {
+          "status": "accepted",
+          "request_id": "a3a6ec4e-e781-45ae-be72-c409ada88f83"
+        }
+      }
+    },
+    "lat-144-lon-101": {
+      "pid": 1796196,
+      "start_ticks": "41102312",
+      "command": "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/complete_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-144-lon-101 --group wind --start-formal",
+      "children": {
+        "1796312": {
+          "command": "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/prepare_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-144-lon-101 --group wind",
+          "start_ticks": "41102377"
+        }
+      },
+      "controller_status": "preparing",
+      "repair_updated_utc": "2026-10-28T14:48:26.516351+00:00",
+      "jobs": {
+        "2024": {
+          "status": "accepted",
+          "request_id": "1f52dfb9-06d2-4a23-8396-131f9a4375f5"
+        }
+      }
+    },
+    "lat-160-lon-101": {
+      "pid": 1672228,
+      "start_ticks": "40937869",
+      "command": "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/complete_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-160-lon-101 --group wind --start-formal",
+      "children": {
+        "1672320": {
+          "command": "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/prepare_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-160-lon-101 --group wind",
+          "start_ticks": "40937938"
+        }
+      },
+      "controller_status": "preparing",
+      "repair_updated_utc": "2026-10-28T14:01:54.067532+00:00",
+      "jobs": {
+        "2023": {
+          "status": "waiting_for_queue_slot",
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b"
+        }
+      }
+    },
+    "lat-168-lon-278": {
+      "pid": 1204610,
+      "start_ticks": "40360886",
+      "command": "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/complete_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-168-lon-278 --group wind --start-formal",
+      "children": {
+        "1204693": {
+          "command": "/data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/prepare_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-168-lon-278 --group wind",
+          "start_ticks": "40360926"
+        }
+      },
+      "controller_status": "preparing",
+      "repair_updated_utc": "2026-10-28T14:48:26.720828+00:00",
+      "jobs": {
+        "2024": {
+          "status": "downloaded",
+          "request_id": "c3b07b86-e16a-4e70-a004-460f977f48eb"
+        },
+        "2023": {
+          "status": "downloaded",
+          "request_id": "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0"
+        },
+        "2025": {
+          "status": "accepted",
+          "request_id": "0fb4b759-531c-4cdc-b4e7-66af43698b96"
+        }
+      }
+    }
+  },
+  "formal_progress_command": ".venv/bin/python analysis/read_era5_formal_progress.py --root ROOT",
+  "formal_completed_blocks": 18418,
+  "total_required_blocks": 18422,
+  "overall_complete": false,
+  "formal_progress_scope": "实际回执及对应Parquet存在；不重复执行全量SHA或科学计算",
+  "server_backup_directory": "ROOT/.codex-temp/buildability-20261025/era5-network-retry-20261028"
+}

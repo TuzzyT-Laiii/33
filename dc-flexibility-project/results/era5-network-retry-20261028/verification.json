@@ -1,0 +1,67 @@
+{
+  "checked_utc": "2026-10-28T14:48:41.163583+00:00",
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "status": "passed",
+  "scientific_code_unchanged": true,
+  "live_state_compatibility": [
+    {
+      "block": "lat-091-lon-353",
+      "path": "wind-2023.request.json",
+      "request_id": "8f0b63c1-0a7b-4e7d-83ba-500393898b9a",
+      "history_entries_preserved": 0
+    },
+    {
+      "block": "lat-091-lon-353",
+      "path": "wind-2024.request.json",
+      "request_id": "a3a6ec4e-e781-45ae-be72-c409ada88f83",
+      "history_entries_preserved": 1
+    },
+    {
+      "block": "lat-144-lon-101",
+      "path": "wind-2023.request.json",
+      "request_id": "cda3a0d1-ab3d-4a5d-babd-5cfce48eb72b",
+      "history_entries_preserved": 0
+    },
+    {
+      "block": "lat-144-lon-101",
+      "path": "wind-2024.request.json",
+      "request_id": "1f52dfb9-06d2-4a23-8396-131f9a4375f5",
+      "history_entries_preserved": 1
+    },
+    {
+      "block": "lat-160-lon-101",
+      "path": "wind-2023.request.json",
+      "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+      "history_entries_preserved": 6
+    },
+    {
+      "block": "lat-160-lon-101",
+      "path": "wind-2024.request.json",
+      "request_id": "752c7c54-bb25-4c5f-980f-44322278366d",
+      "history_entries_preserved": 0
+    },
+    {
+      "block": "lat-168-lon-278",
+      "path": "wind-2023.request.json",
+      "request_id": "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0",
+      "history_entries_preserved": 0
+    },
+    {
+      "block": "lat-168-lon-278",
+      "path": "wind-2024.request.json",
+      "request_id": "c3b07b86-e16a-4e70-a004-460f977f48eb",
+      "history_entries_preserved": 0
+    },
+    {
+      "block": "lat-168-lon-278",
+      "path": "wind-2025.request.json",
+      "request_id": "0fb4b759-531c-4cdc-b4e7-66af43698b96",
+      "history_entries_preserved": 0
+    }
+  ],
+  "external_cds_calls": 0,
+  "new_cds_submissions": 0,
+  "scope": "离线异常与时间模拟；真实本机HTTP连接及ECMWF Remote验证503、断流和完整重下；未访问真实CDS"
+}
