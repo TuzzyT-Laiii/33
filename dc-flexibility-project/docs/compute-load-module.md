@@ -45,7 +45,7 @@ CPU 另输出核心占用代理数与累计核心代理小时；GPU 输出申请
 
 ## 2. 设备规模与 IT 功率
 
-当前设备情境见[五种 CPU/GPU 服务器与整柜配置](../results/server-count-scenarios-20261028/README.md)：C20/C21/C22/C28 每台为 2∶0、2∶1、2∶2、2∶8，R-GB200 每柜为 36∶72。四档规模按允许需求配对，共 52 个单元。`research_unit` 与 `per_unit` 字段明确完整服务器/机柜；数量、功率及算力分别核算，每类需要匹配的完整单元功率标定。运行功率和台数/柜数保持为空，下面的纯设备池参考实现及既有结果按原版本使用。
+当前设备情境见[五种 CPU/GPU 服务器与整柜配置 v2](../results/server-count-scenarios-20261028-v2/README.md)：C20/C21/C22/C28 每台为 2∶0、2∶1、2∶2、2∶8，R-GB200 每柜为 36∶72。四档规模按允许需求配对，共 52 个单元。C20 科研需求为 Lisa CPU；C21/C22/C28 科研需求为 MIT Supercloud GPU 执行作业及同作业宿主 CPU 分配（237 个完整日时间窗）。该分配占用须经活跃利用率及 H100 性能/功率映射后用于功率计算，典型曲线待统一重算。`research_unit` 与 `per_unit` 字段明确完整服务器/机柜；数量、功率及算力分别核算。运行功率和台数/柜数保留原标定状态，下面的纯设备池参考实现及既有结果按原输入版本使用。
 
 CPU 参考硬件为 HPE DL385 Gen10 Plus，2×EPYC 7763、128 物理核心、256 GB 内存。GPU 参考硬件为 8×H100 HGX 整机，含宿主 CPU 与内存。CPU 采用 SPECpower 的 11 个实测点；GPU 采用 Latif 等 Table I 的空闲、实际任务和 CPU/GPU 联合压力点。标定表随模块保存在 [assets](../analysis/compute_load/assets/)，计算时不访问网络。
 

@@ -1,0 +1,131 @@
+{
+  "checked_date": "2026-10-28",
+  "base_commit": "8b7c6eb",
+  "design_cells": 52,
+  "source_audit_sha256": "4d34bb0fa17007d3a9f615173d40bc31f587829fc55567c08145fd96e27caa8e",
+  "hourly_input_sha256": "474348642d7d86c2eecaa9c53dbfdd9d22364566f015bb3e837075f9a3bd27d0",
+  "source_raw_data_location": "/data3/dataset/ljt/lisa-gpu-demand-20261028/data/raw/mit-supercloud-202201",
+  "scenario_id_replacements": [
+    {
+      "old": "1MW_C21_lisa",
+      "new": "1MW_C21_mit-supercloud"
+    },
+    {
+      "old": "1MW_C22_lisa",
+      "new": "1MW_C22_mit-supercloud"
+    },
+    {
+      "old": "1MW_C28_lisa",
+      "new": "1MW_C28_mit-supercloud"
+    },
+    {
+      "old": "10MW_C21_lisa",
+      "new": "10MW_C21_mit-supercloud"
+    },
+    {
+      "old": "10MW_C22_lisa",
+      "new": "10MW_C22_mit-supercloud"
+    },
+    {
+      "old": "10MW_C28_lisa",
+      "new": "10MW_C28_mit-supercloud"
+    },
+    {
+      "old": "100MW_C21_lisa",
+      "new": "100MW_C21_mit-supercloud"
+    },
+    {
+      "old": "100MW_C22_lisa",
+      "new": "100MW_C22_mit-supercloud"
+    },
+    {
+      "old": "100MW_C28_lisa",
+      "new": "100MW_C28_mit-supercloud"
+    },
+    {
+      "old": "500MW_C21_lisa",
+      "new": "500MW_C21_mit-supercloud"
+    },
+    {
+      "old": "500MW_C22_lisa",
+      "new": "500MW_C22_mit-supercloud"
+    },
+    {
+      "old": "500MW_C28_lisa",
+      "new": "500MW_C28_mit-supercloud"
+    }
+  ],
+  "previous_result_files_sha256": {
+    "results/server-count-scenarios-20261027/manifest.json": "4ea40991a5b743ee809fd8fc171ddd08120182c746f4fbb726858c18a9752253",
+    "results/server-count-scenarios-20261027/README.md": "59157bde1b83d2425179d19f60e232d527eba8348731d73d952312ad2fa690c6",
+    "results/server-count-scenarios-20261027/scenario-matrix.csv": "88c877e5a1b1c1ae2c0f868115bc9b0ed442252d295279eef60e6f00a2ae8f7c",
+    "results/server-count-scenarios-20261027/scenario-matrix.json": "f523da5f22e9de06f63f8b98a4c29f37582a8cef77f03d149f54823528d96d78",
+    "results/server-count-scenarios-20261027/server-configurations.csv": "b71c4b8389af20656b9be14c1f08603a40089cc89fa72f776d764ec01381bd2a",
+    "results/server-count-scenarios-20261027/server-configurations.json": "fa06fca09354c926f3531d204f48b8ab0c3915ba5ac899fd0cb12e115502ec48",
+    "results/server-count-scenarios-20261027/validation.json": "fc25cc3f6da83b3993c584469a68843e0b52bca21918d967db6b31a01aebbcc5",
+    "results/server-count-scenarios-20261027/算力中心_单机CPU_GPU典型数量配比与需求来源说明_20261027.md": "46120184e2ffb3cc461877f13cd6e005bd631634054634870c123c0f983bd730",
+    "results/server-count-scenarios-20261027/算力中心_单机CPU_GPU典型数量配比与需求来源说明_20261027.pdf": "400416415fbb5a647032a728cb3e5785841027e116c390b5ca6f7bf64285abae",
+    "results/server-count-scenarios-20261028/manifest.json": "eb13652489eec67bc03eb761219f1acf8d0cc9ebee7c125160869f4ff8f1dad6",
+    "results/server-count-scenarios-20261028/README.md": "8e1b3761f429dfb1b97caf4c243c6d2582fbd232aefe0ac5e66ee54f9898cc0b",
+    "results/server-count-scenarios-20261028/scenario-matrix.csv": "3fccf0a750bb0cea49f9041a7fac5f1b20f7f9bfebff3c549d93d87264f6a111",
+    "results/server-count-scenarios-20261028/scenario-matrix.json": "2d2d61bff2b20e87a1110015c9c370000d1e3f368f5bc8b1325612167b3140d8",
+    "results/server-count-scenarios-20261028/server-configurations.csv": "7e6752f70ab6d8615effae2e51c2ebab6fadeea6a2e3da04f261d5c08c061e17",
+    "results/server-count-scenarios-20261028/server-configurations.json": "3f1fbffbe1444523858b5fd595604a9d71c5f2b31c49f57fc3a086a81a1ab007",
+    "results/server-count-scenarios-20261028/validation.json": "b752396607be75c7b4caee2c440557ee71e674f9e3b7e36ed0c33cc9c4189e28",
+    "results/server-count-scenarios-20261028/算力中心_CPU_GPU服务器与整柜情境及需求来源说明_20261028.md": "644105c222b95a9808816f74011b35ac966b21798cc06557403e665cc556c943",
+    "results/server-count-scenarios-20261028/算力中心_CPU_GPU服务器与整柜情境及需求来源说明_20261028.pdf": "304b5609a3223ea6423db5e5420cdbe4b06200e1293ac8e44e777dfba4cb002f",
+    "results/typical-load-curves-20261028/annual-summary.csv": "466fee739de6c417b11998a3de1a7b2b74132dd3166cfeea1aa44e289b5215f8",
+    "results/typical-load-curves-20261028/daily-envelope.csv": "5b7865d96713c24de11dc2ad9658ea8b5f5a68a62d0ec3d8b05cb6bf79ec315f",
+    "results/typical-load-curves-20261028/figure1-typical-weekday.pdf": "27e990bbda910f45001a02f40785c6628b463269d566c9b2237eea74eea12609",
+    "results/typical-load-curves-20261028/figure1-typical-weekday.png": "33a06f7f82f66f1eb835a9f83435a25ff01746ee39d4801cdf7b8cb7cdf818b5",
+    "results/typical-load-curves-20261028/figure2-typical-week.pdf": "820aae69b2a27d120036a1f3dcfdc903f72a4cc368af1c1412c7a2866fa4b945",
+    "results/typical-load-curves-20261028/figure2-typical-week.png": "daeaef1cb91b0b919bb25dc0063f3d602636ddc734b43a3b40142195539a0c17",
+    "results/typical-load-curves-20261028/figure3-annual-envelope.pdf": "46301e751eda2c068a1257f4cbf0f7c7152d2f43a9b06be72ebc3b3e1da380ee",
+    "results/typical-load-curves-20261028/figure3-annual-envelope.png": "e45c2d4b2b0e64448a0b87988f8e9293308a614fff503ee1e609bec4927e6fa5",
+    "results/typical-load-curves-20261028/figure4-power-components.pdf": "f011a3642418efe41324eb88a48075cca2f2366c6ffa801a118b449aaf80866b",
+    "results/typical-load-curves-20261028/figure4-power-components.png": "92f5a5676b02b0eeca72fa891d864e2e6503084c15987461d1281356876c8d4a",
+    "results/typical-load-curves-20261028/manifest.json": "8bd9af5027f199a271b1b0140d139d2b335d860aeb84513f6f3e96a1e56fadfe",
+    "results/typical-load-curves-20261028/power-parameters.csv": "03b20000011ae05c1b73330d3a5ebb3caab9a5b3337b3cde50dea845dce7e457",
+    "results/typical-load-curves-20261028/power-sources.md": "03aa1be9fbd5bc3297988b7c166d4e37c5504b7b591348411c1ef5fb5af643cf",
+    "results/typical-load-curves-20261028/README.md": "31be5671ca024f45600145ecd3e9cb0450cc6d9226d59e6f2af53c16028887c2",
+    "results/typical-load-curves-20261028/representative-week-selection.csv": "6f05d70648c1652b4cae173b85774d31dc5e0f93ba1c12a3ce97141021bb74f2",
+    "results/typical-load-curves-20261028/sensitivity-summary.csv": "e370974a9c689377f6146f5d5de1a8773702486244d63f15ae145d0a6a90d909",
+    "results/typical-load-curves-20261028/specpower-evidence.csv": "94b18d3cb6864fc32e10b67700c4fca0d0d0315c4d247c8ac0babf21a5dc7e01",
+    "results/typical-load-curves-20261028/typical-weekday.csv": "5d4266a24bd59c69d96c8aef4cb0c109708ae20ca06ee78fb422eed429a12136",
+    "results/typical-load-curves-20261028/validation.json": "7f82f06f7e595238f3bd6a6a611962d5580c8acaf0c3d3d127216a99cc29916d"
+  },
+  "new_typical_power_curves_computed": 0,
+  "figures": {
+    "selected_week_start": "2021-04-19 00:00:00",
+    "selected_week_hours": 168,
+    "annual_replay_hours": 8760,
+    "daily_rows": 365,
+    "observed_days": 237,
+    "repeated_days": 128,
+    "zero_allocation_days_observed": 2,
+    "annual_replay_sha256": "01164083e54da2e4288686e64b4a1f0613fd8ad08cde7adae30b624b42f2d07c"
+  },
+  "source_code_sha256": {
+    "build_server_count_scenarios.py": "9a31488b17ecf9de3726cf0077d2db93903a45e15a5f443f3fd89de02e393290",
+    "build_server_count_scenarios_v2.py": "5c5fe6a79ae51355af648393c03dc9d8f3a180f2fded6789568cbddfe366ed20",
+    "acquire_research_gpu_source.py": "bdf8902c5d0201f4e466886378cbe358dbe6f8ded758be22c4d530c8aa52d2db",
+    "audit_research_gpu_demand.py": "d6e90754618877d5c4fa4e5b4b1a016847add68b1f9449fb07a6391f7cb215bb",
+    "task_trace_inputs.py": "5c88a4a22be0372be4c563bf711a031917d0aec67100f3f978392f3fcea3d0f6",
+    "verify_research_gpu_demand.py": "6aa5e3ddf257b2f1cc64a27b43bbeb5843e4044d46eb07e42af5b0750065da35"
+  },
+  "files_sha256": {
+    "README.md": "4c7560d75ebb04c97688e23432a0ac4ff8c0722ad598276f4791033de40dc777",
+    "research-gpu-annual-daily.pdf": "3f814e0aacc34b5be34afd2e2dcdd9545feb96692dcd2bcbea11cd01c7bf4d5c",
+    "research-gpu-annual-daily.png": "e5616266940e55ec8b785240a19fc57b690b25346da8f4d92bc058b49c561a3c",
+    "research-gpu-week.pdf": "d42f912b91a8f34ae1d4a73146070220c093f25becd4aac861b2329cb72cb1f9",
+    "research-gpu-week.png": "dc30a268aac6b412c0fa78877d76ba696e55a29d699df3e734f257f2d6822ca4",
+    "scenario-matrix.csv": "557302b3a46bf41e58d81648a2cceabbfbfc4e7f5a358a424f2a82a24b8ecdd3",
+    "scenario-matrix.json": "dcdaced69c7a8509f3bf3172b52c7570074eeb0b0f78f058f0ad8397c66bd019",
+    "server-configurations.csv": "7e6752f70ab6d8615effae2e51c2ebab6fadeea6a2e3da04f261d5c08c061e17",
+    "server-configurations.json": "3f1fbffbe1444523858b5fd595604a9d71c5f2b31c49f57fc3a086a81a1ab007",
+    "validation.json": "d01ed70dee41f8425623a4c965ede441ac79b99189484c51a0c6b18546e8f79a",
+    "week-selection.csv": "202c8a9e317e32174d067230f83fdb1610b11663732eb8511022efd7a963428b",
+    "科研GPU需求与服务器配置矩阵_20261028_v2.md": "ad3b3ff3161da48c0d1cd61689b356dbf1e589e00ca2c78aa6cc108129e6cf4a",
+    "科研GPU需求与服务器配置矩阵_20261028_v2.pdf": "7fef83e88b43a22fa43e4c57e3f142baef2f25b1a11531b7fd041ae63f852475"
+  }
+}

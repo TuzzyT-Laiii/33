@@ -85,3 +85,14 @@ dc-flexibility-project/results/cooling-recalibration-20261028-v2/** -text whites
 dc-flexibility-project/results/cooling-recalibration-20261028-v2/*.pdf binary
 dc-flexibility-project/results/cooling-recalibration-20261028-v2/*.png binary
 dc-flexibility-project/data/metadata/cooling-recalibration-20261028-v2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# 科研 GPU 需求审计与 v2 矩阵保留原始字节及代码 LF 指纹。
+dc-flexibility-project/analysis/acquire_research_gpu_source.py text eol=lf
+dc-flexibility-project/analysis/audit_research_gpu_demand.py text eol=lf
+dc-flexibility-project/analysis/build_server_count_scenarios_v2.py text eol=lf
+dc-flexibility-project/analysis/verify_research_gpu_demand.py text eol=lf
+dc-flexibility-project/analysis/requirements-research-gpu-demand.txt text eol=lf
+dc-flexibility-project/data/metadata/research-gpu-demand-20261028/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/server-count-scenarios-20261028-v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/server-count-scenarios-20261028-v2/*.pdf binary
+dc-flexibility-project/results/server-count-scenarios-20261028-v2/*.png binary

@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "design_cells": 52,
+  "configurations": 5,
+  "cells_per_scale": 13,
+  "checks": [
+    "52_unique_cells",
+    "no_Lisa_CPU_on_GPU_configurations",
+    "12_research_GPU_replacements",
+    "40_other_cells_unchanged",
+    "hardware_catalog_unchanged",
+    "CSV_JSON_readback",
+    "4_scales_13_cells_each",
+    "old_result_SHA256_preserved",
+    "Lisa_official_MD5",
+    "Lisa_original_bytes_preserved",
+    "MIT_S3_ETag",
+    "resource_hour_conservation",
+    "96_real_independent_interval_checks",
+    "same_phase_CPU_GPU_replay",
+    "4_page_PDF_text_bounds"
+  ],
+  "cooling_type_counts": {
+    "air": 44,
+    "direct_liquid": 8
+  },
+  "source_quality": {
+    "selected_gpu_execution_rows": 98176,
+    "full_calendar_days": 237,
+    "observed_hours": 5688,
+    "nonzero_gpu_days": 235
+  },
+  "figures": {
+    "selected_week_start": "2021-04-19 00:00:00",
+    "selected_week_hours": 168,
+    "annual_replay_hours": 8760,
+    "daily_rows": 365,
+    "observed_days": 237,
+    "repeated_days": 128,
+    "zero_allocation_days_observed": 2,
+    "annual_replay_sha256": "01164083e54da2e4288686e64b4a1f0613fd8ad08cde7adae30b624b42f2d07c"
+  },
+  "new_typical_power_curves_computed": 0,
+  "scientific_scope": "GPU_requested_execution_allocation_demand; no_active_utilization_or_power_inference",
+  "delivery_verification_checks": 165,
+  "render_review": {
+    "status": "passed",
+    "report_pages": 4,
+    "figure_PNGs": 2,
+    "figure_PDF_pages": 2,
+    "method": "PNG and Poppler PDF rendering visually inspected"
+  }
+}
