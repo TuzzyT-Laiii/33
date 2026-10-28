@@ -1,0 +1,637 @@
+{
+  "checked_utc": "2026-10-28T13:55:42.365682+00:00",
+  "status": "passed",
+  "legacy_retry_count": 5,
+  "migrated_retry_count": 1,
+  "preserved_history_entries": 6,
+  "queue_rejection_does_not_consume_retry_budget": true,
+  "ordinary_retry_limit_enforced": true,
+  "restart_preserves_state": true,
+  "queue_wait_limit_seconds": 259200,
+  "deadline_enforced": true,
+  "delay_ranges_seconds": {
+    "1": [
+      270.60953352788937,
+      329.41116776137517
+    ],
+    "2": [
+      540.0137317838523,
+      658.6348559078633
+    ],
+    "3": [
+      1080.9026166718197,
+      1318.6529948031496
+    ],
+    "4": [
+      2164.1650537837368,
+      2639.8989862422395
+    ],
+    "5": [
+      3244.25413730081,
+      3600
+    ],
+    "1000000": [
+      3242.547622322072,
+      3600
+    ]
+  },
+  "real_cds_paginated_active_jobs": {
+    "a3a6ec4e-e781-45ae-be72-c409ada88f83": "accepted",
+    "1f52dfb9-06d2-4a23-8396-131f9a4375f5": "accepted",
+    "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0": "accepted"
+  },
+  "global_gate": {
+    "checked_utc": "2026-10-28T13:55:41.156546+00:00",
+    "max_active_requests": 2,
+    "active_requests": {
+      "a3a6ec4e-e781-45ae-be72-c409ada88f83": "accepted",
+      "1f52dfb9-06d2-4a23-8396-131f9a4375f5": "accepted",
+      "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0": "accepted"
+    },
+    "active_count": 3
+  },
+  "active_tokens_not_double_counted_and_terminal_token_released": true,
+  "cross_process_lock_exclusion_and_release": true,
+  "scientific_validation_and_request_unchanged": true,
+  "new_cds_submissions": 0,
+  "events": [
+    {
+      "status": "waiting_for_queue_slot",
+      "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+      "history": [
+        {
+          "request_id": "3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 3f00987f-8171-4e0d-9ad7-cb3d0df08b2c deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+            "trace_id": "f0ae845a-0919-4402-81b3-cf97f44429de"
+          },
+          "retired_utc": "2026-10-28T12:57:11.555234+00:00",
+          "retry_count": 0
+        },
+        {
+          "request_id": "96757d14-83df-4621-acd6-61ddf6506f1b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/96757d14-83df-4621-acd6-61ddf6506f1b/results",
+            "trace_id": "8467111e-65fd-47e2-9907-b018f7ebc04e",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T12:58:36.879963+00:00",
+          "retry_count": 1
+        },
+        {
+          "request_id": "9f0a92a9-62aa-40a2-b683-78ca0cdacfd3",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/9f0a92a9-62aa-40a2-b683-78ca0cdacfd3/results",
+            "trace_id": "44207312-57ee-45a6-8317-6212f3789631",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:06:36.933922+00:00",
+          "retry_count": 2
+        },
+        {
+          "request_id": "54fd7839-1106-43c8-8e4a-be4263c3360c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/54fd7839-1106-43c8-8e4a-be4263c3360c/results",
+            "trace_id": "f9d88c29-d79e-4996-9b40-9fa2ba44d17b",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:12:28.871315+00:00",
+          "retry_count": 3
+        },
+        {
+          "request_id": "a0c31c24-f91e-43d3-9668-8c7fa85f0a2c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/a0c31c24-f91e-43d3-9668-8c7fa85f0a2c/results",
+            "trace_id": "b04ef019-5867-46bd-8e77-62a5ba595cb2",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:21:09.144824+00:00",
+          "retry_count": 4
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:36:32.318793+00:00",
+          "retry_count": 5
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:55:36.480638+00:00",
+          "retry_count": 5
+        }
+      ],
+      "retry_count": 5,
+      "retry_limit": 5,
+      "queue_wait_attempts": 6,
+      "queue_wait_seconds": 0.0,
+      "queue_wait_deadline_utc": "2026-10-31T12:58:36.879963+00:00",
+      "next_retry_utc": "2026-10-28T14:55:36.480712+00:00"
+    },
+    {
+      "status": "waiting_for_queue_slot",
+      "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+      "history": [
+        {
+          "request_id": "3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 3f00987f-8171-4e0d-9ad7-cb3d0df08b2c deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+            "trace_id": "f0ae845a-0919-4402-81b3-cf97f44429de"
+          },
+          "retired_utc": "2026-10-28T12:57:11.555234+00:00",
+          "retry_count": 0
+        },
+        {
+          "request_id": "96757d14-83df-4621-acd6-61ddf6506f1b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/96757d14-83df-4621-acd6-61ddf6506f1b/results",
+            "trace_id": "8467111e-65fd-47e2-9907-b018f7ebc04e",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T12:58:36.879963+00:00",
+          "retry_count": 1
+        },
+        {
+          "request_id": "9f0a92a9-62aa-40a2-b683-78ca0cdacfd3",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/9f0a92a9-62aa-40a2-b683-78ca0cdacfd3/results",
+            "trace_id": "44207312-57ee-45a6-8317-6212f3789631",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:06:36.933922+00:00",
+          "retry_count": 2
+        },
+        {
+          "request_id": "54fd7839-1106-43c8-8e4a-be4263c3360c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/54fd7839-1106-43c8-8e4a-be4263c3360c/results",
+            "trace_id": "f9d88c29-d79e-4996-9b40-9fa2ba44d17b",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:12:28.871315+00:00",
+          "retry_count": 3
+        },
+        {
+          "request_id": "a0c31c24-f91e-43d3-9668-8c7fa85f0a2c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/a0c31c24-f91e-43d3-9668-8c7fa85f0a2c/results",
+            "trace_id": "b04ef019-5867-46bd-8e77-62a5ba595cb2",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:21:09.144824+00:00",
+          "retry_count": 4
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:36:32.318793+00:00",
+          "retry_count": 5
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:55:36.480638+00:00",
+          "retry_count": 5
+        }
+      ],
+      "retry_count": 5,
+      "retry_limit": 5,
+      "queue_wait_attempts": 6,
+      "queue_wait_seconds": 0.0,
+      "queue_wait_deadline_utc": "2026-10-31T12:58:36.879963+00:00",
+      "next_retry_utc": "2026-10-28T14:55:36.480712+00:00"
+    },
+    {
+      "status": "queue_wait_exhausted",
+      "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+      "history": [
+        {
+          "request_id": "3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 3f00987f-8171-4e0d-9ad7-cb3d0df08b2c deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+            "trace_id": "f0ae845a-0919-4402-81b3-cf97f44429de"
+          },
+          "retired_utc": "2026-10-28T12:57:11.555234+00:00",
+          "retry_count": 0
+        },
+        {
+          "request_id": "96757d14-83df-4621-acd6-61ddf6506f1b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/96757d14-83df-4621-acd6-61ddf6506f1b/results",
+            "trace_id": "8467111e-65fd-47e2-9907-b018f7ebc04e",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T12:58:36.879963+00:00",
+          "retry_count": 1
+        },
+        {
+          "request_id": "9f0a92a9-62aa-40a2-b683-78ca0cdacfd3",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/9f0a92a9-62aa-40a2-b683-78ca0cdacfd3/results",
+            "trace_id": "44207312-57ee-45a6-8317-6212f3789631",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:06:36.933922+00:00",
+          "retry_count": 2
+        },
+        {
+          "request_id": "54fd7839-1106-43c8-8e4a-be4263c3360c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/54fd7839-1106-43c8-8e4a-be4263c3360c/results",
+            "trace_id": "f9d88c29-d79e-4996-9b40-9fa2ba44d17b",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:12:28.871315+00:00",
+          "retry_count": 3
+        },
+        {
+          "request_id": "a0c31c24-f91e-43d3-9668-8c7fa85f0a2c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/a0c31c24-f91e-43d3-9668-8c7fa85f0a2c/results",
+            "trace_id": "b04ef019-5867-46bd-8e77-62a5ba595cb2",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:21:09.144824+00:00",
+          "retry_count": 4
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:36:32.318793+00:00",
+          "retry_count": 5
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:55:36.480638+00:00",
+          "retry_count": 5
+        }
+      ],
+      "retry_count": 5,
+      "retry_limit": 5,
+      "queue_wait_attempts": 6,
+      "queue_wait_seconds": 0.0,
+      "queue_wait_deadline_utc": "2026-10-28T13:55:35.487223+00:00",
+      "next_retry_utc": "2026-10-28T14:55:36.480712+00:00"
+    },
+    {
+      "status": "retry_exhausted",
+      "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+      "history": [
+        {
+          "request_id": "3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 3f00987f-8171-4e0d-9ad7-cb3d0df08b2c deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+            "trace_id": "f0ae845a-0919-4402-81b3-cf97f44429de"
+          },
+          "retired_utc": "2026-10-28T12:57:11.555234+00:00",
+          "retry_count": 0
+        },
+        {
+          "request_id": "96757d14-83df-4621-acd6-61ddf6506f1b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/96757d14-83df-4621-acd6-61ddf6506f1b/results",
+            "trace_id": "8467111e-65fd-47e2-9907-b018f7ebc04e",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T12:58:36.879963+00:00",
+          "retry_count": 1
+        },
+        {
+          "request_id": "9f0a92a9-62aa-40a2-b683-78ca0cdacfd3",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/9f0a92a9-62aa-40a2-b683-78ca0cdacfd3/results",
+            "trace_id": "44207312-57ee-45a6-8317-6212f3789631",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:06:36.933922+00:00",
+          "retry_count": 2
+        },
+        {
+          "request_id": "54fd7839-1106-43c8-8e4a-be4263c3360c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/54fd7839-1106-43c8-8e4a-be4263c3360c/results",
+            "trace_id": "f9d88c29-d79e-4996-9b40-9fa2ba44d17b",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:12:28.871315+00:00",
+          "retry_count": 3
+        },
+        {
+          "request_id": "a0c31c24-f91e-43d3-9668-8c7fa85f0a2c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/a0c31c24-f91e-43d3-9668-8c7fa85f0a2c/results",
+            "trace_id": "b04ef019-5867-46bd-8e77-62a5ba595cb2",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:21:09.144824+00:00",
+          "retry_count": 4
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:36:32.318793+00:00",
+          "retry_count": 5
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:55:36.480638+00:00",
+          "retry_count": 5
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 3f00987f-8171-4e0d-9ad7-cb3d0df08b2c deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+            "trace_id": "f0ae845a-0919-4402-81b3-cf97f44429de"
+          },
+          "retired_utc": "2026-10-28T13:55:36.489098+00:00",
+          "retry_count": 5
+        }
+      ],
+      "retry_count": 5,
+      "retry_limit": 5,
+      "queue_wait_attempts": 6,
+      "queue_wait_seconds": 0.0,
+      "queue_wait_deadline_utc": "2026-10-28T13:55:35.487223+00:00",
+      "next_retry_utc": "2026-10-28T14:10:36.489120+00:00"
+    },
+    {
+      "status": "retry_exhausted",
+      "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+      "history": [
+        {
+          "request_id": "3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 3f00987f-8171-4e0d-9ad7-cb3d0df08b2c deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+            "trace_id": "f0ae845a-0919-4402-81b3-cf97f44429de"
+          },
+          "retired_utc": "2026-10-28T12:57:11.555234+00:00",
+          "retry_count": 0
+        },
+        {
+          "request_id": "96757d14-83df-4621-acd6-61ddf6506f1b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/96757d14-83df-4621-acd6-61ddf6506f1b/results",
+            "trace_id": "8467111e-65fd-47e2-9907-b018f7ebc04e",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T12:58:36.879963+00:00",
+          "retry_count": 1
+        },
+        {
+          "request_id": "9f0a92a9-62aa-40a2-b683-78ca0cdacfd3",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/9f0a92a9-62aa-40a2-b683-78ca0cdacfd3/results",
+            "trace_id": "44207312-57ee-45a6-8317-6212f3789631",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:06:36.933922+00:00",
+          "retry_count": 2
+        },
+        {
+          "request_id": "54fd7839-1106-43c8-8e4a-be4263c3360c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/54fd7839-1106-43c8-8e4a-be4263c3360c/results",
+            "trace_id": "f9d88c29-d79e-4996-9b40-9fa2ba44d17b",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:12:28.871315+00:00",
+          "retry_count": 3
+        },
+        {
+          "request_id": "a0c31c24-f91e-43d3-9668-8c7fa85f0a2c",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/a0c31c24-f91e-43d3-9668-8c7fa85f0a2c/results",
+            "trace_id": "b04ef019-5867-46bd-8e77-62a5ba595cb2",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:21:09.144824+00:00",
+          "retry_count": 4
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:36:32.318793+00:00",
+          "retry_count": 5
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "rejected",
+          "reason": {
+            "type": "job results failed",
+            "title": "The job has been rejected",
+            "status": 400,
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/419204dc-dd46-4703-beb9-fff4f3e65b7b/results",
+            "trace_id": "b0f6ad66-bc51-4efd-a25a-c4ed837e255c",
+            "traceback": "Maximum number queued requests for this dataset has been reached. Please configure your scripts to request data sequentially"
+          },
+          "retired_utc": "2026-10-28T13:55:36.480638+00:00",
+          "retry_count": 5
+        },
+        {
+          "request_id": "419204dc-dd46-4703-beb9-fff4f3e65b7b",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 3f00987f-8171-4e0d-9ad7-cb3d0df08b2c deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+            "trace_id": "f0ae845a-0919-4402-81b3-cf97f44429de"
+          },
+          "retired_utc": "2026-10-28T13:55:36.489098+00:00",
+          "retry_count": 5
+        }
+      ],
+      "retry_count": 5,
+      "retry_limit": 5,
+      "queue_wait_attempts": 6,
+      "queue_wait_seconds": 0.0,
+      "queue_wait_deadline_utc": "2026-10-28T13:55:35.487223+00:00",
+      "next_retry_utc": "2026-10-28T14:10:36.489120+00:00"
+    }
+  ]
+}
