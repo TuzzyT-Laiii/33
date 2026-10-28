@@ -1,0 +1,125 @@
+{
+  "document": "算力中心_CPU_GPU服务器与整柜情境及需求来源说明_20261028.pdf",
+  "pages": 10,
+  "checked_date": "2026-10-28",
+  "ratio_basis": "physical_CPU_package_and_GPU_device_counts_per_explicit_research_unit",
+  "configurations": 5,
+  "design_cells": 52,
+  "new_hourly_curves_computed": 0,
+  "previous_version": "server-count-scenarios-20261027",
+  "previous_version_files_sha256": {
+    "manifest.json": "4ea40991a5b743ee809fd8fc171ddd08120182c746f4fbb726858c18a9752253",
+    "README.md": "59157bde1b83d2425179d19f60e232d527eba8348731d73d952312ad2fa690c6",
+    "scenario-matrix.csv": "88c877e5a1b1c1ae2c0f868115bc9b0ed442252d295279eef60e6f00a2ae8f7c",
+    "scenario-matrix.json": "f523da5f22e9de06f63f8b98a4c29f37582a8cef77f03d149f54823528d96d78",
+    "server-configurations.csv": "b71c4b8389af20656b9be14c1f08603a40089cc89fa72f776d764ec01381bd2a",
+    "server-configurations.json": "fa06fca09354c926f3531d204f48b8ab0c3915ba5ac899fd0cb12e115502ec48",
+    "validation.json": "fc25cc3f6da83b3993c584469a68843e0b52bca21918d967db6b31a01aebbcc5",
+    "算力中心_单机CPU_GPU典型数量配比与需求来源说明_20261027.md": "46120184e2ffb3cc461877f13cd6e005bd631634054634870c123c0f983bd730",
+    "算力中心_单机CPU_GPU典型数量配比与需求来源说明_20261027.pdf": "400416415fbb5a647032a728cb3e5785841027e116c390b5ca6f7bf64285abae"
+  },
+  "demand_pairings": {
+    "C20": [
+      "Lisa",
+      "Alibaba Cluster Trace 2018"
+    ],
+    "C21": [
+      "Lisa",
+      "Acme Kalos",
+      "ASI"
+    ],
+    "C22": [
+      "Lisa",
+      "Acme Kalos",
+      "ASI"
+    ],
+    "C28": [
+      "Lisa",
+      "Acme Kalos",
+      "ASI"
+    ],
+    "R-GB200": [
+      "Acme Kalos",
+      "ASI"
+    ]
+  },
+  "cooling_type_counts": {
+    "air": 44,
+    "direct_liquid": 8
+  },
+  "new_liquid_cooling_model_implemented": false,
+  "Alibaba_2018_raw_data_downloaded": false,
+  "references": [
+    {
+      "label": "[1] Lenovo SR650 V3：双路平台、CPU 选件、GPU 表 84 与插槽/散热规则。",
+      "url": "https://lenovopress.lenovo.com/lp1601-thinksystem-sr650-v3-server"
+    },
+    {
+      "label": "[2] NVIDIA DGX H100/H200：固定 CPU/GPU 配置与整机最大功率。",
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html"
+    },
+    {
+      "label": "[3] NVIDIA DGX B200：另一代双 CPU、八 GPU 整机。",
+      "url": "https://docs.nvidia.com/dgx/dgxb200-user-guide/introduction-to-dgxb200.html"
+    },
+    {
+      "label": "[4] Latif 等：AMD EPYC 9354、8 张 H100 的 HGX 节点功率实测。",
+      "url": "https://arxiv.org/html/2412.08602v1"
+    },
+    {
+      "label": "[5] SURF Lisa v3：科研超算作业、硬件与 30 秒监测。",
+      "url": "https://zenodo.org/records/13685426"
+    },
+    {
+      "label": "[6] AcmeTrace：大模型开发作业与资源分配。",
+      "url": "https://github.com/InternLM/AcmeTrace"
+    },
+    {
+      "label": "[7] Alibaba ASI 2026：生产 AI 小时数据的官方字段。",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-gpu-v2026/docs/schema.md"
+    },
+    {
+      "label": "[8] Alibaba 2018：CPU 在线服务与批处理混部，约 4000 台、8 天。",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-v2018/trace_2018.md"
+    },
+    {
+      "label": "[9] Microsoft Philly：训练任务、GPU/CPU 分钟监测与服务器 GPU 库存。",
+      "url": "https://github.com/msr-fiddle/philly-traces"
+    },
+    {
+      "label": "[10] Google 2019：可与任务记录关联的 57 个电力域功率。",
+      "url": "https://github.com/google/cluster-data/blob/master/PowerData2019.md"
+    },
+    {
+      "label": "[11] NVIDIA GB200 NVL72：CPU 核心与 GPU 显存规格。",
+      "url": "https://www.nvidia.com/en-us/data-center/gb200-nvl72/"
+    },
+    {
+      "label": "[12] NVIDIA DGX GB 硬件指南：托盘组成、冷板液冷及约 120 kW 整柜功耗。",
+      "url": "https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html"
+    },
+    {
+      "label": "[13] NVIDIA GB200 参考架构：每托盘两个 GB200 Superchip、四个 B200 GPU。",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-gb200/latest/dgx-superpod-components.html"
+    },
+    {
+      "label": "[14] NVIDIA DGX GB200 数据表：整柜规格，未列外部机械尺寸。",
+      "url": "https://resources.nvidia.com/en-us-dgx-systems/dgx-superpod-gb200-datasheet"
+    },
+    {
+      "label": "[15] Alibaba 2018 官方 schema：CPU、机器/容器监测及任务字段。",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-v2018/schema.txt"
+    }
+  ],
+  "source_code_sha256": "2c4b12e6a9fe3ea17e3944abfa2fb1f67831dda6177075269943c4ef910daee9",
+  "files_sha256": {
+    "README.md": "8e1b3761f429dfb1b97caf4c243c6d2582fbd232aefe0ac5e66ee54f9898cc0b",
+    "scenario-matrix.csv": "3fccf0a750bb0cea49f9041a7fac5f1b20f7f9bfebff3c549d93d87264f6a111",
+    "scenario-matrix.json": "2d2d61bff2b20e87a1110015c9c370000d1e3f368f5bc8b1325612167b3140d8",
+    "server-configurations.csv": "7e6752f70ab6d8615effae2e51c2ebab6fadeea6a2e3da04f261d5c08c061e17",
+    "server-configurations.json": "3f1fbffbe1444523858b5fd595604a9d71c5f2b31c49f57fc3a086a81a1ab007",
+    "validation.json": "b752396607be75c7b4caee2c440557ee71e674f9e3b7e36ed0c33cc9c4189e28",
+    "算力中心_CPU_GPU服务器与整柜情境及需求来源说明_20261028.md": "644105c222b95a9808816f74011b35ac966b21798cc06557403e665cc556c943",
+    "算力中心_CPU_GPU服务器与整柜情境及需求来源说明_20261028.pdf": "304b5609a3223ea6423db5e5420cdbe4b06200e1293ac8e44e777dfba4cb002f"
+  }
+}

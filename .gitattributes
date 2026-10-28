@@ -60,3 +60,7 @@ dc-flexibility-project/results/scenario-load-methods-20261026-v2/*.png binary
 dc-flexibility-project/analysis/build_server_count_scenarios.py text eol=lf
 dc-flexibility-project/results/server-count-scenarios-20261027/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/server-count-scenarios-20261027/*.pdf binary
+
+# CPU 与 GB200 整柜情境保留生成文件的原始字节与校验值。
+dc-flexibility-project/results/server-count-scenarios-20261028/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/server-count-scenarios-20261028/*.pdf binary
