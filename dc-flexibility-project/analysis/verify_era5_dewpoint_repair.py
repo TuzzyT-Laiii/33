@@ -72,6 +72,32 @@ def verify_repair(root):
         received.append({'year': year, 'hours': len(expected), 'nodes': 10,
                          'all_finite': True, 'sha256': receipt['sha256'], 'bytes': raw.stat().st_size})
     proof_path = root / 'data/metadata/buildability-20261025/weather-cds-repairs/lat-084-lon-290.json'
+    monthly_received = []
+    monthly_directory = root / 'data/raw/era5-eligible-cds-repairs/lat-084-lon-290/dewpoint-monthly'
+    for raw in sorted(monthly_directory.glob('*.nc')):
+        receipt = json.loads(raw.with_suffix('.json').read_text())
+        request = receipt['request']
+        year, month = int(request['year'][0]), int(request['month'][0])
+        if (receipt.get('source_layout') != 'monthly' or year not in (2024, 2025)
+                or raw.name != f'{year}-{month:02d}.nc' or sha(raw) != receipt['sha256']
+                or request['variable'] != ['2m_dewpoint_temperature']):
+            raise ValueError('露点月度原文的SHA、请求或归档路径不同')
+        expected = times[(pd.DatetimeIndex(times).year == year) & (pd.DatetimeIndex(times).month == month)]
+        with xr.open_dataset(raw) as data:
+            if not np.array_equal(data.valid_time.values, expected) or data.d2m.attrs.get('units') != 'K':
+                raise ValueError('露点月度原文的整点或单位不同')
+            extracted = data.d2m.sel(
+                latitude=xr.DataArray(selected.latitude.to_numpy(), dims='weather_point'),
+                longitude=xr.DataArray((selected.longitude_0_360.to_numpy() + 180) % 360 - 180,
+                                       dims='weather_point')).values
+        original = values[(pd.DatetimeIndex(times).year == year) & (pd.DatetimeIndex(times).month == month)]
+        valid = np.isfinite(original)
+        if (extracted.shape != (len(expected), 10) or extracted.dtype != np.dtype('float32')
+                or not np.isfinite(extracted).all() or not np.array_equal(extracted[valid], original[valid])):
+            raise ValueError('露点月度原文的类型、有限值或有效重合值不同')
+        monthly_received.append({'year': year, 'month': month, 'hours': len(expected), 'nodes': 10,
+                                 'all_finite': True, 'verified_overlap_values': int(valid.sum()),
+                                 'sha256': receipt['sha256'], 'bytes': raw.stat().st_size})
     dewpoint = 'pending_official_files_and_exact_overlap'
     if proof_path.exists():
         proof = json.loads(proof_path.read_text())
@@ -87,6 +113,7 @@ def verify_repair(root):
               'existing_wind_nan_filled': wind_proof['replaced_nan_count'],
               'wind_proof_rejected_for_dewpoint': True,
               'received_official_annual_files': received,
+              'received_official_monthly_files': monthly_received,
               'official_dewpoint_validation': dewpoint}
     write_json(root / 'results/buildability-20261025/dewpoint-recovery-validation.json', report)
     print(json.dumps(report, ensure_ascii=False, indent=2))

@@ -90,7 +90,19 @@ def apply_verified_source_repair(root, label, name, points, times, values, selec
             or record['native_flat_indices'] != points.native_flat_index.astype(int).tolist()):
         raise ValueError('CDS补取证明与合格节点、时间或来源版本不一致')
     for source in record['raw_sources']:
-        raw = root / 'data/raw/era5-eligible-cds-repairs' / label / (f"{prefix}-{source['request']['year'][0]}.nc")
+        directory = root / 'data/raw/era5-eligible-cds-repairs' / label
+        year = source['request']['year'][0]
+        if source.get('source_layout') == 'monthly':
+            if prefix != 'dewpoint' or len(source['request']['month']) != 1 or year not in ('2024', '2025'):
+                raise ValueError('CDS按月原文的变量或时段超出授权补取范围')
+            month = source['request']['month'][0]
+            if month not in {f'{value:02d}' for value in range(1, 13)}:
+                raise ValueError('CDS按月原文月份无效')
+            raw = directory / f'{prefix}-monthly/{year}-{month}.nc'
+        elif source.get('source_layout') is None:
+            raw = directory / f'{prefix}-{year}.nc'
+        else:
+            raise ValueError('未知的CDS原文时间布局')
         if str(raw) != source['path'] or hashlib.sha256(raw.read_bytes()).hexdigest() != source['sha256']:
             raise ValueError('CDS补取原文的路径或SHA不一致')
     output = root / 'data/interim/era5-eligible-cds-repairs' / (label + '.parquet')
