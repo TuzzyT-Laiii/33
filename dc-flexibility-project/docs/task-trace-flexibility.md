@@ -4,7 +4,7 @@
 
 [任务来源与柔性文献历史报告](../results/task-driven-load-report-20261026-v2/README.md)保存来源波动、功率示例和柔性文献对照；[初始报告](../results/task-driven-load-report-20261026/README.md)保留。
 
-[CPU/GPU 服务器与整柜情境及来源说明](../results/server-count-scenarios-20261028/README.md)定义五种厂商配置、52 个设计单元：C20 纯 CPU 仅配 Lisa CPU 作业和 Alibaba Cluster Trace 2018；R-GB200 整柜仅配 Acme、ASI；原 C21/C22/C28 各配 Lisa、Acme、ASI。Alibaba 2018 本次未下载，`demand_readiness` 保留待下载与字段实值核验状态；向新 CPU/GPU 的性能及联合占用映射仍待核定。[年度构造工作包](../results/scenario-load-methods-20261026-v2/README.md)保存既有 16 条全年参考路径和 490 组相位检查。
+[CPU/GPU 服务器与整柜情境及来源说明 v2](../results/server-count-scenarios-20261028-v2/README.md)定义五种厂商配置、52 个设计单元：C20 配 Lisa CPU 作业和 Alibaba Cluster Trace 2018；R-GB200 配 Acme、ASI；C21/C22/C28 各配 MIT Supercloud 科研 GPU 作业、Acme、ASI。MIT 的 GPU 与宿主 CPU 占用来自同批明确请求 GPU 的执行作业，237 个完整日时间窗，采集完整性和跨硬件功率/性能映射待核实。Alibaba CPU 全表仍待完成下载核验。[年度构造工作包](../results/scenario-load-methods-20261026-v2/README.md)按原输入版本保存；旧典型曲线中的 GPU 配置×Lisa CPU 组合以后续统一重算为准。
 
 ASI 提供生产 AI 小时业务类型、优先级、GPU 归属资源与库存，可帮助构造生产需求和筛选柔性候选；CPU 物理插槽数量及业务截止权限仍需其他依据。Lisa、Acme、ASI 是工作区当前已详细核验主样本。Microsoft Philly 的训练任务与同服务器 CPU/GPU 分钟监测、Alibaba CPU 2018 的在线/批处理混部、Google 2019 PowerData 的关联电力域功率，也分别适合对应研究问题；本轮只核对这三项的官方说明，未下载计算。
 
@@ -13,6 +13,7 @@ ASI 提供生产 AI 小时业务类型、优先级、GPU 归属资源与库存�
 | 数据 | 原始粒度及覆盖 | 可计算内容 | 柔性约束 |
 | --- | --- | --- | --- |
 | SURF Lisa | 作业时间记录到秒；官方节点监测每 30 秒；作业约 10 个月、监测约 5 个月 | CPU/GPU 分区作业、节点和核心数量；监测数据可核对实际功率 | 作业文件没有业务截止时间和抢占权限，分区也没有给出训练/推理标签 |
+| MIT Supercloud 202201 | Slurm epoch 秒；GPU 监测官方粒度 100 ms；本次分配占用窗口 237 日 | 98,176 条明确请求且获配 GPU 的执行作业，GPU 卡小时及同作业宿主 CPU 调度资源小时；两份小型监测文件核验实际利用率/功率字段 | 采集完整性、时区、CPU 核心/线程口径及服务权限待核实；分配量不代表实测活跃利用率 |
 | AcmeTrace Kalos | 提交、启动、结束时间记录到秒；本轮文件覆盖 2023 年 5 月 17 日至 8 月 16 日 | 独立 CPU 作业和 GPU 作业的运行区间、分配数量、排队、执行状态，以及 GPU 的预训练、微调、评估等标签 | 没有业务截止时间、检查点和抢占权限；CPU 作业标签只表示 CPU |
 | Alibaba GPU 2026 ASI | 逐 pod、逐服务器、逐小时；相对日 0 至 184，共 4440 小时 | 训练、在线推理、离线推理及开发任务的小时申请量、归属 GPU 小时、库存和优先级 | 没有业务截止时间及明确的逐任务抢占权限；小时数据无法恢复小时内部的执行顺序 |
 | Alibaba CPU 2018 | 任务与实例的启动、结束时间记录到秒，另有机器和容器监测；约 8 天 | 在线服务与批处理分别统计，保留部分任务依赖 | 公开批处理表没有完整的独立提交时间字段和业务期限，不能从执行时刻恢复真实到达窗口 |
@@ -23,6 +24,8 @@ Acme 的 `Eval` 保持“评估任务”的含义，不能直接改成在线推�
 CPU 超算的主要任务来源可采用 [SURF Lisa 作业与监测数据](https://zenodo.org/records/13685426)。本轮读取并通过官方 MD5 核对了全部 Slurm 作业文件和节点硬件表。30 秒节点监测的粒度由官方说明及整合代码确认，完整监测尚未进入本次功率标定。任务调度与监测覆盖期不同，联合分析需要使用实际重叠区间。
 
 Lisa 原始时间没有携带时区。当前输出保留源时间及相对小时，不直接与全球 UTC 天气连接；来源时区需要核实。GPU 分区表示分区类别，不能据此确定每个任务实际使用的卡数或业务类型。
+
+2026-10-28 的[只读 GPU 核查](../data/metadata/research-gpu-demand-20261028/lisa-gpu-audit.json)确认 Lisa 作业只有 9 个字段，缺少 GPU 请求/分配数、利用率和功率。GPU 分区有 308 个完整日时间窗，可核验 GPU 卡小时的天数为 0；硬件表 210 张卡为静态库存。官方另有 6.9/10.2 GB 监测包，本次未下载。GPU 配置科研需求采用 [MIT Supercloud 官方数据](https://registry.opendata.aws/dcc/)，原始下载约 98.80 MiB，全部文件通过 S3 ETag 核验；[审计](../data/metadata/research-gpu-demand-20261028/source-audit.json)保留对象 SHA-256、实值字段、筛选和质量说明。数据许可采用下载文件的 CC BY-NC-ND 4.0；原始及逐作业处理表保留服务器。
 
 ## 真实任务记录核对
 
