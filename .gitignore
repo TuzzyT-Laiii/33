@@ -21,6 +21,7 @@
 **/node_modules/
 **/__pycache__/
 **/.pytest_cache/
+**/.era5-cds-request-gate/
 **/.ipynb_checkpoints/
 **/.DS_Store
 **/Thumbs.db
