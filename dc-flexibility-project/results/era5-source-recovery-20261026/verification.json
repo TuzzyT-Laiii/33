@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-10-26T12:04:16.351948+00:00",
+  "status": "raw_recovery_verified",
+  "selection_manifest_sha256": "eac76e0284de44a914c6e3d9383049918105f2fc062e348b146d734b0deca4a9",
+  "selected_grids": 60430,
+  "authorized_source_blocks": 18422,
+  "verified_source_versions": 10,
+  "real_different_values_rejected": true,
+  "official_probe_hours": 24,
+  "official_probe_nodes": 12,
+  "persistent_cds_request_ids_reused": true,
+  "formal_repair_validation": "pending_official_annual_files"
+}
