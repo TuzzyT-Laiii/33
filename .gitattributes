@@ -71,7 +71,7 @@ dc-flexibility-project/analysis/build_typical_load_curves.py text eol=lf
 dc-flexibility-project/analysis/plot_typical_load_curves.py text eol=lf
 dc-flexibility-project/analysis/verify_typical_load_curves.py text eol=lf
 dc-flexibility-project/analysis/requirements-typical-load-curves.txt text eol=lf
-dc-flexibility-project/data/metadata/typical-load-curves-20261028.json -text
+dc-flexibility-project/data/metadata/typical-load-curves-20261028.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/typical-load-curves-20261028/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/typical-load-curves-20261028/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261028/*.png binary
