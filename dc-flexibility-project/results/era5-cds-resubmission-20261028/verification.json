@@ -1,0 +1,120 @@
+{
+  "checked_utc": "2026-10-28T12:58:35.668958+00:00",
+  "sha256": {
+    "era5_cds_request.py": "7b9c5125a933e4d6e5d9eaa81de4811a1a2041270cd6e9e389dcd55a5a0adce1",
+    "prepare_era5_wind_repair.py": "b7a90634280014bfb5273432b9fafb352bbb33791011516bfb4b4c7ff287de69"
+  },
+  "blocks": {
+    "lat-091-lon-353": {
+      "period": "2024",
+      "controller_pid": 1382519,
+      "worker": "1382832 /data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/prepare_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-091-lon-353 --group wind",
+      "old_request_id": "261e355a-9856-4d8a-9145-75660a95efc9",
+      "request_id": "a3a6ec4e-e781-45ae-be72-c409ada88f83",
+      "cds_status": "accepted",
+      "local_status": "accepted",
+      "retry_count": 1,
+      "history": [
+        {
+          "request_id": "261e355a-9856-4d8a-9145-75660a95efc9",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 261e355a-9856-4d8a-9145-75660a95efc9 deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/261e355a-9856-4d8a-9145-75660a95efc9",
+            "trace_id": "85fb1d55-2c01-4759-8625-5d88dc0b7a49"
+          },
+          "retired_utc": "2026-10-28T12:56:11.509315+00:00",
+          "retry_count": 0
+        }
+      ],
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-091-lon-353.20261028T125526Z.log",
+      "log_traceback": false,
+      "created": "2026-10-28T12:58:03.603157",
+      "started": null
+    },
+    "lat-144-lon-101": {
+      "period": "2024",
+      "controller_pid": 1382520,
+      "worker": "1382831 /data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/prepare_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-144-lon-101 --group wind",
+      "old_request_id": "0b420db8-cca6-4711-b650-e0d382f9fae4",
+      "request_id": "1f52dfb9-06d2-4a23-8396-131f9a4375f5",
+      "cds_status": "accepted",
+      "local_status": "accepted",
+      "retry_count": 1,
+      "history": [
+        {
+          "request_id": "0b420db8-cca6-4711-b650-e0d382f9fae4",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 0b420db8-cca6-4711-b650-e0d382f9fae4 deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/0b420db8-cca6-4711-b650-e0d382f9fae4",
+            "trace_id": "5e1006d3-9513-4cc6-9d1a-4ef3a2ca0dc5"
+          },
+          "retired_utc": "2026-10-28T12:56:13.369845+00:00",
+          "retry_count": 0
+        }
+      ],
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-144-lon-101.20261028T125526Z.log",
+      "log_traceback": false,
+      "created": "2026-10-28T12:57:25.335939",
+      "started": null
+    },
+    "lat-160-lon-101": {
+      "period": "2023",
+      "controller_pid": 1382521,
+      "worker": "1382830 /data3/dataset/ljt/global-grid-flexibility-20261023/.venv/bin/python /data3/dataset/ljt/global-grid-flexibility-20261023/analysis/prepare_era5_wind_repair.py --root /data3/dataset/ljt/global-grid-flexibility-20261023 --block lat-160-lon-101 --group wind",
+      "old_request_id": "3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+      "request_id": "96757d14-83df-4621-acd6-61ddf6506f1b",
+      "cds_status": "accepted",
+      "local_status": "accepted",
+      "retry_count": 1,
+      "history": [
+        {
+          "request_id": "3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+          "status": "dismissed",
+          "reason": {
+            "type": "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job",
+            "title": "job not found",
+            "status": 404,
+            "detail": "job 3f00987f-8171-4e0d-9ad7-cb3d0df08b2c deleted",
+            "instance": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/3f00987f-8171-4e0d-9ad7-cb3d0df08b2c",
+            "trace_id": "f0ae845a-0919-4402-81b3-cf97f44429de"
+          },
+          "retired_utc": "2026-10-28T12:57:11.555234+00:00",
+          "retry_count": 0
+        }
+      ],
+      "log_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/buildability-20261025/repair-five-20261028/lat-160-lon-101.20261028T125526Z.log",
+      "log_traceback": false,
+      "created": "2026-10-28T12:58:19.977033",
+      "started": null
+    }
+  },
+  "untouched_block": {
+    "block": "lat-168-lon-278",
+    "controller_pid": 1204610,
+    "worker_pid": 1204693,
+    "jobs": {
+      "2024": {
+        "request_id": "c3b07b86-e16a-4e70-a004-460f977f48eb",
+        "cds_status": "successful",
+        "local_status": "downloaded"
+      },
+      "2023": {
+        "request_id": "6522ccc4-0f73-4fb2-a251-eec9fe7fd7f0",
+        "cds_status": "accepted",
+        "local_status": "accepted"
+      }
+    }
+  },
+  "formal_completed_blocks": 18418,
+  "total_required_blocks": 18422,
+  "scientific_checks_unchanged": true,
+  "status": "verified_recovery_running"
+}
