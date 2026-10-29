@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-29T08:35:10.238981+00:00",
+  "base_commit": "6ffda9bad562eb95b39de211595755965a7dcf37",
+  "phase_a_branch": "codex/eight-city-phase-a-20261029",
+  "phase_a_head_at_read": "fbbfa10a02723f2171d158090cb53c47ef312587",
+  "source_files": [
+    {
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\dc-flexibility-project\\.codex-temp\\eight-city-phase-a-20261029\\flexibility-value-spec.md",
+      "sha256": "edf32213173853bc1e79eb0f3664a715fcf4eefa0d3d8b25fdf00e459acf942f",
+      "read_only": true
+    },
+    {
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\dc-flexibility-project\\.codex-temp\\eight-city-phase-a-20261029\\scenario-names.md",
+      "sha256": "0cd3adc2f5c86d791042b06af1596e6fcb0a642ebbc829e991c415973c82296e",
+      "read_only": true
+    },
+    {
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\dc-flexibility-project\\planning\\direction1\\全球网格需求侧柔性收益研究方案_20261023.md",
+      "sha256": "42a52042117b38ffceb6abf9346a508007e0e82c6e36873337b96e3ece4e922f",
+      "read_only": true
+    },
+    {
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\dc-flexibility-project\\analysis\\global_grid_flex_solver.py",
+      "sha256": "32c8c4be61451004156e884d1e99a2f78f69902075747694af5ef82e5fb35e26",
+      "read_only": true
+    },
+    {
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\analysis\\build_eight_city_phase_a.py",
+      "sha256": "15ad05d7fb896fb214011012d211d4cfdec01b5bb0bb410e776f0dd5613a4795",
+      "read_only": true
+    },
+    {
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\analysis\\eight_city_physics.py",
+      "sha256": "31f0cd8a2197f80adbe9af319c13823c9ce82bc0159b21c5f64b8906c09d03df",
+      "read_only": true
+    }
+  ],
+  "phase_a_inputs": "只读已经落盘的Parquet；实际使用文件与数值输入SHA见逐算例input_provenance",
+  "price_year": 2024,
+  "weather_year": 2024,
+  "emission_factor_year": 2025
+}

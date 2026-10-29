@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "utc": "2026-10-29T08:39:06.718281+00:00",
+  "config_sha256": "15b75e63096573a4f44b70370faf1a9ba5224ad6017a982c53770a15b212cf48",
+  "atb_sha256": "fa0a2b95efb85ba448467d34054db6770d274db0076ae42eda87d69827155c44",
+  "ember_sha256": "afe1e315ce8fef7ddb2e2569243b3ac4e93cfe8146ac1be5392e362bd6afbe72",
+  "atb_sheet": "Utility-Scale Battery - R&D",
+  "atb_energy_cell": "G20",
+  "atb_power_cell": "G26",
+  "battery_energy_2023usd_kwh": 234.01,
+  "battery_power_2023usd_kw": 361.34,
+  "battery_energy_2024usd_kwh": 240.91198249437156,
+  "battery_power_2024usd_kw": 371.9975033311235,
+  "annualized_costs": {
+    "compute_reference_usd_year": 19915248.26724235,
+    "pv_usd_mw_year": 75097.03632490996,
+    "wind_usd_mw_year": 123544.6089930988,
+    "battery_power_usd_mw_year": 58340.199164755686,
+    "battery_energy_usd_mwh_year": 37782.11658422671
+  },
+  "emissions": [
+    {
+      "city": "phoenix",
+      "country": "United States",
+      "year": 2025,
+      "emission_factor_tco2e_mwh": 0.384403
+    },
+    {
+      "city": "ashburn",
+      "country": "United States",
+      "year": 2025,
+      "emission_factor_tco2e_mwh": 0.384403
+    },
+    {
+      "city": "frankfurt",
+      "country": "Germany",
+      "year": 2025,
+      "emission_factor_tco2e_mwh": 0.334117
+    },
+    {
+      "city": "lulea",
+      "country": "Sweden",
+      "year": 2025,
+      "emission_factor_tco2e_mwh": 0.03539
+    },
+    {
+      "city": "ulanqab",
+      "country": "China",
+      "year": 2025,
+      "emission_factor_tco2e_mwh": 0.528278
+    },
+    {
+      "city": "guiyang",
+      "country": "China",
+      "year": 2025,
+      "emission_factor_tco2e_mwh": 0.528278
+    },
+    {
+      "city": "riyadh",
+      "country": "Saudi Arabia",
+      "year": 2025,
+      "emission_factor_tco2e_mwh": 0.679828
+    },
+    {
+      "city": "singapore",
+      "country": "Singapore",
+      "year": 2025,
+      "emission_factor_tco2e_mwh": 0.497047
+    }
+  ],
+  "emission_boundary": "Ember国家平均发电碳强度代理；非城市边际排放，包含CO2e边界；碳税按CO2e情景代理计价"
+}
