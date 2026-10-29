@@ -1,0 +1,97 @@
+{
+  "city_id": "lulea",
+  "source": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-ecmwf-geo",
+  "metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "missing": {
+    "t2m": 0,
+    "d2m": 0,
+    "sp": 0,
+    "ssrd": 0,
+    "fdir": 0,
+    "u10": 26304,
+    "v10": 26304,
+    "u100": 0,
+    "v100": 0
+  },
+  "checked_utc": "2026-10-29T07:06:30.840802+00:00",
+  "raw_objects": [
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/10.155.202",
+      "sha256": "b4e74d3c29f12c2bf0cc6604be18bd0db7a7475e42eaa8ff901cc2ae7c45f824",
+      "bytes": 2526651
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/11.155.202",
+      "sha256": "b1a3a45c740e9ccd15aca081b88c651b44ca638fd049714974161e640188dcb9",
+      "bytes": 668176
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/10.155.202",
+      "sha256": "42b57f19060cf3f02cb18971ce186360e438a404883c2199da231c73fb36b4b1",
+      "bytes": 2500505
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/11.155.202",
+      "sha256": "418b03508cf7c895a028995809d68becdf1cad44dd0e9319999ff55417f0bfdb",
+      "bytes": 664154
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/10.155.202",
+      "sha256": "c3e6167372a605e2f49f5e6a8b79a73000c90156ea292479d0523907b8083012",
+      "bytes": 2106832
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/11.155.202",
+      "sha256": "bb322859dbf4fad7f0ba639b0467e6390ff8092a575b6cd36b5bb4dd1c5918cc",
+      "bytes": 561888
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/10.155.202",
+      "sha256": "5b91e305ddef74a4eec53d3a44caf6db88d48d3f5ae83e887ebf9649906892a1",
+      "bytes": 1313117
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/11.155.202",
+      "sha256": "ead8a148a34065fe5aea4f226c4550c414efac54572b60eee15948c1f424793b",
+      "bytes": 346991
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/10.155.202",
+      "sha256": "753d48c1698ecd12f01ea6bc98ef9da77db917f00a5f90112d5a0a0f659d61e0",
+      "bytes": 1208867
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/11.155.202",
+      "sha256": "d165bd1ba2263742b19cb06c2189ba55c88860dfac8f1e0f93300498f2c503c9",
+      "bytes": 323145
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/10.155.202",
+      "sha256": "637a840b3a9e3b9be9a2fdbe5a0d7899048dc445b03d194a4f6d7106b73b6370",
+      "bytes": 2864666
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/11.155.202",
+      "sha256": "52017c572cc72a3f4fb4e68beab21a1cdfd94e8913e3f9742b56b165a33efe6e",
+      "bytes": 753922
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/10.155.202",
+      "sha256": "a1da0e210700d93df84baf9990fe6b287fbf0a1450b1895349f6e6036145560d",
+      "bytes": 2855766
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/11.155.202",
+      "sha256": "c0837ecd14782075ccdd6caffbb22d106abc9ad8ee1e17487173461a6f5d7793",
+      "bytes": 752237
+    }
+  ],
+  "thermal": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/lulea-frozen-thermal.nc",
+    "sha256": "7713d7c78b2296a1ab1a558a7ef4c9f470dba36aa66bdb130bcdb3579d4400f6"
+  },
+  "base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/lulea-frozen-base.nc",
+    "sha256": "b526375e1f83db1d9d70fffb190954e524fd7e11b7802928023c6bb0ecbac686"
+  }
+}

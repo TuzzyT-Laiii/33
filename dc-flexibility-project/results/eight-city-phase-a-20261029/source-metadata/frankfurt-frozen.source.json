@@ -1,0 +1,97 @@
+{
+  "city_id": "frankfurt",
+  "source": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-ecmwf-geo",
+  "metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "missing": {
+    "t2m": 0,
+    "d2m": 0,
+    "sp": 0,
+    "ssrd": 0,
+    "fdir": 0,
+    "u10": 26304,
+    "v10": 26304,
+    "u100": 0,
+    "v100": 0
+  },
+  "checked_utc": "2026-10-29T07:06:30.196503+00:00",
+  "raw_objects": [
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/10.140.188",
+      "sha256": "4cb2854c8662411cf0e7362f0f7b088b6708398191d068243c8f128b4d412b43",
+      "bytes": 2567172
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/11.140.188",
+      "sha256": "9da8af32840f75587226f14ef1d84158965df175650081cf9975845f1e71101a",
+      "bytes": 679173
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/10.140.188",
+      "sha256": "306386cfda5ef6e1b5a68ab172dc357808dbcd51f0616f580194a45826b365f3",
+      "bytes": 2477590
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/11.140.188",
+      "sha256": "604f35f5c56fce456dfea05294de6fcdb3f706852c0433613490dcb12da79182",
+      "bytes": 657250
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/10.140.188",
+      "sha256": "3e5b4f918dcec82cf2a37cd2576ae722ea7d634048c9e4aba54b1fbc03452304",
+      "bytes": 2116369
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/11.140.188",
+      "sha256": "c123e6fa22f8730d40a8fb093ed51facf365f39448c502d73ce59b137e4d55b0",
+      "bytes": 558319
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/10.140.188",
+      "sha256": "6820e4c12c64555365c5ad3a5d2842f26ee0cc28663b125cdbe69149b6f17f50",
+      "bytes": 1320224
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/11.140.188",
+      "sha256": "e73819bf380e41a4822c4a8109cf18f92df1fc02e9a64ccf0dcdeecda855a69a",
+      "bytes": 351060
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/10.140.188",
+      "sha256": "152d32d519defbc29151d69c40025dbc4e5f85a28bd574cd797451cad0189cb2",
+      "bytes": 1266920
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/11.140.188",
+      "sha256": "e8e2b9329b0d8d16ca78ebf25ad8633ccb76e85f2b0de339e3d5ea1c28682cfd",
+      "bytes": 340123
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/10.140.188",
+      "sha256": "b034740f5a219587cbe339384081a30fee4e0f25eec3c530c531ad6cbc59d7f3",
+      "bytes": 2809519
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/11.140.188",
+      "sha256": "fa383bf84c221c964fa99b45d34a7bcf4accfbb9ffc0dc5d20b33bdba35a48e3",
+      "bytes": 739391
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/10.140.188",
+      "sha256": "cc7b137e496efddd0286fe5c6c6c1b6f6745e8b4c188c0437314da8108482bf7",
+      "bytes": 2840853
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/11.140.188",
+      "sha256": "b4ff6dc325f52998e84b5a9503672f84ac3c7396e5a0e53294bf193ffc1b950e",
+      "bytes": 748577
+    }
+  ],
+  "thermal": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/frankfurt-frozen-thermal.nc",
+    "sha256": "453497d9266ec1320bd53eb8693737e723d2532c56ece6ab81ee8c3d97625235"
+  },
+  "base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/frankfurt-frozen-base.nc",
+    "sha256": "24f2ee3df28bdcb79a26a525635bbe75c6b0407e5bd74fdc2e4f3e6be7df6356"
+  }
+}

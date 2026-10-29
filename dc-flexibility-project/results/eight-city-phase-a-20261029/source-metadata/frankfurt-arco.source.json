@@ -1,0 +1,278 @@
+{
+  "source_url": "https://arco.datastores.ecmwf.int/cadl-arco-geo-002/arco/reanalysis_era5_single_levels/sfc/geoChunked.zarr",
+  "access_method": "official_ARCO_backing_CDS_timeseries",
+  "request_id": null,
+  "reason": "existing_CDS_global_gate_fully_occupied; direct_official_backing_store",
+  "created_utc": "2026-10-29T07:30:04.393742+00:00",
+  "sha256": "10f0e6613f92694e9bb9b79e80b5ca2639791fc9d8505675a3425e565bbde9bd",
+  "validation": {
+    "hours": 26304,
+    "year_hours": {
+      "2023": 8760,
+      "2024": 8784,
+      "2025": 8760
+    },
+    "grid_latitude": 50.0,
+    "grid_longitude": 8.5,
+    "variables": {
+      "t2m": {
+        "units": "K",
+        "min": 264.9063720703125,
+        "max": 310.7293701171875,
+        "missing": 0
+      },
+      "d2m": {
+        "units": "K",
+        "min": 260.4656982421875,
+        "max": 294.4137878417969,
+        "missing": 0
+      },
+      "sp": {
+        "units": "Pa",
+        "min": 95230.7421875,
+        "max": 101768.421875,
+        "missing": 0
+      },
+      "ssrd": {
+        "units": "J m**-2",
+        "min": 0.0,
+        "max": 3248832.0,
+        "missing": 0
+      },
+      "fdir": {
+        "units": "J m**-2",
+        "min": 0.0,
+        "max": 2743040.0,
+        "missing": 0
+      },
+      "u10": {
+        "units": "m s**-1",
+        "min": -7.52191162109375,
+        "max": 9.691253662109375,
+        "missing": 0
+      },
+      "v10": {
+        "units": "m s**-1",
+        "min": -6.2548675537109375,
+        "max": 8.136611938476562,
+        "missing": 0
+      },
+      "u100": {
+        "units": "m s**-1",
+        "min": -10.932418823242188,
+        "max": 15.138336181640625,
+        "missing": 0
+      },
+      "v100": {
+        "units": "m s**-1",
+        "min": -10.874114990234375,
+        "max": 12.952285766601562,
+        "missing": 0
+      }
+    },
+    "sha256": "10f0e6613f92694e9bb9b79e80b5ca2639791fc9d8505675a3425e565bbde9bd",
+    "bytes": 1220696,
+    "parquet_sha256": "a16513513503fcefde86922bb6261f9369054c36aff34608c38c1d02746f8b86"
+  },
+  "frozen_base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/frankfurt-frozen-base.nc",
+    "sha256": "24f2ee3df28bdcb79a26a525635bbe75c6b0407e5bd74fdc2e4f3e6be7df6356",
+    "receipt": "frankfurt-frozen.source.json"
+  },
+  "current_arco_variables": [
+    "u10",
+    "v10"
+  ],
+  "objects": [
+    {
+      "path": "arco-raw/.zmetadata",
+      "sha256": "683f83541c1e75888dd95b07380335f6946d6452bdab012b751cb0a2a1bd1cf0",
+      "bytes": 46307
+    },
+    {
+      "path": "arco-raw/latitude/0",
+      "sha256": "d3f2b053bd41178ff37a7e24dc07bbd4b76206ff2c7442b32f5f9f39aeda854f",
+      "bytes": 727
+    },
+    {
+      "path": "arco-raw/longitude/0",
+      "sha256": "2b82b6bb451d3dcd080b96cd6f83a72ef8df8989955abc173c5c47e6b228b7df",
+      "bytes": 955
+    },
+    {
+      "path": "arco-raw/d2m/10.123.68",
+      "sha256": "e575fba4b17c0abf6b4a84462b6987126e9b2c830a0b58331dac3055956a1b5e",
+      "bytes": 2714722
+    },
+    {
+      "path": "arco-raw/d2m/11.123.68",
+      "sha256": "108e3d181bbbd7f554edd7be54c0409e63dddddbcf01072d1e25f4af511daa1d",
+      "bytes": 719021
+    },
+    {
+      "path": "arco-raw/t2m/10.123.68",
+      "sha256": "10b041636d3f59e5aea096f760f639a71047cab317ca66021e9a3f2e9cee1568",
+      "bytes": 2691959
+    },
+    {
+      "path": "arco-raw/t2m/11.123.68",
+      "sha256": "7c6256fcaacc40e6435bd6024de337e51c20af9f68e9bc8594fbf0d5adc59159",
+      "bytes": 713717
+    },
+    {
+      "path": "arco-raw/time/17",
+      "sha256": "beb53bbf1a2d94884490fbd63b886c1cf9be4ac5c3962f71abc2c0d859cd6b2c",
+      "bytes": 7213
+    },
+    {
+      "path": "arco-raw/time/15",
+      "sha256": "94a283aa0139990476efb5ecba61b07b5ba809ddd4e917107d252a5cd8de033b",
+      "bytes": 6984
+    },
+    {
+      "path": "arco-raw/time/4",
+      "sha256": "9b3370e19817d60b13337eac295763200f3c92888fb765b34fc0ae22e3c79e6a",
+      "bytes": 7225
+    },
+    {
+      "path": "arco-raw/time/1",
+      "sha256": "826e2a3813daee33a6a97766fb61a0c3c8b69a9dc44a3502c463435771fd832a",
+      "bytes": 7435
+    },
+    {
+      "path": "arco-raw/time/6",
+      "sha256": "cbf5a4688cc01beb865cc6703367dcf7b47a40e3e69cc852120b66126bae3a74",
+      "bytes": 6978
+    },
+    {
+      "path": "arco-raw/time/8",
+      "sha256": "93bd68601437058cff3013075781e4b4f8802236613f6ba7102fd36879052d81",
+      "bytes": 21837
+    },
+    {
+      "path": "arco-raw/time/9",
+      "sha256": "f0eba06b2488ff775030ee7adbc80c16f41aee54e65c06ed5c44a85d02eaeb09",
+      "bytes": 7457
+    },
+    {
+      "path": "arco-raw/time/11",
+      "sha256": "7e109253338d64e71ee5a2a312695142d74ab193e183ca18009ef290954e0c8f",
+      "bytes": 7009
+    },
+    {
+      "path": "arco-raw/time/12",
+      "sha256": "69a68a15b0410f95cdeb361a68a0b9bd8a6877e55b6bdd777cc0b099691af518",
+      "bytes": 7110
+    },
+    {
+      "path": "arco-raw/time/2",
+      "sha256": "0b1c7c48be74998923906522dee91afe9ae893e6882024dd1e76955b3c9c71dc",
+      "bytes": 7036
+    },
+    {
+      "path": "arco-raw/time/16",
+      "sha256": "5cd0c3965007b6ff4d77640e5e6585362f25689bbdeb95caa658a6bc13b1561d",
+      "bytes": 22333
+    },
+    {
+      "path": "arco-raw/time/0",
+      "sha256": "7b90372b8ddf722bd5a779fc5ca1713730fa83166197fb46cb25a3f5f0ee78a3",
+      "bytes": 21726
+    },
+    {
+      "path": "arco-raw/time/10",
+      "sha256": "e0a35cb1c7141222854f3cd5ca0ea25d7d14a64b7458a8f8c843d5566ecbe98a",
+      "bytes": 6997
+    },
+    {
+      "path": "arco-raw/time/13",
+      "sha256": "28d7994c2657ebdef8afc1fb9526f8b75bc26943307b8526e06f4a2ebea47a26",
+      "bytes": 22324
+    },
+    {
+      "path": "arco-raw/time/14",
+      "sha256": "43153a8a5ea8644277c85b1f2d9b5131c28b15b3322c5168ab6e98882ac1e6fb",
+      "bytes": 6871
+    },
+    {
+      "path": "arco-raw/time/7",
+      "sha256": "ed92b6e46ad958d209695986a4ea5972ce9e2624ff3f7a8ca2e8162e9dcfa2c0",
+      "bytes": 7176
+    },
+    {
+      "path": "arco-raw/time/3",
+      "sha256": "1465bec0c90c4f6aaf5764e36a3ac25ea5d5348ff522115e500f1a1f9199e3b9",
+      "bytes": 7436
+    },
+    {
+      "path": "arco-raw/time/18",
+      "sha256": "2b1e90c73b72f7a7495f3cdec16001e0b485da73f2fae4f45e61e65cd44e1d27",
+      "bytes": 6516
+    },
+    {
+      "path": "arco-raw/time/5",
+      "sha256": "51e7b640b427935fab5b2f6f6824d0fee3c561a6ffd423c70705075319059891",
+      "bytes": 22305
+    },
+    {
+      "path": "arco-raw/v10/10.140.188",
+      "sha256": "9980dda67cff7878a76ac25519f8edabe0bc95481ce357ad4e3febbb67f2e804",
+      "bytes": 2806759
+    },
+    {
+      "path": "arco-raw/v10/11.140.188",
+      "sha256": "8ea0ec0016560aea1ad38c1c837b74b1fd3449895768bbb0936589f412b3da8e",
+      "bytes": 743426
+    },
+    {
+      "path": "arco-raw/v10/11.129.102",
+      "sha256": "b94e0e0904129c559827067e8264f62b09fd4197bc966039671736f400987274",
+      "bytes": 742179
+    },
+    {
+      "path": "arco-raw/v10/10.123.68",
+      "sha256": "1aa42d20e5f294183d927462be7367bd27a8745e1ffd58fece253c70334fe162",
+      "bytes": 3022084
+    },
+    {
+      "path": "arco-raw/v10/11.123.68",
+      "sha256": "45630bf7b27b1ab40593c6c2c9723c3dce311c5c1fd54c681ad7ac7788ed0e6d",
+      "bytes": 797690
+    },
+    {
+      "path": "arco-raw/v10/10.129.102",
+      "sha256": "aa6dd798df3f14f39f024bdd60d85613125193afdca1503fb1a443503a159f20",
+      "bytes": 2809383
+    },
+    {
+      "path": "arco-raw/u10/10.140.188",
+      "sha256": "8b3ee5159d11cba06cb7b3f17731701a4bb5025b08f127eb07b9644ea1b33bf3",
+      "bytes": 2795023
+    },
+    {
+      "path": "arco-raw/u10/11.140.188",
+      "sha256": "e3449da76d7b57517073f904d4d402202c269b042cb0bed7d6b909a67db2d393",
+      "bytes": 741469
+    },
+    {
+      "path": "arco-raw/u10/11.129.102",
+      "sha256": "91fd3df7ab78c50496d829ba36c44b7e255f6cf4b398dc6d7df017e4b3b6772f",
+      "bytes": 739498
+    },
+    {
+      "path": "arco-raw/u10/10.123.68",
+      "sha256": "233f208d3d2a671bb4c5d28637bdf439e49c0d14ebe4d9dd0ec72670db358ce7",
+      "bytes": 3014157
+    },
+    {
+      "path": "arco-raw/u10/11.123.68",
+      "sha256": "f6fb372ee151bdbbee1d10a7ec749c202126a947b99db09862b9482b3f0e75e4",
+      "bytes": 795000
+    },
+    {
+      "path": "arco-raw/u10/10.129.102",
+      "sha256": "629e3975a6f6e68b5b10fee741da78772fbbc4bab645777753737790d1f30b6b",
+      "bytes": 2796411
+    }
+  ]
+}

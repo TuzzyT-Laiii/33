@@ -1,0 +1,50 @@
+[
+  {
+    "city_id": "phoenix",
+    "grid_latitude": 33.5,
+    "grid_longitude": -112.0,
+    "land_fraction": 0.999603271484375
+  },
+  {
+    "city_id": "ashburn",
+    "grid_latitude": 39.0,
+    "grid_longitude": -77.5,
+    "land_fraction": 0.9919887781143188
+  },
+  {
+    "city_id": "frankfurt",
+    "grid_latitude": 50.0,
+    "grid_longitude": 8.5,
+    "land_fraction": 0.9945981502532959
+  },
+  {
+    "city_id": "lulea",
+    "grid_latitude": 65.5,
+    "grid_longitude": 22.0,
+    "land_fraction": 0.5732531547546387
+  },
+  {
+    "city_id": "ulanqab",
+    "grid_latitude": 41.0,
+    "grid_longitude": 113.0,
+    "land_fraction": 0.9975889921188354
+  },
+  {
+    "city_id": "guiyang",
+    "grid_latitude": 26.5,
+    "grid_longitude": 106.75,
+    "land_fraction": 0.9987182021141052
+  },
+  {
+    "city_id": "riyadh",
+    "grid_latitude": 25.0,
+    "grid_longitude": 46.75,
+    "land_fraction": 1.0
+  },
+  {
+    "city_id": "singapore",
+    "grid_latitude": 1.5,
+    "grid_longitude": 104.0,
+    "land_fraction": 0.7290678024291992
+  }
+]

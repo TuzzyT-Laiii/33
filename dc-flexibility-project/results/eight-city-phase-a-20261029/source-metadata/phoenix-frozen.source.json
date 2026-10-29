@@ -1,0 +1,97 @@
+{
+  "city_id": "phoenix",
+  "source": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-ecmwf-geo",
+  "metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "missing": {
+    "t2m": 0,
+    "d2m": 0,
+    "sp": 0,
+    "ssrd": 0,
+    "fdir": 0,
+    "u10": 26304,
+    "v10": 26304,
+    "u100": 0,
+    "v100": 0
+  },
+  "checked_utc": "2026-10-29T07:06:28.019905+00:00",
+  "raw_objects": [
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/10.123.68",
+      "sha256": "10b041636d3f59e5aea096f760f639a71047cab317ca66021e9a3f2e9cee1568",
+      "bytes": 2691959
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/11.123.68",
+      "sha256": "cf280a83bdc4268e7aba824b1f6e7b827dac5c6d9678490f3e15587061afaac1",
+      "bytes": 710818
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/10.123.68",
+      "sha256": "e575fba4b17c0abf6b4a84462b6987126e9b2c830a0b58331dac3055956a1b5e",
+      "bytes": 2714722
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/11.123.68",
+      "sha256": "d46c4193691c7869dfaf3386a2e0d3575cbf309cc2880fc14d4625dcae469d10",
+      "bytes": 716208
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/10.123.68",
+      "sha256": "bf62e97798d5e886d4abbbdf282cd08789a74cc0e699cdde18837c25ebd593f5",
+      "bytes": 2094019
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/11.123.68",
+      "sha256": "deb8c053e55203230edd3ea09c556012c21201e51b5d7737d1ad32b685fb4f5b",
+      "bytes": 557765
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/10.123.68",
+      "sha256": "135454e72dd219c31142af723f3110e69ad3955b610b667c116f97ded52b7726",
+      "bytes": 1297199
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/11.123.68",
+      "sha256": "2bd5af7cba353033a42f88071836e4d67e17d7c8ed0eb2181c5c6d89f1cf3f6e",
+      "bytes": 348938
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/10.123.68",
+      "sha256": "952318f5cc455506090ae4538e96d3c74895d83d1746a3703a88b0c56a48403a",
+      "bytes": 1304664
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/11.123.68",
+      "sha256": "fe3bebba2e62e7669731deb21a3dd8e9239dee999f2f65b998df8bbcf66706ae",
+      "bytes": 349886
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/10.123.68",
+      "sha256": "66c71445709ba09a91ceaae697989a367b340f1be91b4aa9042c88a94f2f65f7",
+      "bytes": 3049018
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/11.123.68",
+      "sha256": "52d67846a971d34c23734fc1e505a54f349ab9ccba2fab5484ccafab510bc85f",
+      "bytes": 800730
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/10.123.68",
+      "sha256": "a74b893b1f470dfab9453d06b6b7c97ec9304afd0e438efe80aca487fc9dfabe",
+      "bytes": 3087428
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/11.123.68",
+      "sha256": "87d4f5262db1aab731db24f4b4e24c9bd37aea8ee85ac74e63be27a6aa7786ad",
+      "bytes": 812544
+    }
+  ],
+  "thermal": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/phoenix-frozen-thermal.nc",
+    "sha256": "857ff3880ec19dd6beb4accda7198787752c0f5a73f41091651b47477768daf9"
+  },
+  "base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/phoenix-frozen-base.nc",
+    "sha256": "37aadc2e7bf10784e05e02662e25b1d270d6b5fe434d4ff9b1647d310e30844d"
+  }
+}

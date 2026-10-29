@@ -1,0 +1,97 @@
+{
+  "city_id": "ulanqab",
+  "source": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-ecmwf-geo",
+  "metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "missing": {
+    "t2m": 0,
+    "d2m": 0,
+    "sp": 0,
+    "ssrd": 0,
+    "fdir": 0,
+    "u10": 26304,
+    "v10": 26304,
+    "u100": 0,
+    "v100": 0
+  },
+  "checked_utc": "2026-10-29T07:06:31.541157+00:00",
+  "raw_objects": [
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/10.131.293",
+      "sha256": "fc5702dd82c478aa328fb21ee422ddad4c0dfbdf554532156fb45dd0a999cc57",
+      "bytes": 2627525
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/11.131.293",
+      "sha256": "e64d464e29494f993a8eeb90204eccfd3318f92f2c823524eb0f8dac4b1ab7f9",
+      "bytes": 690907
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/10.131.293",
+      "sha256": "b502cdeb049f22f19ba1fb8fa0a4860c1e3dedf4e59be8030f57978c1f0d92e5",
+      "bytes": 2641520
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/11.131.293",
+      "sha256": "9feeb14fd6c0f74be4a908e73b167dd3a30bb24d6195f823c60fd29b0b326449",
+      "bytes": 695206
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/10.131.293",
+      "sha256": "52c478b862c5272ed52c708dcadf23d6143fd350cc6421f5e8f333b562b1ef95",
+      "bytes": 2066230
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/11.131.293",
+      "sha256": "6449ae97b6227f3eda647af7e79ca56da2c3455378573a8e8494d9f1858ee108",
+      "bytes": 551013
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/10.131.293",
+      "sha256": "fd2455996a0da471cefaa3ad61fb3407168ffcc6c3f51d4e6d4cfc26186acf74",
+      "bytes": 1301963
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/11.131.293",
+      "sha256": "a8478fe3c19d8bae7fea8384e3ea87257b7ff523ef951e99dce142f0a7bd31f3",
+      "bytes": 347627
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/10.131.293",
+      "sha256": "2941a3f085d627a685147aad10c3a5bc8bd7f5a48c1687fcbe266a69ea0ccfb0",
+      "bytes": 1279415
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/11.131.293",
+      "sha256": "ef62e1cff569e2545b2685c976932b6d6fc466b92d58e1639ca3942d360d107a",
+      "bytes": 341720
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/10.131.293",
+      "sha256": "6e7dcb284d6d9d9e33c541b6840e90558001782da3ac6362c841204c4c32897f",
+      "bytes": 2881558
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/11.131.293",
+      "sha256": "fb0139671d82895890ed343461f412e272c57843f144952f76a451662ddb9856",
+      "bytes": 757974
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/10.131.293",
+      "sha256": "542007aafd209b535f792963891c0928336004bbaf4d9245895438b35f57e198",
+      "bytes": 2891495
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/11.131.293",
+      "sha256": "757673746e36286b928f15ababc49f6d4803beef4324b6eaf6bda6f11051a6e1",
+      "bytes": 760277
+    }
+  ],
+  "thermal": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/ulanqab-frozen-thermal.nc",
+    "sha256": "1944a393a4de28c71f285361d3d34909b7d8fd2f38c1f8cb20b2cb69be82f3e2"
+  },
+  "base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/ulanqab-frozen-base.nc",
+    "sha256": "414a06b4393ca0ecaf900c5e019d730cb5b627de8d965092208a3bb9245f939a"
+  }
+}
