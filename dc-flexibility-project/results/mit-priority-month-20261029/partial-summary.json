@@ -1,0 +1,112 @@
+{
+  "created_at": "2026-10-29T02:18:45.113162+00:00",
+  "window_start_utc": "2021-06-01T00:00:00+00:00",
+  "window_end_utc": "2021-07-01T00:00:00+00:00",
+  "partial_data": true,
+  "completed_objects": 351,
+  "total_objects": 12181,
+  "failed_objects": 0,
+  "hours": 720,
+  "allocated_gpu_hours": 245946.9452777778,
+  "file_coverage": 0.9999839825437148,
+  "completed_file_gpu_hour_share": 0.035003860244235616,
+  "measured_gpu_hours": 8602.786725833334,
+  "monitoring_coverage": 0.034978221486415134,
+  "hours_with_observations": 707,
+  "qualified_hours": 0,
+  "fully_measured_cluster_hours": 0,
+  "ambiguous_device_hours": 4,
+  "excluded_file_eligibility": {},
+  "observed_file_gpu_types": {
+    "gpu:volta": 351
+  },
+  "capacity_gpus": 448,
+  "capacity_source": "https://arxiv.org/pdf/2108.02037#page=2",
+  "tdp_W": 250,
+  "tdp_source": "https://images.nvidia.com/content/technologies/volta/pdf/tesla-volta-v100-datasheet-letter-fnl-web.pdf",
+  "tdp_interpretation": "V100 PCIe 250 W 为归一化参考；源文件未声明实际功率上限，ratio×同一TDP代数抵消",
+  "calibration_end_utc": "2021-06-16T00:00:00+00:00",
+  "allocated_power_W_per_gpu": 92.89701715363418,
+  "measured_power_to_tdp_ratio": 0.37158806861453675,
+  "calibration_gpu_hours": 4712.79427,
+  "idle_W_per_gpu": 41.472211576343625,
+  "idle_calibration_gpu_hours": 807.3691844444445,
+  "idle_method": "前半月内完整作业的零GPU利用率功率5W直方图箱中心加权均值；未分配GPU空载代理",
+  "idle_bin_uncertainty_W": 2.5,
+  "minimum_monitoring_coverage": 0.99,
+  "shape_timezone": "UTC",
+  "held_out_allocated_comparison": {
+    "hours": 0,
+    "bias_W": null,
+    "MAE_W": null,
+    "RMSE_W": null,
+    "WAPE": null,
+    "pearson_r": null
+  },
+  "held_out_cluster_with_idle_proxy_comparison": {
+    "hours": 0,
+    "bias_W": null,
+    "MAE_W": null,
+    "RMSE_W": null,
+    "WAPE": null,
+    "pearson_r": null
+  },
+  "held_out_observed_support_diagnostic": {
+    "hours": 347,
+    "bias_W": 106.19751309445586,
+    "MAE_W": 142.48761844484957,
+    "RMSE_W": 183.10297030878831,
+    "WAPE": 0.15235881953440022,
+    "pearson_r": 0.9017401836168862
+  },
+  "held_out_shapes": {
+    "diurnal": {
+      "hours": 0,
+      "bias_W": null,
+      "MAE_W": null,
+      "RMSE_W": null,
+      "WAPE": null,
+      "pearson_r": null
+    },
+    "diurnal_observed_support_diagnostic": {
+      "hours": 24,
+      "bias_W": -8.326672684688674e-17,
+      "MAE_W": 0.02922019791333938,
+      "RMSE_W": 0.03997839167328778,
+      "WAPE": 0.02922019791333938,
+      "pearson_r": 0.8949696464713194
+    },
+    "weekly": {
+      "hours": 0,
+      "bias_W": null,
+      "MAE_W": null,
+      "RMSE_W": null,
+      "WAPE": null,
+      "pearson_r": null
+    },
+    "weekly_observed_support_diagnostic": {
+      "hours": 7,
+      "bias_W": -7.930164461608261e-17,
+      "MAE_W": 0.04799602484900153,
+      "RMSE_W": 0.05811057096057899,
+      "WAPE": 0.04799602484900153,
+      "pearson_r": 0.9186377150328489
+    }
+  },
+  "whole_cluster_comparison": {
+    "hours": 0,
+    "bias_W": null,
+    "MAE_W": null,
+    "RMSE_W": null,
+    "WAPE": null,
+    "pearson_r": null
+  },
+  "limitations": [
+    "作业监控未覆盖持续未分配GPU；全文件完成仍不保证整个物理集群纯实测功率可获得",
+    "observed_energy_equivalent_W为有效观测能量/整小时，缺测未填零；sum_device_mean_power_W仅对出现的设备按各自覆盖区间求均值后相加",
+    "相同node×gpu_index的跨作业疑似重叠设备小时排除；小时批次无法恢复样本并集，须原始区间才能进一步消除歧义",
+    "前半月标定，后半月验证；部分完成文件依旧存在大小与随机顺序造成的选择偏差",
+    "空载代理来自已分配但GPU利用率为零的时段，不能证明未分配GPU具有相同功率",
+    "日内/周内形状只使用后半月监控覆盖达阈值的相同小时，缺少组合保持空白"
+  ]
+}

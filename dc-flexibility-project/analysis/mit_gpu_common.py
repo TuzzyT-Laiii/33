@@ -58,6 +58,11 @@ def database(root):
         CREATE TABLE IF NOT EXISTS settings (name TEXT PRIMARY KEY, value TEXT NOT NULL);
         CREATE INDEX IF NOT EXISTS objects_status ON objects(status,seq);
     ''')
+    # 调度字段独立迁移，保持已有批次 schema、序号及完成状态。
+    if 'priority' not in {row['name'] for row in db.execute('PRAGMA table_info(objects)')}:
+        with db:
+            db.execute('ALTER TABLE objects ADD COLUMN priority INTEGER NOT NULL DEFAULT 0')
+    db.execute('CREATE INDEX IF NOT EXISTS objects_priority ON objects(status,priority DESC,seq)')
     return db
 
 
