@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-10-29T02:09:54.449880+00:00",
+  "checked_at_utc": "2026-10-29T02:19:35.035015+00:00",
   "status": "passed",
   "checks": {
     "C20-Lisa-cpu_spec-low:8760_hours": true,
@@ -3489,7 +3489,41 @@
     "no_hourly_or_job_tables_in_publication": true,
     "v1_C20_IT_unchanged": true,
     "ratio_quantiles_ordered": true,
-    "hour_mean_and_histogram_energy_within_bin_precision": true
+    "hour_mean_and_histogram_energy_within_bin_precision": true,
+    "C20:cpu_spec:idle_parameter_matches_model": true,
+    "C20:cpu_spec:full_parameter_matches_model": true,
+    "C21:v1_utilization:idle_parameter_matches_model": true,
+    "C21:v1_utilization:full_parameter_matches_model": true,
+    "C21:ratio_p10:idle_parameter_matches_model": true,
+    "C21:ratio_p10:full_parameter_matches_model": true,
+    "C21:ratio_p50:idle_parameter_matches_model": true,
+    "C21:ratio_p50:full_parameter_matches_model": true,
+    "C21:ratio_p90:idle_parameter_matches_model": true,
+    "C21:ratio_p90:full_parameter_matches_model": true,
+    "C22:v1_utilization:idle_parameter_matches_model": true,
+    "C22:v1_utilization:full_parameter_matches_model": true,
+    "C22:ratio_p10:idle_parameter_matches_model": true,
+    "C22:ratio_p10:full_parameter_matches_model": true,
+    "C22:ratio_p50:idle_parameter_matches_model": true,
+    "C22:ratio_p50:full_parameter_matches_model": true,
+    "C22:ratio_p90:idle_parameter_matches_model": true,
+    "C22:ratio_p90:full_parameter_matches_model": true,
+    "C28:v1_utilization:idle_parameter_matches_model": true,
+    "C28:v1_utilization:full_parameter_matches_model": true,
+    "C28:ratio_p10:idle_parameter_matches_model": true,
+    "C28:ratio_p10:full_parameter_matches_model": true,
+    "C28:ratio_p50:idle_parameter_matches_model": true,
+    "C28:ratio_p50:full_parameter_matches_model": true,
+    "C28:ratio_p90:idle_parameter_matches_model": true,
+    "C28:ratio_p90:full_parameter_matches_model": true,
+    "R-GB200:v1_utilization:idle_parameter_matches_model": true,
+    "R-GB200:v1_utilization:full_parameter_matches_model": true,
+    "R-GB200:ratio_p10:idle_parameter_matches_model": true,
+    "R-GB200:ratio_p10:full_parameter_matches_model": true,
+    "R-GB200:ratio_p50:idle_parameter_matches_model": true,
+    "R-GB200:ratio_p50:full_parameter_matches_model": true,
+    "R-GB200:ratio_p90:idle_parameter_matches_model": true,
+    "R-GB200:ratio_p90:full_parameter_matches_model": true
   },
   "design_cells": 52,
   "computed_cells": 48,
@@ -3616,7 +3650,7 @@
   "pdf_render_directory": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\.codex-temp\\pdf-review",
   "visual_review": {
     "status": "passed",
-    "reviewed_at_utc": "2026-10-29T02:09:54.449880+00:00",
+    "reviewed_at_utc": "2026-10-29T02:19:35.035015+00:00",
     "scope": "五张PNG及五份PDF渲染已逐张查看；中文完整、文字未裁切、图例与坐标清楚"
   }
 }

@@ -714,12 +714,12 @@
   "scientific_scope": "需求与功率假设的情境重算，未建立吞吐等价、目标设备实测精度或CFE/柔性收益结论",
   "code_sha256": {
     "build_typical_load_curves_v2.py": "f622fadce917c7c835449b29ad7f3f4e6949b487bece1f4f5cea43e1b56747d8",
-    "typical_power_models_v2.py": "c49bddc890544e538d56b98237eea1683538623074336107f7aa3ad50a329211",
+    "typical_power_models_v2.py": "fce087f016ebcab7b0d2c6d2122f09f5a94b78ed4f9cb30fa7b07d6a424612c4",
     "plot_typical_load_curves_v2.py": "6f516e6a9658e7716cd54890300f1cdbca1d53c476045796e20cf1a09d0db81c",
     "summarize_mit_power_ratios.py": "feb0ffc64a5a3fba2a6ac079fdfd3c56a5b815c0519f794c340dad62ee336391",
     "aggregate_mit_gpu_telemetry.py": "3cca7fc1e86da7d9e972a1aa6825ac7e2122746ba12dc73961e429b038b5b81c",
     "compute_load/cooling.py": "28cb8ddddd672df1efcec1e7b7e0c966c8f8a2270660364b61388b34220b2256",
-    "verify_typical_load_curves_v2.py": "d3f99614d5eab67a3c75cda35d1e7a7ef097360a11613591c471a5d50811076d"
+    "verify_typical_load_curves_v2.py": "7043c53ff6943b765d2d7b6676927a5915f7303374eeeffa8b3006ce9544a12f"
   },
   "files_sha256": {
     "annual-summary.csv": "c76568de69cbc38b884b76252e80269457e397cc5f12f9ac54eafd0990cbc7e8",
@@ -737,14 +737,14 @@
     "figure5-v1-v2-comparison.png": "2c9b85b3844ca3e5b48f9cbfed7914b938a22552522ae76aa8cb9b945e9c7315",
     "mit-power-ratio-stability.csv": "cc24ae3d71b49369b794e0fcccfac8e402702a20b1a052709fd1463eb5db66cd",
     "mit-power-ratio-summary.json": "9751f83474686f619626a137800f803e41313893c6f5dceee5f42bed50f92397",
-    "power-parameters.csv": "5a90b3f1d30ca3460ec3c662a31886fe5d10179e13132ff75da2d1b5bb21421d",
-    "README.md": "7d61dd4305e095f41050d738916cb7d59c71503c5e57d8acd74977dc4c6304fc",
+    "power-parameters.csv": "5e7ef4ab07e10c170a78af44851c5d0392dc063769e3b81228ba7161a288b86a",
+    "README.md": "9383d864512bf55d687d08a51d36cede5d78f1db53458b15109ab799da5ddfe6",
     "sensitivity-summary.csv": "8757b6c6544bd5651f6686a5b26fb7387c6af3006f596564b28033d4ff124c1d",
     "source-access-audit.json": "762bc4b5d85bddf4084c9cc2b28c477f95a723b768388d2c0b5875cd8c10429f",
     "source-register.csv": "183800109f2a17ace7f043c0270adac035fc9dd76a5b5733a7eb03bd82e33b21",
     "specpower-evidence.csv": "94b18d3cb6864fc32e10b67700c4fca0d0d0315c4d247c8ac0babf21a5dc7e01",
     "v1-v2-comparison.csv": "343cea6383bdb06fadedf62dc9d8a490ec2e60ab43a8de35117049b89b85e6db",
-    "validation.json": "7c7302180dc1462e365ae9fdbe7b5f98f011bc733734a8018cb10cf7b5120e9e"
+    "validation.json": "bb50b36e5ed91cfba5edbe3b111bcffaccdf5f419eb37eeaca1876c864823758"
   },
   "package_versions": {
     "numpy": "1.26.4",

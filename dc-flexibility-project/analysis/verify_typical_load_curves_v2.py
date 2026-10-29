@@ -10,6 +10,7 @@ import pandas as pd
 from PIL import Image
 
 from compute_load.model import sha256
+from typical_power_models_v2 import parameters_v2, power_v2
 
 
 RUN = 'typical-load-curves-20261029-v2'
@@ -61,6 +62,15 @@ def verify(project, visual_review=False):
     stats = json.loads((output / 'mit-power-ratio-summary.json').read_text(encoding='utf-8'))
     ratios = stats['transfer_distribution']
     checks['ratio_quantiles_ordered'] = all(0 <= ratios[key] <= ratios[next_key] for key, next_key in zip(['p10', 'p25', 'p50', 'p75', 'p90', 'p95'], ['p25', 'p50', 'p75', 'p90', 'p95', 'p99']))
+    configurations = json.loads((project / 'results/server-count-scenarios-20261028-v2/server-configurations.json').read_text(encoding='utf-8'))
+    published_parameters = pd.read_csv(output / 'power-parameters.csv')
+    pd.testing.assert_frame_equal(published_parameters, parameters_v2(configurations, ratios), check_dtype=False)
+    for row in published_parameters.itertuples():
+        config = next(item for item in configurations if item['configuration_id'] == row.configuration_id)
+        number = config['gpu_devices_per_unit']
+        expected_full = number * (row.gpu_tdp_w_each * row.allocated_gpu_power_ratio if row.method.startswith('ratio_') else (row.v1_gpu_full_w_each if number else 0))
+        checks[f'{row.configuration_id}:{row.method}:idle_parameter_matches_model'] = bool(np.isclose(power_v2(config, 0, 0, row.method, ratios)['gpu_w'], number * row.unallocated_gpu_idle_w_each))
+        checks[f'{row.configuration_id}:{row.method}:full_parameter_matches_model'] = bool(np.isclose(power_v2(config, 0, 1, row.method, ratios)['gpu_w'], expected_full))
     approximate = stats['details'][str(stats['completed_files']) + ':gpu:volta']['instantaneous_power_w_5w_bin_midpoint']['mean']
     checks['hour_mean_and_histogram_energy_within_bin_precision'] = abs(stats['transfer_power_w']['mean'] - approximate) <= 2.5
     if not all(checks.values()):

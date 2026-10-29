@@ -30,19 +30,23 @@ def parameters_v2(configurations, ratios):
     records = []
     for config in configurations:
         key = config['configuration_id']
-        base, ci, cf, _, _ = PARAMETERS[key]['central']
+        base, ci, cf, old_idle, old_full = PARAMETERS[key]['central']
         for method in (GPU_METHODS if config['gpu_devices_per_unit'] else ('cpu_spec',)):
+            measured_ratio = method.startswith('ratio_')
+            idle = GPU_IDLE_W[key] if measured_ratio else old_idle
+            official_idle = measured_ratio and key == 'R-GB200'
             records.append({'configuration_id': key, 'method': method,
                 'base_w': base, 'cpu_idle_w_each': ci, 'cpu_full_w_each': cf,
                 'cpu_packages_per_unit': config['cpu_packages_per_unit'],
                 'gpu_devices_per_unit': config['gpu_devices_per_unit'],
-                'gpu_tdp_w_each': GPU_TDP_W[key], 'unallocated_gpu_idle_w_each': GPU_IDLE_W[key],
-                'allocated_gpu_power_ratio': ratios[method.removeprefix('ratio_')] if method.startswith('ratio_') else None,
+                'gpu_tdp_w_each': GPU_TDP_W[key], 'unallocated_gpu_idle_w_each': idle,
+                'v1_gpu_full_w_each': old_full if method == 'v1_utilization' else None,
+                'allocated_gpu_power_ratio': ratios[method.removeprefix('ratio_')] if measured_ratio else None,
                 'sizing_reference_w': reference_power(config),
                 'units_at_10mw': int(10e6 // reference_power(config)),
-                'gpu_idle_source': GB200_POWER_SOURCE if key == 'R-GB200' else 'PR13 typical_power_models.py central idle assumption',
-                'gpu_idle_evidence': 'NVIDIA DPS device-template minLoadWatts; operating scenario assumption' if key == 'R-GB200' else 'assumption; no matched target idle measurement',
+                'gpu_idle_source': GB200_POWER_SOURCE if official_idle else 'PR13 typical_power_models.py central idle assumption',
+                'gpu_idle_evidence': 'NVIDIA DPS device-template minLoadWatts; operating scenario assumption' if official_idle else ('not_applicable' if key == 'C20' else 'assumption; no matched target idle measurement'),
                 'gpu_tdp_source': GB200_POWER_SOURCE if key == 'R-GB200' else config['source_url'],
-                'transfer_status': 'assumption; V100 PCIe monitored GPU-hour power/TDP transferred across generations and workloads',
-                'cpu_status': 'PR13 central SPECpower normalized whole-system response; package endpoints remain assumptions'})
+                'transfer_status': 'assumption; V100 PCIe monitored GPU-hour power/TDP transferred across generations and workloads' if measured_ratio else ('not_applicable' if key == 'C20' else 'PR13 utilization-to-power assumption on v2 allocation shape'),
+                'cpu_status': 'PR13 central Grace CPU linear proxy; package endpoints remain assumptions' if key == 'R-GB200' else 'PR13 central SPECpower normalized whole-system response; package endpoints remain assumptions'})
     return pd.DataFrame(records)
