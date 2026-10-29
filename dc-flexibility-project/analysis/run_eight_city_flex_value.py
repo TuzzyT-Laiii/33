@@ -5,6 +5,7 @@ import itertools
 import json
 import os
 from pathlib import Path
+import shutil
 import time
 
 for thread_variable in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'NUMEXPR_NUM_THREADS'):
@@ -19,6 +20,19 @@ from eight_city_onsite_solver import MODEL_VERSION, sha256, solve_onsite
 
 PROJECT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = PROJECT / 'analysis/eight-city-flex-value-20261029.json'
+DISPATCH_COLUMNS = ['time_utc', 'dynamic_executed_mwh', 'executed_it_mw', 'executed_facility_mw',
+                    'service', 'backlog', 'direct', 'grid', 'charge', 'discharge', 'soc', 'curtail']
+
+
+def write_hourly(frame, path):
+    frame[DISPATCH_COLUMNS].to_parquet(path, index=False, compression='zstd', compression_level=9)
+
+
+def check_disk(path, config):
+    path.mkdir(parents=True, exist_ok=True)
+    free_gb = shutil.disk_usage(path).free / 1024**3
+    if free_gb < config['_minimum_free_disk_gb']:
+        raise RuntimeError(f'结果所在文件系统余量不足，已保留完成算例：{path}, free={free_gb:.1f}GiB')
 
 
 def write_json(path, data):
@@ -140,6 +154,7 @@ def run_group(task):
                 if summary['status'] in ('optimal', 'infeasible'):
                     counter['cached'] += 1
                     continue
+            check_disk(folder.parent, config)
             solved = solve_onsite(frame, config, deadline=deadline, fraction=common['phi'],
                 rmax=common['rmax'], storage=storage, alpha=common['alpha'],
                 carbon_price=common['carbon_price'], emission_factor=common['emission_factor'], idle_mw=idle, design_mw=design)
@@ -148,7 +163,7 @@ def run_group(task):
             if not solved['hourly'].empty:
                 folder.mkdir(parents=True, exist_ok=True)
                 temporary = folder / 'hourly.partial.parquet'
-                solved['hourly'].to_parquet(temporary, index=False, compression='zstd')
+                write_hourly(solved['hourly'], temporary)
                 temporary.replace(folder / 'hourly.parquet')
             write_json(target, summary)
             counter[summary['status']] += 1
@@ -185,12 +200,13 @@ def run_physical_group(task):
                 cached = json.loads((folder / 'summary.json').read_text(encoding='utf-8'))
                 if cached['status'] in ('optimal', 'infeasible'):
                     continue
+            check_disk(folder.parent, config)
             result = solve_onsite(frame, config, deadline=deadline, fraction=settings['phi'], rmax=settings['rmax'],
                                   storage=storage, fixed_assets=assets, physical=True,
                                   carbon_price=reference_carbon_price, emission_factor=emission, idle_mw=idle, design_mw=design)
             folder.mkdir(parents=True, exist_ok=True)
             if not result['hourly'].empty:
-                result['hourly'].to_parquet(folder / 'hourly.parquet', index=False, compression='zstd')
+                write_hourly(result['hourly'], folder / 'hourly.parquet')
             write_json(folder / 'summary.json', {**result['summary'], **case, 'fixed_assets': assets,
                 'input_provenance': provenance, 'physical_reference': reference})
     return {'city': city, 'scenario': scenario, 'status': 'physical_completed'}
@@ -206,12 +222,14 @@ def main():
     parser.add_argument('--tier', choices=['main', 'remaining', 'all'], default='all')
     parser.add_argument('--workers', type=int, default=8)
     parser.add_argument('--minimum-available-gb', type=float, default=12)
+    parser.add_argument('--minimum-free-disk-gb', type=float, default=64)
     parser.add_argument('--gate', type=Path, required=True)
     parser.add_argument('--physical', action='store_true')
     parser.add_argument('--wait-inputs', action='store_true')
     args = parser.parse_args()
     config = json.loads(args.config.read_text(encoding='utf-8'))
     config['_source_config_sha256'] = sha256(args.config)
+    config['_minimum_free_disk_gb'] = args.minimum_free_disk_gb
     gate = json.loads(args.gate.read_text(encoding='utf-8'))
     if gate.get('status') != 'passed' or gate.get('annual_real_input_gate') is not True:
         raise ValueError('全年真实输入核验尚未通过，禁止放开批量')

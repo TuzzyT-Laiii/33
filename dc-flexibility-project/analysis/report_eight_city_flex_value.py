@@ -25,6 +25,10 @@ def record_key(item):
             item['input_provenance']['sha256'])
 
 
+def summary_paths(base):
+    return sorted(set(base.glob('*/*/summary.json')) | set(base.glob('*/*/*/summary.json')))
+
+
 def assemble(records):
     rows = []
     for item in records:
@@ -81,7 +85,10 @@ def thresholds(frame, expected_D):
         good = part.loc[part.status.eq('optimal')].sort_values('D')
         row['observed_D_count'] = len(good)
         terminal = good.loc[good.D.eq(168)]
-        if len(good) != len(expected_D) or terminal.empty:
+        fixed = part.loc[part.D.eq(0)]
+        if len(fixed) == 1 and fixed.iloc[0].status == 'infeasible':
+            row['threshold_status'] = 'fixed_reference_infeasible'
+        elif len(good) != len(expected_D) or terminal.empty:
             row['threshold_status'] = 'incomplete_curve'
         elif terminal.iloc[0].value_usd_year <= .2:
             row['threshold_status'] = 'no_positive_terminal_value'
@@ -131,7 +138,7 @@ def figures(frame, threshold, output):
         ax.tick_params(axis='x', rotation=40)
         ax.legend()
     else:
-        ax.text(.5, .5, 'Complete D=0...168 h curves pending', transform=ax.transAxes, ha='center')
+        ax.text(.5, .5, 'No complete positive-value curves', transform=ax.transAxes, ha='center')
     ax.set(ylabel='Delay on the tested grid (h)', title=f'{city}, S=0, {threshold_label}')
     export(fig, output / 'delay-thresholds')
     scenario = sample.scenario.iloc[0]
@@ -144,7 +151,7 @@ def figures(frame, threshold, output):
     ax.set_xticks(range(len(matrix.columns)), matrix.columns)
     ax.set_yticks(range(6), ['0', '1 h', '2 h', '4 h', '8 h', 'Optimized'])
     ax.set(xlabel='Maximum additional delay (h)', ylabel='Storage at mean IT power',
-           title=f'{city}, {scenario}, alpha=95%; gray = pending')
+           title=f'{city}, {scenario}, alpha=95%; gray = unavailable')
     fig.colorbar(plot, ax=ax, label='Net value (million USD/year)')
     export(fig, output / 'storage-delay-heatmap')
     return ['value-vs-delay', 'delay-thresholds', 'storage-delay-heatmap']
@@ -166,7 +173,7 @@ def main():
     args.output_dir.mkdir(parents=True, exist_ok=True)
     records, physical = [], []
     for subdir, target in [('cases', records), ('annual-validation-cases', records), ('physical', physical), ('physical-validation-cases', physical)]:
-        for path in sorted((args.details_dir / subdir).glob('**/summary.json')):
+        for path in summary_paths(args.details_dir / subdir):
             record = json.loads(path.read_text(encoding='utf-8'))
             if record.get('config_sha256') == sha256(args.config):
                 target.append(record)

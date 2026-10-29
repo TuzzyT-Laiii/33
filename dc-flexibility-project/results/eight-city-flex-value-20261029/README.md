@@ -10,8 +10,10 @@
 - `delay-thresholds.csv`：D50/D90；只有十档D全部完成且V(168)>0时才计算。
 - `infeasible-summary.csv`：不可行及未完成状态汇总。不存在的成本差额保留空白。
 - `manifest.json`：结果覆盖数、参数与模型SHA、输入来源与SHA、输出SHA。
-- 三组诊断图：`value-vs-delay`、`delay-thresholds`、`storage-delay-heatmap`，均输出300 dpi PNG与PDF。灰色单元表示尚未完成。图仅展示已核验结果的范围。
+- 三组诊断图：`value-vs-delay`、`delay-thresholds`、`storage-delay-heatmap`，均输出300 dpi PNG与PDF。灰色单元表示配对收益不可用，包括固定参照不可行或曲线尚未完成。图仅展示已核验结果的范围。
 - 逐小时明细与逐算例JSON位于 `data/processed/eight-city-flex-value-20261029/`，不提交Git；服务器有独立副本。
+
+逐小时明细保留执行工作量、IT与设施功率、积压、直接供电、购电、充放电、SOC及弃电；天气、原始负荷和PUE按输入SHA独立保存，Zstandard压缩保持数值无损。服务器法兰克福、吕勒奥、乌兰察布、贵阳、利雅得和新加坡的输出目录映射至 `/home/ljt/eight-city-flex-value-20261029/details/`，逻辑路径保持上述`data/processed`目录；路径清单见`storage-layout.json`。后续队列写入前保留至少64 GiB的文件系统余量（`--minimum-free-disk-gb`可调整），空间不足时明确停止并保留完成算例，保障ERA5所在数据盘的剩余空间。
 
 ## 模型与任务权限
 
