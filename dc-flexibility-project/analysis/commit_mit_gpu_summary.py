@@ -33,8 +33,8 @@ def commit(root):
     for path in staging.iterdir():
         if path.is_file():
             os.replace(path, root / path.name)
-    if (staging / 'aggregates').exists():
-        for path in (staging / 'aggregates').rglob('*'):
+    for directory in ('aggregates', 'analysis/priority-month'):
+        for path in (staging / directory).rglob('*'):
             if path.is_file():
                 destination = root / path.relative_to(staging)
                 destination.parent.mkdir(parents=True, exist_ok=True)

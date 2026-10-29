@@ -18,6 +18,7 @@ import requests
 
 from mit_gpu_common import (BASE, PREFIX, SCHEMA_VERSION, DiskBudget, RangeDownloadError, atomic_json, database, download,
                             get_retry, identity, load_jobs, process_lock, session, summarize, utc)
+from mit_gpu_priority import configure, priority_progress
 
 
 def log(event, **values):
@@ -260,6 +261,10 @@ def transfer_summary(args, previous):
     if (root / 'aggregates').exists():
         inputs.extend((p, str(p.relative_to(root)).replace('\\', '/')) for p in (root / 'aggregates').rglob('*')
                       if p.is_file() and not p.name.endswith('.tmp'))
+    if (root / 'analysis/priority-month').exists():
+        inputs.extend((p, str(p.relative_to(root)).replace('\\', '/'))
+                      for p in (root / 'analysis/priority-month').rglob('*')
+                      if p.is_file() and not p.name.endswith('.tmp'))
     # 下载缓存预留 19 GB，同步暂存最多 1 GB；超限报错并留待后续同步。
     if sum(p.stat().st_size + 2048 for p, _ in inputs) > 900_000_000 or (work / 'state.sqlite').stat().st_size > 90_000_000:
         raise OSError('同步暂存将超过 1 GB 上限')
@@ -306,8 +311,13 @@ def run(args):
     if (root / 'STOP').exists():
         raise ValueError('STOP 文件存在；确认续跑时删除该文件')
     jobs = load_jobs(root)
+    if args.priority_window:
+        configure(db, jobs, *args.priority_window, timezone=args.priority_timezone)
+    window_state = priority_progress(db)
+    if window_state and window_state['failed']:
+        raise ValueError('优先窗口存在失败对象，须处理失败后继续剩余随机队列')
     budget = DiskBudget(root / 'cache')
-    selected = [dict(r) for r in db.execute("SELECT * FROM objects WHERE status='pending' ORDER BY seq")]
+    selected = [dict(r) for r in db.execute("SELECT * FROM objects WHERE status='pending' ORDER BY priority DESC,seq")]
     if args.limit:
         selected = selected[:args.limit]
     initial_bytes = db.execute("SELECT COALESCE(SUM(bytes),0) FROM objects WHERE status='done'").fetchone()[0]
@@ -319,6 +329,8 @@ def run(args):
     atomic_json(root / 'run.json', {'pid': os.getpid(), 'started': utc(), 'concurrency': args.concurrency,
                                   'limit': args.limit, 'root': str(root), 'schema_version': SCHEMA_VERSION,
                                   'clock_policy': 'new_york_wall_time_inferred_from_pilot',
+                                  'script_path': str(Path(__file__).resolve()),
+                                  'priority_window': window_state,
                                   'args': vars(args) | {'root': str(root)}})
 
     def progress(state='running'):
@@ -350,6 +362,8 @@ def run(args):
             'computed_this_run_files': computed_files, 'computed_this_run_bytes': computed_bytes,
             'computed_uncommitted_bytes': buffered_bytes,
             'random_prefix_objects': prefix_count,
+            'priority_window': priority_progress(db, rate),
+            'active_objects': [{'seq': obj['seq'], 'priority': obj['priority']} for obj in queue.values()],
             'elapsed_seconds': elapsed, 'cache_reserved_bytes': budget.reserved,
             'cache_actual_bytes': cache_bytes,
             'cache_limit_bytes': budget.limit, 'disk_free_bytes': shutil.disk_usage(root).free,
@@ -369,7 +383,7 @@ def run(args):
                     with computed_lock:
                         computed['files'] += 1
                         computed['bytes'] += obj['bytes']
-                    log('object_computed', seq=obj['seq'], bytes=obj['bytes'], attempt=attempt)
+                    log('object_computed', seq=obj['seq'], bytes=obj['bytes'], attempt=attempt, priority=obj['priority'])
                     return obj, tables, attempt, None
                 except RangeDownloadError as error:
                     log('object_failed', seq=obj['seq'], reason=str(error))
@@ -383,7 +397,7 @@ def run(args):
             path.unlink(missing_ok=True)
             budget.release(obj['bytes'])
 
-    # 依随机序列补充空闲位置；聚合仅使用连续完成前缀，控制文件大小带来的完成时间偏差。
+    # 优先组内保留原随机序号；窗口全部提交后才开始其余对象。
     cursor, queue, records = 0, {}, []
     last_commit = time.monotonic()
     failure = None
@@ -394,6 +408,19 @@ def run(args):
             while cursor < len(selected) or queue:
                 while cursor < len(selected) and len(queue) < args.concurrency and not (root / 'STOP').exists():
                     obj = selected[cursor]
+                    if obj['priority'] == 0 and window_state:
+                        if any(active['priority'] for active in queue.values()):
+                            break
+                        if records:
+                            commit_batch(root, db, records)
+                            sync_count += len(records)
+                            records = []
+                            last_commit = time.monotonic()
+                        current_window = priority_progress(db)
+                        if current_window['failed'] or not current_window['complete']:
+                            raise RuntimeError('优先窗口尚未全部成功，保留剩余随机队列')
+                        window_state = None
+                        log('priority_window_complete', **current_window)
                     if not budget.acquire(obj['bytes'], f'{obj["seq"]:09d}.part'):
                         break
                     queue[pool.submit(worker, obj)] = obj
@@ -445,6 +472,8 @@ def main():
     parser.add_argument('--limit', type=int)
     parser.add_argument('--batch-size', type=int, default=25)
     parser.add_argument('--retries', type=int, default=5)
+    parser.add_argument('--priority-window', nargs=2, metavar=('START', 'END'))
+    parser.add_argument('--priority-timezone', default='UTC')
     parser.add_argument('--sync-host', default='pku-test')
     parser.add_argument('--sync-dir', default='/data3/dataset/ljt/mit-supercloud-gpu-summary-20261028')
     args = parser.parse_args()
