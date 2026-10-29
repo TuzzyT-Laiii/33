@@ -1,0 +1,36 @@
+{
+  "checked_at_utc": "2026-10-29T02:05:53.217428+00:00",
+  "scope": "实际获取并提取原始PDF或HTML正文；引用范围为数据方法、平台硬件表、TDP和设备模板参数",
+  "sources": {
+    "mit-paper": {
+      "url": "https://arxiv.org/pdf/2108.02037",
+      "status_code": 200,
+      "sha256": "87206b0766215024c9c79836cc4996d5e05e7049beb710ef013408b11d863d65"
+    },
+    "mit-llm-power": {
+      "url": "https://arxiv.org/pdf/2310.03003",
+      "status_code": 200,
+      "sha256": "6a5bc05ede1ee1161df2f1224542a230d8445ba72356f182a710b895c92bbf21"
+    },
+    "v100-pcie": {
+      "url": "https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-V100-PCIe-Product-Brief.pdf",
+      "status_code": 200,
+      "sha256": "7e2a80764520d744ae146ec276655a6359ecd2bcd83feaba802cb29efcedadee"
+    },
+    "h100-pcie": {
+      "url": "https://lenovopress.lenovo.com/lp1732-thinksystem-nvidia-h100-pcie-gen5-gpu",
+      "status_code": 200,
+      "sha256": "4948308e35ceeef91c95082ed804fa89fc023cd447fd9e439e2fb51821982830"
+    },
+    "gb200-dps": {
+      "url": "https://docs.nvidia.com/datacenter/dps/versions/0.8/guides/concepts/device-specifications/",
+      "status_code": 200,
+      "sha256": "67c29bb6f8f0884f2454fa902787fe6463012d915b03154670800d6afa18ee81"
+    },
+    "gb200-checks": {
+      "url": "https://docs.nvidia.com/health-validation/reference/checks/gpu",
+      "status_code": 200,
+      "sha256": "a5cbcccbdb3e9a4b48783d4b4aa1795c5da85ca232fcc988f06df01f09153408"
+    }
+  }
+}

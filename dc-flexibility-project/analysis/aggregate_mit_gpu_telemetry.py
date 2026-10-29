@@ -3,11 +3,12 @@ from collections import Counter
 import json
 import os
 from pathlib import Path
+import sqlite3
 
 import numpy as np
 import pandas as pd
 
-from mit_gpu_common import SCHEMA_VERSION, atomic_json, database, utc
+from mit_gpu_common import SCHEMA_VERSION, atomic_json, utc
 
 
 def quantile(values, weights, probability):
@@ -25,13 +26,17 @@ def atomic_csv(path, frame):
     os.replace(partial, path)
 
 
-def aggregate(root, output):
+def aggregate(root, output, max_prefix=None):
     output.mkdir(parents=True, exist_ok=True)
-    db = database(root)
+    db = sqlite3.connect((root / 'state.sqlite').resolve().as_uri() + '?mode=ro', uri=True, timeout=60)
     # 在同一读事务中固定批次与随机前缀，避免异步完成的较小文件造成样本选择偏差。
     db.execute('BEGIN')
     first_pending = db.execute("SELECT MIN(seq) FROM objects WHERE status='pending'").fetchone()[0]
     prefix = first_pending if first_pending is not None else db.execute('SELECT COUNT(*) FROM objects').fetchone()[0]
+    if max_prefix is not None:
+        if max_prefix <= 0 or max_prefix > prefix:
+            raise ValueError('max_prefix 必须为已完成连续随机前缀范围内的正整数')
+        prefix = max_prefix
     all_done = db.execute("SELECT COUNT(*) FROM objects WHERE status='done'").fetchone()[0]
     prefix_failed = db.execute("SELECT COUNT(*) FROM objects WHERE status='failed' AND seq<?", (prefix,)).fetchone()[0]
     batches = [r[0] for r in db.execute("SELECT DISTINCT batch FROM objects WHERE status='done' AND seq<? ORDER BY batch", (prefix,))]
@@ -162,5 +167,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--max-prefix', type=int)
     args = parser.parse_args()
-    aggregate(args.root, args.output or args.root / 'aggregates/current')
+    aggregate(args.root, args.output or args.root / 'aggregates/current', args.max_prefix)

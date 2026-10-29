@@ -95,4 +95,16 @@ dc-flexibility-project/analysis/requirements-research-gpu-demand.txt text eol=lf
 dc-flexibility-project/data/metadata/research-gpu-demand-20261028/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/server-count-scenarios-20261028-v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/server-count-scenarios-20261028-v2/*.pdf binary
+
+# 典型负荷v2固定代码换行；聚合脚本与发布产物保留生成字节及校验值。
+dc-flexibility-project/analysis/aggregate_mit_gpu_telemetry.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/analysis/build_typical_load_curves_v2.py text eol=lf
+dc-flexibility-project/analysis/plot_typical_load_curves_v2.py text eol=lf
+dc-flexibility-project/analysis/summarize_mit_power_ratios.py text eol=lf
+dc-flexibility-project/analysis/typical_power_models_v2.py text eol=lf
+dc-flexibility-project/analysis/verify_typical_load_curves_v2.py text eol=lf
+dc-flexibility-project/analysis/requirements-typical-load-curves-v2.txt text eol=lf
+dc-flexibility-project/results/typical-load-curves-20261029-v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/typical-load-curves-20261029-v2/*.pdf binary
+dc-flexibility-project/results/typical-load-curves-20261029-v2/*.png binary
 dc-flexibility-project/results/server-count-scenarios-20261028-v2/*.png binary
