@@ -1,0 +1,48 @@
+{
+  "snapshot_utc": "2026-10-29T09:19:13.473114+00:00",
+  "host": "pku-test",
+  "stage": "main_and_physical",
+  "supervisor_pid": 2545856,
+  "economic_pid": 2511553,
+  "physical_pid": 2511554,
+  "live_pids": {
+    "2545856": true,
+    "2511553": true,
+    "2511554": true
+  },
+  "economic_workers": 12,
+  "physical_workers": 4,
+  "main_economic_planned": 11520,
+  "main_economic_completed": 1900,
+  "economic_status_counts": {
+    "optimal": 1816,
+    "infeasible": 84
+  },
+  "physical_planned": 11520,
+  "physical_completed": 1787,
+  "remaining_economic_queued": 264960,
+  "economic_city_case_counts": {
+    "ashburn": 719,
+    "frankfurt": 341,
+    "phoenix": 840
+  },
+  "physical_city_case_counts": {
+    "ashburn": 720,
+    "frankfurt": 347,
+    "phoenix": 720
+  },
+  "main_start_utc": "2026-10-29T08:47:25.332357+00:00",
+  "observed_economic_cases_per_hour": 3131.844429231486,
+  "observed_physical_cases_per_hour": 3356.35616843543,
+  "estimated_main_and_physical_finish_utc": "2026-10-29T12:23:31.493646+00:00",
+  "estimated_finish_range_utc": [
+    "2026-10-29T11:28:14.087486+00:00",
+    "2026-10-29T13:55:40.503911+00:00"
+  ],
+  "eta_basis": "按已完成算例吞吐推算，扣除启动前240经济/8物理核验；城市难度与服务器负载会改变耗时，后续网格ETA尚未收敛",
+  "data3_free_bytes": 117248872448,
+  "secondary_output_free_bytes": 249795137536,
+  "log": "/data3/dataset/ljt/eight-city-flex-value-20261029/logs/controller.log",
+  "supervisor_log": "/data3/dataset/ljt/eight-city-flex-value-20261029/logs/supervisor.log",
+  "remaining_queue_command": "python analysis/run_eight_city_flex_value.py --input-dir /data3/dataset/ljt/eight-city-flex-value-20261029/inputs/phase-a --gate results/eight-city-flex-value-20261029/validation.json --tier remaining --workers 16 --wait-inputs"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "utc": "2026-10-29T08:41:52.050286+00:00",
+  "real_annual_cases": 8,
+  "checks": [
+    {
+      "scenario": "A-HPC",
+      "S": 0,
+      "status": "passed",
+      "grid_reduction_mwh": 6165.357215249533,
+      "cfe_hourly_gain_pp": 4.228074648903579,
+      "maximum_conservation_residual": 7.275957614183426e-12
+    },
+    {
+      "scenario": "A-HPC",
+      "S": 4,
+      "status": "passed",
+      "grid_reduction_mwh": 5543.28301505687,
+      "cfe_hourly_gain_pp": 4.764382791155053,
+      "maximum_conservation_residual": 7.275957614183426e-12
+    },
+    {
+      "scenario": "D-TRN",
+      "S": 0,
+      "status": "passed",
+      "grid_reduction_mwh": 4729.88677294178,
+      "cfe_hourly_gain_pp": 2.4436211958150045,
+      "maximum_conservation_residual": 2.886579864025407e-14
+    },
+    {
+      "scenario": "D-TRN",
+      "S": 4,
+      "status": "passed",
+      "grid_reduction_mwh": 4654.969982636494,
+      "cfe_hourly_gain_pp": 5.222181662736358,
+      "maximum_conservation_residual": 9.094947017729282e-13
+    }
+  ]
+}

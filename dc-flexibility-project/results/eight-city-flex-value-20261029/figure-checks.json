@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "utc": "2026-10-29T09:19:15.037970+00:00",
+  "checks": [
+    {
+      "figure": "delay-thresholds",
+      "page_count": 1,
+      "text_outside_page": 0,
+      "replacement_characters": 0,
+      "png_size": [
+        2254,
+        1414
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "figure": "storage-delay-heatmap",
+      "page_count": 1,
+      "text_outside_page": 0,
+      "replacement_characters": 0,
+      "png_size": [
+        2250,
+        1414
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "figure": "value-vs-delay",
+      "page_count": 1,
+      "text_outside_page": 0,
+      "replacement_characters": 0,
+      "png_size": [
+        2254,
+        1414
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ]
+    }
+  ],
+  "visual_inspection": false,
+  "scope": "按用户规范不主动调用视觉工具；检查PDF文本边界、替换字形、页数与PNG尺寸/DPI"
+}

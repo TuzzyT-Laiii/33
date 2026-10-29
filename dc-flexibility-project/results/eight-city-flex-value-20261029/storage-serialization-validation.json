@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "utc": "2026-10-29T09:16:43.010758+00:00",
+  "hours": 8760,
+  "columns": [
+    "time_utc",
+    "dynamic_executed_mwh",
+    "executed_it_mw",
+    "executed_facility_mw",
+    "service",
+    "backlog",
+    "direct",
+    "grid",
+    "charge",
+    "discharge",
+    "soc",
+    "curtail"
+  ],
+  "lossless_dataframe_roundtrip": true,
+  "source_file": "/data3/dataset/ljt/eight-city-flex-value-20261029/project/data/processed/eight-city-flex-value-20261029/annual-validation-cases/phoenix/A-HPC/a0.95-S8-D6/hourly.parquet",
+  "source_bytes": 1635081,
+  "compact_bytes": 468662,
+  "compact_to_full_ratio": 0.2866292250964937,
+  "source_sha256": "4ee1293984cf125e0a3559567879b96ddc384aafd9f8678b79594d9c032d236b",
+  "compact_sha256": "a52a9c41b138ef854ce1b3a613123c2d98d7697eb90495c916803a4074c2e825",
+  "symlink_scan_real_summary_count": 120
+}
