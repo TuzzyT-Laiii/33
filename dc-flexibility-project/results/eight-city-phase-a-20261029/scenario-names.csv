@@ -1,0 +1,14 @@
+﻿scenario_id,scenario_scale_id,scenario_name_zh,server_type,server_type_zh,purpose,purpose_zh,legacy_configuration_id,demand_source,cpu_gpu_count_ratio,reference_platform,reference_it_mw,status,cooling_type
+A-HPC,A-HPC-10MW,纯 CPU 型·科研计算,A,纯 CPU 型,HPC,科研计算,C20,Lisa,2:0,Lenovo SR650 V3,10,可计算,air
+A-CLD,A-CLD-10MW,纯 CPU 型·云通用计算,A,纯 CPU 型,CLD,云通用计算,C20,Alibaba,2:0,Lenovo SR650 V3,10,待数据,air
+B-SAI,B-SAI-10MW,CPU 主导型·科研 AI,B,CPU 主导型,SAI,科研 AI,C21,MIT,2:1,SR650 V3 + H100 PCIe,10,可计算,air
+B-TRN,B-TRN-10MW,CPU 主导型·大模型训练/开发,B,CPU 主导型,TRN,大模型训练/开发,C21,Acme,2:1,SR650 V3 + H100 PCIe,10,可计算,air
+B-INF,B-INF-10MW,CPU 主导型·推理服务,B,CPU 主导型,INF,推理服务,C21,ASI,2:1,SR650 V3 + H100 PCIe,10,可计算,air
+C-SAI,C-SAI-10MW,均衡型·科研 AI,C,均衡型,SAI,科研 AI,C22,MIT,2:2,SR650 V3 + 2×H100 PCIe,10,可计算,air
+C-TRN,C-TRN-10MW,均衡型·大模型训练/开发,C,均衡型,TRN,大模型训练/开发,C22,Acme,2:2,SR650 V3 + 2×H100 PCIe,10,可计算,air
+C-INF,C-INF-10MW,均衡型·推理服务,C,均衡型,INF,推理服务,C22,ASI,2:2,SR650 V3 + 2×H100 PCIe,10,可计算,air
+D-SAI,D-SAI-10MW,GPU 主导型·科研 AI,D,GPU 主导型,SAI,科研 AI,C28,MIT,2:8,DGX H100,10,可计算,air
+D-TRN,D-TRN-10MW,GPU 主导型·大模型训练/开发,D,GPU 主导型,TRN,大模型训练/开发,C28,Acme,2:8,DGX H100,10,可计算,air
+D-INF,D-INF-10MW,GPU 主导型·推理服务,D,GPU 主导型,INF,推理服务,C28,ASI,2:8,DGX H100,10,可计算,air
+E-TRN,E-TRN-10MW,纯 GPU 型（整柜液冷）·大模型训练/开发,E,纯 GPU 型（整柜液冷）,TRN,大模型训练/开发,R-GB200,Acme,36:72,GB200 NVL72,10,可计算,direct_liquid
+E-INF,E-INF-10MW,纯 GPU 型（整柜液冷）·推理服务,E,纯 GPU 型（整柜液冷）,INF,推理服务,R-GB200,ASI,36:72,GB200 NVL72,10,可计算,direct_liquid

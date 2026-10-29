@@ -1,0 +1,131 @@
+{
+  "checked_utc": "2026-10-29T08:15:34.435480+00:00",
+  "sources": [
+    {
+      "file": "IEA_Reference_3.4MW_130.csv",
+      "url": "https://raw.githubusercontent.com/NREL/turbine-models/main/turbine_models/data/Onshore/IEA_Reference_3.4MW_130.csv",
+      "sha256": "b817b0b0c549fbe1b76ac2054231f980f207adca3c09c6bb557b13aa1fbf0231",
+      "bytes": 2285
+    },
+    {
+      "file": "IEA_Reference_3.4MW_130.yaml",
+      "url": "https://raw.githubusercontent.com/NREL/turbine-models/main/turbine_models/specs/Onshore/IEA_Reference_3.4MW_130.yaml",
+      "sha256": "86dc4a33b446c4dd72530c88c0bc130eb39e28c45dcd7f73cd545f131e9c7034",
+      "bytes": 591
+    },
+    {
+      "file": "isd-history.csv",
+      "url": "https://www.ncei.noaa.gov/pub/data/noaa/isd-history.csv",
+      "sha256": "1994747ab4af1b97e63adb434b4d0d022f2daee76f0c144ea9ab46be2d906604",
+      "bytes": 2914601
+    },
+    {
+      "file": "gwa-mapframe.bundle.js",
+      "url": "https://globalwindatlas.info/mapframe.bundle.js",
+      "sha256": "d343d93e2e589321b56183e34e01f63bca964641e569478f45f266b84f4666d3",
+      "bytes": 4197256
+    },
+    {
+      "file": "phoenix-gsa.json",
+      "url": "https://api.globalsolaratlas.info/data/lta?loc=33.428%2C-112.004",
+      "sha256": "d94dc612bf7ec0a5b61f89a12c6ac3ac0e0da480b66b76565ba123126ac66387",
+      "bytes": 2738
+    },
+    {
+      "file": "phoenix-gwa-iec3.tif",
+      "url": "https://tiles-stag.ramtt.xyz/titiler/gwa4/cf_iec3/tiles/WebMercatorQuad/10/193/411.tif",
+      "sha256": "767ffeddf646f68d3ef5753fba3e42d1caeaf1633f7d1229121bcabe80ede6e6",
+      "bytes": 71545
+    },
+    {
+      "file": "ashburn-gsa.json",
+      "url": "https://api.globalsolaratlas.info/data/lta?loc=38.935%2C-77.447",
+      "sha256": "acb93c29d905e72c16dc724c9848d587c3129c8f686a7c245f39364a16b78a77",
+      "bytes": 2729
+    },
+    {
+      "file": "ashburn-gwa-iec3.tif",
+      "url": "https://tiles-stag.ramtt.xyz/titiler/gwa4/cf_iec3/tiles/WebMercatorQuad/10/291/391.tif",
+      "sha256": "4630b3a2f33f29f5ec0f328c1e7f8d6d9232431a86574c18ee7322c1d1cf3d4f",
+      "bytes": 68306
+    },
+    {
+      "file": "frankfurt-gsa.json",
+      "url": "https://api.globalsolaratlas.info/data/lta?loc=50.026%2C8.543",
+      "sha256": "dbf4d6a19b81cc1c30a3a48e9f93832f5479a9e8eee21a3d455f30193e9b9419",
+      "bytes": 2717
+    },
+    {
+      "file": "frankfurt-gwa-iec3.tif",
+      "url": "https://tiles-stag.ramtt.xyz/titiler/gwa4/cf_iec3/tiles/WebMercatorQuad/10/536/347.tif",
+      "sha256": "31e9d5532e1149e8c7a6584e417b0084d2e5d04f9270868f6a69489beea99378",
+      "bytes": 60439
+    },
+    {
+      "file": "lulea-gsa.json",
+      "url": "https://api.globalsolaratlas.info/data/lta?loc=65.544%2C22.122",
+      "sha256": "5ed9f1773b5ed3fe188b0e66f4d831cb051afb43d3ba5378aea55273919f0788",
+      "bytes": 745
+    },
+    {
+      "file": "lulea-pvgis.json",
+      "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=65.544&lon=22.122&peakpower=1&loss=14&angle=60&aspect=0&outputformat=json",
+      "sha256": "a6386940c3e05d1ead5d8ad68bbe82a458e98543600c5a352babe70c6ed98dce",
+      "bytes": 5202
+    },
+    {
+      "file": "lulea-gwa-iec3.tif",
+      "url": "https://tiles-stag.ramtt.xyz/titiler/gwa4/cf_iec3/tiles/WebMercatorQuad/10/574/262.tif",
+      "sha256": "6b3a71a74eb8f57eda609e4fa74c1d6052c44f002f420942f683ac96ca7976c7",
+      "bytes": 45902
+    },
+    {
+      "file": "ulanqab-gsa.json",
+      "url": "https://api.globalsolaratlas.info/data/lta?loc=41.033%2C113.067",
+      "sha256": "cc0c2da1b90a4b307f999d650ba134441d1049d7f5af4ace2aab3bf1d7dde7f8",
+      "bytes": 2730
+    },
+    {
+      "file": "ulanqab-gwa-iec3.tif",
+      "url": "https://tiles-stag.ramtt.xyz/titiler/gwa4/cf_iec3/tiles/WebMercatorQuad/10/833/383.tif",
+      "sha256": "f3aef9c1f73e799c169f5f949c05a243fa074c34ad757394c8d4b5524f089daa",
+      "bytes": 66546
+    },
+    {
+      "file": "guiyang-gsa.json",
+      "url": "https://api.globalsolaratlas.info/data/lta?loc=26.539%2C106.801",
+      "sha256": "b0dec8bc7183157aaca98b1c15f661ea9835d5cbc922d5bbf35754dbabc010c0",
+      "bytes": 2703
+    },
+    {
+      "file": "guiyang-gwa-iec3.tif",
+      "url": "https://tiles-stag.ramtt.xyz/titiler/gwa4/cf_iec3/tiles/WebMercatorQuad/10/815/433.tif",
+      "sha256": "2cb482a1b802432f9d7393d37e7f7a205449cbdbacd6b2e83f9a06b2d51eec5e",
+      "bytes": 76462
+    },
+    {
+      "file": "riyadh-gsa.json",
+      "url": "https://api.globalsolaratlas.info/data/lta?loc=24.958%2C46.699",
+      "sha256": "85f0138983a2c72db0d00f52039b80b2d24e302b771e331ed0fb0d26a20baffc",
+      "bytes": 2771
+    },
+    {
+      "file": "riyadh-gwa-iec3.tif",
+      "url": "https://tiles-stag.ramtt.xyz/titiler/gwa4/cf_iec3/tiles/WebMercatorQuad/10/644/438.tif",
+      "sha256": "6ac596351441f88fd5563223b47868cba489e339a17398c434908b84cb670ec2",
+      "bytes": 69451
+    },
+    {
+      "file": "singapore-gsa.json",
+      "url": "https://api.globalsolaratlas.info/data/lta?loc=1.36%2C103.91",
+      "sha256": "22dfc5a4e4e5f2e7aeb9eaabdc874e8ef31a4ad76b72772e3d2e4cbff591959d",
+      "bytes": 2735
+    },
+    {
+      "file": "singapore-gwa-iec3.tif",
+      "url": "https://tiles-stag.ramtt.xyz/titiler/gwa4/cf_iec3/tiles/WebMercatorQuad/10/807/508.tif",
+      "sha256": "0745bb425d26333a0ae1e9303d0e24dbace05654874579ae01628065414d91b6",
+      "bytes": 79616
+    }
+  ]
+}

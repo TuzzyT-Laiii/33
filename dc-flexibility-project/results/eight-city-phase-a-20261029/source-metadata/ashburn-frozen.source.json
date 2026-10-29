@@ -1,0 +1,97 @@
+{
+  "city_id": "ashburn",
+  "source": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-ecmwf-geo",
+  "metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "missing": {
+    "t2m": 0,
+    "d2m": 0,
+    "sp": 0,
+    "ssrd": 0,
+    "fdir": 0,
+    "u10": 26304,
+    "v10": 26304,
+    "u100": 0,
+    "v100": 0
+  },
+  "checked_utc": "2026-10-29T07:06:29.441375+00:00",
+  "raw_objects": [
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/10.129.102",
+      "sha256": "69b9f3db7255d45a170693ecc0d36b4f9eede1423624f98c23019df4032c12be",
+      "bytes": 2554397
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/11.129.102",
+      "sha256": "2349c11959361584c92a5d5541de914736af3fd17f55f7f43a256653dca3cda1",
+      "bytes": 677008
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/10.129.102",
+      "sha256": "15c1a71e359f3cd317960953e58f9e316cf257b29def1d86f350e87b4563672e",
+      "bytes": 2557601
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/11.129.102",
+      "sha256": "f25a444862aa59de525c6a9b415319f5cc3cbbada3e006e8968432ece97e255a",
+      "bytes": 676631
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/10.129.102",
+      "sha256": "3a37b7a21e5bf4d76c048025191beff4fb99a7d8d27e509b1011d0ba402efc37",
+      "bytes": 2101701
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/11.129.102",
+      "sha256": "45cf5d508eed2fefe446ebfcf11615da32ea3b4e711dfbfb5c0f3b92127a4a50",
+      "bytes": 559398
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/10.129.102",
+      "sha256": "e28dd8904c7c40fab883ff29c30b5261b61b157cd2d031b199a161f57f028b63",
+      "bytes": 1323385
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/11.129.102",
+      "sha256": "cc3d68ba148fa6f56aa3acdeb8f24d14bc15d6b664dc40df041f37940db3b7e0",
+      "bytes": 352966
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/10.129.102",
+      "sha256": "209d15c8036bf77ae514b378d26be012c1e1723dcdcd966c1efd3b4f51c9c439",
+      "bytes": 1284059
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/11.129.102",
+      "sha256": "36ae352e620d441bda758ed72968e224fdf8140330abbceea953e13862e087f9",
+      "bytes": 345084
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/10.129.102",
+      "sha256": "229fa51d7c46dc4f328d2fb372fc89829c190d1a1bef055c18a17ef75d590317",
+      "bytes": 2851468
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/11.129.102",
+      "sha256": "a1a15ca5823bc9cf02cb27bfc24cfaaa5a59eb67cd58d21b4169e8caef75e605",
+      "bytes": 750218
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/10.129.102",
+      "sha256": "6fa052d3e7087f60b06fa6f8dbbdbb1d1df654d257d90e397ecce8fc47b267a8",
+      "bytes": 2836737
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/11.129.102",
+      "sha256": "508914834a78d805e94cf66b9d3d427cf838bc8d35c8637ae5e02e7b3c5a215f",
+      "bytes": 746788
+    }
+  ],
+  "thermal": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/ashburn-frozen-thermal.nc",
+    "sha256": "162b70e54169e88e8db55b52f4c6efa3219fd70277851c8c6ef6d0881825c150"
+  },
+  "base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/ashburn-frozen-base.nc",
+    "sha256": "492068023eef39c3dcd598068ec8343476a86cdbf01b32c39ec0528dc1059a10"
+  }
+}

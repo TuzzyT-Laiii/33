@@ -1,0 +1,75 @@
+{
+  "checks": {
+    "scenario_rows_360": true,
+    "electric_rows_1080": true,
+    "zero_share_zero_removal": true,
+    "zero_delay_zero_removal": true,
+    "nonnegative_range_reductions": true,
+    "cumulative_service_constraints": true
+  },
+  "all_passed": true,
+  "sources": [
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C20-Lisa-cpu_spec-central.parquet",
+      "sha256": "e82926a041ea3199e372aadd0a9afd151afb7deb0e6adc7281e8fdf9c8ca28f8",
+      "source_days": 309
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-MIT-ratio_p50-central.parquet",
+      "sha256": "6128d2d42598063214e489bc7f44a32b7e6389c0074ceb93554e1853ca78c3d1",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-Acme-ratio_p50-central.parquet",
+      "sha256": "787d0823a0177d057e8969da1c1d2dcfdb1ea35172bc6af14472f9dd92d80a48",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-ASI-ratio_p50-central.parquet",
+      "sha256": "3e020855017ad3f32bfc5993fe80b5e7f94bbe32f9157c7d8d7705643444c15e",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-MIT-ratio_p50-central.parquet",
+      "sha256": "552febf3c2c08befd4a2333d4913c4ef46c07b24421c521bc297e92504bbf257",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-Acme-ratio_p50-central.parquet",
+      "sha256": "2e593ac4b5c109a27efdb0a7e6ef4170bff053efabb033ffda954f1d1beb0cda",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-ASI-ratio_p50-central.parquet",
+      "sha256": "20a47b08f8473de449474e45952cd222a8834f53b04deb2c77b0c40c9ca8b00c",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-MIT-ratio_p50-central.parquet",
+      "sha256": "04683817de7b12c68def1299fab86c874ab5f8c9385edd8a56ce9b8de78d3617",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-Acme-ratio_p50-central.parquet",
+      "sha256": "eee9ca3a2b407079d8ef8aeaf29ae27a085609a83e708e40171bf47206d11ad6",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-ASI-ratio_p50-central.parquet",
+      "sha256": "b11a40995ce922a9a1ca2ed19e59b41e45946e419261c3d11024f92c347c0857",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\R-GB200-Acme-ratio_p50-central.parquet",
+      "sha256": "21ea3b90466aef783a175e1c54b512f75e6644e8e1ead30c1d99b2743a009fd7",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\R-GB200-ASI-ratio_p50-central.parquet",
+      "sha256": "ccd8ca1767a10698016ee4be78966f1e8b35af95ce2de9aea4e84c25fb49d530",
+      "source_days": 1
+    }
+  ],
+  "year": 2025,
+  "hourly_directory": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\processed\\eight-city-phase-a-20261029\\flexibility"
+}

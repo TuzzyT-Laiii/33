@@ -1,0 +1,13 @@
+﻿scenario_scale_id,week_start_utc,week_end_utc,standardized_distance,selection
+A-HPC-10MW,2025-10-20 00:00:00+00:00,2025-10-26 23:00:00+00:00,0.30749211008675326,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+B-SAI-10MW,2025-10-20 00:00:00+00:00,2025-10-26 23:00:00+00:00,0.19252827789086524,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+B-TRN-10MW,2025-04-28 00:00:00+00:00,2025-05-04 23:00:00+00:00,0.29318000638042413,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+B-INF-10MW,2025-04-21 00:00:00+00:00,2025-04-27 23:00:00+00:00,0.2169478700524493,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+C-SAI-10MW,2025-10-20 00:00:00+00:00,2025-10-26 23:00:00+00:00,0.17220692139546828,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+C-TRN-10MW,2025-04-28 00:00:00+00:00,2025-05-04 23:00:00+00:00,0.30432424880865244,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+C-INF-10MW,2025-04-21 00:00:00+00:00,2025-04-27 23:00:00+00:00,0.2162268032184878,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+D-SAI-10MW,2025-10-20 00:00:00+00:00,2025-10-26 23:00:00+00:00,0.13859545068481743,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+D-TRN-10MW,2025-04-28 00:00:00+00:00,2025-05-04 23:00:00+00:00,0.3376596661086629,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+D-INF-10MW,2025-04-21 00:00:00+00:00,2025-04-27 23:00:00+00:00,0.2150926014040587,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+E-TRN-10MW,2025-04-28 00:00:00+00:00,2025-05-04 23:00:00+00:00,0.3395598661944857,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE
+E-INF-10MW,2025-10-13 00:00:00+00:00,2025-10-19 23:00:00+00:00,0.14873157735680076,common_eight_city_week; IT_cooling_facility_temperature_standardized_MSE

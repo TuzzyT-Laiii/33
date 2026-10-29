@@ -1,0 +1,198 @@
+{
+  "base_commit": "6ffda9b",
+  "weather_sources": [
+    {
+      "city_id": "phoenix",
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\raw\\eight-city-weather-20261029\\phoenix.parquet",
+      "sha256": "f76ab1c444d56b3389682696e641fdecb0041911961008211e5ddb2551c458cd",
+      "method": "CDS",
+      "resource_parameters": {
+        "solar_evaluation": "hour_ending_UTC; midpoint_geometry",
+        "direct_above_global_hours": 0,
+        "fixed_tilt_deg": 33.428,
+        "hub_height_m": 110.0,
+        "wind_shear_exponent": 0.14285714285714285,
+        "pv_capacity_basis": "AC_generation_per_DC_nameplate",
+        "dc_ac_ratio": 1.2,
+        "wind_loss_fraction": 0.1
+      }
+    },
+    {
+      "city_id": "ashburn",
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\raw\\eight-city-weather-20261029\\ashburn-arco.parquet",
+      "sha256": "d67ab145a8802b0c7afa5854468c1fa3a8e7447136c661c699e8eee97d02f28e",
+      "method": "ECMWF_official_ARCO",
+      "resource_parameters": {
+        "solar_evaluation": "hour_ending_UTC; midpoint_geometry",
+        "direct_above_global_hours": 0,
+        "fixed_tilt_deg": 38.935,
+        "hub_height_m": 110.0,
+        "wind_shear_exponent": 0.14285714285714285,
+        "pv_capacity_basis": "AC_generation_per_DC_nameplate",
+        "dc_ac_ratio": 1.2,
+        "wind_loss_fraction": 0.1
+      }
+    },
+    {
+      "city_id": "frankfurt",
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\raw\\eight-city-weather-20261029\\frankfurt-arco.parquet",
+      "sha256": "a16513513503fcefde86922bb6261f9369054c36aff34608c38c1d02746f8b86",
+      "method": "ECMWF_official_ARCO",
+      "resource_parameters": {
+        "solar_evaluation": "hour_ending_UTC; midpoint_geometry",
+        "direct_above_global_hours": 0,
+        "fixed_tilt_deg": 50.026,
+        "hub_height_m": 110.0,
+        "wind_shear_exponent": 0.14285714285714285,
+        "pv_capacity_basis": "AC_generation_per_DC_nameplate",
+        "dc_ac_ratio": 1.2,
+        "wind_loss_fraction": 0.1
+      }
+    },
+    {
+      "city_id": "lulea",
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\raw\\eight-city-weather-20261029\\lulea-arco.parquet",
+      "sha256": "fd8f3132d9aec9a844d94e331a11c16035e20d438c15415c263f26422ad0e175",
+      "method": "ECMWF_official_ARCO",
+      "resource_parameters": {
+        "solar_evaluation": "hour_ending_UTC; midpoint_geometry",
+        "direct_above_global_hours": 0,
+        "fixed_tilt_deg": 60.0,
+        "hub_height_m": 110.0,
+        "wind_shear_exponent": 0.14285714285714285,
+        "pv_capacity_basis": "AC_generation_per_DC_nameplate",
+        "dc_ac_ratio": 1.2,
+        "wind_loss_fraction": 0.1
+      }
+    },
+    {
+      "city_id": "ulanqab",
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\raw\\eight-city-weather-20261029\\ulanqab-arco.parquet",
+      "sha256": "0d5c45fd1a7f88b487371b7fafc0c24d9b85089a0c2305cf704be36cf9bf03d3",
+      "method": "ECMWF_official_ARCO",
+      "resource_parameters": {
+        "solar_evaluation": "hour_ending_UTC; midpoint_geometry",
+        "direct_above_global_hours": 0,
+        "fixed_tilt_deg": 41.033,
+        "hub_height_m": 110.0,
+        "wind_shear_exponent": 0.14285714285714285,
+        "pv_capacity_basis": "AC_generation_per_DC_nameplate",
+        "dc_ac_ratio": 1.2,
+        "wind_loss_fraction": 0.1
+      }
+    },
+    {
+      "city_id": "guiyang",
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\raw\\eight-city-weather-20261029\\guiyang-arco.parquet",
+      "sha256": "fa48e4f79737aa6bff6a3c0ad9e8821be95ef795a2da1b7d12b367824952f0d7",
+      "method": "ECMWF_official_ARCO",
+      "resource_parameters": {
+        "solar_evaluation": "hour_ending_UTC; midpoint_geometry",
+        "direct_above_global_hours": 0,
+        "fixed_tilt_deg": 26.539,
+        "hub_height_m": 110.0,
+        "wind_shear_exponent": 0.14285714285714285,
+        "pv_capacity_basis": "AC_generation_per_DC_nameplate",
+        "dc_ac_ratio": 1.2,
+        "wind_loss_fraction": 0.1
+      }
+    },
+    {
+      "city_id": "riyadh",
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\raw\\eight-city-weather-20261029\\riyadh-arco.parquet",
+      "sha256": "a74d06faec433de8e1d8533773d7c6f213ab83e641b28ec8812f10efe733ba7f",
+      "method": "ECMWF_official_ARCO",
+      "resource_parameters": {
+        "solar_evaluation": "hour_ending_UTC; midpoint_geometry",
+        "direct_above_global_hours": 0,
+        "fixed_tilt_deg": 24.958,
+        "hub_height_m": 110.0,
+        "wind_shear_exponent": 0.14285714285714285,
+        "pv_capacity_basis": "AC_generation_per_DC_nameplate",
+        "dc_ac_ratio": 1.2,
+        "wind_loss_fraction": 0.1
+      }
+    },
+    {
+      "city_id": "singapore",
+      "path": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\raw\\eight-city-weather-20261029\\singapore-arco.parquet",
+      "sha256": "df26d8a61a6c4b9ae6d32c96463d83cc7c5a312438acbaf5caea67059d74c656",
+      "method": "ECMWF_official_ARCO",
+      "resource_parameters": {
+        "solar_evaluation": "hour_ending_UTC; midpoint_geometry",
+        "direct_above_global_hours": 0,
+        "fixed_tilt_deg": 10.0,
+        "hub_height_m": 110.0,
+        "wind_shear_exponent": 0.14285714285714285,
+        "pv_capacity_basis": "AC_generation_per_DC_nameplate",
+        "dc_ac_ratio": 1.2,
+        "wind_loss_fraction": 0.1
+      }
+    }
+  ],
+  "load_sources": [
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C20-Lisa-cpu_spec-central.parquet",
+      "sha256": "e82926a041ea3199e372aadd0a9afd151afb7deb0e6adc7281e8fdf9c8ca28f8",
+      "source_days": 309
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-MIT-ratio_p50-central.parquet",
+      "sha256": "6128d2d42598063214e489bc7f44a32b7e6389c0074ceb93554e1853ca78c3d1",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-Acme-ratio_p50-central.parquet",
+      "sha256": "787d0823a0177d057e8969da1c1d2dcfdb1ea35172bc6af14472f9dd92d80a48",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-ASI-ratio_p50-central.parquet",
+      "sha256": "3e020855017ad3f32bfc5993fe80b5e7f94bbe32f9157c7d8d7705643444c15e",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-MIT-ratio_p50-central.parquet",
+      "sha256": "552febf3c2c08befd4a2333d4913c4ef46c07b24421c521bc297e92504bbf257",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-Acme-ratio_p50-central.parquet",
+      "sha256": "2e593ac4b5c109a27efdb0a7e6ef4170bff053efabb033ffda954f1d1beb0cda",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-ASI-ratio_p50-central.parquet",
+      "sha256": "20a47b08f8473de449474e45952cd222a8834f53b04deb2c77b0c40c9ca8b00c",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-MIT-ratio_p50-central.parquet",
+      "sha256": "04683817de7b12c68def1299fab86c874ab5f8c9385edd8a56ce9b8de78d3617",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-Acme-ratio_p50-central.parquet",
+      "sha256": "eee9ca3a2b407079d8ef8aeaf29ae27a085609a83e708e40171bf47206d11ad6",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-ASI-ratio_p50-central.parquet",
+      "sha256": "b11a40995ce922a9a1ca2ed19e59b41e45946e419261c3d11024f92c347c0857",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\R-GB200-Acme-ratio_p50-central.parquet",
+      "sha256": "21ea3b90466aef783a175e1c54b512f75e6644e8e1ead30c1d99b2743a009fd7",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\R-GB200-ASI-ratio_p50-central.parquet",
+      "sha256": "ccd8ca1767a10698016ee4be78966f1e8b35af95ce2de9aea4e84c25fb49d530",
+      "source_days": 1
+    }
+  ],
+  "processed_directory": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\data\\processed\\eight-city-phase-a-20261029",
+  "pending_weather_cities": [],
+  "created_utc": "2026-10-29T08:12:02.693317+00:00"
+}

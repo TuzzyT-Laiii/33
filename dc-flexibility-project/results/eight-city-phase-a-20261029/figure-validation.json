@@ -1,0 +1,427 @@
+{
+  "font": "Microsoft YaHei",
+  "created_utc": "2026-10-29T07:57:26.579493+00:00",
+  "figures": [
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\A-HPC-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 883983,
+      "pdf_bytes": 61952
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\A-HPC-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 1131311,
+      "pdf_bytes": 59701
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\A-HPC-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 2514528,
+      "pdf_bytes": 107985
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-SAI-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 660159,
+      "pdf_bytes": 59464
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-SAI-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 501484,
+      "pdf_bytes": 55370
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-SAI-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 1869757,
+      "pdf_bytes": 108016
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-TRN-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 652413,
+      "pdf_bytes": 60045
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-TRN-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 628509,
+      "pdf_bytes": 52030
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-TRN-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 1696451,
+      "pdf_bytes": 108875
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-INF-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 616858,
+      "pdf_bytes": 59262
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-INF-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 481402,
+      "pdf_bytes": 51678
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\B-INF-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 767646,
+      "pdf_bytes": 102920
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-SAI-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 656100,
+      "pdf_bytes": 59523
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-SAI-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 507040,
+      "pdf_bytes": 55980
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-SAI-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 1799286,
+      "pdf_bytes": 107537
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-TRN-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 651424,
+      "pdf_bytes": 59987
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-TRN-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 615906,
+      "pdf_bytes": 51369
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-TRN-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 1690638,
+      "pdf_bytes": 108733
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-INF-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 615699,
+      "pdf_bytes": 58431
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-INF-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 485431,
+      "pdf_bytes": 51583
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\C-INF-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 777783,
+      "pdf_bytes": 102592
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-SAI-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 643653,
+      "pdf_bytes": 61366
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-SAI-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 540942,
+      "pdf_bytes": 58223
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-SAI-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 1587445,
+      "pdf_bytes": 110022
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-TRN-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 641596,
+      "pdf_bytes": 59719
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-TRN-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 581005,
+      "pdf_bytes": 50981
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-TRN-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 1629277,
+      "pdf_bytes": 108694
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-INF-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 629643,
+      "pdf_bytes": 59108
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-INF-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 496709,
+      "pdf_bytes": 52354
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\D-INF-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 785468,
+      "pdf_bytes": 102968
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\E-TRN-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 587511,
+      "pdf_bytes": 58839
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\E-TRN-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 493447,
+      "pdf_bytes": 49529
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\E-TRN-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 1341370,
+      "pdf_bytes": 107587
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\E-INF-10MW-seasonal-days",
+      "width_px": 4774,
+      "height_px": 6329,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 586031,
+      "pdf_bytes": 58114
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\E-INF-10MW-typical-week",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 409959,
+      "pdf_bytes": 49110
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\load-patterns\\E-INF-10MW-annual-envelope",
+      "width_px": 4384,
+      "height_px": 3538,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 557006,
+      "pdf_bytes": 99199
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\figure2-city-load-comparison",
+      "width_px": 4829,
+      "height_px": 2134,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 501417,
+      "pdf_bytes": 90741
+    },
+    {
+      "figure": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\eight-city-phase-a-20261029\\dc-flexibility-project\\results\\eight-city-phase-a-20261029\\figure4-flexibility-potential",
+      "width_px": 4232,
+      "height_px": 3934,
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "png_bytes": 527318,
+      "pdf_bytes": 95112
+    }
+  ],
+  "visual_review": "reviewed_by_agent; all_41_PDF_renderings_checked",
+  "all_png_at_least_300dpi": true,
+  "review_notes": "已逐情境查看36张负荷图和5张概览图，中文、图例、标签和面板范围正常。"
+}

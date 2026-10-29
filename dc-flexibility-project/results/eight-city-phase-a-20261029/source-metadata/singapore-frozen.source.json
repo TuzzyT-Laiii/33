@@ -1,0 +1,97 @@
+{
+  "city_id": "singapore",
+  "source": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-ecmwf-geo",
+  "metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "missing": {
+    "t2m": 0,
+    "d2m": 0,
+    "sp": 0,
+    "ssrd": 0,
+    "fdir": 0,
+    "u10": 26304,
+    "v10": 26304,
+    "u100": 0,
+    "v100": 0
+  },
+  "checked_utc": "2026-10-29T07:06:35.719513+00:00",
+  "raw_objects": [
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/10.91.284",
+      "sha256": "cb09003b325f0ccc21ad0c5dce5591eeffd9776428287f2861309a607d82e189",
+      "bytes": 2440433
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/11.91.284",
+      "sha256": "3ff611e5fcc74df9e9c5b1025468a8254d13345751fe678b1822f7977f294812",
+      "bytes": 645651
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/10.91.284",
+      "sha256": "6718325d18ff072b1f144dac2d270959279526172bdbe82665bfcbe579d8b155",
+      "bytes": 2338641
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/11.91.284",
+      "sha256": "836e12af4d634127c03a5b85f389b3908c262f915d4369a3c0b4e9719e445bd2",
+      "bytes": 617419
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/10.91.284",
+      "sha256": "e099625dbce106a646754c64028337975dc786992cf289a3f0d58c29c9939723",
+      "bytes": 2049464
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/11.91.284",
+      "sha256": "81beef2c02cd5beb252dfc5650bd2e3280c71693019c454371cc63062478c9c8",
+      "bytes": 543744
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/10.91.284",
+      "sha256": "eade8ed7ff9002b7027f72a1614c3a4e5863cbe4461127da888814da5cb8fa91",
+      "bytes": 1314470
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/11.91.284",
+      "sha256": "87c9a6fe5ff043f720f337273a8f04019199358d68083cfbd095e431eb8450a1",
+      "bytes": 352942
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/10.91.284",
+      "sha256": "7d0b1830b7f92f89525b69928709bef517f68f7903453543c945cbea64798335",
+      "bytes": 1311061
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/11.91.284",
+      "sha256": "a19befa1dceba886557d45f52f4fc73fe09e3d9fe1549ec12f3d38ae77241e63",
+      "bytes": 353628
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/10.91.284",
+      "sha256": "a0d61cacce1fb31a1f644acf2045f625b72da2c121b6d377e0aefe65d11af7ed",
+      "bytes": 2907267
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/11.91.284",
+      "sha256": "0f3b362b97494a402483ad741913ccf174d248ed55f1639f125df1ed7c5ef119",
+      "bytes": 767968
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/10.91.284",
+      "sha256": "23dbd765952d1ebaf66156eaa628573781eac88004b317af9278288445930e44",
+      "bytes": 2773184
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/11.91.284",
+      "sha256": "367efe10605d4ff29b440500a48cad3cbba7ed7414f0bafaa73daef828673e3d",
+      "bytes": 735292
+    }
+  ],
+  "thermal": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/singapore-frozen-thermal.nc",
+    "sha256": "941f9c529c0ba8833e1fd11c08dbdf175c4a6ef55ddbfc5c0adbd3a47d78be34"
+  },
+  "base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/singapore-frozen-base.nc",
+    "sha256": "7c0379bcabffd1e9ffd57397387c8ad83c0f6c9d55236ce931c9a3db0660bcb1"
+  }
+}

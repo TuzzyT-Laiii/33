@@ -1,0 +1,490 @@
+{
+  "created_utc": "2026-10-29T08:20:30.221235+00:00",
+  "directory": "/data3/dataset/ljt/eight-city-weather-20261029/processed",
+  "index_sha256": "87bc869e95d86461f3152dad4cb043285dc07b6171b6490e05ec08b13dd99661",
+  "files": 96,
+  "total_bytes": 251504128,
+  "all_sha256_and_bytes_matched": true,
+  "file_records": [
+    {
+      "filename": "phoenix-A-HPC-10MW.parquet",
+      "sha256": "8a02296a51581959e01711b26ded6c933c021098679f3daae276cf7faac03eb1",
+      "bytes": 2802952
+    },
+    {
+      "filename": "phoenix-B-SAI-10MW.parquet",
+      "sha256": "fe443bfcbf81becf132764592906c11849f4ea9ef7120ed857138cc9831ad9cf",
+      "bytes": 2759599
+    },
+    {
+      "filename": "phoenix-B-TRN-10MW.parquet",
+      "sha256": "de4d3ed8a8b0186ae7014b11f39c1c2ec7e52495938db66293239b97627640c7",
+      "bytes": 2502677
+    },
+    {
+      "filename": "phoenix-B-INF-10MW.parquet",
+      "sha256": "d8c776730173163bc82c4356b88df77f66031a23e0210e6c1179822f26e5d13d",
+      "bytes": 2453232
+    },
+    {
+      "filename": "phoenix-C-SAI-10MW.parquet",
+      "sha256": "6bc7ca0d0007acffa07d92e6dc6dc6ea35015597674a68cea4a2034aeb124a2f",
+      "bytes": 2758013
+    },
+    {
+      "filename": "phoenix-C-TRN-10MW.parquet",
+      "sha256": "0c8e7c47512fa5de614e30f3ba98559e9157bc8478e6fd413a05c6945e44235b",
+      "bytes": 2502656
+    },
+    {
+      "filename": "phoenix-C-INF-10MW.parquet",
+      "sha256": "43764ca07ff4fc6f8730fc794b486e75e63867136a16a82f5f517e101816027a",
+      "bytes": 2453166
+    },
+    {
+      "filename": "phoenix-D-SAI-10MW.parquet",
+      "sha256": "5af295e29052a6d5dd0d599de6f5043c35247a0fb5ef92b2e2726ffa1b921ce2",
+      "bytes": 2755578
+    },
+    {
+      "filename": "phoenix-D-TRN-10MW.parquet",
+      "sha256": "9a4eb71fe1b9dfe6d88447d6b929529de77df9a6886b6c29a8c857ccf05274aa",
+      "bytes": 2502329
+    },
+    {
+      "filename": "phoenix-D-INF-10MW.parquet",
+      "sha256": "92c47ba6cb1b62965d7721213f0d03014426860023861f42b097d0efb79e630b",
+      "bytes": 2452925
+    },
+    {
+      "filename": "phoenix-E-TRN-10MW.parquet",
+      "sha256": "a5935afbd299b3542e68fe617223b219c36fbe6649eac7773d33410c9dbb6cae",
+      "bytes": 2500157
+    },
+    {
+      "filename": "phoenix-E-INF-10MW.parquet",
+      "sha256": "553652b95fb184f02f8eee1c84619640d610dd4aa7b17e79a69eb8cb08838799",
+      "bytes": 2450824
+    },
+    {
+      "filename": "ashburn-A-HPC-10MW.parquet",
+      "sha256": "af20099b44ef2c4ee35ab37372ea0a35ff99111b4e2110a117eb8863fef2db48",
+      "bytes": 2877490
+    },
+    {
+      "filename": "ashburn-B-SAI-10MW.parquet",
+      "sha256": "89e4668f1902ef88fbc84af193f4f92ac5b100b53ba173a062f0d7b9a1c6f232",
+      "bytes": 2834148
+    },
+    {
+      "filename": "ashburn-B-TRN-10MW.parquet",
+      "sha256": "8a6c00b0974430b59b80ab3af8e94d6e895cd3bcb6c6230c830ba0f077d36ddd",
+      "bytes": 2579396
+    },
+    {
+      "filename": "ashburn-B-INF-10MW.parquet",
+      "sha256": "0e6d211313f4ea67647ddb693e61d3dc0c7f814baadb0678b5ccd8b6cc4fbf24",
+      "bytes": 2528466
+    },
+    {
+      "filename": "ashburn-C-SAI-10MW.parquet",
+      "sha256": "5b00cfd6943f22e9f6b8258cc323f9abacd2bebc7705800c12cfce5efd13810d",
+      "bytes": 2832402
+    },
+    {
+      "filename": "ashburn-C-TRN-10MW.parquet",
+      "sha256": "e05694b44c98fa7e9883fd99806ddec58a976f89b6d855bc94f4d29d4644d042",
+      "bytes": 2579257
+    },
+    {
+      "filename": "ashburn-C-INF-10MW.parquet",
+      "sha256": "19a0528a868a3a7cdbe0157950040d08e6ed8d60f5da679726efd2bc284c9be1",
+      "bytes": 2529084
+    },
+    {
+      "filename": "ashburn-D-SAI-10MW.parquet",
+      "sha256": "7749ce4bebec535be3b607e967fd16a7e29300d2310e6865c1374dabb2cf89d5",
+      "bytes": 2830255
+    },
+    {
+      "filename": "ashburn-D-TRN-10MW.parquet",
+      "sha256": "65b20ae7d32fe9acb1bddb092db5333cf6caa89aa67eca8e9640e68a65382326",
+      "bytes": 2579392
+    },
+    {
+      "filename": "ashburn-D-INF-10MW.parquet",
+      "sha256": "b630bc496cd29885ff1cbe489bfdf87dfcb8d9c9e04f7f071d480e3ce26f8d8f",
+      "bytes": 2528208
+    },
+    {
+      "filename": "ashburn-E-TRN-10MW.parquet",
+      "sha256": "006ac356e953712772561421d13d29cda08597d8696e56bd0811269993e4de2a",
+      "bytes": 2574017
+    },
+    {
+      "filename": "ashburn-E-INF-10MW.parquet",
+      "sha256": "1aa20b94d9c66bd4f164740f942f65626bb826892328e58e7482e4670652020c",
+      "bytes": 2522345
+    },
+    {
+      "filename": "frankfurt-A-HPC-10MW.parquet",
+      "sha256": "54a564aa3c203e733a1dd985132d7fa5b5c18634bb602b44f89f7435aa59ed3c",
+      "bytes": 2864104
+    },
+    {
+      "filename": "frankfurt-B-SAI-10MW.parquet",
+      "sha256": "912597e5efbdb8fe942b1605230137cffe56e9797fe799efe0e0b6ca0c33b3e2",
+      "bytes": 2820552
+    },
+    {
+      "filename": "frankfurt-B-TRN-10MW.parquet",
+      "sha256": "7b553d8ce212ef9a2b95b7e30b90415605b25c468068a4c91df072abeb6422b5",
+      "bytes": 2566366
+    },
+    {
+      "filename": "frankfurt-B-INF-10MW.parquet",
+      "sha256": "20daa4695e747dad8f1cb562906ade2fae937b15f7f91d712e524fd7030e2016",
+      "bytes": 2512437
+    },
+    {
+      "filename": "frankfurt-C-SAI-10MW.parquet",
+      "sha256": "c0e78ce3cc79d4dd0b499b1450f8aeaf3371bb60af7198984698f22b75a4cfab",
+      "bytes": 2818935
+    },
+    {
+      "filename": "frankfurt-C-TRN-10MW.parquet",
+      "sha256": "450e7101f3c6b60a9442acc9a47379947ab96b766d0f56ea8c241bbc878ca7fe",
+      "bytes": 2566151
+    },
+    {
+      "filename": "frankfurt-C-INF-10MW.parquet",
+      "sha256": "4d39c69cb7560de186b94a7d1a11374c28c8e629dd7581eabae3f64e0c799310",
+      "bytes": 2512591
+    },
+    {
+      "filename": "frankfurt-D-SAI-10MW.parquet",
+      "sha256": "0069bae95ad4ec09fd484789286d39bb85521e4e4afceb488cbf7f915f3a7ff4",
+      "bytes": 2817135
+    },
+    {
+      "filename": "frankfurt-D-TRN-10MW.parquet",
+      "sha256": "14b3dcdd442c0604dfab747a85f5826822fab2633d733f7e2aa61b059065eedd",
+      "bytes": 2566245
+    },
+    {
+      "filename": "frankfurt-D-INF-10MW.parquet",
+      "sha256": "2f333af7383dfb4c750ea581025ec07e6513561f59af3900051520f2e18ea37d",
+      "bytes": 2512428
+    },
+    {
+      "filename": "frankfurt-E-TRN-10MW.parquet",
+      "sha256": "4e1c1a45a569a70c8fd879b287eb509bbccab8a6bead9a3716dbf428174e8104",
+      "bytes": 2559159
+    },
+    {
+      "filename": "frankfurt-E-INF-10MW.parquet",
+      "sha256": "23ade3f028cda54b1628a6dbe177ff3086aa6dfeccfa9686af937ab213e1bc3e",
+      "bytes": 2506114
+    },
+    {
+      "filename": "lulea-A-HPC-10MW.parquet",
+      "sha256": "36a82bdab257e450b6f5fe3c28c7664fbf860b4f1cb9ba962377b516b5e9dcb4",
+      "bytes": 2845828
+    },
+    {
+      "filename": "lulea-B-SAI-10MW.parquet",
+      "sha256": "d3aef4921cfd878b24a7f47445bb9a5b368aabfac98368190de1a8dbe966b71f",
+      "bytes": 2803973
+    },
+    {
+      "filename": "lulea-B-TRN-10MW.parquet",
+      "sha256": "abb98900be382b76f6fcc1ac21704693e2d392c96ccefeec01e9cae4f8fe63c2",
+      "bytes": 2549053
+    },
+    {
+      "filename": "lulea-B-INF-10MW.parquet",
+      "sha256": "1c430dc1773a863d6c81921ba53b8c171684337955e898ae65cbde4f9100a26a",
+      "bytes": 2495856
+    },
+    {
+      "filename": "lulea-C-SAI-10MW.parquet",
+      "sha256": "2bb11bb71c05398a5bb4acab1f53ab3b6451031182a9dd9f4b65f242302146a2",
+      "bytes": 2802537
+    },
+    {
+      "filename": "lulea-C-TRN-10MW.parquet",
+      "sha256": "6ea6f25f6ba23e611a77b8bc84df7f0f4c00793eeaf66c5e516863217a5d20f7",
+      "bytes": 2548715
+    },
+    {
+      "filename": "lulea-C-INF-10MW.parquet",
+      "sha256": "c2ce42141b1e626fd2e388b202a206f646549127cded7e748218fe1a4b5f6e8a",
+      "bytes": 2496309
+    },
+    {
+      "filename": "lulea-D-SAI-10MW.parquet",
+      "sha256": "699e4b0a31f53ce9d800d6368cea9c4ea9828cd2f9c51078fc871d7e3dbd1a9e",
+      "bytes": 2800836
+    },
+    {
+      "filename": "lulea-D-TRN-10MW.parquet",
+      "sha256": "dcd648885b23fe5a668603b355536c7e1f8779f34e10694f3d13080b66173a4e",
+      "bytes": 2548639
+    },
+    {
+      "filename": "lulea-D-INF-10MW.parquet",
+      "sha256": "9362d7ae2b5f1142a7542152bc1556330d0daa9ea1de22735d88ca053962d63a",
+      "bytes": 2495683
+    },
+    {
+      "filename": "lulea-E-TRN-10MW.parquet",
+      "sha256": "d63fee0f3a3cb58b59868d7c5751cf2a2663a39561cf1cdcba8d1541674537de",
+      "bytes": 2541962
+    },
+    {
+      "filename": "lulea-E-INF-10MW.parquet",
+      "sha256": "0f38eead9b8f0e1cead63e3701ca6607cb17c1c7676fb22bd6df421673229a25",
+      "bytes": 2485317
+    },
+    {
+      "filename": "ulanqab-A-HPC-10MW.parquet",
+      "sha256": "a343afa6a73e1facff9e814864c4ef1ce9f1832b16d405ecdef51c4d6db35832",
+      "bytes": 2878463
+    },
+    {
+      "filename": "ulanqab-B-SAI-10MW.parquet",
+      "sha256": "22c59d1a2ddbb61888f9f13161d0e193c695ef0bfb42a0abd02cb824483bde29",
+      "bytes": 2837729
+    },
+    {
+      "filename": "ulanqab-B-TRN-10MW.parquet",
+      "sha256": "60e8c72dfce459d3b2053795097c7f58abab956b62d00287bcdc8471764c23c9",
+      "bytes": 2581864
+    },
+    {
+      "filename": "ulanqab-B-INF-10MW.parquet",
+      "sha256": "a3f0d2c51829038ee2a400ecd70a5b8d029fe46bcea759da1a745500a6de2852",
+      "bytes": 2528085
+    },
+    {
+      "filename": "ulanqab-C-SAI-10MW.parquet",
+      "sha256": "51ba8ef76b64fcd7cd55879e606e1de0a8786050d76db3e5362144a7b21dabf0",
+      "bytes": 2836281
+    },
+    {
+      "filename": "ulanqab-C-TRN-10MW.parquet",
+      "sha256": "b95ca0a59e448bf5123a400359cdbc1160124505b5e9084ef18d07fb5a962139",
+      "bytes": 2581777
+    },
+    {
+      "filename": "ulanqab-C-INF-10MW.parquet",
+      "sha256": "ba8fa0785821a10ad2437a0ae30a0808471667f497647fe8534f14f9818dcc4d",
+      "bytes": 2525710
+    },
+    {
+      "filename": "ulanqab-D-SAI-10MW.parquet",
+      "sha256": "0dbf7a58548fee69865807c7824ca3ed1c108ad5896ac744fd19d0f08800cbb2",
+      "bytes": 2833331
+    },
+    {
+      "filename": "ulanqab-D-TRN-10MW.parquet",
+      "sha256": "f9a447a07e825bf8f65cf9dfb2692f895b42a7f5dcec8648837d92c312bc831f",
+      "bytes": 2581932
+    },
+    {
+      "filename": "ulanqab-D-INF-10MW.parquet",
+      "sha256": "2014238fb685520364c0e00c87e43eae5ea0d957048927edd1da0bd3abb4119b",
+      "bytes": 2526741
+    },
+    {
+      "filename": "ulanqab-E-TRN-10MW.parquet",
+      "sha256": "fb4de86d3f966ece18ba3c1bc487718241df128491ae328eb70045f7f804abad",
+      "bytes": 2575218
+    },
+    {
+      "filename": "ulanqab-E-INF-10MW.parquet",
+      "sha256": "622ccf7015c47032b2c6b53230493a0bdf0500b75659b308e75ccab015de528a",
+      "bytes": 2520555
+    },
+    {
+      "filename": "guiyang-A-HPC-10MW.parquet",
+      "sha256": "2b4f0eddc7b1483fc081c1b806df491c609311f9d3824b92adfa0b26146e2dfd",
+      "bytes": 2855012
+    },
+    {
+      "filename": "guiyang-B-SAI-10MW.parquet",
+      "sha256": "aaa86f080ee69544a7739bbd57389af1da253ce3a522d02960195478c8e4edad",
+      "bytes": 2812910
+    },
+    {
+      "filename": "guiyang-B-TRN-10MW.parquet",
+      "sha256": "6e08f625b1f32dc48d80115eeb165dfe3769af5d23f53b97b1b132b39b866ee1",
+      "bytes": 2555124
+    },
+    {
+      "filename": "guiyang-B-INF-10MW.parquet",
+      "sha256": "da180519c09fd5b075f8b7718b1fd8f2ad5158a947d8acda4e3848e8fcd969f6",
+      "bytes": 2506467
+    },
+    {
+      "filename": "guiyang-C-SAI-10MW.parquet",
+      "sha256": "612ba195d74f02212dc5b6f0563fb0dfd618024c2107d10d83b46a2fde07db99",
+      "bytes": 2811630
+    },
+    {
+      "filename": "guiyang-C-TRN-10MW.parquet",
+      "sha256": "c159089b429a7a315976ae85bed489a7c519e823a99b44a8808246c9d6e69c01",
+      "bytes": 2555044
+    },
+    {
+      "filename": "guiyang-C-INF-10MW.parquet",
+      "sha256": "de2a1993ab07b08d58b98eef381b696540a7a2a8f8dc909495df0a7796a247b3",
+      "bytes": 2506120
+    },
+    {
+      "filename": "guiyang-D-SAI-10MW.parquet",
+      "sha256": "3dfe24e1faa3705ff5b07fdf694750db0b74ef5f7f573c6ea719fbf888fc5379",
+      "bytes": 2807991
+    },
+    {
+      "filename": "guiyang-D-TRN-10MW.parquet",
+      "sha256": "cb2586c432edaa564e446ec7751254cc6b50287658c74b37bf9ce44a6828ee42",
+      "bytes": 2555315
+    },
+    {
+      "filename": "guiyang-D-INF-10MW.parquet",
+      "sha256": "909e713ba69ac7a5d5250491d54c4bd1e4b29f9da94f80363c901e7cc318bf00",
+      "bytes": 2506887
+    },
+    {
+      "filename": "guiyang-E-TRN-10MW.parquet",
+      "sha256": "bc72844ca8f9540e6b5289cfe6b99f11294f6a47a00c6841b25cedd0232d45c8",
+      "bytes": 2551703
+    },
+    {
+      "filename": "guiyang-E-INF-10MW.parquet",
+      "sha256": "73143f68eb1f3360eb9724b738aa344ccc50b8f36fc70b6c032f353b2ef2587f",
+      "bytes": 2501869
+    },
+    {
+      "filename": "riyadh-A-HPC-10MW.parquet",
+      "sha256": "0ac9e7bff67854834049d4250b750bb79e4d02be5cf3d1e307f5b1882aaea2b5",
+      "bytes": 2896824
+    },
+    {
+      "filename": "riyadh-B-SAI-10MW.parquet",
+      "sha256": "59b9246491e1a271266ba2c15a5d082efce03ffb332afd441922743da4193bf1",
+      "bytes": 2853088
+    },
+    {
+      "filename": "riyadh-B-TRN-10MW.parquet",
+      "sha256": "5c2008dd0c0e395ec2f4a356b493d6671bd98e93df6f82229f8d899cc3f8a591",
+      "bytes": 2595390
+    },
+    {
+      "filename": "riyadh-B-INF-10MW.parquet",
+      "sha256": "63583839dc2a58c208b3abebe02c32d87d318bff245edb3fc607961d0364b348",
+      "bytes": 2544119
+    },
+    {
+      "filename": "riyadh-C-SAI-10MW.parquet",
+      "sha256": "7c8d5d7e9944d206af5ec8d64926b5764d4526c3dafaf1218a1cc1cd372d8c0e",
+      "bytes": 2851332
+    },
+    {
+      "filename": "riyadh-C-TRN-10MW.parquet",
+      "sha256": "c8704638e7614ba80af0697f6cba020b5b52f2d905fe053071e42800a1651f32",
+      "bytes": 2595121
+    },
+    {
+      "filename": "riyadh-C-INF-10MW.parquet",
+      "sha256": "dd7c9249ca69414b0f8617039609dbfc392ffe4bdd8b4fadf914c6c725db1019",
+      "bytes": 2544445
+    },
+    {
+      "filename": "riyadh-D-SAI-10MW.parquet",
+      "sha256": "ce7b3b5fe2e434b9aea052605d0f9b2588a91d2da6050f4d7c9504fb70394d3f",
+      "bytes": 2848607
+    },
+    {
+      "filename": "riyadh-D-TRN-10MW.parquet",
+      "sha256": "6012aeacd63255ae6b8df2491370d312b004d75c9549074db242e2295949d1d5",
+      "bytes": 2594859
+    },
+    {
+      "filename": "riyadh-D-INF-10MW.parquet",
+      "sha256": "be256b9d1e45f3395c8327927d66c01e2457d03efec504eb419fbeb991719ee1",
+      "bytes": 2544654
+    },
+    {
+      "filename": "riyadh-E-TRN-10MW.parquet",
+      "sha256": "d65292ffc229a50e114658cebacf8836ff5c1b74aa3b4bf3253c849ebfb82a7e",
+      "bytes": 2593948
+    },
+    {
+      "filename": "riyadh-E-INF-10MW.parquet",
+      "sha256": "1e76ce13fb42b8ac2578058aa2928b08803cb854d612260b307b6abddf3bc0c2",
+      "bytes": 2544151
+    },
+    {
+      "filename": "singapore-A-HPC-10MW.parquet",
+      "sha256": "725cd18a699078bcc50dc7b697945efed5d5861ef10a6b8461bdd8b646155bee",
+      "bytes": 2766611
+    },
+    {
+      "filename": "singapore-B-SAI-10MW.parquet",
+      "sha256": "4233ec499c3c44b555b46dda6c93a814041228d47d8cf45d5a4267000ab419a5",
+      "bytes": 2726658
+    },
+    {
+      "filename": "singapore-B-TRN-10MW.parquet",
+      "sha256": "d9494ef58698f6fbdaf8b57f761faa0bd0fddcbcaf316886f06df0e45b4130e5",
+      "bytes": 2464015
+    },
+    {
+      "filename": "singapore-B-INF-10MW.parquet",
+      "sha256": "f4137d62b80f7b8861c91f62baa74166b62f0bfb347c960f20d3c72465695ccf",
+      "bytes": 2409874
+    },
+    {
+      "filename": "singapore-C-SAI-10MW.parquet",
+      "sha256": "8815c2d17dc3da566db40550fb067db7edf84e49807744c48de18ee3b96c0a34",
+      "bytes": 2725322
+    },
+    {
+      "filename": "singapore-C-TRN-10MW.parquet",
+      "sha256": "981e007a346545c3c4e21c818bdbf9363699d0431d9b28cea04105872abd928e",
+      "bytes": 2463475
+    },
+    {
+      "filename": "singapore-C-INF-10MW.parquet",
+      "sha256": "34afce08dd477d9c9e4a604ead5fd5a8d8280724df5bd49dcaa1c4757eb968eb",
+      "bytes": 2410377
+    },
+    {
+      "filename": "singapore-D-SAI-10MW.parquet",
+      "sha256": "bb98ff0c8ca0029b53d5129aa775c9e86254b18d8cda6899cc161410a9770f97",
+      "bytes": 2719950
+    },
+    {
+      "filename": "singapore-D-TRN-10MW.parquet",
+      "sha256": "0d84875b9d27f200ca48578a2536f84dea1971e25faa4644ec561b8cfc5411b9",
+      "bytes": 2463710
+    },
+    {
+      "filename": "singapore-D-INF-10MW.parquet",
+      "sha256": "ce34ad0fee9a3fa2cea82447b739a8119a2822772b84893325b975326399f4cd",
+      "bytes": 2410342
+    },
+    {
+      "filename": "singapore-E-TRN-10MW.parquet",
+      "sha256": "3705269a391dd6c95e4b77c12f9ad25fa836a24c649b6c7755a9fef4660d313f",
+      "bytes": 2464931
+    },
+    {
+      "filename": "singapore-E-INF-10MW.parquet",
+      "sha256": "04e41109d2259f3fd5ac6d825a354f2de1623db97e65a6feb5f7ad93e8d99fd9",
+      "bytes": 2413074
+    }
+  ]
+}

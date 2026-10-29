@@ -1,0 +1,97 @@
+{
+  "city_id": "guiyang",
+  "source": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-ecmwf-geo",
+  "metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "missing": {
+    "t2m": 0,
+    "d2m": 0,
+    "sp": 0,
+    "ssrd": 0,
+    "fdir": 0,
+    "u10": 26304,
+    "v10": 26304,
+    "u100": 0,
+    "v100": 0
+  },
+  "checked_utc": "2026-10-29T07:06:32.380376+00:00",
+  "raw_objects": [
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/10.116.286",
+      "sha256": "19117e532bb5115300c7965723afbb5e7ebeb9333fe9205b9598323984525d7b",
+      "bytes": 2547608
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/11.116.286",
+      "sha256": "50fe0f7d559778c729e72445b9548e459afe1ff45d5a90a49883a166ec525275",
+      "bytes": 674080
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/10.116.286",
+      "sha256": "423231e581046a9f90a9fc1599ba181951e5808f565f99d4870828cb274a5918",
+      "bytes": 2505576
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/11.116.286",
+      "sha256": "50ff825e522f8899e8ac309abc1c1fca059c8be70ef513bd7feaf65debddbea5",
+      "bytes": 660841
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/10.116.286",
+      "sha256": "ffbda0718366a21a36f69700fb21e404186985938668c934d735c9acd27cad5c",
+      "bytes": 2098465
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/11.116.286",
+      "sha256": "2dfad2864b8b07b3b2a377dcd3dffb7cb2284796a68dc86cbf0e9a9cfe48a8a3",
+      "bytes": 558713
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/10.116.286",
+      "sha256": "0e960f32f3105c6face5e95438445f060fbf3518c8e3da03fb9dc157896a4521",
+      "bytes": 1327518
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/11.116.286",
+      "sha256": "cf0a73bcc0a8e3cdb397292dbbfb329344e8b5b687974e3785452bcb694333c3",
+      "bytes": 353988
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/10.116.286",
+      "sha256": "de4bcddc4833652dc1c8997b678ad95faebbccbf8e785998dd60261df4d8b665",
+      "bytes": 1276369
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/11.116.286",
+      "sha256": "79c270dd8e7a4e0d988f037b932d5e5cebe6071c1d6f90149bba0e8ec81407d7",
+      "bytes": 345456
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/10.116.286",
+      "sha256": "0d6c089819d46a562574655256e0e45a75d1d02f8e28fd9353aa5d5c8b95482d",
+      "bytes": 2961524
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/11.116.286",
+      "sha256": "e26961d8ea8e13869d3b70ed517b01427d03db132e8f8eb728ae8aa721faa673",
+      "bytes": 781887
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/10.116.286",
+      "sha256": "eb4be34ff77766cbd1fb04e24404d8006b325c7d064ce65e83c4aa4f8df12637",
+      "bytes": 2863791
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/11.116.286",
+      "sha256": "1f404a037ada9a7fbc85a2bdf62797fa5d5f91102aed2bb6292c19b94ce79032",
+      "bytes": 750650
+    }
+  ],
+  "thermal": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/guiyang-frozen-thermal.nc",
+    "sha256": "f50a5c3781025174ae8cf90175957333561e5343711b6c0100281acdc447aad8"
+  },
+  "base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/guiyang-frozen-base.nc",
+    "sha256": "65cb78029a02f32040348b9407c9d52872c93cb4def3d24ed788424f6ada5f47"
+  }
+}

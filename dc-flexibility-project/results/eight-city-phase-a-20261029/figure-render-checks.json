@@ -1,0 +1,582 @@
+{
+  "figures": [
+    {
+      "figure": "figure1-climate-resource-overview",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        944.3995361328125,
+        656.3995361328125
+      ]
+    },
+    {
+      "figure": "figure2-city-load-comparison",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1159.2938232421875,
+        512.3995361328125
+      ]
+    },
+    {
+      "figure": "figure3-renewable-shapes",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        980.3995361328125,
+        677.5797729492188
+      ]
+    },
+    {
+      "figure": "figure4-flexibility-potential",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1015.7769775390625,
+        944.3995361328125
+      ]
+    },
+    {
+      "figure": "figure5-independent-hour-removal",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1015.7769775390625,
+        944.3995361328125
+      ]
+    },
+    {
+      "figure": "A-HPC-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "A-HPC-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "A-HPC-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "B-INF-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "B-INF-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "B-INF-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "B-SAI-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "B-SAI-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "B-SAI-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "B-TRN-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "B-TRN-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "B-TRN-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "C-INF-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "C-INF-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "C-INF-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "C-SAI-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "C-SAI-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "C-SAI-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "C-TRN-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "C-TRN-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "C-TRN-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "D-INF-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "D-INF-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "D-INF-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "D-SAI-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "D-SAI-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "D-SAI-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "D-TRN-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "D-TRN-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "D-TRN-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "E-INF-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "E-INF-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "E-INF-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "E-TRN-10MW-annual-envelope",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    },
+    {
+      "figure": "E-TRN-10MW-seasonal-days",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1145.99951171875,
+        1519.0797119140625
+      ]
+    },
+    {
+      "figure": "E-TRN-10MW-typical-week",
+      "pdf_text_outside_page": [],
+      "replacement_glyphs": 0,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei"
+      ],
+      "page_size_points": [
+        0.0,
+        0.0,
+        1052.3995361328125,
+        849.3357543945312
+      ]
+    }
+  ],
+  "render_engine": "PyMuPDF 1.26.5",
+  "all_text_inside_pages": true,
+  "no_replacement_glyphs": true,
+  "visual_review": "reviewed_by_agent"
+}

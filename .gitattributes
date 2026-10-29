@@ -108,3 +108,11 @@ dc-flexibility-project/results/typical-load-curves-20261029-v2/** -text whitespa
 dc-flexibility-project/results/typical-load-curves-20261029-v2/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261029-v2/*.png binary
 dc-flexibility-project/results/server-count-scenarios-20261028-v2/*.png binary
+
+# 八城市第一阶段保留生成字节及跨平台校验值。
+dc-flexibility-project/analysis/*eight_city*.py text eol=lf
+dc-flexibility-project/analysis/eight_city_locations.json -text
+dc-flexibility-project/analysis/requirements-eight-city-phase-a.txt text eol=lf
+dc-flexibility-project/results/eight-city-phase-a-20261029/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/eight-city-phase-a-20261029/**/*.pdf binary
+dc-flexibility-project/results/eight-city-phase-a-20261029/**/*.png binary

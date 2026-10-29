@@ -1,0 +1,7 @@
+{
+  "created_utc": "2026-10-29T08:32:37.112795+00:00",
+  "scenario_city_rows": 96,
+  "resource_rows": 8,
+  "correlation_rows": 5760,
+  "undefined_correlation": "constant_zero_participation_or_zero_delay_envelopes; empty_value_not_zero"
+}

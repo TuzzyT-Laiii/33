@@ -1,0 +1,10 @@
+[
+  {"city_id":"phoenix","city_zh":"菲尼克斯","station_id":"722780","point_name":"PHOENIX SKY HARBOR INTL AIRPORT","latitude":33.428,"longitude":-112.004,"elevation_m":339.2,"timezone":"America/Phoenix","climate_context":"炎热干旱；夏季冷却负荷高，太阳能资源强"},
+  {"city_id":"ashburn","city_zh":"阿什本","station_id":"724030","point_name":"WASHINGTON DULLES INTERNATIONAL AP","latitude":38.935,"longitude":-77.447,"elevation_m":89.5,"timezone":"America/New_York","climate_context":"湿润、冬夏差异明显；邻近机场代表点，距阿什本约12 km"},
+  {"city_id":"frankfurt","city_zh":"法兰克福","station_id":"106370","point_name":"FRANKFURT MAIN","latitude":50.026,"longitude":8.543,"elevation_m":110.9,"timezone":"Europe/Berlin","climate_context":"温带；风光季节差异明显，冬季太阳能弱"},
+  {"city_id":"lulea","city_zh":"吕勒奥","station_id":"021860","point_name":"KALLAX / LULEA","latitude":65.544,"longitude":22.122,"elevation_m":19.8,"timezone":"Europe/Stockholm","climate_context":"高纬寒冷；自然冷却条件好，太阳能昼长季节差异大"},
+  {"city_id":"ulanqab","city_zh":"乌兰察布","station_id":"534800","point_name":"JINING","latitude":41.033,"longitude":113.067,"elevation_m":1416.0,"timezone":"Asia/Shanghai","climate_context":"高海拔大陆性；寒冷干燥，低气压影响风机功率及空气密度"},
+  {"city_id":"guiyang","city_zh":"贵阳","station_id":"578160","point_name":"LONGDONGBAO","latitude":26.539,"longitude":106.801,"elevation_m":1138.7,"timezone":"Asia/Shanghai","climate_context":"高原湿润；气温较温和，多云影响太阳能资源"},
+  {"city_id":"riyadh","city_zh":"利雅得","station_id":"404370","point_name":"KING KHALED INTL","latitude":24.958,"longitude":46.699,"elevation_m":624.5,"timezone":"Asia/Riyadh","climate_context":"炎热干旱；高温导致光伏温度降额，沙尘损失需另行情景化"},
+  {"city_id":"singapore","city_zh":"新加坡","station_id":"486940","point_name":"PAYA LEBAR","latitude":1.360,"longitude":103.910,"weather_latitude":1.5,"weather_longitude":104.0,"elevation_m":19.8,"timezone":"Asia/Singapore","grid_note":"最近ERA5格点1.25N,104E的陆地比例0.210520；主计算采用北侧陆地占优格点1.5N,104E（陆地比例0.729068，位于马来西亚柔佛），保留区域气候代理边界，不能解释为新加坡站点实测。","climate_context":"赤道湿热；冷却需求全年持续，沿海格点代表性有限"}
+]

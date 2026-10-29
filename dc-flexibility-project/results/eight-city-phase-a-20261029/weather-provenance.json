@@ -1,0 +1,627 @@
+{
+  "created_utc": "2026-10-29T08:16:05.835418+00:00",
+  "cities": [
+    {
+      "city_id": "phoenix",
+      "arco_parquet_sha256": "f76ab1c444d56b3389682696e641fdecb0041911961008211e5ddb2551c458cd",
+      "validation": {
+        "hours": 26304,
+        "year_hours": {
+          "2023": 8760,
+          "2024": 8784,
+          "2025": 8760
+        },
+        "grid_latitude": 33.5,
+        "grid_longitude": -112.0,
+        "variables": {
+          "t2m": {
+            "units": "K",
+            "min": 271.62457275390625,
+            "max": 320.3896789550781,
+            "missing": 0
+          },
+          "d2m": {
+            "units": "K",
+            "min": 246.75950622558594,
+            "max": 297.03741455078125,
+            "missing": 0
+          },
+          "sp": {
+            "units": "Pa",
+            "min": 95147.765625,
+            "max": 98714.53125,
+            "missing": 0
+          },
+          "ssrd": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3908352.0,
+            "missing": 0
+          },
+          "fdir": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3487808.0,
+            "missing": 0
+          },
+          "u10": {
+            "units": "m s**-1",
+            "min": -7.4374494552612305,
+            "max": 11.404678344726562,
+            "missing": 0
+          },
+          "v10": {
+            "units": "m s**-1",
+            "min": -9.823623657226562,
+            "max": 9.576766967773438,
+            "missing": 0
+          },
+          "u100": {
+            "units": "m s**-1",
+            "min": -11.447219848632812,
+            "max": 15.412124633789062,
+            "missing": 0
+          },
+          "v100": {
+            "units": "m s**-1",
+            "min": -12.653701782226562,
+            "max": 12.735183715820312,
+            "missing": 0
+          }
+        },
+        "sha256": "000d50db40ebcbc690c90d833dd2eba0f00307374e2326ec4e1146d95bb75b33",
+        "bytes": 1220696,
+        "parquet_sha256": "f76ab1c444d56b3389682696e641fdecb0041911961008211e5ddb2551c458cd"
+      },
+      "cds_request_id": "af8aadcf-a95a-4fe8-9056-012f84f8bde6",
+      "cds_vs_arco_max_absolute_difference": {
+        "t2m": 0.0,
+        "d2m": 0.0,
+        "sp": 0.0,
+        "ssrd": 0.0,
+        "fdir": 0.0,
+        "u10": 0.0,
+        "v10": 0.0,
+        "u100": 0.0,
+        "v100": 0.0
+      },
+      "cds_vs_arco_all_nine_variables_identical": true
+    },
+    {
+      "city_id": "ashburn",
+      "arco_parquet_sha256": "d67ab145a8802b0c7afa5854468c1fa3a8e7447136c661c699e8eee97d02f28e",
+      "validation": {
+        "hours": 26304,
+        "year_hours": {
+          "2023": 8760,
+          "2024": 8784,
+          "2025": 8760
+        },
+        "grid_latitude": 39.0,
+        "grid_longitude": -77.5,
+        "variables": {
+          "t2m": {
+            "units": "K",
+            "min": 259.77239990234375,
+            "max": 311.17572021484375,
+            "missing": 0
+          },
+          "d2m": {
+            "units": "K",
+            "min": 249.1228790283203,
+            "max": 299.0949401855469,
+            "missing": 0
+          },
+          "sp": {
+            "units": "Pa",
+            "min": 97055.578125,
+            "max": 103151.359375,
+            "missing": 0
+          },
+          "ssrd": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3641024.0,
+            "missing": 0
+          },
+          "fdir": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3228352.0,
+            "missing": 0
+          },
+          "u10": {
+            "units": "m s**-1",
+            "min": -7.178131103515625,
+            "max": 10.335723876953125,
+            "missing": 0
+          },
+          "v10": {
+            "units": "m s**-1",
+            "min": -7.0855255126953125,
+            "max": 8.2938232421875,
+            "missing": 0
+          },
+          "u100": {
+            "units": "m s**-1",
+            "min": -11.452774047851562,
+            "max": 16.653366088867188,
+            "missing": 0
+          },
+          "v100": {
+            "units": "m s**-1",
+            "min": -10.672012329101562,
+            "max": 13.51025390625,
+            "missing": 0
+          }
+        },
+        "sha256": "86b522bf95b206cf788e4c55703b53997851fefb74534c289a17356c93e83525",
+        "bytes": 1220696,
+        "parquet_sha256": "d67ab145a8802b0c7afa5854468c1fa3a8e7447136c661c699e8eee97d02f28e"
+      },
+      "cds_request_id": null
+    },
+    {
+      "city_id": "frankfurt",
+      "arco_parquet_sha256": "a16513513503fcefde86922bb6261f9369054c36aff34608c38c1d02746f8b86",
+      "validation": {
+        "hours": 26304,
+        "year_hours": {
+          "2023": 8760,
+          "2024": 8784,
+          "2025": 8760
+        },
+        "grid_latitude": 50.0,
+        "grid_longitude": 8.5,
+        "variables": {
+          "t2m": {
+            "units": "K",
+            "min": 264.9063720703125,
+            "max": 310.7293701171875,
+            "missing": 0
+          },
+          "d2m": {
+            "units": "K",
+            "min": 260.4656982421875,
+            "max": 294.4137878417969,
+            "missing": 0
+          },
+          "sp": {
+            "units": "Pa",
+            "min": 95230.7421875,
+            "max": 101768.421875,
+            "missing": 0
+          },
+          "ssrd": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3248832.0,
+            "missing": 0
+          },
+          "fdir": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 2743040.0,
+            "missing": 0
+          },
+          "u10": {
+            "units": "m s**-1",
+            "min": -7.52191162109375,
+            "max": 9.691253662109375,
+            "missing": 0
+          },
+          "v10": {
+            "units": "m s**-1",
+            "min": -6.2548675537109375,
+            "max": 8.136611938476562,
+            "missing": 0
+          },
+          "u100": {
+            "units": "m s**-1",
+            "min": -10.932418823242188,
+            "max": 15.138336181640625,
+            "missing": 0
+          },
+          "v100": {
+            "units": "m s**-1",
+            "min": -10.874114990234375,
+            "max": 12.952285766601562,
+            "missing": 0
+          }
+        },
+        "sha256": "10f0e6613f92694e9bb9b79e80b5ca2639791fc9d8505675a3425e565bbde9bd",
+        "bytes": 1220696,
+        "parquet_sha256": "a16513513503fcefde86922bb6261f9369054c36aff34608c38c1d02746f8b86"
+      },
+      "cds_request_id": null
+    },
+    {
+      "city_id": "lulea",
+      "arco_parquet_sha256": "fd8f3132d9aec9a844d94e331a11c16035e20d438c15415c263f26422ad0e175",
+      "validation": {
+        "hours": 26304,
+        "year_hours": {
+          "2023": 8760,
+          "2024": 8784,
+          "2025": 8760
+        },
+        "grid_latitude": 65.5,
+        "grid_longitude": 22.0,
+        "variables": {
+          "t2m": {
+            "units": "K",
+            "min": 242.90289306640625,
+            "max": 301.84197998046875,
+            "missing": 0
+          },
+          "d2m": {
+            "units": "K",
+            "min": 240.2098388671875,
+            "max": 294.22271728515625,
+            "missing": 0
+          },
+          "sp": {
+            "units": "Pa",
+            "min": 95694.640625,
+            "max": 104224.53125,
+            "missing": 0
+          },
+          "ssrd": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 2702848.0,
+            "missing": 0
+          },
+          "fdir": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 2370240.0,
+            "missing": 0
+          },
+          "u10": {
+            "units": "m s**-1",
+            "min": -10.367767333984375,
+            "max": 13.623504638671875,
+            "missing": 0
+          },
+          "v10": {
+            "units": "m s**-1",
+            "min": -12.597381591796875,
+            "max": 11.62603759765625,
+            "missing": 0
+          },
+          "u100": {
+            "units": "m s**-1",
+            "min": -14.205276489257812,
+            "max": 19.778701782226562,
+            "missing": 0
+          },
+          "v100": {
+            "units": "m s**-1",
+            "min": -18.711883544921875,
+            "max": 16.75872802734375,
+            "missing": 0
+          }
+        },
+        "sha256": "84e12677ef6b42c4d15374d2d3104f07c078c827bd2547c95b52353e8ad0607d",
+        "bytes": 1220696,
+        "parquet_sha256": "fd8f3132d9aec9a844d94e331a11c16035e20d438c15415c263f26422ad0e175"
+      },
+      "cds_request_id": null
+    },
+    {
+      "city_id": "ulanqab",
+      "arco_parquet_sha256": "0d5c45fd1a7f88b487371b7fafc0c24d9b85089a0c2305cf704be36cf9bf03d3",
+      "validation": {
+        "hours": 26304,
+        "year_hours": {
+          "2023": 8760,
+          "2024": 8784,
+          "2025": 8760
+        },
+        "grid_latitude": 41.0,
+        "grid_longitude": 113.0,
+        "variables": {
+          "t2m": {
+            "units": "K",
+            "min": 244.37828063964844,
+            "max": 305.43231201171875,
+            "missing": 0
+          },
+          "d2m": {
+            "units": "K",
+            "min": 235.39151000976562,
+            "max": 295.0076904296875,
+            "missing": 0
+          },
+          "sp": {
+            "units": "Pa",
+            "min": 82603.703125,
+            "max": 86102.578125,
+            "missing": 0
+          },
+          "ssrd": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3492864.0,
+            "missing": 0
+          },
+          "fdir": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 2913024.0,
+            "missing": 0
+          },
+          "u10": {
+            "units": "m s**-1",
+            "min": -8.317398071289062,
+            "max": 11.869216918945312,
+            "missing": 0
+          },
+          "v10": {
+            "units": "m s**-1",
+            "min": -12.790725708007812,
+            "max": 9.533035278320312,
+            "missing": 0
+          },
+          "u100": {
+            "units": "m s**-1",
+            "min": -12.920486450195312,
+            "max": 16.623397827148438,
+            "missing": 0
+          },
+          "v100": {
+            "units": "m s**-1",
+            "min": -17.700759887695312,
+            "max": 13.542282104492188,
+            "missing": 0
+          }
+        },
+        "sha256": "65b362a21fb47a70fc08ae68f47a1cd8b8bb125017c363a6e61cff74f28a05b1",
+        "bytes": 1220696,
+        "parquet_sha256": "0d5c45fd1a7f88b487371b7fafc0c24d9b85089a0c2305cf704be36cf9bf03d3"
+      },
+      "cds_request_id": null
+    },
+    {
+      "city_id": "guiyang",
+      "arco_parquet_sha256": "fa48e4f79737aa6bff6a3c0ad9e8821be95ef795a2da1b7d12b367824952f0d7",
+      "validation": {
+        "hours": 26304,
+        "year_hours": {
+          "2023": 8760,
+          "2024": 8784,
+          "2025": 8760
+        },
+        "grid_latitude": 26.5,
+        "grid_longitude": 106.75,
+        "variables": {
+          "t2m": {
+            "units": "K",
+            "min": 267.7342834472656,
+            "max": 308.1627197265625,
+            "missing": 0
+          },
+          "d2m": {
+            "units": "K",
+            "min": 262.6795349121094,
+            "max": 296.6674499511719,
+            "missing": 0
+          },
+          "sp": {
+            "units": "Pa",
+            "min": 86181.046875,
+            "max": 89520.34375,
+            "missing": 0
+          },
+          "ssrd": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3739712.0,
+            "missing": 0
+          },
+          "fdir": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3212864.0,
+            "missing": 0
+          },
+          "u10": {
+            "units": "m s**-1",
+            "min": -5.2232666015625,
+            "max": 6.326568603515625,
+            "missing": 0
+          },
+          "v10": {
+            "units": "m s**-1",
+            "min": -7.8804473876953125,
+            "max": 10.735595703125,
+            "missing": 0
+          },
+          "u100": {
+            "units": "m s**-1",
+            "min": -8.396820068359375,
+            "max": 9.159088134765625,
+            "missing": 0
+          },
+          "v100": {
+            "units": "m s**-1",
+            "min": -12.550567626953125,
+            "max": 15.7056884765625,
+            "missing": 0
+          }
+        },
+        "sha256": "36e2f6bde416a2210d21ffbf3c0f1f0e959bf2f7e5066aac1469f4b3b1f3c8d3",
+        "bytes": 1220696,
+        "parquet_sha256": "fa48e4f79737aa6bff6a3c0ad9e8821be95ef795a2da1b7d12b367824952f0d7"
+      },
+      "cds_request_id": null
+    },
+    {
+      "city_id": "riyadh",
+      "arco_parquet_sha256": "a74d06faec433de8e1d8533773d7c6f213ab83e641b28ec8812f10efe733ba7f",
+      "validation": {
+        "hours": 26304,
+        "year_hours": {
+          "2023": 8760,
+          "2024": 8784,
+          "2025": 8760
+        },
+        "grid_latitude": 25.0,
+        "grid_longitude": 46.75,
+        "variables": {
+          "t2m": {
+            "units": "K",
+            "min": 275.02581787109375,
+            "max": 320.2550048828125,
+            "missing": 0
+          },
+          "d2m": {
+            "units": "K",
+            "min": 248.63475036621094,
+            "max": 294.823974609375,
+            "missing": 0
+          },
+          "sp": {
+            "units": "Pa",
+            "min": 92588.578125,
+            "max": 95422.3359375,
+            "missing": 0
+          },
+          "ssrd": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3812416.0,
+            "missing": 0
+          },
+          "fdir": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3165120.0,
+            "missing": 0
+          },
+          "u10": {
+            "units": "m s**-1",
+            "min": -8.077178955078125,
+            "max": 11.553268432617188,
+            "missing": 0
+          },
+          "v10": {
+            "units": "m s**-1",
+            "min": -9.384841918945312,
+            "max": 10.813629150390625,
+            "missing": 0
+          },
+          "u100": {
+            "units": "m s**-1",
+            "min": -11.211196899414062,
+            "max": 14.093673706054688,
+            "missing": 0
+          },
+          "v100": {
+            "units": "m s**-1",
+            "min": -13.909454345703125,
+            "max": 13.705520629882812,
+            "missing": 0
+          }
+        },
+        "sha256": "66bbc8e7acd8c458fc5451535a09228d58fd22a2d2e01cad8314a4986a6dbcbf",
+        "bytes": 1220696,
+        "parquet_sha256": "a74d06faec433de8e1d8533773d7c6f213ab83e641b28ec8812f10efe733ba7f"
+      },
+      "cds_request_id": null
+    },
+    {
+      "city_id": "singapore",
+      "arco_parquet_sha256": "df26d8a61a6c4b9ae6d32c96463d83cc7c5a312438acbaf5caea67059d74c656",
+      "validation": {
+        "hours": 26304,
+        "year_hours": {
+          "2023": 8760,
+          "2024": 8784,
+          "2025": 8760
+        },
+        "grid_latitude": 1.5,
+        "grid_longitude": 104.0,
+        "variables": {
+          "t2m": {
+            "units": "K",
+            "min": 296.5853271484375,
+            "max": 306.39990234375,
+            "missing": 0
+          },
+          "d2m": {
+            "units": "K",
+            "min": 293.6900939941406,
+            "max": 300.902099609375,
+            "missing": 0
+          },
+          "sp": {
+            "units": "Pa",
+            "min": 100124.078125,
+            "max": 101488.53125,
+            "missing": 0
+          },
+          "ssrd": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3571008.0,
+            "missing": 0
+          },
+          "fdir": {
+            "units": "J m**-2",
+            "min": 0.0,
+            "max": 3077312.0,
+            "missing": 0
+          },
+          "u10": {
+            "units": "m s**-1",
+            "min": -4.4535675048828125,
+            "max": 6.2745361328125,
+            "missing": 0
+          },
+          "v10": {
+            "units": "m s**-1",
+            "min": -7.611083984375,
+            "max": 6.031280517578125,
+            "missing": 0
+          },
+          "u100": {
+            "units": "m s**-1",
+            "min": -6.0960235595703125,
+            "max": 8.9539794921875,
+            "missing": 0
+          },
+          "v100": {
+            "units": "m s**-1",
+            "min": -11.252288818359375,
+            "max": 8.046356201171875,
+            "missing": 0
+          }
+        },
+        "sha256": "b8e0dd737512abe5dd6fa99992c40ad122a93343c14594cd2ac92439b8851de5",
+        "bytes": 1220696,
+        "parquet_sha256": "df26d8a61a6c4b9ae6d32c96463d83cc7c5a312438acbaf5caea67059d74c656"
+      },
+      "cds_request_id": null
+    }
+  ],
+  "raw_server_directory": "/data3/dataset/ljt/eight-city-weather-20261029",
+  "arco_primary_variables": {
+    "frozen": [
+      "t2m",
+      "d2m",
+      "sp",
+      "ssrd",
+      "fdir",
+      "u100",
+      "v100"
+    ],
+    "current": [
+      "u10",
+      "v10"
+    ]
+  },
+  "cds_request_policy": "sequential; shared_global_gate; maximum_one_own_active_request; reuse_saved_ids",
+  "arco_reason": "official_backing_store_used_while_shared_CDS_submission_gate_occupied"
+}

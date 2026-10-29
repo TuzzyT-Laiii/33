@@ -1,0 +1,1014 @@
+{
+  "created_utc": "2026-10-29T08:32:41.149227+00:00",
+  "base_commit": "6ffda9b",
+  "processed_server_directory": "/data3/dataset/ljt/eight-city-weather-20261029/processed",
+  "raw_server_directory": "/data3/dataset/ljt/eight-city-weather-20261029",
+  "load_sources": [
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C20-Lisa-cpu_spec-central.parquet",
+      "sha256": "e82926a041ea3199e372aadd0a9afd151afb7deb0e6adc7281e8fdf9c8ca28f8",
+      "source_days": 309
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-MIT-ratio_p50-central.parquet",
+      "sha256": "6128d2d42598063214e489bc7f44a32b7e6389c0074ceb93554e1853ca78c3d1",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-Acme-ratio_p50-central.parquet",
+      "sha256": "787d0823a0177d057e8969da1c1d2dcfdb1ea35172bc6af14472f9dd92d80a48",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C21-ASI-ratio_p50-central.parquet",
+      "sha256": "3e020855017ad3f32bfc5993fe80b5e7f94bbe32f9157c7d8d7705643444c15e",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-MIT-ratio_p50-central.parquet",
+      "sha256": "552febf3c2c08befd4a2333d4913c4ef46c07b24421c521bc297e92504bbf257",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-Acme-ratio_p50-central.parquet",
+      "sha256": "2e593ac4b5c109a27efdb0a7e6ef4170bff053efabb033ffda954f1d1beb0cda",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C22-ASI-ratio_p50-central.parquet",
+      "sha256": "20a47b08f8473de449474e45952cd222a8834f53b04deb2c77b0c40c9ca8b00c",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-MIT-ratio_p50-central.parquet",
+      "sha256": "04683817de7b12c68def1299fab86c874ab5f8c9385edd8a56ce9b8de78d3617",
+      "source_days": 237
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-Acme-ratio_p50-central.parquet",
+      "sha256": "eee9ca3a2b407079d8ef8aeaf29ae27a085609a83e708e40171bf47206d11ad6",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\C28-ASI-ratio_p50-central.parquet",
+      "sha256": "b11a40995ce922a9a1ca2ed19e59b41e45946e419261c3d11024f92c347c0857",
+      "source_days": 1
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\R-GB200-Acme-ratio_p50-central.parquet",
+      "sha256": "21ea3b90466aef783a175e1c54b512f75e6644e8e1ead30c1d99b2743a009fd7",
+      "source_days": 90
+    },
+    {
+      "path": "D:\\dc-typical-load-curves-20261029-v2\\data\\processed\\typical-load-curves-20261029-v2\\R-GB200-ASI-ratio_p50-central.parquet",
+      "sha256": "ccd8ca1767a10698016ee4be78966f1e8b35af95ce2de9aea4e84c25fb49d530",
+      "source_days": 1
+    }
+  ],
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.1",
+    "scipy": "1.13.1",
+    "pyarrow": "16.1.0",
+    "matplotlib": "3.10.7",
+    "pvlib": "0.16.1",
+    "psychrolib": "2.5.0",
+    "rasterio": "1.4.3",
+    "h5netcdf": "1.6.4",
+    "xarray": "2023.6.0",
+    "Pillow": "12.2.0",
+    "PyMuPDF": "1.26.5"
+  },
+  "hourly_files": [
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "A-HPC-10MW",
+      "filename": "phoenix-A-HPC-10MW.parquet",
+      "sha256": "8a02296a51581959e01711b26ded6c933c021098679f3daae276cf7faac03eb1",
+      "hours": 26304,
+      "bytes": 2802952
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "B-SAI-10MW",
+      "filename": "phoenix-B-SAI-10MW.parquet",
+      "sha256": "fe443bfcbf81becf132764592906c11849f4ea9ef7120ed857138cc9831ad9cf",
+      "hours": 26304,
+      "bytes": 2759599
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "B-TRN-10MW",
+      "filename": "phoenix-B-TRN-10MW.parquet",
+      "sha256": "de4d3ed8a8b0186ae7014b11f39c1c2ec7e52495938db66293239b97627640c7",
+      "hours": 26304,
+      "bytes": 2502677
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "B-INF-10MW",
+      "filename": "phoenix-B-INF-10MW.parquet",
+      "sha256": "d8c776730173163bc82c4356b88df77f66031a23e0210e6c1179822f26e5d13d",
+      "hours": 26304,
+      "bytes": 2453232
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "C-SAI-10MW",
+      "filename": "phoenix-C-SAI-10MW.parquet",
+      "sha256": "6bc7ca0d0007acffa07d92e6dc6dc6ea35015597674a68cea4a2034aeb124a2f",
+      "hours": 26304,
+      "bytes": 2758013
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "C-TRN-10MW",
+      "filename": "phoenix-C-TRN-10MW.parquet",
+      "sha256": "0c8e7c47512fa5de614e30f3ba98559e9157bc8478e6fd413a05c6945e44235b",
+      "hours": 26304,
+      "bytes": 2502656
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "C-INF-10MW",
+      "filename": "phoenix-C-INF-10MW.parquet",
+      "sha256": "43764ca07ff4fc6f8730fc794b486e75e63867136a16a82f5f517e101816027a",
+      "hours": 26304,
+      "bytes": 2453166
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "D-SAI-10MW",
+      "filename": "phoenix-D-SAI-10MW.parquet",
+      "sha256": "5af295e29052a6d5dd0d599de6f5043c35247a0fb5ef92b2e2726ffa1b921ce2",
+      "hours": 26304,
+      "bytes": 2755578
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "D-TRN-10MW",
+      "filename": "phoenix-D-TRN-10MW.parquet",
+      "sha256": "9a4eb71fe1b9dfe6d88447d6b929529de77df9a6886b6c29a8c857ccf05274aa",
+      "hours": 26304,
+      "bytes": 2502329
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "D-INF-10MW",
+      "filename": "phoenix-D-INF-10MW.parquet",
+      "sha256": "92c47ba6cb1b62965d7721213f0d03014426860023861f42b097d0efb79e630b",
+      "hours": 26304,
+      "bytes": 2452925
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "E-TRN-10MW",
+      "filename": "phoenix-E-TRN-10MW.parquet",
+      "sha256": "a5935afbd299b3542e68fe617223b219c36fbe6649eac7773d33410c9dbb6cae",
+      "hours": 26304,
+      "bytes": 2500157
+    },
+    {
+      "city_id": "phoenix",
+      "scenario_scale_id": "E-INF-10MW",
+      "filename": "phoenix-E-INF-10MW.parquet",
+      "sha256": "553652b95fb184f02f8eee1c84619640d610dd4aa7b17e79a69eb8cb08838799",
+      "hours": 26304,
+      "bytes": 2450824
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "A-HPC-10MW",
+      "filename": "ashburn-A-HPC-10MW.parquet",
+      "sha256": "af20099b44ef2c4ee35ab37372ea0a35ff99111b4e2110a117eb8863fef2db48",
+      "hours": 26304,
+      "bytes": 2877490
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "B-SAI-10MW",
+      "filename": "ashburn-B-SAI-10MW.parquet",
+      "sha256": "89e4668f1902ef88fbc84af193f4f92ac5b100b53ba173a062f0d7b9a1c6f232",
+      "hours": 26304,
+      "bytes": 2834148
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "B-TRN-10MW",
+      "filename": "ashburn-B-TRN-10MW.parquet",
+      "sha256": "8a6c00b0974430b59b80ab3af8e94d6e895cd3bcb6c6230c830ba0f077d36ddd",
+      "hours": 26304,
+      "bytes": 2579396
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "B-INF-10MW",
+      "filename": "ashburn-B-INF-10MW.parquet",
+      "sha256": "0e6d211313f4ea67647ddb693e61d3dc0c7f814baadb0678b5ccd8b6cc4fbf24",
+      "hours": 26304,
+      "bytes": 2528466
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "C-SAI-10MW",
+      "filename": "ashburn-C-SAI-10MW.parquet",
+      "sha256": "5b00cfd6943f22e9f6b8258cc323f9abacd2bebc7705800c12cfce5efd13810d",
+      "hours": 26304,
+      "bytes": 2832402
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "C-TRN-10MW",
+      "filename": "ashburn-C-TRN-10MW.parquet",
+      "sha256": "e05694b44c98fa7e9883fd99806ddec58a976f89b6d855bc94f4d29d4644d042",
+      "hours": 26304,
+      "bytes": 2579257
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "C-INF-10MW",
+      "filename": "ashburn-C-INF-10MW.parquet",
+      "sha256": "19a0528a868a3a7cdbe0157950040d08e6ed8d60f5da679726efd2bc284c9be1",
+      "hours": 26304,
+      "bytes": 2529084
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "D-SAI-10MW",
+      "filename": "ashburn-D-SAI-10MW.parquet",
+      "sha256": "7749ce4bebec535be3b607e967fd16a7e29300d2310e6865c1374dabb2cf89d5",
+      "hours": 26304,
+      "bytes": 2830255
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "D-TRN-10MW",
+      "filename": "ashburn-D-TRN-10MW.parquet",
+      "sha256": "65b20ae7d32fe9acb1bddb092db5333cf6caa89aa67eca8e9640e68a65382326",
+      "hours": 26304,
+      "bytes": 2579392
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "D-INF-10MW",
+      "filename": "ashburn-D-INF-10MW.parquet",
+      "sha256": "b630bc496cd29885ff1cbe489bfdf87dfcb8d9c9e04f7f071d480e3ce26f8d8f",
+      "hours": 26304,
+      "bytes": 2528208
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "E-TRN-10MW",
+      "filename": "ashburn-E-TRN-10MW.parquet",
+      "sha256": "006ac356e953712772561421d13d29cda08597d8696e56bd0811269993e4de2a",
+      "hours": 26304,
+      "bytes": 2574017
+    },
+    {
+      "city_id": "ashburn",
+      "scenario_scale_id": "E-INF-10MW",
+      "filename": "ashburn-E-INF-10MW.parquet",
+      "sha256": "1aa20b94d9c66bd4f164740f942f65626bb826892328e58e7482e4670652020c",
+      "hours": 26304,
+      "bytes": 2522345
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "A-HPC-10MW",
+      "filename": "frankfurt-A-HPC-10MW.parquet",
+      "sha256": "54a564aa3c203e733a1dd985132d7fa5b5c18634bb602b44f89f7435aa59ed3c",
+      "hours": 26304,
+      "bytes": 2864104
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "B-SAI-10MW",
+      "filename": "frankfurt-B-SAI-10MW.parquet",
+      "sha256": "912597e5efbdb8fe942b1605230137cffe56e9797fe799efe0e0b6ca0c33b3e2",
+      "hours": 26304,
+      "bytes": 2820552
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "B-TRN-10MW",
+      "filename": "frankfurt-B-TRN-10MW.parquet",
+      "sha256": "7b553d8ce212ef9a2b95b7e30b90415605b25c468068a4c91df072abeb6422b5",
+      "hours": 26304,
+      "bytes": 2566366
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "B-INF-10MW",
+      "filename": "frankfurt-B-INF-10MW.parquet",
+      "sha256": "20daa4695e747dad8f1cb562906ade2fae937b15f7f91d712e524fd7030e2016",
+      "hours": 26304,
+      "bytes": 2512437
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "C-SAI-10MW",
+      "filename": "frankfurt-C-SAI-10MW.parquet",
+      "sha256": "c0e78ce3cc79d4dd0b499b1450f8aeaf3371bb60af7198984698f22b75a4cfab",
+      "hours": 26304,
+      "bytes": 2818935
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "C-TRN-10MW",
+      "filename": "frankfurt-C-TRN-10MW.parquet",
+      "sha256": "450e7101f3c6b60a9442acc9a47379947ab96b766d0f56ea8c241bbc878ca7fe",
+      "hours": 26304,
+      "bytes": 2566151
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "C-INF-10MW",
+      "filename": "frankfurt-C-INF-10MW.parquet",
+      "sha256": "4d39c69cb7560de186b94a7d1a11374c28c8e629dd7581eabae3f64e0c799310",
+      "hours": 26304,
+      "bytes": 2512591
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "D-SAI-10MW",
+      "filename": "frankfurt-D-SAI-10MW.parquet",
+      "sha256": "0069bae95ad4ec09fd484789286d39bb85521e4e4afceb488cbf7f915f3a7ff4",
+      "hours": 26304,
+      "bytes": 2817135
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "D-TRN-10MW",
+      "filename": "frankfurt-D-TRN-10MW.parquet",
+      "sha256": "14b3dcdd442c0604dfab747a85f5826822fab2633d733f7e2aa61b059065eedd",
+      "hours": 26304,
+      "bytes": 2566245
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "D-INF-10MW",
+      "filename": "frankfurt-D-INF-10MW.parquet",
+      "sha256": "2f333af7383dfb4c750ea581025ec07e6513561f59af3900051520f2e18ea37d",
+      "hours": 26304,
+      "bytes": 2512428
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "E-TRN-10MW",
+      "filename": "frankfurt-E-TRN-10MW.parquet",
+      "sha256": "4e1c1a45a569a70c8fd879b287eb509bbccab8a6bead9a3716dbf428174e8104",
+      "hours": 26304,
+      "bytes": 2559159
+    },
+    {
+      "city_id": "frankfurt",
+      "scenario_scale_id": "E-INF-10MW",
+      "filename": "frankfurt-E-INF-10MW.parquet",
+      "sha256": "23ade3f028cda54b1628a6dbe177ff3086aa6dfeccfa9686af937ab213e1bc3e",
+      "hours": 26304,
+      "bytes": 2506114
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "A-HPC-10MW",
+      "filename": "lulea-A-HPC-10MW.parquet",
+      "sha256": "36a82bdab257e450b6f5fe3c28c7664fbf860b4f1cb9ba962377b516b5e9dcb4",
+      "hours": 26304,
+      "bytes": 2845828
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "B-SAI-10MW",
+      "filename": "lulea-B-SAI-10MW.parquet",
+      "sha256": "d3aef4921cfd878b24a7f47445bb9a5b368aabfac98368190de1a8dbe966b71f",
+      "hours": 26304,
+      "bytes": 2803973
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "B-TRN-10MW",
+      "filename": "lulea-B-TRN-10MW.parquet",
+      "sha256": "abb98900be382b76f6fcc1ac21704693e2d392c96ccefeec01e9cae4f8fe63c2",
+      "hours": 26304,
+      "bytes": 2549053
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "B-INF-10MW",
+      "filename": "lulea-B-INF-10MW.parquet",
+      "sha256": "1c430dc1773a863d6c81921ba53b8c171684337955e898ae65cbde4f9100a26a",
+      "hours": 26304,
+      "bytes": 2495856
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "C-SAI-10MW",
+      "filename": "lulea-C-SAI-10MW.parquet",
+      "sha256": "2bb11bb71c05398a5bb4acab1f53ab3b6451031182a9dd9f4b65f242302146a2",
+      "hours": 26304,
+      "bytes": 2802537
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "C-TRN-10MW",
+      "filename": "lulea-C-TRN-10MW.parquet",
+      "sha256": "6ea6f25f6ba23e611a77b8bc84df7f0f4c00793eeaf66c5e516863217a5d20f7",
+      "hours": 26304,
+      "bytes": 2548715
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "C-INF-10MW",
+      "filename": "lulea-C-INF-10MW.parquet",
+      "sha256": "c2ce42141b1e626fd2e388b202a206f646549127cded7e748218fe1a4b5f6e8a",
+      "hours": 26304,
+      "bytes": 2496309
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "D-SAI-10MW",
+      "filename": "lulea-D-SAI-10MW.parquet",
+      "sha256": "699e4b0a31f53ce9d800d6368cea9c4ea9828cd2f9c51078fc871d7e3dbd1a9e",
+      "hours": 26304,
+      "bytes": 2800836
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "D-TRN-10MW",
+      "filename": "lulea-D-TRN-10MW.parquet",
+      "sha256": "dcd648885b23fe5a668603b355536c7e1f8779f34e10694f3d13080b66173a4e",
+      "hours": 26304,
+      "bytes": 2548639
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "D-INF-10MW",
+      "filename": "lulea-D-INF-10MW.parquet",
+      "sha256": "9362d7ae2b5f1142a7542152bc1556330d0daa9ea1de22735d88ca053962d63a",
+      "hours": 26304,
+      "bytes": 2495683
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "E-TRN-10MW",
+      "filename": "lulea-E-TRN-10MW.parquet",
+      "sha256": "d63fee0f3a3cb58b59868d7c5751cf2a2663a39561cf1cdcba8d1541674537de",
+      "hours": 26304,
+      "bytes": 2541962
+    },
+    {
+      "city_id": "lulea",
+      "scenario_scale_id": "E-INF-10MW",
+      "filename": "lulea-E-INF-10MW.parquet",
+      "sha256": "0f38eead9b8f0e1cead63e3701ca6607cb17c1c7676fb22bd6df421673229a25",
+      "hours": 26304,
+      "bytes": 2485317
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "A-HPC-10MW",
+      "filename": "ulanqab-A-HPC-10MW.parquet",
+      "sha256": "a343afa6a73e1facff9e814864c4ef1ce9f1832b16d405ecdef51c4d6db35832",
+      "hours": 26304,
+      "bytes": 2878463
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "B-SAI-10MW",
+      "filename": "ulanqab-B-SAI-10MW.parquet",
+      "sha256": "22c59d1a2ddbb61888f9f13161d0e193c695ef0bfb42a0abd02cb824483bde29",
+      "hours": 26304,
+      "bytes": 2837729
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "B-TRN-10MW",
+      "filename": "ulanqab-B-TRN-10MW.parquet",
+      "sha256": "60e8c72dfce459d3b2053795097c7f58abab956b62d00287bcdc8471764c23c9",
+      "hours": 26304,
+      "bytes": 2581864
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "B-INF-10MW",
+      "filename": "ulanqab-B-INF-10MW.parquet",
+      "sha256": "a3f0d2c51829038ee2a400ecd70a5b8d029fe46bcea759da1a745500a6de2852",
+      "hours": 26304,
+      "bytes": 2528085
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "C-SAI-10MW",
+      "filename": "ulanqab-C-SAI-10MW.parquet",
+      "sha256": "51ba8ef76b64fcd7cd55879e606e1de0a8786050d76db3e5362144a7b21dabf0",
+      "hours": 26304,
+      "bytes": 2836281
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "C-TRN-10MW",
+      "filename": "ulanqab-C-TRN-10MW.parquet",
+      "sha256": "b95ca0a59e448bf5123a400359cdbc1160124505b5e9084ef18d07fb5a962139",
+      "hours": 26304,
+      "bytes": 2581777
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "C-INF-10MW",
+      "filename": "ulanqab-C-INF-10MW.parquet",
+      "sha256": "ba8fa0785821a10ad2437a0ae30a0808471667f497647fe8534f14f9818dcc4d",
+      "hours": 26304,
+      "bytes": 2525710
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "D-SAI-10MW",
+      "filename": "ulanqab-D-SAI-10MW.parquet",
+      "sha256": "0dbf7a58548fee69865807c7824ca3ed1c108ad5896ac744fd19d0f08800cbb2",
+      "hours": 26304,
+      "bytes": 2833331
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "D-TRN-10MW",
+      "filename": "ulanqab-D-TRN-10MW.parquet",
+      "sha256": "f9a447a07e825bf8f65cf9dfb2692f895b42a7f5dcec8648837d92c312bc831f",
+      "hours": 26304,
+      "bytes": 2581932
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "D-INF-10MW",
+      "filename": "ulanqab-D-INF-10MW.parquet",
+      "sha256": "2014238fb685520364c0e00c87e43eae5ea0d957048927edd1da0bd3abb4119b",
+      "hours": 26304,
+      "bytes": 2526741
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "E-TRN-10MW",
+      "filename": "ulanqab-E-TRN-10MW.parquet",
+      "sha256": "fb4de86d3f966ece18ba3c1bc487718241df128491ae328eb70045f7f804abad",
+      "hours": 26304,
+      "bytes": 2575218
+    },
+    {
+      "city_id": "ulanqab",
+      "scenario_scale_id": "E-INF-10MW",
+      "filename": "ulanqab-E-INF-10MW.parquet",
+      "sha256": "622ccf7015c47032b2c6b53230493a0bdf0500b75659b308e75ccab015de528a",
+      "hours": 26304,
+      "bytes": 2520555
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "A-HPC-10MW",
+      "filename": "guiyang-A-HPC-10MW.parquet",
+      "sha256": "2b4f0eddc7b1483fc081c1b806df491c609311f9d3824b92adfa0b26146e2dfd",
+      "hours": 26304,
+      "bytes": 2855012
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "B-SAI-10MW",
+      "filename": "guiyang-B-SAI-10MW.parquet",
+      "sha256": "aaa86f080ee69544a7739bbd57389af1da253ce3a522d02960195478c8e4edad",
+      "hours": 26304,
+      "bytes": 2812910
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "B-TRN-10MW",
+      "filename": "guiyang-B-TRN-10MW.parquet",
+      "sha256": "6e08f625b1f32dc48d80115eeb165dfe3769af5d23f53b97b1b132b39b866ee1",
+      "hours": 26304,
+      "bytes": 2555124
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "B-INF-10MW",
+      "filename": "guiyang-B-INF-10MW.parquet",
+      "sha256": "da180519c09fd5b075f8b7718b1fd8f2ad5158a947d8acda4e3848e8fcd969f6",
+      "hours": 26304,
+      "bytes": 2506467
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "C-SAI-10MW",
+      "filename": "guiyang-C-SAI-10MW.parquet",
+      "sha256": "612ba195d74f02212dc5b6f0563fb0dfd618024c2107d10d83b46a2fde07db99",
+      "hours": 26304,
+      "bytes": 2811630
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "C-TRN-10MW",
+      "filename": "guiyang-C-TRN-10MW.parquet",
+      "sha256": "c159089b429a7a315976ae85bed489a7c519e823a99b44a8808246c9d6e69c01",
+      "hours": 26304,
+      "bytes": 2555044
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "C-INF-10MW",
+      "filename": "guiyang-C-INF-10MW.parquet",
+      "sha256": "de2a1993ab07b08d58b98eef381b696540a7a2a8f8dc909495df0a7796a247b3",
+      "hours": 26304,
+      "bytes": 2506120
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "D-SAI-10MW",
+      "filename": "guiyang-D-SAI-10MW.parquet",
+      "sha256": "3dfe24e1faa3705ff5b07fdf694750db0b74ef5f7f573c6ea719fbf888fc5379",
+      "hours": 26304,
+      "bytes": 2807991
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "D-TRN-10MW",
+      "filename": "guiyang-D-TRN-10MW.parquet",
+      "sha256": "cb2586c432edaa564e446ec7751254cc6b50287658c74b37bf9ce44a6828ee42",
+      "hours": 26304,
+      "bytes": 2555315
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "D-INF-10MW",
+      "filename": "guiyang-D-INF-10MW.parquet",
+      "sha256": "909e713ba69ac7a5d5250491d54c4bd1e4b29f9da94f80363c901e7cc318bf00",
+      "hours": 26304,
+      "bytes": 2506887
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "E-TRN-10MW",
+      "filename": "guiyang-E-TRN-10MW.parquet",
+      "sha256": "bc72844ca8f9540e6b5289cfe6b99f11294f6a47a00c6841b25cedd0232d45c8",
+      "hours": 26304,
+      "bytes": 2551703
+    },
+    {
+      "city_id": "guiyang",
+      "scenario_scale_id": "E-INF-10MW",
+      "filename": "guiyang-E-INF-10MW.parquet",
+      "sha256": "73143f68eb1f3360eb9724b738aa344ccc50b8f36fc70b6c032f353b2ef2587f",
+      "hours": 26304,
+      "bytes": 2501869
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "A-HPC-10MW",
+      "filename": "riyadh-A-HPC-10MW.parquet",
+      "sha256": "0ac9e7bff67854834049d4250b750bb79e4d02be5cf3d1e307f5b1882aaea2b5",
+      "hours": 26304,
+      "bytes": 2896824
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "B-SAI-10MW",
+      "filename": "riyadh-B-SAI-10MW.parquet",
+      "sha256": "59b9246491e1a271266ba2c15a5d082efce03ffb332afd441922743da4193bf1",
+      "hours": 26304,
+      "bytes": 2853088
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "B-TRN-10MW",
+      "filename": "riyadh-B-TRN-10MW.parquet",
+      "sha256": "5c2008dd0c0e395ec2f4a356b493d6671bd98e93df6f82229f8d899cc3f8a591",
+      "hours": 26304,
+      "bytes": 2595390
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "B-INF-10MW",
+      "filename": "riyadh-B-INF-10MW.parquet",
+      "sha256": "63583839dc2a58c208b3abebe02c32d87d318bff245edb3fc607961d0364b348",
+      "hours": 26304,
+      "bytes": 2544119
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "C-SAI-10MW",
+      "filename": "riyadh-C-SAI-10MW.parquet",
+      "sha256": "7c8d5d7e9944d206af5ec8d64926b5764d4526c3dafaf1218a1cc1cd372d8c0e",
+      "hours": 26304,
+      "bytes": 2851332
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "C-TRN-10MW",
+      "filename": "riyadh-C-TRN-10MW.parquet",
+      "sha256": "c8704638e7614ba80af0697f6cba020b5b52f2d905fe053071e42800a1651f32",
+      "hours": 26304,
+      "bytes": 2595121
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "C-INF-10MW",
+      "filename": "riyadh-C-INF-10MW.parquet",
+      "sha256": "dd7c9249ca69414b0f8617039609dbfc392ffe4bdd8b4fadf914c6c725db1019",
+      "hours": 26304,
+      "bytes": 2544445
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "D-SAI-10MW",
+      "filename": "riyadh-D-SAI-10MW.parquet",
+      "sha256": "ce7b3b5fe2e434b9aea052605d0f9b2588a91d2da6050f4d7c9504fb70394d3f",
+      "hours": 26304,
+      "bytes": 2848607
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "D-TRN-10MW",
+      "filename": "riyadh-D-TRN-10MW.parquet",
+      "sha256": "6012aeacd63255ae6b8df2491370d312b004d75c9549074db242e2295949d1d5",
+      "hours": 26304,
+      "bytes": 2594859
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "D-INF-10MW",
+      "filename": "riyadh-D-INF-10MW.parquet",
+      "sha256": "be256b9d1e45f3395c8327927d66c01e2457d03efec504eb419fbeb991719ee1",
+      "hours": 26304,
+      "bytes": 2544654
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "E-TRN-10MW",
+      "filename": "riyadh-E-TRN-10MW.parquet",
+      "sha256": "d65292ffc229a50e114658cebacf8836ff5c1b74aa3b4bf3253c849ebfb82a7e",
+      "hours": 26304,
+      "bytes": 2593948
+    },
+    {
+      "city_id": "riyadh",
+      "scenario_scale_id": "E-INF-10MW",
+      "filename": "riyadh-E-INF-10MW.parquet",
+      "sha256": "1e76ce13fb42b8ac2578058aa2928b08803cb854d612260b307b6abddf3bc0c2",
+      "hours": 26304,
+      "bytes": 2544151
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "A-HPC-10MW",
+      "filename": "singapore-A-HPC-10MW.parquet",
+      "sha256": "725cd18a699078bcc50dc7b697945efed5d5861ef10a6b8461bdd8b646155bee",
+      "hours": 26304,
+      "bytes": 2766611
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "B-SAI-10MW",
+      "filename": "singapore-B-SAI-10MW.parquet",
+      "sha256": "4233ec499c3c44b555b46dda6c93a814041228d47d8cf45d5a4267000ab419a5",
+      "hours": 26304,
+      "bytes": 2726658
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "B-TRN-10MW",
+      "filename": "singapore-B-TRN-10MW.parquet",
+      "sha256": "d9494ef58698f6fbdaf8b57f761faa0bd0fddcbcaf316886f06df0e45b4130e5",
+      "hours": 26304,
+      "bytes": 2464015
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "B-INF-10MW",
+      "filename": "singapore-B-INF-10MW.parquet",
+      "sha256": "f4137d62b80f7b8861c91f62baa74166b62f0bfb347c960f20d3c72465695ccf",
+      "hours": 26304,
+      "bytes": 2409874
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "C-SAI-10MW",
+      "filename": "singapore-C-SAI-10MW.parquet",
+      "sha256": "8815c2d17dc3da566db40550fb067db7edf84e49807744c48de18ee3b96c0a34",
+      "hours": 26304,
+      "bytes": 2725322
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "C-TRN-10MW",
+      "filename": "singapore-C-TRN-10MW.parquet",
+      "sha256": "981e007a346545c3c4e21c818bdbf9363699d0431d9b28cea04105872abd928e",
+      "hours": 26304,
+      "bytes": 2463475
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "C-INF-10MW",
+      "filename": "singapore-C-INF-10MW.parquet",
+      "sha256": "34afce08dd477d9c9e4a604ead5fd5a8d8280724df5bd49dcaa1c4757eb968eb",
+      "hours": 26304,
+      "bytes": 2410377
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "D-SAI-10MW",
+      "filename": "singapore-D-SAI-10MW.parquet",
+      "sha256": "bb98ff0c8ca0029b53d5129aa775c9e86254b18d8cda6899cc161410a9770f97",
+      "hours": 26304,
+      "bytes": 2719950
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "D-TRN-10MW",
+      "filename": "singapore-D-TRN-10MW.parquet",
+      "sha256": "0d84875b9d27f200ca48578a2536f84dea1971e25faa4644ec561b8cfc5411b9",
+      "hours": 26304,
+      "bytes": 2463710
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "D-INF-10MW",
+      "filename": "singapore-D-INF-10MW.parquet",
+      "sha256": "ce34ad0fee9a3fa2cea82447b739a8119a2822772b84893325b975326399f4cd",
+      "hours": 26304,
+      "bytes": 2410342
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "E-TRN-10MW",
+      "filename": "singapore-E-TRN-10MW.parquet",
+      "sha256": "3705269a391dd6c95e4b77c12f9ad25fa836a24c649b6c7755a9fef4660d313f",
+      "hours": 26304,
+      "bytes": 2464931
+    },
+    {
+      "city_id": "singapore",
+      "scenario_scale_id": "E-INF-10MW",
+      "filename": "singapore-E-INF-10MW.parquet",
+      "sha256": "04e41109d2259f3fd5ac6d825a354f2de1623db97e65a6feb5f7ad93e8d99fd9",
+      "hours": 26304,
+      "bytes": 2413074
+    }
+  ],
+  "reused_inputs_sha256": {
+    "analysis/compute_load/cooling.py": "28cb8ddddd672df1efcec1e7b7e0c966c8f8a2270660364b61388b34220b2256",
+    "analysis/compute_load/assets/cooling-20261028-v2.json": "a8957220d99994bd2df6fe6bdc186b370188e408de72670ee79760908f7ddc1c",
+    "analysis/typical_power_models.py": "54e04a856c985c2ad21cb8044fe8c550215e255f8dbcf134414df7b2156aa27d",
+    "analysis/typical_power_models_v2.py": "fce087f016ebcab7b0d2c6d2122f09f5a94b78ed4f9cb30fa7b07d6a424612c4",
+    "results/typical-load-curves-20261029-v2/manifest.json": "7eb1bb57bef5afce0b97cf6e4c694db46d6f561c82bea82e7998a77eb19548c5",
+    "results/typical-load-curves-20261029-v2/mit-power-ratio-summary.json": "9751f83474686f619626a137800f803e41313893c6f5dceee5f42bed50f92397",
+    "results/server-count-scenarios-20261028-v2/server-configurations.json": "3f1fbffbe1444523858b5fd595604a9d71c5f2b31c49f57fc3a086a81a1ab007",
+    "planning/direction1/全球网格需求侧柔性收益研究方案_20261023.md": "acc65c78f732cca26b0ee7d8d802f2003070412b30d0695f74b7a2341373a585",
+    "analysis/requirements-eight-city-phase-a.txt": "002d2da0829c9504523071d89ce47ef4635d5833f818f71e390db636ec25bec9"
+  },
+  "files_sha256": {
+    "results/eight-city-phase-a-20261029/annual-load-central.csv": "8e2aa9ff1991bb8b93b5be96fc44aef8e3cee0c01a9864d21c7c39697d66d4dc",
+    "results/eight-city-phase-a-20261029/annual-load-summary.csv": "1cdf9df5960f8bafffeba8958188add31ae35577d1ca2d1168c0e657b41111c7",
+    "results/eight-city-phase-a-20261029/calculation-manifest.json": "8938e2e571427ffbfda87e6ad00c2b6fcb7a713761217b5927606da9bd6e8361",
+    "results/eight-city-phase-a-20261029/city-climate-resource-annual.csv": "60ac84376e796e98708d700c85083294304309c5cb5bcdf1fa5ef7789dad7124",
+    "results/eight-city-phase-a-20261029/city-coordinates-climate-resource.csv": "3c2dbb3d576939893922b401465158d9be8ac574a1c4ce9f3a73016891bafbb7",
+    "results/eight-city-phase-a-20261029/city-load-comparison.csv": "7c35e38d3f04fbc9b2fab6bb3ce7ba79388783e6627bcb8de51b03ac971fd034",
+    "results/eight-city-phase-a-20261029/figure-overview-validation.json": "2b901bff11d1bc1bcb243ea4f68c394e9ffbb7109d8ded3a8517db42e4d882d8",
+    "results/eight-city-phase-a-20261029/figure-render-checks.json": "bcc584245ab2873d67a68f5f409deefb94afad3f9d8a7c8f6da144f77cff79b5",
+    "results/eight-city-phase-a-20261029/figure-validation.json": "128aa3274f4f52f977c2ca4d42c54cb3d5fae780bede3710848e53a41072e954",
+    "results/eight-city-phase-a-20261029/figure1-climate-resource-overview.pdf": "a0c645a98f329b7795f52ffbdbeafe67eb54cec0fb78e1168073de6a9f9eada0",
+    "results/eight-city-phase-a-20261029/figure1-climate-resource-overview.png": "e4ce814711e014795ea9119e0a631aac4d022ca41887c17f74bfd310ac67dd39",
+    "results/eight-city-phase-a-20261029/figure2-city-load-comparison.pdf": "aa9b0575afaf5514b4c854e3e78b42010e64b393de26e9c3f1e29dd65fe7de85",
+    "results/eight-city-phase-a-20261029/figure2-city-load-comparison.png": "ca4f339caa9b860f6b6e73eca15fd301b80626fbd7c393a1def5a1ad594e99fa",
+    "results/eight-city-phase-a-20261029/figure3-renewable-shapes.pdf": "b67cfd66e5ce961f5702137cba64c7ecfe2a263dda75231f29d1c6588ee47cb6",
+    "results/eight-city-phase-a-20261029/figure3-renewable-shapes.png": "a5e91e71561219f9e1ce5c8f1d9243ae6fdc40129e34414da98de8cf3b494530",
+    "results/eight-city-phase-a-20261029/figure4-flexibility-potential.pdf": "896e20a4748005b89dbe78d50a20757ecbe836c16532a59049c78f9bc3093bf9",
+    "results/eight-city-phase-a-20261029/figure4-flexibility-potential.png": "f9fc6dc52c9728e9912c675429793e48056e5fc7bce5a311925007eba7e0cb89",
+    "results/eight-city-phase-a-20261029/figure5-independent-hour-removal.pdf": "000b72510d0b394bbb80caa8f41a3d4720bd47a504ff9b5e8cb67938c2ed5c52",
+    "results/eight-city-phase-a-20261029/figure5-independent-hour-removal.png": "27694a1519a0939168e8c10b3fbd9b1a0475c3aee33e0cca59717d2dd7614391",
+    "results/eight-city-phase-a-20261029/flexibility-electric-summary.csv": "dd68e754a2e903fc71912eec98733dd8a1ba25cfe5d051be645693af5133b4a8",
+    "results/eight-city-phase-a-20261029/flexibility-resource-summary.csv": "c0b8603b92f6b3af9e80cd550134306bc89980dfaefe2eaf1d81580eea494b74",
+    "results/eight-city-phase-a-20261029/flexibility-validation.json": "446fcd0cd02dcb568ab5615f713e9f4de5d111cada691fe618139d5faa61c444",
+    "results/eight-city-phase-a-20261029/load-pattern-summary.md": "f1d7ffa1a748dd0134761120b64f1312946db4de5a6e4e4a024ae13575b5eb86",
+    "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-annual-envelope.pdf": "d8408f2eea43025bea92c9e45c16506b4b48d5613215500001dc2301aeefd653",
+    "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-annual-envelope.png": "e54e54d390abda46e3d9563f1ff38d4d1cc0afe7a540460904bed1bbc8a946d1",
+    "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-seasonal-days.pdf": "5dac8f18e1c27985ea1ac2f6ea5beb8b26ead5a97ed9e8d698099a0e05d10f34",
+    "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-seasonal-days.png": "26faed2f1688a175a597e533ddbda71f38bcee95fa03ddb34210b62075955e52",
+    "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-typical-week.pdf": "6dd662e8c3479a8a1cac55f7b7e67c0bf0e3ac7f866a889871f39d41a51370fd",
+    "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-typical-week.png": "915c302ce60d543ceb832338e20cf69880f8fcc247ff0b7b5aea380f0b262bf4",
+    "results/eight-city-phase-a-20261029/load-patterns/B-INF-10MW-annual-envelope.pdf": "7b1747bcb035e317a80fadcb6adeb56710b7b9b2a0e9cee361ac6bb84b32c774",
+    "results/eight-city-phase-a-20261029/load-patterns/B-INF-10MW-annual-envelope.png": "e52b1ce45baae49b7d999eaf731b9f4a5d24b829db5db2cdd1e6ea21942c929e",
+    "results/eight-city-phase-a-20261029/load-patterns/B-INF-10MW-seasonal-days.pdf": "a06e845065c496c0a49f6d5d20ec05654812a6dfc37bfa19e95a718f32d43b02",
+    "results/eight-city-phase-a-20261029/load-patterns/B-INF-10MW-seasonal-days.png": "c00655a79afd9ef5bf6161460f7472070e6c8f079d1dfeb20aa7b3f3928ffb00",
+    "results/eight-city-phase-a-20261029/load-patterns/B-INF-10MW-typical-week.pdf": "120061f49843f614c4621f4344f7a30edb833160df4b4abbef2e38b5d9964bb0",
+    "results/eight-city-phase-a-20261029/load-patterns/B-INF-10MW-typical-week.png": "2bda97f710845f371c46d8eef784656f46533e39dfaa0100c1a34679410d36f2",
+    "results/eight-city-phase-a-20261029/load-patterns/B-SAI-10MW-annual-envelope.pdf": "560b753ff00a637ca671b13e6afbf45e3e67f066f10f0e1a550c31cc5f1830bd",
+    "results/eight-city-phase-a-20261029/load-patterns/B-SAI-10MW-annual-envelope.png": "ef1bea88aaf8a916e2780d535044df28067e4d6805a746577a6372ceb7bdb978",
+    "results/eight-city-phase-a-20261029/load-patterns/B-SAI-10MW-seasonal-days.pdf": "4ac094dc12121ccb509703b4715816350248b68dbdd76dedaa8a74adeab6ee6d",
+    "results/eight-city-phase-a-20261029/load-patterns/B-SAI-10MW-seasonal-days.png": "4afe76dcd3571e28173a6dead552ebf186d5bdce9f31fe00267e028a9280c4a1",
+    "results/eight-city-phase-a-20261029/load-patterns/B-SAI-10MW-typical-week.pdf": "ba325aedad4391f0909219e4151556fc657feb8101cb28d148c8cd427a2ff564",
+    "results/eight-city-phase-a-20261029/load-patterns/B-SAI-10MW-typical-week.png": "e474340b6eb0b135fb2a7fde9e2a8f27205fc10ea089319b8d6b9432ab3838d7",
+    "results/eight-city-phase-a-20261029/load-patterns/B-TRN-10MW-annual-envelope.pdf": "2089e9e052c853708bc143e1f328eebfd9d72cdaa29fdb944066f33e8ee18ff7",
+    "results/eight-city-phase-a-20261029/load-patterns/B-TRN-10MW-annual-envelope.png": "543e80e0e3f0b61dc47ecb1f4b0ca4b26c35613e12feeae8fef02cde58f4774d",
+    "results/eight-city-phase-a-20261029/load-patterns/B-TRN-10MW-seasonal-days.pdf": "6dcba9000916100dea590ed916f76fd076c7f2d2d31d536278451d540e70e296",
+    "results/eight-city-phase-a-20261029/load-patterns/B-TRN-10MW-seasonal-days.png": "35996d60b179d551fcce1dcd16a5faeff46a6032b36040cb20e8e3c24f2bcd69",
+    "results/eight-city-phase-a-20261029/load-patterns/B-TRN-10MW-typical-week.pdf": "bc267d3784130a1a5ac7d57a01241fc4142db28c0da838e0c231f458968c6e34",
+    "results/eight-city-phase-a-20261029/load-patterns/B-TRN-10MW-typical-week.png": "e76c7ca9fbe60c205f22580628a69e83e00fcedd0beac8966fe699fd53cb8564",
+    "results/eight-city-phase-a-20261029/load-patterns/C-INF-10MW-annual-envelope.pdf": "59079a07ca47abaee2dd99b24913b44c0b66ce0281337eedfdd5d41efd79a12b",
+    "results/eight-city-phase-a-20261029/load-patterns/C-INF-10MW-annual-envelope.png": "0bb89906af203c4f01e0d5c02049b2bc17d8acb8efcdc2dc4eb527afd0cf2394",
+    "results/eight-city-phase-a-20261029/load-patterns/C-INF-10MW-seasonal-days.pdf": "00613014d0d364c23a6238305f77fa60243cde37107ebf604ab681090f9196b5",
+    "results/eight-city-phase-a-20261029/load-patterns/C-INF-10MW-seasonal-days.png": "3b4d2b464504fcc9d2740b95704b1445a7ec6fa720f29f02cf72bd9b556100d8",
+    "results/eight-city-phase-a-20261029/load-patterns/C-INF-10MW-typical-week.pdf": "7fda661e42ea78e6bd134d9a49803375ce6de4f9cce8e1b98731162177d22a0a",
+    "results/eight-city-phase-a-20261029/load-patterns/C-INF-10MW-typical-week.png": "c921575b979f583dcf61d055d985b94d0743947de9d1f7311a8a765e9864b7e6",
+    "results/eight-city-phase-a-20261029/load-patterns/C-SAI-10MW-annual-envelope.pdf": "1cca6312802f38b8904dc80944be3337b32654e1c395386a09cd94330b17f8a1",
+    "results/eight-city-phase-a-20261029/load-patterns/C-SAI-10MW-annual-envelope.png": "86bdc11af1a11f7d4fdc753c60a92a72b9dc10c0dad3c15e865ef672abf8b4d0",
+    "results/eight-city-phase-a-20261029/load-patterns/C-SAI-10MW-seasonal-days.pdf": "85f01f9e38121e23f51ff08c626354bd031cfd29bfc1b0091b95e42ff504f926",
+    "results/eight-city-phase-a-20261029/load-patterns/C-SAI-10MW-seasonal-days.png": "51dd156021759816dd291cd977ef6ebbadb47cdb0a79203a63cf8291f4d58881",
+    "results/eight-city-phase-a-20261029/load-patterns/C-SAI-10MW-typical-week.pdf": "15cced65b978c8b343c1e00c752dc2cbf193ce92068c544111ed794a134fa8e5",
+    "results/eight-city-phase-a-20261029/load-patterns/C-SAI-10MW-typical-week.png": "43c27accf974d5fe34e91fc05392022753b143c37088ae0743abf0f63e4b9a1d",
+    "results/eight-city-phase-a-20261029/load-patterns/C-TRN-10MW-annual-envelope.pdf": "f8cb64c5a8274e75e536449df0a6af332defd74a3c9edc355b187e5af29b87ec",
+    "results/eight-city-phase-a-20261029/load-patterns/C-TRN-10MW-annual-envelope.png": "1b728c4602851c67df73d9c3c22de2a81cd268c8f1f8a4ef01d0c8c8a1bcafba",
+    "results/eight-city-phase-a-20261029/load-patterns/C-TRN-10MW-seasonal-days.pdf": "712e2be080e9d1c7f45e45a9b0180c85238ce9e3c0d9ed750e47ab40ffe38fb8",
+    "results/eight-city-phase-a-20261029/load-patterns/C-TRN-10MW-seasonal-days.png": "e7181161f764b7bd3d4b5cdaa87bf44094f656c501ff61b6b77e3160bae01b1c",
+    "results/eight-city-phase-a-20261029/load-patterns/C-TRN-10MW-typical-week.pdf": "167dcef93edd8ee9b435e0f860c03451ce26428646671ea5d49869f8b9cdcba0",
+    "results/eight-city-phase-a-20261029/load-patterns/C-TRN-10MW-typical-week.png": "d9a711a22bd46bc3a1c960212f1b37996e36468e58150c36071d673f8fc9b956",
+    "results/eight-city-phase-a-20261029/load-patterns/D-INF-10MW-annual-envelope.pdf": "11d740ee96219e319eaa56a9632315aa912bd232d2f57a167fad99aa7dd96b18",
+    "results/eight-city-phase-a-20261029/load-patterns/D-INF-10MW-annual-envelope.png": "5867e89005190a85f656cdd96469825550d89e1f5d2c9cfea6bf6d00765f38bb",
+    "results/eight-city-phase-a-20261029/load-patterns/D-INF-10MW-seasonal-days.pdf": "788a37086966c88720778eefe3df43a8e3a94483a7230ab52dabd16e318f019e",
+    "results/eight-city-phase-a-20261029/load-patterns/D-INF-10MW-seasonal-days.png": "c108d005ed4f6224f5643913ee735c02e1d971fbeb396bd20c8a43c5de706dab",
+    "results/eight-city-phase-a-20261029/load-patterns/D-INF-10MW-typical-week.pdf": "f1b6ebcdd4abcb0b54aa018305319dcef29c5e9ba9de062bb25f06ed6dfab2ae",
+    "results/eight-city-phase-a-20261029/load-patterns/D-INF-10MW-typical-week.png": "4d79681f1c94208fba75960ac08be26657a020e8f2ba66058364c4cca9cfa8a0",
+    "results/eight-city-phase-a-20261029/load-patterns/D-SAI-10MW-annual-envelope.pdf": "e86b0bc729b729bc8916bb10b12c167bc14323731cf79a9fa4699d9230760c37",
+    "results/eight-city-phase-a-20261029/load-patterns/D-SAI-10MW-annual-envelope.png": "76fcabc11b903e32380b03267bad0bfe7c25ff438cd20be047f92a425c3f31c7",
+    "results/eight-city-phase-a-20261029/load-patterns/D-SAI-10MW-seasonal-days.pdf": "f735c2891dbd19e1a46bc0381d9fc77a86123d10362b4fd0f5b74ea15cfbd1f3",
+    "results/eight-city-phase-a-20261029/load-patterns/D-SAI-10MW-seasonal-days.png": "9ab20f5fc6023c1fab8087a19b7b99de8bb76411af374f54aecd9cad1207c171",
+    "results/eight-city-phase-a-20261029/load-patterns/D-SAI-10MW-typical-week.pdf": "44b87a0c2dfcc676c1bc544eb3fa4a617a0c0d1b67ea52c357e2049c8d7bd876",
+    "results/eight-city-phase-a-20261029/load-patterns/D-SAI-10MW-typical-week.png": "7d47319c690c8dc6b979301d3d6edbbad8335e469c58723cc440ca8371893103",
+    "results/eight-city-phase-a-20261029/load-patterns/D-TRN-10MW-annual-envelope.pdf": "dd547204c4f74187818b4c09fd7160a195a3ddb5c2adcd9bf4c022d55ca1b5f6",
+    "results/eight-city-phase-a-20261029/load-patterns/D-TRN-10MW-annual-envelope.png": "adcc450de1a5ed01e1588a61d4e03c637ea9383e1bec732088547f758dbfe684",
+    "results/eight-city-phase-a-20261029/load-patterns/D-TRN-10MW-seasonal-days.pdf": "0d601671b2c732bf772d33f57eb5fd47ae7702732a50dff94093933d0025a2f7",
+    "results/eight-city-phase-a-20261029/load-patterns/D-TRN-10MW-seasonal-days.png": "8d7883f59ddad068a0ceec8fd272fe6fb9cd3d7ac15ae58a62455be04f6c67b2",
+    "results/eight-city-phase-a-20261029/load-patterns/D-TRN-10MW-typical-week.pdf": "3b3b98cfba5c38032faf3f77673236daa6a984e22640e673264ae8e020706e3d",
+    "results/eight-city-phase-a-20261029/load-patterns/D-TRN-10MW-typical-week.png": "42e254b9c2492a6bdf4001cbfb83f6b268a7ba696f8e191df9d58e86ba82f327",
+    "results/eight-city-phase-a-20261029/load-patterns/E-INF-10MW-annual-envelope.pdf": "394b1207186437a23aff2da5d220aec24cda93d96ca9f2ac7d173aaabf87e97c",
+    "results/eight-city-phase-a-20261029/load-patterns/E-INF-10MW-annual-envelope.png": "295d4477350d0f386b1eeedcf8953f0fbec1e0cd162333463773707e042b9fa3",
+    "results/eight-city-phase-a-20261029/load-patterns/E-INF-10MW-seasonal-days.pdf": "dc1a00060604bb673cf2531da2b78e19a1b4757d98f6b037b0872ff2d3817b28",
+    "results/eight-city-phase-a-20261029/load-patterns/E-INF-10MW-seasonal-days.png": "5cc7e7e702f83ae65e74ecba2c9196ba39acebc0f5a59de05d1cfab625347998",
+    "results/eight-city-phase-a-20261029/load-patterns/E-INF-10MW-typical-week.pdf": "45b8c1e17425db0eed425f1ab8976ba4991b191c2fbd1ad3d94b318fbf1c9d4b",
+    "results/eight-city-phase-a-20261029/load-patterns/E-INF-10MW-typical-week.png": "c89d98a2d0ac07b6db6a7f297268d8fd5a1e613df380adc9976d694438b3c9eb",
+    "results/eight-city-phase-a-20261029/load-patterns/E-TRN-10MW-annual-envelope.pdf": "bc3d652efe432453cf709d187732bc4c16c6249aaff02fef5743bac5d5e0dd0c",
+    "results/eight-city-phase-a-20261029/load-patterns/E-TRN-10MW-annual-envelope.png": "b2f32e40752b486ee800db16d3eaf190e5d0f858f092c8c083880ee06db2d337",
+    "results/eight-city-phase-a-20261029/load-patterns/E-TRN-10MW-seasonal-days.pdf": "29887412388041cffe7a3551b0a00fdea49849c6ee959646451bdd44e143ff5f",
+    "results/eight-city-phase-a-20261029/load-patterns/E-TRN-10MW-seasonal-days.png": "544b3240b3f9e1679144bf418d23deb9c016169ad87edcca82fd92aad2bc79be",
+    "results/eight-city-phase-a-20261029/load-patterns/E-TRN-10MW-typical-week.pdf": "652518127028a8241f4813e7b93943f9bcf230ca3b78ec999a0879c27e5e6d6f",
+    "results/eight-city-phase-a-20261029/load-patterns/E-TRN-10MW-typical-week.png": "15b8cc2441e36ba012f67030516be0d3c63f16f706bcef5f811fdbe3cde4890d",
+    "results/eight-city-phase-a-20261029/processed-hourly-files.csv": "87bc869e95d86461f3152dad4cb043285dc07b6171b6490e05ec08b13dd99661",
+    "results/eight-city-phase-a-20261029/README.md": "588a78b6826d298ee8a639fa587c5fe2e775b1d1d0b71d51e206f62d2864ea38",
+    "results/eight-city-phase-a-20261029/renewable-flexibility-shape-correlations.csv": "733ffd71958153a08ab37dab81a2c2a005740aa800c38f9ce233b844ce754fc6",
+    "results/eight-city-phase-a-20261029/representative-weeks.csv": "df144417af32cb2c4337d6c1b1cfc8b2f5296e3bfbce9922bf91885848c50ab4",
+    "results/eight-city-phase-a-20261029/resource-benchmark-comparison.md": "c2c80396d348e4973110163c37386d9d52aadf262192bf51ac7b9d556b0ce1d6",
+    "results/eight-city-phase-a-20261029/scenario-city-load-summary.csv": "0d53ae6767a8fd8e1aabe8638ce07c3cacf112976a33c00fa47827ff5950fffb",
+    "results/eight-city-phase-a-20261029/scenario-names.csv": "5574edbdd2a3a4ce3e7d2c1db650d8baabc5515097d14a9587becad90c4c9d1f",
+    "results/eight-city-phase-a-20261029/scenario-names.md": "aa47a0e5536c3e871605e66a6cdbb7abfd8d11e894f95700969f1a8c290fb8e3",
+    "results/eight-city-phase-a-20261029/server-sync-validation.json": "d76f2f595d4f175a44b0689d3e663170e3a814265c1f479544849a1fa5ec2688",
+    "results/eight-city-phase-a-20261029/source-metadata/ashburn-arco.source.json": "5e439555ce2d9d97fa1293aa148bf2e2970c31152b464db400944ae104e1f448",
+    "results/eight-city-phase-a-20261029/source-metadata/ashburn-frozen.source.json": "a0d67c767ff68ff7f7bcd3086d32c0815410228b764b55e68df969a1491df9db",
+    "results/eight-city-phase-a-20261029/source-metadata/city-benchmarks.csv": "3220c3504af60a1d4edd22113e3fb8e7341ca03531747d32cea2ebd9fc0b720c",
+    "results/eight-city-phase-a-20261029/source-metadata/frankfurt-arco.source.json": "7e43f9041ac99bd6a404572d29468291c356fe4041f459c0f8f75a3b9b7e0055",
+    "results/eight-city-phase-a-20261029/source-metadata/frankfurt-frozen.source.json": "7553b5c3b1821702bc75881b0c15714f2ec10c6ce11644ada060ab3c39fcf4bd",
+    "results/eight-city-phase-a-20261029/source-metadata/grid-land-check.json": "0f23d2834e0a7d8faf7ba0ad3767d735e9f3fa2d5b94316ec84cc63e1ffe3719",
+    "results/eight-city-phase-a-20261029/source-metadata/guiyang-arco.source.json": "02dc5023498e8e03ff2b643fd3e4adcf51416ab9f0d34fa06999d94c88cc515a",
+    "results/eight-city-phase-a-20261029/source-metadata/guiyang-frozen.source.json": "9c092c5669ef04ab74a1153b3f5039cc32bc58df626c500ff466aa6ac0cd2ffe",
+    "results/eight-city-phase-a-20261029/source-metadata/lulea-arco.source.json": "de85ae6642c0a611cbe4ba083e5e1d764095f14a1886ea07540f9d74949c4fba",
+    "results/eight-city-phase-a-20261029/source-metadata/lulea-frozen.source.json": "f9eb7e97836d5d3f9f1dd18392ad39bd00814b551ea128c0884efb3c34b1c15c",
+    "results/eight-city-phase-a-20261029/source-metadata/phoenix-arco.source.json": "5b415ff9f646470a952c5087223003b1ecca9c3748cabcbd0354b671817669ee",
+    "results/eight-city-phase-a-20261029/source-metadata/phoenix-frozen.source.json": "bb6c4a3cc6d8f9dd042f1cd4fdb3c7573529baa73f3b77fb65303d63703dd489",
+    "results/eight-city-phase-a-20261029/source-metadata/phoenix.request.json": "278991cfd2753523b63f0edfa1573011edc858b12bb0c2042fe832f88ddb59c2",
+    "results/eight-city-phase-a-20261029/source-metadata/phoenix.response.json": "4da787cfaa3765106de3c4d03c1913f22a37bb1164a9692f66cdbff5fdd2a2ca",
+    "results/eight-city-phase-a-20261029/source-metadata/phoenix.validation.json": "68352fdf23380a8d03ff98a711135a4091436fa9558467963136b54c46b986f8",
+    "results/eight-city-phase-a-20261029/source-metadata/riyadh-arco.source.json": "9f2901ddfcfe4baabf6183a8bd8684631ff40d4524b39952388ebb3d7a915eed",
+    "results/eight-city-phase-a-20261029/source-metadata/riyadh-frozen.source.json": "b8c2bbad7f11625d65f72116100929992679143ab26c8ce0a74db43d06d5d5a7",
+    "results/eight-city-phase-a-20261029/source-metadata/singapore-arco.source.json": "647d1d96483e9ce6ca62c494f5c281e6999ae30f2d6494dda9982f81a734b3f8",
+    "results/eight-city-phase-a-20261029/source-metadata/singapore-frozen.source.json": "e14ffbb34f6d1a6137117220c6b4af6082b0296b30d99d976c136477d9e51a74",
+    "results/eight-city-phase-a-20261029/source-metadata/source-receipts.json": "28431c8df1600ffe6cc1b63ca105a84f8ae5b7fb0a69c99536c0d2237f8bfead",
+    "results/eight-city-phase-a-20261029/source-metadata/ulanqab-arco.source.json": "468492a6c4c2b0cc1c929cecbdc462e7e5818cc3f82c2e5ff8c4aedb3c5e29da",
+    "results/eight-city-phase-a-20261029/source-metadata/ulanqab-frozen.source.json": "1763da728f909b25806861f5bbdd9988a4271ef02afd1ba8559aa054934f5538",
+    "results/eight-city-phase-a-20261029/summary-validation.json": "bfd0890cfc942922cfa13e6ece00eb21f627f84fc8eb60a5e80c02565c53614f",
+    "results/eight-city-phase-a-20261029/validation.json": "dff243168fc1329003ae1693eb83d87f66196e11a1bbdea009785a0e51a25a99",
+    "results/eight-city-phase-a-20261029/weather-load-validation.json": "538e4bb60a25ddcf8f8d6d372028f08d715f46ef67b7bb0fc5da9111485fe1a6",
+    "results/eight-city-phase-a-20261029/weather-provenance.json": "7a99efd56a433b87f5f00f730c2d493f3518df95a7d5e3a31f21073d34d7db53",
+    "results/eight-city-phase-a-20261029/wind-model-diagnostics.csv": "bb5ecc82c1cdfe7b86e2d41500ad84829056e1295c351119b51507961436a90a"
+  },
+  "code_sha256": {
+    "analysis/acquire_eight_city_arco.py": "44098cd8a5c00b72ad0519cdbb3f6c75046d6761f2e40b1a783a324ad7b51440",
+    "analysis/acquire_eight_city_weather.py": "637f6435252c93dd6a7d03e9ee7e5097cabf561365440ed688d67b5a0879a4b1",
+    "analysis/archive_eight_city_provenance.py": "6faa85ec73c3fb83d8c56eef6c71c61c05e6814d8b8620414bae460ceb8dbf43",
+    "analysis/build_eight_city_flexibility.py": "f4efd95a7c077ae3765ad9097b7e7b75bbc2598e08420d7bd32321f85e54f308",
+    "analysis/build_eight_city_phase_a.py": "15ad05d7fb896fb214011012d211d4cfdec01b5bb0bb410e776f0dd5613a4795",
+    "analysis/diagnose_eight_city_wind.py": "1ab22d881dbb782dee3dc7e9a5277a9eb99453ad290abb1879f21b3ad2f6e059",
+    "analysis/eight_city_locations.json": "c8db29b1c63b7b0d0f6ad701eccd622569c015790df7496d7e06cfb267a393e4",
+    "analysis/eight_city_physics.py": "31f0cd8a2197f80adbe9af319c13823c9ce82bc0159b21c5f64b8906c09d03df",
+    "analysis/eight_city_scenarios.py": "840ad5bef2e1b0eabdbd96ddf021e0d82eca18d8e8c6570df2788bdac9ac808c",
+    "analysis/extract_eight_city_frozen_weather.py": "004e46f952b7941ca6b24f34be756b9017913431a07a329a94be17ab05c4c8c6",
+    "analysis/fetch_eight_city_benchmarks.py": "301b4a4b28f9efdcbda7e423b57f229f2c486131a9ec2e0e5e50c1dc195bbec4",
+    "analysis/plot_eight_city_phase_a.py": "65a67ec53597d35c2880d5dcadc9a729063dd0d2f6d76be88ab34a723b4b66b5",
+    "analysis/summarize_eight_city_phase_a.py": "beb7a4136fa5c5b1da4c784ad6d16e63e95deb9673a4c4027530e2ce3f699ebc",
+    "analysis/transfer_eight_city_inputs.py": "0c97f9f2dba369a81e6faaa273134c40fe2075d5d9e355cec4152f4d34c60c52",
+    "analysis/validate_eight_city_phase_a.py": "abd2cd936895b4c742876b99fbd764d8a697ed8707bfd04bd1370cb25f402fd4",
+    "analysis/verify_eight_city_figures.py": "5fe9df7e00a839a16ccff902b3219d866f40d10af98dda19d8e45891e2aa350c"
+  }
+}

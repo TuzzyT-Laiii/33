@@ -1,0 +1,97 @@
+{
+  "city_id": "riyadh",
+  "source": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/era5-eligible-ecmwf-geo",
+  "metadata_sha256": "a1ad4bda977c1e8a881e8717928a7ad440474ba97a06517852e564597948729a",
+  "missing": {
+    "t2m": 0,
+    "d2m": 0,
+    "sp": 0,
+    "ssrd": 0,
+    "fdir": 0,
+    "u10": 26304,
+    "v10": 26304,
+    "u100": 0,
+    "v100": 0
+  },
+  "checked_utc": "2026-10-29T07:06:33.640413+00:00",
+  "raw_objects": [
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/10.115.226",
+      "sha256": "5797b6a7efeda9f03e3500abb1c80fb5bd476386a09cb5f0c7f77ca3458d94fa",
+      "bytes": 2554506
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/t2m/11.115.226",
+      "sha256": "88b14a1d1ed398fa019cc86d365c3f417e42e94047081e132e0057bfd14a00b2",
+      "bytes": 674323
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/10.115.226",
+      "sha256": "bc61ca45098a81583281e1facc12d3988031c6bb98a54ed65e827fec90d62d49",
+      "bytes": 2562845
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/d2m/11.115.226",
+      "sha256": "e1da7a86d2bdf0bda35918dc6037c9bb89a8eb0ea60dabef954d3f48f4ac200b",
+      "bytes": 681173
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/10.115.226",
+      "sha256": "87add8c57d4fc271d48cf2d848d24c3e7d0dfd3433157d6f50d7fe156a5475e6",
+      "bytes": 2097092
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/sp/11.115.226",
+      "sha256": "9caaffc3f13350b8fd4e2aba7f5798dfc72a7eb1a23a6328098e5f752a82d233",
+      "bytes": 558046
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/10.115.226",
+      "sha256": "15f1250095de086e6e6f64f866511830b9a9dbc63e1945eeb567efc59c66802b",
+      "bytes": 1251708
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/ssrd/11.115.226",
+      "sha256": "792543ca068d2e081037d10ea4d80a136a62c8929d11f9585c5ce1aef06c19ef",
+      "bytes": 333302
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/10.115.226",
+      "sha256": "ead3916299cb90619fa8c8baed2235d5914dd78cc92d20e27ebe588fc6e4db92",
+      "bytes": 1245193
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/fdir/11.115.226",
+      "sha256": "d92ac2fb819289a5dc93d1ca5bf9f5219f963b1691329b4aba67fc0f8a36b9d5",
+      "bytes": 327867
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/10.115.226",
+      "sha256": "53b19a8e70df82d4ea62d60367f3bc3ad20802101817935a46678d564c6ffec5",
+      "bytes": 2916099
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/u100/11.115.226",
+      "sha256": "52b37ad668a3b37cda2305dced56dca8fb334611738ec74520262e0edce44803",
+      "bytes": 766900
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/10.115.226",
+      "sha256": "a76a42d0d541f9b5ed79073730856cdf0bbc51890e0ddc0f804363eb888965f6",
+      "bytes": 2854256
+    },
+    {
+      "path": "/data3/dataset/ljt/eight-city-weather-20261029/frozen-raw/v100/11.115.226",
+      "sha256": "60e7c1bc89947cbd48cbaa6df4f24ae1f7aa57986cb378770f2b107ac5b8f117",
+      "bytes": 753215
+    }
+  ],
+  "thermal": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/riyadh-frozen-thermal.nc",
+    "sha256": "ef1d9cc0abafa01fa1b8fb85aa85bc373df383ba2c3f670c90b1f0751d1eb0d0"
+  },
+  "base": {
+    "path": "/data3/dataset/ljt/eight-city-weather-20261029/riyadh-frozen-base.nc",
+    "sha256": "203f8a090252e8fcbc8e58e77bb2290db7c9ee51e8c788318634fa624df04ef6"
+  }
+}
