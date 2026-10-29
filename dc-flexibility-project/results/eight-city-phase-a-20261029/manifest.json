@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-29T08:26:14.030795+00:00",
+  "created_utc": "2026-10-29T08:30:35.632513+00:00",
   "base_commit": "6ffda9b",
   "processed_server_directory": "/data3/dataset/ljt/eight-city-weather-20261029/processed",
   "raw_server_directory": "/data3/dataset/ljt/eight-city-weather-20261029",
@@ -957,7 +957,7 @@
     "results/eight-city-phase-a-20261029/load-patterns/E-TRN-10MW-typical-week.pdf": "652518127028a8241f4813e7b93943f9bcf230ca3b78ec999a0879c27e5e6d6f",
     "results/eight-city-phase-a-20261029/load-patterns/E-TRN-10MW-typical-week.png": "15b8cc2441e36ba012f67030516be0d3c63f16f706bcef5f811fdbe3cde4890d",
     "results/eight-city-phase-a-20261029/processed-hourly-files.csv": "87bc869e95d86461f3152dad4cb043285dc07b6171b6490e05ec08b13dd99661",
-    "results/eight-city-phase-a-20261029/README.md": "fe8388bcbf23f8a4e729b39d6fda41ec810363a20884c3240d05ce4528a7f080",
+    "results/eight-city-phase-a-20261029/README.md": "588a78b6826d298ee8a639fa587c5fe2e775b1d1d0b71d51e206f62d2864ea38",
     "results/eight-city-phase-a-20261029/renewable-flexibility-shape-correlations.csv": "733ffd71958153a08ab37dab81a2c2a005740aa800c38f9ce233b844ce754fc6",
     "results/eight-city-phase-a-20261029/representative-weeks.csv": "df144417af32cb2c4337d6c1b1cfc8b2f5296e3bfbce9922bf91885848c50ab4",
     "results/eight-city-phase-a-20261029/resource-benchmark-comparison.md": "c2c80396d348e4973110163c37386d9d52aadf262192bf51ac7b9d556b0ce1d6",
