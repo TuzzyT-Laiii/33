@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-29T08:30:35.632513+00:00",
+  "created_utc": "2026-10-29T08:32:41.149227+00:00",
   "base_commit": "6ffda9b",
   "processed_server_directory": "/data3/dataset/ljt/eight-city-weather-20261029/processed",
   "raw_server_directory": "/data3/dataset/ljt/eight-city-weather-20261029",
@@ -883,7 +883,7 @@
     "results/eight-city-phase-a-20261029/flexibility-electric-summary.csv": "dd68e754a2e903fc71912eec98733dd8a1ba25cfe5d051be645693af5133b4a8",
     "results/eight-city-phase-a-20261029/flexibility-resource-summary.csv": "c0b8603b92f6b3af9e80cd550134306bc89980dfaefe2eaf1d81580eea494b74",
     "results/eight-city-phase-a-20261029/flexibility-validation.json": "446fcd0cd02dcb568ab5615f713e9f4de5d111cada691fe618139d5faa61c444",
-    "results/eight-city-phase-a-20261029/load-pattern-summary.md": "e008a4eeffb9259b28ab846754dbe598e5f223adb6fd2d3f312a7e5bdcc258b0",
+    "results/eight-city-phase-a-20261029/load-pattern-summary.md": "f1d7ffa1a748dd0134761120b64f1312946db4de5a6e4e4a024ae13575b5eb86",
     "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-annual-envelope.pdf": "d8408f2eea43025bea92c9e45c16506b4b48d5613215500001dc2301aeefd653",
     "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-annual-envelope.png": "e54e54d390abda46e3d9563f1ff38d4d1cc0afe7a540460904bed1bbc8a946d1",
     "results/eight-city-phase-a-20261029/load-patterns/A-HPC-10MW-seasonal-days.pdf": "5dac8f18e1c27985ea1ac2f6ea5beb8b26ead5a97ed9e8d698099a0e05d10f34",
@@ -987,7 +987,7 @@
     "results/eight-city-phase-a-20261029/source-metadata/source-receipts.json": "28431c8df1600ffe6cc1b63ca105a84f8ae5b7fb0a69c99536c0d2237f8bfead",
     "results/eight-city-phase-a-20261029/source-metadata/ulanqab-arco.source.json": "468492a6c4c2b0cc1c929cecbdc462e7e5818cc3f82c2e5ff8c4aedb3c5e29da",
     "results/eight-city-phase-a-20261029/source-metadata/ulanqab-frozen.source.json": "1763da728f909b25806861f5bbdd9988a4271ef02afd1ba8559aa054934f5538",
-    "results/eight-city-phase-a-20261029/summary-validation.json": "2351811519b65e00ae4d2a0b7aefd23507845c49c3d460803382cde47681b3b7",
+    "results/eight-city-phase-a-20261029/summary-validation.json": "bfd0890cfc942922cfa13e6ece00eb21f627f84fc8eb60a5e80c02565c53614f",
     "results/eight-city-phase-a-20261029/validation.json": "dff243168fc1329003ae1693eb83d87f66196e11a1bbdea009785a0e51a25a99",
     "results/eight-city-phase-a-20261029/weather-load-validation.json": "538e4bb60a25ddcf8f8d6d372028f08d715f46ef67b7bb0fc5da9111485fe1a6",
     "results/eight-city-phase-a-20261029/weather-provenance.json": "7a99efd56a433b87f5f00f730c2d493f3518df95a7d5e3a31f21073d34d7db53",
@@ -1006,7 +1006,7 @@
     "analysis/extract_eight_city_frozen_weather.py": "004e46f952b7941ca6b24f34be756b9017913431a07a329a94be17ab05c4c8c6",
     "analysis/fetch_eight_city_benchmarks.py": "301b4a4b28f9efdcbda7e423b57f229f2c486131a9ec2e0e5e50c1dc195bbec4",
     "analysis/plot_eight_city_phase_a.py": "65a67ec53597d35c2880d5dcadc9a729063dd0d2f6d76be88ab34a723b4b66b5",
-    "analysis/summarize_eight_city_phase_a.py": "948231d3dd9cddbe14f3736f3a89569c8d8ee8432a0235f5a1303f0198a60bb8",
+    "analysis/summarize_eight_city_phase_a.py": "beb7a4136fa5c5b1da4c784ad6d16e63e95deb9673a4c4027530e2ce3f699ebc",
     "analysis/transfer_eight_city_inputs.py": "0c97f9f2dba369a81e6faaa273134c40fe2075d5d9e355cec4152f4d34c60c52",
     "analysis/validate_eight_city_phase_a.py": "abd2cd936895b4c742876b99fbd764d8a697ed8707bfd04bd1370cb25f402fd4",
     "analysis/verify_eight_city_figures.py": "5fe9df7e00a839a16ccff902b3219d866f40d10af98dda19d8e45891e2aa350c"

@@ -39,16 +39,17 @@ def summarize(args):
     summary.to_csv(output/'scenario-city-load-summary.csv',index=False,encoding='utf-8-sig')
     order=['singapore','phoenix','ashburn','frankfurt','lulea','ulanqab','guiyang','riyadh']
     names=summary.drop_duplicates('city_id').set_index('city_id').city_zh.to_dict()
+    legacy=summary.drop_duplicates('scenario_id').set_index('scenario_id').legacy_configuration_id.to_dict()
     lines=['# 八城市 × 十二情境负荷模式汇总','','规模均为10 MW参考IT容量；中央冷却参数，2023–2025。',
         '电量为三个完整年度的平均值；PUE为三年设施电量除以三年IT电量。',
         '峰值、冷却占比、最热周峰值和旧编号见[96行完整汇总](scenario-city-load-summary.csv)。','']
     for field,title,digits in [('annual_facility_gwh_mean','年设施电量（GWh）',1),
         ('energy_weighted_pue','年均PUE（电量加权）',3)]:
-        lines += ['## '+title,'','| 情境 | '+' | '.join(names[c] for c in order)+' |',
-            '| --- | '+' | '.join(['---:']*len(order))+' |']
+        lines += ['## '+title,'','| 情境 | 旧配置 | '+' | '.join(names[c] for c in order)+' |',
+            '| --- | --- | '+' | '.join(['---:']*len(order))+' |']
         table=summary.pivot(index='scenario_id',columns='city_id',values=field)
         for scenario in summary.scenario_id.drop_duplicates():
-            lines.append('| '+scenario+' | '+' | '.join(f'{table.loc[scenario,c]:.{digits}f}' for c in order)+' |')
+            lines.append('| '+scenario+' | '+legacy[scenario]+' | '+' | '.join(f'{table.loc[scenario,c]:.{digits}f}' for c in order)+' |')
         lines.append('')
     (output/'load-pattern-summary.md').write_text('\n'.join(lines),encoding='utf-8')
     climate=pd.read_csv(output/'city-climate-resource-annual.csv')
