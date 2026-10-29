@@ -34,7 +34,15 @@ def atomic_json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     partial = path.with_suffix(path.suffix + '.tmp')
     partial.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False), encoding='utf-8')
-    os.replace(partial, path)
+    # Windows 上目标文件被其他进程（监控脚本、杀毒等）短暂打开时替换会被拒绝，稍后重试。
+    for attempt in range(20):
+        try:
+            os.replace(partial, path)
+            return
+        except PermissionError:
+            if attempt == 19:
+                raise
+            time.sleep(0.25 * (attempt + 1))
 
 
 def database(root):
