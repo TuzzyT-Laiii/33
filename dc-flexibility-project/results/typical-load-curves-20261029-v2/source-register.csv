@@ -1,0 +1,17 @@
+item,value_or_scope,evidence_status,source_url,checked_date
+MIT_GPU_telemetry,1574-file_contiguous_random_prefix_24235.4047_observed_allocated_GPU_hours,measured_power_statistics_over_observed_allocated_intervals,https://github.com/MIT-AI-Accelerator/MIT-Supercloud-Dataset,2026-10-29
+MIT_GPU_dataset_publication,100ms_nvidia_smi_monitoring_and_2021_platform_description,primary_dataset_publication,https://arxiv.org/pdf/2108.02037,2026-10-29
+MIT_V100_platform_identification,V100_32GB_PCIe_platform_and_250W_in_Table_I,platform_evidence_transferred_to_202201_telemetry_not_per_file_board_identification,https://arxiv.org/pdf/2310.03003,2026-10-29
+V100_PCIe_TDP,250_W,official_maximum_TDP,https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-V100-PCIe-Product-Brief.pdf,2026-10-29
+H100_PCIe_TDP,350_W,manufacturer_specification,https://lenovopress.lenovo.com/lp1732-thinksystem-nvidia-h100-pcie-gen5-gpu,2026-10-29
+H100_SXM_TDP,700_W,manufacturer_specification,https://www.nvidia.com/en-us/data-center/h100/,2026-10-29
+GB200_NVL72_Blackwell_GPU_TDP,1200_W,official_device_template_maxLoadWatts,https://docs.nvidia.com/datacenter/dps/versions/0.8/guides/concepts/device-specifications/,2026-10-29
+GB200_GPU_power_limit_check,1200_W,official_health_validation_expected_power_limit,https://docs.nvidia.com/health-validation/reference/checks/gpu,2026-10-29
+GB200_unallocated_idle,200_W,official_software_template_minLoadWatts_used_as_engineering_proxy_not_target_measurement,https://docs.nvidia.com/datacenter/dps/versions/0.8/guides/concepts/device-specifications/,2026-10-29
+H100_unallocated_idle,PCIe_50W_SXM_70W,PR13_central_assumption_no_configuration_matched_idle_measurement,../../analysis/typical_power_models.py,2026-10-29
+CPU_response_shape_6448Y,normalized_whole_system_SPECpower_response,whole_system_AC_measurement_transferred_to_CPU_shape_package_endpoints_assumed,https://www.spec.org/power_ssj2008/results/res2024q1/power_ssj2008-20240227-01377.html,2026-10-28
+CPU_response_shape_SR650,normalized_whole_system_SPECpower_response,whole_system_AC_measurement_reference_from_PR13,https://www.spec.org/power_ssj2008/results/res2023q3/power_ssj2008-20230619-01282.html,2026-10-28
+CPU_base_and_host_mapping,PR13_central_parameters,assumptions_reused_with_explicit_boundaries,../typical-load-curves-20261028/power-sources.md,2026-10-29
+GPU_power_ratio_migration,V100_to_H100_and_GB200_and_MIT_to_Acme_ASI,assumption_cross_generation_and_cross_workload,mit-power-ratio-summary.json,2026-10-29
+Cooling_v2,air_and_direct_liquid_low_central_high,physical_semi_empirical_engineering_scenarios_unvalidated_at_target_facility,../cooling-recalibration-20261028-v2/README.md,2026-10-29
+Demand_matrix_v2,52_design_cells_four_scales_48_computed_4_pending,merged_PR14_input,../server-count-scenarios-20261028-v2/scenario-matrix.csv,2026-10-29
