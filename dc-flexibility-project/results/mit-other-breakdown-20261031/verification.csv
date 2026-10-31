@@ -1,0 +1,11 @@
+check,value,checked_at_utc
+input_hashes_unchanged,True,2026-10-31T08:25:22.001721+00:00
+baseline_all_gpu_classes_reconciled,True,2026-10-31T08:25:22.001721+00:00
+label_ids_unique,True,2026-10-31T08:25:22.001721+00:00
+label_stats_counts_equal_label_file,True,2026-10-31T08:25:22.001721+00:00
+all_gpu_execution_intervals_valid,True,2026-10-31T08:25:22.001721+00:00
+other_counts_conserved,True,2026-10-31T08:25:22.001721+00:00
+other_gpu_hours_conserved,True,2026-10-31T08:25:22.001721+00:00
+saved_csv_totals_reconciled,True,2026-10-31T08:25:22.001721+00:00
+per_job_output_written,False,2026-10-31T08:25:22.001721+00:00
+streaming_database_opened,False,2026-10-31T08:25:22.001721+00:00
