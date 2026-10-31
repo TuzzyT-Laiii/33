@@ -124,3 +124,7 @@ dc-flexibility-project/analysis/build_job_flexibility_tables.py text eol=lf
 dc-flexibility-project/analysis/verify_job_flexibility_report.py text eol=lf
 dc-flexibility-project/analysis/requirements-job-flexibility-constraints.txt text eol=lf
 dc-flexibility-project/results/job-flexibility-constraints-20261030/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# 典型日脚本与聚合成果保持跨系统可核验的字节和指纹。
+dc-flexibility-project/analysis/*scenario_typical_days.py text eol=lf
+dc-flexibility-project/results/scenario-typical-day-by-task-20261031/** -text

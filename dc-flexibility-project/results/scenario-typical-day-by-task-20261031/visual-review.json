@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "reviewed_at_utc": "2026-10-31T09:41:42.922206+00:00",
+  "review_method": "Microsoft Word 原生导出 PDF，运行包 Poppler 150 dpi 逐页渲染并目视检查；PNG 单图与总览逐张检查",
+  "word_pages": 4,
+  "reviewed_pages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "chapter4_page": 4,
+  "checks": {
+    "all_figures_clear_and_chinese_legible": true,
+    "no_figure_split_across_pages": true,
+    "captions_and_image_together": true,
+    "first_three_chapters_style_preserved": true,
+    "embedded_overview_matches_png": true,
+    "regeneration_preserves_word_parts": true,
+    "readme_source_and_regeneration_sections_retained": true,
+    "source_code_hashes_current": true
+  },
+  "word_sha256": "e5a4d3ab0a5d8740a26ffcc7f204b171fe465712eaa88bd1434a343fed1b0337",
+  "word_pdf_sha256": "007940e87c60aee02e4b0e294a1bebb1b95c8f251557a9369db3e096ff9b4272",
+  "figure_png_sha256": {
+    "A-CLD.png": "bf9973ddfc93f79ea3c5f89cfe8019eb299237c4770ffe1dcb3930a37aae0fc4",
+    "A-HPC.png": "bef9e430d525d4657b7b2b206102297b02a57987331ada9843aa27d7988edacf",
+    "B-INF.png": "997e15f5e64b018e062467baf29393d3aea453b3923eeb4781a85c7bb2ab116d",
+    "B-SAI.png": "189d1cf3b930842eb0002012cfcce5b753d19b5c7f82f73b2e830f1993a5c463",
+    "B-TRN.png": "34ff9e8733388669f4f155ea02a877199a285aa257d8f931215a58af27f9d515",
+    "C-INF.png": "7bcfd07d433bbae0ef9d4dffabda0ce3ae41c2329d96e5f9039588f335d02b97",
+    "C-SAI.png": "8f263840d050aa740bd2170016d4c955e7aaa5eb638c1f20d7adf07d91cef54d",
+    "C-TRN.png": "792c2d06830387525af527dd7ef325a405b2c359683fc32d552542a695215cf2",
+    "D-INF.png": "2f3ee1c636d288c849254d52c219b429160e2d125117ffc1911606399118ef5d",
+    "D-SAI.png": "c629ffc02fff9f805ff4c578b2a65bd77f03ad67304b7ce39d2ad899e8fab53b",
+    "D-TRN.png": "d6bbe61135ab2e5c36e87d1dc0849985ed3c86a004b8ecc945aff95c6ad99474",
+    "overview.png": "10e4c927756946f5a74e3e38e7e647794f8c783972e6749ca961851f8e0c397e"
+  },
+  "qa_files": "本地 .codex-temp/word-qa/，不提交 PDF 和页面检查图"
+}

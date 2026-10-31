@@ -1,0 +1,97 @@
+{
+  "created_at_utc": "2026-10-31T09:36:46.003724+00:00",
+  "baseline_manifest_sha256": "7eb1bb57bef5afce0b97cf6e4c694db46d6f561c82bea82e7998a77eb19548c5",
+  "input_files": [
+    {
+      "role": "A-HPC_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C20-Lisa-cpu_spec-central.parquet",
+      "sha256": "e82926a041ea3199e372aadd0a9afd151afb7deb0e6adc7281e8fdf9c8ca28f8"
+    },
+    {
+      "role": "HPC_jobs_local_only",
+      "sha256": "143e1e0ed9dcc92a8bc188f77c5c362a2873d403c9ac344f1f203dda9dcc2e72",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\dc-flexibility-project\\data\\processed\\task-trace-audit-20261026\\lisa\\lisa-tasks.parquet"
+    },
+    {
+      "role": "B-SAI_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C21-MIT-ratio_p50-central.parquet",
+      "sha256": "6128d2d42598063214e489bc7f44a32b7e6389c0074ceb93554e1853ca78c3d1"
+    },
+    {
+      "role": "C-SAI_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C22-MIT-ratio_p50-central.parquet",
+      "sha256": "552febf3c2c08befd4a2333d4913c4ef46c07b24421c521bc297e92504bbf257"
+    },
+    {
+      "role": "D-SAI_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C28-MIT-ratio_p50-central.parquet",
+      "sha256": "04683817de7b12c68def1299fab86c874ab5f8c9385edd8a56ce9b8de78d3617"
+    },
+    {
+      "role": "SAI_jobs_local_only",
+      "sha256": "27259e5b8e6daecd80b7853126af40ba759bc25edc9053fc174ef7a4f186aa01",
+      "file": "D:\\mit-supercloud-gpu-summary-20261028\\reference\\slurm-log.csv"
+    },
+    {
+      "role": "B-TRN_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C21-Acme-ratio_p50-central.parquet",
+      "sha256": "787d0823a0177d057e8969da1c1d2dcfdb1ea35172bc6af14472f9dd92d80a48"
+    },
+    {
+      "role": "C-TRN_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C22-Acme-ratio_p50-central.parquet",
+      "sha256": "2e593ac4b5c109a27efdb0a7e6ef4170bff053efabb033ffda954f1d1beb0cda"
+    },
+    {
+      "role": "D-TRN_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C28-Acme-ratio_p50-central.parquet",
+      "sha256": "eee9ca3a2b407079d8ef8aeaf29ae27a085609a83e708e40171bf47206d11ad6"
+    },
+    {
+      "role": "TRN_jobs_local_only",
+      "sha256": "7c5a7845da1d66448fa668342e4ecb622fd9a005118080660ec3ad2788d4c9bf",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\dc-flexibility-project\\data\\raw\\task-trace-audit-20261026\\trace_kalos.csv"
+    },
+    {
+      "role": "B-INF_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C21-ASI-ratio_p50-central.parquet",
+      "sha256": "3e020855017ad3f32bfc5993fe80b5e7f94bbe32f9157c7d8d7705643444c15e"
+    },
+    {
+      "role": "C-INF_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C22-ASI-ratio_p50-central.parquet",
+      "sha256": "20a47b08f8473de449474e45952cd222a8834f53b04deb2c77b0c40c9ca8b00c"
+    },
+    {
+      "role": "D-INF_v2_curve",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\.codex-temp\\typical-load-curves-v2-20261029\\dc-flexibility-project\\data\\processed\\typical-load-curves-20261029-v2\\C28-ASI-ratio_p50-central.parquet",
+      "sha256": "b11a40995ce922a9a1ca2ed19e59b41e45946e419261c3d11024f92c347c0857"
+    },
+    {
+      "role": "INF_hourly_types",
+      "sha256": "81e63bc2a769cb32e9be6ee2f7bc9bec6e50c74f293d265a3132f4e29f42b2f0",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\job-flexibility-constraints-20261030\\asi-hourly-type-priority.csv"
+    },
+    {
+      "role": "Alibaba_complete_hourly",
+      "file": "D:\\codex-runs\\alibaba-cpu-cld-20261031\\worktree\\dc-flexibility-project\\results\\alibaba-cpu-cld-20261031\\complete-window.csv",
+      "sha256": "0028c7c33950d236405a0a08246d8c66e59060bd64c7a081454f28cc4b650bf4",
+      "minimum_core_coverage": 0.9818556161516
+    }
+  ],
+  "selection_rule": "完整日按日电量与中位数的绝对距离升序；数值并列（1e-9 MWh）按与全部日平均24小时曲线的RMSE升序，再按源日期升序；GPU需求以GPU主导型选日，三规格沿用同日同资源构成。",
+  "reference_it_mw": 10,
+  "sizing": "沿用v2参考满载功率预算与整机台数向下取整；其他规模按台数比缩放，形状不变",
+  "task_power": "非线性CPU增量按该小时各类CPU资源份额分摊；GPU增量按GPU资源份额分摊；整机基础与空载独立列示",
+  "facility_component_csv": "各任务facility_mw表示其对设施总功率的IT贡献；冷却等非IT单列，所有层相加等于设施总功率；未将非IT任意分配给任务",
+  "weather": "沿用v2网格g05_r100_c592的2025年气象及首次重放日期，源日期与气象模型日期分别列示；并非原设施当地天气",
+  "MIT_scope": "CC-BY-NC-ND-4.0；仅发布典型日小时聚合，不发布逐作业记录或标识；只读reference文件，未接触流式进程、数据库及current目录",
+  "uncertainty": "资源份额、CPU响应、GPU跨代功率比例及冷却均含假设；未建立吞吐等价或目标设施实测负荷；ASI单日演示；Alibaba业务实际占用未分解",
+  "code_sha256": {
+    "build_scenario_typical_days.py": "724705a8a737220bc0d537d8ec683861d11166daada760d160a7be3d03fa40f4",
+    "plot_scenario_typical_days.py": "64bd59cc78d72974e2fa42445ae26d8c8f19a7b30b28bc208f2b24c9c8e5009a",
+    "typical_power_models.py": "54e04a856c985c2ad21cb8044fe8c550215e255f8dbcf134414df7b2156aa27d",
+    "typical_power_models_v2.py": "fce087f016ebcab7b0d2c6d2122f09f5a94b78ed4f9cb30fa7b07d6a424612c4",
+    "compute_load/cooling.py": "28cb8ddddd672df1efcec1e7b7e0c966c8f8a2270660364b61388b34220b2256"
+  }
+}
