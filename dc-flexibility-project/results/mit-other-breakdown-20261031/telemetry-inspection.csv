@@ -1,0 +1,6 @@
+relative_path,file,bytes,mtime_ns,sha256,rows,columns,job_id_present,used_for_classification
+analysis/priority-month/device-hours.parquet,device-hours.parquet,288411,1793240325109407300,588869d7bc8168d166a0ef792aeb3c2cfd9b963d979005efb2979c440eb50cc6,9046,"hour_us,node,gpu_index,power_valid_us,power_time_sum_us,sample_count,files,potential_overlap,ambiguous,mean_power_W,power_energy_Wh,coverage",False,False
+analysis/priority-month-partial-20261031/device-hours.parquet,device-hours.parquet,2452577,1793431858246485200,e4a2733fea386a174ab5466e62cb8211219f3bf5a03fed8a497a36f96d7ba114,75631,"hour_us,node,gpu_index,power_valid_us,power_time_sum_us,sample_count,files,potential_overlap,ambiguous,mean_power_W,power_energy_Wh,coverage",False,False
+aggregates/current/summary.json,summary.json,19351,1793201527702274800,360f5150c6512023ea001522c3f7f1efa035307e8c9ee4b5f1b35ce64aef9a8b,,,False,False
+aggregates/pilot100/summary.json,summary.json,19199,1793199731535467900,d6ceff1d2d089221c349ed9848cb95c9a19e14d9e417502754e77736d1abd348,,,False,False
+aggregates/snapshot-20261029T014000Z/summary.json,summary.json,25959,1793237880589265600,4f83d4a7f8f6ef626a44f60ce474d0ba2ceb47084d3f03c4fc166876bdca64c0,,,False,False

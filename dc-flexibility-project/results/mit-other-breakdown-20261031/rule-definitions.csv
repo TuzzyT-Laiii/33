@@ -1,0 +1,8 @@
+rule,category,condition_after_preceding_rules,time_shift_assessment,split_assessment,precedence
+non_success,失败、取消或异常退出,state低8位不等于3，或存在requeue标志，或exit_code/derived_ec非零,逐作业审阅；成功工作量与失败占用分别考虑,恢复与重试机制未知,1
+array,数组批量作业,id_array_task不等于Slurm NO_VAL=4294967294,成员整体延后候选；须核实依赖和完成期限,依赖和并发限制核实后可按成员安排；成员内部checkpoint未知,2
+large,多节点或大GPU作业,nodes_alloc>=2，或分配GPU数>=8,完整资源同时分配的整体延后候选；须核实用途和期限,完整资源与checkpoint要求未知,3
+short_test,短作业或测试分区作业,运行<=600秒，或partition=test,用途审阅后可按完整作业批量改序；测试交互需求未知,按完整作业运行；checkpoint未知,4
+interactive_candidate,疑似交互式会话,单节点、GPU<=2、等待<=2秒、600<运行<21600秒、0<有限timelimit<=720分钟,弱规则候选，基准保持原启动时间,会话状态与checkpoint未知，基准不拆分,5
+long,长时作业，训练候选,运行>=21600秒,用途与期限核验后的整体延后候选,需完整checkpoint及恢复成本验证,6
+remaining,中等时长、用途待定,上述规则均未命中，600<运行<21600秒,用途与期限待审阅，基准保持原启动时间,checkpoint未知，基准不拆分,7

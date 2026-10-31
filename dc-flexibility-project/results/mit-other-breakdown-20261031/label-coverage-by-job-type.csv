@@ -1,0 +1,5 @@
+scope,rows,gpu_hours,pct_mit_gpu_hours,pct_other_gpu_hours,wait_valid_rows,array_rows,finite_timelimit_rows,runtime_h_p50,runtime_h_p90,runtime_h_p99,runtime_h_max,wait_h_p50,wait_h_p90,wait_h_p99,wait_h_max,gpus_p50,gpus_p90,gpus_p99,gpus_max,nodes_alloc_p50,nodes_alloc_p90,nodes_alloc_p99,nodes_alloc_max,finite_timelimit_min_p50,finite_timelimit_min_p90,finite_timelimit_min_p99,finite_timelimit_min_max
+LLMAPREDUCE:MAP,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,
+LLSUB:BATCH,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,
+LLSUB:INTERACTIVE,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,
+OTHER,3430,40071.8875,2.74429144655,3.72694756011,3430,0,1031,2.73194444444,10.8584722222,23.2933944444,43.4222222222,14.62375,47.8419722222,73.0861111111,77.7861111111,2,4,128,424,1,2,64,212,525600,525600,525600,525600
