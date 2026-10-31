@@ -1,0 +1,172 @@
+{
+  "checked_at": "2026-10-31T11:43:12.782038+00:00",
+  "directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/results/asi-185day-workload-types-20261031",
+  "files": [
+    {
+      "file": "hourly-type-priority-model.parquet",
+      "bytes": 5809717,
+      "sha256": "0c58bac1ea575cd3f14ad05a7f0b88f996d62d6c4e1c2d5f645c61d76e7ac2a6"
+    },
+    {
+      "file": "hourly-total.csv",
+      "bytes": 1027363,
+      "sha256": "9f888c5a8dc5fef71d4965e87b7005c9ce380633376d189a06428fece9d077a6"
+    },
+    {
+      "file": "inventory-attribution-anomalies.csv",
+      "bytes": 95324,
+      "sha256": "a3fd8f281b7737feb8dbadfeaaf75c70535b640f606572f0b85fa829bef5c5bd"
+    },
+    {
+      "file": "hourly-by-type.csv",
+      "bytes": 2601159,
+      "sha256": "bcf39b1cabbf6e721cfa1ffdb0a643ecdd5cc28c4f6df1079eea5e0562e9112b"
+    },
+    {
+      "file": "type-priority-model-total.csv",
+      "bytes": 8195,
+      "sha256": "0ccb6805cc5e604bd2a05422bcb9d3b91a689800ef8252eb8cd1dccf281bc77e"
+    },
+    {
+      "file": "daily-by-type.csv",
+      "bytes": 115818,
+      "sha256": "da99fb331152d1d6af152db7030c82dc1733d58e1dfdbe2cac66e0dee6d140eb"
+    },
+    {
+      "file": "diurnal-by-type.csv",
+      "bytes": 29484,
+      "sha256": "3052738edccc232b6da352e818949b3c71012f8bf66016e9c39970ae4ecbd702"
+    },
+    {
+      "file": "relative-week-by-type.csv",
+      "bytes": 201797,
+      "sha256": "dc0ec10e2ff8bb5245378d70f6c42f9aea99900fbb4e90c72af2222a91ed3a6d"
+    },
+    {
+      "file": "mod7-by-type.csv",
+      "bytes": 8733,
+      "sha256": "f28f1c6a9fd7fe7af5649bad53e3fa81f9a5e4b9d9cc2fadb29e2c4ad310941d"
+    },
+    {
+      "file": "pod-scale-histogram.csv",
+      "bytes": 16604,
+      "sha256": "3e90c5247d68b5dbefb082dd9286599e86bc0929088738404837edbb158c67c0"
+    },
+    {
+      "file": "workload-hour-scale-histogram.csv",
+      "bytes": 14394,
+      "sha256": "d496ff7adf58d504a85d662103a5ceeeb0ec15b0eafe97d32fded17aac90c103"
+    },
+    {
+      "file": "gpu-model-total.csv",
+      "bytes": 25242,
+      "sha256": "891736721802deddedb07de5c904e8724532c857bcc1ea2680c154adcca8cec5"
+    },
+    {
+      "file": "state-total.csv",
+      "bytes": 4685,
+      "sha256": "85e53d22c1b4314b35574af55233ccfe090aca8b8818112df2f0c4e11b495090"
+    },
+    {
+      "file": "execution-span-metrics.csv",
+      "bytes": 13553,
+      "sha256": "ffe754997cac2b9139b88ae991941e5043ad115e3393233c7a52ccf54b03d520"
+    },
+    {
+      "file": "execution-duration-histogram.csv",
+      "bytes": 31510,
+      "sha256": "be6094b5e18902c9f5e81fecd7981b577a6169673fa32c2b281cfaab76de3d40"
+    },
+    {
+      "file": "execution-scale-histogram.csv",
+      "bytes": 12594,
+      "sha256": "b9e2402e8b817a135a00661e5b19ca5d5c63a4619d20a724e26e5b4256839b0c"
+    },
+    {
+      "file": "execution-by-type-summary.csv",
+      "bytes": 1544,
+      "sha256": "59e98ad31f8b54e243297bb1b1d3150ce994a911a4dfb7657fb1b4264307f166"
+    },
+    {
+      "file": "task-type-summary.csv",
+      "bytes": 2420,
+      "sha256": "40997a7b87ca6ccbe2e83680c25f29df4b530edeb5371dc985ea434e54fd0bb8"
+    },
+    {
+      "file": "inf-hourly.csv",
+      "bytes": 787310,
+      "sha256": "fcb328ec01f38d53b59b262f35550308f4da3c5dd8be7ae4fde0bf029927a9c9"
+    },
+    {
+      "file": "member-audit.parquet",
+      "bytes": 943558,
+      "sha256": "fc66595757f2852840bbfdc04fa499f8c5381d149eb6d2e281658fef9e4d80eb"
+    },
+    {
+      "file": "checkpoint-manifest.csv",
+      "bytes": 390391,
+      "sha256": "86a0f8f8bd7aa02abf300ce756cd06b52a66f7a76530ef129e6628308fa4b1c1"
+    },
+    {
+      "file": "summary.json",
+      "bytes": 9164,
+      "sha256": "b1da692077cd8b765d13d6ac442143023d147c8a0a710c85391ad61406d21326"
+    },
+    {
+      "file": "processing-audit.json",
+      "bytes": 7275,
+      "sha256": "a82ffba3b359905feab3cce07f9b5434388bdb1f5258dfc36348f2d2e753af3a"
+    },
+    {
+      "file": "inf-source-manifest.json",
+      "bytes": 742,
+      "sha256": "0f7eebbda7ece34ab16b5b5025009b68b5d617adcdf70271f836ec4ffc51af95"
+    },
+    {
+      "file": "independent-sample-validation.json",
+      "bytes": 844,
+      "sha256": "2afd2419a71a17c242f4ec68f86b23038e9fdc7665318b5179b17ae7c2bd56c1"
+    },
+    {
+      "file": "inf-annual-replay-2025-phase000.parquet",
+      "bytes": 430114,
+      "sha256": "c7179b862ad72b73284d8fc237a5159f3e6b74c52b8f3ffa34636b65bcb18884"
+    },
+    {
+      "file": "inf-annual-replay-2025-phase000.json",
+      "bytes": 2415,
+      "sha256": "c8a2bc7bdcba2e11568a0233465d40d5eda94fca9bce888702219662e827605e"
+    },
+    {
+      "file": "validation.json",
+      "bytes": 1570,
+      "sha256": "3d1a0fe3831723e6d9d19a5b5ed736bd83116acd7623dd8ee1c193eda9b5cfb7"
+    },
+    {
+      "file": "postprocess-status.json",
+      "bytes": 1224,
+      "sha256": "4b2e9c1bc50a775d7174bc157e049720cb37bdb332017d265da6e14db0036ce4"
+    },
+    {
+      "file": "inf-hourly-quality.csv",
+      "bytes": 827319,
+      "sha256": "4b1bb57a7b711d3fed47d616dc116c1dcc930ada24d7e0873c1535c454766f00"
+    },
+    {
+      "file": "quality-summary.json",
+      "bytes": 1315,
+      "sha256": "d067fa92a5bb5d2cddfa0fc49f9a497e875e24789e59a6b163d886c7b4e18ece"
+    },
+    {
+      "file": "quality-hour-audit.csv",
+      "bytes": 585,
+      "sha256": "bd24e0d713d786773905db8272cd9b5d1607c60ce661209695e9bffd6f91fa66"
+    },
+    {
+      "file": "restart-events.json",
+      "bytes": 1213,
+      "sha256": "60005a2a6a624a97013d56dbf44f0e7b080d3a47e1962c1dc2f6979669287c39"
+    }
+  ],
+  "readback_status": "all server byte counts and SHA-256 match local downloaded summaries"
+}

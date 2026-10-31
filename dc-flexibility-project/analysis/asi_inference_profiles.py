@@ -10,6 +10,8 @@ from compute_load.model import ResourceProfile, sha256
 def load_asi_sources(project):
     directory = Path(project) / "results/asi-185day-workload-types-20261031"
     manifest = json.loads((directory / "inf-source-manifest.json").read_text("utf-8"))
+    if sha256(directory / "quality-summary.json") != manifest["quality_report_sha256"]:
+        raise ValueError("INF 质量报告 SHA-256 不匹配")
     path = directory / manifest["input_file"]
     if sha256(path) != manifest["input_sha256"]:
         raise ValueError("INF 185 天小时输入 SHA-256 不匹配")
@@ -33,6 +35,9 @@ def load_asi_sources(project):
                     "boundary_jump_fraction": float(abs(values[-1] - values[0]) / reference),
                     "within_window_hourly_change_p95": float(np.quantile(abs(np.diff(values)), .95) / reference),
                     "business_scope": prefix + "_inference_only", "physical_utilization": False,
+                    "unresolved_source_hour_indices": manifest["unresolved_source_hour_indices"],
+                    "source_quality_policy": "保留原始零观测并逐小时传递质量标识；不补造需求，不确认真实停机",
                     "gpu_equivalence": "异构 GPU 归属资源代理，未换算指定硬件吞吐；B-INF/C-INF/D-INF 须分别标定"}
-        sources[key] = {"profile": ResourceProfile("gpu", values / reference, metadata), "clock": clock, "metadata": metadata}
+        sources[key] = {"profile": ResourceProfile("gpu", values / reference, metadata), "clock": clock, "metadata": metadata,
+                        "quality_flags": frame.source_quality_flag.to_numpy()}
     return sources

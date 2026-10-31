@@ -30,6 +30,7 @@ def finalize(project):
                 time.sleep(30)
             stages = [
                 ("summarize", "summarize_asi_185days.py", ["--run-dir", str(output), "--output", str(output), "--baseline", str(code / "baseline")]),
+                ("quality", "annotate_asi_quality.py", ["--directory", str(output)]),
                 ("independent_samples", "verify_asi_stream_sample.py", ["--run-dir", str(output)]),
                 ("annual_resource_replay", "build_asi_inference_annual.py", ["--project", str(project), "--year", "2025"]),
                 ("verify", "verify_asi_185days.py", ["--project", str(project), "--run-dir", str(output)]),

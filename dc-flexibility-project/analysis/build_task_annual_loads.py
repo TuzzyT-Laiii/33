@@ -37,6 +37,8 @@ def build(project, year=2025, grid_id="g05_r100_c592", weather_path=None, phase_
         source_manifest[key] = profile.provenance
         for size in SIZES_MW:
             curve = model.calculate(weather, profile, size)
+            if "source_quality_flag" in replay:
+                curve["source_quality_flag"] = replay.source_quality_flag.to_numpy()
             curve["demand_source"] = key
             curve["annualization_status"] = source["metadata"]["status"]
             path = output / f"{key}-{size}MW.parquet"

@@ -39,6 +39,8 @@ def build(project, year, phase_days):
               "wrap_count": int(output.replay_wrap.sum()), "source_file_sha256": sha256(directory / "inf-hourly.csv"),
               "output_file": path.name, "output_sha256": sha256(path),
               "resource_integrals": {prefix: float(output[f"{prefix}_used_gpu_hours"].sum()) for prefix in ["online", "offline", "combined"]},
+              "quality_input_sha256": sources["asi_gpu"]["metadata"]["input_sha256"],
+              "unresolved_target_hours": int(output.source_quality_flag.ne("observed").sum()),
               "provenance": combined.provenance,
               "scope": "资源需求年度重放；不运行气象、设备功率或柔性优化"}
     (directory / f"inf-annual-replay-{year}-phase{phase_days:03d}.json").write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")

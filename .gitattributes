@@ -126,3 +126,7 @@ dc-flexibility-project/analysis/verify_asi_stream_sample.py text eol=lf
 dc-flexibility-project/analysis/probe_asi_inference_range.py text eol=lf
 dc-flexibility-project/analysis/launch_asi_185days.sh text eol=lf
 dc-flexibility-project/analysis/requirements-asi-185days.txt text eol=lf
+dc-flexibility-project/analysis/export_asi_summary.py text eol=lf
+dc-flexibility-project/analysis/annotate_asi_quality.py text eol=lf
+dc-flexibility-project/analysis/audit_asi_execution.py text eol=lf
+dc-flexibility-project/analysis/verify_asi_delivery.py text eol=lf

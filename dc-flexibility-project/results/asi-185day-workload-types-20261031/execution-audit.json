@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-31T11:43:13.098932+00:00",
+  "directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/results/asi-185day-workload-types-20261031",
+  "volume": "/data3/dataset",
+  "volume_free_bytes": 6481654951936,
+  "logical_retained_file_bytes": 497312743,
+  "allocated_file_bytes": 506675200,
+  "retained_file_count": 4487,
+  "raw_file_paths": [],
+  "retry_count": 1,
+  "retry_events": [
+    {
+      "at": "2026-10-31T11:08:34.863930+00:00",
+      "offset": 133491232803,
+      "attempt": 1,
+      "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='tre-clusterdata.oss-cn-hangzhou.aliyuncs.com', port=443): Read timed out. (read timeout=120)\"))",
+      "partial_transfer_bytes": "unknown"
+    }
+  ],
+  "partial_failed_transfer_bytes": "unknown; not included in committed successful Range byte count"
+}

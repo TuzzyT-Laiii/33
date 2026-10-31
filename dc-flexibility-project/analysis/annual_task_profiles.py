@@ -87,4 +87,6 @@ def replay_hourly(source, times, phase_hours=0):
     mapping = pd.DataFrame({"time_utc": times, "source_hour_index": position,
         "source_clock": source["clock"][position], "replay_cycle_index": (np.arange(len(times))+phase_hours)//length,
         "replay_wrap": np.r_[False, np.diff(position) < 0], "resource_fraction": result.fraction})
+    if "quality_flags" in source:
+        mapping["source_quality_flag"] = source["quality_flags"][position]
     return result, mapping

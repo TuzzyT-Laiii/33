@@ -33,6 +33,15 @@ def verify(project, run_dir):
     np.testing.assert_array_equal(groups.pod_rows, hourly.pod_rows)
     assert int(groups.pod_rows.sum()) == audit["pod_rows"]
     assert int(members.bytes.sum()) == audit["member_payload_bytes"]
+    pod_sizes = pd.read_csv(directory / "pod-scale-histogram.csv")
+    workload_sizes = pd.read_csv(directory / "workload-hour-scale-histogram.csv")
+    assert int(pod_sizes.observations.sum()) == audit["pod_rows"]
+    assert int(workload_sizes.observations.sum()) == int(detailed.gpu_requesting_workloads.sum())
+    np.testing.assert_allclose(pod_sizes.used_gpu_hours.sum(), hourly.used_gpu_hours.sum(), rtol=1e-10)
+    for name in ["gpu-model-total.csv", "state-total.csv"]:
+        selected = pd.read_csv(directory / name)
+        assert int(selected.observations_sum.sum()) == int(detailed.gpu_requesting_rows.sum())
+        np.testing.assert_allclose(selected.used_gpu_hours_sum.sum(), hourly.positive_request_used_gpu_hours.sum(), rtol=1e-10)
     np.testing.assert_allclose(hourly.attributed_share_of_inventory, hourly.used_gpu_hours / hourly.inventory_gpu)
     assert int(hourly.attributed_share_of_inventory.gt(1).sum()) == audit["attribution_above_inventory_hours"]
     for name, prefix in [("online_inference", "online"), ("offline_inference", "offline")]:
@@ -49,6 +58,13 @@ def verify(project, run_dir):
     replay = pd.read_parquet(replay_file)
     np.testing.assert_array_equal(replay.source_hour_index, np.arange(8760) % 4440)
     np.testing.assert_array_equal(replay.replay_wrap, np.arange(8760) == 4440)
+    flagged = hourly.loc[hourly.used_gpu_hours.eq(0) & hourly.requested_gpu.eq(0) & hourly.requested_cpu_cores.eq(0)
+                        & hourly.pod_rows.gt(0) & hourly.inventory_gpu.gt(0), "hour_index"].astype(int).to_numpy()
+    annotated = pd.read_csv(directory / "inf-hourly-quality.csv", float_precision="round_trip")
+    pd.testing.assert_frame_equal(inf, annotated[inf.columns], check_exact=True)
+    np.testing.assert_array_equal(annotated.loc[annotated.source_quality_flag.ne("observed"), "hour_index"], flagged)
+    np.testing.assert_array_equal(replay.source_quality_flag, annotated.source_quality_flag.to_numpy()[replay.source_hour_index])
+    assert int(replay.source_quality_flag.ne("observed").sum()) == int(np.isin(replay.source_hour_index, flagged).sum())
     for prefix in ["online", "offline", "combined"]:
         expected = inf[f"{prefix}_used_gpu_hours"].sum() + inf[f"{prefix}_used_gpu_hours"].iloc[:4320].sum()
         np.testing.assert_allclose(replay[f"{prefix}_used_gpu_hours"].sum(), expected, rtol=1e-12)
@@ -65,8 +81,12 @@ def verify(project, run_dir):
               "coverage_days": 185, "coverage_hours": 4440, "members": len(members),
               "independent_sample_hours": [0, 4439], "baseline_endpoint_hours": audit["baseline_endpoint_hours_verified"],
               "resource_and_count_conservation": True, "type_priority_model_unique_keys": True,
+              "pod_and_workload_scale_histogram_conservation": True, "gpu_model_and_state_cohort_conservation": True,
               "anomalous_inventory_ratios_preserved": True, "inf_exact_category_filter": True,
               "annual_8760_integral": True, "actual_source_leap_replays": leap_cases,
+              "raw_quality_values_preserved": True, "unresolved_source_hours": flagged.tolist(),
+              "unresolved_annual_target_hours": int(replay.source_quality_flag.ne("observed").sum()),
+              "code_sha256": sha256(Path(__file__)),
               "annual_output_sha256": sha256(replay_file), "raw_disk_bytes_written": 0,
               "scope": "真实原始成员、真实完整观测聚合与资源年度重放；未运行气象、设备功率或优化"}
     (directory / "validation.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
