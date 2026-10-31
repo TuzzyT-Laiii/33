@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-31T09:10:57.938286+00:00",
+  "source": "https://github.com/alibaba/clusterdata/issues/52",
+  "maintainer_replies": [
+    {
+      "url": "https://github.com/alibaba/clusterdata/issues/52#issuecomment-450805509",
+      "author": "HaiyangDING",
+      "author_association": "COLLABORATOR",
+      "body_sha256": "0741ebab296fdde9745346873d7d5c8c45b28b921272c98c75a352f1c7dcae80",
+      "summary_zh": "两表观测窗口分别覆盖不同八日，实际共有九日；时间戳正确，共同区间为七日，不能整体移动容器时间。"
+    },
+    {
+      "url": "https://github.com/alibaba/clusterdata/issues/52#issuecomment-455026686",
+      "author": "HaiyangDING",
+      "author_association": "COLLABORATOR",
+      "body_sha256": "8090f0563fec0b4f2712c8e3517d71a8914d80f1929ba59ac7121c0d08b0c9b3",
+      "summary_zh": "两表观测窗口分别覆盖不同八日，实际共有九日；时间戳正确，共同区间为七日，不能整体移动容器时间。"
+    }
+  ],
+  "interpretation": "机器和容器来自不同八日窗口；时间戳正确，有七日共同覆盖；不得把容器时间整体减去一天。",
+  "applied_time_shift_seconds": 0
+}

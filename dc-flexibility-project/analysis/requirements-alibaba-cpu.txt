@@ -1,0 +1,8 @@
+numpy>=1.24
+pandas>=2.0
+pyarrow>=14
+requests>=2.31
+isal>=1.7
+# 年度重放和既有功率接口的依赖
+numba>=0.58
+psychrolib==2.5.0

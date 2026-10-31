@@ -1,0 +1,36 @@
+{
+  "checked_at_utc": "2026-10-31T10:54:29.912705+00:00",
+  "dataset_revision": "5b127cea76fab8c6210e620c535e11d644024824",
+  "repository_created_at": "2025-02-11T08:54:50.000Z",
+  "raw_downloaded": false,
+  "files": [
+    {
+      "type": "file",
+      "oid": "cc6bef6a277fb920a963f9416e441b4296ed90e9",
+      "size": 15185970,
+      "lfs": {
+        "oid": "7bef4b765f252ffe57aed41d0249a3ab86252f65d2150586a847d8bfb36cff84",
+        "size": 15185970,
+        "pointerSize": 133
+      },
+      "xetHash": "7752720137a87aecdc6404b986c8079c3ebeef03c632e43f00ad21dc5045860b",
+      "path": "Datasets/iaas.csv"
+    },
+    {
+      "type": "file",
+      "oid": "e87edadd3e86a96d52d994262923af195c10cf3d",
+      "size": 168895841,
+      "lfs": {
+        "oid": "07592ee6e2b550c0c959895d77d4d95bab8bd01fc77672d09c7363cf0ae527bf",
+        "size": 168895841,
+        "pointerSize": 134
+      },
+      "xetHash": "3999be84043c4f084014da51523f4099fed3079a0064bac575a20636df484d5a",
+      "path": "Datasets/paas.csv"
+    }
+  ],
+  "data_license": "CC BY 4.0 per official dataset card",
+  "source_table": "Fremer PVLDB 18(11), Table 2 and Section 5.1",
+  "cpu_units": "IaaS: VM CPU usage, capacity metadata absent. PaaS: service CPU usage in milli-cores.",
+  "endpoint_rule": "Report paper date labels and point counts; raw timestamp endpoints not checked."
+}

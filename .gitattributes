@@ -116,3 +116,10 @@ dc-flexibility-project/analysis/requirements-eight-city-phase-a.txt text eol=lf
 dc-flexibility-project/results/eight-city-phase-a-20261029/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/eight-city-phase-a-20261029/**/*.pdf binary
 dc-flexibility-project/results/eight-city-phase-a-20261029/**/*.png binary
+
+# A-CLD 代码和汇总保留跨平台校验值。
+dc-flexibility-project/analysis/*alibaba*.py text eol=lf
+dc-flexibility-project/analysis/requirements-alibaba-cpu.txt text eol=lf
+dc-flexibility-project/data/metadata/alibaba-cpu-cld-20261031/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/alibaba-cpu-cld-20261031/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/alibaba-cpu-cld-20261031/**/*.parquet binary

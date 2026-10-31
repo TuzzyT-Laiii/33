@@ -1,0 +1,378 @@
+[
+  {
+    "id": "cluster-trace-microservices-v2021",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-microservices-v2021/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:13.140347+00:00",
+    "bytes": 11412,
+    "sha256": "d4dab2129a4c269a57fde8547e65e0118a70c27eef96a2a5883b2dcfa29ff735",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-microservices-v2022",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-microservices-v2022/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:11.821235+00:00",
+    "bytes": 9824,
+    "sha256": "55b584d42a32acaa5e9a149c831f1cc88bf87aba475eb028b48ad10cb11b2f78",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-microarchitecture-v2022",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-microarchitecture-v2022/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:12.491264+00:00",
+    "bytes": 6379,
+    "sha256": "f4341b283d9fe9b231983cc213f2e00c4607be355bee5aa80bb2e35c1010d9e6",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-gpu-v2020",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2020/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:11.905463+00:00",
+    "bytes": 20574,
+    "sha256": "cc13cc69d12ab46c882a1dcc74614cab6956f85ebb0d47d9409ff340bf2e7c08",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-gpu-v2023",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2023/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:12.294629+00:00",
+    "bytes": 5237,
+    "sha256": "4445ce29c045d3281f857f25c392b78880658978ea4fc420ec3f5b4bf621bc80",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-gpu-v2025",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2025/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:11.970493+00:00",
+    "bytes": 5418,
+    "sha256": "488ca82c502e1a186a2ed673281c3d2176813adb3ad77c976259388a8aea7f98",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-gpu-v2026",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2026/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:12.218324+00:00",
+    "bytes": 3377,
+    "sha256": "d8e4878b6d341486fd9700ea668e85b4bcf3f82f56d6c426b14c347324002cc4",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-v2026-GenAI",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2026-GenAI/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:14.641358+00:00",
+    "bytes": 13550,
+    "sha256": "389a0cb2da5212bdccbf3fc00bffd9850b6c0142a5855167dcef350083e526fe",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-v2026-maas",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2026-maas/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:12.608324+00:00",
+    "bytes": 2431,
+    "sha256": "8c20ed3a37026a832fd17b7f9b5b10b8b22847c2a58ce9bb5d7bf55bccd125dc",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "cluster-trace-v2026-spot-gpu",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2026-spot-gpu/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:12.747473+00:00",
+    "bytes": 5608,
+    "sha256": "11eb33818d3b40ba430c1bc1e0fd42786af214db334152141e29bccb3d26db2b",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "alibaba-2018-schema.txt",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2018/schema.txt",
+    "retrieved_at_utc": "2026-10-31T08:23:12.752153+00:00",
+    "bytes": 8125,
+    "sha256": "731763f9570c555cce6e27bab66fc6cf2aa19ea98ee9607063845bd37bb5af2e",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "alibaba-2018-trace_2018.md",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2018/trace_2018.md",
+    "retrieved_at_utc": "2026-10-31T08:23:13.437722+00:00",
+    "bytes": 6527,
+    "sha256": "daea8423c65cd24995500fcb6da103b1d4dec505f7b13ff2f6975caae0ede2fc",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "alibaba-2018-fetchData.sh",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2018/fetchData.sh",
+    "retrieved_at_utc": "2026-10-31T08:23:13.251128+00:00",
+    "bytes": 582,
+    "sha256": "99ad99ce1379cc12d5e0842500df2c5e76dd41c03a774b1d54e84361b7212dcf",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "alibaba-program",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:13.271302+00:00",
+    "bytes": 13728,
+    "sha256": "4a4843de730fc2bfb725fb37c6bbe46257c54087161ea7b9329a2663c97a6a90",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "google-ClusterData2019.md",
+    "url": "https://raw.githubusercontent.com/google/cluster-data/master/ClusterData2019.md",
+    "retrieved_at_utc": "2026-10-31T08:23:13.550930+00:00",
+    "bytes": 2323,
+    "sha256": "6209413ba5dc94e45b9dda811871b7eab406980aab5279466fa9eb48578ff6e3",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "google-PowerData2019.md",
+    "url": "https://raw.githubusercontent.com/google/cluster-data/master/PowerData2019.md",
+    "retrieved_at_utc": "2026-10-31T08:23:13.492420+00:00",
+    "bytes": 1843,
+    "sha256": "a00c9d4cd97171b3bbee8641028a3b719a1ff4daad95d69b2a659df54fd2cd49",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "google-clusterdata_trace_format_v3.proto",
+    "url": "https://raw.githubusercontent.com/google/cluster-data/master/clusterdata_trace_format_v3.proto",
+    "retrieved_at_utc": "2026-10-31T08:23:13.723970+00:00",
+    "bytes": 13720,
+    "sha256": "8082651c5430acaef31846287a3e1262e734f9fa6a5067fa431864aef840abde",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "azure-AzurePublicDatasetV1.md",
+    "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/master/AzurePublicDatasetV1.md",
+    "retrieved_at_utc": "2026-10-31T08:23:16.772892+00:00",
+    "bytes": 2018,
+    "sha256": "cbe55a8dca136de0d6f1d8da8d461e67d584dfeb02f01a997233d0ed15cf337d",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "azure-AzurePublicDatasetV2.md",
+    "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/master/AzurePublicDatasetV2.md",
+    "retrieved_at_utc": "2026-10-31T08:23:14.239949+00:00",
+    "bytes": 1947,
+    "sha256": "8ab631846599eb7c2769fd76c505a3a1ef4af163d4cceaf61012fbc590081cca",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "azure-AzureTracesForPacking2020.md",
+    "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/master/AzureTracesForPacking2020.md",
+    "retrieved_at_utc": "2026-10-31T08:23:14.717108+00:00",
+    "bytes": 4744,
+    "sha256": "17caad0677de089518d34fc1155d1b672895dcfb2ef5ce8e017160296eb564b5",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "azure-AzureVMNoiseDataset2024.md",
+    "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/master/AzureVMNoiseDataset2024.md",
+    "retrieved_at_utc": "2026-10-31T08:23:20.461403+00:00",
+    "bytes": 7765,
+    "sha256": "6f7e4ba58a57b9f82b42f039e71d2cd351343a9400c42ea7343c0beaaf16c5e2",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "azure-AzureGreenSKUFramework2023.md",
+    "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/master/AzureGreenSKUFramework2023.md",
+    "retrieved_at_utc": "2026-10-31T08:23:14.692226+00:00",
+    "bytes": 7500,
+    "sha256": "95597ae1ef4648f24b06f3ace5260720609d500e22716bd9e1547d121f5842dc",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "azure-LICENSE",
+    "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/master/LICENSE",
+    "retrieved_at_utc": "2026-10-31T08:23:14.591500+00:00",
+    "bytes": 18653,
+    "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "huawei-2023",
+    "url": "https://raw.githubusercontent.com/sir-lab/data-release/main/README_data_release_2023.md",
+    "retrieved_at_utc": "2026-10-31T08:23:19.583454+00:00",
+    "bytes": 8155,
+    "sha256": "bb442f85c0db99b9077089be8689743a5c08a873417d65ce52027ba4881d8a2c",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "huawei-2025",
+    "url": "https://raw.githubusercontent.com/sir-lab/data-release/main/README_data_release_2025.md",
+    "retrieved_at_utc": "2026-10-31T08:23:15.588591+00:00",
+    "bytes": 17153,
+    "sha256": "9b8e8fa4707e4e6352dbc34665df40728a85ba42fc20268ba22f5548f3fda0a3",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "sap-record",
+    "url": "https://zenodo.org/api/records/17141306",
+    "retrieved_at_utc": "2026-10-31T08:23:16.971446+00:00",
+    "bytes": 7853,
+    "sha256": "dccabebfb099dddd2164ba975599074e63af2db9c83c183a778435f3109c2703",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "ucc-record",
+    "url": "https://zenodo.org/api/records/10069402",
+    "retrieved_at_utc": "2026-10-31T08:23:16.200813+00:00",
+    "bytes": 5053,
+    "sha256": "d96e41598b6ab506e3bb6ba6998004e2caec658251bbcf806decabf72d2a2deb",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "sap-paper",
+    "url": "https://arxiv.org/html/2510.23911v1",
+    "retrieved_at_utc": "2026-10-31T08:19:34.300250+00:00",
+    "bytes": 228211,
+    "sha256": "5dfe47e9e071d823ea1561ab9010458d0c1a1e643d68d8d58bcf658eb3dc93c2",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "sap-latest",
+    "url": "https://zenodo.org/api/records/17141306/versions/latest",
+    "retrieved_at_utc": "2026-10-31T08:19:33.828362+00:00",
+    "bytes": 7841,
+    "sha256": "7d3ff05755d27b853a5e0ccd41b7daeb04c49208060acf1a5c036165d9063299",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "google-power-doc",
+    "url": "https://raw.githubusercontent.com/google/cluster-data/master/power_trace_documentation.pdf",
+    "retrieved_at_utc": "2026-10-31T08:23:21.924845+00:00",
+    "bytes": 103720,
+    "sha256": "06011d9dd34b7649944f092b2b15fdd83976a6be3d7e358c128ef49666f90743",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "tencent",
+    "url": "https://raw.githubusercontent.com/Tencent/Cloud-Volume-Workload-Traces/master/README.md",
+    "retrieved_at_utc": "2026-10-31T08:23:17.208134+00:00",
+    "bytes": 3061,
+    "sha256": "9b86ef83390310cf194d155901cd58e9093e5a8deee7c27108d15e17a84d711f",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "ucc-paper",
+    "url": "https://hpc.ec.tuwien.ac.at/files/UCC_23_data_center_analysis.pdf",
+    "retrieved_at_utc": "2026-10-31T08:23:30.019080+00:00",
+    "bytes": 1568472,
+    "sha256": "d3a4ea2415e4e55099573285bfbcaf9a1ca947b769c64757b3b75010cce2a78b",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "alibaba-2017-units",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2017/trace_201708.md",
+    "retrieved_at_utc": "2026-10-31T08:58:04.925786+00:00",
+    "bytes": 10844,
+    "sha256": "643985abb19a7ea363c2ef691c7032878e118d4c6b89b15487bf11e65f205518",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "asi-schema",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2026/docs/schema.md",
+    "retrieved_at_utc": "2026-10-31T08:58:08.900164+00:00",
+    "bytes": 7694,
+    "sha256": "6e8a6c5b2487e89bec25d59d052191b86b0e585fd31f16da227c2928ba2e4a10",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "asi-download",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2026/docs/data_download.md",
+    "retrieved_at_utc": "2026-10-31T08:58:06.366372+00:00",
+    "bytes": 1939,
+    "sha256": "69e3db5f6219eb9c457d4f3718d203f974027a2ad96d68f6ef4d446ece960704",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "maas-schema",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2026-maas/docs/schema.md",
+    "retrieved_at_utc": "2026-10-31T08:58:06.141883+00:00",
+    "bytes": 4135,
+    "sha256": "198c0e9f6ea776fed51fe3e035880d3f5f22bf4b1bd11d4951d998f8fb192fb9",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "maas-download",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-v2026-maas/docs/data_download.md",
+    "retrieved_at_utc": "2026-10-31T08:58:06.597999+00:00",
+    "bytes": 1389,
+    "sha256": "5004f2cd36d15faefa736701bd31a1891e17bb5e295c6befeb59cacb79a51edf",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "huawei-license",
+    "url": "https://raw.githubusercontent.com/sir-lab/data-release/main/README.md",
+    "retrieved_at_utc": "2026-10-31T08:58:06.791208+00:00",
+    "bytes": 5232,
+    "sha256": "c773ed53e8b83c07565a388d767e486c70b98372bc262a484fc4dd74fcb42121",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "nep-edge",
+    "url": "https://raw.githubusercontent.com/xumengwei/EdgeWorkloadsTraces/main/README.md",
+    "retrieved_at_utc": "2026-10-31T08:58:05.874022+00:00",
+    "bytes": 2433,
+    "sha256": "91ca45516219c1bfafeb878a7205e46cdc03904c40c1d3f3b0afa88280a78429",
+    "read_scope": "full official document or metadata JSON; no large trace files downloaded"
+  },
+  {
+    "id": "alibaba-time-alignment",
+    "url": "https://api.github.com/repos/alibaba/clusterdata/issues/52/comments",
+    "retrieved_at_utc": "2026-10-31T09:10:57.938286+00:00",
+    "bytes": 8931,
+    "sha256": "613753db796923538429c2d3c766cd279cca913e2ff29d7af98eea5e94adef57",
+    "read_scope": "all five paginated comments; two maintainer replies verified"
+  },
+  {
+    "id": "alibaba-gpu-2020-license",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2020/LICENSE",
+    "retrieved_at_utc": "2026-10-31T09:42:01.002447+00:00",
+    "bytes": 18653,
+    "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9",
+    "read_scope": "full official license; CC BY 4.0 applies to this subdirectory"
+  },
+  {
+    "id": "alibaba-issue-62-authority",
+    "url": "https://api.github.com/repos/alibaba/clusterdata/issues/62/comments",
+    "retrieved_at_utc": "2026-10-31T09:58:43.546757+00:00",
+    "bytes": 1786,
+    "sha256": "6beec62483d8be14f80fe1ab08a8abe256b1faa3f48ee8277450bac0dfd3896c",
+    "read_scope": "all 1 paginated comments; maintainer reply verified"
+  },
+  {
+    "id": "alibaba-issue-47-authority",
+    "url": "https://api.github.com/repos/alibaba/clusterdata/issues/47/comments",
+    "retrieved_at_utc": "2026-10-31T09:58:47.956378+00:00",
+    "bytes": 8625,
+    "sha256": "8e3e0d18760bf4cfbdb9f2e38310330e15da5447f596e8dc2ae2b47d7205c4d6",
+    "read_scope": "all 3 paginated comments; maintainer reply verified"
+  },
+  {
+    "id": "bytedance-cpu-card",
+    "url": "https://huggingface.co/datasets/ByteDance/CloudTimeSeriesData/raw/main/README.md",
+    "retrieved_at_utc": "2026-10-31T10:54:13.130208+00:00",
+    "bytes": 1502,
+    "sha256": "30a95f964655fd460549b84181fc3fe39bf61017099e229dad775da393343945",
+    "read_scope": "full official dataset metadata/card or author paper; no raw CSV downloaded"
+  },
+  {
+    "id": "bytedance-cpu-tree",
+    "url": "https://huggingface.co/api/datasets/ByteDance/CloudTimeSeriesData/tree/main?recursive=true",
+    "retrieved_at_utc": "2026-10-31T10:54:18.815550+00:00",
+    "bytes": 1498,
+    "sha256": "c22fe38093602da08782a1d086713d811decad597f538b69429e52c3518c0b27",
+    "read_scope": "full official dataset metadata/card or author paper; no raw CSV downloaded"
+  },
+  {
+    "id": "bytedance-cpu-record",
+    "url": "https://huggingface.co/api/datasets/ByteDance/CloudTimeSeriesData",
+    "retrieved_at_utc": "2026-10-31T10:54:20.522709+00:00",
+    "bytes": 1354,
+    "sha256": "b985de723902c4c48a80a013dd25b2ed1df7bbd56b37165c630452c107419b84",
+    "read_scope": "full official dataset metadata/card or author paper; no raw CSV downloaded"
+  },
+  {
+    "id": "bytedance-cpu-paper",
+    "url": "https://www.vldb.org/pvldb/vol18/p3812-gao.pdf",
+    "retrieved_at_utc": "2026-10-31T10:54:29.911037+00:00",
+    "bytes": 3497947,
+    "sha256": "a6fdf5819a385d2496a1e9243de399e39e577d3568ce584fee56d6760280af97",
+    "read_scope": "full official dataset metadata/card or author paper; no raw CSV downloaded"
+  }
+]
