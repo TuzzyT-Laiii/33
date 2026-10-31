@@ -1,0 +1,10 @@
+component,version
+Python,3.12.7
+OS,Windows-11-10.0.26200-SP0
+numpy,1.26.4
+pandas,2.3.1
+scipy,1.13.1
+scikit-learn,1.5.1
+pyarrow,16.1.0
+requests,2.32.4
+psutil,5.9.0
