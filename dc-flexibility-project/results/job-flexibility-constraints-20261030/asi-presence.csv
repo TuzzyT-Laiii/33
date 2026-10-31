@@ -1,0 +1,7 @@
+class,distinct_pods,pods_observed_at_hour0,pods_observed_at_hour23,pods_with_internal_hour_gaps,observed_hours_p50,observed_hours_p90,observed_hours_p99
+dev,2092,1635,1676,0,24.0,24.0,24.0
+offline_inference,377715,34928,35474,305,1.0,5.0,23.0
+online_inference,114778,68255,67250,27,24.0,24.0,24.0
+other,1325,206,218,0,2.0,12.600000000000136,24.0
+training,28087,7744,8162,478,4.0,21.0,24.0
+unknown,748,499,511,0,24.0,24.0,24.0

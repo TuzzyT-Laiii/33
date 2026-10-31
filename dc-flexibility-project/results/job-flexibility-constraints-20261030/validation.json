@@ -1,0 +1,11 @@
+{
+  "resource_hours_by_state": "passed",
+  "resource_hours_by_duration": "passed",
+  "valid_jobs_by_duration": "passed",
+  "within_pool_shares": "passed",
+  "asi_priority_conservation": "passed",
+  "known_dataset_sizes": "passed",
+  "previous_lisa_acme_resource_integrals": "passed",
+  "public_csv_identifier_check": "passed",
+  "scope": "真实输入聚合和既有审计对照；没有运行能源优化或赋予任务权限"
+}

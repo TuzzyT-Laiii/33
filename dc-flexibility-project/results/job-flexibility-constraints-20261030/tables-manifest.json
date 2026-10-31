@@ -1,0 +1,18 @@
+{
+  "created_at_utc": "2026-10-31T05:42:06.551048+00:00",
+  "generator_sha256": "823b6e25659bdec1056bc8d9f956dc8368e3294b1eb1f7a1e5be3e9b32650ab1",
+  "inputs": {
+    "server-classes.csv": "b4777a92ea0169652d52b3f121daed409e022a8f92e18207e71202cf69ac0602",
+    "mit-classes.csv": "c666b83c22d7d7be71020397b569131f2642208e1a0108af3e65bef5b56ad924",
+    "asi-classes.csv": "28ac23d67ab5459bd1cbf229cb14a45adcdb667420fdd4d9c858ca7f754724c7",
+    "asi-priorities.csv": "aaa3d022136e987ed8e8243a72b1f08d90b791c5c7dd06f0a8c16ceec48bba3d",
+    "asi-hourly-type-priority.csv": "81e63bc2a769cb32e9be6ee2f7bc9bec6e50c74f293d265a3132f4e29f42b2f0",
+    "asi-workload-scales.csv": "3c9a90258d649aa0e8deab4fbdc790f3f174413d8ab4134cec53133f07d6818e",
+    "asi-training-model-types.csv": "2c4d0b7d6cb95798bf68c6e544f4ed081fb8137718039a2f9b559fee803694f4",
+    "asi-model-type-priority.csv": "e742fae40e540ec24ca6aa7e3cc7fd811c601206303bc1b117c017c3e692d104",
+    "asi-training-model-audit.json": "2bb40b8fe8ae39733b22c07cfdbdf87197115f8835af3f619a3195bc754debe2",
+    "server-audit.json": "d9fc0e72ecb17e077c9f76bf1bc4e22ece9796a53b86b576d1c3fd4074324279",
+    "mit-audit.json": "dcac07e8607afda9cc484a9825d2724749968fad4560897937080439f0abaa94"
+  },
+  "scope": "基于汇总生成统计表、类别筛选上界、明确标注为假设的开销敏感性；没有生成或发布逐作业数据"
+}

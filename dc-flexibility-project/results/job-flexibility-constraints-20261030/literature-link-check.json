@@ -1,0 +1,176 @@
+{
+  "checked_at_utc": "2026-10-31T05:45:28.301911+00:00",
+  "checks": [
+    {
+      "source_id": "ACME_SCHEMA",
+      "url": "https://github.com/InternLM/AcmeTrace",
+      "checked_at_utc": "2026-10-31T05:43:45.821245+00:00",
+      "status": 200,
+      "final_url": "https://github.com/InternLM/AcmeTrace",
+      "bytes": 291195,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "cf8717f85aeb2952e9a566f16c0a54c575bd98904474f6745e0916665b7b2c47"
+    },
+    {
+      "source_id": "ACME_PAPER",
+      "url": "https://www.usenix.org/system/files/nsdi24-hu.pdf",
+      "checked_at_utc": "2026-10-31T05:43:45.822252+00:00",
+      "status": 200,
+      "final_url": "https://www.usenix.org/system/files/nsdi24-hu.pdf",
+      "bytes": 2329207,
+      "content_type": "application/pdf",
+      "sha256": "47cdf4cca6e3fd3076eba2fc58779e59d76bdc3ffc6ec9c9d859858f4e064181"
+    },
+    {
+      "source_id": "ASI_SCHEMA",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-gpu-v2026/docs/schema.md",
+      "checked_at_utc": "2026-10-31T05:43:45.822759+00:00",
+      "status": 200,
+      "final_url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-gpu-v2026/docs/schema.md",
+      "bytes": 244989,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "b97aa157a5a214847a2b705be73533a8e61adb2247e6ff3ea803a0883c39bb54"
+    },
+    {
+      "source_id": "ASI_RELEASE",
+      "url": "https://github.com/alibaba/clusterdata/tree/master/cluster-trace-gpu-v2026",
+      "checked_at_utc": "2026-10-31T05:43:48.983650+00:00",
+      "status": 200,
+      "final_url": "https://github.com/alibaba/clusterdata/tree/master/cluster-trace-gpu-v2026",
+      "bytes": 208190,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "c9fcad4e9af36b4c3ea98f1003456b8a5f0ecccb9a265a1dcfd153349d14b1d3"
+    },
+    {
+      "source_id": "LISA",
+      "url": "https://zenodo.org/records/13685426",
+      "checked_at_utc": "2026-10-31T05:43:50.714036+00:00",
+      "status": 200,
+      "final_url": "https://zenodo.org/records/13685426",
+      "bytes": 120505,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "9e11af410940f9d4b342b1bea06eac9dd0eb870d19fd9adfd88949432eb01b89"
+    },
+    {
+      "source_id": "MIT",
+      "url": "https://arxiv.org/abs/2108.02037",
+      "checked_at_utc": "2026-10-31T05:45:25.564097+00:00",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2108.02037",
+      "bytes": 46139,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "f5153bcc627dede34d432eda26e18aae4c4aeb0233c963d84a734f49a914ec97"
+    },
+    {
+      "source_id": "SLURM_CODE",
+      "url": "https://github.com/SchedMD/slurm/blob/slurm-20-11-9-1/slurm/slurm.h.in",
+      "checked_at_utc": "2026-10-31T05:43:51.993327+00:00",
+      "status": 200,
+      "final_url": "https://github.com/SchedMD/slurm/blob/slurm-20-11-9-1/slurm/slurm.h.in",
+      "bytes": 1326449,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "86d4ce96d828333bed1857673c52f5d036fa36e06e4a001c4fc1a4a9c489407a"
+    },
+    {
+      "source_id": "SLURM_DOC",
+      "url": "https://slurm.schedmd.com/job_state_codes.html",
+      "checked_at_utc": "2026-10-31T05:43:53.849751+00:00",
+      "status": 200,
+      "final_url": "https://slurm.schedmd.com/job_state_codes.html",
+      "bytes": 9309,
+      "content_type": "text/html",
+      "sha256": "b8685a6f1afb73580bc176a1e64a780fa63b29b730077807e6e17cc7de4254e6"
+    },
+    {
+      "source_id": "LLAMA3",
+      "url": "https://arxiv.org/html/2407.21783v3",
+      "checked_at_utc": "2026-10-31T05:43:54.321578+00:00",
+      "status": 200,
+      "final_url": "https://arxiv.org/html/2407.21783v3",
+      "bytes": 1072715,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "271f911e032c723299aff997a12e3664b868069eafbd9f8ceac7cdc9ad941259"
+    },
+    {
+      "source_id": "CHECKFREQ",
+      "url": "https://www.usenix.org/system/files/fast21-mohan.pdf",
+      "checked_at_utc": "2026-10-31T05:43:55.588431+00:00",
+      "status": 200,
+      "final_url": "https://www.usenix.org/system/files/fast21-mohan.pdf",
+      "bytes": 1229866,
+      "content_type": "application/pdf",
+      "sha256": "d2d91864fc3fcbc632ed8e15dc563dc64e33b460347a107d80e36b021f53ca3f"
+    },
+    {
+      "source_id": "GOOGLE",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/using-multi-tier-checkpointing-for-large-ai-training-jobs",
+      "checked_at_utc": "2026-10-31T05:43:57.572757+00:00",
+      "status": 200,
+      "final_url": "https://cloud.google.com/blog/products/ai-machine-learning/using-multi-tier-checkpointing-for-large-ai-training-jobs",
+      "bytes": 247772,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "4d00480de336d0e7c11c3d2b979f43a7647f96c79d386138d10fb5bb1e7c18cc"
+    },
+    {
+      "source_id": "HYBRIDFLOW",
+      "url": "https://arxiv.org/html/2409.19256v2",
+      "checked_at_utc": "2026-10-31T05:43:58.617132+00:00",
+      "status": 200,
+      "final_url": "https://arxiv.org/html/2409.19256v2",
+      "bytes": 384431,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "875b704361c6676674b37a2d732dc65e7fd058c9fa2a02a2ca54efa11fc97764"
+    },
+    {
+      "source_id": "REALHF",
+      "url": "https://arxiv.org/html/2406.14088v2",
+      "checked_at_utc": "2026-10-31T05:43:59.784796+00:00",
+      "status": 200,
+      "final_url": "https://arxiv.org/html/2406.14088v2",
+      "bytes": 267844,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "00b49a8be0c9185f620b9cf93ac6d6d3e75471c9764bc3e19d6cfbb50a48bb3e"
+    },
+    {
+      "source_id": "PYTORCH",
+      "url": "https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html",
+      "checked_at_utc": "2026-10-31T05:44:00.842662+00:00",
+      "status": 200,
+      "final_url": "https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html",
+      "bytes": 191595,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "1041c6c719c2e2dff68f6fcb9446ed27f64cd9ed9a36dcf03f324a828317180b"
+    },
+    {
+      "source_id": "ZEUS",
+      "url": "https://www.usenix.org/system/files/nsdi23-you.pdf",
+      "checked_at_utc": "2026-10-31T05:44:01.619588+00:00",
+      "status": 200,
+      "final_url": "https://www.usenix.org/system/files/nsdi23-you.pdf",
+      "bytes": 1719635,
+      "content_type": "application/pdf",
+      "sha256": "90bdc9e84d3189b2573f7218e47e8d244233865b064bc9a2a5fc2506102516a4"
+    },
+    {
+      "source_id": "POLLUX",
+      "url": "https://www.usenix.org/system/files/osdi21-qiao.pdf",
+      "checked_at_utc": "2026-10-31T05:44:02.820314+00:00",
+      "status": 200,
+      "final_url": "https://www.usenix.org/system/files/osdi21-qiao.pdf",
+      "bytes": 2892126,
+      "content_type": "application/pdf",
+      "sha256": "5d19b61a0c5dcb010b71ee0e395f9bffbdae1f50112f685ae12b2fdc0f9a20ad"
+    },
+    {
+      "source_id": "GOODPUT",
+      "url": "https://docs.cloud.google.com/tpu/docs/goodput",
+      "checked_at_utc": "2026-10-31T05:44:04.858181+00:00",
+      "status": 200,
+      "final_url": "https://docs.cloud.google.com/tpu/docs/goodput",
+      "bytes": 195092,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "fa6c681ee2cb0bfb1023925b86897f818e2cb8e5fe4095f4e57b5b2f4f066250"
+    }
+  ],
+  "scope": "链接可达性与响应指纹；论断支持范围另见literature-evidence.csv"
+}
