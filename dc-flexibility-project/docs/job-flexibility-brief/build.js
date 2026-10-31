@@ -1,7 +1,8 @@
 const fs = require('fs');
+const path = require('path');
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType,
-  AlignmentType, ShadingType, PageOrientation, VerticalAlign, HeadingLevel, BorderStyle,
+  AlignmentType, ShadingType, PageOrientation, VerticalAlign, HeadingLevel, BorderStyle, ImageRun,
 } = require('docx');
 
 const OUT = process.argv[2];
@@ -49,7 +50,7 @@ const S = (id) => [[id, { bold: true }]];
 const NA = [['—', { color: 'A6A6A6' }]];
 const scen = [
   ['服务器规格 ＼ 需求', '科研计算', '云通用计算', '科研 AI', '大模型训练/开发', '推理服务'],
-  ['A 纯 CPU 型（2∶0）', 'Lisa', 'Alibaba 2018（待数据）', NA, NA, NA],
+  ['A 纯 CPU 型（2∶0）', 'Lisa', 'Alibaba 2018（5 个完整日）', NA, NA, NA],
   ['B CPU 主导型（2∶1）', NA, NA, 'MIT Supercloud', 'Acme', 'ASI'],
   ['C 均衡型（2∶2）', NA, NA, 'MIT Supercloud', 'Acme', 'ASI'],
   ['D GPU 主导型（2∶8）', NA, NA, 'MIT Supercloud', 'Acme', 'ASI'],
@@ -106,7 +107,7 @@ const W3 = [1750, 1250, 2150, 2650, 2350, 2850, 1600];
 const data = [
   ['数据源', '对应需求', '时间跨度', '记录方式与规模', '作业时长 P50／P90', '任务分类有多细', '主要缺口'],
   ['Lisa（荷兰 SURF 超算）', '科研计算', '2021-12 至 2022-11，约 10 个月', '逐作业 159.7 万条（CPU 分区 139.6 万、GPU 分区 20.1 万）', 'CPU 分区 25 秒／55 分钟；GPU 分区 4.6 分钟／5.0 小时', [['粗', { bold: true }], ['：只有 17 个分区（CPU／GPU、Jupyter、课程），无用途和算法', {}]], 'GPU 卡数'],
-  ['Alibaba 2018', '云通用计算', '8 天', '约 4,000 台机器的 CPU／内存利用率时间序列', D('待数据'), [['粗', { bold: true }], ['：在线服务与离线批处理两类', {}]], '正在下载整理'],
+  ['Alibaba 2018', '云通用计算', '8 天，采用 5 个完整日', '4,034 台机器的 CPU 小时汇总', D('仅小时观测'), [['粗', { bold: true }], ['：CPU 总用量，在线／离线实际占用未分解', {}]], '在线／离线实际占用'],
   ['MIT Supercloud', '科研 AI', '2021-01 至 2021-10，约 9 个月', '逐作业 39.6 万条，其中 GPU 作业 9.8 万；另有逐秒 GPU 监测', '各类 2.2–3.0 小时／22–37 小时', [['粗', { bold: true }], ['：只有 4 种提交方式，OTHER 占 73.6%；官方标签约 3,425 个 DNN 作业（细分进行中）', {}]], '用途、算法'],
   ['Acme（上海 AI Lab Kalos 集群）', '大模型训练/开发', '2023-05 至 2023-08，约 3 个月', '逐作业 6.2 万条（GPU 1.99 万、CPU 4.25 万）', '预训练 11 分钟／11.8 小时；评估 44 秒／14 分钟', [['细', { bold: true }], ['：预训练、SFT、评估、调试、其他', {}]], 'RL 标签、检查点记录'],
   ['ASI（Alibaba GPU 2026）', '推理服务', '原始 185 天，目前只用 1 天（第 109 天）', '按 pod×服务器×小时观测 282 万条，52.5 万个 GPU pod', D('无法计算（只有小时观测）'), [['中', { bold: true }], ['：6 类业务（训练、在线推理、离线推理、开发等）＋高／低优先级＋模型领域', {}]], '完整作业时长；只有 1 天'],
@@ -130,7 +131,21 @@ const DATE = '2026-10-31';
 const H1 = '一、情境定义：服务器规格 × 需求';
 const H2 = '二、任务类型与时间柔性';
 const H3 = '三、各数据源概况';
-const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
+const H4 = '四、各情境典型日负荷曲线';
+const FIGURE_DIR = '../../results/scenario-typical-day-by-task-20261031';
+const FIGURE = path.resolve(__dirname, FIGURE_DIR, 'overview.png');
+const NOTES4 = [
+  '选日：完整日先按日电量接近中位数选取，并列时取日内 RMSE 最小者；GPU 需求以 GPU 主导型选日，三种规格共用日期和任务构成。',
+  '规模：参考 IT 10 MW，沿用整机台数取整；其他规模按台数比例缩放，曲线形状不变。',
+  '来源：Lisa、MIT、Acme 按作业与小时重叠秒数累计资源小时，ASI 用第 109 天小时观测；Alibaba 用五个完整日 CPU 汇总，业务未分解。',
+  '不确定性：基础与空载 IT 独立列示；v2 功率与冷却均含假设，气象采用既有参考网格重放；ASI 及 Alibaba 的日历日期和星期未知。',
+];
+const readmePath = process.argv[3];
+const previousReadme = readmePath && fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : '';
+const sourceSection = previousReadme.indexOf('## 数字来源与说明');
+const retainedSections = sourceSection >= 0 ? previousReadme.slice(sourceSection).trimEnd() : '';
+const SOURCE4 = '- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261031`](../../results/scenario-typical-day-by-task-20261031/README.md)，选日评分见 `*-day-selection.csv`，日期、峰谷与全年电量核对见 `summary.csv`；生成与功率分层见 `analysis/build_scenario_typical_days.py` 和 `plot_scenario_typical_days.py`，功率和 PUE 沿用 `results/typical-load-curves-20261029-v2/` 中央口径。';
+const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取参考 IT 功率 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
 const LEGEND = '✓ 可以　　◐ 有条件　　✗ 不行　　？ 未知　　（占比为各数据集自身的 GPU 小时，Lisa 为核心小时，不同数据集之间不能相加）';
 const NOTE2A = '迁移代价：同样的工作量换个时段完成，额外耗电很少，主要代价是完成时间推迟。现状排队可作参考：科研集群用户已习惯数小时排队（P90 约 3–70 小时），AI 训练和推理集群几乎不排队（P90 不超过 6 分钟），延后数小时会明显改变服务水平。';
 const NOTE2B = '拆分代价：每拆一次损失“卡数 × H”卡时，H ＝ 保存＋释放与重新调度＋加载恢复＋重算。开销控制在 5% 以内要求每段至少 19H。预训练 H 取 5–30 分钟（Google 多级检查点案例：恢复不到 1 分钟至 30 分钟）；其余 H 为假设，数据中均未测到。1 卡时约合 1.3 kWh（DGX H100 整机 10.2 kW ÷ 8 卡），预训练每拆一次约 0.05–0.65 MWh。';
@@ -159,6 +174,18 @@ const doc = new Document({
       h(H3, true),
       dataTable,
       p(NOTE3, { before: 100, size: 18, color: '595959' }),
+
+      h(H4, true),
+      new Paragraph({
+        alignment: AlignmentType.CENTER,
+        keepNext: true,
+        spacing: { before: 40, after: 20 },
+        children: [new ImageRun({ type: 'png', data: fs.readFileSync(FIGURE),
+          transformation: { width: 975, height: 609 },
+          altText: { name: '各情境典型日负荷曲线', title: '各情境典型日负荷曲线', description: '11 个情境按需求分行、服务器规格分列，共用设施功率纵轴。' },
+        })],
+      }),
+      ...NOTES4.map((text) => p(text, { before: 20, size: 16, color: '595959' })),
     ],
   }],
 });
@@ -175,8 +202,13 @@ if (MD_OUT) {
     `## ${H1}`, '', mdTable(scen), '', NOTE1, '',
     `## ${H2}`, '', LEGEND, '', mdTable(tasks), '', NOTE2A, '', NOTE2B, '', NOTE2C, '',
     `## ${H3}`, '', mdTable(data), '', NOTE3, '',
+    `## ${H4}`, '', `![各情境典型日负荷曲线](${FIGURE_DIR}/overview.png)`, '',
+    ...NOTES4.flatMap((text) => [text, '']),
   ].join('\n');
-  fs.writeFileSync(MD_OUT, md, 'utf8');
+  if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
+  const tail = retainedSections.includes(SOURCE4) ? retainedSections
+    : retainedSections.replace('## 重新生成', `${SOURCE4}\n\n## 重新生成`);
+  fs.writeFileSync(MD_OUT, md + '\n' + tail + '\n', 'utf8');
   console.log('wrote', MD_OUT);
 }
 
