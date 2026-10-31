@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-10-31T05:46:23.727234+00:00",
+  "status": "passed",
+  "nonempty_utf8_json_csv": "passed",
+  "expected_delivery_files": 33,
+  "readme_numeric_tables_checked": 7,
+  "statistics_numeric_tables_checked": 14,
+  "asi_domain_conservation": "passed",
+  "source_metadata_and_analysis_hashes": "passed",
+  "generator_input_hashes": "passed",
+  "local_links_checked": 29,
+  "public_csv_fields": "passed",
+  "constraint_values": "passed",
+  "literature_urls_accessible": 17,
+  "python_syntax": "passed",
+  "scope": "本次报告和真实聚合；不运行能源优化或后台采集"
+}

@@ -1,0 +1,132 @@
+{
+  "created_at_utc": "2026-10-30T15:55:25.938962+00:00",
+  "analysis_sha256": "d04c02c72c54da386fe5844e52d23c23a2b2e10147cec41b4375eb830f513e4c",
+  "source_metadata": [
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=00/part-000.parquet",
+      "bytes": 61614966,
+      "mtime_ns": 1793003911209023979
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=01/part-000.parquet",
+      "bytes": 59842949,
+      "mtime_ns": 1793003928724119153
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=02/part-000.parquet",
+      "bytes": 62425922,
+      "mtime_ns": 1793003949281231091
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=03/part-000.parquet",
+      "bytes": 62897652,
+      "mtime_ns": 1793003970732348157
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=04/part-000.parquet",
+      "bytes": 60782193,
+      "mtime_ns": 1793003989223449275
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=05/part-000.parquet",
+      "bytes": 61498590,
+      "mtime_ns": 1793004007732550673
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=06/part-000.parquet",
+      "bytes": 62422530,
+      "mtime_ns": 1793004025482648079
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=07/part-000.parquet",
+      "bytes": 62593132,
+      "mtime_ns": 1793004044235751160
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=08/part-000.parquet",
+      "bytes": 63876609,
+      "mtime_ns": 1793004062537851924
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=09/part-000.parquet",
+      "bytes": 63729688,
+      "mtime_ns": 1793004087160987733
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=10/part-000.parquet",
+      "bytes": 63337145,
+      "mtime_ns": 1793004107832101951
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=11/part-000.parquet",
+      "bytes": 64222034,
+      "mtime_ns": 1793004127269209515
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=12/part-000.parquet",
+      "bytes": 63299642,
+      "mtime_ns": 1793004144731236546
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=13/part-000.parquet",
+      "bytes": 62968604,
+      "mtime_ns": 1793004163982705028
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=14/part-000.parquet",
+      "bytes": 64702175,
+      "mtime_ns": 1793004186009330863
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=15/part-000.parquet",
+      "bytes": 65001334,
+      "mtime_ns": 1793004208770952519
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=16/part-000.parquet",
+      "bytes": 65347187,
+      "mtime_ns": 1793004232548585925
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=17/part-000.parquet",
+      "bytes": 61366610,
+      "mtime_ns": 1793004247655592782
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=18/part-000.parquet",
+      "bytes": 58985667,
+      "mtime_ns": 1793004262630567942
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=19/part-000.parquet",
+      "bytes": 63569878,
+      "mtime_ns": 1793004278212559146
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=20/part-000.parquet",
+      "bytes": 66717258,
+      "mtime_ns": 1793004299532877843
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=21/part-000.parquet",
+      "bytes": 66221745,
+      "mtime_ns": 1793004319772091026
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=22/part-000.parquet",
+      "bytes": 62259753,
+      "mtime_ns": 1793004337293112017
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=23/part-000.parquet",
+      "bytes": 61773361,
+      "mtime_ns": 1793004354704100654
+    }
+  ],
+  "source_sha256_record": "server-audit.json 的同24份pod输入",
+  "validation": {
+    "type_gpu_hours_conserved": "passed",
+    "source_metadata_unchanged": "passed"
+  },
+  "scope": "模型领域标签；genai、rec等不能区分预训练、SFT或RL算法；仅发布聚合"
+}

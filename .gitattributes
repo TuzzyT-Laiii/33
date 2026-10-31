@@ -123,3 +123,11 @@ dc-flexibility-project/analysis/requirements-alibaba-cpu.txt text eol=lf
 dc-flexibility-project/data/metadata/alibaba-cpu-cld-20261031/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/alibaba-cpu-cld-20261031/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/alibaba-cpu-cld-20261031/**/*.parquet binary
+
+# 任务柔性约束的代码与聚合产物保留可核验的跨平台指纹。
+dc-flexibility-project/analysis/audit_job_flexibility_constraints.py text eol=lf
+dc-flexibility-project/analysis/audit_asi_training_subtypes.py text eol=lf
+dc-flexibility-project/analysis/build_job_flexibility_tables.py text eol=lf
+dc-flexibility-project/analysis/verify_job_flexibility_report.py text eol=lf
+dc-flexibility-project/analysis/requirements-job-flexibility-constraints.txt text eol=lf
+dc-flexibility-project/results/job-flexibility-constraints-20261030/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

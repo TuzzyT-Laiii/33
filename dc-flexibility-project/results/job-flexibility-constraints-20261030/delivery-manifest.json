@@ -1,0 +1,141 @@
+{
+  "created_at_utc": "2026-10-31T05:46:23.727234+00:00",
+  "base_commit": "e7b03cb8d0476bbc8f489fac599b9b6fcd460b8b",
+  "files": {
+    "asi-classes.csv": {
+      "bytes": 2537,
+      "sha256": "28ac23d67ab5459bd1cbf229cb14a45adcdb667420fdd4d9c858ca7f754724c7"
+    },
+    "asi-hourly-type-priority.csv": {
+      "bytes": 43145,
+      "sha256": "81e63bc2a769cb32e9be6ee2f7bc9bec6e50c74f293d265a3132f4e29f42b2f0"
+    },
+    "asi-inventory.csv": {
+      "bytes": 1145,
+      "sha256": "c9725adfdfb9a57f0985e91952329a896168abbd6040b5d50b7d78787c4e69d0"
+    },
+    "asi-model-type-priority.csv": {
+      "bytes": 2010,
+      "sha256": "e742fae40e540ec24ca6aa7e3cc7fd811c601206303bc1b117c017c3e692d104"
+    },
+    "asi-presence.csv": {
+      "bytes": 426,
+      "sha256": "9adad5f044ccf19fb018c8095b28ba4e28fb013fc1887c3156bf2486ac9566c4"
+    },
+    "asi-priorities.csv": {
+      "bytes": 1416,
+      "sha256": "aaa3d022136e987ed8e8243a72b1f08d90b791c5c7dd06f0a8c16ceec48bba3d"
+    },
+    "asi-states.csv": {
+      "bytes": 404,
+      "sha256": "c82f2c7b3bddf3e7139587456236f178bed7f3c709c77b44daab914a4a09d24a"
+    },
+    "asi-training-model-audit.json": {
+      "bytes": 6191,
+      "sha256": "2bb40b8fe8ae39733b22c07cfdbdf87197115f8835af3f619a3195bc754debe2"
+    },
+    "asi-training-model-types.csv": {
+      "bytes": 240,
+      "sha256": "2c4d0b7d6cb95798bf68c6e544f4ed081fb8137718039a2f9b559fee803694f4"
+    },
+    "asi-workload-scales.csv": {
+      "bytes": 621,
+      "sha256": "3c9a90258d649aa0e8deab4fbdc790f3f174413d8ab4134cec53133f07d6818e"
+    },
+    "candidate-bounds.csv": {
+      "bytes": 2027,
+      "sha256": "7ad649985f96f8a907969ade93665c91f45efcbec5d16338aeb2d03307646576"
+    },
+    "checkpoint-sensitivity.csv": {
+      "bytes": 1839,
+      "sha256": "8a878cdada505a8aea27d5b90786623e3766942fb1d19970dce59afe77b8b5ec"
+    },
+    "hourly-candidate-bounds.csv": {
+      "bytes": 3009,
+      "sha256": "e122a6d8e9b09d9829a8dbdf5acc710fb0792179b6fec715526f33d6c5654fc6"
+    },
+    "literature-evidence.csv": {
+      "bytes": 4735,
+      "sha256": "c4c76ee2b65ff036279779f164c35b6070314ea98a733831d138dd517142dd5a"
+    },
+    "literature-link-check.json": {
+      "bytes": 7592,
+      "sha256": "a483514fc49c99a8662f586970172688dc5e061dfc56580a7082a955f97b994b"
+    },
+    "mit-audit.json": {
+      "bytes": 3587,
+      "sha256": "dcac07e8607afda9cc484a9825d2724749968fad4560897937080439f0abaa94"
+    },
+    "mit-classes.csv": {
+      "bytes": 3051,
+      "sha256": "c666b83c22d7d7be71020397b569131f2642208e1a0108af3e65bef5b56ad924"
+    },
+    "mit-durations.csv": {
+      "bytes": 3534,
+      "sha256": "b65af4a35c3934f14a6d46c5b4080c637e32d1f6ff5a13bcb0a4ad53ee297b12"
+    },
+    "mit-scales.csv": {
+      "bytes": 23502,
+      "sha256": "b1f4e6de54ed4f2e25a2f20105349bd5ccd85b72b826d4ccb3be4f2413185f39"
+    },
+    "mit-states.csv": {
+      "bytes": 3452,
+      "sha256": "727bf0c0f01412ba974347d3aecea68bf844225cec09028f99b2d13a028ca420"
+    },
+    "model-constraints.csv": {
+      "bytes": 4064,
+      "sha256": "2fd367c67fbc535806d2a84c689c3608c38fdf0bfe5abe43da35c71e903f0daf"
+    },
+    "README.md": {
+      "bytes": 37270,
+      "sha256": "5a76e6bbb9c68e1d5f1f10ca4df7e5e9f224b103b15321bf26bbc9a402c304ba"
+    },
+    "report-validation.json": {
+      "bytes": 617,
+      "sha256": "0011c86d3703f7152b085d36670b793bdecb888e90d60c1410642b4b84b34f89"
+    },
+    "server-audit.json": {
+      "bytes": 20998,
+      "sha256": "d9fc0e72ecb17e077c9f76bf1bc4e22ece9796a53b86b576d1c3fd4074324279"
+    },
+    "server-classes.csv": {
+      "bytes": 7959,
+      "sha256": "b4777a92ea0169652d52b3f121daed409e022a8f92e18207e71202cf69ac0602"
+    },
+    "server-durations.csv": {
+      "bytes": 8088,
+      "sha256": "f5ef8c45efce6570dacaa1091ceee271ad13ce0c0985b4ed02baa2f382f1330c"
+    },
+    "server-scales.csv": {
+      "bytes": 26200,
+      "sha256": "3587160b9a86b3c6821e62412027043563ff5dfed80578ddea67f2cd0fffc3fa"
+    },
+    "server-states.csv": {
+      "bytes": 7055,
+      "sha256": "94d87c326c7d40bcccc1423e9aae1962cbb65f48f8ec3fa5feb2e8b15e0ad486"
+    },
+    "source-readback-validation.json": {
+      "bytes": 656,
+      "sha256": "5e6a1ec6be1be3536413974941592b56631d7a81c09149b1197906c21a418193"
+    },
+    "statistics.md": {
+      "bytes": 10767,
+      "sha256": "8b290ee554feb884f2f01156ff9e5900f95151ebd3f1df3ea463bd98b39b9790"
+    },
+    "tables-manifest.json": {
+      "bytes": 1395,
+      "sha256": "ad868ba04784c60cd76c7a0cf01350e923d471f44f34b4399304f450d574823b"
+    },
+    "validation.json": {
+      "bytes": 439,
+      "sha256": "37f7bb011982868194a17725c703a3c1021c3481d9b4881f502f00808f1638ad"
+    }
+  },
+  "analysis_files": {
+    "audit_job_flexibility_constraints.py": "7556eb319131845030877586a5cda963da5cfb4f425421b06ea5c1355d9e8608",
+    "audit_asi_training_subtypes.py": "d04c02c72c54da386fe5844e52d23c23a2b2e10147cec41b4375eb830f513e4c",
+    "build_job_flexibility_tables.py": "823b6e25659bdec1056bc8d9f956dc8368e3294b1eb1f7a1e5be3e9b32650ab1",
+    "verify_job_flexibility_report.py": "c8bef1d5be7c69d5a3225effed97e8868ccf86dc57bd1656067600178cf9bad0",
+    "requirements-job-flexibility-constraints.txt": "97a6124dc1bbc6685fc1ae99ff7bb75dd1cad509c86881b192b2e5127529a145"
+  }
+}

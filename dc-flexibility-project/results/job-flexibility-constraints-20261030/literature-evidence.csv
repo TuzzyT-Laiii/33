@@ -1,0 +1,18 @@
+source_id,title,year,version_or_date,url,read_scope,supported_claim,transfer_limit
+ACME_SCHEMA,AcmeTrace README,2026,访问2026-10-30,https://github.com/InternLM/AcmeTrace,官方README全文,原始作业字段和终态定义,本地Kalos duration实际需用时间戳复核
+ACME_PAPER,Characterization of Large Language Model Development in the Datacenter,2024,NSDI24,https://www.usenix.org/system/files/nsdi24-hu.pdf,相关全文第2至3及6节,预训练容错和异步checkpoint以及评估反馈依赖,论文全库比例不替代本次Kalos实算
+ASI_SCHEMA,Alibaba Cluster Trace GPU v2026 Public Fact Table Schema,2026,访问2026-10-30,https://github.com/alibaba/clusterdata/blob/master/cluster-trace-gpu-v2026/docs/schema.md,官方schema全文,业务类型与模型领域及HP和LP含义和小时记录口径,没有任务checkpoint和截止时间
+ASI_RELEASE,Alibaba Cluster Trace GPU v2026 README,2026,访问2026-10-30,https://github.com/alibaba/clusterdata/tree/master/cluster-trace-gpu-v2026,官方README全文,185天来源及独立execution-summary表,本次只计算既有第109日样本
+LISA,Generic and ML Workloads in an HPC Datacenter,2024,Zenodo v3 DOI 10.5281/zenodo.13685426,https://zenodo.org/records/13685426,官方页面全文,Slurm作业与节点库存和30秒监测的区别,共享GPU分区缺少逐作业卡数
+MIT,The MIT Supercloud Dataset,2021,arXiv 2108.02037v1 对应HPEC DOI 10.1109/HPEC49654.2021.9622850,https://arxiv.org/abs/2108.02037,作者公开版摘要及本地已校验README全文,数据组织和单独模型标签表,本地作业文件版本395914条且无labelled_jobids.csv
+SLURM_CODE,Slurm public state and sentinel definitions,2021,slurm-20-11-9-1/slurm/slurm.h.in,https://github.com/SchedMD/slurm/blob/slurm-20-11-9-1/slurm/slurm.h.in,状态枚举和标志及NO_VAL定义,基础状态低8位及0x400 REQUEUE和0xfffffffe NO_VAL,实际采集Slurm版本未公开
+SLURM_DOC,Slurm Job State Codes,2026,访问2026-10-30,https://slurm.schedmd.com/job_state_codes.html,官方页面全文,暂停和停止可能保留分配以及REQUEUED状态语义,最终状态不记录完整恢复生命周期
+LLAMA3,The Llama 3 Herd of Models,2024,arXiv 2407.21783v3 第3.3.4节,https://arxiv.org/html/2407.21783v3,相关训练系统全文段落,54天466次中断及计划维护和同步电力变化,Meta案例不能成为当前任务恢复分钟数
+CHECKFREQ,CheckFreq Frequent Fine-Grained DNN Checkpointing,2021,FAST21 含Microsoft Research作者,https://www.usenix.org/system/files/fast21-mohan.pdf,摘要及相关方法与恢复结果全文段落,迭代粒度checkpoint和数据迭代器状态及恢复损失,秒级案例不直接迁移到千卡LLM
+GOOGLE,Save early and often with multi-tier checkpointing to optimize large AI training jobs,2025,2025-06-16,https://cloud.google.com/blog/products/ai-machine-learning/using-multi-tier-checkpointing-for-large-ai-training-jobs,官方正文全文,不同存储方案恢复少于1分钟或可达30分钟,系统案例不构成本数据恢复时间分布
+HYBRIDFLOW,HybridFlow A Flexible and Efficient RLHF Framework,2024,arXiv 2409.19256v2 第2及5节,https://arxiv.org/html/2409.19256v2,相关算法和系统设计全文段落,PPO式生成准备学习阶段与多模型状态及模型重分片,内部阶段变化不证明调度器归还GPU
+REALHF,ReaL Efficient RLHF Training of Large Language Models with Parameter Reallocation,2025,arXiv 2406.14088v2 2025-04-24 第2及4至6节,https://arxiv.org/html/2406.14088v2,相关系统设计全文段落,参数重分配以及静态和活动显存的区别,数据没有函数调用阶段或实际卸载字段
+PYTORCH,Saving and Loading Models,2026,访问2026-10-31,https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html,通用checkpoint及多模型保存相关全文段落,完整训练恢复需要模型和优化器等状态,示例不保证任意应用完全可复现
+ZEUS,Zeus Understanding and Optimizing GPU Energy Consumption of DNN Training,2023,NSDI23 第2及4节,https://www.usenix.org/system/files/nsdi23-you.pdf,相关全文功率与吞吐方法段落,持续执行时功率封顶及性能权衡,既有监测不能识别本任务封顶可兑现降幅
+POLLUX,Pollux Co-adaptive Cluster Scheduling for Goodput-Optimized Deep Learning,2021,OSDI21,https://www.usenix.org/system/files/osdi21-qiao.pdf,相关全文goodput与资源性能段落,弹性资源分配需要系统支持和统计效率模型,不支持固定世界大小LLM任意缩卡
+GOODPUT,Monitor goodput with the ML Goodput Measurement library,2026,访问2026-10-31,https://docs.cloud.google.com/tpu/docs/goodput,官方指标定义正文,有效保留训练进展与启动和I/O及恢复开销区分,本次没有采集该库的计时数据

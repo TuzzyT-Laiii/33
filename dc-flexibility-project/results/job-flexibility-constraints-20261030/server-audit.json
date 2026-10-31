@@ -1,0 +1,454 @@
+{
+  "created_at_utc": "2026-10-30T15:47:03.426639+00:00",
+  "inputs": [
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/trace_kalos.csv",
+      "bytes": 8960159,
+      "mtime_ns": 1793003692233852574,
+      "sha256": "7c5a7845da1d66448fa668342e4ecb622fd9a005118080660ec3ad2788d4c9bf"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/processed/task-trace-audit-20261026/lisa/lisa-tasks.parquet",
+      "bytes": 40155321,
+      "mtime_ns": 1793004987819206481,
+      "sha256": "143e1e0ed9dcc92a8bc188f77c5c362a2873d403c9ac344f1f203dda9dcc2e72"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=00/part-000.parquet",
+      "bytes": 61614966,
+      "mtime_ns": 1793003911209023979,
+      "sha256": "7d40910b6ea538d3714b93e4990a246327ea13839e7d0bd969a858656b2b14e7"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=00/part-000.parquet",
+      "bytes": 727241,
+      "mtime_ns": 1793004355031118988,
+      "sha256": "3abc77ff9367e42d2081a73101ae90c4f1614f80e1e17d1ba51336834a9e7204"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=01/part-000.parquet",
+      "bytes": 59842949,
+      "mtime_ns": 1793003928724119153,
+      "sha256": "30ddf8c39d506b775895de5c877548b9c47aff4e14d918cad75fbc6024738651"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=01/part-000.parquet",
+      "bytes": 731893,
+      "mtime_ns": 1793004355179127275,
+      "sha256": "d642b59b0cb7a4db2a5822b51c3cfc2a4a93ee986587c6cc392cc10b2db46bc3"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=02/part-000.parquet",
+      "bytes": 62425922,
+      "mtime_ns": 1793003949281231091,
+      "sha256": "d76d0f23553af3261b1ceec695be2fbb19d5743caf80aaa679f15543ab368a27"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=02/part-000.parquet",
+      "bytes": 730240,
+      "mtime_ns": 1793004355215129291,
+      "sha256": "661fa05b0186d935b3c5eeed73dd9d08182745fb4d893f88873ebae40f195dd6"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=03/part-000.parquet",
+      "bytes": 62897652,
+      "mtime_ns": 1793003970732348157,
+      "sha256": "8a63b438485cc00e2cefb61172df94865fff99af6cca9535ad61c2a929ea63c8"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=03/part-000.parquet",
+      "bytes": 727784,
+      "mtime_ns": 1793004355367137802,
+      "sha256": "dad5aecf14aa0d6c0cba82f9cb49763b9d3d65c852c1986dfbff227267f7f565"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=04/part-000.parquet",
+      "bytes": 60782193,
+      "mtime_ns": 1793003989223449275,
+      "sha256": "d6a196970efae795a228a6215531ffa4fd3dda694ab34d79016497aabc76d64e"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=04/part-000.parquet",
+      "bytes": 727560,
+      "mtime_ns": 1793004355401139706,
+      "sha256": "fd98878c4e787870471353eb5384f85ef87dc13c2be6ab7fc8a700922bbac83d"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=05/part-000.parquet",
+      "bytes": 61498590,
+      "mtime_ns": 1793004007732550673,
+      "sha256": "c705274bdafd2ca8452bfe4ae3ff04005ae4965393c8ac926ff553f2870f6612"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=05/part-000.parquet",
+      "bytes": 727532,
+      "mtime_ns": 1793004355819163111,
+      "sha256": "ede8acce165b227623f8787124f22699340df2a29f1493ffaed2ce1db87b4d10"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=06/part-000.parquet",
+      "bytes": 62422530,
+      "mtime_ns": 1793004025482648079,
+      "sha256": "7b200e99b22c6cd174f3b85f1360510f48327239631873c4308b01fbd3a0cf41"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=06/part-000.parquet",
+      "bytes": 732954,
+      "mtime_ns": 1793004355854165071,
+      "sha256": "0b9a410abd3be18bd94b8eee0f6e9e527d7da3620b3c01c818cb9a020361aab0"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=07/part-000.parquet",
+      "bytes": 62593132,
+      "mtime_ns": 1793004044235751160,
+      "sha256": "8ba21ed7008fee5a85da80ba94ebd9f5ce02e62b4679d92aab12676786ed3c6e"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=07/part-000.parquet",
+      "bytes": 730246,
+      "mtime_ns": 1793004356051176098,
+      "sha256": "a408244ddeca3bc98b451c3dce0e7faac9b5b6dec13bd1850083db55bf392542"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=08/part-000.parquet",
+      "bytes": 63876609,
+      "mtime_ns": 1793004062537851924,
+      "sha256": "d590fe5211ce138ab7f61807bce226c044b81d152be7cdcba94ef090f1122e48"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=08/part-000.parquet",
+      "bytes": 737372,
+      "mtime_ns": 1793004356086178055,
+      "sha256": "56b8d3193ac4f653d41d204e19d3048888e1f3053cbe8d0ca6b8bff86d9e7aac"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=09/part-000.parquet",
+      "bytes": 63729688,
+      "mtime_ns": 1793004087160987733,
+      "sha256": "e1e928b11ea38a2106a9d19d63ed870600b3d478bdcd09a36bd05dc5b3ff36fb"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=09/part-000.parquet",
+      "bytes": 729386,
+      "mtime_ns": 1793004356259187728,
+      "sha256": "68284bd64fef39ed0a12f4932155daaf835279cf5af03f25bb8ca4515172e3b9"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=10/part-000.parquet",
+      "bytes": 63337145,
+      "mtime_ns": 1793004107832101951,
+      "sha256": "347ca830fe5cf08b51b9a9d5e24a2790a6dd679481e5e0467b5e609c495f7ea2"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=10/part-000.parquet",
+      "bytes": 728433,
+      "mtime_ns": 1793004356295189740,
+      "sha256": "873c25c50810b2e60081ce3b9225f60310d81f11a5ec79d197ffa4db54d2b5bf"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=11/part-000.parquet",
+      "bytes": 64222034,
+      "mtime_ns": 1793004127269209515,
+      "sha256": "ea7466fd34f933273ceef683b1adda89bb4da60356e9154461efc8493bbe1373"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=11/part-000.parquet",
+      "bytes": 726818,
+      "mtime_ns": 1793004356471199581,
+      "sha256": "452a6d3fce94c7148d0248fbf6518be6566ecca9c9e88a05b53ad6c81a8f37bf"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=12/part-000.parquet",
+      "bytes": 63299642,
+      "mtime_ns": 1793004144731236546,
+      "sha256": "35b6daee7cae66c46a852a7f44d78cd14087f6788feda2d0d798845f136e11a1"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=12/part-000.parquet",
+      "bytes": 726382,
+      "mtime_ns": 1793004356505201482,
+      "sha256": "f0e60ef1301c177b039034a7493d1cbfe84ab75e5af9ca30371c69eaf39ea325"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=13/part-000.parquet",
+      "bytes": 62968604,
+      "mtime_ns": 1793004163982705028,
+      "sha256": "1d3c8788ecf93778825e6f743c29104d286942422e45db9d4953ce2a3a2ffe0a"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=13/part-000.parquet",
+      "bytes": 730642,
+      "mtime_ns": 1793004356667210540,
+      "sha256": "2d30e80caa49b13d301a1e821f1b8942c6f22c01c0a3ec03b95115dfc82ceb0b"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=14/part-000.parquet",
+      "bytes": 64702175,
+      "mtime_ns": 1793004186009330863,
+      "sha256": "72b8c77017023fad743f0485d6f5d733b37f5b354e6e191223a4163aa260b9ef"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=14/part-000.parquet",
+      "bytes": 730657,
+      "mtime_ns": 1793004356700212385,
+      "sha256": "e5262a82a53e1de6222698b445c44c4e3364757b5ce12e6c8ca538e5edb42217"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=15/part-000.parquet",
+      "bytes": 65001334,
+      "mtime_ns": 1793004208770952519,
+      "sha256": "e15de8fb7f64dd13e695aaea19f9e81e1b0fb0e6a7b0f6f5ee976e7f51f5f68c"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=15/part-000.parquet",
+      "bytes": 729229,
+      "mtime_ns": 1793004356875222169,
+      "sha256": "a56fe4cd128c2f9c8fe0dcf0a6a93a955a08809fa79f2832c55b9b6828e5c3cb"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=16/part-000.parquet",
+      "bytes": 65347187,
+      "mtime_ns": 1793004232548585925,
+      "sha256": "0f7ce67398804cdc3ff66f813dfc07d2610731540dc3f30bb381b1387fdced30"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=16/part-000.parquet",
+      "bytes": 728644,
+      "mtime_ns": 1793004356909224070,
+      "sha256": "5c799437da03acbb4e5466ffb444a93b1c727205de3bd13732f9d35df23a57a8"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=17/part-000.parquet",
+      "bytes": 61366610,
+      "mtime_ns": 1793004247655592782,
+      "sha256": "186a6ac82c1ef5a55169786b03b75b377331677846fd9701cb06364c575628f9"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=17/part-000.parquet",
+      "bytes": 728396,
+      "mtime_ns": 1793004357075233345,
+      "sha256": "8435c9ea4f52190965534c3aae86c776c706677a15d9ea2884f40e41419ebef3"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=18/part-000.parquet",
+      "bytes": 58985667,
+      "mtime_ns": 1793004262630567942,
+      "sha256": "ac31ac21ceebb25a4616b7fd32660602c164a06488a5e55bdeb37737b47c8c35"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=18/part-000.parquet",
+      "bytes": 732434,
+      "mtime_ns": 1793004357110235300,
+      "sha256": "3f1ef582e041891e6a391cd6724c8c4c6d1187964336bb6165b7d222a51ba783"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=19/part-000.parquet",
+      "bytes": 63569878,
+      "mtime_ns": 1793004278212559146,
+      "sha256": "c41fe6b84c476224559f1633a82c21102339587174501af4738c5761130d0781"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=19/part-000.parquet",
+      "bytes": 727281,
+      "mtime_ns": 1793004357287245181,
+      "sha256": "523a3679921bb10e3c688ff3f28badfeb3f89a274633bb2da541d3c99d0650b2"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=20/part-000.parquet",
+      "bytes": 66717258,
+      "mtime_ns": 1793004299532877843,
+      "sha256": "2332c4c4f8d4f5abbc79756018ac607bc43d210ff8848b11d8808fd84f70d6f6"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=20/part-000.parquet",
+      "bytes": 728544,
+      "mtime_ns": 1793004357322247135,
+      "sha256": "af699b949b8ca725df785628f9fa75ed383950fd02532f8f2d685fc807d115b5"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=21/part-000.parquet",
+      "bytes": 66221745,
+      "mtime_ns": 1793004319772091026,
+      "sha256": "7e8b5b10002fc44906e71eb5e87ee63513d72ace8d2d997b0822cd22e603e4f5"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=21/part-000.parquet",
+      "bytes": 727048,
+      "mtime_ns": 1793004357492256626,
+      "sha256": "36d50f968a5e3e0d5f345eeb306573fdb857ad3b13ce77f276fd06cd8e8581d2"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=22/part-000.parquet",
+      "bytes": 62259753,
+      "mtime_ns": 1793004337293112017,
+      "sha256": "91c243187237300623d36a884007acc6c0b643f4ffd2a033d2c5acafb6619328"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=22/part-000.parquet",
+      "bytes": 729335,
+      "mtime_ns": 1793004357524258413,
+      "sha256": "9621df81056bf63a48607b0a05c00de4c7a32aaa309dfeda3bf45fc5e57aa7d4"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_pod_hourly/day=109/hour=23/part-000.parquet",
+      "bytes": 61773361,
+      "mtime_ns": 1793004354704100654,
+      "sha256": "a8e27c46b265677e3bafc08cf4acfc24c037c27edfbbde23ebeec38a3ff9db94"
+    },
+    {
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/task-trace-audit-20261026/asi_opensource_server_hourly/day=109/hour=23/part-000.parquet",
+      "bytes": 726751,
+      "mtime_ns": 1793004357693267848,
+      "sha256": "b7e63173a23ad1f65700d181317fb905005539f4b58c4890b76dca12817dbce4"
+    }
+  ],
+  "details": {
+    "Acme_Kalos": {
+      "schema": [
+        "job_id",
+        "user",
+        "node_num",
+        "gpu_num",
+        "cpu_num",
+        "mem_per_pod_GB",
+        "shared_mem_per_pod",
+        "type",
+        "state",
+        "submit_time",
+        "start_time",
+        "end_time",
+        "fail_time",
+        "stop_time",
+        "duration",
+        "queue",
+        "gpu_time"
+      ],
+      "rows": 62413,
+      "first_submit": "2023-05-17 11:00:58+00:00",
+      "last_end": "2023-08-16 15:17:42+00:00",
+      "raw_duration_matches_turnaround_rows": 62410,
+      "raw_duration_matches_runtime_rows": 1,
+      "negative_wait_rows": 0,
+      "repeated_submission_candidates": [
+        {
+          "class": "CPU",
+          "candidate_successor_rows": 497,
+          "successor_completed_rows": 45,
+          "candidate_gap_s_p50": 73.0,
+          "successor_resource_hours": 16.83
+        },
+        {
+          "class": "Debug",
+          "candidate_successor_rows": 217,
+          "successor_completed_rows": 31,
+          "candidate_gap_s_p50": 179.0,
+          "successor_resource_hours": 8860.189444444444
+        },
+        {
+          "class": "Eval",
+          "candidate_successor_rows": 733,
+          "successor_completed_rows": 107,
+          "candidate_gap_s_p50": 25.0,
+          "successor_resource_hours": 230.68416666666667
+        },
+        {
+          "class": "Other",
+          "candidate_successor_rows": 48,
+          "successor_completed_rows": 15,
+          "candidate_gap_s_p50": 129.5,
+          "successor_resource_hours": 8877.309166666666
+        },
+        {
+          "class": "Pretrain",
+          "candidate_successor_rows": 338,
+          "successor_completed_rows": 68,
+          "candidate_gap_s_p50": 109.0,
+          "successor_resource_hours": 948819.4266666665
+        },
+        {
+          "class": "SFT",
+          "candidate_successor_rows": 1,
+          "successor_completed_rows": 1,
+          "candidate_gap_s_p50": 204.0,
+          "successor_resource_hours": 35.093333333333334
+        }
+      ],
+      "candidate_rule": "同用户、type、GPU数、节点数按启动排序，前一作业 CANCELLED/FAILED；后作业提交不早于前作业结束，启动间隔0至3600秒",
+      "resume_evidence": "弱关联候选；没有逻辑任务或 checkpoint 关联，不能认定保存后恢复",
+      "preempted_rows": 0,
+      "checkpoint_fields": [],
+      "requeue_fields": []
+    },
+    "Lisa": {
+      "rows": 1596963,
+      "raw_schema": [
+        "id",
+        "submit_date",
+        "start_date",
+        "end_date",
+        "node",
+        "nodetypes",
+        "numnodes",
+        "numcores",
+        "state",
+        "runtime_s",
+        "observed_wait_s",
+        "hardware_group",
+        "task_id",
+        "flexibility_status",
+        "deadline_source",
+        "preemption_permission_source"
+      ],
+      "first_submit": "2021-12-25 16:55:07",
+      "last_end": "2022-11-01 13:59:18",
+      "preempted_rows": 0,
+      "requeue_named_rows": 0,
+      "user_field_present": false,
+      "checkpoint_fields": [],
+      "gpu_count_field_present": false,
+      "timezone": "源时间无时区"
+    },
+    "Alibaba_ASI_day109": {
+      "all_pod_hour_rows": 36264315,
+      "gpu_pod_hour_rows": 2816548,
+      "distinct_gpu_pods": 524745,
+      "distinct_workloads": 17860,
+      "unique_job_count": null,
+      "raw_schema": [
+        "pod_id",
+        "workload_id",
+        "server_id",
+        "cluster_id",
+        "state_public",
+        "gpu_spec_public",
+        "priority_class",
+        "job_type_public",
+        "model_type_public",
+        "gpu_request",
+        "cpu_request_cores",
+        "used_gpu_hours",
+        "avg_gpu_sm_util",
+        "schedule_delay_sec",
+        "ready_delay_sec"
+      ],
+      "used_gpu_hours": 3098736.6566111143,
+      "priority_hours_conserved": true,
+      "previous_audit_reconciled": true,
+      "runtime": "缺少提交/启动/结束和执行跨度表；小时出现时长不是作业运行时长",
+      "presence": "缺席后重现只说明小时观测存在间断；不证明checkpoint或恢复",
+      "schedule_delay": "每类每pod首次观测值，非负值分位数；-1和缺失排除，重复小时不重复计权",
+      "workload_scale": "同workload同小时申请GPU总和与服务器数；非已证明的同步gang或最小运行规模",
+      "checkpoint_fields": [],
+      "requeue_fields": [],
+      "execution_summary_downloaded": false
+    }
+  },
+  "analysis_sha256": "7556eb319131845030877586a5cda963da5cfb4f425421b06ea5c1355d9e8608",
+  "software": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "pyarrow": "20.0.0"
+  },
+  "input_metadata_unchanged": true,
+  "privacy": "仅输出聚合；不输出作业、用户、pod、workload、节点标识及逐作业时间"
+}
