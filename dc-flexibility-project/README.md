@@ -14,9 +14,11 @@
 
 [任务记录粒度与柔性约束](docs/task-trace-flexibility.md)提供秒级 CPU/GPU 作业、ASI 小时类型与优先级数据的读取和资源累计接口，并说明任务类别、服务期限和抢占权限的证据范围。
 
-[CPU/GPU 服务器与整柜情境 v2](results/server-count-scenarios-20261028-v2/README.md)包含纯 CPU 的 C20、C21/C22/C28 和 GPU 主导的 R-GB200 整柜。C20 科研需求保留 Lisa CPU；C21/C22/C28 科研需求采用 MIT Supercloud 明确请求 GPU 的作业及同作业宿主 CPU 分配，已核验 98,176 条作业、237 个完整日时间窗。四档 IT 规模各有 13 个允许组合，共 52 个设计单元。Lisa 现有作业文件缺少 GPU 卡数和利用率/功率，证据与一周、全年日均占用示意见新版说明；典型功率曲线待统一重算。GB200 运行功率与液冷模型、Alibaba CPU 全表仍待核验。[20261028 原版](results/server-count-scenarios-20261028/README.md)与[20261027 版](results/server-count-scenarios-20261027/README.md)保留原样。
+[情境命名与定义](docs/scenario-naming.md)规定全项目统一使用“服务器类型×用途×规模”命名，例如「GPU 主导型·大模型训练/开发·100MW」（D-TRN-100MW），并给出 13 个有效情境的物理场景及旧配置编号对照。
 
-[全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存 8760 小时重放方法、16 条既有参考曲线和相位检查。当前五类配置的功率与台数/柜数采用新版参数说明中的标定状态；逐小时气象作为外生输入，柔性权限独立成章。
+[CPU/GPU 服务器与整柜情境 v2](results/server-count-scenarios-20261028-v2/README.md)包含纯 CPU 型、CPU 主导型、均衡型、GPU 主导型服务器和纯 GPU 型（整柜液冷）机柜。纯 CPU 型·科研计算的需求保留 Lisa CPU；CPU 主导型、均衡型、GPU 主导型的科研 AI 需求采用 MIT Supercloud 明确请求 GPU 的作业及同作业宿主 CPU 分配，已核验 98,176 条作业、237 个完整日时间窗。四档 IT 规模各有 13 个有效组合，共 52 个情境。Lisa 现有作业文件缺少 GPU 卡数和利用率/功率，证据与一周、全年日均占用示意见新版说明；典型功率曲线待统一重算。GB200 运行功率与液冷模型、Alibaba CPU 全表仍待核验。[20261028 原版](results/server-count-scenarios-20261028/README.md)与[20261027 版](results/server-count-scenarios-20261027/README.md)保留原样。
+
+[全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存 8760 小时重放方法、16 条既有参考曲线和相位检查。当前五种服务器类型的功率与台数/柜数采用新版参数说明中的标定状态；逐小时气象作为外生输入，柔性权限独立成章。
 
 [任务来源与柔性文献历史报告](results/task-driven-load-report-20261026-v2/README.md)保存来源波动、六组图、四档规模的功率示例和 ASI 柔性文献结果；当前设备定义与年度计算采用上述实际配置说明。[初始报告](results/task-driven-load-report-20261026/README.md)保留。
 
