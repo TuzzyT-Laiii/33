@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-31T11:29:27.352632+00:00",
+  "method": "real member reread; independent pandas versus Arrow aggregation",
+  "samples": [
+    {
+      "hour_index": 0,
+      "day": 0,
+      "hour": 0,
+      "rows": 1179029,
+      "sha256": "6cf28932b3080a51da494dace4b288de678f31b597f3d7cfd00a554ca24cba1e",
+      "resource_sums": "passed",
+      "distinct_counts": "passed",
+      "scale_histograms": "passed",
+      "raw_bytes": 63791770,
+      "raw_disk_bytes_written": 0
+    },
+    {
+      "hour_index": 4439,
+      "day": 184,
+      "hour": 23,
+      "rows": 1656665,
+      "sha256": "d47cf6cf221505560f303a294a4fc89ef7ed952352f519d58c71ac90964856ac",
+      "resource_sums": "passed",
+      "distinct_counts": "passed",
+      "scale_histograms": "passed",
+      "raw_bytes": 88785554,
+      "raw_disk_bytes_written": 0
+    }
+  ]
+}

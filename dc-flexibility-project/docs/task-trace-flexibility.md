@@ -6,6 +6,8 @@
 
 新增 `alibaba_cpu_profile.load_alibaba_source(project)` 返回既有 `profile/clock/metadata` 接口，可交给 `annual_task_profiles.replay_hourly` 和 `ComputeLoadModel.calculate`。整机曲线与业务拆分的分母、覆盖时段和未对账差额分别记录；离线实例执行量的比例不能直接视为已获准平移的比例。
 
+[20261031 的 ASI 185 天任务类型与推理需求](../results/asi-185day-workload-types-20261031/README.md)提供全部业务类型×优先级×模型领域的逐小时汇总、执行跨度与规模分布。年度构造入口采用在线、离线及组合推理三条 185 天曲线；以下 20261026 版本的单日样本与年度结果按其原输入版本保留。
+
 [任务来源与柔性文献历史报告](../results/task-driven-load-report-20261026-v2/README.md)保存来源波动、功率示例和柔性文献对照；[初始报告](../results/task-driven-load-report-20261026/README.md)保留。
 
 [20261028-v2 历史配置及来源说明](../results/server-count-scenarios-20261028-v2/README.md)记录当时五种厂商配置、52 个设计单元。纯 CPU 型科研计算采用 Lisa CPU；CPU 主导型、均衡型和 GPU 主导型的科研 AI 采用 MIT Supercloud，训练/开发及推理用途分别采用 Acme、ASI。MIT 的 GPU 与宿主 CPU 占用来自同批明确请求 GPU 的执行作业，237 个完整日时间窗，采集完整性和跨硬件功率/性能映射待核实。云通用计算的 Alibaba CPU 六表见当前 A-CLD 工作包。[年度构造工作包](../results/scenario-load-methods-20261026-v2/README.md)按原输入版本保存；旧典型曲线中的 GPU 配置×Lisa CPU 组合以后续统一重算为准。

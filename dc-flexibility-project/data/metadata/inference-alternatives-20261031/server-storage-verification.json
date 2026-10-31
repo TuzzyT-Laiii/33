@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-10-31T08:46:37.288353+00:00",
+  "host": "aiseon",
+  "volume": "/data3/dataset",
+  "total_bytes": 13083674378240,
+  "used_bytes": 6461056086016,
+  "free_bytes": 6490713849856,
+  "raw_directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031",
+  "files": [
+    {
+      "name": "BurstGPT_1.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/BurstGPT_1.csv",
+      "bytes": 52283111,
+      "sha256": "4bb3783693d0a435686fbfc885615d2349bd067239079fa4b749f2e679e12122"
+    },
+    {
+      "name": "BurstGPT_2.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/BurstGPT_2.csv",
+      "bytes": 144819209,
+      "sha256": "44bf5942b03fca42c01a226a545ad3a750ec62688faecd67b6831c56a8928bf7"
+    },
+    {
+      "name": "chutes-hour-of-week.parquet",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/chutes-hour-of-week.parquet",
+      "bytes": 3940,
+      "sha256": "f33e8d4de0e62c95def486a96f6514a0580f47ad58ab020692cb727e2da842ea"
+    },
+    {
+      "name": "chutes-daily-requests.parquet",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/chutes-daily-requests.parquet",
+      "bytes": 5552,
+      "sha256": "a2e73c428bd986ced90282d6c8ca53dc7f596196774a1b04badb4fb681c4d720"
+    },
+    {
+      "name": "chutes-daily-tokens.parquet",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/chutes-daily-tokens.parquet",
+      "bytes": 6095,
+      "sha256": "f263a2e4522a171e41a33e3b142bc79461eb2c0179f5ce5512c98fb8bb2d616f"
+    }
+  ],
+  "persisted_bytes": 197117907
+}

@@ -1,0 +1,83 @@
+{
+  "days": [
+    {
+      "day": 0,
+      "hours": 24,
+      "gpu_hours": 2410951.3393888893,
+      "inventory_min": 111321.0,
+      "inventory_max": 111321.0,
+      "hourly_peak_valley": 1.0797842492020382,
+      "inference_gpu_hours": 1830896.5403888891,
+      "inference_hourly_peak_valley": 1.1660050262438852,
+      "peak_hour": 17,
+      "valley_hour": 9,
+      "type_gpu_hours": {
+        "dev": 83080.721,
+        "offline_inference": 527523.9583333334,
+        "online_inference": 1303372.5820555557,
+        "other": 38.25555555555556,
+        "training": 486413.0805555555,
+        "unknown": 10522.74188888889
+      },
+      "type_shares": {
+        "dev": 0.03445972535516155,
+        "offline_inference": 0.21880323742537516,
+        "online_inference": 0.5406050967357663,
+        "other": 1.5867410897331635e-05,
+        "training": 0.20175151302674074,
+        "unknown": 0.004364560046058881
+      },
+      "attributed_share_min": 0.8716795762804064,
+      "attributed_share_max": 0.9412258768186894,
+      "requested_share_min": 0.9694024487742655,
+      "requested_share_max": 1.185065621041852
+    },
+    {
+      "day": 184,
+      "hours": 24,
+      "gpu_hours": 3620551.8493333333,
+      "inventory_min": 155410.0,
+      "inventory_max": 155410.0,
+      "hourly_peak_valley": 1.1056642225884952,
+      "inference_gpu_hours": 2714380.648722222,
+      "inference_hourly_peak_valley": 1.1236791613408303,
+      "peak_hour": 3,
+      "valley_hour": 9,
+      "type_gpu_hours": {
+        "dev": 111594.20122222223,
+        "offline_inference": 738298.009,
+        "online_inference": 1976082.6397222222,
+        "other": 26095.466666666667,
+        "training": 762021.9166666666,
+        "unknown": 6459.616055555555
+      },
+      "type_shares": {
+        "dev": 0.030822428697650197,
+        "offline_inference": 0.20391863995427817,
+        "online_inference": 0.5457959786119584,
+        "other": 0.007207593690854539,
+        "training": 0.21047120670485103,
+        "unknown": 0.0017841523404077172
+      },
+      "attributed_share_min": 0.937042451508197,
+      "attributed_share_max": 1.0360543136792284,
+      "requested_share_min": 1.0339153851103533,
+      "requested_share_max": 1.19640537931922
+    }
+  ],
+  "performance": {
+    "range_bytes": 3803826525,
+    "sample_pod_rows": 69844911,
+    "full_pod_and_server_bytes": 354883634832,
+    "network_hours_at_48_decimal_MB_per_s": 2.053724738611111,
+    "serial_hours_at_sample_member_rate": 2.1327331491197077,
+    "serial_hours_at_sample_byte_rate": 2.1949888522649754,
+    "sample_elapsed_seconds": 84.69729679194279,
+    "peak_rss_bytes": 298291200,
+    "largest_parquet_bytes": 111942754,
+    "full_type_priority_csv_estimated_bytes": 3749672.5,
+    "full_detailed_csv_estimated_bytes": 34120105.0,
+    "raw_disk_bytes_written": 0,
+    "estimate_basis": "two endpoint days; planning estimate, not measured full-run completion time"
+  }
+}
