@@ -1,0 +1,8 @@
+{
+  "checked_at": "2026-10-31T09:43:54.092968+00:00",
+  "duplicate_run_rejected": true,
+  "existing_pid": 2736323,
+  "existing_state": "running",
+  "completed_hours_at_check": 1471,
+  "duplicate_exit_code": 1
+}

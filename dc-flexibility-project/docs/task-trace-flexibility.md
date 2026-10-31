@@ -2,6 +2,8 @@
 
 任务记录可以提供提交、执行和资源分配信息，用于计算 CPU/GPU 任务需求及小时负荷。真实柔性范围还取决于完成期限、暂停权限和服务质量。任务类型与优先级保留为筛选依据，缺失的业务约束保持未知。
 
+[20261031 的 ASI 185 天任务类型与推理需求](../results/asi-185day-workload-types-20261031/README.md)提供全部业务类型×优先级×模型领域的逐小时汇总、执行跨度与规模分布。年度构造入口采用在线、离线及组合推理三条 185 天曲线；以下 20261026 版本的单日样本与年度结果按其原输入版本保留。
+
 [任务来源与柔性文献历史报告](../results/task-driven-load-report-20261026-v2/README.md)保存来源波动、功率示例和柔性文献对照；[初始报告](../results/task-driven-load-report-20261026/README.md)保留。
 
 [CPU/GPU 服务器与整柜情境及来源说明 v2](../results/server-count-scenarios-20261028-v2/README.md)定义五种厂商配置、52 个设计单元：C20 配 Lisa CPU 作业和 Alibaba Cluster Trace 2018；R-GB200 配 Acme、ASI；C21/C22/C28 各配 MIT Supercloud 科研 GPU 作业、Acme、ASI。MIT 的 GPU 与宿主 CPU 占用来自同批明确请求 GPU 的执行作业，237 个完整日时间窗，采集完整性和跨硬件功率/性能映射待核实。Alibaba CPU 全表仍待完成下载核验。[年度构造工作包](../results/scenario-load-methods-20261026-v2/README.md)按原输入版本保存；旧典型曲线中的 GPU 配置×Lisa CPU 组合以后续统一重算为准。

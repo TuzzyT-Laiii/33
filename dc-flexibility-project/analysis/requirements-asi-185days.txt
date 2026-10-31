@@ -1,0 +1,2 @@
+-r inference-data-requirements.txt
+-r compute_load/requirements.txt

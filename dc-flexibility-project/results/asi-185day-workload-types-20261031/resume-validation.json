@@ -1,0 +1,48 @@
+{
+  "before": {
+    "run_started_at": "2026-10-31T09:24:50.628951+00:00",
+    "pid": 2731623,
+    "workers": 1,
+    "state": "partial",
+    "completed_hours": 1,
+    "target_hours": 4440,
+    "reused_hours": 0,
+    "pending_this_run": 1,
+    "raw_disk_bytes_written": 0,
+    "script_sha256": "cd0c5d245c1cf245c9667a712d041619c7a1ee6521783ddc034f0021f4b63596",
+    "volume_free_at_start_bytes": 6488428642304,
+    "last_completed": {
+      "index": 0,
+      "day": 0,
+      "hour": 0,
+      "finished_at": "2026-10-31T09:24:54.292813+00:00",
+      "seconds": 3.636912218062207,
+      "range_bytes": {
+        "pod_hourly": 64303934,
+        "server_hourly": 1063730
+      },
+      "worker_peak_rss_kib": 850844
+    },
+    "updated_at": "2026-10-31T09:24:54.308211+00:00",
+    "elapsed_this_run_seconds": 3.7281596870161593,
+    "jobs_complete": false,
+    "finished_at": "2026-10-31T09:24:54.359092+00:00",
+    "volume_free_at_end_bytes": 6488428519424
+  },
+  "after": {
+    "run_started_at": "2026-10-31T09:25:48.290510+00:00",
+    "pid": 2736005,
+    "workers": 1,
+    "state": "partial",
+    "completed_hours": 1,
+    "target_hours": 4440,
+    "reused_hours": 1,
+    "pending_this_run": 0,
+    "raw_disk_bytes_written": 0,
+    "script_sha256": "cd0c5d245c1cf245c9667a712d041619c7a1ee6521783ddc034f0021f4b63596",
+    "volume_free_at_start_bytes": 6488428462080,
+    "finished_at": "2026-10-31T09:25:48.294872+00:00",
+    "elapsed_this_run_seconds": 0.0018254040041938424,
+    "volume_free_at_end_bytes": 6488428462080
+  }
+}

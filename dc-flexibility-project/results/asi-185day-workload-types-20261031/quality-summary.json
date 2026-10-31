@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-10-31T11:41:44.015300+00:00",
+  "source_hours": 4440,
+  "unresolved_source_hour_indices": [
+    126
+  ],
+  "unresolved_hours": 1,
+  "raw_input_file": "inf-hourly.csv",
+  "raw_input_sha256": "fcb328ec01f38d53b59b262f35550308f4da3c5dd8be7ae4fde0bf029927a9c9",
+  "annotated_file": "inf-hourly-quality.csv",
+  "annotated_sha256": "4b1bb57a7b711d3fed47d616dc116c1dcc930ada24d7e0873c1535c454766f00",
+  "raw_values_preserved_exactly": true,
+  "imputed_hours": 0,
+  "interpretation": "全源申请与归属资源同时为零而 pod 与库存仍非零；保留原值，未确认真实停机",
+  "positive_observations": {
+    "online": {
+      "positive_observed_hour_min": 53777.21188888887,
+      "positive_observed_hour_max": 85975.760166666,
+      "positive_observed_hour_peak_valley": 1.598739636117688
+    },
+    "offline": {
+      "positive_observed_hour_min": 5801.3166666666675,
+      "positive_observed_hour_max": 44320.844777777376,
+      "positive_observed_hour_peak_valley": 7.639790641396471
+    },
+    "combined": {
+      "positive_observed_hour_min": 69793.6022777778,
+      "positive_observed_hour_max": 124677.70416666502,
+      "positive_observed_hour_peak_valley": 1.7863772623520573
+    }
+  },
+  "code_sha256": "3f297432125575dbaf7e06d48bfdecc75cb4ff04ae23cadee05fd78a58c3faaf"
+}

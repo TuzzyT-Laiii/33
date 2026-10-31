@@ -1,0 +1,15 @@
+{
+  "input_file": "inf-hourly-quality.csv",
+  "input_sha256": "4b1bb57a7b711d3fed47d616dc116c1dcc930ada24d7e0873c1535c454766f00",
+  "source_hours": 4440,
+  "source_days": 185,
+  "peak_reference_gpu_hours": 124677.70416666502,
+  "normalization": "online/offline/combined 共用组合推理的观测最高小时归属 GPU 资源量，形状归一化，非物理利用率",
+  "processing_audit_sha256": "a82ffba3b359905feab3cce07f9b5434388bdb1f5258dfc36348f2d2e753af3a",
+  "raw_input_file": "inf-hourly.csv",
+  "raw_input_sha256": "fcb328ec01f38d53b59b262f35550308f4da3c5dd8be7ae4fde0bf029927a9c9",
+  "quality_report_sha256": "d067fa92a5bb5d2cddfa0fc49f9a497e875e24789e59a6b163d886c7b4e18ece",
+  "unresolved_source_hour_indices": [
+    126
+  ]
+}

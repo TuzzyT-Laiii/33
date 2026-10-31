@@ -21,7 +21,7 @@ BASE = "https://tre-clusterdata.oss-cn-hangzhou.aliyuncs.com/cluster-trace-gpu-v
 
 class HTTPRangeFile(io.BufferedIOBase):
     # 这里只实现可定位的 HTTP 传输，ZIP 及 ZIP64 格式统一交给标准库。
-    def __init__(self, url, budget_bytes):
+    def __init__(self, url, budget_bytes, max_range_bytes=512 * 1024**2):
         self.url = url
         self.session = requests.Session()
         response = self.session.head(url, timeout=60)
@@ -34,6 +34,7 @@ class HTTPRangeFile(io.BufferedIOBase):
         self.ranges = []
         self.transferred = 0
         self.budget_bytes = budget_bytes
+        self.max_range_bytes = max_range_bytes
 
     def readable(self):
         return True
@@ -55,7 +56,7 @@ class HTTPRangeFile(io.BufferedIOBase):
         size = min(self.size - self.position, size if size >= 0 else self.size)
         if size <= 0:
             return b""
-        if size > 512 * 1024**2 or self.transferred + size > self.budget_bytes:
+        if size > self.max_range_bytes or self.transferred + size > self.budget_bytes:
             raise ValueError("Range 大小或总传输量超过本次抽样上限")
         start = self.position
         began = time.perf_counter()

@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-31T11:54:22.926157+00:00",
+  "status": "passed",
+  "server_summary_files": 33,
+  "bytes": 13425175,
+  "server_local_sha256_equal": true,
+  "git_index_bytes_equal": true,
+  "python_compile": true,
+  "json_parse": true,
+  "inf_source_hashes": true,
+  "code_sha256": {
+    "stream_asi_185days.py": "d7e572b947bb98508c909f87b7c70be3a2744e9ac69c4db1a895318829d80666",
+    "probe_asi_inference_range.py": "2498289733442eba5982dc1b8cae206fc1464f8e10da2b34fa8833c463b48549",
+    "asi_185days_status.py": "5f567ae400c3026ff034c0e53721844cc32742670788775e8bc8a6b9f1c56b80",
+    "summarize_asi_185days.py": "25af13113a4a1c56a12ece345f81c025e602a0c92de08a75695f635a743ebd0c",
+    "annotate_asi_quality.py": "3f297432125575dbaf7e06d48bfdecc75cb4ff04ae23cadee05fd78a58c3faaf",
+    "asi_inference_profiles.py": "4334d77bdeeb35dcc7aa77ca8608f79558b8852b9ea5e798734a9b393f1a3f7e",
+    "annual_task_profiles.py": "6bf08b1d278d166ab3d0c0e2cb6d94eb552875c555381ccf29b4bb00ac6e01c6",
+    "build_task_annual_loads.py": "0dc2187983854afd0b0569a6a27959902053b60d8c2cb382719e04f13a7e0cad",
+    "build_asi_inference_annual.py": "5fc7a86060d96119058151b3a24c932d696cfd5ad6a3b2d524140d060263a4b8",
+    "finalize_asi_185days.py": "7ee19cdb30389d594d365f2c9d7105b008e689239d7a2711f3fe7bfe1254b837",
+    "verify_asi_stream_sample.py": "d251e7a66439e17c75273d4eee3032aa24fda8974ba4f6327610503b6af9d948",
+    "verify_asi_185days.py": "78fa5c76c73ecf061d161d612c29b3b2427208d70eda4e19b1aa9c668ba05b59",
+    "export_asi_summary.py": "d135177763eced14f71ab8d7cb4101f63ce631d1dc9359561b43042746a63dbb",
+    "audit_asi_execution.py": "c39104411c9a02eff12fdedfcf1e222b32c5a73921167dc5e137380eecd4eed2",
+    "verify_asi_delivery.py": "14b303ad8402fc9b832a8d0fd0ad79b707eb4a36f366b415606032ecf125a4e4",
+    "launch_asi_185days.sh": "606192375ec3eff07f46da74ed4262f1d81cad6569a290450351aa796414e52f"
+  },
+  "historical_code_versions": [
+    "8ce7238",
+    "83ea075"
+  ],
+  "scope": "原始处理与首次年度重放的代码指纹见 processing-audit；质量传播后的当前源码指纹见本记录"
+}

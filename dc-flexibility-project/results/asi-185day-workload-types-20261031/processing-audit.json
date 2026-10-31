@@ -1,0 +1,194 @@
+{
+  "checked_at": "2026-10-31T11:28:29.113994+00:00",
+  "state": {
+    "run_started_at": "2026-10-31T10:24:39.471750+00:00",
+    "pid": 3076790,
+    "workers": 16,
+    "state": "complete",
+    "completed_hours": 4440,
+    "target_hours": 4440,
+    "reused_hours": 2198,
+    "pending_this_run": 2242,
+    "raw_disk_bytes_written": 0,
+    "script_sha256": "d7e572b947bb98508c909f87b7c70be3a2744e9ac69c4db1a895318829d80666",
+    "volume_free_at_start_bytes": 6484141465600,
+    "last_completed": {
+      "index": 4439,
+      "day": 184,
+      "hour": 23,
+      "finished_at": "2026-10-31T11:25:40.790184+00:00",
+      "seconds": 23.88382999098394,
+      "range_bytes": {
+        "pod_hourly": 88785642,
+        "server_hourly": 859566
+      },
+      "worker_peak_rss_kib": 1232220
+    },
+    "updated_at": "2026-10-31T11:25:40.831779+00:00",
+    "elapsed_this_run_seconds": 3662.5884758649627,
+    "jobs_complete": true,
+    "finished_at": "2026-10-31T11:25:42.094775+00:00",
+    "volume_free_at_end_bytes": 6481668415488
+  },
+  "objects": {
+    "pod_hourly": {
+      "url": "https://tre-clusterdata.oss-cn-hangzhou.aliyuncs.com/cluster-trace-gpu-v2026/data/asi_opensource_pod_hourly.zip",
+      "etag": "\"092823B8D7C37992AF1BB732C8865E58-400\"",
+      "bytes": 351803513445,
+      "members": 4440,
+      "central_directory_range_bytes": 512078
+    },
+    "server_hourly": {
+      "url": "https://tre-clusterdata.oss-cn-hangzhou.aliyuncs.com/cluster-trace-gpu-v2026/data/asi_opensource_server_hourly.zip",
+      "etag": "\"EAD6B2EC97633BFF060F8019B8EA28C8-368\"",
+      "bytes": 3080121387,
+      "members": 4440,
+      "central_directory_range_bytes": 490778
+    },
+    "job_execution_summary": {
+      "url": "https://tre-clusterdata.oss-cn-hangzhou.aliyuncs.com/cluster-trace-gpu-v2026/data/asi_opensource_job_execution_summary.zip",
+      "etag": "\"19C10452429092949CC044ED5FE3FCEB-284\"",
+      "bytes": 1188295031,
+      "members": 1,
+      "central_directory_range_bytes": 141
+    }
+  },
+  "environment": {
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "pyarrow": "20.0.0",
+    "requests": "2.34.2"
+  },
+  "code_sha256": {
+    "stream_asi_185days.py": "d7e572b947bb98508c909f87b7c70be3a2744e9ac69c4db1a895318829d80666",
+    "probe_asi_inference_range.py": "2498289733442eba5982dc1b8cae206fc1464f8e10da2b34fa8833c463b48549",
+    "summarize_asi_185days.py": "25af13113a4a1c56a12ece345f81c025e602a0c92de08a75695f635a743ebd0c",
+    "annual_task_profiles.py": "4b1fd402036624d885214aba345baa1b6a4e3e3abf5c830dd8fc9787677cafb1",
+    "asi_inference_profiles.py": "e2f6644975940eab05523de07e8fa0665c6cf22cdb88c8185163542f0709b52d",
+    "build_asi_inference_annual.py": "3037f97549ff8e84cbf61487370f8cc1c1546286feca7c510f89ba75a51136b7"
+  },
+  "days": 185,
+  "hours": 4440,
+  "hourly_members": 8880,
+  "job_members": 1,
+  "pod_rows": 6570124684,
+  "execution_span_rows": 40522321,
+  "successful_http_range_bytes": 356100010415,
+  "range_byte_scope": "committed checkpoints and planning; excludes independent validation and interrupted in-flight reads",
+  "full_background_started_at": "2026-10-31T09:25:50.756684+00:00",
+  "full_background_elapsed_seconds": 7191.338091,
+  "run_starts": [
+    {
+      "run_started_at": "2026-10-31T09:24:50.628951+00:00",
+      "pid": 2731623,
+      "workers": 1,
+      "state": "running",
+      "completed_hours": 0,
+      "target_hours": 4440,
+      "reused_hours": 0,
+      "pending_this_run": 1,
+      "raw_disk_bytes_written": 0,
+      "script_sha256": "cd0c5d245c1cf245c9667a712d041619c7a1ee6521783ddc034f0021f4b63596",
+      "volume_free_at_start_bytes": 6488428642304
+    },
+    {
+      "run_started_at": "2026-10-31T09:25:48.290510+00:00",
+      "pid": 2736005,
+      "workers": 1,
+      "state": "running",
+      "completed_hours": 1,
+      "target_hours": 4440,
+      "reused_hours": 1,
+      "pending_this_run": 0,
+      "raw_disk_bytes_written": 0,
+      "script_sha256": "cd0c5d245c1cf245c9667a712d041619c7a1ee6521783ddc034f0021f4b63596",
+      "volume_free_at_start_bytes": 6488428462080
+    },
+    {
+      "run_started_at": "2026-10-31T09:25:50.756684+00:00",
+      "pid": 2736323,
+      "workers": 8,
+      "state": "running",
+      "completed_hours": 1,
+      "target_hours": 4440,
+      "reused_hours": 1,
+      "pending_this_run": 4439,
+      "raw_disk_bytes_written": 0,
+      "script_sha256": "cd0c5d245c1cf245c9667a712d041619c7a1ee6521783ddc034f0021f4b63596",
+      "volume_free_at_start_bytes": 6488428453888
+    },
+    {
+      "run_started_at": "2026-10-31T10:24:39.471750+00:00",
+      "pid": 3076790,
+      "workers": 16,
+      "state": "running",
+      "completed_hours": 2198,
+      "target_hours": 4440,
+      "reused_hours": 2198,
+      "pending_this_run": 2242,
+      "raw_disk_bytes_written": 0,
+      "script_sha256": "d7e572b947bb98508c909f87b7c70be3a2744e9ac69c4db1a895318829d80666",
+      "volume_free_at_start_bytes": 6484141465600
+    }
+  ],
+  "control_restarts": [
+    {
+      "at": "2026-10-31T10:22:23.204994+00:00",
+      "reason": "worker_count_8_to_16_on_shared_cpu_host",
+      "previous_status": {
+        "run_started_at": "2026-10-31T09:25:50.756684+00:00",
+        "pid": 2736323,
+        "workers": 8,
+        "state": "running",
+        "completed_hours": 2198,
+        "target_hours": 4440,
+        "reused_hours": 1,
+        "pending_this_run": 4439,
+        "raw_disk_bytes_written": 0,
+        "script_sha256": "cd0c5d245c1cf245c9667a712d041619c7a1ee6521783ddc034f0021f4b63596",
+        "volume_free_at_start_bytes": 6488428453888,
+        "last_completed": {
+          "index": 2197,
+          "day": 91,
+          "hour": 13,
+          "finished_at": "2026-10-31T10:22:07.016974+00:00",
+          "seconds": 52.31411190703511,
+          "range_bytes": {
+            "pod_hourly": 103510983,
+            "server_hourly": 627864
+          },
+          "worker_peak_rss_kib": 1132792
+        },
+        "updated_at": "2026-10-31T10:22:07.121654+00:00",
+        "elapsed_this_run_seconds": 3376.36302831606,
+        "jobs_complete": true
+      },
+      "process_group": 2736323,
+      "signal": "SIGTERM",
+      "source_code_commit": "8ce7238",
+      "in_flight_member_bytes": "not measured; uncommitted members may be reread"
+    }
+  ],
+  "member_payload_bytes": 356070137323,
+  "maximum_hourly_retry_counter": 1,
+  "failed_attempt_partial_bytes": "not measured; inspect run.log if a retry occurred",
+  "max_worker_peak_rss_bytes": 10103226368,
+  "raw_disk_bytes_written": 0,
+  "resumed_hours": 2198,
+  "baseline_endpoint_hours_verified": 48,
+  "group_gpu_hour_conservation": true,
+  "duration_histogram_conservation": true,
+  "attribution_above_inventory_hours": 409,
+  "max_attributed_share_of_inventory": 1.0496945441711185,
+  "request_above_inventory_hours": 4293,
+  "max_requested_share_of_inventory": 1.3769356874564915,
+  "missing_gpu_hours_rows": 0,
+  "missing_gpu_request_rows": 0,
+  "missing_workload_rows": 2513855734,
+  "hour_pod_rows_minus_distinct_sum": 6987,
+  "attributed_outside_positive_request_gpu_hours": -5.595866241492331e-06,
+  "hours_with_material_attribution_outside_positive_requests": 0,
+  "checkpoint_total_bytes": 481798134
+}
