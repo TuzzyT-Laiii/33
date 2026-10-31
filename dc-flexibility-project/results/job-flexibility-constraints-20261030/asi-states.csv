@@ -1,0 +1,9 @@
+class,state,pod_hour_observations,used_gpu_hours
+dev,Unknown,39956,115298.62238888888
+offline_inference,Standby,97,96.72222222222221
+offline_inference,Unknown,938273,692881.0019444441
+online_inference,Standby,89562,62433.441388888896
+online_inference,Unknown,1520011,1472351.555722222
+other,Unknown,5444,43738.23333333334
+training,Unknown,211151,702571.4527777777
+unknown,Unknown,12054,9365.626833333332

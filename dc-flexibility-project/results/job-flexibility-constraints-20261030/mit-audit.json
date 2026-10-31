@@ -1,0 +1,100 @@
+{
+  "created_at_utc": "2026-10-30T15:43:46.533459+00:00",
+  "inputs": [
+    {
+      "path": "D:\\mit-supercloud-gpu-summary-20261028\\reference\\slurm-log.csv",
+      "bytes": 103165427,
+      "mtime_ns": 1793193849898072100,
+      "sha256": "27259e5b8e6daecd80b7853126af40ba759bc25edc9053fc174ef7a4f186aa01"
+    },
+    {
+      "path": "D:\\mit-supercloud-gpu-summary-20261028\\reference\\tres-mapping.txt",
+      "bytes": 111,
+      "mtime_ns": 1793193921199858800,
+      "sha256": "4897c5cf1575664217f93d9c66cda3c06cae9d90f827a5dadc5483044dd64a51"
+    },
+    {
+      "path": "D:\\mit-supercloud-gpu-summary-20261028\\reference\\README.md",
+      "bytes": 7616,
+      "mtime_ns": 1793193850582182200,
+      "sha256": "915b12d2110266fe4cad8a8d0f831f75d3ae08cf9ba42d106ac82a5a5f84c771"
+    },
+    {
+      "path": "D:\\mit-supercloud-gpu-summary-20261028\\reference\\LICENSE",
+      "bytes": 285,
+      "mtime_ns": 1793194585736859100,
+      "sha256": "a68e8239ee146c3e58c8988b66b176708310d2595095bf8d16ebb65da728dd0f"
+    }
+  ],
+  "details": {
+    "MIT_Supercloud": {
+      "rows": 395914,
+      "raw_schema": [
+        "id_job",
+        "id_array_job",
+        "id_array_task",
+        "id_user",
+        "kill_requid",
+        "nodes_alloc",
+        "nodelist",
+        "cpus_req",
+        "derived_ec",
+        "exit_code",
+        "gres_used",
+        "array_max_tasks",
+        "array_task_pending",
+        "constraints",
+        "flags",
+        "mem_req",
+        "partition",
+        "priority",
+        "state",
+        "timelimit",
+        "time_submit",
+        "time_eligible",
+        "time_start",
+        "time_end",
+        "time_suspended",
+        "track_steps",
+        "tres_alloc",
+        "tres_req",
+        "job_type"
+      ],
+      "gpu_requested_rows": 98176,
+      "valid_gpu_execution_rows": 98176,
+      "independent_cpu_rows": 297738,
+      "no_gpu_request_but_gpu_allocation_rows": 1168,
+      "invalid_runtime_rows": 0,
+      "preempted_base_state_rows": 0,
+      "requeue_flag_rows": 1,
+      "requeue_flag_gpu_requested_rows": 1,
+      "requeue_flag_valid_execution_rows": 1,
+      "nonzero_time_suspended_rows": 0,
+      "explicit_requeue_column_present": false,
+      "array_member_rows": 210365,
+      "distinct_arrays": 9878,
+      "duplicate_user_array_task_keys": 0,
+      "array_scope": "按id_array_task排除Slurm NO_VAL后统计；数组成员不等于同一训练任务的恢复段",
+      "state_numeric_source": "SchedMD slurm-20-11-9-1/slurm/slurm.h.in；实际采集版本未公开，按兼容定义解码",
+      "checkpoint_fields": [],
+      "first_submit_epoch_s": 1609535703,
+      "last_end_epoch_s": 1633101131,
+      "labelled_jobids_present": false
+    },
+    "MIT_telemetry_context": {
+      "path": "D:\\mit-supercloud-gpu-summary-20261028\\aggregates\\current\\summary.json",
+      "sha256": "360f5150c6512023ea001522c3f7f1efa035307e8c9ee4b5f1b35ce64aef9a8b",
+      "snapshot_created_at": "2026-10-28T15:32:07.698034+00:00",
+      "completed_files": 113,
+      "scope": "仅读取既有汇总；未打开数据库，未改写current；闲置/功率波动不能归因为RL或可释放资源"
+    }
+  },
+  "analysis_sha256": "7556eb319131845030877586a5cda963da5cfb4f425421b06ea5c1355d9e8608",
+  "software": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.1",
+    "pyarrow": "16.1.0"
+  },
+  "input_metadata_unchanged": true,
+  "privacy": "仅输出聚合；不输出作业、用户、pod、workload、节点标识及逐作业时间"
+}

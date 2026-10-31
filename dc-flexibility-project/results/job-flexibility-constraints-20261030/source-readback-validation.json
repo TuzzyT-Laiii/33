@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-31T05:45:25.558292+00:00",
+  "server_aggregate_hash_matches": [
+    "asi-classes.csv",
+    "asi-inventory.csv",
+    "asi-presence.csv",
+    "asi-priorities.csv",
+    "asi-states.csv",
+    "asi-workload-scales.csv",
+    "server-audit.json",
+    "server-classes.csv",
+    "server-durations.csv",
+    "server-scales.csv",
+    "server-states.csv",
+    "asi-model-type-priority.csv",
+    "asi-training-model-audit.json",
+    "asi-training-model-types.csv"
+  ],
+  "server_input_metadata_matches": 50,
+  "mit_input_hash_matches": 4,
+  "scope": "只读源文件及本次聚合；未操作采集或整理进程"
+}

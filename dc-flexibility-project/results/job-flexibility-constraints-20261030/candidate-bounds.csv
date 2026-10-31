@@ -1,0 +1,10 @@
+dataset,screen,candidate_resource_hours,resource_pool_hours,candidate_ceiling_fraction,verified_dispatchable_lower_fraction,source_type,interpretation
+Alibaba_ASI_day109,LP_training_and_offline,704602.9130555555,3098736.6566111115,0.22738392807671962,0,本数据聚合+分类筛选定义,作为低优先级可回收候选的筛选上界；checkpoint、恢复和期限仍未知
+Alibaba_ASI_day109,all_training_and_offline,1395549.1769444442,3098736.6566111115,0.45036068940129503,0,本数据聚合+分类筛选定义,若追加HP/Other业务授权审阅时的类型候选上界；不代表已知允许延期
+Alibaba_ASI_day109,LP_within_training,48585.275,702571.4527777778,0.06915350005740618,0,本数据聚合+分类筛选定义,同类型内LP份额；技术可恢复率未知
+Alibaba_ASI_day109,LP_within_offline_inference,656017.6380555555,692977.7241666666,0.9466648279992592,0,本数据聚合+分类筛选定义,同类型内LP份额；技术可恢复率未知
+Acme_Kalos,pretrain,1378184.1266666667,1442404.5538888888,0.955476827184803,0,本数据聚合+分类筛选定义,整作业延后或完整gang暂停的类型上界；有效截止时间和checkpoint未知
+Acme_Kalos,pretrain_observed_runtime_ge1h,1334079.0066666668,1442404.5538888888,0.9248993308221581,0,本数据聚合+分类筛选定义,运行至少一小时的预训练资源份额；连续段最短长度仍须另设
+Acme_Kalos,eval_and_sft,6844.853055555555,1442404.5538888888,0.00474544609353946,0,本数据聚合+分类筛选定义,整作业启动延后候选；训练反馈依赖和真实期限未知
+MIT_Supercloud,batch_and_map_gpu_hours,323920.9288888889,1460190.664166667,0.2218346801126489,0,本数据聚合+分类筛选定义,仅明确批处理和Map提交方式的筛选上界；OTHER不据此推定用途
+MIT_Supercloud,batch_and_map_independent_slurm_cpu_hours,4494270.093055556,16732302.274722224,0.26859842831342623,0,本数据聚合+分类筛选定义,仅明确批处理和Map提交方式的筛选上界；OTHER不据此推定用途
