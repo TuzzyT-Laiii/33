@@ -127,4 +127,4 @@ dc-flexibility-project/results/job-flexibility-constraints-20261030/** -text whi
 
 # 典型日脚本与聚合成果保持跨系统可核验的字节和指纹。
 dc-flexibility-project/analysis/*scenario_typical_days.py text eol=lf
-dc-flexibility-project/results/scenario-typical-day-by-task-20261031/** -text
+dc-flexibility-project/results/scenario-typical-day-by-task-20261031/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
