@@ -1,0 +1,119 @@
+{
+  "checked_at_utc": "2026-10-31T12:47:24.999184+00:00",
+  "root_free_bytes": 28071743488,
+  "shared_free_bytes": 6481590128640,
+  "root_floor_bytes": 37580963840,
+  "root_floor_met": false,
+  "task_storage": "系统盘既有压缩包只读；汇总、恢复点和日志写共享卷",
+  "late_run_observations": [
+    {
+      "checked_at_utc": "2026-10-31T12:19:31.439895+00:00",
+      "root_free_bytes": 29087703040
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:20:37.822821+00:00",
+      "root_free_bytes": 29059395584
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:21:52.851578+00:00",
+      "root_free_bytes": 29033508864
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:23:01.877490+00:00",
+      "root_free_bytes": 29023707136
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:24:01.432533+00:00",
+      "root_free_bytes": 28982202368
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:25:05.524755+00:00",
+      "root_free_bytes": 28835225600
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:26:05.301846+00:00",
+      "root_free_bytes": 28770025472
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:27:08.080054+00:00",
+      "root_free_bytes": 28637257728
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:28:07.518952+00:00",
+      "root_free_bytes": 28626079744
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:29:13.219925+00:00",
+      "root_free_bytes": 28603170816
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:30:25.716032+00:00",
+      "root_free_bytes": 28566052864
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:31:25.345005+00:00",
+      "root_free_bytes": 28548911104
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:32:18.925900+00:00",
+      "root_free_bytes": 28532305920
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:33:25.199782+00:00",
+      "root_free_bytes": 28503650304
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:34:38.329938+00:00",
+      "root_free_bytes": 28463763456
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:35:37.603619+00:00",
+      "root_free_bytes": 28434403328
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:36:32.908716+00:00",
+      "root_free_bytes": 28415176704
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:37:37.468635+00:00",
+      "root_free_bytes": 28380471296
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:38:50.099529+00:00",
+      "root_free_bytes": 28357206016
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:39:49.301616+00:00",
+      "root_free_bytes": 28328136704
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:40:52.556832+00:00",
+      "root_free_bytes": 28294590464
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:41:56.478634+00:00",
+      "root_free_bytes": 28271783936
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:42:53.211518+00:00",
+      "root_free_bytes": 28251017216
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:43:55.131698+00:00",
+      "root_free_bytes": 28171247616
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:45:02.059666+00:00",
+      "root_free_bytes": 28132782080
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:46:09.726756+00:00",
+      "root_free_bytes": 28106280960
+    },
+    {
+      "checked_at_utc": "2026-10-31T12:47:03.227964+00:00",
+      "root_free_bytes": 28080513024
+    }
+  ],
+  "minimum_late_run_root_free_bytes": 28071743488
+}

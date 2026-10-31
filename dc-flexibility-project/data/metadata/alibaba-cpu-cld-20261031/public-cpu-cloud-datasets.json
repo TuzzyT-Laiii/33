@@ -1,0 +1,264 @@
+{
+  "checked_date": "2026-10-31",
+  "scope": "官方发布页、官方数据仓库、作者论文及作者存档；大文件只核对元数据，不下载",
+  "year_rule": "区分采集年和发布/版本年；未披露采集日期时保留未知",
+  "searches": [
+    "Alibaba clusterdata all releases after 2018 CPU machine utilization",
+    "Google ClusterData 2019 Borg eight cells PowerData2019",
+    "Azure Public Dataset VM 2017 2019 2020 2024 CPU utilization",
+    "Huawei Cloud serverless data release 2023 2025 CPU usage",
+    "Tencent cloud CPU utilization trace public dataset",
+    "public datacenter CPU utilization workload dataset 2023 2024 2025 SAP",
+    "Tencent public cloud trace CPU utilization dataset; Tencent serverless dataset CPU usage",
+    "ByteDance public datacenter CPU workload trace dataset; CloudTimeSeriesData CPU paper",
+    "Baidu public cloud machine CPU utilization trace dataset"
+  ],
+  "datasets": [
+    {
+      "id": "alibaba-cpu-2018", "release_year": 2018, "collection_year": null,
+      "duration": "8 日", "scale": "官方约 4000 台；本次核验 4034 台",
+      "resolution": "秒时间戳，监测位于 10 秒时间格；实际存在缺口", "cpu": "机器利用率、核数；容器利用率与请求；实例平均/最大 CPU",
+      "power": "无", "business": "在线服务与离线批处理混部", "license": "官方允许研究和学习；无明确标准数据许可证",
+      "size": "六份压缩包合计 52320410918 字节；四小表 1907417361 字节，两大表 50412993557 字节",
+      "access": "官方 OSS HTTP，fetchData.sh；四小表在共享卷，两大表复用系统盘缓存并流式解压聚合", "cld_fit": "主数据：真实混部机器 CPU，许可和字段解释须随结果保留",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-v2018/trace_2018.md"
+    },
+    {
+      "id": "alibaba-microservices-2021", "release_year": 2021, "collection_year": 2021,
+      "duration": "12 小时", "scale": "1300+ 节点的 CPU 表；90000+ 容器；全调用图 20000+ 微服务",
+      "resolution": "机器 30 秒；容器 60 秒", "cpu": "有机器和容器 CPU 利用率；未配套核数表", "power": "无",
+      "business": "生产微服务与混部环境", "license": "Alibaba program 研究/学习条款；无明确标准数据许可证",
+      "size": "node 1.1 Gi；其余目录 25/16/19 Gi，官方未统一解释解压状态", "access": "官方 fetchData.sh 与 OSS",
+      "cld_fit": "可以核验短期 CPU 形状；缺完整日，无法提供周内或年度需求代表性",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-microservices-v2021/README.md"
+    },
+    {
+      "id": "alibaba-microservices-2022", "release_year": 2022, "collection_year": 2022,
+      "duration": "13 日", "scale": "40000+ 节点、470000+ 容器、28000+ 微服务",
+      "resolution": "机器和容器 60 秒", "cpu": "有机器和容器 CPU；官方声明做过 min-max 归一化，未发布还原参数及机器核数", "power": "无",
+      "business": "生产微服务与混部环境", "license": "Alibaba program 研究/学习条款；无明确标准数据许可证",
+      "size": "全量约 2 TB；Node 压缩约 10 MiB/小时，即 13 日约 3.05 GiB（据官方小时量估算）",
+      "access": "官方 fetchData.sh 可按时间获取 NodeMetricsUpdate 分片；本次只读脚本",
+      "cld_fit": "较新中国云负载的形状对照；归一化值不可直接当作物理 CPU 份额或占用核小时",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-microservices-v2022/README.md"
+    },
+    {
+      "id": "alibaba-amtrace-2022", "release_year": 2022, "collection_year": null,
+      "duration": "README 未明确，未将版本年份当作采集年份", "scale": "原始 8577 台、约 98 万容器；公开抽样 1000 台",
+      "resolution": "按秒时间戳的容器×逻辑 CPU PMU；README 未明确采样间隔", "cpu": "instructions、cycles、ref_cycles、核数及 CPU 类型；无直接机器 CPU 利用率列", "power": "无",
+      "business": "延迟敏感在线业务与批处理混部", "license": "Alibaba program 研究/学习条款；无明确标准数据许可证",
+      "size": "公开抽样约 300 GB；原始超过 2 TB", "access": "官方 get_data.sh",
+      "cld_fit": "支持 CPU 微架构和争用研究；换算整机核小时需要采样窗口、频率及 PMU 覆盖验证",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-microarchitecture-v2022/README.md"
+    },
+    {
+      "id": "alibaba-gpu-2020", "release_year": 2020, "collection_year": 2020,
+      "duration": "7—8 月，两个月", "scale": "约 1800 台、6500+ GPU",
+      "resolution": "按实例生命期平均；秒时间戳", "cpu": "机器 CPU 总量与 user/kernel/iowait；按实例生命期平均，缺独立连续机器监测", "power": "无",
+      "business": "PAI 训练与推理", "license": "CC BY 4.0；该子目录 LICENSE 明确，不推广到其他版本",
+      "size": "各表官方压缩量约 53+663+60+198+388+34 MiB，加约 32 KiB 规格表",
+      "access": "官方 OSS 各表 URL", "cld_fit": "可研究 AI 作业宿主 CPU；同机多实例平均值会重叠，不能直接相加作为 A-CLD",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-gpu-v2020/README.md"
+    },
+    {
+      "id": "alibaba-gpu-2023", "release_year": 2023, "collection_year": null,
+      "duration": "README 未给完整观测窗口", "scale": "1523 个全部节点；8152 个默认任务；GPU 子集约 1200 台",
+      "resolution": "任务创建/调度/删除事件，秒", "cpu": "CPU 库存与请求，无连续 CPU 利用率", "power": "无",
+      "business": "异构 GPU 调度", "license": "Alibaba program 研究/学习条款；子项目另有代码许可时不自动推广到数据",
+      "size": "仓库 26 份 CSV 合计 12838024 字节，含不同配置变体；来源树元数据已登记", "access": "官方仓库 csv/",
+      "cld_fit": "CPU-only 子集仍来自 GPU 调度样本；资源请求不足以替代通用云 CPU 利用率",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-gpu-v2023/README.md"
+    },
+    {
+      "id": "alibaba-gpu-2025", "release_year": 2025, "collection_year": null,
+      "duration": "README 未明确", "scale": "156 个服务，23871 个实例，其中 16485 个 CPU 节点实例",
+      "resolution": "实例事件，秒", "cpu": "CPU request/limit，有 CPU 节点；无实际 CPU 利用率", "power": "无",
+      "business": "GPU 解耦推荐模型推理", "license": "Alibaba program 研究/学习条款；无明确标准数据许可证",
+      "size": "仓库 CSV 为 2118900 字节", "access": "disaggregated_DLRM_trace.csv",
+      "cld_fit": "CPU 节点服务于推荐推理，缺实测 CPU 需求，不能仅凭节点名称替代 A-CLD",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-gpu-v2025/README.md"
+    },
+    {
+      "id": "alibaba-asi-2026", "release_year": 2026, "collection_year": null,
+      "duration": "185 个相对日", "scale": "峰值 155410 GPU、37707 GPU 服务器",
+      "resolution": "小时；网络仅相对日 109—115", "cpu": "pod 的 cpu_request_cores、avg_cpu_request_util（相对请求）；server 表有 cpu_capacity_cores，无整机 CPU 活跃利用率", "power": "未见实测功率表",
+      "business": "开发、训练、在线/离线 AI 推理", "license": "Alibaba program 研究/学习条款；无明确标准数据许可证",
+      "size": "四个 ZIP 分别 351803513445、3080121387、203904100、1188295031 字节",
+      "access": "官方 tre-clusterdata OSS 与 schema 文档", "cld_fit": "适合 AI 用途；不代表纯 CPU 云通用计算",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-gpu-v2026/README.md"
+    },
+    {
+      "id": "alibaba-gentd26", "release_year": 2026, "collection_year": null,
+      "duration": "README 未明确；匿名示例日期不代表采集日期", "scale": "README 未明确节点总量",
+      "resolution": "事件/原始采样，按秒匿名时间戳", "cpu": "公开表有容器内存、GPU duty cycle，未见 CPU 利用率表", "power": "无",
+      "business": "Stable Diffusion 生成式图像推理", "license": "Alibaba program 研究/学习条款；无明确标准数据许可证",
+      "size": "仓库请求样例 CSV 为 2012418 字节；全量监测数据大小未汇总", "access": "官方仓库列出的匿名 CSV",
+      "cld_fit": "适合生成式 AI 服务过程；缺机器 CPU 需求",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-v2026-GenAI/README.md"
+    },
+    {
+      "id": "alibaba-maas-2026", "release_year": 2026, "collection_year": null,
+      "duration": "日表相对日 0—181，缺 172；周表为日 140—146", "scale": "研究覆盖 56 个集群、超过 100000 GPU",
+      "resolution": "日、5 分钟、应用小时；5 分钟由 20 秒记录汇总", "cpu": "日/周实例表 cpu_usage 为平均占用核数；无纯 CPU 通用云整机时序", "power": "未见实测功率表",
+      "business": "在线/离线 LLM 推理", "license": "Alibaba program 研究/学习条款；无明确标准数据许可证",
+      "size": "ZIP 10528173427、4812189789、99947 字节",
+      "access": "官方 tre-clusterdata OSS；本次只读 README/schema/下载说明", "cld_fit": "适用于推理服务用途，无法替代 A-CLD",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-v2026-maas/README.md"
+    },
+    {
+      "id": "alibaba-spot-gpu-2026", "release_year": 2026, "collection_year": null,
+      "duration": "README 未明确", "scale": "4278 个 GPU 节点、6 种 GPU 类型",
+      "resolution": "作业提交/运行时长，秒", "cpu": "CPU 库存和请求，未见 CPU 利用率", "power": "无",
+      "business": "高优先级与 spot AI 作业", "license": "Alibaba program 研究/学习条款；无明确标准数据许可证",
+      "size": "两个 CSV 合计 23134259 字节（23055929＋78330）", "access": "node_info_df.csv、job_info_df.csv",
+      "cld_fit": "可以研究 spot GPU 调度；不能替代通用 CPU 云",
+      "url": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-v2026-spot-gpu/README.md"
+    },
+    {
+      "id": "google-borg-2019", "release_year": 2020, "collection_year": 2019,
+      "duration": "2019 年 5 月，一个月", "scale": "8 个 Borg cell；README 未给整月唯一机器总数",
+      "resolution": "5 分钟资源使用分布及事件", "cpu": "CPU 请求、使用直方图、机器事件；归一化资源须按 v3 定义处理", "power": "独立 PowerData2019 可关联",
+      "business": "Google 内部混合生产/非生产业务；并非客户公有云 VM 样本", "license": "CC BY 4.0",
+      "size": "约 2.4 TiB 压缩等价数据", "access": "BigQuery 查询后仅导出小时汇总；可能产生查询费用",
+      "cld_fit": "主要跨厂商混部对照，窗口长于 Alibaba；不能将归一化 CPU 单位直接称为物理核",
+      "url": "https://github.com/google/cluster-data/blob/master/ClusterData2019.md"
+    },
+    {
+      "id": "google-power-2019", "release_year": 2024, "collection_year": 2019,
+      "duration": "从 2019-05-01 PT 开始一个月", "scale": "10 个集群、57 个电力域，其中 8 个 cell 可关联 Borg",
+      "resolution": "5 分钟", "cpu": "通过 machine→PDU 映射关联 Borg", "power": "总功率/容量比；production 部分为估计，包含机房地板冷却用电；无绝对容量",
+      "business": "生产数据中心电力域", "license": "CC BY 4.0",
+      "size": "官方 README/PDF 未汇总文件字节数", "access": "BigQuery 或 gs://powerdata_2019/ 压缩 CSV",
+      "cld_fit": "用于资源与电力形状的对照，不能当作纯 IT 瓦数或实测生产业务功率",
+      "url": "https://github.com/google/cluster-data/blob/master/PowerData2019.md"
+    },
+    {
+      "id": "azure-vm-2017", "release_year": 2017, "collection_year": null,
+      "duration": "30 个连续日", "scale": "2013767 VM、5958 个 subscription",
+      "resolution": "5 分钟", "cpu": "VM CPU min/max/mean、vCPU 数和生命期", "power": "无",
+      "business": "单个地理区域内 first-party Azure VM 工作负载子集", "license": "数据 CC BY 4.0；代码 MIT",
+      "size": "78.5 GB 压缩、117 GB 解压、128 文件", "access": "官方 Azure Blob URL 列表",
+      "cld_fit": "通用云 VM 对照；vCPU 与物理核心、宿主空闲和系统开销需另行处理",
+      "url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzurePublicDatasetV1.md"
+    },
+    {
+      "id": "azure-vm-2019", "release_year": 2019, "collection_year": null,
+      "duration": "30 个连续日", "scale": "2695548 VM、6687 个 subscription",
+      "resolution": "5 分钟", "cpu": "VM CPU min/max/mean；vCPU 数量分桶，须保留桶区间", "power": "无",
+      "business": "单个地理区域内 first-party Azure VM 工作负载子集", "license": "数据 CC BY 4.0；代码 MIT",
+      "size": "156 GB 压缩、235 GB 解压、198 文件", "access": "官方 Azure Blob URL 列表",
+      "cld_fit": "云通用计算的 VM 层对照；分桶限制精确核小时，不能直接重建宿主机器负荷",
+      "url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzurePublicDatasetV2.md"
+    },
+    {
+      "id": "azure-packing-2020", "release_year": 2020, "collection_year": null,
+      "duration": "14 日收集，历史生命期尾部最多至相对日 90", "scale": "一个 zone，README 未列 VM 总量",
+      "resolution": "VM 生命期事件；时间为小数日", "cpu": "VM 类型 CPU 申请量，以机器份额表示；无实际 CPU 利用率", "power": "无",
+      "business": "VM 放置与高/低优先级分配", "license": "CC BY 4.0",
+      "size": "发布页 README 未列大小", "access": "GitHub release ZIP 内 SQLite 数据库",
+      "cld_fit": "适合配置与容量研究；仅请求量不足以作为实际 CPU 需求",
+      "url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzureTracesForPacking2020.md"
+    },
+    {
+      "id": "azure-vm-noise-2024", "release_year": 2025, "collection_year": "2023—2024",
+      "duration": "483 日", "scale": "12 个长驻 VM、43617 个短驻 VM；两种 SKU",
+      "resolution": "每次基准测试结果；平均测试套件约 130 分钟", "cpu": "CPU 等基准性能指标；无生产机器 CPU 利用率连续需求", "power": "无",
+      "business": "受控性能与噪声实验", "license": "CC BY 4.0",
+      "size": "277 MB、1520 文件", "access": "官方仓库 vm-noise-data/",
+      "cld_fit": "可以研究云性能波动；不适合作为生产负荷需求来源",
+      "url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzureVMNoiseDataset2024.md"
+    },
+    {
+      "id": "huawei-private-faas-2023", "release_year": 2023, "collection_year": null,
+      "duration": "141 个有数据日，跨 235 日；论文概述与 README 的日数口径不同，以 README 为准",
+      "scale": "200 个内部函数，合并多个可用区", "resolution": "CPU/内存/限制/实例数为 1 分钟；调用与延迟有秒级",
+      "cpu": "每函数 CPU 使用百分比与归一化 CPU limit；无机器核数和全机负荷", "power": "无",
+      "business": "私有云生产 FaaS", "license": "CC BY 4.0（官方仓库总 README 明确）",
+      "size": "README 未汇总，按指标通过 Google Drive 提供", "access": "官方 SIR lab README 的 Google Drive 链接",
+      "cld_fit": "国内较新 serverless 子用途对照；有长时间缺口和归一化容量，不能代替整机总 CPU",
+      "url": "https://github.com/sir-lab/data-release/blob/main/README_data_release_2023.md"
+    },
+    {
+      "id": "huawei-public-faas-2023", "release_year": 2023, "collection_year": null,
+      "duration": "26 日", "scale": "5093 个函数、一个可用区，按官方 README；论文写 5019，保留差异",
+      "resolution": "1 分钟", "cpu": "公开表只有请求计数，未公开 CPU 使用率", "power": "无",
+      "business": "面向客户的 FaaS", "license": "CC BY 4.0（官方仓库总 README 明确）",
+      "size": "README 未列大小", "access": "官方 Google Drive 链接",
+      "cld_fit": "请求形状可以作业务对照；缺 CPU 服务需求换算依据",
+      "url": "https://github.com/sir-lab/data-release/blob/main/README_data_release_2023.md"
+    },
+    {
+      "id": "huawei-public-faas-2025", "release_year": 2025, "collection_year": null,
+      "duration": "冷启动和聚合时序 31 日；详细请求子集 1 日", "scale": "5 个区域；官方总说明报告约 850 亿请求",
+      "resolution": "请求事件；每函数每分钟 avg/std/分位数", "cpu": "cpu_usage 为请求执行期间整个 pod 的平均 CPU 核数；分钟摘要也有 CPU 字段，另有 request/limit 配置", "power": "无",
+      "business": "FaaS 冷启动和请求处理", "license": "CC BY 4.0（官方仓库总 README 明确）",
+      "size": "README 未汇总，按区域/文件提供", "access": "官方 SIR lab Google Drive 链接",
+      "cld_fit": "较新国内 FaaS CPU 使用对照；并发请求的 pod 平均量会重叠，分钟摘要不是全机平均，不能直接相加当作集群 CPU 需求",
+      "url": "https://github.com/sir-lab/data-release/blob/main/README_data_release_2025.md"
+    },
+    {
+      "id": "tencent-cloud-volume-2025", "release_year": 2025, "collection_year": null,
+      "duration": "最多两个月；README 未明确采集年，示例时间戳不作为年份依据", "scale": "上海 10 个 warehouse、约 16000 云盘",
+      "resolution": "300 秒 I/O", "cpu": "vm_cpu 只有 VM 规格，无 CPU 利用率", "power": "无",
+      "business": "云块存储", "license": "CC BY 4.0；README 的 CC-4.0 链接指向 /licenses/by/4.0/",
+      "size": "约 1.3 GB 压缩、7.3 GB 解压", "access": "官方 GitHub Cloud_Disk_dataset.zip",
+      "cld_fit": "不能从云盘 I/O 或静态 vCPU 数构造 CPU 需求；本次范围内未找到腾讯官方公开 CPU 利用率生产时序",
+      "url": "https://github.com/Tencent/Cloud-Volume-Workload-Traces"
+    },
+    {
+      "id": "bytedance-iaas-2023", "release_year": 2025, "collection_year": 2023,
+      "duration": "3456 点，按 10 分钟折算 24 日；论文列 2023-06-30—2023-07-24，原始端点尚未下载核验",
+      "scale": "93 个 VM 序列", "resolution": "10 分钟",
+      "cpu": "论文明确为 VM CPU usage；数据卡只有 date/data/cols，未配套 vCPU、宿主与容量表，绝对核小时须补充规格和单位定义", "power": "无",
+      "business": "ByteDance 生产 IaaS 虚拟机", "license": "数据 CC BY 4.0（官方数据卡）；论文许可与数据许可分别标注",
+      "size": "iaas.csv 为 15185970 字节，来自官方文件元数据；没有下载 CSV",
+      "access": "ByteDance 官方 Hugging Face CloudTimeSeriesData/Datasets/iaas.csv",
+      "cld_fit": "优先推荐的较新国内云 VM 形状对照；样本较小且经过预测数据预处理，缺宿主总量及在线/批处理标签",
+      "url": "https://huggingface.co/datasets/ByteDance/CloudTimeSeriesData",
+      "paper_url": "https://www.vldb.org/pvldb/vol18/p3812-gao.pdf"
+    },
+    {
+      "id": "bytedance-paas-2024", "release_year": 2025, "collection_year": 2024,
+      "duration": "7776 点，按 10 分钟折算 54 日；论文列 2024-09-01—2024-10-24，原始端点尚未下载核验",
+      "scale": "426 个服务实例序列", "resolution": "10 分钟",
+      "cpu": "服务 CPU 使用量，单位 milli-cores；除以 1000 可换算源 CPU 核数，无宿主总利用率", "power": "无",
+      "business": "ByteDance 生产 PaaS 服务", "license": "数据 CC BY 4.0（官方数据卡）；论文许可与数据许可分别标注",
+      "size": "paas.csv 为 168895841 字节，来自官方文件元数据；没有下载 CSV",
+      "access": "ByteDance 官方 Hugging Face CloudTimeSeriesData/Datasets/paas.csv",
+      "cld_fit": "较新国内在线服务 CPU 需求对照；服务粒度和预处理范围须保留，缺整机库存与离线执行信息",
+      "url": "https://huggingface.co/datasets/ByteDance/CloudTimeSeriesData",
+      "paper_url": "https://www.vldb.org/pvldb/vol18/p3812-gao.pdf"
+    },
+    {
+      "id": "nep-edge-cloud-2020", "release_year": 2021, "collection_year": 2020,
+      "duration": "2020 年 6 月；额外三个月数据仅为小时带宽", "scale": "NEP-small 14 个站点；NEP-large 139 个边缘站点，README 未列 VM 总数",
+      "resolution": "VM CPU 5 分钟", "cpu": "VM_CPU.csv 的 cpu_rate（0.6=60%），有 VM→PM 连接及物理机 cores 规格", "power": "无",
+      "business": "中国生产公共边缘云 VM", "license": "仅限研究；官方禁止 offline sharing",
+      "size": "README 未列完整字节数", "access": "作者官方仓库链接 Google Drive，本次未下载",
+      "cld_fit": "较新国内 VM CPU 对照；边缘站点业务与集中式云不同，缺测、VM 容量和聚合口径须核验",
+      "url": "https://github.com/xumengwei/EdgeWorkloadsTraces"
+    },
+    {
+      "id": "sap-cloud-2024", "release_year": 2025, "collection_year": 2024,
+      "duration": "30 日；论文标注 2024-07-31 00:00 UTC，精确起止须核对数据时间戳", "scale": "约 1800 hypervisor、48000 VM",
+      "resolution": "30—300 秒，随组件而异", "cpu": "VM 与物理宿主 CPU 利用率、调度事件及内存网络指标", "power": "未见实测功率字段",
+      "business": "SAP 企业云，含 S/4HANA 和通用业务", "license": "CC BY 4.0",
+      "size": "最新 1.0.1 ZIP 为 1035045907 字节；旧 1.0.0 为 1032982604 字节",
+      "access": "作者 Zenodo，最新记录 17357494；本次只取记录元数据及论文",
+      "cld_fit": "优先推荐的较新年份对照；具备机器 CPU 和明确许可，但企业内存密集业务组成、采样覆盖须验证",
+      "url": "https://zenodo.org/records/17357494",
+      "paper_url": "https://arxiv.org/html/2510.23911v1"
+    },
+    {
+      "id": "unimelb-ucc2023", "release_year": 2023, "collection_year": null,
+      "duration": "D1 约 9 个月、D2 约 5 个月；正文未明确采集年份", "scale": "80+64=144 台物理机，约 1338 个常驻 VM",
+      "resolution": "10 分钟", "cpu": "物理机 CPU 利用率、核心数量等", "power": "物理机功率 W、温度和部分风扇指标",
+      "business": "OpenStack 研究云，含科研、web、桌面等混合 VM", "license": "CC BY 4.0",
+      "size": "613212066+184178675=797390741 字节，两份 CSV",
+      "access": "作者 Zenodo 10069402；本次只取元数据及全文论文",
+      "cld_fit": "可作为较长时间窗和 CPU→功率外部对照；发布年不能证明采集年更近，研究云代表性有限",
+      "url": "https://zenodo.org/records/10069402",
+      "paper_url": "https://hpc.ec.tuwien.ac.at/files/UCC_23_data_center_analysis.pdf"
+    }
+  ]
+}

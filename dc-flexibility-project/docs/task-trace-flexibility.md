@@ -2,11 +2,15 @@
 
 任务记录可以提供提交、执行和资源分配信息，用于计算 CPU/GPU 任务需求及小时负荷。真实柔性范围还取决于完成期限、暂停权限和服务质量。任务类型与优先级保留为筛选依据，缺失的业务约束保持未知。
 
+2026-10-31 的 [A-CLD「纯 CPU 型·云通用计算」工作包](../results/alibaba-cpu-cld-20261031/README.md)提供 Alibaba 2018 六表的 CPU 需求、在线/离线拆分、缺测和单位敏感性、完整日重放，以及较新公开数据核查。采用相对日 2—6 的 120 小时连续窗口，循环到 8760/8784 小时；没有样本外季节变化。下文既有矩阵和任务报告按各自输入版本保留。
+
+新增 `alibaba_cpu_profile.load_alibaba_source(project)` 返回既有 `profile/clock/metadata` 接口，可交给 `annual_task_profiles.replay_hourly` 和 `ComputeLoadModel.calculate`。整机曲线与业务拆分的分母、覆盖时段和未对账差额分别记录；离线实例执行量的比例不能直接视为已获准平移的比例。
+
 [任务来源与柔性文献历史报告](../results/task-driven-load-report-20261026-v2/README.md)保存来源波动、功率示例和柔性文献对照；[初始报告](../results/task-driven-load-report-20261026/README.md)保留。
 
-[CPU/GPU 服务器与整柜情境及来源说明 v2](../results/server-count-scenarios-20261028-v2/README.md)定义五种厂商配置、52 个设计单元：C20 配 Lisa CPU 作业和 Alibaba Cluster Trace 2018；R-GB200 配 Acme、ASI；C21/C22/C28 各配 MIT Supercloud 科研 GPU 作业、Acme、ASI。MIT 的 GPU 与宿主 CPU 占用来自同批明确请求 GPU 的执行作业，237 个完整日时间窗，采集完整性和跨硬件功率/性能映射待核实。Alibaba CPU 全表仍待完成下载核验。[年度构造工作包](../results/scenario-load-methods-20261026-v2/README.md)按原输入版本保存；旧典型曲线中的 GPU 配置×Lisa CPU 组合以后续统一重算为准。
+[20261028-v2 历史配置及来源说明](../results/server-count-scenarios-20261028-v2/README.md)记录当时五种厂商配置、52 个设计单元。纯 CPU 型科研计算采用 Lisa CPU；CPU 主导型、均衡型和 GPU 主导型的科研 AI 采用 MIT Supercloud，训练/开发及推理用途分别采用 Acme、ASI。MIT 的 GPU 与宿主 CPU 占用来自同批明确请求 GPU 的执行作业，237 个完整日时间窗，采集完整性和跨硬件功率/性能映射待核实。云通用计算的 Alibaba CPU 六表见当前 A-CLD 工作包。[年度构造工作包](../results/scenario-load-methods-20261026-v2/README.md)按原输入版本保存；旧典型曲线中的 GPU 配置×Lisa CPU 组合以后续统一重算为准。
 
-ASI 提供生产 AI 小时业务类型、优先级、GPU 归属资源与库存，可帮助构造生产需求和筛选柔性候选；CPU 物理插槽数量及业务截止权限仍需其他依据。Lisa、Acme、ASI 是工作区当前已详细核验主样本。Microsoft Philly 的训练任务与同服务器 CPU/GPU 分钟监测、Alibaba CPU 2018 的在线/批处理混部、Google 2019 PowerData 的关联电力域功率，也分别适合对应研究问题；本轮只核对这三项的官方说明，未下载计算。
+ASI 提供生产 AI 小时业务类型、优先级、GPU 归属资源与库存，可帮助构造生产需求和筛选柔性候选；CPU 物理插槽数量及业务截止权限仍需其他依据。Lisa、Acme、ASI 和 Alibaba CPU 2018 为已详细核验的需求来源。Microsoft Philly 的训练任务与同服务器 CPU/GPU 分钟监测、Google 2019 PowerData 的关联电力域功率分别适合相应研究问题；这两项仍仅核对官方说明，未下载计算。
 
 ## 数据与适用时间尺度
 
