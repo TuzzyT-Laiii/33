@@ -79,7 +79,7 @@ def save(fig, output, stem):
     return True
 
 
-def plot_all(output):
+def plot_all(output, only=None):
     output = Path(output)
     setup()
     summary = json.loads((output / 'summary.json').read_text(encoding='utf-8'))
@@ -87,6 +87,8 @@ def plot_all(output):
     upper = float(np.ceil(max(row['peak_mw'] for row in rows.values()) * 1.08))
     checks = {}
     for scenario, row in rows.items():
+        if only is not None and scenario not in only:
+            continue
         fig, ax = plt.subplots(figsize=(8.8, 5.0))
         fig.subplots_adjust(left=.10, right=.97, top=.78, bottom=.29)
         labels = draw(ax, output, row, upper)
@@ -96,6 +98,8 @@ def plot_all(output):
         rule = f"{selected['complete_days']} 个完整日：日电量最接近中位数；并列时日内 RMSE 最小。" if selected['complete_days'] > 1 else '唯一完整日（第 109 天）；日历日期与星期未知，单日演示。'
         fig.text(.10, .065, rule, fontsize=9, color='#4C535A')
         fig.text(.10, .025, '参考 IT 10 MW；基础与空载独立列示；冷却等非 IT ＝ 设施功率 − IT 功率。', fontsize=9, color='#4C535A')
+        if scenario == 'A-CLD':
+            fig.text(.10, .105, '原始 CPU 观测在源相对 06 时出现周期性高值；非线性功率映射放大峰形。', fontsize=9, color='#4C535A')
         checks[scenario + '_figure_bounds'] = save(fig, output, scenario)
     fig, axes = plt.subplots(4, 3, figsize=(16, 10.0))
     fig.subplots_adjust(left=.065, right=.985, top=.885, bottom=.09, hspace=1.15, wspace=.26)
@@ -109,7 +113,7 @@ def plot_all(output):
             if scenario is None:
                 ax.axis('off')
                 ax.legend(handles=handles(['基础与空载 IT', '冷却等非 IT']), loc='upper left', fontsize=10)
-                ax.text(.02, .43, '逐小时平均功率，阶梯面积表示小时区间。\n源日期与气象模型日期分别记录。\nAlibaba 的在线／离线实际用量待分解。',
+                ax.text(.02, .43, '逐小时平均功率，阶梯面积表示小时区间。\n源日期与气象模型日期分别记录。\nAlibaba 的在线／离线实际用量待分解。\n原始 CPU 在源相对06时呈日内高值，\n非线性功率映射放大峰形。',
                     va='top', transform=ax.transAxes, fontsize=9, color='#535B63', linespacing=1.6)
                 continue
             if scenario not in rows:

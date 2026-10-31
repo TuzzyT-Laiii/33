@@ -1,0 +1,212 @@
+{
+  "created_at_utc": "2026-10-31T18:54:37.383377+00:00",
+  "conclusion": "原始10秒CPU观测中存在每天源相对06时的周期性高值；保留原曲线，非线性SPEC响应放大了模型功率峰形",
+  "checks": {
+    "full_raw_machine_archive_sha256": true,
+    "raw_machine_row_count_matches_prior_audit": true,
+    "no_raw_machine_duplicates": true,
+    "no_raw_cpu_out_of_range": true,
+    "source_files_unchanged": true,
+    "raw_hours_match_existing_192_hours": true,
+    "batch_envelope_matches_existing_192_hours": true,
+    "recurrent_peak_hour_all_eight_days": true,
+    "native_360_samples_reconcile_raw_hour_mean": true,
+    "five_minute_12_bins_complete_and_covered": true,
+    "existing_24h_it_and_facility_unchanged": true,
+    "prior_component_full_stream_sha_verified": true
+  },
+  "raw_machine_audit": {
+    "created_at_utc": "2026-10-31T18:49:54.737313+00:00",
+    "counts": {
+      "rows": 246934820,
+      "cpu_missing": 6,
+      "cpu_below_zero": 0,
+      "cpu_above_100": 0,
+      "duplicate_rows": 0
+    },
+    "archive_sha256": "3e6ee87fd204bb85b9e234c5c75a5096580fdabc8f085b224033080090753a7a",
+    "archive_bytes": 1774523160,
+    "inventory_machines": 4034,
+    "inventory_cores": 387264.0,
+    "cores_per_machine": [
+      96.0
+    ],
+    "source_files_before": [
+      {
+        "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/alibaba-cpu-2018/machine_usage.tar.gz",
+        "bytes": 1774523160,
+        "mtime_ns": 1793434483571602742
+      },
+      {
+        "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/alibaba-cpu-2018/machine_meta.tar.gz",
+        "bytes": 92432,
+        "mtime_ns": 1793434454768339760
+      }
+    ],
+    "source_files_after": [
+      {
+        "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/alibaba-cpu-2018/machine_usage.tar.gz",
+        "bytes": 1774523160,
+        "mtime_ns": 1793434483571602742
+      },
+      {
+        "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/alibaba-cpu-2018/machine_meta.tar.gz",
+        "bytes": 92432,
+        "mtime_ns": 1793434454768339760
+      }
+    ],
+    "raw_hourly_matches_existing": true,
+    "peak_process_rss_mib": 840.47265625,
+    "paired_hour_5_to_6": {
+      "machines": 4016,
+      "increased": 3913,
+      "increase_at_least_10pp": 3763,
+      "median_increase_pp": 19.172222222222235
+    },
+    "hold_sensitivity": [
+      {
+        "maximum_hold_seconds": 10,
+        "relative_hour": 53,
+        "cpu_util_pct": 40.79300391783398,
+        "coverage_fraction": 0.9833670743127858
+      },
+      {
+        "maximum_hold_seconds": 10,
+        "relative_hour": 54,
+        "cpu_util_pct": 58.878679287129145,
+        "coverage_fraction": 0.9842167961218532
+      },
+      {
+        "maximum_hold_seconds": 10,
+        "relative_hour": 55,
+        "cpu_util_pct": 50.02782692042257,
+        "coverage_fraction": 0.982792789070677
+      },
+      {
+        "maximum_hold_seconds": 30,
+        "relative_hour": 53,
+        "cpu_util_pct": 40.78860330881056,
+        "coverage_fraction": 0.9950497163003361
+      },
+      {
+        "maximum_hold_seconds": 30,
+        "relative_hour": 54,
+        "cpu_util_pct": 58.86292744752881,
+        "coverage_fraction": 0.9947742797333774
+      },
+      {
+        "maximum_hold_seconds": 30,
+        "relative_hour": 55,
+        "cpu_util_pct": 50.02293660852166,
+        "coverage_fraction": 0.9948224811325952
+      },
+      {
+        "maximum_hold_seconds": 60,
+        "relative_hour": 53,
+        "cpu_util_pct": 40.787069192135824,
+        "coverage_fraction": 0.9953864375034429
+      },
+      {
+        "maximum_hold_seconds": 60,
+        "relative_hour": 54,
+        "cpu_util_pct": 58.86196628719753,
+        "coverage_fraction": 0.995075882774197
+      },
+      {
+        "maximum_hold_seconds": 60,
+        "relative_hour": 55,
+        "cpu_util_pct": 50.022073710971426,
+        "coverage_fraction": 0.9951233955819975
+      },
+      {
+        "maximum_hold_seconds": 300,
+        "relative_hour": 53,
+        "cpu_util_pct": 40.78545871061499,
+        "coverage_fraction": 0.9955372390238528
+      },
+      {
+        "maximum_hold_seconds": 300,
+        "relative_hour": 54,
+        "cpu_util_pct": 58.859951323992895,
+        "coverage_fraction": 0.9953423676527295
+      },
+      {
+        "maximum_hold_seconds": 300,
+        "relative_hour": 55,
+        "cpu_util_pct": 50.02039160121187,
+        "coverage_fraction": 0.9952893461135901
+      }
+    ]
+  },
+  "raw_batch_audit": {
+    "created_at_utc": "2026-10-31T18:45:16.914157+00:00",
+    "source_file": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/alibaba-cpu-2018/batch_task.tar.gz",
+    "source_sha256": "7c4b32361bd1ec2083647a8f52a6854a03bc125ca5c202652316c499fbf978c6",
+    "source_bytes": 130310549,
+    "source_mtime_ns": 1793434487004634042,
+    "source_unchanged": true,
+    "raw_rows": 14295731,
+    "valid_envelope_rows": 13442065,
+    "scope": "任务开始事件和计划请求包络，不等同于实例实际活跃时长或CPU利用率；不作因果归因",
+    "peak_process_rss_mib": 457.55859375
+  },
+  "day2_hour6": {
+    "five_minute_cpu_min_pct": 49.1087649402,
+    "five_minute_cpu_max_pct": 74.1795080402,
+    "native_10second_cpu_min_pct": 44.7712858926,
+    "native_10second_cpu_max_pct": 76.942,
+    "native_weighted_raw_sample_mean_pct": 58.878679287128605,
+    "native_reporting_machines_min": 3669,
+    "native_reporting_machines_max": 4016,
+    "minutes_native_above_50pct_in_hour6": 52.833333333333336
+  },
+  "native_longest_runs": {
+    "50": {
+      "duration_minutes": 26.0,
+      "start_relative_second": 195890,
+      "end_relative_second": 197450
+    },
+    "55": {
+      "duration_minutes": 13.833333333333334,
+      "start_relative_second": 195940,
+      "end_relative_second": 196770
+    },
+    "60": {
+      "duration_minutes": 12.0,
+      "start_relative_second": 195940,
+      "end_relative_second": 196660
+    }
+  },
+  "power_mapping": {
+    "cpu_segment_40_to_50pct_it_increase_mw": 0.42388709677419334,
+    "cpu_segment_50_to_60pct_it_increase_mw": 2.091176344086022,
+    "slope_ratio": 4.933333333333336,
+    "interpretation": "沿用v2 SPECpower归一化整机响应；该源设施的电力没有实测验证"
+  },
+  "component_scope": "复用PR #33已完成且全流SHA通过的container_usage与batch_instance汇总；本次重新扫描machine_usage和batch_task原始包；不将实例区间平均CPU归因为精确瞬时负荷",
+  "component_sources": {
+    "container_usage": {
+      "processed_rows": 4015763787,
+      "sha256": "b4bd3b1b82f5407c1b0dd47fe736ff5152c4b016a9c30cb26f988e2d1c5e5031",
+      "official_sha256_matches": true
+    },
+    "batch_instance": {
+      "processed_rows": 1351255775,
+      "sha256": "e73e5a9326669aa079ba20048ddd759383cabe1fe3e58620aa75bd034e2450c6",
+      "official_sha256_matches": true
+    }
+  },
+  "input_sha256": {
+    "dc-flexibility-project\\.codex-temp\\cld-spike-raw-audit.json": "1f2da706fdf6d8406e0b1d5c1738b6715ba9ecac6efce5000927d78824ee8068",
+    "dc-flexibility-project\\.codex-temp\\cld-spike-batch-audit.json": "d729976dd89235fef267b71680c6fea1be9e01a9cd43620f8033705a3eb703d8",
+    "D:\\codex-runs\\alibaba-cpu-cld-20261031\\worktree\\dc-flexibility-project\\results\\alibaba-cpu-cld-20261031\\component-reconciliation.csv": "a8a790601d006aaba10505ea1e280e559f9c54a15873da389aa81feae6c57d86",
+    "D:\\codex-runs\\alibaba-cpu-cld-20261031\\worktree\\dc-flexibility-project\\results\\alibaba-cpu-cld-20261031\\component-audit.json": "4d63ed0c0d9cb08f61180282561d83cce9a06081378cf1dd9f120b0affb2f084",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\scenario-typical-day-by-task-20261031\\A-CLD-hourly.csv": "0413945e494a8cb52d1ca6637e982fdd89fa75252abbe51657f0658cc8bd6f26",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\scenario-typical-day-by-task-20261031\\A-CLD-by-task.csv": "e4c516a5ec8e41769c95b88f992cd31c4b2265eb8ac0830764c3286d85ff0dc5"
+  },
+  "code_sha256": {
+    "audit_alibaba_cpu_spike.py": "57242e33deb627b436d047dc044074057af971ecb9770bf348b11b0defd0089f",
+    "audit_alibaba_batch_spike.py": "4a220063993663254614e73a81e609e26f7616b1da35128445759dbb8283bfde",
+    "summarize_alibaba_cpu_spike.py": "19253dfcb1b389bf05c957f9ff4d3e82c7c52e83190e32bbacb8e5cfd75f9029"
+  }
+}

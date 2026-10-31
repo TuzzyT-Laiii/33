@@ -59,6 +59,8 @@
 
 不确定性：基础与空载 IT 独立列示；v2 功率与冷却均含假设，气象采用既有参考网格重放；ASI 及 Alibaba 的日历日期和星期未知。
 
+尖峰：Alibaba 原始 10 秒 CPU 观测在源相对 06 时出现周期性高值，五个完整日均复现；非线性功率映射放大峰形。
+
 ## 数字来源与说明
 
 - 任务类别、占比、排队与作业时长、卡数：PR #26 结果目录 `dc-flexibility-project/results/job-flexibility-constraints-20261030/`（`server-classes.csv`、`asi-classes.csv`、`mit-classes.csv`、`candidate-bounds.csv`、`checkpoint-sensitivity.csv`）。本简表依赖 PR #26，建议先审 PR #26。
@@ -67,6 +69,8 @@
 - MIT 的 OTHER 类（73.6%）正在 PR #28 中用官方模型标签和作业特征细分，结果出来后更新“用途未知”一行。
 
 - 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261031`](../../results/scenario-typical-day-by-task-20261031/README.md)，选日评分见 `*-day-selection.csv`，日期、峰谷与全年电量核对见 `summary.csv`；生成与功率分层见 `analysis/build_scenario_typical_days.py` 和 `plot_scenario_typical_days.py`，功率和 PUE 沿用 `results/typical-load-curves-20261029-v2/` 中央口径。
+
+- Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。
 
 ## 重新生成
 

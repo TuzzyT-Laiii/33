@@ -139,12 +139,14 @@ const NOTES4 = [
   '规模：参考 IT 10 MW，沿用整机台数取整；其他规模按台数比例缩放，曲线形状不变。',
   '来源：Lisa、MIT、Acme 按作业与小时重叠秒数累计资源小时，ASI 用第 109 天小时观测；Alibaba 用五个完整日 CPU 汇总，业务未分解。',
   '不确定性：基础与空载 IT 独立列示；v2 功率与冷却均含假设，气象采用既有参考网格重放；ASI 及 Alibaba 的日历日期和星期未知。',
+  '尖峰：Alibaba 原始 10 秒 CPU 观测在源相对 06 时出现周期性高值，五个完整日均复现；非线性功率映射放大峰形。',
 ];
 const readmePath = process.argv[3];
 const previousReadme = readmePath && fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : '';
 const sourceSection = previousReadme.indexOf('## 数字来源与说明');
 const retainedSections = sourceSection >= 0 ? previousReadme.slice(sourceSection).trimEnd() : '';
 const SOURCE4 = '- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261031`](../../results/scenario-typical-day-by-task-20261031/README.md)，选日评分见 `*-day-selection.csv`，日期、峰谷与全年电量核对见 `summary.csv`；生成与功率分层见 `analysis/build_scenario_typical_days.py` 和 `plot_scenario_typical_days.py`，功率和 PUE 沿用 `results/typical-load-curves-20261029-v2/` 中央口径。';
+const SPIKE_SOURCE = '- Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。';
 const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取参考 IT 功率 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
 const LEGEND = '✓ 可以　　◐ 有条件　　✗ 不行　　？ 未知　　（占比为各数据集自身的 GPU 小时，Lisa 为核心小时，不同数据集之间不能相加）';
 const NOTE2A = '迁移代价：同样的工作量换个时段完成，额外耗电很少，主要代价是完成时间推迟。现状排队可作参考：科研集群用户已习惯数小时排队（P90 约 3–70 小时），AI 训练和推理集群几乎不排队（P90 不超过 6 分钟），延后数小时会明显改变服务水平。';
@@ -181,7 +183,7 @@ const doc = new Document({
         keepNext: true,
         spacing: { before: 40, after: 20 },
         children: [new ImageRun({ type: 'png', data: fs.readFileSync(FIGURE),
-          transformation: { width: 975, height: 609 },
+          transformation: { width: 944, height: 590 },
           altText: { name: '各情境典型日负荷曲线', title: '各情境典型日负荷曲线', description: '11 个情境按需求分行、服务器规格分列，共用设施功率纵轴。' },
         })],
       }),
@@ -206,8 +208,9 @@ if (MD_OUT) {
     ...NOTES4.flatMap((text) => [text, '']),
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
-  const tail = retainedSections.includes(SOURCE4) ? retainedSections
+  let tail = retainedSections.includes(SOURCE4) ? retainedSections
     : retainedSections.replace('## 重新生成', `${SOURCE4}\n\n## 重新生成`);
+  if (!tail.includes(SPIKE_SOURCE)) tail = tail.replace('## 重新生成', `${SPIKE_SOURCE}\n\n## 重新生成`);
   fs.writeFileSync(MD_OUT, md + '\n' + tail + '\n', 'utf8');
   console.log('wrote', MD_OUT);
 }

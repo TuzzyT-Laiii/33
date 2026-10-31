@@ -88,10 +88,16 @@
   "MIT_scope": "CC-BY-NC-ND-4.0；仅发布典型日小时聚合，不发布逐作业记录或标识；只读reference文件，未接触流式进程、数据库及current目录",
   "uncertainty": "资源份额、CPU响应、GPU跨代功率比例及冷却均含假设；未建立吞吐等价或目标设施实测负荷；ASI单日演示；Alibaba业务实际占用未分解",
   "code_sha256": {
-    "build_scenario_typical_days.py": "724705a8a737220bc0d537d8ec683861d11166daada760d160a7be3d03fa40f4",
-    "plot_scenario_typical_days.py": "64bd59cc78d72974e2fa42445ae26d8c8f19a7b30b28bc208f2b24c9c8e5009a",
+    "build_scenario_typical_days.py": "526e154084ce8062c0193797b5955175ce0d53e900dbf46d906313115cb5dba9",
+    "plot_scenario_typical_days.py": "7fc44551dd9a8b006fca9c283d09159103bf7acfee06a8f21570961f9a315a64",
     "typical_power_models.py": "54e04a856c985c2ad21cb8044fe8c550215e255f8dbcf134414df7b2156aa27d",
     "typical_power_models_v2.py": "fce087f016ebcab7b0d2c6d2122f09f5a94b78ed4f9cb30fa7b07d6a424612c4",
     "compute_load/cooling.py": "28cb8ddddd672df1efcec1e7b7e0c966c8f8a2270660364b61388b34220b2256"
+  },
+  "spike_audit": {
+    "path": "cld-spike-audit-20261101/validation.json",
+    "original_hourly_csv_unchanged": true,
+    "original_hourly_csv_sha256": "0413945e494a8cb52d1ca6637e982fdd89fa75252abbe51657f0658cc8bd6f26",
+    "checks_passed": 12
   }
 }
