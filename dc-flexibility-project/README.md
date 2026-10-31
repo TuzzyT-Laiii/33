@@ -10,6 +10,8 @@
 
 ## 通用网格负荷模块
 
+[推理服务需求数据调研与 ASI 185 天可行性验证](results/inference-data-alternatives-20261031/README.md)比较公开资源与请求数据，提供两个端点日的 GPU 资源汇总、BurstGPT 119 个完整日的小时请求曲线，以及全量流式聚合的时间和磁盘估算，适用于 CPU 主导型、均衡型和 GPU 主导型的推理服务情境。
+
 [算法与调用文档](docs/compute-load-module.md)说明任意网格逐小时温湿度输入、CPU/GPU 四档 IT 规模、资源曲线与设备功率映射，以及冷却和全年负荷计算。已提供全球 ERA5 接入、固定需求供电连接及核验记录。
 
 [任务记录粒度与柔性约束](docs/task-trace-flexibility.md)提供秒级 CPU/GPU 作业、ASI 小时类型与优先级数据的读取和资源累计接口，并说明任务类别、服务期限和抢占权限的证据范围。

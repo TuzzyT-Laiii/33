@@ -1,0 +1,44 @@
+[
+  {
+    "dataset": "burst-1",
+    "url": "https://github.com/HPMLL/BurstGPT/releases/download/v2.0/BurstGPT_1.csv",
+    "bytes": 52283111,
+    "sha256": "4bb3783693d0a435686fbfc885615d2349bd067239079fa4b749f2e679e12122",
+    "local_path": "D:\\inference-data-alternatives-20261031-worktree\\dc-flexibility-project\\data\\raw\\inference-alternatives-20261031\\BurstGPT_1.csv",
+    "reused": true,
+    "seconds": 0,
+    "rows": 1429737,
+    "min_seconds": 5.0,
+    "max_seconds": 5269973.0,
+    "zero_output_requests": 25443,
+    "schema": [
+      "Timestamp",
+      "Model",
+      "Request tokens",
+      "Response tokens",
+      "Total tokens",
+      "Log Type"
+    ]
+  },
+  {
+    "dataset": "burst-2",
+    "url": "https://github.com/HPMLL/BurstGPT/releases/download/v2.0/BurstGPT_2.csv",
+    "bytes": 144819209,
+    "sha256": "44bf5942b03fca42c01a226a545ad3a750ec62688faecd67b6831c56a8928bf7",
+    "local_path": "D:\\inference-data-alternatives-20261031-worktree\\dc-flexibility-project\\data\\raw\\inference-alternatives-20261031\\BurstGPT_2.csv",
+    "reused": true,
+    "seconds": 0,
+    "rows": 3858436,
+    "min_seconds": 5270414.0,
+    "max_seconds": 10454395.0,
+    "zero_output_requests": 74223,
+    "schema": [
+      "Timestamp",
+      "Model",
+      "Request tokens",
+      "Response tokens",
+      "Total tokens",
+      "Log Type"
+    ]
+  }
+]

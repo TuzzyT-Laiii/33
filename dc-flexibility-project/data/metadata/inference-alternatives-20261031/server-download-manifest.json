@@ -1,0 +1,81 @@
+[
+  {
+    "dataset": "burst-1",
+    "url": "https://github.com/HPMLL/BurstGPT/releases/download/v2.0/BurstGPT_1.csv",
+    "bytes": 52283111,
+    "sha256": "4bb3783693d0a435686fbfc885615d2349bd067239079fa4b749f2e679e12122",
+    "local_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/BurstGPT_1.csv",
+    "reused": true,
+    "seconds": 0,
+    "rows": 1429737,
+    "min_seconds": 5.0,
+    "max_seconds": 5269973.0,
+    "zero_output_requests": 25443,
+    "schema": [
+      "Timestamp",
+      "Model",
+      "Request tokens",
+      "Response tokens",
+      "Total tokens",
+      "Log Type"
+    ]
+  },
+  {
+    "dataset": "burst-2",
+    "url": "https://github.com/HPMLL/BurstGPT/releases/download/v2.0/BurstGPT_2.csv",
+    "bytes": 144819209,
+    "sha256": "44bf5942b03fca42c01a226a545ad3a750ec62688faecd67b6831c56a8928bf7",
+    "local_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/BurstGPT_2.csv",
+    "reused": true,
+    "seconds": 0,
+    "rows": 3858436,
+    "min_seconds": 5270414.0,
+    "max_seconds": 10454395.0,
+    "zero_output_requests": 74223,
+    "schema": [
+      "Timestamp",
+      "Model",
+      "Request tokens",
+      "Response tokens",
+      "Total tokens",
+      "Log Type"
+    ]
+  },
+  {
+    "dataset": "chutes-hour-of-week",
+    "url": "https://raw.githubusercontent.com/HarvardMadSys/chutes_workload/main/data/paper/cache/hour_of_week_requests.parquet",
+    "bytes": 3940,
+    "sha256": "f33e8d4de0e62c95def486a96f6514a0580f47ad58ab020692cb727e2da842ea",
+    "local_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/chutes-hour-of-week.parquet",
+    "rows": 168,
+    "schema": [
+      "dow",
+      "hour",
+      "cnt"
+    ]
+  },
+  {
+    "dataset": "chutes-daily-requests",
+    "url": "https://raw.githubusercontent.com/HarvardMadSys/chutes_workload/main/data/paper/cache/daily_requests.parquet",
+    "bytes": 5552,
+    "sha256": "a2e73c428bd986ced90282d6c8ca53dc7f596196774a1b04badb4fb681c4d720",
+    "local_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/chutes-daily-requests.parquet",
+    "rows": 367,
+    "schema": [
+      "day",
+      "cnt"
+    ]
+  },
+  {
+    "dataset": "chutes-daily-tokens",
+    "url": "https://raw.githubusercontent.com/HarvardMadSys/chutes_workload/main/data/paper/cache/daily_tokens.parquet",
+    "bytes": 6095,
+    "sha256": "f263a2e4522a171e41a33e3b142bc79461eb2c0179f5ce5512c98fb8bb2d616f",
+    "local_path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031/chutes-daily-tokens.parquet",
+    "rows": 367,
+    "schema": [
+      "day",
+      "tokens"
+    ]
+  }
+]

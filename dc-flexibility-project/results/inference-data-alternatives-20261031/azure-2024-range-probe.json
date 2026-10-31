@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-10-31T08:30:51.787827+00:00",
+  "ranges": [
+    {
+      "dataset": "azure-code",
+      "url": "https://github.com/Azure/AzurePublicDataset/releases/download/dataset-llm-2024/AzureLLMInferenceTrace_code_1week.csv",
+      "file_bytes": 691989454,
+      "range_bytes": 131072,
+      "prefix_sha256": "b25b9150504e8a7006c9194dbbef7bdd823683f868758574bde777f8ae4bb412",
+      "tail_sha256": "eb98f4865dbb733dad26e6c52ab2d79c16c6ae1b6a658f5a2b939559c3310d84",
+      "schema": [
+        "TIMESTAMP",
+        "ContextTokens",
+        "GeneratedTokens"
+      ],
+      "first_timestamp": "2024-05-10 00:00:00.009930+00:00",
+      "last_timestamp": "2024-05-16 23:59:59.929501+00:00",
+      "span_days": 6.999999069108797,
+      "scope": "first and last rows only; no full-file completeness or SHA-256 verification"
+    },
+    {
+      "dataset": "azure-conv",
+      "url": "https://github.com/Azure/AzurePublicDataset/releases/download/dataset-llm-2024/AzureLLMInferenceTrace_conv_1week.csv",
+      "file_bytes": 1135195393,
+      "range_bytes": 131072,
+      "prefix_sha256": "573285274c6f0c87fc5129bafc338581f35da6b9dfa74ee08de4cdfbab7802f1",
+      "tail_sha256": "ff15ef32165e5f9edf171d7a4e0ebf742507411fa32b6c619640d4845ebe0a1d",
+      "schema": [
+        "TIMESTAMP",
+        "ContextTokens",
+        "GeneratedTokens"
+      ],
+      "first_timestamp": "2024-05-12 00:00:00.001163+00:00",
+      "last_timestamp": "2024-05-18 23:59:59.995460+00:00",
+      "span_days": 6.999999933993055,
+      "scope": "first and last rows only; no full-file completeness or SHA-256 verification"
+    }
+  ]
+}
