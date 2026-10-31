@@ -1,0 +1,20 @@
+[
+  {
+    "issue": 62,
+    "url": "https://github.com/alibaba/clusterdata/issues/62#issuecomment-476964315",
+    "author": "HaiyangDING",
+    "author_association": "COLLABORATOR",
+    "created_at": "2019-03-27T04:07:26Z",
+    "meaning_zh": "2018 容器 CPU 用量百分比的分母为容器请求的 CPU 数量",
+    "comment_body_sha256": "3675127b498cd9c63afce0683d5483c374ccd6a71f3a7b6ea7bd9d9e2b09d5e5"
+  },
+  {
+    "issue": 47,
+    "url": "https://github.com/alibaba/clusterdata/issues/47#issuecomment-448898828",
+    "author": "HaiyangDING",
+    "author_association": "COLLABORATOR",
+    "created_at": "2018-12-20T07:19:59Z",
+    "meaning_zh": "同一容器的元数据可在运行期间更新，少量容器会调整 CPU limit",
+    "comment_body_sha256": "2c59c3e59bae67efe9bf65ea4df6b5fb187c61cc3a8cfdca9ca3836baf78d658"
+  }
+]

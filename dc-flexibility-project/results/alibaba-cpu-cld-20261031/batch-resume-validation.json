@@ -1,0 +1,14 @@
+{
+  "verified_at_utc": "2026-10-31T09:05:55.496700+00:00",
+  "input": "真实 batch_instance 压缩包前 100000 行",
+  "stop_then_resume": true,
+  "resume_from_rows": 50000,
+  "verified_total_rows": 100000,
+  "independent_method": "逐小时直接求 min/max 区间重叠，与生产脚本边界分摊及差分累计比较",
+  "columns_verified": [
+    "cpu_core_hours",
+    "cpu_alternative_core_hours",
+    "covered_hours"
+  ],
+  "status": "passed"
+}

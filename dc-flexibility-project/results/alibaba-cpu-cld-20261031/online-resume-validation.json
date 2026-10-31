@@ -1,0 +1,15 @@
+{
+  "verified_at_utc": "2026-10-31T11:15:40.215136+00:00",
+  "input": "真实 container_usage 压缩包前 4000000 行",
+  "stop_then_resume": true,
+  "resume_from_rows": 2000000,
+  "verified_total_rows": 4000000,
+  "independent_method": "pandas merge_asof 连接事件与 groupby 求和，对比生产脚本 searchsorted 连接与 NumPy 累计",
+  "columns_verified": [
+    "request_based_core_hours",
+    "limit_based_core_hours",
+    "one_core_based_core_hours",
+    "sample_container_hours"
+  ],
+  "status": "passed"
+}
