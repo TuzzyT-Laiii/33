@@ -21,17 +21,18 @@ def complete_days(frame, clock, value):
     return selected.reset_index(drop=True)
 
 
-def load_sources(project):
+def load_sources(project, include_asi=True):
     project = Path(project)
     data = project / "data/processed/task-trace-audit-20261026"
     audit = json.loads((project / "data/metadata/task-trace-audit-20261026/asi-acme-validation.json").read_text(encoding="utf-8"))
-    inputs = ("lisa/lisa-hourly-core-demand.parquet", "acme-hourly-resource-demand.parquet", "asi-hourly-resource-demand.csv")
+    inputs = ("lisa/lisa-hourly-core-demand.parquet", "acme-hourly-resource-demand.parquet")
+    if include_asi:
+        inputs += ("asi-hourly-resource-demand.csv",)
     for name in inputs:
         if sha256(data / name) != audit["outputs_sha256"][name]:
             raise ValueError(f"需求文件与核验记录不一致：{name}")
     lisa = pd.read_parquet(data / inputs[0])
     acme = pd.read_parquet(data / inputs[1])
-    asi = pd.read_csv(data / inputs[2])
     sources = {}
 
     def add(key, hardware, frame, clock, column, denominator, basis, status, source_file):
@@ -56,6 +57,9 @@ def load_sources(project):
         add(f"acme_{hardware}", hardware, acme.loc[acme.hardware.eq(hardware)], "time_utc", "mean_allocated_units", denominator,
             "全部有效执行区间的观测瞬时并发峰值；非完整设施库存",
             "cpu_development_diagnostic" if hardware == "cpu" else "development_replay_proxy", inputs[1])
+    if not include_asi:
+        return sources
+    asi = pd.read_csv(data / inputs[2])
     if len(asi) != 24 or asi.relative_day.nunique() != 1 or asi.hour.tolist() != list(range(24)):
         raise ValueError("ASI 演示输入须为已核验的一个连续完整日")
     asi["relative_clock"] = pd.date_range("2000-01-01", periods=24, freq="h")

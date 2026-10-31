@@ -7,16 +7,15 @@ import pandas as pd
 import pyarrow.dataset as ds
 
 from annual_task_profiles import load_sources, replay_hourly
+from asi_inference_profiles import load_asi_sources
 from compute_load.model import ComputeLoadModel, SIZES_MW, annual_summary, sha256
 from global_grid_compute_load import grid_weather
 
 
 def build(project, year=2025, grid_id="g05_r100_c592", weather_path=None, phase_sensitivity=True):
     project = Path(project).resolve()
-    output = project / "data/processed/task-annual-loads-20261026-v2" / f"{grid_id}-{year}"
-    summary_dir = project / "results/scenario-load-methods-20261026-v2"
-    if (grid_id, year) != ("g05_r100_c592", 2025):
-        summary_dir = summary_dir / "annual-runs" / f"{grid_id}-{year}"
+    output = project / "data/processed/task-annual-loads-asi185-20261031" / f"{grid_id}-{year}"
+    summary_dir = project / "results/asi-185day-workload-types-20261031/annual-loads" / f"{grid_id}-{year}"
     output.mkdir(parents=True, exist_ok=True)
     summary_dir.mkdir(parents=True, exist_ok=True)
     mapping_path = project / "data/processed/era5-landuse-selection/grid-weather-mapping.parquet"
@@ -26,7 +25,8 @@ def build(project, year=2025, grid_id="g05_r100_c592", weather_path=None, phase_
     if len(center) != 1:
         raise ValueError("所选网格必须登记唯一中心气象节点")
     weather = grid_weather(ds.dataset(weather_path, format="parquet"), center.iloc[0], [year])
-    model, sources = ComputeLoadModel(), load_sources(project)
+    model, sources = ComputeLoadModel(), load_sources(project, include_asi=False)
+    sources.update(load_asi_sources(project))
     annual, sensitivity, source_manifest = [], [], {}
     files = {}
     for key, source in sources.items():
@@ -60,9 +60,9 @@ def build(project, year=2025, grid_id="g05_r100_c592", weather_path=None, phase_
         "weather_mapping_sha256": sha256(mapping_path), "native_flat_index": int(center.iloc[0].native_flat_index),
         "weather_location": "研究网格的中心 0.25 度 ERA5 节点；逐小时 UTC 干球与露点",
         "curves_directory": output.relative_to(project).as_posix(), "curves_sha256": files,
-        "code_sha256": {name: sha256(Path(__file__).with_name(name)) for name in ("annual_task_profiles.py", "build_task_annual_loads.py")},
+        "code_sha256": {name: sha256(Path(__file__).with_name(name)) for name in ("annual_task_profiles.py", "asi_inference_profiles.py", "build_task_annual_loads.py")},
         "power_model": model.metadata,
-        "interpretation": "跨数据集资源到整机功率代理与参考冷却的全年重放；不表示原设施全年实测、不证明任务可柔性。ASI 单日仅演示。"}
+        "interpretation": "跨数据集资源到参考设备功率的全年重放；ASI 使用 185 天在线、离线及组合推理形状。设备性能与功率映射须另行标定，需求统计不授予柔性权限。"}
     (summary_dir / "annualization-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
     return manifest
 
