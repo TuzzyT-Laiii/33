@@ -3,9 +3,13 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import platform
+import sys
 
 import numpy as np
 import pandas as pd
+import pyarrow as pa
+import requests
 
 
 KEYS = ["job_type_public", "priority_class", "model_type_public"]
@@ -206,10 +210,21 @@ def build(run_dir, output, baseline):
     objects = json.loads((run_dir / "objects.json").read_text("utf-8"))
     run_records = [json.loads(line) for line in (run_dir / "runs.jsonl").read_text("utf-8").splitlines()]
     successful_range_bytes += len(run_records) * sum(item["central_directory_range_bytes"] for item in objects.values())
+    full_start = min(item["run_started_at"] for item in run_records if item["pending_this_run"] > 1)
+    events_path = run_dir / "restart-events.json"
+    events = json.loads(events_path.read_text("utf-8")) if events_path.exists() else []
     audit = {"checked_at": datetime.now(timezone.utc).isoformat(), "state": state, "objects": objects,
+             "environment": {"python": sys.version, "platform": platform.platform(), "numpy": np.__version__,
+                             "pandas": pd.__version__, "pyarrow": pa.__version__, "requests": requests.__version__},
+             "code_sha256": {name: digest(Path(__file__).with_name(name)) for name in ["stream_asi_185days.py", "probe_asi_inference_range.py",
+                              "summarize_asi_185days.py", "annual_task_profiles.py", "asi_inference_profiles.py", "build_asi_inference_annual.py"]},
              "days": 185, "hours": 4440, "hourly_members": 8880, "job_members": 1,
              "pod_rows": raw_rows, "execution_span_rows": jobs["member"]["rows"],
              "successful_http_range_bytes": successful_range_bytes,
+             "range_byte_scope": "committed checkpoints and planning; excludes independent validation and interrupted in-flight reads",
+             "full_background_started_at": full_start,
+             "full_background_elapsed_seconds": (datetime.fromisoformat(state["finished_at"]) - datetime.fromisoformat(full_start)).total_seconds(),
+             "run_starts": run_records, "control_restarts": events,
              "member_payload_bytes": int(sum(item["bytes"] for item in member_audits)),
              "maximum_hourly_retry_counter": maximum_retry_counter,
              "failed_attempt_partial_bytes": "not measured; inspect run.log if a retry occurred",

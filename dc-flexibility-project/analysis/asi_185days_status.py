@@ -12,6 +12,7 @@ if __name__ == "__main__":
     path = directory / "postprocess-status.json"
     postprocessing = json.loads(path.read_text("utf-8")) if path.exists() else {}
     result = {"processing_state": processing["state"], "completed_hours": processing["completed_hours"],
+              "pid": processing["pid"], "workers": processing["workers"], "reused_hours": processing["reused_hours"],
               "target_hours": 4440, "updated_at": processing.get("updated_at"),
               "elapsed_seconds": processing.get("elapsed_this_run_seconds"), "jobs_complete": processing.get("jobs_complete"),
               "postprocessing_state": postprocessing.get("state"), "postprocessing_stage": postprocessing.get("stage"),

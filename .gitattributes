@@ -116,3 +116,13 @@ dc-flexibility-project/analysis/requirements-eight-city-phase-a.txt text eol=lf
 dc-flexibility-project/results/eight-city-phase-a-20261029/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/eight-city-phase-a-20261029/**/*.pdf binary
 dc-flexibility-project/results/eight-city-phase-a-20261029/**/*.png binary
+
+# ASI 全量统计保留来源校验字节，后台脚本固定 LF。
+dc-flexibility-project/results/asi-185day-workload-types-20261031/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/analysis/*asi_185days*.py text eol=lf
+dc-flexibility-project/analysis/asi_inference_profiles.py text eol=lf
+dc-flexibility-project/analysis/build_asi_inference_annual.py text eol=lf
+dc-flexibility-project/analysis/verify_asi_stream_sample.py text eol=lf
+dc-flexibility-project/analysis/probe_asi_inference_range.py text eol=lf
+dc-flexibility-project/analysis/launch_asi_185days.sh text eol=lf
+dc-flexibility-project/analysis/requirements-asi-185days.txt text eol=lf

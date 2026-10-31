@@ -303,11 +303,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="后台流式统计 ASI 全任务类型；原始成员仅在内存，按小时原子检查点续跑")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--volume", type=Path, default=Path("/data3/dataset"))
-    parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--workers", type=int, default=16)
     parser.add_argument("--start-hour", type=int, default=0)
     parser.add_argument("--end-hour", type=int, default=4440)
     parser.add_argument("--skip-jobs", action="store_true")
     args = parser.parse_args()
-    if not 0 <= args.start_hour < args.end_hour <= 4440 or not 1 <= args.workers <= 8:
-        raise ValueError("小时范围须位于 0..4439，工作进程数须为 1..8")
+    if not 0 <= args.start_hour < args.end_hour <= 4440 or not 1 <= args.workers <= 16:
+        raise ValueError("小时范围须位于 0..4439，工作进程数须为 1..16")
     main(args)
