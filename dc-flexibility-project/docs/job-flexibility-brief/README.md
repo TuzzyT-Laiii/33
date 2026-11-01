@@ -55,11 +55,11 @@ H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开�
 
 ## 四、各情境典型日负荷曲线
 
-![各情境典型日负荷曲线](../../results/scenario-typical-day-by-task-20261101-v4/overview.png)
+![各情境典型日负荷曲线](../../results/scenario-typical-day-by-task-20261101-v5/overview.png)
 
-选日与规模：完整日取日电量最接近中位数者，并列取日内RMSE最小；参考IT 10 MW，同需求三规格共用源日，其他规模按整数台数比缩放。
+选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三规格共日。
 
-模型组合：采用#35请求GPU映射、#36平滑CPU与用途功率，重算冷却及PUE；训练仍按原作业分配，所选日接近平坦。
+规模与模型：参考IT 10 MW，沿用v4组合模型（#35推理GPU＋#36 CPU及训练）和原全年PUE；其他规模按整数台数比缩放，训练按原作业分配。
 
 敏感性：训练GPU/TDP 0.65–0.95（中央0.80）；推理在线SXM空闲100–160W、高负载350–700W、γ0.7–1.3，PCIe按TDP迁移；均为情境范围。
 
@@ -78,13 +78,13 @@ H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开�
 
 - 请求级形状与推理GPU功率来自 PR #35（520f68d）的 [`请求与功率报告`](../../results/inf-diurnal-20261101/README.md)，中央采用BurstGPT 119日输入／输出token各50%，Azure 2024代码与对话各7日作为敏感性；请求到达时钟不等同于GPU执行功率测量。
 - 训练功率、CPU响应及基础/空闲依据来自 PR #36（6c83cf1）的 [`功率模型核查`](../../results/trn-power-model-20261101/README.md)：Acme九份监测、OLMo等H100文献、三份SPECpower。训练GPU/TDP中央0.80，范围0.65–0.95；保留中央空载并单独改变敏感性端点。
-- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v4`](../../results/scenario-typical-day-by-task-20261101-v4/README.md)，选日评分见 `*-day-selection.csv`；`comparison.csv` 对照各版本典型日，`matched-day-comparison.csv` 对照同一源日；`summary.csv`、`annual-summary.csv` 和 `sensitivity-summary.csv` 提供峰谷、年度及敏感性核对。脚本为 `analysis/build_scenario_typical_days_v4.py`、`plot_scenario_typical_days_v4.py`；推理GPU来自#35，CPU与训练比例来自#36，组合后重算冷却。
+- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v5`](../../results/scenario-typical-day-by-task-20261101-v5/README.md)。规则为中位电量±2%内取候选、少于5天放宽至±5%，候选内按与全部完整日平均24小时曲线RMSE最小选日；评分及候选标记见 `*-day-selection.csv`，新旧日期、电量、偏差、RMSE和峰谷比见 `day-selection-comparison.csv`，异常提示见 `selected-day-diagnostics.csv`。脚本为 `analysis/reselect_scenario_typical_days.py`；模型及全年小时数据保持v4组合模型，以SHA-256核对，敏感性参数沿用v4。
 
 - Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。
 
 ## 重新生成
 
-先按第四章结果目录的说明生成组合模型汇总与图件（逐作业输入只在本地），再在本目录运行：
+先确认v4组合全年小时结果已核验，按第四章结果目录说明运行选日脚本，生成新汇总及图件，再在本目录运行：
 
 ```
 npm install

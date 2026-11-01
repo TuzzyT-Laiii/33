@@ -9,7 +9,7 @@ from plot_scenario_typical_days import setup, save
 from plot_scenario_typical_days_v3 import draw, handles
 
 
-def plot_all(output):
+def plot_all(output, rule_caption=None):
     output = Path(output)
     setup()
     summary = json.loads((output / 'summary.json').read_text(encoding='utf-8'))
@@ -28,7 +28,7 @@ def plot_all(output):
             ha='right', va='top', fontsize=10, color='#35414D')
         fig.legend(handles=handles(labels), loc='lower left', bbox_to_anchor=(.085, .165), ncol=4, fontsize=8.5)
         count = summary['selections'][use]['complete_days']
-        lines = [f'{count}个完整日：日电量最接近中位数，并列时日内RMSE最小；参考IT 10 MW。']
+        lines = [f'{count}个完整日：{rule_caption}；参考IT 10 MW。' if rule_caption else f'{count}个完整日：日电量最接近中位数，并列时日内RMSE最小；参考IT 10 MW。']
         if use == 'TRN':
             lines += ['来源#36：训练GPU/TDP＝0.80；三份SPEC平滑CPU；原作业分配轨迹。',
                 f'敏感性：训练比例0.65–0.95；基础/空闲{idle_range} W/台，分别改变。',
@@ -70,6 +70,7 @@ def plot_all(output):
             elif c == 0:
                 ax.legend(handles=handles(labels[1:-1]), loc='upper left', bbox_to_anchor=(0, -.32), ncol=len(labels)-2,
                     fontsize=8 if r == 1 else 9, handlelength=1, columnspacing=.8)
-    fig.text(.065, .018, '任务层为IT增量；DNN含推断，运行形态不代表用途或权限。ASI/Alibaba仅有相对日，请求与源日相位为合成映射。', fontsize=10, color='#535B63')
+    footer = rule_caption + '；同需求三规格共用日期。' if rule_caption else '任务层为IT增量；DNN含推断，运行形态不代表用途或权限。ASI/Alibaba仅有相对日，请求与源日相位为合成映射。'
+    fig.text(.065, .018, footer, fontsize=10, color='#535B63')
     checks['overview_figure_bounds'] = save(fig, output, 'overview')
     return checks

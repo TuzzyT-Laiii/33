@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-01T07:52:14.961049+00:00",
+  "checks": {
+    "v4_annual_and_classified_resource_hourly_fingerprints_unchanged": true,
+    "HPC_actual_candidate_window_fallback_RMSE_and_ties": true,
+    "CLD_actual_candidate_window_fallback_RMSE_and_ties": true,
+    "SAI_actual_candidate_window_fallback_RMSE_and_ties": true,
+    "TRN_actual_candidate_window_fallback_RMSE_and_ties": true,
+    "INF_actual_candidate_window_fallback_RMSE_and_ties": true,
+    "A-HPC_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "A-CLD_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "B-SAI_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "C-SAI_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "D-SAI_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "B-TRN_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "C-TRN_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "D-TRN_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "B-INF_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "C-INF_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "D-INF_frozen_values_shared_date_layer_balance_and_comparison_metrics": true,
+    "all_22_old_new_days_screened_and_model_parameter_tables_identical": true,
+    "Word_first_three_chapters_preserved_new_rule_image_and_four_page_PDF": true,
+    "all_previous_version_result_bytes_preserved": true
+  },
+  "evidence": {
+    "new_to_annual_mean_daily_energy_range": [
+      0.8678888400172303,
+      1.0852433829733734
+    ],
+    "old_flagged_scenarios": [
+      "A-HPC"
+    ],
+    "new_flagged_scenarios": [],
+    "HPC_reference": [
+      {
+        "HPC_20220427_rmse_mw": 0.4860329180377601,
+        "HPC_selected_rmse_mw": 0.4678318670082972
+      }
+    ]
+  }
+}

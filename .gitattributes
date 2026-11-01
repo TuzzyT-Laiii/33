@@ -176,3 +176,9 @@ dc-flexibility-project/results/trn-power-model-20261101/*.png binary
 dc-flexibility-project/analysis/*scenario_typical_days_v4.py text eol=lf
 dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v4/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v4/*.png binary
+
+# 选日规则修订保留汇总与图件字节，代码固定 LF。
+dc-flexibility-project/analysis/reselect_scenario_typical_days.py text eol=lf
+dc-flexibility-project/analysis/verify_typical_day_reselection.py text eol=lf
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v5/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v5/*.png binary

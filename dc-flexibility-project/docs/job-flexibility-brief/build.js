@@ -6,7 +6,7 @@ const {
 } = require('docx');
 
 const OUT = process.argv[2];
-const FACTS = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../results/scenario-typical-day-by-task-20261101-v4/brief-facts.json'), 'utf8'));
+const FACTS = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../results/scenario-typical-day-by-task-20261101-v5/brief-facts.json'), 'utf8'));
 const pct = (value) => (value * 100).toFixed(2) + '%';
 const otherShare = (label) => FACTS.MIT_OTHER[label].pct_other_gpu_hours.toFixed(2) + '% OTHER';
 const mitShare = (label) => FACTS.MIT_OTHER[label].pct_mit_gpu_hours.toFixed(2) + '% MIT';
@@ -142,11 +142,11 @@ const H1 = '一、情境定义：服务器规格 × 需求';
 const H2 = '二、任务类型与时间柔性';
 const H3 = '三、各数据源概况';
 const H4 = '四、各情境典型日负荷曲线';
-const FIGURE_DIR = '../../results/scenario-typical-day-by-task-20261101-v4';
+const FIGURE_DIR = '../../results/scenario-typical-day-by-task-20261101-v5';
 const FIGURE = path.resolve(__dirname, FIGURE_DIR, 'overview.png');
 const NOTES4 = [
-  '选日与规模：完整日取日电量最接近中位数者，并列取日内RMSE最小；参考IT 10 MW，同需求三规格共用源日，其他规模按整数台数比缩放。',
-  '模型组合：采用#35请求GPU映射、#36平滑CPU与用途功率，重算冷却及PUE；训练仍按原作业分配，所选日接近平坦。',
+  '选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三规格共日。',
+  '规模与模型：参考IT 10 MW，沿用v4组合模型（#35推理GPU＋#36 CPU及训练）和原全年PUE；其他规模按整数台数比缩放，训练按原作业分配。',
   '敏感性：训练GPU/TDP 0.65–0.95（中央0.80）；推理在线SXM空闲100–160W、高负载350–700W、γ0.7–1.3，PCIe按TDP迁移；均为情境范围。',
   '来源边界：MIT六月完成版，DNN含官方与推断；ASI、Alibaba真实日历未知，请求形状按#35合成相位；基础/空闲中央值沿用，敏感性见第三章。',
   '尖峰：Alibaba原始相对06时高值保留；CPU在50%→60%区间动态增量约125→41W，三份SPEC平滑后放大效应减弱。',
@@ -155,7 +155,7 @@ const readmePath = process.argv[3];
 const previousReadme = readmePath && fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : '';
 const sourceSection = previousReadme.indexOf('## 数字来源与说明');
 const retainedSections = sourceSection >= 0 ? previousReadme.slice(sourceSection).trimEnd() : '';
-const SOURCE4 = '- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v4`](../../results/scenario-typical-day-by-task-20261101-v4/README.md)，选日评分见 `*-day-selection.csv`；`comparison.csv` 对照各版本典型日，`matched-day-comparison.csv` 对照同一源日；`summary.csv`、`annual-summary.csv` 和 `sensitivity-summary.csv` 提供峰谷、年度及敏感性核对。脚本为 `analysis/build_scenario_typical_days_v4.py`、`plot_scenario_typical_days_v4.py`；推理GPU来自#35，CPU与训练比例来自#36，组合后重算冷却。';
+const SOURCE4 = '- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v5`](../../results/scenario-typical-day-by-task-20261101-v5/README.md)。规则为中位电量±2%内取候选、少于5天放宽至±5%，候选内按与全部完整日平均24小时曲线RMSE最小选日；评分及候选标记见 `*-day-selection.csv`，新旧日期、电量、偏差、RMSE和峰谷比见 `day-selection-comparison.csv`，异常提示见 `selected-day-diagnostics.csv`。脚本为 `analysis/reselect_scenario_typical_days.py`；模型及全年小时数据保持v4组合模型，以SHA-256核对，敏感性参数沿用v4。';
 const SPIKE_SOURCE = '- Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。';
 const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取参考 IT 功率 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
 const LEGEND = '✓ 可以　◐ 有条件　✗ 不行　？ 未知；MIT／OTHER分母分别为全部GPU小时／其中OTHER小时，跨数据集不相加。';
