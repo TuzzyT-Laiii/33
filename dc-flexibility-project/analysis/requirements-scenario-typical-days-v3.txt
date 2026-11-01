@@ -1,0 +1,4 @@
+-r requirements-load-curves-v3.txt
+-r requirements-typical-load-curves-v2.txt
+Pillow>=11,<13
+pypdf>=6,<7

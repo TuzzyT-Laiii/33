@@ -159,3 +159,8 @@ dc-flexibility-project/results/typical-load-curves-20261101-v3/** -text whitespa
 dc-flexibility-project/results/typical-load-curves-20261101-v3/**/*.parquet binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3/*.png binary
+
+# 第四章 v3 典型日汇总与图件保留生成字节，便于复核输入和输出指纹。
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v3/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v3/*.png binary
+dc-flexibility-project/analysis/requirements-scenario-typical-days-v3.txt text eol=lf

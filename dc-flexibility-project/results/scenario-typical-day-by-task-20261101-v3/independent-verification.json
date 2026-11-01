@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-01T01:55:35.794103+00:00",
+  "checks": {
+    "HPC_independent_median_then_RMSE_selection": true,
+    "CLD_independent_median_then_RMSE_selection": true,
+    "SAI_independent_median_then_RMSE_selection": true,
+    "TRN_independent_median_then_RMSE_selection": true,
+    "INF_independent_median_then_RMSE_selection": true,
+    "public_CSV_aggregate_fields_only": true,
+    "A-HPC_v3_exact_values_layers_energy_and_quality_flags": true,
+    "A-CLD_v3_exact_values_layers_energy_and_quality_flags": true,
+    "B-SAI_v3_exact_values_layers_energy_and_quality_flags": true,
+    "C-SAI_v3_exact_values_layers_energy_and_quality_flags": true,
+    "D-SAI_v3_exact_values_layers_energy_and_quality_flags": true,
+    "B-TRN_v3_exact_values_layers_energy_and_quality_flags": true,
+    "C-TRN_v3_exact_values_layers_energy_and_quality_flags": true,
+    "D-TRN_v3_exact_values_layers_energy_and_quality_flags": true,
+    "B-INF_v3_exact_values_layers_energy_and_quality_flags": true,
+    "C-INF_v3_exact_values_layers_energy_and_quality_flags": true,
+    "D-INF_v3_exact_values_layers_energy_and_quality_flags": true,
+    "OTHER_direct_interval_clipping_CPU_and_GPU_full_source_and_selected_day": true,
+    "OTHER_reconciles_original_237_day_hourly_CPU_and_GPU": true,
+    "CLD_source_components_scope_and_unknown_calendar": true,
+    "INF_source_components_scope_and_unknown_calendar": true,
+    "all_12_figures_PNG_300dpi_and_valid_SVG": true,
+    "Word_PDF_four_pages_table_endings_and_embedded_overview": true,
+    "README_sources_regeneration_and_links": true,
+    "all_input_fingerprints_unchanged": true,
+    "previous_typical_day_and_spike_audit_unchanged": true
+  },
+  "evidence": {
+    "daily_to_v3_annual_mean_ratio_range": [
+      0.9156065137131333,
+      1.1078776514856867
+    ],
+    "OTHER_maximum_hourly_direct_error_resource_hours": 4.547473508864641e-13,
+    "OTHER_selected_day_GPU_hours": {
+      "DNN 训练（含推断）": 0.0,
+      "长时单任务": 3549.3,
+      "数组批量": 1335.1141666666667,
+      "多节点大作业": 720.0,
+      "低 GPU 活动占用": 470.115,
+      "其他与无法判断": 59.5075
+    }
+  }
+}

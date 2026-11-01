@@ -1,0 +1,175 @@
+{
+  "created_at_utc": "2026-11-01T01:39:45.589475+00:00",
+  "upstream_pr": 34,
+  "upstream_commit": "ab07a41157442e837659535e1a33579ced5af8fa",
+  "upstream_manifest_sha256": "911d196344bdcb4c1c61c85f8dc4140a3066a9d86452dc70929963b6295a158d",
+  "other_pr": 28,
+  "other_commit": "d3fd452e6e03b2cd00b74352b91dbdd57f437095",
+  "input_files": [
+    {
+      "role": "HPC_jobs_local_only",
+      "sha256": "143e1e0ed9dcc92a8bc188f77c5c362a2873d403c9ac344f1f203dda9dcc2e72",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\dc-flexibility-project\\data\\processed\\task-trace-audit-20261026\\lisa\\lisa-tasks.parquet"
+    },
+    {
+      "role": "A-HPC_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\A-HPC-10MW-2025.parquet",
+      "sha256": "b609c2c892e73d0cc1c7fa88b6766bd3640a710393ffe950cf60124fc06ba099"
+    },
+    {
+      "role": "CLD_hourly_components",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\alibaba-cpu-cld-20261031\\complete-component-window.csv",
+      "sha256": "3ebad70e9abb9fdf96e47c1e579cbdc13f8689e85af8bd2e7f41decb8a5230a0"
+    },
+    {
+      "role": "A-CLD_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\A-CLD-10MW-2025.parquet",
+      "sha256": "115301fbc041e9704f0296856a01cea6cf0f45e3bbf0c0edb702f76aa3188c41"
+    },
+    {
+      "role": "MIT_private_classification_local_only",
+      "file": "D:\\mit-supercloud-gpu-summary-20261028\\derived\\other-refine-20261101\\other-job-categories.parquet",
+      "sha256": "bacd64c4917178307e1f7a9d3528129c5b68e32c6682988eab3cf75780bc1776"
+    },
+    {
+      "role": "MIT_slurm_readonly",
+      "file": "D:\\mit-supercloud-gpu-summary-20261028\\reference\\slurm-log.csv",
+      "sha256": "27259e5b8e6daecd80b7853126af40ba759bc25edc9053fc174ef7a4f186aa01"
+    },
+    {
+      "role": "B-SAI_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\B-SAI-10MW-2025.parquet",
+      "sha256": "6c65b5d7e147e6593771ee051212cd1d7e9f6cce2a1f4eab4b5861830fa5efb3"
+    },
+    {
+      "role": "C-SAI_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\C-SAI-10MW-2025.parquet",
+      "sha256": "9b1377ebd7d485f141a73537b23042fccba01f3d54245a4f9822d3fc2ce7a586"
+    },
+    {
+      "role": "D-SAI_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\D-SAI-10MW-2025.parquet",
+      "sha256": "05d177987c70e1ce4a343d7f7a477e41e335f8a533da0a58e4465f2fb3293917"
+    },
+    {
+      "role": "TRN_jobs_local_only",
+      "sha256": "7c5a7845da1d66448fa668342e4ecb622fd9a005118080660ec3ad2788d4c9bf",
+      "file": "C:\\Users\\Lantern567\\Documents\\ChatGPT\\ljt的文章\\dc-flexibility-project\\data\\raw\\task-trace-audit-20261026\\trace_kalos.csv"
+    },
+    {
+      "role": "B-TRN_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\B-TRN-10MW-2025.parquet",
+      "sha256": "5d733819ef51b3df32c35e2cec64b99a5d42252d1a4751a554238f3a4181e1a6"
+    },
+    {
+      "role": "C-TRN_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\C-TRN-10MW-2025.parquet",
+      "sha256": "631917dff2b13a67954cf93a7ead82d0e64ba0f0ccc01e5400a5f49a9ea5270f"
+    },
+    {
+      "role": "D-TRN_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\D-TRN-10MW-2025.parquet",
+      "sha256": "65f783480a45a822d150af9fb0ea60fb42590152c71212a86f098f3527303a71"
+    },
+    {
+      "role": "INF_hourly_components",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\asi-185day-workload-types-20261031\\inf-hourly.csv",
+      "sha256": "fcb328ec01f38d53b59b262f35550308f4da3c5dd8be7ae4fde0bf029927a9c9"
+    },
+    {
+      "role": "B-INF_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\B-INF-10MW-2025.parquet",
+      "sha256": "67ad61ab35564eefb4cad5af0c9fc7fbf94b0294d3c20ff4e835dfcd4d441ade"
+    },
+    {
+      "role": "C-INF_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\C-INF-10MW-2025.parquet",
+      "sha256": "a6b19f32193af8bb85a9f0db7b3e997c1d30de224afd2ea09388ed0c66221c87"
+    },
+    {
+      "role": "D-INF_v3_curve",
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\hourly\\D-INF-10MW-2025.parquet",
+      "sha256": "5a915d7b6f935c301b2fa3e7335779f0ca79496ad1e29579ec0d5e3cdbc3b108"
+    }
+  ],
+  "reference": "v3参考网格g05_r100_c592，2025，10MW，中央风冷；源日首次重放对应天气",
+  "category_scope": "六类互斥OTHER主类，DNN含官方和推断；形态不等于用途或柔性权限",
+  "privacy": "MIT逐作业及标识只留本机；仅小时聚合入Git，不接触流式进程或STOP",
+  "code_sha256": {
+    "build_scenario_typical_days_v3.py": "9083449d880bdde69287aa8a6ee5dfcdf5ddbea2c4a32471b78ad24f3437ad36",
+    "plot_scenario_typical_days_v3.py": "a99f3fc58a7f87c62a16a7ee8f18ce34adb02377f11c9fa321c5c4fb4740c368",
+    "load_curve_scenarios_v3.py": "3a686ccf04fb15734733500c6fdd14be367d3ce6c984917a873ead4cc3dbd8a4",
+    "verify_scenario_typical_days_v3.py": "b15d272673f0ff28f9d326a0fdd71b41444deb94bd31e34bfb3dd63e21a6af7a"
+  },
+  "document_files_sha256": {
+    "build.js": "bea3b31ead6880a7bc816d2ad568da04c955596fdc8bd3fd09298c68ab8ac0aa",
+    "README.md": "b0c5109e693b75c1e35175cd9ed2a892853cfa3af502a026cfc6c6657318f056",
+    "数据中心任务时间柔性简表.docx": "962fc4d9f82e7a1a56b9c83d43fb20d1ad7b23bc1051a32d113c74951bdcc7ce"
+  },
+  "pdf_visual_QA": {
+    "pages": 4,
+    "pdf_sha256": "f0266ad1ca8dfa3f6a229046db74767b7f0a54a49003267661f124b7b7c89ddd",
+    "visual_qa_confirmed": true,
+    "status": "四页已逐页目视确认，中文、图例与表格完整，图和表均未跨页"
+  },
+  "output_sha256": {
+    "A-CLD-by-task.csv": "ac1bcec8edc6bdc6f4d534432e46e828566c619fb7c96c5c6f12073efe26702a",
+    "A-CLD-hourly.csv": "b00ef09dc4ce47eb2753d41e66cc213e9e9754583083df798e4305a733e78a88",
+    "A-CLD.png": "9ccf72e722d8013a808a9b3a9c7da199cad7c37948276062d5352ec31acecb07",
+    "A-CLD.svg": "41ae58e043828e9a7a74b628f291940e6737833491fba1a25059feb212b2a8e7",
+    "A-HPC-by-task.csv": "eb0838736b5a8eda1a1eb4117c01f3f44027da14f3a06e59f5f81db2d05e602e",
+    "A-HPC-hourly.csv": "fbe2d259ff528e4a512448291461c2d66a4f4d692277c57dd73f55c96f1f3781",
+    "A-HPC.png": "1c1eb58808a3aa93437a2be8558c4faa8c571d3f1c02f897c9b4d16c7cd6db66",
+    "A-HPC.svg": "e98d499afee5895ee263d91c5fa7b8b64af4dd55557b100ba2119527131245b6",
+    "B-INF-by-task.csv": "c00f284d5a6f7b10f81272aeee39230dea267d98b897e773830877242cdf02de",
+    "B-INF-hourly.csv": "9b29b009922a30664cebdf7fbbe0cc2dfbff5bd172158177a165cb96466da2a9",
+    "B-INF.png": "d9ec4d7a71dbc37ec30317d9d2cc9c269f10d75be8e0988e3f170f0e766cf990",
+    "B-INF.svg": "858a8293f6047b7ed34717a6da9fdd7ab69add5b6d62bbbd08d6e3f34c12bfa8",
+    "B-SAI-by-task.csv": "9728b629929d9c2cdc4ff0d979a1708060ba5fd6dbae839e88ae91f86a66a6c7",
+    "B-SAI-hourly.csv": "6c853eb9ddcfbe8241c015a92da47ecc528fa1819d8a0ed9bc5006d6646d6875",
+    "B-SAI.png": "0a259038beb4a49a398158a34c560755431c17b0c7fdc35ed32ad182f5ce46a1",
+    "B-SAI.svg": "95a30721485045ecfc41f3c7cd4ff78444489c55f9836cd34cd3feb832494dfd",
+    "B-TRN-by-task.csv": "9ef4c34a2d374fce537db11eb77e388c9a2cfb838ef153e49eb013e83692aad1",
+    "B-TRN-hourly.csv": "e789f4d385f21793d1f195fe210dc5a81860fe65642dbcaadd1a5954aac49033",
+    "B-TRN.png": "113d48d8827509b7aadc1f404ab1c6c8605f272f0722dff424eb0bfe55bd56e1",
+    "B-TRN.svg": "7a4dd1792bd16e4881a72f3d88936840be3f6f0d063c29efe2d4d2b41465ae8f",
+    "brief-facts.json": "9bc9fa62a20d58d94856830452a95ccbe15c6fd5dfb91f34af2181457fc2372c",
+    "C-INF-by-task.csv": "b2e576d37cc7222eb5ed05c3066ff29811e2fde8e5cbe8302695b5afb3eda075",
+    "C-INF-hourly.csv": "5b92bcae6252b88c591296a4bf948dbec20462c7d3915c8f96b893ef9ca885a1",
+    "C-INF.png": "dbfd6ba6187dce92a2bc192c3916bd2066e8f4450a5ce04f6f3ea4ad6b69edac",
+    "C-INF.svg": "144a89957ac583d52e3af1dedc2175b9bb750a2fdb80529d3ce033ead8d3c92c",
+    "C-SAI-by-task.csv": "c4add3243e4ea6314096090bc5ac0d9e146a0cfc491d885799fbee19a375c604",
+    "C-SAI-hourly.csv": "032c617b83f3b5f5731e61a0a78f87457a81d761eb67b28ac535c042a4fef0f4",
+    "C-SAI.png": "7deaf1b2a692263c8d1893a9706969ef4a4314f280c6955da710bb5997c4d88d",
+    "C-SAI.svg": "28d2db6228c51f56848129fa6ea3f75b229b775a718b54ef87ebacfe950fd075",
+    "C-TRN-by-task.csv": "251e0b94274a297e2b73877e0ee85a4253a3577d3ea1de6e35a3573c869e07f7",
+    "C-TRN-hourly.csv": "8569d41dd7fea12fdc7829c8caf297c5f731a53ad7e221c94393742b709872f9",
+    "C-TRN.png": "cf3a361b738098c0d34abc2cf5e3edacbcf13ac393a142e0fbe029ea769cb100",
+    "C-TRN.svg": "a7d0b5c21c2a915a300b28386a7d65293356c994e43b9e72f0685f733fee65c7",
+    "CLD-day-selection.csv": "f45e6d7093dad894f5645a050e1ca87f78b4c6b0772e06ed531f1d05b4707b7b",
+    "D-INF-by-task.csv": "4dde85060506deb36c7ec214d52d80077b03533055e8dae74bcb528e4a718e0a",
+    "D-INF-hourly.csv": "d26f671d83c3bac0a522ecec92b6db2c07b4a39fe5808663c3fa10534286d0c9",
+    "D-INF.png": "9ba19afcfe6a484c30ca9b32ad3d7401d270d9fc59d8227b8dd70b628e68e575",
+    "D-INF.svg": "f1c6ffcad61044bc7666f0c854c47f7c4c95d2756f988c87d94c9e11a98c2f40",
+    "D-SAI-by-task.csv": "59857dcdbf2180562b0de6993f0f17e249a16f9b85dae542a968da88822c2ef3",
+    "D-SAI-hourly.csv": "76e621700100abaf9fa864ffd775a587d1588416dc4d0f9215b24cefc2a7fd9b",
+    "D-SAI.png": "b4b68a38c4b5bd41bdc772557938e9f7b5b9a540fa4073fdea56abfc4a6d9853",
+    "D-SAI.svg": "8c821eea4d1d4636da569abc7bd7bd12afa4cb2856c886367d9797a65242822c",
+    "D-TRN-by-task.csv": "3f44eed4ca96311999eee87db5056c43233394e08f8aba22a0fee41389c5fbdc",
+    "D-TRN-hourly.csv": "7f5d6580f0c3f4bbf345829b6a9cc06968c8fc6dd63686ffb00c06f9784f411b",
+    "D-TRN.png": "bae4401e4645b83815870f43b45df4f5d1e5c9940a85a8964732a397a058b8e2",
+    "D-TRN.svg": "032a11f8b2a0a774f3e6dd29590879337c213d0028097cf45079e292ac0b1820",
+    "HPC-day-selection.csv": "f28b8db07f05645e6385a0b59d6cf11dfd7d37eb015bdeb0f977b4d67f3f65cc",
+    "INF-day-selection.csv": "130b02fdab7ba261be99c62d2bb96f0590677f98afcab660476cdab9c1f27db1",
+    "mit-other-full-source-shares.csv": "3ee19109fea41483362f26775cfc848fb2172866603b380f83a6d26cbb68a08b",
+    "mit-other-typical-day-shares.csv": "47c231074dcf2e831942e607dfa2351e0699c0838f98b8c257250dd07da43f14",
+    "overview.png": "4d0dfbb55c8236c4be228e61113776866e018eca53a7b3d188ebf32aef096c93",
+    "overview.svg": "ba951be089c7fcae3660bc50bd26cfd6f75bf033df073bf5ecb2bb30cf631a31",
+    "README.md": "4a71059b9c21ca174967309189165a311b2a035f39588243eeeb4712f41dd597",
+    "SAI-day-selection.csv": "fb8f2b25f771127448d19f23932e1f0426a9dd306183a7df6c09bed6bae2b0bb",
+    "summary.csv": "89565c1973aeb27bc08543ade92a010817c4c7ed561e81acd9bb6c04548ac763",
+    "summary.json": "71144935d92a7b2ce948e9177563761871efc08eea46f50abcc1b77a935fce03",
+    "TRN-day-selection.csv": "3bd973d86ae6659f6f82fe65ec563ddc42bf6f29e046c1155cfeb3497acf4a2e",
+    "validation.json": "535d2621b2ff3c61d193def9f45b73c818cbf66617c55fee4342cf2edacbf934"
+  }
+}
