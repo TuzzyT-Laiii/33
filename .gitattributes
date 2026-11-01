@@ -164,3 +164,10 @@ dc-flexibility-project/results/typical-load-curves-20261101-v3/*.png binary
 dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v3/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v3/*.png binary
 dc-flexibility-project/analysis/requirements-scenario-typical-days-v3.txt text eol=lf
+# TRN 功率研究的统计与审计文件保持原始字节，代码固定 LF。
+dc-flexibility-project/analysis/*trn*.py text eol=lf
+dc-flexibility-project/analysis/*acme_telemetry.py text eol=lf
+dc-flexibility-project/analysis/requirements-trn-power-model.txt text eol=lf
+dc-flexibility-project/results/trn-power-model-20261101/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/trn-power-model-20261101/*.pdf binary
+dc-flexibility-project/results/trn-power-model-20261101/*.png binary
