@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "run_id": "flex-econ-copt-20261102",
+  "currency": "2024 USD",
+  "scope": "onsite风光储+市电；城市天气点；四类柔性按第二章；原生窗口不循环，资本费用按窗口小时比例分摊",
+  "inherits": "analysis/eight-city-flex-value-20261029.json（风光储成本、寿命、运维、效率、市电价、排放因子沿用）",
+  "parameters": {
+    "weather_year": {"value": 2025, "source": "与第五章参考网格同年", "status": "情景假设"},
+    "reference_it_mw": {"value": 10, "source": "用户确认的参考规模", "status": "情景假设"},
+    "deadline_deferrable_whole_h": {"value": 12, "source": "用户2026-11-02确认：可推迟·整体最多推迟12小时", "status": "情景假设"},
+    "deadline_deferrable_split_h": {"value": 48, "source": "用户2026-11-02确认：可推迟·可拆分最多推迟48小时", "status": "情景假设"},
+    "alpha": {"value": [null, 0.8, 0.9, 0.95, 0.99, 1.0], "source": "用户确认：逐小时本地匹配比例扫描；null为纯经济最优", "status": "情景假设"},
+    "carbon_price_usd_t": {"value": 100, "source": "沿用20261029主组合", "status": "情景假设"},
+    "grid_capacity_usd_kw_year": {"value": 120, "source": "按10 USD/kW-月的需量/接入容量费；量级参考NREL/TP-6A20-68963（McLaughlin等2017，美国需量电费调查）", "status": "情景假设；非具体电网公司费率"},
+    "pv_max_mw": {"value": 10000, "source": "数值上限，非土地核验", "status": "情景假设"},
+    "wind_max_mw": {"value": 10000, "source": "数值上限，非土地核验", "status": "情景假设"},
+    "battery_power_max_mw": {"value": 10000, "source": "放宽20261029的100MW上限，避免α=100%被人为卡住", "status": "情景假设"},
+    "battery_energy_max_mwh": {"value": 1000000, "source": "放宽20261029的2000MWh上限", "status": "情景假设"},
+    "grid_max_mw": {"value": 100, "source": "沿用20261029", "status": "情景假设"},
+    "solver": {"value": "COPT 8.0.7 barrier（单线程/算例），无crossover", "source": "杉数科技Cardinal Optimizer，服务器许可至2027-09-30", "status": "运行配置"}
+  },
+  "designs": {
+    "opt": "风电、光伏、储能功率/电量、市电接入容量全部由成本最优决定",
+    "re_mean": "风光装机满足“窗口平均发电=无柔性基准平均设施负荷”，风光比例、储能、市电接入仍优化"
+  },
+  "flex_cases": {
+    "none": {"whole_h": 0, "split_h": 0},
+    "whole": {"whole_h": 12, "split_h": 0},
+    "split": {"whole_h": 0, "split_h": 48},
+    "both": {"whole_h": 12, "split_h": 48}
+  }
+}
