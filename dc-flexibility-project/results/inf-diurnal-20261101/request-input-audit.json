@@ -1,0 +1,115 @@
+{
+  "created_utc": "2026-11-01T04:01:58.083567+00:00",
+  "inputs": [
+    {
+      "dataset": "burst-1",
+      "url": "https://github.com/HPMLL/BurstGPT/releases/download/v2.0/BurstGPT_1.csv",
+      "bytes": 52283111,
+      "sha256": "4bb3783693d0a435686fbfc885615d2349bd067239079fa4b749f2e679e12122",
+      "reused": true,
+      "seconds": 0,
+      "rows": 1429737,
+      "min_seconds": 5.0,
+      "max_seconds": 5269973.0,
+      "zero_output_requests": 25443,
+      "schema": [
+        "Timestamp",
+        "Model",
+        "Request tokens",
+        "Response tokens",
+        "Total tokens",
+        "Log Type"
+      ]
+    },
+    {
+      "dataset": "burst-2",
+      "url": "https://github.com/HPMLL/BurstGPT/releases/download/v2.0/BurstGPT_2.csv",
+      "bytes": 144819209,
+      "sha256": "44bf5942b03fca42c01a226a545ad3a750ec62688faecd67b6831c56a8928bf7",
+      "reused": true,
+      "seconds": 0,
+      "rows": 3858436,
+      "min_seconds": 5270414.0,
+      "max_seconds": 10454395.0,
+      "zero_output_requests": 74223,
+      "schema": [
+        "Timestamp",
+        "Model",
+        "Request tokens",
+        "Response tokens",
+        "Total tokens",
+        "Log Type"
+      ]
+    },
+    {
+      "dataset": "azure-code",
+      "url": "https://github.com/Azure/AzurePublicDataset/releases/download/dataset-llm-2024/AzureLLMInferenceTrace_code_1week.csv",
+      "bytes": 691989454,
+      "sha256": "71de5c55cbc35f8f1ed0b6b7806b4cd1e9764b0058469725a6aac98023a1448f",
+      "reused": true,
+      "seconds": 0,
+      "rows": 16803695,
+      "min_seconds": 1715299200.00993,
+      "max_seconds": 1715903999.9295008,
+      "zero_output_requests": 0,
+      "schema": [
+        "TIMESTAMP",
+        "ContextTokens",
+        "GeneratedTokens"
+      ]
+    },
+    {
+      "dataset": "azure-conv",
+      "url": "https://github.com/Azure/AzurePublicDataset/releases/download/dataset-llm-2024/AzureLLMInferenceTrace_conv_1week.csv",
+      "bytes": 1135195393,
+      "sha256": "a0cc9b969a9bbf0fd811802cbf4323edd3a209ace791e3799ad4f9207f213941",
+      "reused": true,
+      "seconds": 0,
+      "rows": 27303999,
+      "min_seconds": 1715472000.001163,
+      "max_seconds": 1716076799.99546,
+      "zero_output_requests": 0,
+      "schema": [
+        "TIMESTAMP",
+        "ContextTokens",
+        "GeneratedTokens"
+      ]
+    },
+    {
+      "dataset": "azure-2023-code",
+      "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/215becdacba1ce682c7368642ce97d5a332de7a6/data/AzureLLMInferenceTrace_code.csv",
+      "upstream_commit": "215becdacba1ce682c7368642ce97d5a332de7a6",
+      "bytes": 320117,
+      "sha256": "54e9a6d2a4bd06ba1e060304b900abbc74cbea53de96506e60fe5bb4f2277fb6",
+      "rows": 8819,
+      "min_seconds": 1700158623.97996,
+      "max_seconds": 1700162059.928016,
+      "zero_output_requests": 0,
+      "schema": [
+        "TIMESTAMP",
+        "ContextTokens",
+        "GeneratedTokens"
+      ]
+    },
+    {
+      "dataset": "azure-2023-conv",
+      "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/215becdacba1ce682c7368642ce97d5a332de7a6/data/AzureLLMInferenceTrace_conv.csv",
+      "upstream_commit": "215becdacba1ce682c7368642ce97d5a332de7a6",
+      "bytes": 719188,
+      "sha256": "2f1e5b666d4e3055fdbba98598ce2ec307767b9064e03e2fa46676dbcc7d0bf8",
+      "rows": 19366,
+      "min_seconds": 1700158546.6805902,
+      "max_seconds": 1700162048.402527,
+      "zero_output_requests": 0,
+      "schema": [
+        "TIMESTAMP",
+        "ContextTokens",
+        "GeneratedTokens"
+      ]
+    }
+  ],
+  "chunksize": 250000,
+  "license": "CC BY 4.0; BurstGPT KDD2025, Azure Splitwise ISCA2024 / DynamoLLM HPCA2025",
+  "raw_directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/inference-alternatives-20261031",
+  "hourly_sha256": "1447c7210a823b2c511c0a1b527290b0b7cff65010a38293b9e443c130d45d78"
+}
