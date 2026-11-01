@@ -34,52 +34,57 @@
 
 占比为GPU小时；Lisa、Alibaba为核心小时。ASI注明“全业务”或“推理子集”；INF只用推理。现状排队不等于允许延后时长，运行形态不证明用途或调度权限。
 
-H＝保存＋释放与调度＋加载恢复＋重算；每次损失卡数×H，5%开销要求每段≥19H。预训练H取5–30分钟，其余H为假设，日志均未测到恢复成本。预训练/SFT卡数沿用512–1024／48–64卡参考。
+H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开销要求每段≥19H。预训练H取5–30分钟，其余H为假设；预训练/SFT沿用512–1024／48–64卡。训练状态H100 SXM板卡参考 0.560 kWh/卡时（0.455–0.665）；恢复阶段功率未测，整机与设施按小时模型计算。
 
 候选量级：ASI离线且LP占推理GPU小时 26.61%；Alibaba离线占核心小时 51.13%。实际可调功率仍需期限、权限及补做容量。
 
 ## 三、各数据源概况
 
-| 数据源 | 对应需求 | 时间跨度 | 记录方式与规模 | 作业时长 P50／P90 | 任务分类有多细 | 主要缺口 |
+| 数据源 | 对应需求 | 时间跨度 | 记录方式与规模 | 作业时长／功率证据 | 任务分类有多细 | 主要缺口 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Lisa（荷兰 SURF 超算） | 科研计算 | 2021-12 至 2022-11，约 10 个月 | 逐作业 159.7 万条（CPU 分区 139.6 万、GPU 分区 20.1 万） | CPU 分区 25 秒／55 分钟；GPU 分区 4.6 分钟／5.0 小时 | 粗：只有 17 个分区（CPU／GPU、Jupyter、课程），无用途和算法 | GPU 卡数 |
 | Alibaba 2018 | 云通用计算 | 8天，采用5个完整日 | 4,034台机器；接入在线容器和离线实例用量 | 离线实例P50 10秒、P90 99秒 | 粗：在线19.79%、离线51.13%、未对账29.08%（核心小时） | 未对账量、业务期限 |
 | MIT Supercloud | 科研 AI | 237天需求；六月功率标定 | 39.6万作业，GPU 9.82万；六月12,181文件完成 | 原提交类P50 2.2–3.0小时、P90 22–37小时 | 中：OTHER已分12类，图合并6层；DNN用途证据占OTHER 4.6%（含推断） | 有效监测覆盖68.33%；用途真值与恢复 |
-| Acme（上海 AI Lab Kalos 集群） | 大模型训练/开发 | 2023-05 至 2023-08，约 3 个月 | 逐作业 6.2 万条（GPU 1.99 万、CPU 4.25 万） | 预训练 11 分钟／11.8 小时；评估 44 秒／14 分钟 | 细：预训练、SFT、评估、调试、其他 | RL 标签、检查点记录 |
+| Acme（Kalos／Seren） | 大模型训练/开发 | 作业2023-05至08；监测窗口各异 | Kalos逐作业6.2万；两集群9份监测21.70GB | 原轨迹：预训练11分钟／11.8小时；A100全部监测均功率191／195W/卡 | 细：用途标签；监测缺少逐作业设备关联 | 逐类功率、检查点记录 |
 | ASI（Alibaba GPU 2026） | 推理服务 | 185天，4,440小时 | 逐类型、优先级GPU小时；附执行跨度分布 | 离线执行跨度P50 10–30分钟、P90 3–6小时 | 中：6类业务＋优先级＋模型；INF只取在线和离线推理 | 真实日期、连续运行时间；1个零资源异常小时 |
+| BurstGPT／Azure 2024 | 推理日内形状 | 119日／代码和对话各7日 | 请求及输入／输出token按小时聚合 | 请求日内比2.455／8.963／1.783 | 中央用BurstGPT输入／输出各50%；Azure为敏感性 | 到达与执行时差；时钟、批量及缓存 |
+| OLMo等训练功率研究 | 训练GPU功率依据 | OLMo节点最初300个记录步 | H100训练与检查点阶段直接功率 | 活跃训练>600W/卡；检查点约100W/卡 | 采用GPU/TDP 0.80，敏感性0.65–0.95 | 全生命周期均值、目标配置实测 |
+| SPECpower（三配置） | 全部CPU响应 | 2023—2024公开结果 | 3条整机AC曲线，共33个点 | 空闲76–163W；满载318–915W | 归一化平均、单调平滑；保留端点 | Java负载与目标配置迁移 |
 
-Lisa GPU分区仅计宿主CPU核心小时；ASI执行跨度含生命周期及调度影响，不能当作连续运行时长。MIT六月有效监测覆盖68.33%、合格验证3小时，V100→H100与空载映射仍为假设。
+作业时长数字为P50／P90。Lisa GPU分区仅计宿主CPU核心小时；ASI执行跨度含生命周期及调度影响。MIT监测覆盖68.33%、合格验证3小时，跨设备与空载迁移为假设。无任务整机敏感性（科研AI另计）：A 120–320、B 195–500、C 270–680、D 1370–4110 W/台；科研AI只变基础及CPU空闲。
 
 ## 四、各情境典型日负荷曲线
 
-![各情境典型日负荷曲线](../../results/scenario-typical-day-by-task-20261101-v3/overview.png)
+![各情境典型日负荷曲线](../../results/scenario-typical-day-by-task-20261101-v4/overview.png)
 
-选日：完整日先按日电量接近中位数选取，并列时取日内 RMSE 最小者；GPU 需求以 GPU 主导型选日，三种规格共用日期和任务构成。
+选日与规模：完整日取日电量最接近中位数者，并列取日内RMSE最小；参考IT 10 MW，同需求三规格共用源日，其他规模按整数台数比缩放。
 
-规模与版本：参考IT 10 MW，功率、PUE和全年对照统一采用v3；其他规模按整数台数比缩放。
+模型组合：采用#35请求GPU映射、#36平滑CPU与用途功率，重算冷却及PUE；训练仍按原作业分配，所选日接近平坦。
 
-类别与标定：MIT六月完成版（partial_data=false），DNN层含官方与推断；长时、数组、多节点仅为运行形态；所选日DNN层为零。
+敏感性：训练GPU/TDP 0.65–0.95（中央0.80）；推理在线SXM空闲100–160W、高负载350–700W、γ0.7–1.3，PCIe按TDP迁移；均为情境范围。
 
-来源边界：ASI 185天推理子集；Alibaba五日在线／离线／未对账分层。二者日历日期与星期未知；图中源日期和参考天气重放日分开记录。
+来源边界：MIT六月完成版，DNN含官方与推断；ASI、Alibaba真实日历未知，请求形状按#35合成相位；基础/空闲中央值沿用，敏感性见第三章。
 
-尖峰：Alibaba原始相对06时高值真实存在，单份SPECpower曲线50%→60%的陡升进一步放大功率峰形。
+尖峰：Alibaba原始相对06时高值保留；CPU在50%→60%区间动态增量约125→41W，三份SPEC平滑后放大效应减弱。
 
 ## 数字来源与说明
 
 - 任务类别、占比、排队与作业时长、卡数：PR #26 结果目录 `dc-flexibility-project/results/job-flexibility-constraints-20261030/`（`server-classes.csv`、`asi-classes.csv`、`mit-classes.csv`、`candidate-bounds.csv`、`checkpoint-sensitivity.csv`）。本简表依赖 PR #26，建议先审 PR #26。
 - 情境命名沿用 PR #27 的规范（`docs/scenario-naming.md`）；2026-10-31 已移出 E 纯 GPU 型（整柜液冷），剩 11 个组合。
-- 拆分代价中的 H：预训练取 5–30 分钟，依据 Google 多级检查点案例（恢复不到 1 分钟至 30 分钟）；其余任务的 H 为研究假设，数据中均未测到。卡时折算电量按 DGX H100 整机 10.2 kW ÷ 8 卡。
+- 拆分代价中的 H：预训练取 5–30 分钟，依据 Google 多级检查点案例（恢复不到 1 分钟至 30 分钟）；其余任务的 H 为研究假设，数据中均未测到。损失保留卡时口径；训练状态H100 SXM板卡参考0.560 kWh/卡时（敏感性0.455–0.665），恢复阶段功率未测，整机及设施电量按逐小时模型计算。
 - MIT OTHER 细分依据 PR #28（`d3fd452`）的 [`other-breakdown.csv`](../../results/mit-other-breakdown-20261031/other-breakdown.csv) 和 [`README.md`](../../results/mit-other-breakdown-20261031/README.md)：12 类合并为 6 层，DNN 用途证据占 OTHER 4.6%（含推断）；运行形态、用途证据与调度权限分别判断。本机逐作业分类仅用于资源小时分层，不进入仓库。
 - ASI 使用 PR #32 的 [`185 天统计`](../../results/asi-185day-workload-types-20261031/README.md)，第三章执行跨度与全业务占比见 `execution-by-type-summary.csv`、`task-type-summary.csv`；第二章推理子集与 LP 候选占比来自 v3 的 `flexibility-source-statistics.json`，INF 只含在线与离线推理。
 - Alibaba 使用 PR #33 的 [`完整窗口及在线／离线拆分`](../../results/alibaba-cpu-cld-20261031/README.md)，五日核心小时占比见 `complete-component-window.csv`。未对账量保留为单独层，调度期限与权限未知。
 
-- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v3`](../../results/scenario-typical-day-by-task-20261101-v3/README.md)，选日评分见 `*-day-selection.csv`，日期、峰谷与全年电量核对见 `summary.csv`；`mit-other-full-source-shares.csv`、`mit-other-typical-day-shares.csv` 区分全源与所选日的 OTHER 分母。生成脚本为 `analysis/build_scenario_typical_days_v3.py`、`plot_scenario_typical_days_v3.py`；功率、PUE 与年度对照来自 PR #34 的 `results/typical-load-curves-20261101-v3/`，MIT 为六月窗口完成版。
+- 请求级形状与推理GPU功率来自 PR #35（520f68d）的 [`请求与功率报告`](../../results/inf-diurnal-20261101/README.md)，中央采用BurstGPT 119日输入／输出token各50%，Azure 2024代码与对话各7日作为敏感性；请求到达时钟不等同于GPU执行功率测量。
+- 训练功率、CPU响应及基础/空闲依据来自 PR #36（6c83cf1）的 [`功率模型核查`](../../results/trn-power-model-20261101/README.md)：Acme九份监测、OLMo等H100文献、三份SPECpower。训练GPU/TDP中央0.80，范围0.65–0.95；保留中央空载并单独改变敏感性端点。
+- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v4`](../../results/scenario-typical-day-by-task-20261101-v4/README.md)，选日评分见 `*-day-selection.csv`；`comparison.csv` 对照各版本典型日，`matched-day-comparison.csv` 对照同一源日；`summary.csv`、`annual-summary.csv` 和 `sensitivity-summary.csv` 提供峰谷、年度及敏感性核对。脚本为 `analysis/build_scenario_typical_days_v4.py`、`plot_scenario_typical_days_v4.py`；推理GPU来自#35，CPU与训练比例来自#36，组合后重算冷却。
 
 - Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。
 
 ## 重新生成
 
-先按第四章结果目录的说明生成 v3 汇总与图件（逐作业输入只在本地），再在本目录运行：
+先按第四章结果目录的说明生成组合模型汇总与图件（逐作业输入只在本地），再在本目录运行：
 
 ```
 npm install

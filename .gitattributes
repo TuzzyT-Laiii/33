@@ -171,3 +171,8 @@ dc-flexibility-project/analysis/requirements-trn-power-model.txt text eol=lf
 dc-flexibility-project/results/trn-power-model-20261101/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/trn-power-model-20261101/*.pdf binary
 dc-flexibility-project/results/trn-power-model-20261101/*.png binary
+
+# 第四章组合模型结果保留聚合与图件字节。
+dc-flexibility-project/analysis/*scenario_typical_days_v4.py text eol=lf
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v4/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v4/*.png binary
