@@ -1,0 +1,7 @@
+-r requirements-load-curves-v3.txt
+beautifulsoup4
+lxml
+scipy
+requests
+fonttools
+PyMuPDF

@@ -1,0 +1,13 @@
+{
+  "published_utc": "2026-11-01T04:29:55.506148+00:00",
+  "status": "passed",
+  "source_project": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/trn-power-model-20261101/project",
+  "destination_root": "/data3/dataset/ljt/global-grid-flexibility-20261023",
+  "results_directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/results/trn-power-model-20261101",
+  "processed_directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/processed/trn-power-model-20261101",
+  "hourly_files_checked": 1100,
+  "hourly_rows": 9644448,
+  "result_files_checked": 116,
+  "existing_versions_modified": false,
+  "MIT_streaming_processes_or_STOP_files_modified": false
+}

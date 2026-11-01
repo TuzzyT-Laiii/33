@@ -1,0 +1,20 @@
+{
+  "sha256": "e8e0ccb31d357aab71c62ee2fe886f18ad5525e2feadb6830692f7b31a05fc32",
+  "rows": 2708675,
+  "columns": [
+    "Time",
+    "PSU5_PIN",
+    "PSU6_PIN",
+    "PSU1_PIN",
+    "PSU2_PIN",
+    "PSU3_PIN",
+    "PSU4_PIN",
+    "Sys_Total_Power",
+    "CPU_Power",
+    "Memory_Power",
+    "node",
+    "PSU_IN_SUM"
+  ],
+  "omitted_all_missing_fields": [],
+  "interpretation": "Mixed running states; node mappings withheld from aggregates; Sys_Total_Power, PSU input and component DC are separate meters and must not be summed."
+}

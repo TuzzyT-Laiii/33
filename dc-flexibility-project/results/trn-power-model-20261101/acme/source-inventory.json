@@ -1,0 +1,206 @@
+{
+  "github_commit": "6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73",
+  "huggingface_revision_observed": "a484f7763a7812fc72eb49b8ba865b12fe7638e1",
+  "license": "CC BY 4.0",
+  "telemetry_files": [
+    {
+      "file": "data/utilization/ipmi/CPU_D_Power.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/ipmi/CPU_D_Power.csv",
+      "bytes": 15226341,
+      "sha256": "b6352d8f99beb9733484029f73556623bbcdc3fa57c2718957ff4a747bbcca7e",
+      "lfs_sha256_matched": true
+    },
+    {
+      "file": "data/utilization/ipmi/GPU_AB_Power.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/ipmi/GPU_AB_Power.csv",
+      "bytes": 290322698,
+      "sha256": "e8e0ccb31d357aab71c62ee2fe886f18ad5525e2feadb6830692f7b31a05fc32",
+      "lfs_sha256_matched": true
+    },
+    {
+      "file": "data/utilization/ipmi/GPU_C_Power.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/ipmi/GPU_C_Power.csv",
+      "bytes": 600918503,
+      "sha256": "642a75382ba54cd1e17605a579aa53f022b11898a4d4286f591fd0eb4c91687f",
+      "lfs_sha256_matched": true
+    },
+    {
+      "file": "data/utilization/kalos/FB_USED.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/kalos/FB_USED.csv",
+      "bytes": 1150709917,
+      "sha256": "59d90dc68a17eab03cba32453d26959b209c88ef394642c555200c5d8f26de3b",
+      "lfs_sha256_matched": true
+    },
+    {
+      "file": "data/utilization/kalos/GPU_UTIL.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/kalos/GPU_UTIL.csv",
+      "bytes": 843403137,
+      "sha256": "995e6a271990e3499afb2c74846e156060bac902e1a618a91b4dd58b96b59b1a",
+      "lfs_sha256_matched": true
+    },
+    {
+      "file": "data/utilization/kalos/POWER_USAGE.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/kalos/POWER_USAGE.csv",
+      "bytes": 929567543,
+      "sha256": "efba88dd9aac712aaece4ba7575917103a8796afd0292db866c66e25ff61823a",
+      "lfs_sha256_matched": true
+    },
+    {
+      "file": "data/utilization/seren/POWER_USAGE.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/seren/POWER_USAGE.csv",
+      "bytes": 5744751201,
+      "sha256": "18fd9a458af410891cc17ce2c585721cee73d3f86aa1ed630e7c84431ad0d449",
+      "lfs_sha256_matched": true
+    },
+    {
+      "file": "data/utilization/seren/GPU_UTIL.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/seren/GPU_UTIL.csv",
+      "bytes": 5139607278,
+      "sha256": "671659a42f9dc3630bbb84eea916ea2bd82b1fad0965c730020c0428ddc32ed9",
+      "lfs_sha256_matched": true
+    },
+    {
+      "file": "data/utilization/seren/FB_USED.csv",
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/seren/FB_USED.csv",
+      "bytes": 6989472727,
+      "sha256": "79e79aeda8829e8d904be82368f05bdbc187aef1508cb79cda06955d6ebf5204",
+      "lfs_sha256_matched": true
+    }
+  ],
+  "github_files": [
+    {
+      "file": "LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/LICENSE.txt",
+      "bytes": 18653,
+      "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9"
+    },
+    {
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/README.md",
+      "bytes": 18424,
+      "sha256": "b8b4369cbabc5f0bd884c4bf60c61571ef9e929bfa2da250920ea88f81080e33"
+    },
+    {
+      "file": "analysis.ipynb",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/analysis.ipynb",
+      "bytes": 46470,
+      "sha256": "f5e85ef609ef2014dc4fe042ab3ebac3f3793369451ea0016a26db43397f561e"
+    },
+    {
+      "file": "data/cluster_summary.csv",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/cluster_summary.csv",
+      "bytes": 1269,
+      "sha256": "cde7a7d4ba1596ea165cf4583137d2095020abebbc26b3cd834284c16e8e6ecf"
+    },
+    {
+      "file": "data/generate_utilization_pkl.ipynb",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/generate_utilization_pkl.ipynb",
+      "bytes": 10646,
+      "sha256": "e28223f6d06304b0a98cb86df96fb04208b455b6b4ac01ab7167670fc4811600"
+    },
+    {
+      "file": "data/job_trace/trace_kalos.csv",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/job_trace/trace_kalos.csv",
+      "bytes": 8960159,
+      "sha256": "7c5a7845da1d66448fa668342e4ecb622fd9a005118080660ec3ad2788d4c9bf"
+    },
+    {
+      "file": "data/job_trace/trace_seren.csv",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/job_trace/trace_seren.csv",
+      "bytes": 99262320,
+      "sha256": "747854c73ce8b3263b764aa9ff8d866d89903705d31fcd0e0520c33dd14af9a1"
+    },
+    {
+      "file": "data/utilization/.DS_Store",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/.DS_Store",
+      "bytes": 12292,
+      "sha256": "994c774331036776cb30b0e7a11ab6ff6ea867a0fe148a9ab0d75380045b1f1b"
+    },
+    {
+      "file": "data/utilization/util_pkl/gpu_power_kalos.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/gpu_power_kalos.pkl",
+      "bytes": 16189,
+      "sha256": "8d37bcbb9e35bb8425c826df33caa2da8dfc1334f1a656bb1a719deb4d341efe"
+    },
+    {
+      "file": "data/utilization/util_pkl/gpu_power_seren.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/gpu_power_seren.pkl",
+      "bytes": 16189,
+      "sha256": "e12bc85ee521b0eb4141b4ab50e68f4965c123ac2c667eb182fe6382090d03aa"
+    },
+    {
+      "file": "data/utilization/util_pkl/gpu_temp_kalos.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/gpu_temp_kalos.pkl",
+      "bytes": 32257,
+      "sha256": "2205de26c46618f390354ac2141a903756a8cff3868288d01c173fb8d51282c6"
+    },
+    {
+      "file": "data/utilization/util_pkl/gpu_temp_seren.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/gpu_temp_seren.pkl",
+      "bytes": 32257,
+      "sha256": "714710ca10c802b803148fce93d10d0759f6c7b233cb7ac6a9563e4b0442e28a"
+    },
+    {
+      "file": "data/utilization/util_pkl/ib_seren.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/ib_seren.pkl",
+      "bytes": 32257,
+      "sha256": "ba31c3db37de660e3a739a096792e1f158228fd0dea63c790adcefe893679a66"
+    },
+    {
+      "file": "data/utilization/util_pkl/server_power.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/server_power.pkl",
+      "bytes": 32257,
+      "sha256": "d04af0ace53cc7ced6e134cbddd4abdc621c8c7386930a307254b059145ba671"
+    },
+    {
+      "file": "data/utilization/util_pkl/util_cpu_mem_kalos.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/util_cpu_mem_kalos.pkl",
+      "bytes": 32257,
+      "sha256": "a90a07c2da3939cf90a3a4f064b1a8655261e7160ba80382766b4b359f0bd043"
+    },
+    {
+      "file": "data/utilization/util_pkl/util_cpu_mem_seren.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/util_cpu_mem_seren.pkl",
+      "bytes": 32257,
+      "sha256": "056821018f84ac3047860f58c91af3d8f4025a985a780b92e83fbee190f18e62"
+    },
+    {
+      "file": "data/utilization/util_pkl/util_gpu_kalos.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/util_gpu_kalos.pkl",
+      "bytes": 32257,
+      "sha256": "de05ff0592a107a602a40ee63a9f3e9f2f13120d2ae999d3aff6bef831918028"
+    },
+    {
+      "file": "data/utilization/util_pkl/util_gpu_kalos_full.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/util_gpu_kalos_full.pkl",
+      "bytes": 80504,
+      "sha256": "fe5cb60b84c15caf9e1c125cd46cb0c6472a216f390da9ae46ca43577fe98143"
+    },
+    {
+      "file": "data/utilization/util_pkl/util_gpu_pai.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/util_gpu_pai.pkl",
+      "bytes": 3847,
+      "sha256": "9e2ef459f15dbd272d5089195fe9a873b533bf5fb02039a07eb3226eedce7475"
+    },
+    {
+      "file": "data/utilization/util_pkl/util_gpu_philly.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/util_gpu_philly.pkl",
+      "bytes": 16189,
+      "sha256": "c693dbb97c91b4c50d1ef702ad18721c3461caa5ba29240268d1f8d13ac81283"
+    },
+    {
+      "file": "data/utilization/util_pkl/util_gpu_seren.pkl",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utilization/util_pkl/util_gpu_seren.pkl",
+      "bytes": 80470,
+      "sha256": "1c32e7cc551397f814895c3f93a9e2765c0c0f1e38d251f5b563db33f558cbaf"
+    },
+    {
+      "file": "data/utils.py",
+      "url": "https://raw.githubusercontent.com/InternLM/AcmeTrace/6d6ac9cd15f3b01151ac6ba00ecddd9156f0dc73/data/utils.py",
+      "bytes": 4614,
+      "sha256": "a08459b550957a7b0aac6e9b4fb2d1508628aa9080700b4f806fa56e94afb405"
+    }
+  ],
+  "inventory_sha256": "47a31c4442816408824414bad8068bd6bdccfe035e8e4b059f2f467b45aa1dd5",
+  "raw_server_root": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101"
+}
