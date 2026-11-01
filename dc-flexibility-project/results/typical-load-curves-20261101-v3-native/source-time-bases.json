@@ -1,0 +1,52 @@
+{
+  "HPC": {
+    "source_days": 309,
+    "source_hours": 7416,
+    "has_real_dates": true,
+    "source_start": "2021-12-27 00:00:00",
+    "source_end_inclusive": "2022-10-31 23:00:00",
+    "time_basis": "原文件无时区的日期；源月日小时直接对应目标 UTC，时区对应为假设",
+    "weekly_basis": "源日期星期",
+    "input_sha256": "55c49284c5d6a4ba39a67cb7ffc948804d8d33d6a056a185bf5afb2fc89f48ef"
+  },
+  "TRN": {
+    "source_days": 90,
+    "source_hours": 2160,
+    "has_real_dates": true,
+    "source_start": "2023-05-18 00:00:00+00:00",
+    "source_end_inclusive": "2023-08-15 23:00:00+00:00",
+    "time_basis": "Kalos 原始提交/执行时间带 +00:00，按 UTC",
+    "weekly_basis": "源日期星期",
+    "input_sha256": "f72468bfa5fad887a2d1e793a1cebbe9d2d3f13c606eeb66fe12f8f530fd5ba7"
+  },
+  "CLD": {
+    "source_days": 5,
+    "source_hours": 120,
+    "has_real_dates": false,
+    "source_start": "relative_day=2;hour=00",
+    "source_end_inclusive": "relative_day=6;hour=23",
+    "time_basis": "相对日 2–6、相对小时 48–167；真实日期和时区未知",
+    "weekly_basis": "不提供：仅五天",
+    "input_sha256": "0028c7c33950d236405a0a08246d8c66e59060bd64c7a081454f28cc4b650bf4"
+  },
+  "INF": {
+    "source_days": 185,
+    "source_hours": 4440,
+    "has_real_dates": false,
+    "source_start": "relative_day=0;hour=00",
+    "source_end_inclusive": "relative_day=184;hour=23",
+    "time_basis": "相对日 0–184；真实日期和时区未知",
+    "weekly_basis": "从源第0小时起的相对七日分组，无真实星期含义",
+    "input_sha256": "4b1bb57a7b711d3fed47d616dc116c1dcc930ada24d7e0873c1535c454766f00"
+  },
+  "SAI": {
+    "source_days": 237,
+    "source_hours": 5688,
+    "has_real_dates": true,
+    "source_start": "2021-02-06 00:00:00",
+    "source_end_inclusive": "2021-09-30 23:00:00",
+    "time_basis": "由源 Slurm epoch 秒形成的日期；保留既有 epoch 小时，不额外换算当地时区",
+    "weekly_basis": "源日期星期",
+    "input_sha256": "474348642d7d86c2eecaa9c53dbfdd9d22364566f015bb3e837075f9a3bd27d0"
+  }
+}

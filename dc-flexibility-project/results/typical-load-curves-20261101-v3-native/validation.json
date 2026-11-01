@@ -1,0 +1,23 @@
+{
+  "checked_utc": "2026-11-01T08:10:07.762413+00:00",
+  "status": "passed",
+  "reference_only": false,
+  "native_scenarios": 44,
+  "source_hours_checked": 177600,
+  "weather_matched_rows_checked": 15861600,
+  "placement_files_checked": 5500,
+  "max_facility_balance_residual_mw": 1.1368683772161603e-13,
+  "max_window_energy_error_mwh": 9.313225746154785e-10,
+  "independent_checks": [
+    "原始来源SHA与原生小时序列、无重复无补齐",
+    "独立SAI功率公式",
+    "真实日期月日小时对应与跨年源顺序",
+    "月初12放置及年末截断",
+    "目标闰年不新增源小时",
+    "温度/气压逐小时查表",
+    "IT与设施分项守恒",
+    "窗口平均/峰值/最小值/电量积分",
+    "12放置中位数与极值",
+    "CLD五日不报周形状"
+  ]
+}

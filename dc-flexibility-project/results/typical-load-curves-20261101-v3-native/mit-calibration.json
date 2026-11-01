@@ -1,0 +1,142 @@
+{
+  "created_at": "2026-11-01T00:43:57.510599+00:00",
+  "window_start_utc": "2021-06-01T00:00:00+00:00",
+  "window_end_utc": "2021-07-01T00:00:00+00:00",
+  "partial_data": false,
+  "completed_objects": 12181,
+  "total_objects": 12181,
+  "failed_objects": 0,
+  "hours": 720,
+  "allocated_gpu_hours": 245946.9452777778,
+  "file_coverage": 0.9999839825437148,
+  "completed_file_gpu_hour_share": 0.9999839825437148,
+  "measured_gpu_hours": 168058.13902416665,
+  "monitoring_coverage": 0.6833105360766248,
+  "hours_with_observations": 709,
+  "qualified_hours": 3,
+  "fully_measured_cluster_hours": 0,
+  "ambiguous_device_hours": 40048,
+  "excluded_file_eligibility": {
+    "node_mismatch": 1
+  },
+  "observed_file_gpu_types": {
+    "gpu:volta": 12181
+  },
+  "capacity_gpus": 448,
+  "capacity_source": "https://arxiv.org/pdf/2108.02037#page=2",
+  "tdp_W": 250,
+  "tdp_source": "https://images.nvidia.com/content/technologies/volta/pdf/tesla-volta-v100-datasheet-letter-fnl-web.pdf",
+  "tdp_interpretation": "V100 PCIe 250 W 为归一化参考；源文件未声明实际功率上限，ratio×同一TDP代数抵消",
+  "calibration_end_utc": "2021-06-16T00:00:00+00:00",
+  "allocated_power_W_per_gpu": 97.67436073256988,
+  "measured_power_to_tdp_ratio": 0.3906974429302795,
+  "calibration_gpu_hours": 93941.04173916667,
+  "idle_W_per_gpu": 41.571803815009936,
+  "idle_calibration_gpu_hours": 27730.48210138889,
+  "idle_method": "前半月内完整作业的零GPU利用率功率5W直方图箱中心加权均值；未分配GPU空载代理",
+  "idle_bin_uncertainty_W": 2.5,
+  "minimum_monitoring_coverage": 0.99,
+  "shape_timezone": "UTC",
+  "held_out_allocated_comparison": {
+    "hours": 3,
+    "bias_W": 90.15445651555076,
+    "MAE_W": 90.15445651555076,
+    "RMSE_W": 99.8883017454573,
+    "WAPE": 0.21194501155919243,
+    "pearson_r": 0.9953243577202983
+  },
+  "held_out_cluster_with_idle_proxy_comparison": {
+    "hours": 3,
+    "bias_W": 90.15445651555031,
+    "MAE_W": 90.15445651555031,
+    "RMSE_W": 99.88830174545699,
+    "WAPE": 0.004787778959957629,
+    "pearson_r": 0.9859130005155033
+  },
+  "held_out_observed_support_diagnostic": {
+    "hours": 349,
+    "bias_W": 753.8906580485169,
+    "MAE_W": 1314.257578385669,
+    "RMSE_W": 1736.1410118050915,
+    "WAPE": 0.0657483693143804,
+    "pearson_r": 0.8943083918447957
+  },
+  "held_out_shapes": {
+    "diurnal": {
+      "hours": 3,
+      "bias_W": 9.251858538542972e-17,
+      "MAE_W": 0.18524569627075413,
+      "RMSE_W": 0.2038949040905763,
+      "WAPE": 0.18524569627075413,
+      "pearson_r": 0.9953243577202981
+    },
+    "diurnal_observed_support_diagnostic": {
+      "hours": 24,
+      "bias_W": 4.163336342344337e-17,
+      "MAE_W": 0.014856672219089961,
+      "RMSE_W": 0.017369345188201477,
+      "WAPE": 0.014856672219089961,
+      "pearson_r": 0.9396091902244236
+    },
+    "weekly": {
+      "hours": 1,
+      "bias_W": 0.0,
+      "MAE_W": 0.0,
+      "RMSE_W": 0.0,
+      "WAPE": 0.0,
+      "pearson_r": null
+    },
+    "weekly_observed_support_diagnostic": {
+      "hours": 7,
+      "bias_W": 2.379049338482478e-16,
+      "MAE_W": 0.02886249121238584,
+      "RMSE_W": 0.03475508926188605,
+      "WAPE": 0.028862491212385842,
+      "pearson_r": 0.9121594853033782
+    }
+  },
+  "whole_cluster_comparison": {
+    "hours": 0,
+    "bias_W": null,
+    "MAE_W": null,
+    "RMSE_W": null,
+    "WAPE": null,
+    "pearson_r": null
+  },
+  "limitations": [
+    "作业监控未覆盖持续未分配GPU；全文件完成仍不保证整个物理集群纯实测功率可获得",
+    "observed_energy_equivalent_W为有效观测能量/整小时，缺测未填零；sum_device_mean_power_W仅对出现的设备按各自覆盖区间求均值后相加",
+    "相同node×gpu_index的跨作业疑似重叠设备小时排除；小时批次无法恢复样本并集，须原始区间才能进一步消除歧义",
+    "前半月标定，后半月验证；部分完成文件依旧存在大小与随机顺序造成的选择偏差",
+    "空载代理来自已分配但GPU利用率为零的时段，不能证明未分配GPU具有相同功率",
+    "日内/周内形状只使用后半月监控覆盖达阈值的相同小时，缺少组合保持空白"
+  ],
+  "source_summary_sha256": "26fd6884e94340e4f8366020bd8e2792d0f47a71c48716364f1b04c0942c510a",
+  "source_device_hours_sha256": "92e33dab6041a019fc2d44b04e7eccaa0bc7a3cdf5bbfb14c7ae9566f196e10f",
+  "aggregation_utc": "2026-11-01T00:51:10.280882+00:00",
+  "calibration_device_hour_power_W": {
+    "p10": 38.94446289166667,
+    "p25": 46.067602433333334,
+    "p50": 87.580894975,
+    "p75": 143.54424799444445,
+    "p90": 191.38695988055557,
+    "p95": 203.25903242222222,
+    "p99": 214.21434726764065
+  },
+  "calibration_device_hour_power_to_tdp": {
+    "p10": 0.15577785156666668,
+    "p25": 0.18427040973333333,
+    "p50": 0.3503235799,
+    "p75": 0.5741769919777778,
+    "p90": 0.7655478395222223,
+    "p95": 0.8130361296888888,
+    "p99": 0.8568573890705626
+  },
+  "whole_month_device_hour_mean_W": 96.10878443149531,
+  "whole_month_weighted_device_hour_mean_below_50W_share": 0.29398511293434537,
+  "distribution_unit": "合并且排除歧义的设备小时平均功率，以有效监测时长计权；分位数为描述性敏感性端点",
+  "license": "CC BY-NC-ND 4.0",
+  "citation": "Samsi et al., The MIT Supercloud Dataset, DOI:10.1109/HPEC49654.2021.9622850",
+  "release_status": "六月窗口完成版",
+  "target_idle_assumption": "已分配且零利用率的V100空转代理/TDP按比例迁移至H100；未分配H100无匹配实测"
+}
