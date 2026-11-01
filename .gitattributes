@@ -180,3 +180,10 @@ dc-flexibility-project/analysis/acquire_llm_training_dataset.py text eol=lf
 dc-flexibility-project/analysis/requirements-trn-job-power-evidence.txt text eol=lf
 dc-flexibility-project/results/trn-power-model-20261101/job-power-evidence/*.pdf binary
 dc-flexibility-project/results/trn-power-model-20261101/job-power-evidence/*.png binary
+
+# Seren切换的汇总与审计保持跨平台指纹。
+dc-flexibility-project/analysis/*trn*.sh text eol=lf
+dc-flexibility-project/analysis/requirements-trn-seren.txt text eol=lf
+dc-flexibility-project/results/trn-seren-20261101/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/trn-seren-20261101/*.png binary
+dc-flexibility-project/results/trn-seren-20261101/*.pdf binary
