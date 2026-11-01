@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": {
+    "B-TRN_upstream_hourly_sha256_and_seven_case_means": true,
+    "C-TRN_upstream_hourly_sha256_and_seven_case_means": true,
+    "D-TRN_upstream_hourly_sha256_and_seven_case_means": true,
+    "B-TRN_local_resource_alignment_layer_balance_and_energy_scale": true,
+    "C-TRN_local_resource_alignment_layer_balance_and_energy_scale": true,
+    "D-TRN_local_resource_alignment_layer_balance_and_energy_scale": true,
+    "B-TRN_figure_bounds": true,
+    "C-TRN_figure_bounds": true,
+    "D-TRN_figure_bounds": true,
+    "overview_figure_bounds": true
+  }
+}

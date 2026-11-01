@@ -107,6 +107,8 @@ def selected_days(output):
                 ax.text(.02, .44, '#35请求GPU＋#36 CPU及训练日形状。\n训练比例0.730–0.840，加权均值0.80。\n日内形状为集群迁移假设，无星期修正。\n源日期与对应气象日期分别记录。', transform=ax.transAxes, va='top', fontsize=9, color='#535B63', linespacing=1.6)
                 continue
             labels = draw(ax, typical, rows[scenario], upper, True)
+            if scenario.endswith('-TRN'):
+                ax.set_xlabel('来源UTC小时', fontsize=9, labelpad=1)
             ax.text(.99, .94, f"最高/最低 {rows[scenario]['peak_valley_ratio']:.3f}", transform=ax.transAxes, ha='right', va='top', fontsize=7.6)
             if r == 0 or c == 0:
                 ax.legend(handles=handles(labels[1:-1]), loc='upper left', bbox_to_anchor=(0, -.32), ncol=4 if r == 0 else len(labels)-2,
@@ -117,6 +119,8 @@ def selected_days(output):
         fig, ax = plt.subplots(figsize=(10.2, 5.4))
         fig.subplots_adjust(left=.09, right=.98, top=.80, bottom=.30)
         labels = draw(ax, typical, row, upper, False)
+        if scenario.endswith('-TRN'):
+            ax.set_xlabel('来源UTC小时', fontsize=11, labelpad=1)
         fig.legend(handles=handles(labels), loc='lower left', bbox_to_anchor=(.085, .10), ncol=4, fontsize=9)
         placement_name = '源月日对应气象' if row['placement'] == 'dated' else f"{int(row['placement'][1:])}月初放置"
         fig.text(.09, .055, f"来源日期{row['source_date']}；{placement_name}；最高/最低{row['peak_valley_ratio']:.3f}；参考IT 10 MW。", fontsize=9)
@@ -127,13 +131,15 @@ def selected_days(output):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument('--selected-only', action='store_true')
     args = parser.parse_args()
     setup()
     plt.rcParams.update({'pdf.fonttype': 42})
     output = args.project / 'results' / RUN
-    summary = pd.read_csv(output / 'native-summary.csv').query('reference_it_mw == 10').set_index('scenario_id')
-    series = pd.read_parquet(output / 'native-timeseries-10MW.parquet')
-    native(output, summary, series, None)
-    native(output, summary, series, pd.read_csv(output / 'typical-day-placements.csv'), averaged=True)
-    native(output, summary, series, pd.read_csv(output / 'typical-week-placements.csv'), weekly=True)
+    if not args.selected_only:
+        summary = pd.read_csv(output / 'native-summary.csv').query('reference_it_mw == 10').set_index('scenario_id')
+        series = pd.read_parquet(output / 'native-timeseries-10MW.parquet')
+        native(output, summary, series, None)
+        native(output, summary, series, pd.read_csv(output / 'typical-day-placements.csv'), averaged=True)
+        native(output, summary, series, pd.read_csv(output / 'typical-week-placements.csv'), weekly=True)
     selected_days(output)

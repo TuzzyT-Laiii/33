@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "utc": "2026-11-01T09:52:21.696155+00:00",
+  "checks": {
+    "all_inputs_and_eight_v5_scenarios_unchanged": true,
+    "independent_90_day_selection_window_RMSE_and_shared_date": true,
+    "B-TRN_exact_upstream_hourly_GPU_CPU_formula_UTC_weather_and_balance": true,
+    "B-TRN_typical_hourly_task_layers_comparison_and_90_day_energy_scale": true,
+    "B-TRN_all_seven_sensitivity_cases_match_PR36": true,
+    "C-TRN_exact_upstream_hourly_GPU_CPU_formula_UTC_weather_and_balance": true,
+    "C-TRN_typical_hourly_task_layers_comparison_and_90_day_energy_scale": true,
+    "C-TRN_all_seven_sensitivity_cases_match_PR36": true,
+    "D-TRN_exact_upstream_hourly_GPU_CPU_formula_UTC_weather_and_balance": true,
+    "D-TRN_typical_hourly_task_layers_comparison_and_90_day_energy_scale": true,
+    "D-TRN_all_seven_sensitivity_cases_match_PR36": true,
+    "new_TRN_days_no_quality_or_load_shape_flags": true,
+    "four_changed_figures_300dpi_and_valid_SVG": true,
+    "Word_preserved_tables_only_Acme_row_updated_new_image_and_four_page_PDF": true,
+    "all_earlier_chapter4_result_versions_preserved": true
+  },
+  "evidence": {
+    "TRN_source_date": "2023-06-27",
+    "candidate_count_at_2pct": 4,
+    "applied_window_pct": 5,
+    "candidate_count": 18,
+    "selected_reference_deviation_pct": -1.6237713088228745,
+    "selected_reference_rmse_mw": 0.74997704151558,
+    "new_to_period_mean_daily_energy_range": [
+      0.8983627288581251,
+      1.0852433829733732
+    ]
+  }
+}

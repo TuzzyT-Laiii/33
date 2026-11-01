@@ -78,7 +78,9 @@ def audit(project, pdf, word_audit, visual_confirmed):
         visual_review='全部六页及新增图件已查看，中文、表格、图例、边界与分页正常',
         docx_sha256=sha256(docx_path), pdf_sha256=sha256(pdf), model_input_sha256={name: sha256(project / name) for name in model_files},
         chapter4_chapter5_hourly_and_window_IT_differences_zero=True, task_layers_conserved=True, native_IT_summaries_verified=len(source_summary),
-        word_native_export=layout, verification_sha256=sha256(output / 'verification.json'))
+        word_native_export=layout, verification_sha256=sha256(output / 'verification.json'),
+        brief_base_commit=json.loads((output / 'selected-days/brief-facts.json').read_text('utf-8'))['power']['commits']['31'],
+        chapter4_reference_sha256=sha256(project / 'results/scenario-typical-day-by-task-20261101-v6/summary.json'))
     (output / 'brief-audit.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

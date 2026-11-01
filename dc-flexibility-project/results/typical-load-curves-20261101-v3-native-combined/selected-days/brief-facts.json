@@ -65,15 +65,17 @@
       "36": "1594fb77148f3c9307d00230c25e864f6a286625",
       "28": "d3fd452e6e03b2cd00b74352b91dbdd57f437095",
       "34": "c836bbaf095dfe4660bad8abe9ab9e0ddee4cd6c",
-      "31": "3b11b5866890fa47149663dcddf7e01052358f44"
+      "31": "c7c3df07adc481f6209de418191117734c43ac03"
     },
-    "TRN_GPU_TDP_ratio_interpretation": "原生90天分配GPU小时加权均值",
-    "TRN_GPU_TDP_diurnal_range": [
+    "TRN_diurnal_GPU_TDP_range": [
       0.7298182209277067,
       0.8398154085604568
     ],
+    "TRN_diurnal_source": "Acme Kalos fixed 271 GPUs; source UTC hourly shape; allocated GPU-hour weighted 0.80",
+    "TRN_diurnal_commit": "1594fb77148f3c9307d00230c25e864f6a286625",
+    "TRN_GPU_TDP_ratio_interpretation": "原生90天分配GPU小时加权均值",
     "training_profile_sha256": "747bc4d742222d93c176963e8303e8e89bb5053c1e09b4245babced0c5952a99",
     "power_model_version": "typical-load-curves-20261101-v3-native-combined"
   },
-  "business_statistics_source_sha256": "e12d7d008d5eb4acd343bf97fd917b6585e4cd13958472d7f1ffb1f09bcf185d"
+  "business_statistics_source_sha256": "4572532394ebf5c6b6539d14cc56a8eba0c2dd52e9c1f8d6a66ffa0f327a948e"
 }

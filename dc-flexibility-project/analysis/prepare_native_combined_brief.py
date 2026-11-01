@@ -23,7 +23,7 @@ def run(project, resources):
     configs = catalogue(project)
     placements = pd.read_csv(output / 'placement-summary.csv').query('reference_it_mw == 10')
     summary = pd.read_csv(output / 'native-summary.csv').query('reference_it_mw == 10').set_index('scenario_id')
-    previous = json.loads((project / 'results/scenario-typical-day-by-task-20261101-v5/summary.json').read_text('utf-8'))
+    previous = json.loads((project / 'results/scenario-typical-day-by-task-20261101-v6/summary.json').read_text('utf-8'))
     resource_manifest = json.loads((project / 'results/scenario-typical-day-by-task-20261101-v4/manifest.json').read_text('utf-8'))
     expected_resources = {item['role']: item['sha256'] for item in resource_manifest['input_files']}
     previous_rows = {r['scenario']: r for r in previous['scenarios']}
@@ -98,14 +98,15 @@ def run(project, resources):
     pd.DataFrame(comparisons).to_csv(output / 'chapter4-comparison.csv', index=False, encoding='utf-8-sig')
     pd.DataFrame(audits).to_csv(typical / 'selected-day-diagnostics.csv', index=False, encoding='utf-8-sig')
     (typical / 'resource-input-sha256.json').write_text(json.dumps(inputs, ensure_ascii=False, indent=2), encoding='utf-8')
-    facts_path = project / 'results/scenario-typical-day-by-task-20261101-v5/brief-facts.json'
+    facts_path = project / 'results/scenario-typical-day-by-task-20261101-v6/brief-facts.json'
     facts = json.loads(facts_path.read_text('utf-8'))
     calculation = json.loads((output / 'manifest.json').read_text('utf-8'))
     training_profile = project / 'results/trn-power-model-20261101/diurnal-acme/transfer-profile.csv'
     profile = pd.read_csv(training_profile).shape_central
     facts['power']['commits'].update(calculation['dependency_commits'])
+    facts['power']['commits']['31'] = 'c7c3df07adc481f6209de418191117734c43ac03'
     facts['power'].update(TRN_GPU_TDP_ratio_interpretation='原生90天分配GPU小时加权均值',
-        TRN_GPU_TDP_diurnal_range=[float(profile.min()), float(profile.max())],
+        TRN_diurnal_GPU_TDP_range=[float(profile.min()), float(profile.max())],
         training_profile_sha256=sha256(training_profile), power_model_version=RUN)
     facts['business_statistics_source_sha256'] = sha256(facts_path)
     (typical / 'brief-facts.json').write_text(json.dumps(facts, ensure_ascii=False, indent=2), encoding='utf-8')
