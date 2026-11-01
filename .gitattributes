@@ -224,3 +224,8 @@ dc-flexibility-project/results/typical-load-curves-20261101-v4-seren/** -text wh
 dc-flexibility-project/results/typical-load-curves-20261101-v4-seren/**/*.parquet binary
 dc-flexibility-project/results/typical-load-curves-20261101-v4-seren/**/*.png binary
 dc-flexibility-project/results/typical-load-curves-20261101-v4-seren/**/*.pdf binary
+# Seren第四章统计、图件和选日结果保持可核验字节。
+dc-flexibility-project/analysis/*chapter4_trn_seren.py text eol=lf
+dc-flexibility-project/analysis/summarize_seren_jobs_for_brief.py text eol=lf
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v7/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v7/*.png binary

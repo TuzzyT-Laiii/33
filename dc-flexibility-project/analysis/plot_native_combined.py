@@ -71,14 +71,30 @@ def native(output, summary, series, profiles, weekly=False, averaged=False):
                 ax.set_xticks([0, 24, 48, 72, 96, 120, 144, 167] if weekly else [0, 6, 12, 18, 23])
             else:
                 data = series.loc[series.scenario_id.eq(sid)]
-                x = data.source_hour_index / 24
-                ax.plot(x, data.facility_mw_median, color='#A05799', lw=.55)
-                ax.fill_between(x, data.facility_mw_min, data.facility_mw_max, color='#A05799', alpha=.2, lw=0)
-                ax.plot(source.source_hour_index / 24, source.it_mw, color='#2878B5', lw=.55)
-                ax.set_xlabel(f'源窗口经过天数（共{int(row.native_days)}天）', fontsize=9)
-                ax.set_xlim(0, row.native_days)
-                step = int(np.ceil(row.native_days / 4))
-                ax.set_xticks(np.unique(np.r_[np.arange(0, row.native_days, step), row.native_days]))
+                seren = 'source_dataset' in source and source.source_dataset.eq('Acme Seren').all()
+                if seren:
+                    clock = pd.DatetimeIndex(pd.to_datetime(source.source_clock, utc=True))
+                    calendar = pd.date_range(clock[0], clock[-1], freq='h')
+                    # 仅绘图补入NaN，使缺口断线；不补入功率观测或改写统计。
+                    facility = data.set_index('source_hour_index').reindex(source.source_hour_index)
+                    facility.index = clock
+                    facility = facility.reindex(calendar)
+                    it = pd.Series(source.it_mw.to_numpy(), index=clock).reindex(calendar)
+                    x = (calendar - calendar[0]).total_seconds() / 86400
+                    ax.plot(x, facility.facility_mw_median, color='#A05799', lw=.55)
+                    ax.plot(x, it, color='#2878B5', lw=.55)
+                    ax.set_xlabel('自05-16 10时UTC起经过天数（2057小时，有缺口）', fontsize=8)
+                    ax.set_xlim(0, x[-1])
+                    ax.set_xticks([0, 30, 60, 90])
+                else:
+                    x = data.source_hour_index / 24
+                    ax.plot(x, data.facility_mw_median, color='#A05799', lw=.55)
+                    ax.fill_between(x, data.facility_mw_min, data.facility_mw_max, color='#A05799', alpha=.2, lw=0)
+                    ax.plot(source.source_hour_index / 24, source.it_mw, color='#2878B5', lw=.55)
+                    ax.set_xlabel(f'源窗口经过天数（共{int(row.native_days)}天）', fontsize=9)
+                    ax.set_xlim(0, row.native_days)
+                    step = int(np.ceil(row.native_days / 4))
+                    ax.set_xticks(np.unique(np.r_[np.arange(0, row.native_days, step), row.native_days]))
             ax.set_ylim(0, upper)
             ax.set_yticks(np.arange(0, upper + .001, 2))
             ax.tick_params(labelsize=8, pad=2)
@@ -89,7 +105,7 @@ def native(output, summary, series, profiles, weekly=False, averaged=False):
     save(fig, output, 'native-week' if weekly else 'native-day' if averaged else 'native-overview')
 
 
-def selected_days(output):
+def selected_days(output, only_scenarios=None, training_seren=False):
     typical = output / 'selected-days'
     summary = json.loads((typical / 'summary.json').read_text('utf-8'))
     rows = {row['scenario']: row for row in summary['scenarios']}
@@ -104,7 +120,8 @@ def selected_days(output):
             if scenario is None:
                 ax.axis('off')
                 ax.legend(handles=handles(['基础与空载 IT', '冷却等非 IT']), loc='upper left', fontsize=10)
-                ax.text(.02, .44, '#35请求GPU＋#36 CPU及训练日形状。\n训练比例0.730–0.840，加权均值0.80。\n日内形状为集群迁移假设，无星期修正。\n源日期与对应气象日期分别记录。', transform=ax.transAxes, va='top', fontsize=9, color='#535B63', linespacing=1.6)
+                note = '#38 Seren同期2057合格小时，缺口保留。\n55个完整UTC日选中2023-05-31。\n反推比例均值0.76，P10–P90为0.61–0.90。\nA100→H100按TDP比例迁移。' if training_seren else '#35请求GPU＋#36 CPU及训练日形状。\n训练比例0.730–0.840，加权均值0.80。\n日内形状为集群迁移假设，无星期修正。\n源日期与对应气象日期分别记录。'
+                ax.text(.02, .44, note, transform=ax.transAxes, va='top', fontsize=9, color='#535B63', linespacing=1.6)
                 continue
             labels = draw(ax, typical, rows[scenario], upper, True)
             if scenario.endswith('-TRN'):
@@ -112,10 +129,12 @@ def selected_days(output):
             ax.text(.99, .94, f"最高/最低 {rows[scenario]['peak_valley_ratio']:.3f}", transform=ax.transAxes, ha='right', va='top', fontsize=7.6)
             if r == 0 or c == 0:
                 ax.legend(handles=handles(labels[1:-1]), loc='upper left', bbox_to_anchor=(0, -.32), ncol=4 if r == 0 else len(labels)-2,
-                    fontsize=8 if r <= 1 else 9, handlelength=1, columnspacing=.8)
+                    fontsize=8 if r <= 1 else 7.4 if training_seren and r == 2 else 9, handlelength=1, columnspacing=.6)
     fig.text(.065, .018, '完整日中位电量±2%内候选，少于5天放宽至±5%；候选内与全窗口平均24小时设施曲线RMSE最小。', fontsize=10, color='#535B63')
     save(fig, typical, 'overview')
     for scenario, row in rows.items():
+        if only_scenarios is not None and scenario not in only_scenarios:
+            continue
         fig, ax = plt.subplots(figsize=(10.2, 5.4))
         fig.subplots_adjust(left=.09, right=.98, top=.80, bottom=.30)
         labels = draw(ax, typical, row, upper, False)
@@ -124,7 +143,8 @@ def selected_days(output):
         fig.legend(handles=handles(labels), loc='lower left', bbox_to_anchor=(.085, .10), ncol=4, fontsize=9)
         placement_name = '源月日对应气象' if row['placement'] == 'dated' else f"{int(row['placement'][1:])}月初放置"
         fig.text(.09, .055, f"来源日期{row['source_date']}；{placement_name}；最高/最低{row['peak_valley_ratio']:.3f}；参考IT 10 MW。", fontsize=9)
-        fig.text(.09, .018, '模型与第五章原生窗口一致；无日期来源的源相位、气象放置及训练集群形状迁移属于情境假设。', fontsize=9)
+        note = '与第五章同一Seren正文小时；无逐作业设备映射，反推依赖在线库存及缺测代表性；A100→H100按TDP迁移。' if training_seren and scenario.endswith('-TRN') else '模型与第五章原生窗口一致；无日期来源的源相位、气象放置及训练集群形状迁移属于情境假设。'
+        fig.text(.09, .018, note, fontsize=9)
         save(fig, typical, scenario)
 
 

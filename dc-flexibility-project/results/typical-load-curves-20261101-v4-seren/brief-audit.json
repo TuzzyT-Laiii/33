@@ -1,0 +1,44 @@
+{
+  "utc": "2026-11-01T15:16:35.810569+00:00",
+  "status": "passed",
+  "pages": 6,
+  "Word_tables": [
+    {
+      "end_page": 1,
+      "start_page": 1,
+      "rows": 5,
+      "index": 1
+    },
+    {
+      "end_page": 2,
+      "start_page": 2,
+      "rows": 15,
+      "index": 2
+    },
+    {
+      "end_page": 3,
+      "start_page": 3,
+      "rows": 9,
+      "index": 3
+    },
+    {
+      "end_page": 5,
+      "start_page": 5,
+      "rows": 12,
+      "index": 4
+    }
+  ],
+  "docx_sha256": "23adec00fd491be2d0798bb0bd0571b9d2f8606dee9473c16293c0b6364b98ab",
+  "pdf_sha256": "b0f43a6340e7c6c4dc79f1a7541453a4c7ebe32f0863e8a32eccbdc3e703096f",
+  "visual_QA": "全部六页及改图已逐一检查；中文、图例、表格及分页正常",
+  "source_scenarios_verified": 44,
+  "Seren_hourly_upstream_fingerprints": 300,
+  "preserved_files_verified": 276,
+  "previous_directory_unchanged": true,
+  "training_qualified_hours": 2057,
+  "complete_UTC_days": 55,
+  "candidate_days": 8,
+  "selected_UTC_date": "2023-05-31",
+  "no_training_legacy_scheme_in_Word": true,
+  "two_chapters_same_hourly_values": true
+}

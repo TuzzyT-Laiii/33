@@ -1,0 +1,12 @@
+﻿scenario,source_date,selected_hourly_maximum_difference_mw,window_it_mean_absolute_difference_mw
+A-HPC,2022-04-27,0.0,0.0
+A-CLD,相对第2天,0.0,0.0
+B-SAI,2021-06-20,0.0,0.0
+C-SAI,2021-06-20,0.0,0.0
+D-SAI,2021-06-20,0.0,0.0
+B-TRN,2023-05-31,0.0,0.0
+C-TRN,2023-05-31,0.0,0.0
+D-TRN,2023-05-31,0.0,0.0
+B-INF,相对第78天,0.0,0.0
+C-INF,相对第78天,0.0,0.0
+D-INF,相对第78天,0.0,0.0

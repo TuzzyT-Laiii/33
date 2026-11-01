@@ -1,0 +1,255 @@
+{
+  "utc": "2026-11-01T11:51:44.797144+00:00",
+  "PR38_commit": "bd6c8cdcb99a08b994136372881cee4a98d55d46",
+  "input_files": [
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\scenario-typical-day-by-task-20261101-v6\\summary.json",
+      "sha256": "a97f64c90204b94ee871eefbf0d29b12e4270ceca6fc193347972a970e775341"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\trn-seren-20261101\\calculation-audit.json",
+      "sha256": "d5d01fcc4b0a7e3a0b266e922eda1b55c1f8107bb8ab136c2d0985a074a61d29"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\trn-seren-20261101\\source-audit.json",
+      "sha256": "904d792204cdd998bb99e01cd6c57957c5bc9159c70f0f6c51782bbaf5d01cd6"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\seren-job-statistics.json",
+      "sha256": "b3b08c6a57f474501a64667771afd9f24216d754e5d12ed48c0b3d868d51f225"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261029-v2\\mit-power-ratio-summary.json",
+      "sha256": "9751f83474686f619626a137800f803e41313893c6f5dceee5f42bed50f92397"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\typical-load-curves-20261101-v3\\mit-calibration.json",
+      "sha256": "1224e0cb4baf2d1a0ceefbfdd0a325a80ba073a7357f5842180fb6d2d36902e8"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\trn-power-model-20261101\\cpu-shape.json",
+      "sha256": "1c73d31f14c8e26ba53d94daa226637e5ffc8cf10dbe76cc8641f9d770c50f81"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\main\\B-TRN-10MW-2025.parquet",
+      "sha256": "9e5557d3cb9feb4f562ff6e2ed03f6feef48a3cbbcbaa7a5bdaaaa1d7dc1a104"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle50\\B-TRN-10MW-2025.parquet",
+      "sha256": "d791f201013affc4d096614863996aaa16d4638dc24091707796c550fa3f1838"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle70\\B-TRN-10MW-2025.parquet",
+      "sha256": "9dcbd4e36f24553fdf8b78cc2cdae6b8de151960168a5cf53c41486f56071d50"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle_zero_proxy\\B-TRN-10MW-2025.parquet",
+      "sha256": "fdb37422659ecc32f9d891d4dd1d5ebbeff8104d4d35d5a5f4820ead7e72fbc4"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\clip_0_1\\B-TRN-10MW-2025.parquet",
+      "sha256": "f371b8a3e56d2df2452922c822d5eb16c2a9cd3164eca9d3bcc0b107544734d5"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\seren_constant_080\\B-TRN-10MW-2025.parquet",
+      "sha256": "3ee0b0237043c694bd8cd97c065457d9c6e96d598e9721489ebb033f9ceb6749"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\main\\C-TRN-10MW-2025.parquet",
+      "sha256": "026a48907248dae83f6d9ed6d6e7778ac425160159e52b55ae5e377b63f6c96d"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle50\\C-TRN-10MW-2025.parquet",
+      "sha256": "3772a4a272b19cf480f386e4b62a288d79d82a4516e5c3ae7bb591c824e5c3d7"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle70\\C-TRN-10MW-2025.parquet",
+      "sha256": "8858247b449998c06aad26ad2296bb278e18fc394fa498488261516153291dd1"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle_zero_proxy\\C-TRN-10MW-2025.parquet",
+      "sha256": "8698289c282caa0bd096aff18df335bd3b5ca83b3cf48cb52ad8b4cf0b75c7c7"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\clip_0_1\\C-TRN-10MW-2025.parquet",
+      "sha256": "7372c8cac06eec3e3106bd32bfa1a56cbbf6e701b67365ef596e6a0fcccbfaa8"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\seren_constant_080\\C-TRN-10MW-2025.parquet",
+      "sha256": "d23810ae9546678424cf8cb9f5ab4334aabdf2ad9895e018dcfe39b45400ae64"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\main\\D-TRN-10MW-2025.parquet",
+      "sha256": "748aa13891227b6ce77030610891a07d7dfc6682a881ab07e6671adcaa92d963"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle50\\D-TRN-10MW-2025.parquet",
+      "sha256": "8cda7684ee2f2358bfb1fc6f2549a30a140fa20975c038ed8bdc37a4b59cfee1"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle70\\D-TRN-10MW-2025.parquet",
+      "sha256": "b7b89dc6cf1926eb19a2533675396c2a396188fed725398bb22bdafb825366ed"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle_zero_proxy\\D-TRN-10MW-2025.parquet",
+      "sha256": "c6cdaa693781140b62030552ff557e565fba0cd557bf61f47fabc1ff97181f20"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\clip_0_1\\D-TRN-10MW-2025.parquet",
+      "sha256": "706f4c3b48875e7383077df47deab532f7e0f12194007b13b1e529935c4dcd85"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\seren_constant_080\\D-TRN-10MW-2025.parquet",
+      "sha256": "ce86e6ad36016ec95d75c8db282e3aa222266de7ef56543585a5a4236f873c9d"
+    },
+    {
+      "file": "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\results\\scenario-typical-day-by-task-20261101-v6\\brief-facts.json",
+      "sha256": "4572532394ebf5c6b6539d14cc56a8eba0c2dd52e9c1f8d6a66ffa0f327a948e"
+    }
+  ],
+  "upstream_hourly_sha256": {
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\main\\B-TRN-10MW-2025.parquet": "9e5557d3cb9feb4f562ff6e2ed03f6feef48a3cbbcbaa7a5bdaaaa1d7dc1a104",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle50\\B-TRN-10MW-2025.parquet": "d791f201013affc4d096614863996aaa16d4638dc24091707796c550fa3f1838",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle70\\B-TRN-10MW-2025.parquet": "9dcbd4e36f24553fdf8b78cc2cdae6b8de151960168a5cf53c41486f56071d50",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle_zero_proxy\\B-TRN-10MW-2025.parquet": "fdb37422659ecc32f9d891d4dd1d5ebbeff8104d4d35d5a5f4820ead7e72fbc4",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\clip_0_1\\B-TRN-10MW-2025.parquet": "f371b8a3e56d2df2452922c822d5eb16c2a9cd3164eca9d3bcc0b107544734d5",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\seren_constant_080\\B-TRN-10MW-2025.parquet": "3ee0b0237043c694bd8cd97c065457d9c6e96d598e9721489ebb033f9ceb6749",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\main\\C-TRN-10MW-2025.parquet": "026a48907248dae83f6d9ed6d6e7778ac425160159e52b55ae5e377b63f6c96d",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle50\\C-TRN-10MW-2025.parquet": "3772a4a272b19cf480f386e4b62a288d79d82a4516e5c3ae7bb591c824e5c3d7",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle70\\C-TRN-10MW-2025.parquet": "8858247b449998c06aad26ad2296bb278e18fc394fa498488261516153291dd1",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle_zero_proxy\\C-TRN-10MW-2025.parquet": "8698289c282caa0bd096aff18df335bd3b5ca83b3cf48cb52ad8b4cf0b75c7c7",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\clip_0_1\\C-TRN-10MW-2025.parquet": "7372c8cac06eec3e3106bd32bfa1a56cbbf6e701b67365ef596e6a0fcccbfaa8",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\seren_constant_080\\C-TRN-10MW-2025.parquet": "d23810ae9546678424cf8cb9f5ab4334aabdf2ad9895e018dcfe39b45400ae64",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\main\\D-TRN-10MW-2025.parquet": "748aa13891227b6ce77030610891a07d7dfc6682a881ab07e6671adcaa92d963",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle50\\D-TRN-10MW-2025.parquet": "8cda7684ee2f2358bfb1fc6f2549a30a140fa20975c038ed8bdc37a4b59cfee1",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle70\\D-TRN-10MW-2025.parquet": "b7b89dc6cf1926eb19a2533675396c2a396188fed725398bb22bdafb825366ed",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\idle_zero_proxy\\D-TRN-10MW-2025.parquet": "c6cdaa693781140b62030552ff557e565fba0cd557bf61f47fabc1ff97181f20",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\clip_0_1\\D-TRN-10MW-2025.parquet": "706f4c3b48875e7383077df47deab532f7e0f12194007b13b1e529935c4dcd85",
+    "D:\\codex-runs\\scenario-typical-day-by-task-20261031\\worktree\\dc-flexibility-project\\data\\processed\\scenario-typical-day-by-task-20261101-v7\\upstream\\seren_constant_080\\D-TRN-10MW-2025.parquet": "ce86e6ad36016ec95d75c8db282e3aa222266de7ef56543585a5a4236f873c9d"
+  },
+  "preserved_v6_files_sha256": {
+    "A-HPC-hourly.csv": "4872b53e6d58d5c46d7fefc84268e4237d87950276633b190a054cc00cd77f5a",
+    "A-HPC-by-task.csv": "2e0fbbc3eeee684270ce5526b8369d9fafd6535cf4cf798869946ea35c22c68f",
+    "A-HPC.png": "9b55408f59a19d8ee1af6ea7a24fa9189405f163b5067a5443a92189718fdb0e",
+    "A-HPC.svg": "1d418c5a6a9105db4d7f7b5d27422013b6780edb0f9462674768071da21d4624",
+    "A-CLD-hourly.csv": "ee37fe9887158190b2406409d411ed1486a396d3019ce38e85af777d2e1e5bc7",
+    "A-CLD-by-task.csv": "10ae76894a9e97e79baa381789a9f252d63f631130a081b02f9cf276aa78068d",
+    "A-CLD.png": "cd3b8a6690becfe76e2cd3ad315d66ddd2c227bcb1da3efc0fa5ea3c357ec587",
+    "A-CLD.svg": "d30cdd5e7086f8b42d06bde0eb30c5b8bc35426a1b1c847a94b252780adb81d8",
+    "B-SAI-hourly.csv": "ead939b7d716132b562280eed6c52b680bfbc6ddab314cabea4a0d337ba62a50",
+    "B-SAI-by-task.csv": "f5c39acf20e095696adbd9c79b0184aeb548819c10b8e68851d50f6650448eab",
+    "B-SAI.png": "50018eb195fd2e0c50f8a28c1ba597121cdc913d6a0cf30f1013ef28c65c70e2",
+    "B-SAI.svg": "25b41e0813a609dd5235954f6ba9b1d80b8436d3211c63076d53a1b21741d493",
+    "C-SAI-hourly.csv": "80896da1063bde0fcd58fa0f119b5a1ba8a8aa4d9beacce59b32c5256afbcde0",
+    "C-SAI-by-task.csv": "d4fc2371fb10e171a40e7d2162f2d15d820d74d4d5bc1eb23231ae7e01401f28",
+    "C-SAI.png": "1a77959696b92c6720c3fe2d3459d66ffbac04b477d4fc96156653d4ad501a39",
+    "C-SAI.svg": "34a86822f81a7e08af8a633c116e3b0f3c511ede81d9f5054e91a660658f24bc",
+    "D-SAI-hourly.csv": "b216adb76050f5943d7567e959d7a88b670687c8579a047fd60600a8c42f1158",
+    "D-SAI-by-task.csv": "96ef548b85be6a9864df2b0c524d7c60d57fc9620f3b307fbae1994ec4879926",
+    "D-SAI.png": "fa4fb665a5011150496f5380c370eee518826b373e348157ec726b13608ad6f9",
+    "D-SAI.svg": "a7a758f84cf9916c849fddd2f1d0e3d71ac49321292f755891df2d63e1587f2e",
+    "B-INF-hourly.csv": "e2c936882d9ff815707642dc7ca697b989236151d1616918bf4369983ee5739d",
+    "B-INF-by-task.csv": "7a5a8ee50589bdae68a08f79e2c2d5ab7a74721aa7e7fbfabd21dfea8f89c7e0",
+    "B-INF.png": "749ddb01045ddb272542ffbe7a5af150c51d0581b4ba5046a6f40df5dc3a61d8",
+    "B-INF.svg": "e5234a2b8b87e0ce4c513f0f8836815cfbed7930b61d4326bd4d0d9555f30722",
+    "C-INF-hourly.csv": "c3a97775069a023f25575d93f59c6a8c5311917a7d5987654fbe505c3c5024bf",
+    "C-INF-by-task.csv": "25936713f50d5728d7ffb59953dc19f3353007602629f18373821bb796fea38b",
+    "C-INF.png": "bf2d220496e166852536ca75bda24a08cf6ee7dbc19d6c1992d712a49991d0b1",
+    "C-INF.svg": "c30cd8fdc717f889a092357bb4e15bf97be03e4270d86bdb9d6f96038bb2041c",
+    "D-INF-hourly.csv": "cb614f3a75f3ee547e3f26e2877be62fba588feb76ce847173e7211b76748d81",
+    "D-INF-by-task.csv": "29b678d74427fafa7cf74e376401d96a0169e7de66bd5d0c102be06fc268877c",
+    "D-INF.png": "0ac03470a89888cb15dc42c0a7e52be1448d01900566258db605d5f680423e67",
+    "D-INF.svg": "e105dac63065a09c1d2b05bd374cd5bf8c93a546d3c62661dea56bebe448e6d5",
+    "HPC-day-selection.csv": "b33c07f900ebf77d7015b1feb5280c7881fb03637319b49a60527e97d909a808",
+    "CLD-day-selection.csv": "276d05d5474bda1a55334c118dc90c545384998ca15d8ed9d5ed4c4f538c58e3",
+    "SAI-day-selection.csv": "9bee3b6c708eba4f31118538653921c0449443af5fa9545c8a92694a195872cb",
+    "INF-day-selection.csv": "e3bba1c0fe153cffc1ecd09a0a6227a5e74b6571c1093405a3faf4107bcdf654",
+    "idle-endpoints.csv": "54098f64a9e479c35e7583e1482ae778434e272f4da0f71211c75e3a08e994aa"
+  },
+  "code_sha256": {
+    "update_chapter4_trn_seren.py": "9c41cc7bda04100aa413bd951840c029d25119dd3b0cd37909f3f6a98f3866b2",
+    "summarize_seren_jobs_for_brief.py": "b13bd58e8bba437c9eddc785e645ac92d5f4fd35de6498d1e037b3c4f2ea9472",
+    "plot_scenario_typical_days_v3.py": "b4dd0867def6e0b328094842e83c99bf4921d2d92cf4ee47653f70904bb03855",
+    "plot_scenario_typical_days_v4.py": "76be5e3cd6a110b0026d17ac71719ac13eabe30692d8536072ba8a0acd73daa4",
+    "reselect_scenario_typical_days.py": "4a2b85c5e56d255a15362c7b1601517ebb5f9bfc17d692f07fd58842d70d9a0c",
+    "verify_chapter4_trn_seren.py": "5f4516f60d5e65590389b5997e78e6aec620a79a8e6048c2b2b58ed011433995"
+  },
+  "documents_sha256": {
+    "build.js": "e21a3fb7c4ef31ccb41f382592146fab44beee16158f9e642346b38a6946474d",
+    "README.md": "614bcb1e7726bf412a67d1652539b91e2d744af08c7340157d614284f8873d11",
+    "数据中心任务时间柔性简表.docx": "30ce9620d6842718fe093c4e774dfd9c31bc3ac86c574520fbdd56dfffa99441"
+  },
+  "document_text_hash_basis": "UTF-8/LF; docx original binary bytes",
+  "pdf_QA": {
+    "pages": 4,
+    "sha256": "1a09dc8573c37fb15ccf0619902aa3cb771a003cf072bdabeb67c35cd8d039c2",
+    "visual_qa_confirmed": true
+  },
+  "output_sha256": {
+    "A-CLD-by-task.csv": "10ae76894a9e97e79baa381789a9f252d63f631130a081b02f9cf276aa78068d",
+    "A-CLD-hourly.csv": "ee37fe9887158190b2406409d411ed1486a396d3019ce38e85af777d2e1e5bc7",
+    "A-CLD.png": "cd3b8a6690becfe76e2cd3ad315d66ddd2c227bcb1da3efc0fa5ea3c357ec587",
+    "A-CLD.svg": "d30cdd5e7086f8b42d06bde0eb30c5b8bc35426a1b1c847a94b252780adb81d8",
+    "A-HPC-by-task.csv": "2e0fbbc3eeee684270ce5526b8369d9fafd6535cf4cf798869946ea35c22c68f",
+    "A-HPC-hourly.csv": "4872b53e6d58d5c46d7fefc84268e4237d87950276633b190a054cc00cd77f5a",
+    "A-HPC.png": "9b55408f59a19d8ee1af6ea7a24fa9189405f163b5067a5443a92189718fdb0e",
+    "A-HPC.svg": "1d418c5a6a9105db4d7f7b5d27422013b6780edb0f9462674768071da21d4624",
+    "B-INF-by-task.csv": "7a5a8ee50589bdae68a08f79e2c2d5ab7a74721aa7e7fbfabd21dfea8f89c7e0",
+    "B-INF-hourly.csv": "e2c936882d9ff815707642dc7ca697b989236151d1616918bf4369983ee5739d",
+    "B-INF.png": "749ddb01045ddb272542ffbe7a5af150c51d0581b4ba5046a6f40df5dc3a61d8",
+    "B-INF.svg": "e5234a2b8b87e0ce4c513f0f8836815cfbed7930b61d4326bd4d0d9555f30722",
+    "B-SAI-by-task.csv": "f5c39acf20e095696adbd9c79b0184aeb548819c10b8e68851d50f6650448eab",
+    "B-SAI-hourly.csv": "ead939b7d716132b562280eed6c52b680bfbc6ddab314cabea4a0d337ba62a50",
+    "B-SAI.png": "50018eb195fd2e0c50f8a28c1ba597121cdc913d6a0cf30f1013ef28c65c70e2",
+    "B-SAI.svg": "25b41e0813a609dd5235954f6ba9b1d80b8436d3211c63076d53a1b21741d493",
+    "B-TRN-by-task.csv": "9719c52178474c309c747e2795fe51e9fc20e17ee6b4a27c2dae00d1287af236",
+    "B-TRN-hourly.csv": "b3cea16fa5ba78d8fcd81eacb5f2cfa712f7087874054d1027fe76da1d16a365",
+    "B-TRN.png": "f92d096c386b123688f092dd8583ba04930109747803500c54bfc0b57c11a88c",
+    "B-TRN.svg": "7fc0b337fb202bf4c09b3846a72178980117085818c5fdfa82907f26b24bdb54",
+    "brief-facts.json": "2f82f404c119b2c4445d15a2d6af8260bd302206b1cc7049fab3e8598627724f",
+    "C-INF-by-task.csv": "25936713f50d5728d7ffb59953dc19f3353007602629f18373821bb796fea38b",
+    "C-INF-hourly.csv": "c3a97775069a023f25575d93f59c6a8c5311917a7d5987654fbe505c3c5024bf",
+    "C-INF.png": "bf2d220496e166852536ca75bda24a08cf6ee7dbc19d6c1992d712a49991d0b1",
+    "C-INF.svg": "c30cd8fdc717f889a092357bb4e15bf97be03e4270d86bdb9d6f96038bb2041c",
+    "C-SAI-by-task.csv": "d4fc2371fb10e171a40e7d2162f2d15d820d74d4d5bc1eb23231ae7e01401f28",
+    "C-SAI-hourly.csv": "80896da1063bde0fcd58fa0f119b5a1ba8a8aa4d9beacce59b32c5256afbcde0",
+    "C-SAI.png": "1a77959696b92c6720c3fe2d3459d66ffbac04b477d4fc96156653d4ad501a39",
+    "C-SAI.svg": "34a86822f81a7e08af8a633c116e3b0f3c511ede81d9f5054e91a660658f24bc",
+    "C-TRN-by-task.csv": "9d81ddfbc120145b5cdc9e02a02a3ce95a597911b6a8c49584a7b2dc5348a7a3",
+    "C-TRN-hourly.csv": "64ad8ea444e08e4fc70a73c5f27ded416091cc069cbc9441e5b4e9b71433e8d8",
+    "C-TRN.png": "266f0befecfafbe829a09e273b6a4cfdc12da61e0e32892c2f88835228fbe9ee",
+    "C-TRN.svg": "bcd771c830beed1c424e3cf234ac9ea803c59e232268812f4b4a153d9c239b27",
+    "CLD-day-selection.csv": "276d05d5474bda1a55334c118dc90c545384998ca15d8ed9d5ed4c4f538c58e3",
+    "comparison.csv": "fe43c6866947acda88584db95604bd6338bbe33a725cbd7a84a7efd49babb72d",
+    "D-INF-by-task.csv": "29b678d74427fafa7cf74e376401d96a0169e7de66bd5d0c102be06fc268877c",
+    "D-INF-hourly.csv": "cb614f3a75f3ee547e3f26e2877be62fba588feb76ce847173e7211b76748d81",
+    "D-INF.png": "0ac03470a89888cb15dc42c0a7e52be1448d01900566258db605d5f680423e67",
+    "D-INF.svg": "e105dac63065a09c1d2b05bd374cd5bf8c93a546d3c62661dea56bebe448e6d5",
+    "D-SAI-by-task.csv": "96ef548b85be6a9864df2b0c524d7c60d57fc9620f3b307fbae1994ec4879926",
+    "D-SAI-hourly.csv": "b216adb76050f5943d7567e959d7a88b670687c8579a047fd60600a8c42f1158",
+    "D-SAI.png": "fa4fb665a5011150496f5380c370eee518826b373e348157ec726b13608ad6f9",
+    "D-SAI.svg": "a7a758f84cf9916c849fddd2f1d0e3d71ac49321292f755891df2d63e1587f2e",
+    "D-TRN-by-task.csv": "0f523cfe8506fc3e6d0c3a3582627187f5ef113739b8c6d9492375c0ecca4f1d",
+    "D-TRN-hourly.csv": "6f8263db6a83dc90d6db24041f465f678fd6aae12252858572df8370be3cc38e",
+    "D-TRN.png": "3e5dae1b7d205fffb39c33920fead8970c38fd7bc44832825f4472e519e9a18b",
+    "D-TRN.svg": "8a7b9c4bfe9ff2d5be350e0a7a332c86ce53f63e3706a92aedae1b55b8b49da2",
+    "HPC-day-selection.csv": "b33c07f900ebf77d7015b1feb5280c7881fb03637319b49a60527e97d909a808",
+    "idle-endpoints.csv": "54098f64a9e479c35e7583e1482ae778434e272f4da0f71211c75e3a08e994aa",
+    "INF-day-selection.csv": "e3bba1c0fe153cffc1ecd09a0a6227a5e74b6571c1093405a3faf4107bcdf654",
+    "overview.png": "603e52bd5d1499e4d4a34a99c8662b13e1cc35de14ee1cd23b0ea957069808a5",
+    "overview.svg": "f25ab0d3b4afe2191c05f72993fdd829f1aa8264f1976dde48306ff7ecc67064",
+    "period-summary.csv": "44da1e4041002111aa860ca04fd6c8c7ea02d23664ab9d30cda4bbd8729987c4",
+    "README.md": "9d129a1f5cd64e6d328807ec648ce79f9853599e5bf4b6543502c5fd4665105b",
+    "SAI-day-selection.csv": "9bee3b6c708eba4f31118538653921c0449443af5fa9545c8a92694a195872cb",
+    "selected-day-diagnostics.csv": "66106bbbfb8aeac02f598af91d0bdb2d8d6fc187ac922b107476a32108f6bb21",
+    "sensitivity-hourly.csv": "de540829debe00607140c7246439574ca46a24292fd3a3b4e99fd1b965c9c677",
+    "sensitivity-summary.csv": "2ef55ad77488129de3677f1893df21892af1bfde466832937c73fbdcd151bb7b",
+    "seren-job-statistics.csv": "08abf75fb2399703210d1d9923bdd787190e57356710c23f66edeaa59590f6aa",
+    "seren-job-statistics.json": "b3b08c6a57f474501a64667771afd9f24216d754e5d12ed48c0b3d868d51f225",
+    "summary.csv": "22b718870f9562510bbf7afc591a4efbca9dd24045855b6272f4142bb9669986",
+    "summary.json": "5c8d0c576fe62ac96405e3adf4788265a03fc5250ec994724ee55c34eba851b0",
+    "TRN-day-availability.csv": "327bdb32105787734d9079ffc4467ee57d78bc83a2a77b0c12094e04ddb66d8a",
+    "TRN-day-selection.csv": "35469d885084b23f9fa933fd6b5958f684a65b09890939f864304f521ecfb266",
+    "validation.json": "8ca023dbdf814cb4bfc5f45bef5374ae17392eb165750df7a4748152aa775259"
+  }
+}
