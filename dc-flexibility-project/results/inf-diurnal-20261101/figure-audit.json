@@ -1,0 +1,34 @@
+[
+  {
+    "figure": "figure1-typical-day",
+    "font": "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
+    "missing_glyphs": [],
+    "text_bounds": "passed",
+    "png_dpi": 300,
+    "validation_method": "font cmap and renderer text bounds; no image vision"
+  },
+  {
+    "figure": "figure2-request-shapes",
+    "font": "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
+    "missing_glyphs": [],
+    "text_bounds": "passed",
+    "png_dpi": 300,
+    "validation_method": "font cmap and renderer text bounds; no image vision"
+  },
+  {
+    "figure": "figure3-sensitivity",
+    "font": "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
+    "missing_glyphs": [],
+    "text_bounds": "passed",
+    "png_dpi": 300,
+    "validation_method": "font cmap and renderer text bounds; no image vision"
+  },
+  {
+    "figure": "figure4-weekday-weekend",
+    "font": "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
+    "missing_glyphs": [],
+    "text_bounds": "passed",
+    "png_dpi": 300,
+    "validation_method": "font cmap and renderer text bounds; no image vision"
+  }
+]

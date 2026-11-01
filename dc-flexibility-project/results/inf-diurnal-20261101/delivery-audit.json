@@ -1,0 +1,106 @@
+{
+  "checked_utc": "2026-11-01T04:15:19.128220+00:00",
+  "status": "passed",
+  "figures": [
+    {
+      "file": "figure1-typical-day.pdf",
+      "pages": 1,
+      "embedded_fonts": true,
+      "chinese_text": true,
+      "text_bounds": "passed",
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "file": "figure2-request-shapes.pdf",
+      "pages": 1,
+      "embedded_fonts": true,
+      "chinese_text": true,
+      "text_bounds": "passed",
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "file": "figure3-sensitivity.pdf",
+      "pages": 1,
+      "embedded_fonts": true,
+      "chinese_text": true,
+      "text_bounds": "passed",
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    {
+      "file": "figure4-weekday-weekend.pdf",
+      "pages": 1,
+      "embedded_fonts": true,
+      "chinese_text": true,
+      "text_bounds": "passed",
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ]
+    }
+  ],
+  "scripts_sha256": {
+    "analysis/acquire_inf_diurnal_requests.py": "ef0f72420a005b8531aa83b9252567787d9ed80c8831ef1b4e96b8642f314bed",
+    "analysis/audit_inf_diurnal_delivery.py": "1115f81b71e4e07cc97e588622458bd7733b56646c42797b78c3934538893043",
+    "analysis/build_inf_diurnal.py": "d4a0c4ec0e1978e5bc07c576f9866b765103fe79924f49b904edaf4ead8cc7e9",
+    "analysis/inf_diurnal_power.py": "28bcb3349a45d710637fd380708d328e9ee45a0b343495be37c6998348f06bc3",
+    "analysis/plot_inf_diurnal.py": "b1e6eb83364b345b5a3df69e5c42a94628b59fed53530ebe2fc7b910aa5e344c",
+    "analysis/report_inf_diurnal.py": "fc0312bd0f95b77602554e6d2c472ec3390c04e4ad7bcb8c41887b554e9b8574",
+    "analysis/verify_inf_diurnal.py": "f4c9750369663459a4c45728f7b97297e944a55c0781c9d5d88e785a994214a9",
+    "analysis/inf_request_shapes.py": "ff1eb5c4459e9680b7b6f7218fd6d7c63fea51da4193c03f5f1add3186e9b07e"
+  },
+  "published_sha256": {
+    ".gitattributes": "b11b2ff4b4152f0bd4e6504ca5fb3ecd759297142219d09a78489d4b42f22058",
+    "annual-summary-all-locations.csv": "e6de7b5c122d6a78ffb1697375924fe28db4f9088ac37179740adb3a44bc9d84",
+    "comparison-table.md": "1c05483f37844734864435d1432ff342b5544d5f8b4bf50d8cb92a18e199135a",
+    "figure-audit.json": "d5c357a88ada852ee2682e9684e1eb64d7f0daf5385faf22c3c9b6d89b1b2e96",
+    "figure1-typical-day.pdf": "04b2c05621158eb53d4c9c681fceaa408544f435b69972c5cbfe3af067e8a639",
+    "figure1-typical-day.png": "591a0476ef479b5b1af7906674cf86c4ea6249f32a48cad96391b8e1cae1d8d8",
+    "figure2-request-shapes.pdf": "e91fdc3593d78b6c710d71a904b70df4923e56ff6f941375da781e5e1b1368ec",
+    "figure2-request-shapes.png": "85cf4129e9e707a2dcc5bd8e1fbe8a7d14c9ff74554e131886cb6fccb0def1ed",
+    "figure3-sensitivity.pdf": "0a119e5cd1546e6888eddb1bb3b491760f96c5108ae033c081666516dd420beb",
+    "figure3-sensitivity.png": "7113b906a03cfd25a4923e4487538b508273292f3754d85098939eb331d9ebdc",
+    "figure4-weekday-weekend.pdf": "fa1d3824b2c40207877aa3532c154d1f25af0e4631225a237726b464608efd9b",
+    "figure4-weekday-weekend.png": "90b825000afa8c5ee742e70731e28207b5cadb432f0a05c094fc0b61337c42f0",
+    "manifest.json": "5cd56e9466419070e0e04d5302d1e14fec995b30b1060ef961ab579490985ce8",
+    "power-calibration.csv": "ee2042438abebf36beb24db597a13945e8362682b027873f5f8e4900d448cb2f",
+    "power-evidence.json": "8313d516f7617631a6e672389427772ddfd674ea3b813f28d66e5f896eaaef95",
+    "README.md": "c8b80c247fb15f707582a9897e97610ea5be9cd9bfc8c5ad771165edd0a1388e",
+    "request-analysis-hourly.csv": "ca7724f9fcddb2cb6f38c766003dd0521c6b81676f0f76136fecb3d9feea2fd1",
+    "request-hourly-observed.csv": "1447c7210a823b2c511c0a1b527290b0b7cff65010a38293b9e443c130d45d78",
+    "request-input-audit.json": "12951f3c169a0cee3074c6b7fc19b6f08a8b58ae7c435b880104519adb9ead71",
+    "request-shape-168h.csv": "2ddb5e087e425e9b9755d91ca8ec8152cf9e7d2ddc3ae38b2fdd6bae31b26e35",
+    "request-shape-24h.csv": "3b77237112986cf82e33da972d94dffc86be0dfdee11b05e13cc90db8797134c",
+    "request-shape-statistics.csv": "746ddabdf0fc6ba261f92e7450325f2a53d8430ddc554b0034ea6a7bafbf1527",
+    "request-weekday-weekend.csv": "412a4070ba10089a9f6753721e3bdd88cc4b58a5c742fd707b839dde088e9dee",
+    "request-weekend-phase-sensitivity.csv": "8262024f935ae206c523c00f5b0260f216d51b2000d77f41dbfc41ecbf34cbbf",
+    "sensitivity-summary.csv": "ff9aa76b0099ea63c9256686d42ac19231c3ca2f1ce0d5e50fc864623475b690",
+    "sensitivity-typical-day.csv": "bc8449e3795edfeec65972c031ce5fd85516de67d23e8e6eaac9d1977424e66d",
+    "typical-day.csv": "f4ebbf0511a35ec616bb6c4133a3f39b80c6881e0310bb5a9f90315252605745",
+    "typical-week.csv": "f84ef1de82bcb53944549abe42c38258067ba76d3cf36d4c41be6ebc3aba251c",
+    "v3-comparison.csv": "fc8c7cee3b6ec80f5c34bf934228dae1c2eab54f485c00dc9aabd86c327fcfdf",
+    "validation.json": "e350c744c180dcc31f269a37616add59b8001d0e34fbcb331420e28bed0b93d9",
+    "hourly/B-INF-100MW-2025.parquet": "a45f459979dcc80516174953f560ce514ea7bac03b1b22f6c3207382b29a8980",
+    "hourly/B-INF-10MW-2025.parquet": "9b93fc214d95eba6758da1c9760c9d3f90b92a40fe2ec97f4edcb24494642f18",
+    "hourly/B-INF-1MW-2025.parquet": "d6bd74136b38004be20e91b112fc086c9ad7158f833e2adea686d385286250ba",
+    "hourly/B-INF-500MW-2025.parquet": "3a6134f4b978df24243e5d8252872b94e61f331e23dbe2c3c6d35b2a5f150dfd",
+    "hourly/C-INF-100MW-2025.parquet": "fc6ea197a2323afa8037715e96c26370c6414d686c1518e78909b65fa9ea9d68",
+    "hourly/C-INF-10MW-2025.parquet": "9fd138d501c700d92162b8b8d89e4a3a7a984c94255cb665ab422c5bb6a3f4d4",
+    "hourly/C-INF-1MW-2025.parquet": "6ba6d5e6873ac76ce2d7294b619fcd1acec7d2a22cdf0ce19830984d0f4daf08",
+    "hourly/C-INF-500MW-2025.parquet": "c7fee3983642fda533cbd5f8b894ecb66402641d25936f2a9ea5c4b750d02727",
+    "hourly/D-INF-100MW-2025.parquet": "8e3d82c48ae2cc6e82ec8dceede71a3f77984166f86c1d1e37ba9b07665a1439",
+    "hourly/D-INF-10MW-2025.parquet": "8f001a40f370d15750b35458bcd8587932e2b3fe72b27f35a087b89eb125ece9",
+    "hourly/D-INF-1MW-2025.parquet": "f7c7e688888c12cbae053baab4dec7f8c87783d94438baa37019ab02ae48de17",
+    "hourly/D-INF-500MW-2025.parquet": "c7173f743beed71f22f646e9c9f9981b0b94d418dbb4272ee414f2a60bd8c3a4"
+  },
+  "history_unchanged": true,
+  "verification_method": "PDF text/font and PNG metadata checks; no image vision"
+}

@@ -1,0 +1,59 @@
+{
+  "checked_date": "2026-11-01",
+  "evidence": [
+    {
+      "id": "POLCA",
+      "title": "POLCA: Power Oversubscription in LLM Cloud Providers / Characterizing Power Management Opportunities for LLMs in the Cloud",
+      "url": "https://arxiv.org/html/2308.12908v1",
+      "publication_url": "https://www.microsoft.com/en-us/research/publication/characterizing-power-management-opportunities-for-llms-in-the-cloud/",
+      "read_scope": "full relevant sections 2.2-2.3 and 3.2; production table 2",
+      "hardware": "DGX A100 40/80GB; production cluster hardware not fully disclosed",
+      "supports": "Interactive inference cluster power has diurnal variation; prompt and token phases have different power; allocation does not determine activity",
+      "boundary": "Qualitative mechanism only; A100 power coefficients and 79% cluster peak are not transferred numerically to H100"
+    },
+    {
+      "id": "Splitwise",
+      "title": "Splitwise: Efficient Generative LLM Inference Using Phase Splitting",
+      "url": "https://arxiv.org/html/2311.18677v2",
+      "venue": "ISCA 2024",
+      "read_scope": "section III characterization, figures 8-9 and table IV",
+      "hardware": "DGX H100 and DGX A100; BLOOM-176B and Llama-70B",
+      "supports": "Prefill power increases with batch size; decode power is less sensitive to batch; H100 decode power capping from 700W to 350W has little latency impact",
+      "boundary": "350-700W motivates broad SXM endpoint sensitivity; 525W central endpoint is a scenario interpolation, not a measured fit; PCIe ratio transfer is unvalidated"
+    },
+    {
+      "id": "DynamoLLM",
+      "title": "DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency",
+      "url": "https://arxiv.org/html/2408.00741v1",
+      "venue": "HPCA 2025",
+      "read_scope": "sections II, III.A-B and V.D-E; tables II-IV",
+      "hardware": "NVIDIA DGX H100; vLLM; multiple open-source LLMs",
+      "supports": "Input/output lengths, batching, load, frequency and parallelism affect energy; coding and conversation have different daily/weekly load profiles",
+      "boundary": "Published full-production peak/valley values are not substituted for measured public-file statistics; adaptive GPU shutdown/frequency control is not assumed"
+    },
+    {
+      "id": "ModelParkingTax",
+      "title": "The Model Parking Tax: Quantifying the Hidden Energy Cost of Always-On GPU Model Deployment",
+      "url": "https://arxiv.org/html/2605.23918v1",
+      "status": "2026 preprint; not a target-facility calibration",
+      "read_scope": "sections 3 and 4.1-4.3; tables 1-2",
+      "hardware": "H100 80GB SXM5, TDP 700W; controlled experiment plus 14-GPU production telemetry",
+      "supports": "Controlled H100 bare idle 71.8W, CUDA-context idle 121.7W; production CUDA-active idle mean 145.5W",
+      "boundary": "120W central online resident idle is a rounded experimental anchor; 100-160W is engineering sensitivity, not a confidence interval; 50-80W PCIe is TDP-ratio transfer"
+    }
+  ],
+  "mapping": {
+    "formula": "W_h=alpha*(I_h/mean(I))+(1-alpha)*(O_h/mean(O)); p_on_h=p_idle+(p_high-p_idle)*min(gain*W_h^gamma,1)",
+    "gain_constraint": "sum_h(a_on_h*p_on_h)=sum_h(a_on_h*P_v3_allocated); independently calibrated for each target year and server type",
+    "gpu_formula": "P_GPU=N_GPU*[a_on*p_on+a_off*P_v3_allocated+(1-a_on-a_off)*P_v3_unallocated_idle]",
+    "alpha": {"central": 0.5, "sensitivity": [0.2, 0.8], "status": "assumed average dynamic contribution of input tokens; no absolute GPU-seconds/token calibration"},
+    "mean_allocated_ratio": {"value": 0.3358858887, "source": "PR34 frozen power-parameters.csv, inherited PR-v2 MIT V100 P50/TDP", "status": "cross-generation, cross-workload annual energy anchor; not H100 measured mean"},
+    "low_variation": {"SXM_idle_W": 160, "SXM_high_W": 350, "PCIe_idle_W": 80, "PCIe_high_W": 175, "gamma": 0.7},
+    "central": {"SXM_idle_W": 120, "SXM_high_W": 525, "PCIe_idle_W": 60, "PCIe_high_W": 262.5, "gamma": 1.0},
+    "high_variation": {"SXM_idle_W": 100, "SXM_high_W": 700, "PCIe_idle_W": 50, "PCIe_high_W": 350, "gamma": 1.3},
+    "unallocated_idle_W": {"PCIe": 50, "SXM": 70, "status": "v3 assumption retained"},
+    "offline": "ASI hourly allocation and per-allocated-card v3 fixed power retained; no user-clock shape added",
+    "CPU": "v3 host-CPU engineering proxy 0.25*combined allocated fraction retained",
+    "unknown": ["matched H100 PCIe idle/active power", "model and quantization", "batch and parallelism", "cache hit rate", "absolute token-to-GPU throughput", "source timezone alignment", "hour-crossing execution", "actual target facility annual energy"]
+  }
+}
