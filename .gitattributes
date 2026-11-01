@@ -162,3 +162,5 @@ dc-flexibility-project/analysis/requirements-trn-power-model.txt text eol=lf
 dc-flexibility-project/results/trn-power-model-20261101/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/trn-power-model-20261101/*.pdf binary
 dc-flexibility-project/results/trn-power-model-20261101/*.png binary
+dc-flexibility-project/results/trn-power-model-20261101/diurnal-acme/*.pdf binary
+dc-flexibility-project/results/trn-power-model-20261101/diurnal-acme/*.png binary
