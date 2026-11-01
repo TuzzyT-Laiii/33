@@ -1,0 +1,11 @@
+{
+  "published_utc": "2026-11-01T01:04:35.288192+00:00",
+  "status": "passed",
+  "source_project": "/data3/dataset/ljt/global-grid-flexibility-20261023/.codex-temp/load-curves-v3-20261101/project",
+  "destination_root": "/data3/dataset/ljt/global-grid-flexibility-20261023",
+  "results_directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/results/typical-load-curves-20261101-v3",
+  "processed_directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/processed/typical-load-curves-20261101-v3",
+  "hourly_files_checked": 1100,
+  "hourly_rows": 9644448,
+  "existing_versions_modified": false
+}

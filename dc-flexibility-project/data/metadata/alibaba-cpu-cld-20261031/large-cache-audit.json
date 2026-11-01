@@ -1,0 +1,36 @@
+{
+  "checked_at_utc": "2026-10-31T08:48:44.370057+00:00",
+  "directory": "/home/ljt/alibaba-cpu-2018-large",
+  "retention": "用户于 2026-10-31 16:37 北京时间批准保存；不解压到磁盘",
+  "free_before_bytes": 46727172096,
+  "floor_bytes": 37580963840,
+  "files": {
+    "container_usage": {
+      "path": "/home/ljt/alibaba-cpu-2018-large/container_usage.tar.gz",
+      "url": "http://aliopentrace.oss-cn-beijing.aliyuncs.com/v2018Traces/container_usage.tar.gz",
+      "bytes": 29208338602,
+      "sha256": "b4bd3b1b82f5407c1b0dd47fe736ff5152c4b016a9c30cb26f988e2d1c5e5031",
+      "official_sha256_matches": true,
+      "etag": "\"BB46E4814F42373109EA31DE98E99F5D-2786\"",
+      "last_modified": "Thu, 16 Feb 2023 05:09:01 GMT"
+    },
+    "batch_instance": {
+      "path": "/home/ljt/alibaba-cpu-2018-large/batch_instance.tar.gz",
+      "url": "http://aliopentrace.oss-cn-beijing.aliyuncs.com/v2018Traces/batch_instance.tar.gz",
+      "bytes": 21204654955,
+      "sha256": "e73e5a9326669aa079ba20048ddd759383cabe1fe3e58620aa75bd034e2450c6",
+      "official_sha256_matches": true,
+      "etag": "\"A39935F0D8D26258E65B0EB72248856B-2023\"",
+      "last_modified": "Thu, 16 Feb 2023 04:27:53 GMT"
+    }
+  },
+  "external_download_log": "2026-10-31T08:36:42Z start container_usage.tar.gz (free 91G)\n2026-10-31T08:42:25Z done container_usage.tar.gz 29208338602 bytes\n2026-10-31T08:42:25Z start batch_instance.tar.gz (free 64G)\n2026-10-31T08:46:34Z done batch_instance.tar.gz 21204654955 bytes\n2026-10-31T08:49:12Z all done; system disk free    44G\n",
+  "space_monitor": {
+    "minimum_observed_free_bytes": 46882697216,
+    "current_free_bytes": 46882697216,
+    "floor_bytes": 37580963840,
+    "paused_pids": [],
+    "checked_epoch": 1793436392.6450412
+  },
+  "free_after_bytes": 46719053824
+}

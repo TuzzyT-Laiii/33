@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-10-31T08:46:37.812586+00:00",
+  "server_file_count": 5,
+  "persisted_bytes": 197117907,
+  "free_bytes": 6490713849856,
+  "local_server_csv_readback": [
+    "request-hourly.csv",
+    "request-daily.csv",
+    "request-diurnal.csv",
+    "request-mod7.csv"
+  ],
+  "local_server_profiles_equal": true,
+  "request_hours": 2856,
+  "asi_hours": 48,
+  "asi_inference_hours": 48,
+  "asi_over_inventory_hours_preserved": 4,
+  "json_parse": true,
+  "input": "real downloaded data and real SSH readback; no synthetic inputs"
+}

@@ -1,0 +1,32 @@
+{
+  "CLD": {
+    "source_core_hours": 17583117.773333326,
+    "online_share": 0.1979017520304267,
+    "batch_share": 0.5113345278898108,
+    "unreconciled_signed_share": 0.29076372007976253
+  },
+  "INF": {
+    "source_inference_gpu_hours": 415851928.8772726,
+    "offline_share_of_inference": 0.27921767869337244,
+    "offline_lp_share_of_offline": 0.9530020206840606,
+    "offline_lp_share_of_inference": 0.26609501200549673
+  },
+  "SAI": {
+    "reference_gpu_hours": 1460190.6641666668,
+    "batch_map_share": 0.22183468011264892,
+    "runtime_ge6h_share": 0.901801061808863,
+    "batch_map_runtime_ge6h_share": 0.20955937962858776,
+    "scope": "既有MIT GPU作业总体分类；未与237天重放逐小时匹配，不乘成已证实的年度可调功率"
+  },
+  "HPC": {
+    "reference_core_hours": 26040211.010277778,
+    "runtime_ge6h_non_jupyter_share": 0.8382072743401253,
+    "scope": "既有Lisa CPU作业总体分类；未与309天重放逐小时匹配，运行时长不等于允许推迟时长"
+  },
+  "inputs_sha256": {
+    "results/alibaba-cpu-cld-20261031/complete-component-window.csv": "3ebad70e9abb9fdf96e47c1e579cbdc13f8689e85af8bd2e7f41decb8a5230a0",
+    "results/asi-185day-workload-types-20261031/hourly-type-priority-model.parquet": "0c58bac1ea575cd3f14ad05a7f0b88f996d62d6c4e1c2d5f645c61d76e7ac2a6",
+    "results/job-flexibility-constraints-20261030/mit-durations.csv": "b65af4a35c3934f14a6d46c5b4080c637e32d1f6ff5a13bcb0a4ad53ee297b12",
+    "results/job-flexibility-constraints-20261030/server-durations.csv": "f5ef8c45efce6570dacaa1091ceee271ad13ce0c0985b4ed02baa2f382f1330c"
+  }
+}

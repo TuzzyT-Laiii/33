@@ -1,0 +1,118 @@
+{
+  "built_at_utc": "2026-10-31T08:33:34.565019+00:00",
+  "counts": {
+    "raw_rows": 246934820,
+    "duplicate_rows": 0
+  },
+  "machine_meta_rows": 17592,
+  "machines": 4034,
+  "inventory_cores": 387264.0,
+  "cpu_num_distribution": {
+    "96": 4034
+  },
+  "observed_timestamp_min": 0.0,
+  "observed_timestamp_max": 691190.0,
+  "invalid_cpu_raw_rows": {
+    "missing": 6
+  },
+  "invalid_memory_raw_rows": {},
+  "invalid_disk_raw_rows": {
+    "-1": 37238,
+    "101": 260330
+  },
+  "valid_cpu_unique_samples": 246934814,
+  "sample_cpu_quantiles_pct": {
+    "p05": 10,
+    "p25": 28,
+    "p50": 38,
+    "p75": 48,
+    "p95": 64
+  },
+  "complete_days": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "complete_hours": 120,
+  "maximum_hold_seconds": 300,
+  "minimum_hour_core_coverage": 0.95,
+  "containers": {
+    "rows": 370540,
+    "containers": 71476,
+    "status_counts": {
+      "started": 368100,
+      "stopped": 2265,
+      "allocated": 170,
+      "unknow": 5
+    }
+  },
+  "batch_tasks": {
+    "rows": 14295731,
+    "status_Terminated": 14059143,
+    "status_Running": 129354,
+    "status_Failed": 83276,
+    "status_Waiting": 23958,
+    "positive_envelope_rows": 13442065
+  },
+  "annual_replay": {
+    "2025": {
+      "source": "alibaba_cpu_2018",
+      "scenario": "A-CLD",
+      "days": 5,
+      "status": "short_window_replay_proxy",
+      "normalization_basis": "按有效核秒加权的 CPU 利用率；缺测时段不作为空闲，小时覆盖率另列",
+      "annualization": "完整连续观测窗口按原顺序循环；不平滑、不调整均值、不添加季节需求",
+      "target_clock": "UTC；源午夜对应目标 UTC 午夜为相位设定，不表示已识别原时区",
+      "source_hours": 120,
+      "target_hours": 8760,
+      "phase_hours": 0,
+      "complete_cycles": 73,
+      "remaining_hours": 0,
+      "seasonality": "样本外季节性、增长与节假日需求未识别"
+    },
+    "2024": {
+      "source": "alibaba_cpu_2018",
+      "scenario": "A-CLD",
+      "days": 5,
+      "status": "short_window_replay_proxy",
+      "normalization_basis": "按有效核秒加权的 CPU 利用率；缺测时段不作为空闲，小时覆盖率另列",
+      "annualization": "完整连续观测窗口按原顺序循环；不平滑、不调整均值、不添加季节需求",
+      "target_clock": "UTC；源午夜对应目标 UTC 午夜为相位设定，不表示已识别原时区",
+      "source_hours": 120,
+      "target_hours": 8784,
+      "phase_hours": 0,
+      "complete_cycles": 73,
+      "remaining_hours": 24,
+      "seasonality": "样本外季节性、增长与节假日需求未识别"
+    }
+  },
+  "lisa_input_sha256": "55c49284c5d6a4ba39a67cb7ffc948804d8d33d6a056a185bf5afb2fc89f48ef",
+  "lisa_input": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/processed/task-trace-audit-20261026/lisa/lisa-hourly-core-demand.parquet",
+  "observed_occupied_core_hours_complete_window": 17583117.773333326,
+  "share_limit": "请求/计划包络仅为配置诊断；在线实际监测与实例平均 CPU 积分、单位解释及有符号差额见 component-audit.json；可推迟权限需独立确认。",
+  "outputs_sha256": {
+    "relative-day-shape.csv": "f67859b3cc8a11d149b2332819bcef037b8454085f41659665931f18fe051f49",
+    "online-batch-request-envelope.csv": "4795296dc26443cdec68fb9fd3c040275000c2bd18688cb450973ee5fb7ad52e",
+    "shape-comparison.csv": "2d2fbb600d83700137b736ca3c3d1744cf676ad4ee74cb41421b56a09e731b5c",
+    "cpu-sample-histogram.csv": "e36b5ceeebacbab98cda26925327f60ef3f6e1f9132a2671895ac9b630b6900e",
+    "A-CLD-intraday.csv": "8aee397bb3512aee8c01e8cb0ae6a3fffce5f9ffbd06e3d8bf6d73255cfc2b0d",
+    "alibaba-hourly-cpu-demand.csv": "a5cd7cf918b82861143b0dfa11e63fb94d05fa66926c3db5559b9a83f2d58e40",
+    "A-CLD-2024-replay-map.csv": "5f7cc5982b859e7a52d74d391a01ce3a4cbc643ff50411af60a5a965e880d387",
+    "A-HPC-intraday.csv": "12cf9e5ec3593f2d6e96a50b370d1f87d0abf09c72e55fc3550b50425df2e586",
+    "lisa-cpu-complete-hourly.csv": "f119e690ef1aca7cc8a5630a0038b330a59662c49fdfc140334e59aa07466e78",
+    "complete-window.csv": "0028c7c33950d236405a0a08246d8c66e59060bd64c7a081454f28cc4b650bf4",
+    "daily-coverage.csv": "49e4383a994f6bb339cf75687529cd682a55c04125ea2607699a9ff3ab2868df",
+    "machine-inventory.csv": "93cc237d24bbbc3fdeb6ce9f583c41327207ae76de7e3a49d86d7e5fdc356842",
+    "gap-sensitivity.csv": "bc470e9c6a77378d13148447630c8994c47392336a97ab3a4961cf1d60694ae8",
+    "A-CLD-2025-replay-map.csv": "bc7bc002985359a961dbde17cb30405162a618f77336c213e0f3bd668eff6a50"
+  },
+  "code_sha256": {
+    "audit_alibaba_cpu.py": "0814e290fbc36ffaca7b5e9801fb6334fe4d25ac775b927b6443bb985a8c5faa",
+    "acquire_alibaba_cpu.py": "9253a74feb9874ebc0b0302f54a7dd380e86ebfd1277e1935691d270d2628d79",
+    "annual_task_profiles.py": "b63d7e046fcd35c13c50cb1fa7c5b3fc82fe5095ac62d56f69b8d9c81c7fbbed",
+    "reconcile_alibaba_cpu.py": "d9558f396ef382f184eb427c7d5e0706f492402eb6505a41a24cbb35c45f0c24"
+  },
+  "component_audit": "component-audit.json"
+}

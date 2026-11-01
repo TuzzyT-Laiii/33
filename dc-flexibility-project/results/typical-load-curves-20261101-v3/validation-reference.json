@@ -1,0 +1,25 @@
+{
+  "checked_utc": "2026-11-01T01:01:33.191648+00:00",
+  "checks": {
+    "reference_scenario_coverage": true,
+    "no_out_of_scope_server_types": true,
+    "all_air_cooling": true,
+    "all_location_years_complete": true,
+    "unique_scenario_location_year": true,
+    "annual_hours": true,
+    "hourly_conservation": true,
+    "hourly_annual_integral": true,
+    "HPC_TRN_unchanged_hourly": true,
+    "CLD_new_scenarios_have_no_v2_baseline": true,
+    "MIT_calibration_snapshot_hash": true,
+    "MIT_release_status_explicit": true,
+    "MIT_237day_allocations_unchanged": true,
+    "eight_city_HPC_TRN_matches_existing_results": true
+  },
+  "stage": "full",
+  "reference_only": true,
+  "checked_hourly_rows": 385440,
+  "maximum_facility_balance_error_mw": 1.1368683772161603e-13,
+  "maximum_annual_integration_error_mwh": 4.656612873077393e-10,
+  "status": "passed"
+}
