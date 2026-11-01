@@ -1,0 +1,49 @@
+{
+  "utc": "2026-11-01T16:42:43.738854+00:00",
+  "status": "passed",
+  "scenarios": 11,
+  "native_hours_verified": 44091,
+  "user_mapping_entries_verified": 24,
+  "energy_and_mean_power_shares_equal": true,
+  "previous_result_directory_unchanged": true,
+  "selected_dates_and_total_power_unchanged": true,
+  "maximum_selected_total_difference_mw": 7.993605777301127e-15,
+  "plot_PDFs_with_six_legend_items": 14,
+  "Word_pages": 7,
+  "Word_tables": [
+    {
+      "end_page": 1,
+      "start_page": 1,
+      "rows": 5,
+      "index": 1
+    },
+    {
+      "end_page": 2,
+      "start_page": 2,
+      "rows": 6,
+      "index": 2
+    },
+    {
+      "end_page": 3,
+      "start_page": 3,
+      "rows": 9,
+      "index": 3
+    },
+    {
+      "end_page": 5,
+      "start_page": 5,
+      "rows": 12,
+      "index": 4
+    },
+    {
+      "end_page": 6,
+      "start_page": 6,
+      "rows": 12,
+      "index": 5
+    }
+  ],
+  "Word_three_images_match_new_class_figures": true,
+  "visual_QA": "七页及全部修改图件逐一检查，中文、图例、表格与分页正常",
+  "docx_sha256": "87959d32bfb12e199d41d0741237ed81a71d84fd76c0f45f830a6f04baa33330",
+  "pdf_sha256": "7ce2a2d0629bf552ced4e8ca757e54873c8702bfbc365513bb855bf621711152"
+}

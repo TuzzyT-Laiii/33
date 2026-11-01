@@ -4,7 +4,7 @@
 
 ## CPU/GPU 逐小时负荷工作包
 
-[Seren训练与组合模型任务时间柔性简表](results/typical-load-curves-20261101-v4-seren/README.md)采用#38的Seren正文2,057个合格小时，保留缺口并在完整UTC日内选取训练典型日。#35推理、科研AI、科研计算和云通用计算沿用原结果；[精简版Word及说明](docs/job-flexibility-brief/README.md)第四、五章采用同一小时结果。
+[按推迟与拆分能力统一的任务时间柔性分类](results/flex-class-20261101/README.md)采用刚性、可推迟·整体、可推迟·可拆分及未知四类，未知保守按刚性处理。11个10MW情境的原生与典型日图共用六层配色，原生IT电量与平均功率份额分别可核查；[精简版Word及说明](docs/job-flexibility-brief/README.md)给出代表名称表、份额表与堆叠条形图。功率与日期沿用[Seren组合结果](results/typical-load-curves-20261101-v4-seren/README.md)，本次不推断可调电量。
 
 [大模型训练/开发：Acme Seren原生窗口](results/trn-seren-20261101/README.md)更新B/C/D-TRN四档规模：正文只保留同期需求与监测通过筛选的真实小时，使用Seren逐小时已分配GPU功率条件反推；完整作业窗口采用观测与日形状补缺作为对照。情境名称保持不变，数据源明确为Acme Seren。提供空闲功率、覆盖率和比例截断敏感性，以及与PR #36的Kalos方案比较；HPC、CLD、SAI、INF结果保留原版本。
 
