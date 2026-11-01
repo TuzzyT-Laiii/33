@@ -1,0 +1,7 @@
+metric,value
+snapshot_batches,2391
+unique_source_files,11230
+eligible_source_files,11226
+jobs_with_existing_telemetry,10691
+new_raw_gpu_files_downloaded,0
+memory_used_MiB_available_in_existing_aggregates,0

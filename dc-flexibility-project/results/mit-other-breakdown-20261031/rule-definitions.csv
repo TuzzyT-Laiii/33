@@ -1,0 +1,13 @@
+precedence,rule,condition
+1,labelled_dnn,官方标签ID精确匹配
+2,startup,运行<=600秒且FAILED/NODE_FAIL/OOM或退出码非零；取消/超时除外
+3,idle,监测覆盖80%-105%，均值利用率<=5%，利用率<=5%的时间占比>=90%
+4,user_dnn_high,同用户/GPU/分区/时限类型；CPU/内存/有限时限差异<=25%；前后90天；正例>=2
+5,user_dnn_medium,同用户/GPU/分区/时限类型；CPU/内存差异<=50%、时限<=2倍；前后90天；正例>=1
+6,similar_dnn,五邻域平均距离<=参考正例留一距离P90，资源兼容；合格监测不得违背正例活动范围
+7,array,id_array_task!=4294967294
+8,large,nodes_alloc>=2或GPU>=8
+9,interactive,单节点GPU<=2、非数组、等待<=2秒、600<运行<21600秒、有限时限<=720分钟；排除监测持续繁忙
+10,long_single,运行>=21600秒
+11,short_test,运行<=600秒，或test分区且运行<=3600秒
+12,unknown,其余作业

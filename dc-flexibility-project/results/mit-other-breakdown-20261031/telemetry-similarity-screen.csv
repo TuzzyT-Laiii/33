@@ -1,0 +1,6 @@
+metric,value
+positive_qualified_jobs,934
+positive_utilization_mean_p05,72.2678697409
+positive_idle_fraction_p95,0.118647075163
+unlabelled_similarity_jobs_reassigned,94
+unlabelled_similarity_gpu_hours_reassigned,725.936944444

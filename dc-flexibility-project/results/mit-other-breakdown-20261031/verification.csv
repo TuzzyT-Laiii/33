@@ -1,0 +1,8 @@
+check,value
+baseline_reconciled,True
+other_counts_hours_conserved,True
+private_readback_passed,True
+slurm_source_unchanged,True
+public_per_job_results,False
+streaming_database_opened,False
+new_raw_gpu_files_downloaded,0

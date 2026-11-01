@@ -1,0 +1,13 @@
+protocol,method,held_jobs,recovered_jobs,held_gpu_hours,recovered_gpu_hours,recall_jobs_pct,recall_gpu_hours_pct
+chronological_last20pct,combined_high_or_medium,686,484,14557.2116667,6311.80444444,70.5539358601,43.3586087018
+chronological_last20pct,positive_similarity,686,321,14557.2116667,3247.05666667,46.7930029155,22.3054850133
+chronological_last20pct,same_user_any,686,484,14557.2116667,6311.80444444,70.5539358601,43.3586087018
+chronological_last20pct,same_user_high,686,476,14557.2116667,6186.33,69.387755102,42.4966686042
+leave_user_out,combined_high_or_medium,3430,1096,40071.8875,9012.32333333,31.9533527697,22.4903888876
+leave_user_out,positive_similarity,3430,1096,40071.8875,9012.32333333,31.9533527697,22.4903888876
+leave_user_out,same_user_any,3430,0,40071.8875,0,0,0
+leave_user_out,same_user_high,3430,0,40071.8875,0,0,0
+stratified_random_5fold,combined_high_or_medium,3430,3421,40071.8875,39883.6991667,99.7376093294,99.5303731741
+stratified_random_5fold,positive_similarity,3430,3089,40071.8875,29972.5283333,90.0583090379,74.7968967854
+stratified_random_5fold,same_user_any,3430,3421,40071.8875,39883.6991667,99.7376093294,99.5303731741
+stratified_random_5fold,same_user_high,3430,3410,40071.8875,38846.5813889,99.416909621,96.942230108
