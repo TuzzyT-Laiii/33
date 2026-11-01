@@ -191,3 +191,11 @@ dc-flexibility-project/results/typical-load-curves-20261101-v3-native/** -text w
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/**/*.parquet binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.png binary
+
+# 组合模型原生窗口保留数值、图件和审计的生成字节。
+dc-flexibility-project/analysis/*native_combined*.py text eol=lf
+dc-flexibility-project/analysis/*native_combined.sh text eol=lf
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native-combined/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native-combined/**/*.parquet binary
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native-combined/**/*.pdf binary
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native-combined/**/*.png binary

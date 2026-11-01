@@ -6,7 +6,9 @@ const {
 } = require('docx');
 
 const OUT = process.argv[2];
-const FACTS = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../results/scenario-typical-day-by-task-20261101-v5/brief-facts.json'), 'utf8'));
+const RESULT_DIR = '../../results/typical-load-curves-20261101-v3-native-combined';
+const FACTS = JSON.parse(fs.readFileSync(path.resolve(__dirname, RESULT_DIR, 'selected-days/brief-facts.json'), 'utf8'));
+const NATIVE = JSON.parse(fs.readFileSync(path.resolve(__dirname, RESULT_DIR, 'brief-summary.json'), 'utf8'));
 const pct = (value) => (value * 100).toFixed(2) + '%';
 const otherShare = (label) => FACTS.MIT_OTHER[label].pct_other_gpu_hours.toFixed(2) + '% OTHER';
 const mitShare = (label) => FACTS.MIT_OTHER[label].pct_mit_gpu_hours.toFixed(2) + '% MIT';
@@ -25,7 +27,7 @@ function cell(text, width, opts = {}) {
     margins: { top: 35, bottom: 35, left: 80, right: 80 },
     children: [new Paragraph({
       alignment: opts.left ? AlignmentType.LEFT : AlignmentType.CENTER,
-      children: parts.map(([t, o]) => new TextRun({ text: t, size: opts.size || 20, bold: opts.bold || o.bold, color: o.color, font: opts.bold ? HEI : FONT })),
+      children: parts.flatMap(([t, o]) => t.split('\n').map((line, index) => new TextRun({ text: line, break: index > 0 ? 1 : undefined, size: opts.size || 20, bold: opts.bold || o.bold, color: o.color, font: opts.bold ? HEI : FONT }))),
     })],
   });
 }
@@ -119,7 +121,7 @@ const data = [
   ['Acme（Kalos／Seren）', '大模型训练/开发', '作业2023-05至08；监测窗口各异', 'Kalos逐作业6.2万；两集群9份监测21.70GB', '原轨迹：预训练11分钟／11.8小时；A100全部监测均功率191／195W/卡', [['细', { bold: true }], ['：用途标签；监测缺少逐作业设备关联', {}]], '逐类功率、检查点记录'],
   ['ASI（Alibaba GPU 2026）', '推理服务', '185天，4,440小时', '逐类型、优先级GPU小时；附执行跨度分布', '离线执行跨度P50 10–30分钟、P90 3–6小时', [['中', { bold: true }], ['：6类业务＋优先级＋模型；INF只取在线和离线推理', {}]], '真实日期、连续运行时间；1个零资源异常小时'],
   ['BurstGPT／Azure 2024', '推理日内形状', '119日／代码和对话各7日', '请求及输入／输出token按小时聚合', '请求日内比2.455／8.963／1.783', '中央用BurstGPT输入／输出各50%；Azure为敏感性', '到达与执行时差；时钟、批量及缓存'],
-  ['OLMo等训练功率研究', '训练GPU功率依据', 'OLMo节点最初300个记录步', 'H100训练与检查点阶段直接功率', '活跃训练>600W/卡；检查点约100W/卡', '采用GPU/TDP 0.80，敏感性0.65–0.95', '全生命周期均值、目标配置实测'],
+  ['OLMo及Acme训练证据', '训练GPU功率依据', 'OLMo前300步；Acme固定271卡', 'H100阶段功率；Kalos集群日形状', '活跃训练>600W/卡；检查点约100W/卡', 'GPU/TDP 0.730–0.840，加权0.80；敏感性0.65–0.95', '集群形状迁移、逐类功率未识别'],
   ['SPECpower（三配置）', '全部CPU响应', '2023—2024公开结果', '3条整机AC曲线，共33个点', '空闲76–163W；满载318–915W', '归一化平均、单调平滑；保留端点', 'Java负载与目标配置迁移'],
 ];
 const dataTable = new Table({
@@ -142,20 +144,41 @@ const H1 = '一、情境定义：服务器规格 × 需求';
 const H2 = '二、任务类型与时间柔性';
 const H3 = '三、各数据源概况';
 const H4 = '四、各情境典型日负荷曲线';
-const FIGURE_DIR = '../../results/scenario-typical-day-by-task-20261101-v5';
+const H5 = '五、各情境原生窗口负荷曲线';
+const FIGURE_DIR = RESULT_DIR + '/selected-days';
 const FIGURE = path.resolve(__dirname, FIGURE_DIR, 'overview.png');
+const NATIVE_FIGURE = path.resolve(__dirname, RESULT_DIR, 'native-overview.png');
 const NOTES4 = [
-  '选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三规格共日。',
-  '规模与模型：参考IT 10 MW，沿用v4组合模型（#35推理GPU＋#36 CPU及训练）和原全年PUE；其他规模按整数台数比缩放，训练按原作业分配。',
-  '敏感性：训练GPU/TDP 0.65–0.95（中央0.80）；推理在线SXM空闲100–160W、高负载350–700W、γ0.7–1.3，PCIe按TDP迁移；均为情境范围。',
-  '来源边界：MIT六月完成版，DNN含官方与推断；ASI、Alibaba真实日历未知，请求形状按#35合成相位；基础/空闲中央值沿用，敏感性见第三章。',
-  '尖峰：Alibaba原始相对06时高值保留；CPU在50%→60%区间动态增量约125→41W，三份SPEC平滑后放大效应减弱。',
+  '选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三种规格共用日期。',
+  '统一模型：与第五章同源，直接取新原生窗口小时功率及重算PUE。推理GPU采用#35请求映射；CPU、基础/空闲及训练采用#36，训练日内比例0.730–0.840，GPU小时加权均值0.80。',
+  '无日期来源：先限定完整原生窗口，再取设施均值最接近12次放置中位数的放置用于选日；三种规格共用放置。第五章报告全部放置统计，日内比取全窗口按来源小时平均。',
+  '敏感性与边界：训练加权比例0.65–0.95；推理端点、曲率与基础/空闲范围沿用来源报告。训练日形状为集群迁移假设；MIT六月标定迁移H100，DNN含推断。',
+  'Alibaba原始相对06时高值保留，CPU使用三份SPEC平滑响应；ASI与Alibaba真实日期未知，请求与源小时采用合成相位。',
 ];
+const NOTE5A = '各来源有多长使用多长，不循环或补齐全年。Lisa 309天（2021-12-27至2022-10-31），原文件时区未知，月日小时对应UTC为假设；MIT 237天（2021-02-06至09-30），保留Slurm epoch小时；Acme 90天（2023-05-18至08-15 UTC）。三者按源月日小时对应目标气象年。Alibaba为相对第2–6天共120小时，ASI为相对第0–184天共185天，两者真实日期及时区未知，分别在12个月初00时UTC放置，年末截断。下表为参考网格2025年、参考IT 10MW。';
+const NOTE5B = 'IT均值与峰值取完整原生窗口；设施均值、峰值及日内比取各实际放置窗口统计的中位数，范围为设施均值最小–最大。有日期来源仅一次对应。日内比为全窗口按源小时分组均值的最大/最小，区别于第四章所选日24小时比值。';
+const NOTE5C = 'Alibaba仅5天，不报告周形状；ASI的周形状仅为相对七日。ASI七至十二月放置实际为184／153／122／92／61／31天，设施范围同时包含气象和源前缀差异。44情境的最小值、日内/周内比及窗口电量见配套数值表，均不年化。';
+const NOTE5D = '两章同用#35请求GPU、#36平滑CPU与训练日形状、基础/空闲中央值及cooling-20261028-v2。MIT为六月单月标定迁移H100；训练形状来自固定271卡混合集群，属于形状迁移假设，缺少预训练专属周期及检查点因果证据。';
+const NOTE5FIG = '蓝线为完整原生IT，紫线与阴影为逐源小时可用放置的设施中位数及最小–最大；有日期来源只有一条设施曲线。ASI后段可用放置数减少；逐小时中位数包络的峰值与表中窗口峰值的中位数不同。';
+const W5 = [4600, 750, 1400, 1400, 1400, 1400, 1400, 2250];
+const nativeTable = new Table({
+  width: { size: W5.reduce((a, b) => a + b, 0), type: WidthType.DXA },
+  columnWidths: W5,
+  borders: Object.fromEntries(['top', 'bottom', 'left', 'right', 'insideHorizontal', 'insideVertical'].map((side) => [side, { style: BorderStyle.SINGLE, size: 4, color: 'D9D9D9' }])),
+  rows: NATIVE.rows.map((row, i) => new TableRow({
+    tableHeader: i === 0, cantSplit: true,
+    children: row.map((text, j) => cell(text, W5[j], {
+      bold: i === 0, size: 18, left: i > 0 && j === 0,
+      fill: i === 0 ? HEAD_FILL : (i % 2 === 0 ? 'F3F6FA' : undefined),
+    })),
+  })),
+});
 const readmePath = process.argv[3];
 const previousReadme = readmePath && fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : '';
 const sourceSection = previousReadme.indexOf('## 数字来源与说明');
 const retainedSections = sourceSection >= 0 ? previousReadme.slice(sourceSection).trimEnd() : '';
-const SOURCE4 = '- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v5`](../../results/scenario-typical-day-by-task-20261101-v5/README.md)。规则为中位电量±2%内取候选、少于5天放宽至±5%，候选内按与全部完整日平均24小时曲线RMSE最小选日；评分及候选标记见 `*-day-selection.csv`，新旧日期、电量、偏差、RMSE和峰谷比见 `day-selection-comparison.csv`，异常提示见 `selected-day-diagnostics.csv`。脚本为 `analysis/reselect_scenario_typical_days.py`；模型及全年小时数据保持v4组合模型，以SHA-256核对，敏感性参数沿用v4。';
+const SOURCE4 = '- 第四章图与逐小时分任务汇总：[`组合模型原生窗口 selected-days`](../../results/typical-load-curves-20261101-v3-native-combined/README.md)。图、24小时表及分任务表均取第五章相同小时结果，保留中位电量窗口内最小RMSE规则；无日期来源先限定完整窗口，再选最接近全部放置设施均值中位数者。候选及诊断见 `selected-days`，前版第四章对照及两章零差异核对见 `chapter4-comparison.csv`。';
+const SOURCE5 = '- 第五章44情境、25组地点年份及原生时序：[`组合模型原生窗口`](../../results/typical-load-curves-20261101-v3-native-combined/README.md)。`native-summary.csv`保存完整IT及逐放置设施中位数与范围，`placement-summary.csv`保存参考网格220个窗口，`old-model-comparison.csv`对照#34同窗口旧模型；`manifest.json`及`verification.json`记录指纹与上游逐小时验证。训练日形状固定#36 1594fb7，推理固定#35 520f68d；第四章与第五章采用同一模型及小时输出。';
 const SPIKE_SOURCE = '- Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。';
 const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取参考 IT 功率 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
 const LEGEND = '✓ 可以　◐ 有条件　✗ 不行　？ 未知；MIT／OTHER分母分别为全部GPU小时／其中OTHER小时，跨数据集不相加。';
@@ -169,7 +192,7 @@ const doc = new Document({
   sections: [{
     properties: { page: { size: { width: 11906, height: 16838, orientation: PageOrientation.LANDSCAPE }, margin: { top: 700, bottom: 600, left: 1100, right: 1100 } } },
     children: [
-      new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 60 }, children: [new TextRun({ text: TITLE, font: HEI, size: 32, bold: true })] }),
+      new Paragraph({ style: 'Title', alignment: AlignmentType.CENTER, spacing: { after: 60 }, children: [new TextRun({ text: TITLE, font: HEI, size: 32, bold: true, color: '000000' })] }),
       new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 120 }, children: [new TextRun({ text: DATE, size: 20, color: '7F7F7F' })] }),
 
       h(H1),
@@ -198,13 +221,28 @@ const doc = new Document({
         })],
       }),
       ...NOTES4.map((text) => p(text, { before: 20, size: 16, color: '595959' })),
+
+      h(H5, true),
+      p(NOTE5A, { before: 40, size: 19 }),
+      nativeTable,
+      ...[NOTE5B, NOTE5C, NOTE5D].map((text) => p(text, { before: 80, size: 18, color: '595959' })),
+
+      h('原生窗口时序总览', true),
+      new Paragraph({
+        alignment: AlignmentType.CENTER, keepNext: true, spacing: { before: 40, after: 20 },
+        children: [new ImageRun({ type: 'png', data: fs.readFileSync(NATIVE_FIGURE),
+          transformation: { width: 944, height: 590 },
+          altText: { name: '原生窗口时序总览', title: '原生窗口时序总览', description: '11个10MW情境各使用完整原生IT窗口，设施曲线显示气象对应或12次放置的中位数与范围。' },
+        })],
+      }),
+      p(NOTE5FIG, { before: 20, size: 17, color: '595959' }),
     ],
   }],
 });
 
 
 // ---------- Markdown 版本（供 GitHub 审阅，与 Word 同源） ----------
-const plain = (c) => (Array.isArray(c) ? c.map(([t]) => t).join('') : c).replace(/\|/g, '\|');
+const plain = (c) => (Array.isArray(c) ? c.map(([t]) => t).join('') : c).replace(/\|/g, '\|').replace(/\n/g, '<br>');
 const mdTable = (rows) => [rows[0], rows[0].map(() => '---'), ...rows.slice(1)]
   .map((r) => '| ' + r.map((c) => (Array.isArray(c) || typeof c === 'string' ? plain(c) : String(c))).join(' | ') + ' |').join('\n');
 const MD_OUT = process.argv[3];
@@ -216,10 +254,14 @@ if (MD_OUT) {
     `## ${H3}`, '', mdTable(data), '', NOTE3, '',
     `## ${H4}`, '', `![各情境典型日负荷曲线](${FIGURE_DIR}/overview.png)`, '',
     ...NOTES4.flatMap((text) => [text, '']),
+    `## ${H5}`, '', NOTE5A, '', mdTable(NATIVE.rows), '', NOTE5B, '', NOTE5C, '', NOTE5D, '',
+    `![原生窗口时序总览](${RESULT_DIR}/native-overview.png)`, '', NOTE5FIG, '',
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
-  let tail = retainedSections.includes(SOURCE4) ? retainedSections
+  const sourceUpdated = retainedSections.split('\n').map((line) => line.startsWith('- 第四章图与逐小时分任务汇总：') ? SOURCE4 : line).join('\n');
+  let tail = sourceUpdated.includes(SOURCE4) ? sourceUpdated
     : retainedSections.replace('## 重新生成', `${SOURCE4}\n\n## 重新生成`);
+  if (!tail.includes(SOURCE5)) tail = tail.replace('## 重新生成', `${SOURCE5}\n\n## 重新生成`);
   if (!tail.includes(SPIKE_SOURCE)) tail = tail.replace('## 重新生成', `${SPIKE_SOURCE}\n\n## 重新生成`);
   fs.writeFileSync(MD_OUT, md + '\n' + tail + '\n', 'utf8');
   console.log('wrote', MD_OUT);

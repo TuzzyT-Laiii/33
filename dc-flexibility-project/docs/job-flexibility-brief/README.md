@@ -48,24 +48,52 @@ H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开�
 | Acme（Kalos／Seren） | 大模型训练/开发 | 作业2023-05至08；监测窗口各异 | Kalos逐作业6.2万；两集群9份监测21.70GB | 原轨迹：预训练11分钟／11.8小时；A100全部监测均功率191／195W/卡 | 细：用途标签；监测缺少逐作业设备关联 | 逐类功率、检查点记录 |
 | ASI（Alibaba GPU 2026） | 推理服务 | 185天，4,440小时 | 逐类型、优先级GPU小时；附执行跨度分布 | 离线执行跨度P50 10–30分钟、P90 3–6小时 | 中：6类业务＋优先级＋模型；INF只取在线和离线推理 | 真实日期、连续运行时间；1个零资源异常小时 |
 | BurstGPT／Azure 2024 | 推理日内形状 | 119日／代码和对话各7日 | 请求及输入／输出token按小时聚合 | 请求日内比2.455／8.963／1.783 | 中央用BurstGPT输入／输出各50%；Azure为敏感性 | 到达与执行时差；时钟、批量及缓存 |
-| OLMo等训练功率研究 | 训练GPU功率依据 | OLMo节点最初300个记录步 | H100训练与检查点阶段直接功率 | 活跃训练>600W/卡；检查点约100W/卡 | 采用GPU/TDP 0.80，敏感性0.65–0.95 | 全生命周期均值、目标配置实测 |
+| OLMo及Acme训练证据 | 训练GPU功率依据 | OLMo前300步；Acme固定271卡 | H100阶段功率；Kalos集群日形状 | 活跃训练>600W/卡；检查点约100W/卡 | GPU/TDP 0.730–0.840，加权0.80；敏感性0.65–0.95 | 集群形状迁移、逐类功率未识别 |
 | SPECpower（三配置） | 全部CPU响应 | 2023—2024公开结果 | 3条整机AC曲线，共33个点 | 空闲76–163W；满载318–915W | 归一化平均、单调平滑；保留端点 | Java负载与目标配置迁移 |
 
 作业时长数字为P50／P90。Lisa GPU分区仅计宿主CPU核心小时；ASI执行跨度含生命周期及调度影响。MIT监测覆盖68.33%、合格验证3小时，跨设备与空载迁移为假设。无任务整机敏感性（科研AI另计）：A 120–320、B 195–500、C 270–680、D 1370–4110 W/台；科研AI只变基础及CPU空闲。
 
 ## 四、各情境典型日负荷曲线
 
-![各情境典型日负荷曲线](../../results/scenario-typical-day-by-task-20261101-v5/overview.png)
+![各情境典型日负荷曲线](../../results/typical-load-curves-20261101-v3-native-combined/selected-days/overview.png)
 
-选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三规格共日。
+选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三种规格共用日期。
 
-规模与模型：参考IT 10 MW，沿用v4组合模型（#35推理GPU＋#36 CPU及训练）和原全年PUE；其他规模按整数台数比缩放，训练按原作业分配。
+统一模型：与第五章同源，直接取新原生窗口小时功率及重算PUE。推理GPU采用#35请求映射；CPU、基础/空闲及训练采用#36，训练日内比例0.730–0.840，GPU小时加权均值0.80。
 
-敏感性：训练GPU/TDP 0.65–0.95（中央0.80）；推理在线SXM空闲100–160W、高负载350–700W、γ0.7–1.3，PCIe按TDP迁移；均为情境范围。
+无日期来源：先限定完整原生窗口，再取设施均值最接近12次放置中位数的放置用于选日；三种规格共用放置。第五章报告全部放置统计，日内比取全窗口按来源小时平均。
 
-来源边界：MIT六月完成版，DNN含官方与推断；ASI、Alibaba真实日历未知，请求形状按#35合成相位；基础/空闲中央值沿用，敏感性见第三章。
+敏感性与边界：训练加权比例0.65–0.95；推理端点、曲率与基础/空闲范围沿用来源报告。训练日形状为集群迁移假设；MIT六月标定迁移H100，DNN含推断。
 
-尖峰：Alibaba原始相对06时高值保留；CPU在50%→60%区间动态增量约125→41W，三份SPEC平滑后放大效应减弱。
+Alibaba原始相对06时高值保留，CPU使用三份SPEC平滑响应；ASI与Alibaba真实日期未知，请求与源小时采用合成相位。
+
+## 五、各情境原生窗口负荷曲线
+
+各来源有多长使用多长，不循环或补齐全年。Lisa 309天（2021-12-27至2022-10-31），原文件时区未知，月日小时对应UTC为假设；MIT 237天（2021-02-06至09-30），保留Slurm epoch小时；Acme 90天（2023-05-18至08-15 UTC）。三者按源月日小时对应目标气象年。Alibaba为相对第2–6天共120小时，ASI为相对第0–184天共185天，两者真实日期及时区未知，分别在12个月初00时UTC放置，年末截断。下表为参考网格2025年、参考IT 10MW。
+
+| 情境（参考IT 10MW） | 原生<br>天数 | IT平均<br>MW | IT峰值<br>MW | 设施平均<br>MW | 设施峰值<br>MW | 设施日内<br>峰谷比 | 设施平均范围<br>MW |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 纯 CPU 型·科研计算·10MW | 309 | 7.520 | 10.000 | 9.963 | 13.033 | 1.097 | — |
+| 纯 CPU 型·云通用计算·10MW | 5 | 5.669 | 7.158 | 7.275 | 9.410 | 1.429 | 7.178–8.143 |
+| CPU 主导型·科研 AI·10MW | 237 | 5.318 | 7.844 | 7.252 | 10.762 | 1.044 | — |
+| 均衡型·科研 AI·10MW | 237 | 4.906 | 6.920 | 6.702 | 9.523 | 1.041 | — |
+| GPU 主导型·科研 AI·10MW | 237 | 4.758 | 5.741 | 6.487 | 8.064 | 1.027 | — |
+| CPU 主导型·大模型训练/开发·10MW | 90 | 4.320 | 5.458 | 6.119 | 7.793 | 1.046 | — |
+| 均衡型·大模型训练/开发·10MW | 90 | 4.514 | 5.919 | 6.385 | 8.431 | 1.064 | — |
+| GPU 主导型·大模型训练/开发·10MW | 90 | 5.214 | 7.001 | 7.343 | 9.926 | 1.078 | — |
+| CPU 主导型·推理服务·10MW | 185 | 4.137 | 4.602 | 5.526 | 6.143 | 1.076 | 5.101–5.751 |
+| 均衡型·推理服务·10MW | 185 | 4.031 | 4.583 | 5.389 | 6.107 | 1.120 | 4.969–5.609 |
+| GPU 主导型·推理服务·10MW | 185 | 4.392 | 5.074 | 5.855 | 6.742 | 1.159 | 5.401–6.093 |
+
+IT均值与峰值取完整原生窗口；设施均值、峰值及日内比取各实际放置窗口统计的中位数，范围为设施均值最小–最大。有日期来源仅一次对应。日内比为全窗口按源小时分组均值的最大/最小，区别于第四章所选日24小时比值。
+
+Alibaba仅5天，不报告周形状；ASI的周形状仅为相对七日。ASI七至十二月放置实际为184／153／122／92／61／31天，设施范围同时包含气象和源前缀差异。44情境的最小值、日内/周内比及窗口电量见配套数值表，均不年化。
+
+两章同用#35请求GPU、#36平滑CPU与训练日形状、基础/空闲中央值及cooling-20261028-v2。MIT为六月单月标定迁移H100；训练形状来自固定271卡混合集群，属于形状迁移假设，缺少预训练专属周期及检查点因果证据。
+
+![原生窗口时序总览](../../results/typical-load-curves-20261101-v3-native-combined/native-overview.png)
+
+蓝线为完整原生IT，紫线与阴影为逐源小时可用放置的设施中位数及最小–最大；有日期来源只有一条设施曲线。ASI后段可用放置数减少；逐小时中位数包络的峰值与表中窗口峰值的中位数不同。
 
 ## 数字来源与说明
 
@@ -77,18 +105,30 @@ H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开�
 - Alibaba 使用 PR #33 的 [`完整窗口及在线／离线拆分`](../../results/alibaba-cpu-cld-20261031/README.md)，五日核心小时占比见 `complete-component-window.csv`。未对账量保留为单独层，调度期限与权限未知。
 
 - 请求级形状与推理GPU功率来自 PR #35（520f68d）的 [`请求与功率报告`](../../results/inf-diurnal-20261101/README.md)，中央采用BurstGPT 119日输入／输出token各50%，Azure 2024代码与对话各7日作为敏感性；请求到达时钟不等同于GPU执行功率测量。
-- 训练功率、CPU响应及基础/空闲依据来自 PR #36（6c83cf1）的 [`功率模型核查`](../../results/trn-power-model-20261101/README.md)：Acme九份监测、OLMo等H100文献、三份SPECpower。训练GPU/TDP中央0.80，范围0.65–0.95；保留中央空载并单独改变敏感性端点。
-- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v5`](../../results/scenario-typical-day-by-task-20261101-v5/README.md)。规则为中位电量±2%内取候选、少于5天放宽至±5%，候选内按与全部完整日平均24小时曲线RMSE最小选日；评分及候选标记见 `*-day-selection.csv`，新旧日期、电量、偏差、RMSE和峰谷比见 `day-selection-comparison.csv`，异常提示见 `selected-day-diagnostics.csv`。脚本为 `analysis/reselect_scenario_typical_days.py`；模型及全年小时数据保持v4组合模型，以SHA-256核对，敏感性参数沿用v4。
+- 训练功率、CPU响应及基础/空闲依据来自 PR #36（1594fb7）的 [`功率模型核查`](../../results/trn-power-model-20261101/README.md)及[`训练日形状`](../../results/trn-power-model-20261101/diurnal-acme/README.md)：三份SPECpower平滑CPU，Acme固定271卡集群日形状迁移，目标GPU/TDP为0.730–0.840，原生90天GPU小时加权均值0.80；敏感性均值0.65–0.95。基础/空闲采用中央值。
+- 第四章图与逐小时分任务汇总：[`组合模型原生窗口 selected-days`](../../results/typical-load-curves-20261101-v3-native-combined/README.md)。图、24小时表及分任务表均取第五章相同小时结果，保留中位电量窗口内最小RMSE规则；无日期来源先限定完整窗口，再选最接近全部放置设施均值中位数者。候选及诊断见 `selected-days`，前版第四章对照及两章零差异核对见 `chapter4-comparison.csv`。
 
 - Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。
 
+- 第五章44情境、25组地点年份及原生时序：[`组合模型原生窗口`](../../results/typical-load-curves-20261101-v3-native-combined/README.md)。`native-summary.csv`保存完整IT及逐放置设施中位数与范围，`placement-summary.csv`保存参考网格220个窗口，`old-model-comparison.csv`对照#34同窗口旧模型；`manifest.json`及`verification.json`记录指纹与上游逐小时验证。训练日形状固定#36 1594fb7，推理固定#35 520f68d；第四章与第五章采用同一模型及小时输出。
+
 ## 重新生成
 
-先确认v4组合全年小时结果已核验，按第四章结果目录说明运行选日脚本，生成新汇总及图件，再在本目录运行：
+先在服务器运行 `analysis/launch_native_combined.sh` 并用 `analysis/verify_native_combined.py` 全量核验，读取固定的#34原生小时与#35、#36输入。将新结果目录复制到本机后，在仓库根目录运行：
+
+```powershell
+python dc-flexibility-project/analysis/prepare_native_combined_brief.py --resources dc-flexibility-project/data/processed/scenario-typical-day-by-task-20261101-v3
+python dc-flexibility-project/analysis/plot_native_combined.py
+python dc-flexibility-project/analysis/report_native_combined.py
+```
+
+分类资源小时汇总保存在本机忽略目录，来自已核验的#31工作区，不重新读取逐作业原始记录。第四章、第五章数据均来自 `results/typical-load-curves-20261101-v3-native-combined`。在本目录运行：
 
 ```
 npm install
 node build.js 数据中心任务时间柔性简表.docx README.md
 ```
 
-脚本重新生成时会保留“数字来源与说明”和“重新生成”两节，并补充第四章图件与数据来源。
+也可设置 `NODE_PATH` 为 Codex runtime 的 `dependencies/node/node_modules`，使用其中的Node执行同一脚本。脚本保留“数字来源与说明”和“重新生成”两节。Word以本机Microsoft Word原生导出PDF，使用Poppler生成逐页图像，检查中文、分页及表格边界。最终六页：前三章各一页，第四章典型日一页，第五章汇总表和原生时序各一页。
+
+数值依赖沿用 `analysis/requirements-scenario-typical-days-v3.txt`。简表审计使用Python 3.12、python-docx 1.2.0、pypdf 6.10.0、PyArrow 20.0.0；Parquet读取需要PyArrow。`analysis/export_brief_pdf.ps1`导出PDF并记录各表所在页，`analysis/audit_native_combined_brief.py`核对44条完整IT曲线、汇总统计、两章取值及Word表格。实际逐页检查后才传入 `--visual-qa-confirmed`；审计结果保存在组合模型结果目录的 `brief-audit.json`。

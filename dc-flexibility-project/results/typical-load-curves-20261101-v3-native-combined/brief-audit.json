@@ -1,0 +1,61 @@
+{
+  "utc": "2026-11-01T10:22:44.384428+00:00",
+  "passed": true,
+  "pages": 6,
+  "table_pages": [
+    1,
+    2,
+    3,
+    5
+  ],
+  "visual_review": "全部六页及新增图件已查看，中文、表格、图例、边界与分页正常",
+  "docx_sha256": "521e5afd8e9aeb43de73dc0a28993c0afba2f009fa105b944215098c40e89b61",
+  "pdf_sha256": "1bf3ac8f60bd2f5e3df960d937ed3aa26af5fca775aee2de73fe27e51a5a9d41",
+  "model_input_sha256": {
+    "results/server-count-scenarios-20261028-v2/server-configurations.json": "3f1fbffbe1444523858b5fd595604a9d71c5f2b31c49f57fc3a086a81a1ab007",
+    "results/typical-load-curves-20261029-v2/mit-power-ratio-summary.json": "9751f83474686f619626a137800f803e41313893c6f5dceee5f42bed50f92397",
+    "results/typical-load-curves-20261101-v3/mit-calibration.json": "1224e0cb4baf2d1a0ceefbfdd0a325a80ba073a7357f5842180fb6d2d36902e8",
+    "results/typical-load-curves-20261101-v3/power-parameters.csv": "a638d5600a0dd12be83fd1bd5d3601aebeb0e9aa4c60af301fe430c84fe7648a",
+    "results/trn-power-model-20261101/cpu-shape.json": "1c73d31f14c8e26ba53d94daa226637e5ffc8cf10dbe76cc8641f9d770c50f81",
+    "results/trn-power-model-20261101/diurnal-acme/transfer-profile.csv": "747bc4d742222d93c176963e8303e8e89bb5053c1e09b4245babced0c5952a99",
+    "results/inf-diurnal-20261101/request-shape-24h.csv": "3b77237112986cf82e33da972d94dffc86be0dfdee11b05e13cc90db8797134c",
+    "results/inf-diurnal-20261101/power-calibration.csv": "ee2042438abebf36beb24db597a13945e8362682b027873f5f8e4900d448cb2f",
+    "analysis/compute_load/assets/cooling-20261028-v2.json": "a8957220d99994bd2df6fe6bdc186b370188e408de72670ee79760908f7ddc1c"
+  },
+  "chapter4_chapter5_hourly_and_window_IT_differences_zero": true,
+  "task_layers_conserved": true,
+  "native_IT_summaries_verified": 44,
+  "word_native_export": {
+    "pages": 6,
+    "tables": [
+      {
+        "end_page": 1,
+        "start_page": 1,
+        "rows": 5,
+        "index": 1
+      },
+      {
+        "end_page": 2,
+        "start_page": 2,
+        "rows": 13,
+        "index": 2
+      },
+      {
+        "end_page": 3,
+        "start_page": 3,
+        "rows": 9,
+        "index": 3
+      },
+      {
+        "end_page": 5,
+        "start_page": 5,
+        "rows": 12,
+        "index": 4
+      }
+    ],
+    "docx_sha256": "521E5AFD8E9AEB43DE73DC0A28993C0AFBA2F009FA105B944215098C40E89B61",
+    "pdf_sha256": "1BF3AC8F60BD2F5E3DF960D937ED3AA26AF5FCA775AEE2DE73FE27E51A5A9D41",
+    "exporter": "Microsoft Word native PDF export"
+  },
+  "verification_sha256": "408e2b8ee4312f24c8a41180a876e105a26ce744607c144f039f76c62b4c3bf1"
+}

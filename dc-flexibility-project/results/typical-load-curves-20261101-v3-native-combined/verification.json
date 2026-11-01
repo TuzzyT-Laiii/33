@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-01T10:17:43.987345+00:00",
+  "passed": true,
+  "files": 5500,
+  "hourly_rows": 15861600,
+  "scenarios": 44,
+  "upstream_checks": "非训练CPU/基础对照#36全年小时；INF GPU对照#35逐小时；TRN各分项及整条IT/设施对照#36原生90天shape_central；其他GPU对照#34",
+  "unchanged_native_inputs": true,
+  "window_statistics": true,
+  "placement_statistics": true,
+  "cooling_heat_balance_maximum_residual_mw": 3.410605131648481e-13
+}
