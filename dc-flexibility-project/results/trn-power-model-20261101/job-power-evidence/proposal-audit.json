@@ -1,0 +1,31 @@
+{
+  "input_native_sha256": {
+    "results/typical-load-curves-20261101-v3-native/hourly/B-TRN-100MW-2025-dated.parquet": "5d256efc2ee1e6e15d6528ad2a4072539e75c7508cc8851f52e8911ca7dfcc61",
+    "results/typical-load-curves-20261101-v3-native/hourly/B-TRN-10MW-2025-dated.parquet": "1cab920114d9c9e6c972075a8537912b1630095a7d20279fa6e9ae74ed049ec1",
+    "results/typical-load-curves-20261101-v3-native/hourly/B-TRN-1MW-2025-dated.parquet": "7bd06f166431999cf015854e1c83e310b2e068ad1d19d32244f7d7dba960bb70",
+    "results/typical-load-curves-20261101-v3-native/hourly/B-TRN-500MW-2025-dated.parquet": "885b323af33a894d955dac1261c361f606044af8553417ffa852101271d957d2",
+    "results/typical-load-curves-20261101-v3-native/hourly/C-TRN-100MW-2025-dated.parquet": "e23ef8a924f0fbc23143a1eeada04f9f6d348dc9e77053847ff662f27d6ab747",
+    "results/typical-load-curves-20261101-v3-native/hourly/C-TRN-10MW-2025-dated.parquet": "4fedba430d904ae58fe215ed9472c90e33b9d439439e8d99354f3ca19cd5452f",
+    "results/typical-load-curves-20261101-v3-native/hourly/C-TRN-1MW-2025-dated.parquet": "fc638c7ac18515907b7a1d9e1f3c401ae11483b8555927314dc8b84f245239d7",
+    "results/typical-load-curves-20261101-v3-native/hourly/C-TRN-500MW-2025-dated.parquet": "2f8c3151aeb81116941932e12ff1fb5e73c19a3c945213358ecebc263ae03425",
+    "results/typical-load-curves-20261101-v3-native/hourly/D-TRN-100MW-2025-dated.parquet": "96620ea5040889260f6e88f12867dd82aa3594f2acf5fc7a93275224bcbae7d9",
+    "results/typical-load-curves-20261101-v3-native/hourly/D-TRN-10MW-2025-dated.parquet": "dbdc4153fb1b80fe3eddb645feb4903ca0fb53f0ce1475dddb3345484ac21911",
+    "results/typical-load-curves-20261101-v3-native/hourly/D-TRN-1MW-2025-dated.parquet": "13117d45f286da2d6dc708b277145ad0ac74d013e491e6ab711c662bbf813459",
+    "results/typical-load-curves-20261101-v3-native/hourly/D-TRN-500MW-2025-dated.parquet": "9e88c17b511a95245d28d674cb7fae77bd1617c236279498869f02c250e5326b"
+  },
+  "source_version": "PR36@1594fb77148f3c9307d00230c25e864f6a286625",
+  "cases": [
+    "current_080_Kalos",
+    "recommended_080_constant",
+    "sensitivity_080_Seren",
+    "sensitivity_065_constant",
+    "sensitivity_095_constant",
+    "small_batch_040_constant"
+  ],
+  "reference_scenarios": 12,
+  "native_hours_each": 2160,
+  "baseline_results_replaced": false,
+  "new_hourly_body_outputs_written": false,
+  "scope": "Report-only comparison; reference-grid weather 2025; CPU, idle, cooling and demand frozen",
+  "methods": "Current Kalos versus constant 0.80 and Seren shape; low/high levels and small-batch endpoint are engineering sensitivities."
+}

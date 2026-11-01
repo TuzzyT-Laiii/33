@@ -1,0 +1,26 @@
+{
+  "sha256": "642a75382ba54cd1e17605a579aa53f022b11898a4d4286f591fd0eb4c91687f",
+  "rows": 4174302,
+  "columns": [
+    "Time",
+    "Sys_Total_Power",
+    "FAN_Total_Power",
+    "CPU_Power",
+    "Memory_Power",
+    "2U_Total_Power",
+    "HDD_Power",
+    "PSU1_Pin",
+    "PSU1_Pout",
+    "PSU2_Pin",
+    "PSU2_Pout",
+    "PSU3_Pin",
+    "PSU3_Pout",
+    "PSU4_Pin",
+    "PSU4_Pout",
+    "node",
+    "PSU_IN_SUM",
+    "PSU_OUT_SUM"
+  ],
+  "omitted_all_missing_fields": [],
+  "interpretation": "Mixed running states; node mappings withheld from aggregates; Sys_Total_Power, PSU input and component DC are separate meters and must not be summed."
+}

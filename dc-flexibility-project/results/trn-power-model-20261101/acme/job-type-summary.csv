@@ -1,0 +1,14 @@
+cluster,type,jobs,gpu_jobs,gpu_hours,gpu_time_share_pct,start_end_gpu_hours,start_end_gpu_time_share_pct,allocated_gpu_power,gpu_utilization
+kalos,CPU,42506,0,0.0,0.0,0.0,0.0,not_applicable: no GPUs requested,not_applicable: no GPUs requested
+kalos,Debug,537,537,23456.049166666668,1.5833288213442902,20422.80416666667,1.4158860017187576,unknown: no job/device allocation join,unknown: no job/device allocation join
+kalos,Eval,18471,18471,6249.341388888889,0.4218426669018479,3357.670833333333,0.23278287802687989,unknown: no job/device allocation join,unknown: no job/device allocation join
+kalos,Other,250,250,37078.97305555556,2.50290261107312,36952.770000000004,2.561886670447003,unknown: no job/device allocation join,unknown: no job/device allocation join
+kalos,Pretrain,641,641,1411166.3733333333,95.2564677339515,1378184.1266666667,95.54768271848029,unknown: no job/device allocation join,unknown: no job/device allocation join
+kalos,SFT,8,8,3488.168888888889,0.2354581667292407,3487.1822222222227,0.24176173132706616,unknown: no job/device allocation join,unknown: no job/device allocation join
+seren,CPU,367737,0,0.0,0.0,0.0,0.0,not_applicable: no GPUs requested,not_applicable: no GPUs requested
+seren,Debug,8469,8469,96341.02666666667,1.7122667126404703,96341.02666666667,1.7122667126404698,unknown: no job/device allocation join,unknown: no job/device allocation join
+seren,Eval,292212,292212,351149.3983333333,6.240969675465665,351149.3983333333,6.240969675465662,unknown: no job/device allocation join,unknown: no job/device allocation join
+seren,MLLM,13288,13288,484702.72583333333,8.614609701452045,484702.72583333333,8.614609701452041,unknown: no job/device allocation join,unknown: no job/device allocation join
+seren,Other,65624,65624,425135.8172222222,7.5559284903560044,425135.81722222216,7.555928490356001,unknown: no job/device allocation join,unknown: no job/device allocation join
+seren,Pretrain,4026,4026,3910073.442222222,69.49363973731771,3910073.4422222227,69.4936397373177,unknown: no job/device allocation join,unknown: no job/device allocation join
+seren,SFT,66971,66971,359117.4511111111,6.382585682768106,359117.4511111111,6.382585682768104,unknown: no job/device allocation join,unknown: no job/device allocation join

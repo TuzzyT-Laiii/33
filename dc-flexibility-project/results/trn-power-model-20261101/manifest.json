@@ -1,0 +1,273 @@
+{
+  "utc": "2026-11-01T04:00:21.694827+00:00",
+  "base_commit": "ab07a41157442e837659535e1a33579ced5af8fa",
+  "scope": "reference-grid 2025, 44 scenarios, frozen v3 demand/weather/unit count; see all-locations-manifest.json for the additional 1056 city-year scenarios",
+  "inputs": [
+    {
+      "file": "A-CLD-100MW-2025.parquet",
+      "sha256": "74317b23d02ab0ca3c0d62f03a14318d7370e459d561a17a167af3aaa945e8a5"
+    },
+    {
+      "file": "A-CLD-10MW-2025.parquet",
+      "sha256": "115301fbc041e9704f0296856a01cea6cf0f45e3bbf0c0edb702f76aa3188c41"
+    },
+    {
+      "file": "A-CLD-1MW-2025.parquet",
+      "sha256": "c30d5bf26e4f6f7da6d65e56ccbee37db6a76a60e0b7946d1185e91f1d6dacb1"
+    },
+    {
+      "file": "A-CLD-500MW-2025.parquet",
+      "sha256": "76ca23b565f0783c15a9c6c39810a97c9e25f108fa9b55ff38a9d01c79154fac"
+    },
+    {
+      "file": "A-HPC-100MW-2025.parquet",
+      "sha256": "3f86dd3f8f9446328b9499a86dcd5aa88c407e3a3de23c0f2d00d3b8354bff02"
+    },
+    {
+      "file": "A-HPC-10MW-2025.parquet",
+      "sha256": "b609c2c892e73d0cc1c7fa88b6766bd3640a710393ffe950cf60124fc06ba099"
+    },
+    {
+      "file": "A-HPC-1MW-2025.parquet",
+      "sha256": "d644d307551c32574da345d54395e830a5fa48f990fb74400a1edaa705162ca6"
+    },
+    {
+      "file": "A-HPC-500MW-2025.parquet",
+      "sha256": "594e1261101f41869c8324698b229c9f36037a65bee4fae2e73dd9eef48017d1"
+    },
+    {
+      "file": "B-INF-100MW-2025.parquet",
+      "sha256": "41671b57c90c04b9adc97eb4ed637663ba8b35dd94e8a70c438dbf98f631827a"
+    },
+    {
+      "file": "B-INF-10MW-2025.parquet",
+      "sha256": "67ad61ab35564eefb4cad5af0c9fc7fbf94b0294d3c20ff4e835dfcd4d441ade"
+    },
+    {
+      "file": "B-INF-1MW-2025.parquet",
+      "sha256": "95ccea79aff02400c7b6efa590fc5ea4a31056cca646435d22202a6640cd2386"
+    },
+    {
+      "file": "B-INF-500MW-2025.parquet",
+      "sha256": "ca1bf70e2bc987f5743cc19dda272a4c57fed17305b952838bac865e5cbb2dbe"
+    },
+    {
+      "file": "B-SAI-100MW-2025.parquet",
+      "sha256": "1661a967bb83fd49339780eb9b0fb6d94b63f78fdbd33bafe33d7a45f46e28d9"
+    },
+    {
+      "file": "B-SAI-10MW-2025.parquet",
+      "sha256": "6c65b5d7e147e6593771ee051212cd1d7e9f6cce2a1f4eab4b5861830fa5efb3"
+    },
+    {
+      "file": "B-SAI-1MW-2025.parquet",
+      "sha256": "44a74a187c00144e974e5c8a103e0daee8bf08acbb228ac951614522d0fc51ed"
+    },
+    {
+      "file": "B-SAI-500MW-2025.parquet",
+      "sha256": "9c160d69441af1360eaeb548be78c0823e9605c9ff709701f91bebaaeed1da15"
+    },
+    {
+      "file": "B-TRN-100MW-2025.parquet",
+      "sha256": "301f555966bc1383a51d9336152845febea18ec1c9d83de2f224eee5c3038f8b"
+    },
+    {
+      "file": "B-TRN-10MW-2025.parquet",
+      "sha256": "5d733819ef51b3df32c35e2cec64b99a5d42252d1a4751a554238f3a4181e1a6"
+    },
+    {
+      "file": "B-TRN-1MW-2025.parquet",
+      "sha256": "1d72401e34c448b29ce6d91b6437c1cc5a877f0a944e446a17be985f8d622b81"
+    },
+    {
+      "file": "B-TRN-500MW-2025.parquet",
+      "sha256": "731c2a6a6f639d211b3a5cf2fd84ae1c7b42adc8cea5eedbef98f99daee9a3a5"
+    },
+    {
+      "file": "C-INF-100MW-2025.parquet",
+      "sha256": "747d01693222d0c675610c4239f4bd0e035e5294898169beb1bf9eef4bc896d3"
+    },
+    {
+      "file": "C-INF-10MW-2025.parquet",
+      "sha256": "a6b19f32193af8bb85a9f0db7b3e997c1d30de224afd2ea09388ed0c66221c87"
+    },
+    {
+      "file": "C-INF-1MW-2025.parquet",
+      "sha256": "203bc3740efb22ed08c7e48fa25933375a3689564a525b2ac00890dd34acb849"
+    },
+    {
+      "file": "C-INF-500MW-2025.parquet",
+      "sha256": "ed5cc4b5cc642cb73d26b40fd550d31e2a6ed27b9c945b7f522cefb6c32f2a0f"
+    },
+    {
+      "file": "C-SAI-100MW-2025.parquet",
+      "sha256": "dcda6f51427dedea4906d924ad4a83c8bc6c93268242af7616d129e965754429"
+    },
+    {
+      "file": "C-SAI-10MW-2025.parquet",
+      "sha256": "9b1377ebd7d485f141a73537b23042fccba01f3d54245a4f9822d3fc2ce7a586"
+    },
+    {
+      "file": "C-SAI-1MW-2025.parquet",
+      "sha256": "9898e7c2e1ca5743afa17bb589def16fc7a561d0c61d5ea219d75cfc3461aaf6"
+    },
+    {
+      "file": "C-SAI-500MW-2025.parquet",
+      "sha256": "a817590c81935c03593bca0fae81a1229dc0457da282e4fe7181d519ee0d58e5"
+    },
+    {
+      "file": "C-TRN-100MW-2025.parquet",
+      "sha256": "97f06bea509fa688733f4c2128bbd42b4886fab1e011ad60e05cc86fe4d3ce53"
+    },
+    {
+      "file": "C-TRN-10MW-2025.parquet",
+      "sha256": "631917dff2b13a67954cf93a7ead82d0e64ba0f0ccc01e5400a5f49a9ea5270f"
+    },
+    {
+      "file": "C-TRN-1MW-2025.parquet",
+      "sha256": "ccca4e75a4c1e82df678aac1884a023ca98a03501c9655fda41266bec19c953a"
+    },
+    {
+      "file": "C-TRN-500MW-2025.parquet",
+      "sha256": "96388946d16483073d56f20c869c214ccf3718d384272a98da30d6cd517a782c"
+    },
+    {
+      "file": "D-INF-100MW-2025.parquet",
+      "sha256": "119bc8557fc3f4e636dbfe06f91a21b997370ff9b403e96ca155cb1a3feb5d95"
+    },
+    {
+      "file": "D-INF-10MW-2025.parquet",
+      "sha256": "5a915d7b6f935c301b2fa3e7335779f0ca79496ad1e29579ec0d5e3cdbc3b108"
+    },
+    {
+      "file": "D-INF-1MW-2025.parquet",
+      "sha256": "091665482b2229b01f4a62a67d358374f3397ee5f2bcdc1f45aeca5b29857b83"
+    },
+    {
+      "file": "D-INF-500MW-2025.parquet",
+      "sha256": "bc2e190a2381b715f7922973b8cc0bdbccff3485530d545dd9e3ac0ae9bf1512"
+    },
+    {
+      "file": "D-SAI-100MW-2025.parquet",
+      "sha256": "d22b35cc97e9fa6a1aca4ec386eaf1ac2924470abe033af915f7587ab0ad91e3"
+    },
+    {
+      "file": "D-SAI-10MW-2025.parquet",
+      "sha256": "05d177987c70e1ce4a343d7f7a477e41e335f8a533da0a58e4465f2fb3293917"
+    },
+    {
+      "file": "D-SAI-1MW-2025.parquet",
+      "sha256": "3139630610f7d6dfe2ea4e6711051a1a0488af181d7b80a1a1adee4f82f0b41d"
+    },
+    {
+      "file": "D-SAI-500MW-2025.parquet",
+      "sha256": "c01972fcdf6a1158ca5c8eb657614efcbbd8ffeade9b498e458e0390bdea3f18"
+    },
+    {
+      "file": "D-TRN-100MW-2025.parquet",
+      "sha256": "0a4a7f4afe8e34ce13f8729a93490facc7d0c405aad28682e89234e07209fb0e"
+    },
+    {
+      "file": "D-TRN-10MW-2025.parquet",
+      "sha256": "65f783480a45a822d150af9fb0ea60fb42590152c71212a86f098f3527303a71"
+    },
+    {
+      "file": "D-TRN-1MW-2025.parquet",
+      "sha256": "5086e2fcbbda86e98ed276be1c6fe8396af12a1203100f9ac2fda2967db870f3"
+    },
+    {
+      "file": "D-TRN-500MW-2025.parquet",
+      "sha256": "325b5ae373fc52dc6d394ed6f6f7e54dc7cff86878fe16b54352c5dd911de0ef"
+    }
+  ],
+  "hourly_sha256": {
+    "A-CLD-100MW-2025.parquet": "c3b815ff856e66de9fb67c3448abf2634807c9863cab5995a39d11a96d169631",
+    "A-CLD-10MW-2025.parquet": "122fa42458fb4d5ffd1883e1111ae44c8a63bcc25a08e3e1ea58f4899b8640ef",
+    "A-CLD-1MW-2025.parquet": "cda4803ef5b0098fcef82359bd1df9481f58806a35228e584866838691d1d1a5",
+    "A-CLD-500MW-2025.parquet": "8efca47faf7d964aee20466278be4b008f796cec1d20b61995738160b1c7077c",
+    "A-HPC-100MW-2025.parquet": "4e5b36280e4a9420ac24e96871e5615f59e4b52460e05fca6c00dd86c2a68e2b",
+    "A-HPC-10MW-2025.parquet": "b33ee2321a4d26df4daefcd4fa08daad19a0db338de5e2925e013e96282a7333",
+    "A-HPC-1MW-2025.parquet": "46f7cfb9fa4389540b9f03ccf91a8dc651061de1f8100847a7b7e29f9d1e5d47",
+    "A-HPC-500MW-2025.parquet": "486196e71ec855cbe90f3f2812e46c61cdba9baedb1a1a0200144b1adbb07015",
+    "B-INF-100MW-2025.parquet": "92221c3f4b390528f51701cf43af6ae8dfe793442cd25ce018ac24a53f46a4f3",
+    "B-INF-10MW-2025.parquet": "ef325353015c854036467e7201bf0ba363eba2d22774f5b0cd73179aadd07ad4",
+    "B-INF-1MW-2025.parquet": "ffe5801da9c5ab6ce8a48687426182f8e1f6d889a5396f57e94b6b7146546eed",
+    "B-INF-500MW-2025.parquet": "c2ad3e654102e6c06a1e41b0ba0b5a08b0dd4102913bb773ec845c2f9a700d93",
+    "B-SAI-100MW-2025.parquet": "fcdcf60f739dfaa2d11f223d9a4223ae1f22cd7fc20335f4396e5a19e4a27b01",
+    "B-SAI-10MW-2025.parquet": "e90a765fc82d148413340ba939625be81a71b71625aeb81e2597bc8a7f1198f0",
+    "B-SAI-1MW-2025.parquet": "d901ad2d6783a3f4ec3e489393bde257374639bcb360f916349ba6361e20ca72",
+    "B-SAI-500MW-2025.parquet": "5438ac02a7f7f5860aeed418ad33dd8484b8c6951cd2e4557dad3243196e4c3f",
+    "B-TRN-100MW-2025.parquet": "7f8e426c04b2c9ba0e1153d35167a6e3d4ab08153ea0ad009c8489014ce688f1",
+    "B-TRN-10MW-2025.parquet": "f31b439494268651f0679977a31c85b9ac99f14a1a2f086e5a4d74e714ca94b7",
+    "B-TRN-1MW-2025.parquet": "a6b1ea39b63618117898aa2e1113b7adff710e88d6f3066d8086ff7ae4e08e07",
+    "B-TRN-500MW-2025.parquet": "7901338b9b801fb7a8b2e887623bd9c6e7dcc6458da2c17efd991d9362100b70",
+    "C-INF-100MW-2025.parquet": "1698fee174fef77737d1a49591fd570292dd9bf01c887fed1ed0c9a2a1d41a1d",
+    "C-INF-10MW-2025.parquet": "bcfa574d5b16fe47bbdc1d4f20ac894906f97a53d8d9b958d8494cd0cd8a144b",
+    "C-INF-1MW-2025.parquet": "32a682a93e8ffa47f58ea9127705fcf0238ad33b70e919444ac4891d4c2debed",
+    "C-INF-500MW-2025.parquet": "23006b816f19469bb5c1158fc42cc2708c48130168d095f3084e05c525fd8bb2",
+    "C-SAI-100MW-2025.parquet": "d8768ccea29519d33bf3a7d56b49f7d20c6ac1cf12adb67ab7bcf96a48157b77",
+    "C-SAI-10MW-2025.parquet": "a67d27cbfa0be109eeea6a4858703b1e7fa34a56f660010f6882bb32cadc0251",
+    "C-SAI-1MW-2025.parquet": "60917c38153cff57859116e3f3bb73c0e59b5fbe98fbbf7b03f1c570b395f2ba",
+    "C-SAI-500MW-2025.parquet": "27b1dde6d10a38e01f60792b86df1e7c2e5705c78880fa2132e83db74ce81617",
+    "C-TRN-100MW-2025.parquet": "aca787020fafabb7f16e4c37352b1be2296429ee4f335856e1eb8ed30cf045b7",
+    "C-TRN-10MW-2025.parquet": "c40410341f65225d0d84dfc3dafedf26bf0adb49a46ec76d1d971f629e3f268f",
+    "C-TRN-1MW-2025.parquet": "9e865b427f395b733c17a8c3a24b7d851e5cbeb70d317ff06224d48d6c4b2016",
+    "C-TRN-500MW-2025.parquet": "d71d55da8d7db9c43b15c74cf4e5fd07b1f4b722ae45c19c9704cede2f645653",
+    "D-INF-100MW-2025.parquet": "9a8db7f0cff7a3bd7eaab86ece7f58e47c2f7213de0dc96807be6d0e71257d49",
+    "D-INF-10MW-2025.parquet": "69bfc5de463a462d8987c7fa8fd2637d476bad702f9a095700ff6d4e986081b2",
+    "D-INF-1MW-2025.parquet": "c6b47726f2efce4748e23703472ed74c4630dd855304d049f2bf9d7b0763b780",
+    "D-INF-500MW-2025.parquet": "8b1d553031d183859d1770a8929192a24f2b0891255e384abb12271d472f7449",
+    "D-SAI-100MW-2025.parquet": "af30a2e195a59369e604f28a79a740fbdaa48819dd88575e75ea2bfda90722e3",
+    "D-SAI-10MW-2025.parquet": "1b455ec741289a71fc998cb94736b47d7610905e2a6eb3f59e9b944104fa4691",
+    "D-SAI-1MW-2025.parquet": "9e5ee87a1d8f36f0ca1a04056ff22b30a8459b820379aa38c33a8188bcbdd53b",
+    "D-SAI-500MW-2025.parquet": "6608dab95e429120e453c22becfd1105dfc069dfca5dae2e61a16147719a0f75",
+    "D-TRN-100MW-2025.parquet": "59c42b08cea248938e9fafe9608e0b104b1bf14fca0e745c5d5464350c6e14d9",
+    "D-TRN-10MW-2025.parquet": "e1e63d0a4319c51ae711bbc83132b55781f56e2833cbc29604e5bf3c99c1d23e",
+    "D-TRN-1MW-2025.parquet": "511ece69a28f9d6a28dd644abb8aa1f99f68f4be768e5164fbb11461b3a4d015",
+    "D-TRN-500MW-2025.parquet": "d90ca0cc1c06072e15b436e3a1f147ae639e55d207d6077d9bc64f2e44f706b4"
+  },
+  "cpu_shape_sha256": "1c73d31f14c8e26ba53d94daa226637e5ffc8cf10dbe76cc8641f9d770c50f81",
+  "source_v3_manifest_sha256": "911d196344bdcb4c1c61c85f8dc4140a3066a9d86452dc70929963b6295a158d",
+  "scripts": {
+    "trn_power_models.py": "0a2009f904641a1f56c1d063a590701d8c7d765b896b636581fc911c6d7dfe96",
+    "build_trn_power_model.py": "6911de7cc882827f1c375bf9d47d6db1a02b5beee068921f5c63ca6d738282e8",
+    "typical_power_models.py": "54e04a856c985c2ad21cb8044fe8c550215e255f8dbcf134414df7b2156aa27d",
+    "typical_power_models_v2.py": "fce087f016ebcab7b0d2c6d2122f09f5a94b78ed4f9cb30fa7b07d6a424612c4",
+    "load_curve_scenarios_v3.py": "3a686ccf04fb15734733500c6fdd14be367d3ce6c984917a873ead4cc3dbd8a4",
+    "compute_load/cooling.py": "28cb8ddddd672df1efcec1e7b7e0c966c8f8a2270660364b61388b34220b2256",
+    "compute_load/assets/cooling-20261028-v2.json": "a8957220d99994bd2df6fe6bdc186b370188e408de72670ee79760908f7ddc1c",
+    "recalculate_trn_cities.py": "ce948861ab1ebca8dc3b1cdadb8f0a80a10b186a35f0118480faafeac2d6afcf",
+    "acquire_trn_power_evidence.py": "d2cd2acae51103d2f1978579b5e4b82c236dde88c0513ff91b6438f6073bfbfd",
+    "finalize_trn_audit.py": "cd7861640633d1b2956cd0794bb9510d12ba5f980eb78813f039eef579695931",
+    "plot_trn_power_model.py": "c2102dd99a6a5d836df7a8be06ca0529b7848ab5b864508d0baef6161fe463e1",
+    "prepare_trn_power_evidence.py": "5e531b79974a5f75304134704ff38f2ddf67283212495d84efc74bb21d17d283",
+    "publish_trn_power_model.py": "0fcfc6d0c2c6d71879e319067ebf28c5a16b6f34b87b0d611b60fc176c1aba30",
+    "summarize_trn_results.py": "ea24a11d24ccc44396f7b25fad53572ed8509de010115065a494315ea8c54ca2",
+    "verify_trn_power_model.py": "ec59836340dbcbf67036c4d1e0849209ee7b7b5404cb8275e1edf6fce615f1cc",
+    "summarize_acme_telemetry.py": "59f54482c4b4ae74385b2afa2461a2534eac63da0b71f02104b7e5849a52f894",
+    "verify_acme_telemetry.py": "4fcdf10595d95a94d2d64e9990798813c9cbda600f10abe391a4006cacfea42e",
+    "requirements-trn-power-model.txt": "70350b7f5c9ce0b2c601af17e9cde5f4429da20472e8d883b670593d5c955217"
+  },
+  "inf_merge_note": "INF GPU power and demand identical to #34; only CPU response changes. Reapply shared CPU response to inference diurnal PR and regenerate combined outputs.",
+  "idle_central_changed": false,
+  "training_power_ratio": {
+    "low": 0.65,
+    "central": 0.8,
+    "high": 0.95
+  },
+  "canonical_hourly_serialization": "server city recalculation; scientific arrays checked independently against reference summaries",
+  "finalization_environment": {
+    "python": "3.10.12",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3"
+  },
+  "all_locations_manifest_sha256": "ad0bea23b7acfa7d901cddc71e96c6410f41283980ced80d573a4f0535a9aea8",
+  "evidence_sha256": {
+    "literature-evidence.csv": "c7554abf884fe020de0241e1480800e64866366fd76977b2fd7cc5ea39695afa",
+    "literature-acquisition.json": "875f3d8bc72f732331535bde2dbaac0d10872a240a070b487ce4e63da7ac50a9",
+    "specpower-evidence.csv": "81162ac391582889b9ab1c33cb802d8026afb82480dc4a650672d6834c5224ea",
+    "model-audit.csv": "d820ac643f7d29e5f796045dfc2fe029c6a32911a4bff31a8785320c2edfb9ff",
+    "acme/source-inventory.json": "097aa99d112de9e9d58d00f582cbb1715126228563b38bfaefa774c321345686"
+  },
+  "finalized_utc": "2026-11-01T04:28:42.699837+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "search_date": "2026-11-01",
+  "scope": "Acme Seren、MIT官方DNN及公开逐作业或逐时训练功率证据；限定官方页面、作者论文和数据仓库",
+  "required_sources": ["CINECA Marconi100/PM100", "Alibaba PAI 2020", "Microsoft Philly", "NERSC Perlmutter", "MLPerf Training", "Llama3", "OLMo", "BLOOM"],
+  "additional_verified_source": "H100/B200公开受控训练实验，Scientific Data 2026，DOI 10.1038/s41597-026-07496-6，Figshare 10.6084/m9.figshare.31654879.v1",
+  "queries": ["PM100 dataset Marconi100 job power GPU Zenodo", "NERSC Perlmutter power job telemetry public dataset GPU", "PM100 dataset Zenodo Antici 230000 jobs power", "BLOOM training carbon emissions power 24.7 433 MWh", "Characterization of high-resolution AI data center training workloads on single and multiple GPU nodes"],
+  "discovery_tools": ["web search", "Crossref exact-title query", "official GitHub REST directory metadata", "Zenodo and Figshare REST metadata"],
+  "fulltext_access": ["official repository README/schema/LICENSE", "author or university-hosted PDF", "arXiv HTML/PDF", "Europe PMC full-text XML", "Zenodo and Figshare object metadata"],
+  "screening_rule": "区分直接GPU测量、集群条件反推、节点总功率、额定TDP估算和仅利用率；区分预训练、微调、通用DNN及HPC；记录粒度、映射、窗口、体积和许可",
+  "search_limits": "不声明穷尽所有公开数据；部分搜索请求发生网络错误，已通过原始资料与官方API继续核验；未核实项目逐项保留状态"
+}

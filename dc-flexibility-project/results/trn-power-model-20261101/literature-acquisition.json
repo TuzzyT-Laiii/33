@@ -1,0 +1,79 @@
+[
+  {
+    "source_id": "spec-01377",
+    "url": "https://www.spec.org/power_ssj2008/results/res2024q1/power_ssj2008-20240227-01377.html",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\spec-01377.html",
+    "bytes": 37404,
+    "sha256": "e5d9013d8dee4dfad83f5a6f37172f23dfde83f748c779bd4ae8b1a56ca34c35"
+  },
+  {
+    "source_id": "spec-01376",
+    "url": "https://www.spec.org/power_ssj2008/results/res2024q1/power_ssj2008-20240227-01376.html",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\spec-01376.html",
+    "bytes": 37429,
+    "sha256": "49994136c47f3e7740c8360240c1424b9d11bfbe670455cd91842ff5db4b8af9"
+  },
+  {
+    "source_id": "spec-01282",
+    "url": "https://www.spec.org/power_ssj2008/results/res2023q3/power_ssj2008-20230619-01282.html",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\spec-01282.html",
+    "bytes": 37323,
+    "sha256": "b9d2cee42eeaf30e91902f122e24d5f2d5be94a2f35336d5bfd9b71c316e7091"
+  },
+  {
+    "source_id": "olmo-2025",
+    "url": "https://arxiv.org/html/2503.05804v1",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\olmo-2025.html",
+    "bytes": 213917,
+    "sha256": "c5ee4fccf363d1b1813dddb268014d8ac1bdd84ea14360ae5168a552a3f4bc5f"
+  },
+  {
+    "source_id": "h100-node-2024",
+    "url": "https://arxiv.org/html/2412.08602v2",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\h100-node-2024.html",
+    "bytes": 95864,
+    "sha256": "9c696c891b1a11504af54c58d17142fc1db0c9692edb37f98c83955629478a70"
+  },
+  {
+    "source_id": "llama3",
+    "url": "https://arxiv.org/html/2407.21783v3",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\llama3.html",
+    "bytes": 1072570,
+    "sha256": "30595a452414eb355aa49cb8d93a7f7c7a9ae644c82f04cf749e29e759f2a584"
+  },
+  {
+    "source_id": "mlperf-smc-gpt3",
+    "url": "https://smc.co/mlperfv40/results/gpt3",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\mlperf-smc-gpt3.html",
+    "bytes": 179674,
+    "sha256": "94fd56c7a19d62271f5e3cb52aabbc64df3db7abfa8c65bfea0903e7e71b76de"
+  },
+  {
+    "source_id": "dgx-h100",
+    "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\dgx-h100.html",
+    "bytes": 45842,
+    "sha256": "a70c13291fa999b55062ee70452648fbbbff1b677867c814bdc83e6825d2993d"
+  },
+  {
+    "source_id": "microsoft-2024",
+    "url": "https://www.microsoft.com/en-us/research/uploads/prod/2024/03/GPU_Power_ASPLOS_24.pdf",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\microsoft-2024.pdf",
+    "bytes": 2216781,
+    "sha256": "914c80dc90e7b7f72d345cadcc443f6909edc494858ae9d07cf085a3f2b23240"
+  },
+  {
+    "source_id": "acme-nsdi24",
+    "url": "https://www.usenix.org/system/files/nsdi24-hu.pdf",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\acme-nsdi24.pdf",
+    "bytes": 2329207,
+    "sha256": "47cdf4cca6e3fd3076eba2fc58779e59d76bdc3ffc6ec9c9d859858f4e064181"
+  },
+  {
+    "source_id": "doe-2024",
+    "url": "https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design_0.pdf",
+    "path": "D:\\codex-runs\\trn-power-utilization-20261101\\worktree\\dc-flexibility-project\\data\\raw\\trn-power-model-20261101\\literature\\doe-2024.pdf",
+    "bytes": 1428000,
+    "sha256": "f4db5c015154933482e84f1946dcafc297d8ad526db90d2985df35232d8ab0c2"
+  }
+]

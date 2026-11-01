@@ -1,0 +1,12 @@
+rank,source,gpu,load_type,power_measurement,ratio_value,ratio_distribution,diurnal_evidence,transfer_to_trn,primary_url
+1,OLMo2 7B,H100 700W,大模型预训练,单节点GPU均值亚秒实测,活跃阶段超过0.857；检查点约0.143,论文图2为前300日志步；全生命周期平均比未给出,支持检查点瞬态；固定日相位未识别,最接近H100预训练负载；支持阶段变化和情境参数；不直接给出总体均值,https://arxiv.org/html/2503.05804v1
+2,H100 LLaMA受控实验,H100-SXM 80GB 700W,LLaMA 1B/3B/8B训练；预训练或SFT阶段未声明,8张卡逐设备W字段；9个独立15分钟窗口,8B默认设置0.7555；9设置GPU时间加权0.6641,不同设置的窗口均值0.3817至0.7898,短实验不形成自然日周期；可研究作业内变化,硬件直接匹配；负载规模与训练阶段及完整生命周期仍有限,https://doi.org/10.6084/m9.figshare.31654879.v1
+3,Seren预训练主导时段,A100-SXM 80GB 400W,预训练分配占比至少80%的混合运行,集群条件反推；缺少作业设备映射,27小时均值0.7828,GPU小时加权P10/中位/P90为0.7021/0.7838/0.8392,预训练主导时段总量不足以稳定识别24小时形状,可作跨代且混合负载的水平参照；不作为逐预训练作业实测,https://huggingface.co/datasets/Qinghao/AcmeTrace
+4,Seren全部合格时段,A100-SXM 80GB 400W,预训练加SFT加评估等；预训练占GPU小时53.44%,集群条件反推；报送覆盖至少80%,2057小时均值0.7623,GPU小时加权P10/中位/P90为0.6139/0.7683/0.8963,估计比例日内峰谷比1.0310；最低UTC12时和最高22时,支持长期混合负载的形状敏感性；缺测设备工程端点使均值0.6608至0.9028,https://huggingface.co/datasets/Qinghao/AcmeTrace
+5,MIT官方标注DNN,V100 250W参考,以CNN为主的官方训练标签,作业ID与分配内GPU设备监测直接对应,1393作业均值0.6819；1305个覆盖合格作业0.6878,有效设备时间5W直方图P10/中位/P90为0.23/0.79/0.97,原始条件日比1.0722；按作业均值标准化后1.0673,证明训练与MIT混合总体存在明显水平差异；不能直接等同现代LLM预训练,https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/README.md
+6,MIT官方BERT类微调,V100 250W参考,BERT和DistilBERT微调,作业ID与分配内GPU设备监测直接对应,165作业均值0.2813；144个覆盖合格作业0.2592,作业均值P10至P90为0.2490至0.2934,短任务与模型构成混杂；不提供稳定自然日周期,适用于小模型微调或低强度训练参照；不标定大规模预训练,https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/README.md
+7,MIT全部已观测V100,V100 250W参考,未标注混合计算与DNN,可归属作业设备的GPU监测,13431作业均值0.3894,设备时间P10/中位/P90为0.15/0.23/0.81,条件日比1.0316,作为SAI或混合工作负载参照；不直接迁移至TRN,https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/README.md
+8,MLPerf Training v4.0 GPT3,H100-SXM 80GB,规定训练到目标质量的基准,已知训练run的节点AC和DC总功率,GPU/TDP未识别；抽查run AC415.22kWh与DC408.44kWh,另有厂商示例6.747kW节点DC及分摊网络7.678kW,公开短时功率；无自然日周期,用于整机功率数量级；需区分GPU和CPU及网络计量边界,https://github.com/mlcommons/training_results_v4.0/tree/main/smc-dc-power/results/64xSMC-H100-SXM-80GB/gpt3/power
+9,PM100,V100,未标注具体业务的HPC作业,按独占节点和作业区间关联的整机CPU内存功率,GPU/TDP未识别,231116作业的20秒整作业功率序列,可研究HPC作业时序；不识别预训练日周期,可用于整作业功率模型验证；不直接标定TRN单GPU,https://zenodo.org/records/10127767
+10,Llama3,H100 700W,大模型预训练,额定功率核算加运行观察,GPU/TDP总体均值未给出；700W为TDP,定性描述检查点和通信等引起集群同步功率波动,1至2%日内吞吐差异不等于功率差异,支持同步变化机制；不用额定值代替测量,https://arxiv.org/html/2407.21783v3
+11,BLOOM,A100-SXM4 80GB 400W,176B预训练,训练GPU小时乘TDP估算,比例1.0属于计算假设,433196kWh并非实时GPU功率积分,论文明确没有追踪实时功率,不作为已分配GPU平均功率实测依据,https://arxiv.org/abs/2211.02001

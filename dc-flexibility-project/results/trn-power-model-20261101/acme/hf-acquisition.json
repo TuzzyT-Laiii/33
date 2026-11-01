@@ -1,0 +1,59 @@
+{
+  "files": [
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/ipmi/CPU_D_Power.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/ipmi/CPU_D_Power.csv",
+      "bytes": 15226341,
+      "sha256": "b6352d8f99beb9733484029f73556623bbcdc3fa57c2718957ff4a747bbcca7e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/ipmi/GPU_AB_Power.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/ipmi/GPU_AB_Power.csv",
+      "bytes": 290322698,
+      "sha256": "e8e0ccb31d357aab71c62ee2fe886f18ad5525e2feadb6830692f7b31a05fc32"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/ipmi/GPU_C_Power.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/ipmi/GPU_C_Power.csv",
+      "bytes": 600918503,
+      "sha256": "642a75382ba54cd1e17605a579aa53f022b11898a4d4286f591fd0eb4c91687f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/kalos/FB_USED.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/kalos/FB_USED.csv",
+      "bytes": 1150709917,
+      "sha256": "59d90dc68a17eab03cba32453d26959b209c88ef394642c555200c5d8f26de3b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/kalos/GPU_UTIL.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/kalos/GPU_UTIL.csv",
+      "bytes": 843403137,
+      "sha256": "995e6a271990e3499afb2c74846e156060bac902e1a618a91b4dd58b96b59b1a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/kalos/POWER_USAGE.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/kalos/POWER_USAGE.csv",
+      "bytes": 929567543,
+      "sha256": "efba88dd9aac712aaece4ba7575917103a8796afd0292db866c66e25ff61823a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/seren/POWER_USAGE.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/seren/POWER_USAGE.csv",
+      "bytes": 5744751201,
+      "sha256": "18fd9a458af410891cc17ce2c585721cee73d3f86aa1ed630e7c84431ad0d449"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/seren/GPU_UTIL.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/seren/GPU_UTIL.csv",
+      "bytes": 5139607278,
+      "sha256": "671659a42f9dc3630bbb84eea916ea2bd82b1fad0965c730020c0428ddc32ed9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Qinghao/AcmeTrace/resolve/main/data/utilization/seren/FB_USED.csv",
+      "path": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/trn-power-model-20261101/hf/data/utilization/seren/FB_USED.csv",
+      "bytes": 6989472727,
+      "sha256": "79e79aeda8829e8d904be82368f05bdbc187aef1508cb79cda06955d6ebf5204"
+    }
+  ],
+  "complete": true
+}
