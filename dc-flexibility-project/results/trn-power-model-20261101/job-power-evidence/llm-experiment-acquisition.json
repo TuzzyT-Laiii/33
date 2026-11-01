@@ -1,0 +1,435 @@
+{
+  "doi": "10.6084/m9.figshare.31654879.v1",
+  "metadata_url": "https://api.figshare.com/v2/articles/31654879",
+  "download_url": "https://ndownloader.figshare.com/files/62953543?download=1",
+  "bytes": 209685111,
+  "md5": "f44c1bccc233ffe11916432d720a8034",
+  "sha256": "c0ccebea568612f5445b70c3baa7ce659935a949e5cc8f345a0af907739fa6f3",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "zip_entries": [
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/LICENSE",
+      "bytes": 19658
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Batch_size_impact/Image_generation_B200_8GPU_Node_ModelSize128_ImageSize32_BatchSize128.csv",
+      "bytes": 18312857
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Batch_size_impact/Image_generation_B200_8GPU_Node_ModelSize128_ImageSize32_BatchSize256.csv",
+      "bytes": 18192128
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Batch_size_impact/Image_generation_B200_8GPU_Node_ModelSize128_ImageSize32_BatchSize512.csv",
+      "bytes": 18169126
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Image_size_impact/Image_generation_B200_8GPU_Node_ModelSize128_ImageSize128_BatchSize128.csv",
+      "bytes": 18880452
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Image_size_impact/Image_generation_B200_8GPU_Node_ModelSize128_ImageSize32_BatchSize128.csv",
+      "bytes": 18312857
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Image_size_impact/Image_generation_B200_8GPU_Node_ModelSize128_ImageSize64_BatchSize128.csv",
+      "bytes": 18216168
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Model_size_impact/Image_generation_B200_8GPU_Node_ModelSize128_ImageSize32_BatchSize128.csv",
+      "bytes": 18312857
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Model_size_impact/Image_generation_B200_8GPU_Node_ModelSize256_ImageSize32_BatchSize128.csv",
+      "bytes": 18233043
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Model_size_impact/Image_generation_B200_8GPU_Node_ModelSize512_ImageSize32_BatchSize128.csv",
+      "bytes": 18271157
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/B200/Model_size_impact/Size of Model as Learnable Paratemetrs.txt",
+      "bytes": 136
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Batch_size_impact/Image_generation_H100_8GPU_Node_ModelSize128_ImageSize32_BatchSize128.csv",
+      "bytes": 19583758
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Batch_size_impact/Image_generation_H100_8GPU_Node_ModelSize128_ImageSize32_BatchSize256.csv",
+      "bytes": 20951259
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Batch_size_impact/Image_generation_H100_8GPU_Node_ModelSize128_ImageSize32_BatchSize512.csv",
+      "bytes": 20123790
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Image_size_impact/Image_generation_H100_8GPU_Node_ModelSize128_ImageSize16_BatchSize128.csv",
+      "bytes": 19182364
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Image_size_impact/Image_generation_H100_8GPU_Node_ModelSize128_ImageSize32_BatchSize128.csv",
+      "bytes": 19583758
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Image_size_impact/Image_generation_H100_8GPU_Node_ModelSize128_ImageSize64_BatchSize128.csv",
+      "bytes": 19765730
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Model_size_impact/Image_generation_H100_8GPU_Node_ModelSize128_ImageSize32_BatchSize128.csv",
+      "bytes": 19583758
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Model_size_impact/Image_generation_H100_8GPU_Node_ModelSize256_ImageSize32_BatchSize128.csv",
+      "bytes": 19681341
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Model_size_impact/Image_generation_H100_8GPU_Node_ModelSize512_ImageSize32_BatchSize128.csv",
+      "bytes": 19796532
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Image Generation Diffusion Models/H100/Model_size_impact/Size of Model as Learnable Paratemetrs.txt",
+      "bytes": 182
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Batch_size/LLM_B200_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 18330497
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Batch_size/LLM_B200_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize2.csv",
+      "bytes": 18108166
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Batch_size/LLM_B200_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize32.csv",
+      "bytes": 18521511
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/DeepSpeed_parallel_sitting/LLM_B200_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z1_BatchSize16.csv",
+      "bytes": 18315695
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/DeepSpeed_parallel_sitting/LLM_B200_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z2_BatchSize16.csv",
+      "bytes": 18300589
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/DeepSpeed_parallel_sitting/LLM_B200_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 18330497
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Model_Size/LLM_B200_8GPU_Node_Lamma1B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 18441817
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Model_Size/LLM_B200_8GPU_Node_Lamma3B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 18318773
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Model_Size/LLM_B200_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 18330497
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Sequance_length_cut/LLM_B200_8GPU_Node_Lamma8B_SeqLength1024_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 18327508
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Sequance_length_cut/LLM_B200_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 18330497
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/B200/Sequance_length_cut/LLM_B200_8GPU_Node_Lamma8B_SeqLength4096_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 18334931
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Batch_size/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 19902218
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Batch_size/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize2.csv",
+      "bytes": 19795087
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Batch_size/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize32.csv",
+      "bytes": 19918461
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/DeepSpeed_parallel_sitting/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z1_BatchSize16.csv",
+      "bytes": 19886360
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/DeepSpeed_parallel_sitting/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z2_BatchSize16.csv",
+      "bytes": 19897852
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/DeepSpeed_parallel_sitting/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 19902218
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Model_Size/LLM_H100_8GPU_Node_Lamma1B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 19638855
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Model_Size/LLM_H100_8GPU_Node_Lamma3B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 19831413
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Model_Size/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 19902218
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Sequance_length_cut/LLM_H100_8GPU_Node_Lamma8B_SeqLength1024_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 19901075
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Sequance_length_cut/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 19902218
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Sequance_length_cut/LLM_H100_8GPU_Node_Lamma8B_SeqLength4096_Deepspeedds_z3_BatchSize16.csv",
+      "bytes": 19893317
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/README.md",
+      "bytes": 7425
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Batch_size/Single_machine_NumLayer6_SeqLength96_LayerSize500_batchsize100.CSV",
+      "bytes": 17382445
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Batch_size/Single_machine_NumLayer6_SeqLength96_LayerSize500_batchsize150.CSV",
+      "bytes": 17239317
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Batch_size/Single_machine_NumLayer6_SeqLength96_LayerSize500_batchsize50.CSV",
+      "bytes": 17168131
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Input secaunce Length/Single_machine_NumLayer6_SeqLength192_LayerSize500_batchsize100.CSV",
+      "bytes": 16957845
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Input secaunce Length/Single_machine_NumLayer6_SeqLength672_LayerSize500_batchsize100.CSV",
+      "bytes": 17330866
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Input secaunce Length/Single_machine_NumLayer6_SeqLength96_LayerSize500_batchsize100.CSV",
+      "bytes": 17382445
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Model Size/Model Size.txt",
+      "bytes": 181
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Model Size/Single_machine_NumLayer6_SeqLength96_LayerSize1000_batchsize100.CSV",
+      "bytes": 17200644
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Model Size/Single_machine_NumLayer6_SeqLength96_LayerSize1500_batchsize100.CSV",
+      "bytes": 17346519
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Model Size/Single_machine_NumLayer6_SeqLength96_LayerSize500_batchsize100.CSV",
+      "bytes": 17382445
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Number of Layers/Layer_Size.txt",
+      "bytes": 186
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Number of Layers/Single_machine_NumLayer10_SeqLength96_LayerSize500_batchsize100.CSV",
+      "bytes": 17260503
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Number of Layers/Single_machine_NumLayer6_SeqLength96_LayerSize500_batchsize100.CSV",
+      "bytes": 17382445
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Feature Forecasting/Number of Layers/Single_machine_NumLayer8_SeqLength96_LayerSize500_batchsize100.CSV",
+      "bytes": 17325956
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/BatchSize/Single_machine_EmbedDim256_HiddenUnit512_batchsize1024.CSV",
+      "bytes": 17343927
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/BatchSize/Single_machine_EmbedDim256_HiddenUnit512_batchsize128.CSV",
+      "bytes": 17222240
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/BatchSize/Single_machine_EmbedDim256_HiddenUnit512_batchsize256.CSV",
+      "bytes": 17290255
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/Embedding Dim/Model Embedding Size.txt",
+      "bytes": 161
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/Embedding Dim/Single_machine_EmbedDim1024_HiddenUnit512_batchsize256.CSV",
+      "bytes": 17154060
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/Embedding Dim/Single_machine_EmbedDim256_HiddenUnit512_batchsize256.CSV",
+      "bytes": 17290255
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/Embedding Dim/Single_machine_EmbedDim512_HiddenUnit512_batchsize256.CSV",
+      "bytes": 17247595
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/numHiddenUnits Size/Single_machine_EmbedDim256_HiddenUnit1024_batchsize256.CSV",
+      "bytes": 17226057
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/numHiddenUnits Size/Single_machine_EmbedDim256_HiddenUnit2048_batchsize256.CSV",
+      "bytes": 17336032
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Captioning/numHiddenUnits Size/Single_machine_EmbedDim256_HiddenUnit512_batchsize256.CSV",
+      "bytes": 17290255
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Batch Size/Single_machine_OptimizerAdam_NumFilter8_ImageSize112_batchsize1500.CSV",
+      "bytes": 17323617
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Batch Size/Single_machine_OptimizerAdam_NumFilter8_ImageSize112_batchsize2250.CSV",
+      "bytes": 17306449
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Batch Size/Single_machine_OptimizerAdam_NumFilter8_ImageSize112_batchsize750.CSV",
+      "bytes": 17298238
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Image Size/Single_machine_OptimizerAdam_NumFilter8_ImageSize112_batchsize1500.CSV",
+      "bytes": 17323617
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Image Size/Single_machine_OptimizerAdam_NumFilter8_ImageSize224_batchsize1500.CSV",
+      "bytes": 14521866
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Image Size/Single_machine_OptimizerAdam_NumFilter8_ImageSize280_batchsize1500.CSV",
+      "bytes": 17342525
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Number of Filters/Model_filter Sizes.txt",
+      "bytes": 248
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Number of Filters/Single_machine_OptimizerAdam_NumFilter16_ImageSize112_batchsize1500.CSV",
+      "bytes": 14611935
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Number of Filters/Single_machine_OptimizerAdam_NumFilter32_ImageSize112_batchsize1500.CSV",
+      "bytes": 17233523
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/Number of Filters/Single_machine_OptimizerAdam_NumFilter8_ImageSize112_batchsize1500.CSV",
+      "bytes": 17323617
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/optimizer type/Single_machine_OptimizerAdam_NumFilter8_ImageSize112_batchsize1500.CSV",
+      "bytes": 17323617
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/optimizer type/Single_machine_OptimizerRMSprop_NumFilter8_ImageSize112_batchsize1500.CSV",
+      "bytes": 17203592
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Image Classifications/optimizer type/Single_machine_OptimizerSGD_NumFilter8_ImageSize112_batchsize1500.CSV",
+      "bytes": 17280647
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/Batch_size/Single_machine_InputTypeSequance_Sequancelength250_LayerSize256_batchsize150.CSV",
+      "bytes": 17047146
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/Batch_size/Single_machine_InputTypeSequance_Sequancelength250_LayerSize256_batchsize250.CSV",
+      "bytes": 14365270
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/Batch_size/Single_machine_InputTypeSequance_Sequancelength250_LayerSize256_batchsize350.CSV",
+      "bytes": 17014790
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/InputLayer Type/Single_machine_InputFeature_Sequancelength1_LayerSize256_batchsize150.CSV",
+      "bytes": 16770666
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/InputLayer Type/Single_machine_InputTypeSequance_Sequancelength250_LayerSize256_batchsize150.CSV",
+      "bytes": 17047146
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/LayerSize/Single_machine_InputTypeSequance_Sequancelength250_LayerSize1024_batchsize150.CSV",
+      "bytes": 16898742
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/LayerSize/Single_machine_InputTypeSequance_Sequancelength250_LayerSize256_batchsize150.CSV",
+      "bytes": 17047146
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/LayerSize/Single_machine_InputTypeSequance_Sequancelength250_LayerSize512_batchsize150.CSV",
+      "bytes": 17066683
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/Sequance Length/Single_machine_InputTypeSequance_Sequancelength150_LayerSize256_batchsize150.CSV",
+      "bytes": 16994069
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/Sequance Length/Single_machine_InputTypeSequance_Sequancelength250_LayerSize256_batchsize150.CSV",
+      "bytes": 17047146
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Reinforcment Learning/Sequance Length/Single_machine_InputTypeSequance_Sequancelength350_LayerSize256_batchsize150.CSV",
+      "bytes": 17186246
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/BatchSize/Single_machine_SeqLen100_EmbedDim100_batchsize128.CSV",
+      "bytes": 17223569
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/BatchSize/Single_machine_SeqLen100_EmbedDim100_batchsize32.CSV",
+      "bytes": 17077563
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/BatchSize/Single_machine_SeqLen100_EmbedDim100_batchsize512.CSV",
+      "bytes": 17240240
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/Embedding Dimension/Model Embedding Size.txt",
+      "bytes": 160
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/Embedding Dimension/Single_machine_SeqLen100_EmbedDim1000_batchsize128.CSV",
+      "bytes": 17150845
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/Embedding Dimension/Single_machine_SeqLen100_EmbedDim100_batchsize128.CSV",
+      "bytes": 17223569
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/Embedding Dimension/Single_machine_SeqLen100_EmbedDim300_batchsize128.CSV",
+      "bytes": 17117585
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/Sequance Length/Model Sequance length.txt",
+      "bytes": 148
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/Sequance Length/Single_machine_SeqLen100_EmbedDim100_batchsize128.CSV",
+      "bytes": 17223569
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/Sequance Length/Single_machine_SeqLen250_EmbedDim100_batchsize128.CSV",
+      "bytes": 17113111
+    },
+    {
+      "path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Single_Machine_Dataset/Text Generation/Sequance Length/Single_machine_SeqLen500_EmbedDim100_batchsize128.CSV",
+      "bytes": 17172070
+    }
+  ]
+}

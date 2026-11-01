@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "relative_path": "hf/data/utilization/seren/FB_USED.csv",
+      "bytes": 6989472727
+    },
+    {
+      "relative_path": "hf/data/utilization/seren/GPU_UTIL.csv",
+      "bytes": 5139607278
+    },
+    {
+      "relative_path": "hf/data/utilization/seren/POWER_USAGE.csv",
+      "bytes": 5744751201
+    },
+    {
+      "relative_path": "github/data/job_trace/trace_seren.csv",
+      "bytes": 99262320
+    }
+  ],
+  "power_and_util_bytes": 10884358479
+}

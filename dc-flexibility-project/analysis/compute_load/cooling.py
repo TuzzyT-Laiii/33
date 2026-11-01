@@ -21,11 +21,11 @@ COOLING_COMPONENTS = (
 )
 
 
-def weather_v2(weather, full_year):
+def weather_v2(weather, full_year, *, allow_gaps=False):
     if psychrolib.isIP():
         raise RuntimeError("冷却模型要求PsychroLib使用SI单位")
     frame = weather[[column for column in WEATHER_COLUMNS if column in weather]].copy().reset_index(drop=True)
-    frame["time_utc"] = hourly_index(frame.time_utc, full_year=full_year)
+    frame["time_utc"] = hourly_index(frame.time_utc, full_year=full_year, allow_gaps=allow_gaps)
     if "grid_id" in frame and (frame.grid_id.isna().any() or frame.grid_id.nunique() != 1):
         raise ValueError("一次计算只接受一个非空网格标识")
     t = frame.temperature_c.to_numpy(dtype=float)
@@ -100,10 +100,12 @@ class CoolingModel:
         if self.legacy is not None:
             self.metadata["legacy_model"] = self.legacy.metadata
 
-    def calculate(self, weather, it_mw, installed_reference_it_mw, *, full_year=True):
+    def calculate(self, weather, it_mw, installed_reference_it_mw, *, full_year=True, allow_gaps=False):
         if self.legacy is not None:
+            if allow_gaps:
+                raise ValueError("旧冷却模型不支持带缺口的原生窗口")
             return self._legacy(weather, it_mw, installed_reference_it_mw, full_year)
-        frame = weather_v2(weather, full_year)
+        frame = weather_v2(weather, full_year, allow_gaps=allow_gaps)
         it = validate_it(it_mw, installed_reference_it_mw, len(frame))
         cap, p = float(installed_reference_it_mw), self.p
         t, wb = frame.temperature_c.to_numpy(), frame.wet_bulb_c.to_numpy()

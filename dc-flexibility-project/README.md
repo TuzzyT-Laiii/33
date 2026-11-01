@@ -4,7 +4,9 @@
 
 ## CPU/GPU 逐小时负荷工作包
 
-[组合模型原生窗口与任务时间柔性简表](results/typical-load-curves-20261101-v3-native-combined/README.md)使用#35请求驱动推理GPU功率、#36平滑CPU及Acme训练日形状、MIT六月科研AI标定和cooling-20261028-v2，覆盖44个风冷情境。保持各来源原生窗口、日期气象对应、12个月初放置及年末截断；提供全部窗口统计、10MW图件及同窗口旧模型对照。[精简版Word及说明](docs/job-flexibility-brief/README.md)第四章直接使用这些小时结果选日，第五章给出10MW汇总和完整原生时序，两章采用同一模型。
+[Seren训练与组合模型任务时间柔性简表](results/typical-load-curves-20261101-v4-seren/README.md)采用#38的Seren正文2,057个合格小时，保留缺口并在完整UTC日内选取训练典型日。#35推理、科研AI、科研计算和云通用计算沿用原结果；[精简版Word及说明](docs/job-flexibility-brief/README.md)第四、五章采用同一小时结果。
+
+[大模型训练/开发：Acme Seren原生窗口](results/trn-seren-20261101/README.md)更新B/C/D-TRN四档规模：正文只保留同期需求与监测通过筛选的真实小时，使用Seren逐小时已分配GPU功率条件反推；完整作业窗口采用观测与日形状补缺作为对照。情境名称保持不变，数据源明确为Acme Seren。提供空闲功率、覆盖率和比例截断敏感性，以及与PR #36的Kalos方案比较；HPC、CLD、SAI、INF结果保留原版本。
 
 [典型负荷曲线 v3：原生窗口](results/typical-load-curves-20261101-v3-native/README.md)按用户要求使用各来源完整原生时长，覆盖 44 个风冷情境，接入 Alibaba 120 小时云通用计算、ASI 185 天推理需求及 MIT 六月 GPU 功率标定。有日期来源按月日小时对应气象；无日期来源采用 12 个月初放置并在年末截断。提供窗口功率、电量、典型形状、平均功率对比、迁移敏感性和柔性提示。本版不能直接作为 8760/8784 小时下游输入；八城市既有柔性价值结果保持原状。之前的[全年 v3](results/typical-load-curves-20261101-v3/README.md)按原字节保留。
 

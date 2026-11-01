@@ -1,0 +1,18 @@
+[
+  {
+    "figure": "figure-evidence",
+    "missing_characters": [],
+    "text_outside_canvas": [],
+    "embedded_pdf_fonts": 1,
+    "png_dpi": 300,
+    "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+  },
+  {
+    "figure": "figure-proposal-comparison",
+    "missing_characters": [],
+    "text_outside_canvas": [],
+    "embedded_pdf_fonts": 1,
+    "png_dpi": 300,
+    "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+  }
+]
