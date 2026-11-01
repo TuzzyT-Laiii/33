@@ -191,3 +191,8 @@ dc-flexibility-project/results/typical-load-curves-20261101-v3-native/** -text w
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/**/*.parquet binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.png binary
+
+# 第四章训练日形状沿用上游小时值，保留图件和汇总指纹。
+dc-flexibility-project/analysis/*chapter4_trn_diurnal.py text eol=lf
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v6/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v6/*.png binary

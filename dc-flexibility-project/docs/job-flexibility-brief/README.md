@@ -34,7 +34,7 @@
 
 占比为GPU小时；Lisa、Alibaba为核心小时。ASI注明“全业务”或“推理子集”；INF只用推理。现状排队不等于允许延后时长，运行形态不证明用途或调度权限。
 
-H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开销要求每段≥19H。预训练H取5–30分钟，其余H为假设；预训练/SFT沿用512–1024／48–64卡。训练状态H100 SXM板卡参考 0.560 kWh/卡时（0.455–0.665）；恢复阶段功率未测，整机与设施按小时模型计算。
+H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开销要求每段≥19H。预训练H取5–30分钟，其余H为假设；预训练/SFT沿用512–1024／48–64卡。训练状态H100 SXM板卡GPU小时加权参考 0.560 kWh/卡时；中央日形状0.511–0.588，中央水平敏感性0.455–0.665。恢复阶段功率未测，整机与设施按小时模型计算。
 
 候选量级：ASI离线且LP占推理GPU小时 26.61%；Alibaba离线占核心小时 51.13%。实际可调功率仍需期限、权限及补做容量。
 
@@ -45,7 +45,7 @@ H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开�
 | Lisa（荷兰 SURF 超算） | 科研计算 | 2021-12 至 2022-11，约 10 个月 | 逐作业 159.7 万条（CPU 分区 139.6 万、GPU 分区 20.1 万） | CPU 分区 25 秒／55 分钟；GPU 分区 4.6 分钟／5.0 小时 | 粗：只有 17 个分区（CPU／GPU、Jupyter、课程），无用途和算法 | GPU 卡数 |
 | Alibaba 2018 | 云通用计算 | 8天，采用5个完整日 | 4,034台机器；接入在线容器和离线实例用量 | 离线实例P50 10秒、P90 99秒 | 粗：在线19.79%、离线51.13%、未对账29.08%（核心小时） | 未对账量、业务期限 |
 | MIT Supercloud | 科研 AI | 237天需求；六月功率标定 | 39.6万作业，GPU 9.82万；六月12,181文件完成 | 原提交类P50 2.2–3.0小时、P90 22–37小时 | 中：OTHER已分12类，图合并6层；DNN用途证据占OTHER 4.6%（含推断） | 有效监测覆盖68.33%；用途真值与恢复 |
-| Acme（Kalos／Seren） | 大模型训练/开发 | 作业2023-05至08；监测窗口各异 | Kalos逐作业6.2万；两集群9份监测21.70GB | 原轨迹：预训练11分钟／11.8小时；A100全部监测均功率191／195W/卡 | 细：用途标签；监测缺少逐作业设备关联 | 逐类功率、检查点记录 |
+| Acme（Kalos／Seren） | 大模型训练/开发 | 作业90天；功率原生重叠16.50小时 | Kalos逐作业6.2万；集群GPU监测（无作业映射） | 预训练11分钟／11.8小时；固定271卡181–208W/卡 | 细：用途标签；小时形状含混合业务 | 已分配功率、检查点记录 |
 | ASI（Alibaba GPU 2026） | 推理服务 | 185天，4,440小时 | 逐类型、优先级GPU小时；附执行跨度分布 | 离线执行跨度P50 10–30分钟、P90 3–6小时 | 中：6类业务＋优先级＋模型；INF只取在线和离线推理 | 真实日期、连续运行时间；1个零资源异常小时 |
 | BurstGPT／Azure 2024 | 推理日内形状 | 119日／代码和对话各7日 | 请求及输入／输出token按小时聚合 | 请求日内比2.455／8.963／1.783 | 中央用BurstGPT输入／输出各50%；Azure为敏感性 | 到达与执行时差；时钟、批量及缓存 |
 | OLMo等训练功率研究 | 训练GPU功率依据 | OLMo节点最初300个记录步 | H100训练与检查点阶段直接功率 | 活跃训练>600W/卡；检查点约100W/卡 | 采用GPU/TDP 0.80，敏感性0.65–0.95 | 全生命周期均值、目标配置实测 |
@@ -55,36 +55,36 @@ H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开�
 
 ## 四、各情境典型日负荷曲线
 
-![各情境典型日负荷曲线](../../results/scenario-typical-day-by-task-20261101-v5/overview.png)
+![各情境典型日负荷曲线](../../results/scenario-typical-day-by-task-20261101-v6/overview.png)
 
 选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三规格共日。
 
-规模与模型：参考IT 10 MW，沿用v4组合模型（#35推理GPU＋#36 CPU及训练）和原全年PUE；其他规模按整数台数比缩放，训练按原作业分配。
+规模与来源：参考IT 10 MW；训练采用#36 Kalos固定271卡UTC小时形状，GPU小时加权0.80（0.730–0.840），原生90天及2025同月日天气；其余八情境沿用v5。
 
-敏感性：训练GPU/TDP 0.65–0.95（中央0.80）；推理在线SXM空闲100–160W、高负载350–700W、γ0.7–1.3，PCIe按TDP迁移；均为情境范围。
+反推：[集群估计功率−未分配卡数×空闲功率]/分配卡数；覆盖不足，采用形状迁移；无作业映射，无法识别预训练专属周期。
 
-来源边界：MIT六月完成版，DNN含官方与推断；ASI、Alibaba真实日历未知，请求形状按#35合成相位；基础/空闲中央值沿用，敏感性见第三章。
+敏感性：形状幅度0–1.5、固定集合95%–99.9%；中央水平0.65–0.95、推理及空载范围沿用v5，独立改变；其他规模按整数台数比缩放。
 
-尖峰：Alibaba原始相对06时高值保留；CPU在50%→60%区间动态增量约125→41W，三份SPEC平滑后放大效应减弱。
+边界与尖峰：MIT六月完成版，DNN含推断；ASI、Alibaba日历未知；Alibaba原始06时高值保留，SPEC平滑后50%→60%动态增量约125→41W。
 
 ## 数字来源与说明
 
 - 任务类别、占比、排队与作业时长、卡数：PR #26 结果目录 `dc-flexibility-project/results/job-flexibility-constraints-20261030/`（`server-classes.csv`、`asi-classes.csv`、`mit-classes.csv`、`candidate-bounds.csv`、`checkpoint-sensitivity.csv`）。本简表依赖 PR #26，建议先审 PR #26。
 - 情境命名沿用 PR #27 的规范（`docs/scenario-naming.md`）；2026-10-31 已移出 E 纯 GPU 型（整柜液冷），剩 11 个组合。
-- 拆分代价中的 H：预训练取 5–30 分钟，依据 Google 多级检查点案例（恢复不到 1 分钟至 30 分钟）；其余任务的 H 为研究假设，数据中均未测到。损失保留卡时口径；训练状态H100 SXM板卡参考0.560 kWh/卡时（敏感性0.455–0.665），恢复阶段功率未测，整机及设施电量按逐小时模型计算。
+- 拆分代价中的 H：预训练取 5–30 分钟，依据 Google 多级检查点案例（恢复不到 1 分钟至 30 分钟）；其余任务的 H 为研究假设，数据中均未测到。损失保留卡时口径；训练状态H100 SXM板卡GPU小时加权参考0.560 kWh/卡时，中央日形状为0.511–0.588；中央水平独立敏感性0.455–0.665。恢复阶段功率未测，整机及设施电量按逐小时模型计算。
 - MIT OTHER 细分依据 PR #28（`d3fd452`）的 [`other-breakdown.csv`](../../results/mit-other-breakdown-20261031/other-breakdown.csv) 和 [`README.md`](../../results/mit-other-breakdown-20261031/README.md)：12 类合并为 6 层，DNN 用途证据占 OTHER 4.6%（含推断）；运行形态、用途证据与调度权限分别判断。本机逐作业分类仅用于资源小时分层，不进入仓库。
 - ASI 使用 PR #32 的 [`185 天统计`](../../results/asi-185day-workload-types-20261031/README.md)，第三章执行跨度与全业务占比见 `execution-by-type-summary.csv`、`task-type-summary.csv`；第二章推理子集与 LP 候选占比来自 v3 的 `flexibility-source-statistics.json`，INF 只含在线与离线推理。
 - Alibaba 使用 PR #33 的 [`完整窗口及在线／离线拆分`](../../results/alibaba-cpu-cld-20261031/README.md)，五日核心小时占比见 `complete-component-window.csv`。未对账量保留为单独层，调度期限与权限未知。
 
 - 请求级形状与推理GPU功率来自 PR #35（520f68d）的 [`请求与功率报告`](../../results/inf-diurnal-20261101/README.md)，中央采用BurstGPT 119日输入／输出token各50%，Azure 2024代码与对话各7日作为敏感性；请求到达时钟不等同于GPU执行功率测量。
-- 训练功率、CPU响应及基础/空闲依据来自 PR #36（6c83cf1）的 [`功率模型核查`](../../results/trn-power-model-20261101/README.md)：Acme九份监测、OLMo等H100文献、三份SPECpower。训练GPU/TDP中央0.80，范围0.65–0.95；保留中央空载并单独改变敏感性端点。
-- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v5`](../../results/scenario-typical-day-by-task-20261101-v5/README.md)。规则为中位电量±2%内取候选、少于5天放宽至±5%，候选内按与全部完整日平均24小时曲线RMSE最小选日；评分及候选标记见 `*-day-selection.csv`，新旧日期、电量、偏差、RMSE和峰谷比见 `day-selection-comparison.csv`，异常提示见 `selected-day-diagnostics.csv`。脚本为 `analysis/reselect_scenario_typical_days.py`；模型及全年小时数据保持v4组合模型，以SHA-256核对，敏感性参数沿用v4。
+- 训练功率、CPU响应及基础/空闲依据来自 PR #36（1594fb7，日内形状实现d7f6bca）的 [`功率模型核查`](../../results/trn-power-model-20261101/README.md)及[Acme日内形状](../../results/trn-power-model-20261101/diurnal-acme/README.md)：固定271卡的集群GPU小时监测无作业映射，形状迁移后GPU小时加权中央0.80，比例0.730–0.840；形状幅度0–1.5、固定集合阈值95%–99.9%。0.65–0.95中央水平及基础空载独立敏感性沿用原报告；分配功率反推缺少合格小时，不用于直接标定。
+- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v6`](../../results/scenario-typical-day-by-task-20261101-v6/README.md)。训练采用PR #36最新`1594fb7`（实现`d7f6bca`）的[Acme形状迁移](../../results/trn-power-model-20261101/diurnal-acme/README.md)，依赖#34原生窗口`c836bba`；其余八情境按v5原字节保留。中位电量±2%候选少于5天放宽±5%，再取与全部完整日平均24小时设施曲线RMSE最小者；GPU需求按GPU主导型选日，三规格共日。`TRN-day-selection.csv`保存评分，`comparison.csv`对照旧典型日，`matched-day-comparison.csv`隔离同日同天气的形状影响；`period-summary.csv`区分TRN原生90天与其他情境历史全年范围，`sensitivity-summary.csv`保存独立敏感性。复现脚本为`analysis/update_chapter4_trn_diurnal.py`，上游小时SHA-256与独立复算均已核对。
 
 - Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。
 
 ## 重新生成
 
-先确认v4组合全年小时结果已核验，按第四章结果目录说明运行选日脚本，生成新汇总及图件，再在本目录运行：
+先按第四章v6结果目录说明准备#36原生90天汇总小时缓存并核验SHA-256，运行 `analysis/update_chapter4_trn_diurnal.py` 更新训练、总览及汇总；其余八情境按v5原字节保留。再在本目录运行：
 
 ```
 npm install

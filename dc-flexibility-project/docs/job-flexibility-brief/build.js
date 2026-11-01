@@ -6,7 +6,7 @@ const {
 } = require('docx');
 
 const OUT = process.argv[2];
-const FACTS = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../results/scenario-typical-day-by-task-20261101-v5/brief-facts.json'), 'utf8'));
+const FACTS = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../results/scenario-typical-day-by-task-20261101-v6/brief-facts.json'), 'utf8'));
 const pct = (value) => (value * 100).toFixed(2) + '%';
 const otherShare = (label) => FACTS.MIT_OTHER[label].pct_other_gpu_hours.toFixed(2) + '% OTHER';
 const mitShare = (label) => FACTS.MIT_OTHER[label].pct_mit_gpu_hours.toFixed(2) + '% MIT';
@@ -116,7 +116,7 @@ const data = [
   ['Lisa（荷兰 SURF 超算）', '科研计算', '2021-12 至 2022-11，约 10 个月', '逐作业 159.7 万条（CPU 分区 139.6 万、GPU 分区 20.1 万）', 'CPU 分区 25 秒／55 分钟；GPU 分区 4.6 分钟／5.0 小时', [['粗', { bold: true }], ['：只有 17 个分区（CPU／GPU、Jupyter、课程），无用途和算法', {}]], 'GPU 卡数'],
   ['Alibaba 2018', '云通用计算', '8天，采用5个完整日', '4,034台机器；接入在线容器和离线实例用量', '离线实例P50 10秒、P90 99秒', [['粗', { bold: true }], ['：在线19.79%、离线51.13%、未对账29.08%（核心小时）', {}]], '未对账量、业务期限'],
   ['MIT Supercloud', '科研 AI', '237天需求；六月功率标定', '39.6万作业，GPU 9.82万；六月12,181文件完成', '原提交类P50 2.2–3.0小时、P90 22–37小时', [['中', { bold: true }], ['：OTHER已分12类，图合并6层；DNN用途证据占OTHER 4.6%（含推断）', {}]], '有效监测覆盖68.33%；用途真值与恢复'],
-  ['Acme（Kalos／Seren）', '大模型训练/开发', '作业2023-05至08；监测窗口各异', 'Kalos逐作业6.2万；两集群9份监测21.70GB', '原轨迹：预训练11分钟／11.8小时；A100全部监测均功率191／195W/卡', [['细', { bold: true }], ['：用途标签；监测缺少逐作业设备关联', {}]], '逐类功率、检查点记录'],
+  ['Acme（Kalos／Seren）', '大模型训练/开发', '作业90天；功率原生重叠16.50小时', 'Kalos逐作业6.2万；集群GPU监测（无作业映射）', '预训练11分钟／11.8小时；固定271卡181–208W/卡', [['细', { bold: true }], ['：用途标签；小时形状含混合业务', {}]], '已分配功率、检查点记录'],
   ['ASI（Alibaba GPU 2026）', '推理服务', '185天，4,440小时', '逐类型、优先级GPU小时；附执行跨度分布', '离线执行跨度P50 10–30分钟、P90 3–6小时', [['中', { bold: true }], ['：6类业务＋优先级＋模型；INF只取在线和离线推理', {}]], '真实日期、连续运行时间；1个零资源异常小时'],
   ['BurstGPT／Azure 2024', '推理日内形状', '119日／代码和对话各7日', '请求及输入／输出token按小时聚合', '请求日内比2.455／8.963／1.783', '中央用BurstGPT输入／输出各50%；Azure为敏感性', '到达与执行时差；时钟、批量及缓存'],
   ['OLMo等训练功率研究', '训练GPU功率依据', 'OLMo节点最初300个记录步', 'H100训练与检查点阶段直接功率', '活跃训练>600W/卡；检查点约100W/卡', '采用GPU/TDP 0.80，敏感性0.65–0.95', '全生命周期均值、目标配置实测'],
@@ -142,25 +142,25 @@ const H1 = '一、情境定义：服务器规格 × 需求';
 const H2 = '二、任务类型与时间柔性';
 const H3 = '三、各数据源概况';
 const H4 = '四、各情境典型日负荷曲线';
-const FIGURE_DIR = '../../results/scenario-typical-day-by-task-20261101-v5';
+const FIGURE_DIR = '../../results/scenario-typical-day-by-task-20261101-v6';
 const FIGURE = path.resolve(__dirname, FIGURE_DIR, 'overview.png');
 const NOTES4 = [
   '选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三规格共日。',
-  '规模与模型：参考IT 10 MW，沿用v4组合模型（#35推理GPU＋#36 CPU及训练）和原全年PUE；其他规模按整数台数比缩放，训练按原作业分配。',
-  '敏感性：训练GPU/TDP 0.65–0.95（中央0.80）；推理在线SXM空闲100–160W、高负载350–700W、γ0.7–1.3，PCIe按TDP迁移；均为情境范围。',
-  '来源边界：MIT六月完成版，DNN含官方与推断；ASI、Alibaba真实日历未知，请求形状按#35合成相位；基础/空闲中央值沿用，敏感性见第三章。',
-  '尖峰：Alibaba原始相对06时高值保留；CPU在50%→60%区间动态增量约125→41W，三份SPEC平滑后放大效应减弱。',
+  '规模与来源：参考IT 10 MW；训练采用#36 Kalos固定271卡UTC小时形状，GPU小时加权0.80（0.730–0.840），原生90天及2025同月日天气；其余八情境沿用v5。',
+  '反推：[集群估计功率−未分配卡数×空闲功率]/分配卡数；覆盖不足，采用形状迁移；无作业映射，无法识别预训练专属周期。',
+  '敏感性：形状幅度0–1.5、固定集合95%–99.9%；中央水平0.65–0.95、推理及空载范围沿用v5，独立改变；其他规模按整数台数比缩放。',
+  '边界与尖峰：MIT六月完成版，DNN含推断；ASI、Alibaba日历未知；Alibaba原始06时高值保留，SPEC平滑后50%→60%动态增量约125→41W。',
 ];
 const readmePath = process.argv[3];
 const previousReadme = readmePath && fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : '';
 const sourceSection = previousReadme.indexOf('## 数字来源与说明');
 const retainedSections = sourceSection >= 0 ? previousReadme.slice(sourceSection).trimEnd() : '';
-const SOURCE4 = '- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v5`](../../results/scenario-typical-day-by-task-20261101-v5/README.md)。规则为中位电量±2%内取候选、少于5天放宽至±5%，候选内按与全部完整日平均24小时曲线RMSE最小选日；评分及候选标记见 `*-day-selection.csv`，新旧日期、电量、偏差、RMSE和峰谷比见 `day-selection-comparison.csv`，异常提示见 `selected-day-diagnostics.csv`。脚本为 `analysis/reselect_scenario_typical_days.py`；模型及全年小时数据保持v4组合模型，以SHA-256核对，敏感性参数沿用v4。';
+const SOURCE4 = '- 第四章图与逐小时分任务汇总：[`results/scenario-typical-day-by-task-20261101-v6`](../../results/scenario-typical-day-by-task-20261101-v6/README.md)。训练采用PR #36最新`1594fb7`（实现`d7f6bca`）的[Acme形状迁移](../../results/trn-power-model-20261101/diurnal-acme/README.md)，依赖#34原生窗口`c836bba`；其余八情境按v5原字节保留。中位电量±2%候选少于5天放宽±5%，再取与全部完整日平均24小时设施曲线RMSE最小者；GPU需求按GPU主导型选日，三规格共日。`TRN-day-selection.csv`保存评分，`comparison.csv`对照旧典型日，`matched-day-comparison.csv`隔离同日同天气的形状影响；`period-summary.csv`区分TRN原生90天与其他情境历史全年范围，`sensitivity-summary.csv`保存独立敏感性。复现脚本为`analysis/update_chapter4_trn_diurnal.py`，上游小时SHA-256与独立复算均已核对。';
 const SPIKE_SOURCE = '- Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。';
 const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取参考 IT 功率 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
 const LEGEND = '✓ 可以　◐ 有条件　✗ 不行　？ 未知；MIT／OTHER分母分别为全部GPU小时／其中OTHER小时，跨数据集不相加。';
 const NOTE2A = '占比为GPU小时；Lisa、Alibaba为核心小时。ASI注明“全业务”或“推理子集”；INF只用推理。现状排队不等于允许延后时长，运行形态不证明用途或调度权限。';
-const NOTE2B = 'H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开销要求每段≥19H。预训练H取5–30分钟，其余H为假设；预训练/SFT沿用512–1024／48–64卡。训练状态H100 SXM板卡参考 ' + FACTS.power.H100_SXM_training_GPU_kwh_per_card_hour.toFixed(3) + ' kWh/卡时（0.455–0.665）；恢复阶段功率未测，整机与设施按小时模型计算。';
+const NOTE2B = 'H＝保存＋释放与调度＋加载恢复＋重算；损失卡数×H，5%开销要求每段≥19H。预训练H取5–30分钟，其余H为假设；预训练/SFT沿用512–1024／48–64卡。训练状态H100 SXM板卡GPU小时加权参考 ' + FACTS.power.H100_SXM_training_GPU_kwh_per_card_hour.toFixed(3) + ' kWh/卡时；中央日形状0.511–0.588，中央水平敏感性0.455–0.665。恢复阶段功率未测，整机与设施按小时模型计算。';
 const NOTE2C = '候选量级：ASI离线且LP占推理GPU小时 ' + pct(FACTS.INF.offline_lp_share_of_inference) + '；Alibaba离线占核心小时 ' + pct(FACTS.CLD.batch_share) + '。实际可调功率仍需期限、权限及补做容量。';
 const NOTE3 = '作业时长数字为P50／P90。Lisa GPU分区仅计宿主CPU核心小时；ASI执行跨度含生命周期及调度影响。MIT监测覆盖68.33%、合格验证3小时，跨设备与空载迁移为假设。无任务整机敏感性（科研AI另计）：A 120–320、B 195–500、C 270–680、D 1370–4110 W/台；科研AI只变基础及CPU空闲。';
 
@@ -218,7 +218,8 @@ if (MD_OUT) {
     ...NOTES4.flatMap((text) => [text, '']),
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
-  let tail = retainedSections.includes(SOURCE4) ? retainedSections
+  let tail = /^- 第四章图与逐小时分任务汇总：/m.test(retainedSections)
+    ? retainedSections.replace(/^- 第四章图与逐小时分任务汇总：.*$/m, SOURCE4)
     : retainedSections.replace('## 重新生成', `${SOURCE4}\n\n## 重新生成`);
   if (!tail.includes(SPIKE_SOURCE)) tail = tail.replace('## 重新生成', `${SPIKE_SOURCE}\n\n## 重新生成`);
   fs.writeFileSync(MD_OUT, md + '\n' + tail + '\n', 'utf8');

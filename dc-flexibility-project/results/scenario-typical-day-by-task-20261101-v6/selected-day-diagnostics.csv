@@ -1,0 +1,4 @@
+﻿scenario,scenario_name,source_date,weekday,audit_flags,longest_low_IT_hours,max_IT_step_fraction,rmse_outlier_limit_mw,unresolved_hours
+B-TRN,CPU 主导型·大模型训练/开发,2023-06-27,星期二,,0,0.024281916232307216,1.6212401002801715,0
+C-TRN,均衡型·大模型训练/开发,2023-06-27,星期二,,0,0.028896219183584343,1.9601572628539299,0
+D-TRN,GPU 主导型·大模型训练/开发,2023-06-27,星期二,,0,0.03196394972301267,2.439554791434495,0
