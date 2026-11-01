@@ -117,6 +117,6 @@ python analysis/publish_trn_power_model.py --source-project <project> --destinat
 
 参考结果在本地和服务器的 Parquet 序列化环境不同，最终采用服务器城市重算产物作为统一的小时文件，`--finalize-only` 更新其实际文件哈希；数值、冻结输入与年度汇总均另行验证。`all-locations-manifest.json` 保存 1,100 份小时结果哈希，`manifest.json` 保存输入和方法，验证记录为 `validation.json`、`validation-all-locations.json`。
 
-本 PR 的基分支为 #34 分支；审阅顺序为 **#34 → 本 PR**。推理日内起伏任务与本任务共享 #34 输入：本次 INF 的变化完全来自 CPU 平滑，需求和 GPU 分项逐小时保持 v3。合并两项工作时，应在推理需求完成后调用本次 CPU 方法并重算组合结果，避免用本任务的冻结 INF 小时表覆盖推理任务输出。INF 的 GPU 功率后续应使用推理模型、批量、吞吐和 SLO 对应的测量；本 PR 保留其现有参数。
+本 PR 的基分支为 #34 分支，审阅顺序为 **#34 → 本 PR**。推理日内起伏由 [#35](https://github.com/TuzzyT-Laiii/33/pull/35) 处理，该 PR 另依赖 #30；满足各自前置依赖后，#35 与本 PR 可并行审阅，两项工作互不依赖。本次 INF 的变化完全来自 CPU 平滑，需求和 GPU 分项逐小时保持 v3。组合两项工作时，应保留 #35 的 INF 需求及 GPU 方法，应用本 PR 的 CPU 平滑曲线并重算组合结果，避免用本任务的冻结 INF 小时表覆盖 #35 输出。INF 的 GPU 功率后续应使用推理模型、批量、吞吐和 SLO 对应的测量；本 PR 保留其现有参数。
 
 本次未合并 PR，未启用自动合并。
