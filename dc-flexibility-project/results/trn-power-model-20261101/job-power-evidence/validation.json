@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-01T11:07:05.504744+00:00",
+  "seren_sample_count_and_mean_conservation": true,
+  "seren_allocation_type_conservation_and_inverse_formula": true,
+  "mit_immutable_batch_metadata_files": 3037,
+  "mit_unique_job_and_file_joins": true,
+  "mit_aggregate_means_independently_recomputed": true,
+  "missing_mit_download_over_threshold": true,
+  "h100_independent_sessions": 9,
+  "h100_progress_energy_conservation": true,
+  "literature_hashed_sources": 36,
+  "proposal_scenarios": 12,
+  "proposal_cases": 6,
+  "current_Kalos_values_match_previous_delivery": true,
+  "existing_body_results_and_power_model_unchanged": true,
+  "public_source_register_rows": 12,
+  "software": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.1"
+  },
+  "scope": "Real source aggregates and immutable batch tables; no synthetic inputs; no MIT source or STOP writes"
+}

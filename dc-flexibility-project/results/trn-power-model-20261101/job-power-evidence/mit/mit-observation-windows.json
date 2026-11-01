@@ -1,0 +1,12 @@
+{
+  "all_observed_V100": {
+    "first_file_sample_utc": "2021-02-09T03:02:51.811000+00:00",
+    "last_file_sample_utc": "2021-10-01T13:37:49.380000+00:00",
+    "interpretation": "Corrected file timestamp bounds, not continuous coverage; allocation-external samples excluded from statistics."
+  },
+  "official_DNN": {
+    "first_file_sample_utc": "2021-05-07T00:45:13.319000+00:00",
+    "last_file_sample_utc": "2021-09-28T00:48:22.251000+00:00",
+    "interpretation": "Corrected file timestamp bounds, not continuous coverage; allocation-external samples excluded from statistics."
+  }
+}

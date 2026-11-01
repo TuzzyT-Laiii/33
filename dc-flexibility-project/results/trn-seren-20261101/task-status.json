@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-01T11:38:14.241130+00:00",
+  "input_commit": "6de2e4cde4dbf66f055c0802364c96e511945bbe",
+  "branch": "codex/trn-seren-20261101",
+  "dependency_prs": [
+    34,
+    36
+  ],
+  "main_case": "main",
+  "source_dataset": "Acme Seren",
+  "completed": [
+    "source aggregation",
+    "25 location-year power calculations",
+    "real-input validation",
+    "Chinese figures and report"
+  ],
+  "old_result_bytes_changed": false,
+  "MIT_source_or_process_or_STOP_actions": false,
+  "raw_data_transferred_from_server": false,
+  "memory": "One scenario/location/year/case at a time; observed worker VmHWM 414188kB during computation, not a final peak guarantee.",
+  "code_sha256": {
+    "prepare_trn_seren.py": "5bcb960ac60169acda6a7da9a3d2282e85f47dad3caca933f3608b8a0162eaf2",
+    "build_trn_seren.py": "67501612cc841af67f12c92fcd96a9ef733acb8b5fde0908c8257cbd247a4939",
+    "verify_trn_seren.py": "a7b8eaa5aa3897a0c29e6348504f73a9ca6bbf91bda76fa7e6ea761e16b6564e",
+    "plot_trn_seren.py": "25b905670f806c48c8c947b505337093500c96ec2c1edb9b97325fe45705987e",
+    "report_trn_seren.py": "ed9dcc880ef4760040e4dd8c698145d3bdb3b3a1c798c0d139e46835d30d3184",
+    "finalize_trn_seren.py": "66f611e84818b8fd4f4b7c11b5ac08e5f8ff039ebd6fe0f8bf256d3b53b5f5d7",
+    "publish_trn_seren.py": "45ed8b52d49fc874c3d2544dde247958b6210f94073b9ea7e96ed69dbf6ce6be",
+    "launch_trn_seren.sh": "c0cb42d834cbe3e1f1aec777773b1b94f8c13e80093d18d8683ee3b81788ce44",
+    "requirements-trn-seren.txt": "7f416f9d234ca98a3fb621b6a48644a5ab13b41cea1789f5ca4f9078d94c7369",
+    "compute_load/model.py": "1515ec08a71950a2466b739155705bc519c8d6dd41cb81f5d36912bc53d147d0",
+    "compute_load/cooling.py": "25c644417f9e7cc5886bb3314b2869614029588e9a64ae092181c3f3f1785275"
+  }
+}

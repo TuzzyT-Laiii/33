@@ -1,0 +1,68 @@
+{
+  "mlperf_inspected_run": "result_5848-240517221859825376616_2",
+  "node_power_scope": "whole-node AC/DC; not GPU-only",
+  "sample_cadence_seconds": 2.005,
+  "run_total_energy_text_kwh": {
+    "ac": 415.22,
+    "dc": 408.44
+  },
+  "network_power_estimate_w": 59570,
+  "directory_inventory": {
+    "ac": {
+      "node_log_files": 64,
+      "text_bytes_one_run": 15267576,
+      "directory_metadata_sha256": "7b12525eb8aa4fd2660b3bb8913415c5da3e09bf962dddd82ba00878ed1baf0a"
+    },
+    "dc": {
+      "node_log_files": 64,
+      "text_bytes_one_run": 15267576,
+      "directory_metadata_sha256": "2ed8d2da5b84e9cdb2c0f24bc83942a4116367d9393efc7ead0fcaae28a8b490"
+    }
+  },
+  "sample_acquisition": [
+    {
+      "kind": "ac",
+      "file": "node_1.txt",
+      "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-ac-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/node_1.txt",
+      "bytes": 238579,
+      "sha256": "26e2a156cb113931dd922c2ef3a64ed25f825b5c12a484eb758dead23ed6a211"
+    },
+    {
+      "kind": "ac",
+      "file": "total_power.txt",
+      "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-ac-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/total_power.txt",
+      "bytes": 31,
+      "sha256": "1b96f3e6fe64701429b384058d349b22521bd0e55bad2574abe005a94ca9ce7f"
+    },
+    {
+      "kind": "ac",
+      "file": "sw_0.txt",
+      "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-ac-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/sw_0.txt",
+      "bytes": 169,
+      "sha256": "e3992761c0bd7432e5f30033c81ea0bd1875b5b67bbcad85227b4d37b19a8031"
+    },
+    {
+      "kind": "dc",
+      "file": "node_1.txt",
+      "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-dc-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/node_1.txt",
+      "bytes": 238579,
+      "sha256": "8ec1edab8a7dbe9b3ffc52f3e2c24a26e3fed144008c0d55c555648777e417b3"
+    },
+    {
+      "kind": "dc",
+      "file": "total_power.txt",
+      "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-dc-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/total_power.txt",
+      "bytes": 31,
+      "sha256": "896636bb35d3196a94766495c4438dc787e8a0044c0622e92db65a1fc9966947"
+    },
+    {
+      "kind": "dc",
+      "file": "sw_0.txt",
+      "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-dc-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/sw_0.txt",
+      "bytes": 169,
+      "sha256": "e3992761c0bd7432e5f30033c81ea0bd1875b5b67bbcad85227b4d37b19a8031"
+    }
+  ],
+  "raw_64node_data_downloaded": false,
+  "sample_node_logs_downloaded": true
+}

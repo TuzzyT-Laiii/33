@@ -1,0 +1,30 @@
+{
+  "figures": [
+    {
+      "figure": "figure1-source",
+      "missing_characters": [],
+      "text_outside_canvas": [],
+      "embedded_pdf_fonts": 1,
+      "png_dpi": 300,
+      "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+    },
+    {
+      "figure": "figure2-comparison",
+      "missing_characters": [],
+      "text_outside_canvas": [],
+      "embedded_pdf_fonts": 1,
+      "png_dpi": 300,
+      "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+    },
+    {
+      "figure": "figure3-shapes-sensitivity",
+      "missing_characters": [],
+      "text_outside_canvas": [],
+      "embedded_pdf_fonts": 1,
+      "png_dpi": 300,
+      "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+    }
+  ],
+  "visual_inspection": false,
+  "checks": "Chinese glyph coverage, text bounds, PDF font embedding; no visual tool used"
+}
