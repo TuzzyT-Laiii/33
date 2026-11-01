@@ -171,3 +171,12 @@ dc-flexibility-project/results/typical-load-curves-20261101-v3-native/** -text w
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/**/*.parquet binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.png binary
+
+# 训练作业功率证据的代码与图件保持跨平台字节一致。
+dc-flexibility-project/analysis/audit_mit_training_power.py text eol=lf
+dc-flexibility-project/analysis/summarize_mit_training_variation.py text eol=lf
+dc-flexibility-project/analysis/analyze_h100_llm_experiments.py text eol=lf
+dc-flexibility-project/analysis/acquire_llm_training_dataset.py text eol=lf
+dc-flexibility-project/analysis/requirements-trn-job-power-evidence.txt text eol=lf
+dc-flexibility-project/results/trn-power-model-20261101/job-power-evidence/*.pdf binary
+dc-flexibility-project/results/trn-power-model-20261101/job-power-evidence/*.png binary

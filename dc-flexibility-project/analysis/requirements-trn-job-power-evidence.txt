@@ -1,0 +1,3 @@
+-r requirements-trn-power-model.txt
+statsmodels>=0.14
+pandas>=2.2

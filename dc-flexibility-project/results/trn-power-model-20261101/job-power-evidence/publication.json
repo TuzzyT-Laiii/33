@@ -1,0 +1,10 @@
+{
+  "shared_output": "/data3/dataset/ljt/global-grid-flexibility-20261023/results/trn-power-model-20261101/job-power-evidence",
+  "summary_artifacts_read_back": 42,
+  "all_summary_sha256_verified": true,
+  "artifact_manifest_sha256": "b052103986fdee8e3fd5e95b506bf761f0e2715a57733274d9c1bbc59f355afb",
+  "parent_readme_before_sha256": "d951b7e234f57875389efd21927973ab484f6ec60f49ce60bf48fe7da82029e0",
+  "parent_readme_sha256": "d951b7e234f57875389efd21927973ab484f6ec60f49ce60bf48fe7da82029e0",
+  "raw_files_transferred_to_Git": 0,
+  "body_numeric_outputs_replaced": false
+}
