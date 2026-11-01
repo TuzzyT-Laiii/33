@@ -1,0 +1,2 @@
+day_of_week,hours,measured_W,estimated_W,coverage,measured_plus_idle_proxy_W,estimated_cluster_W,measured_W_normalized,estimated_W_normalized,measured_plus_idle_proxy_W_normalized,estimated_cluster_W_normalized
+3,3,425.367201862037,515.5216583775878,0.9992186942876481,18830.120870147304,18920.275326662853,1.0,1.0,1.0,1.0
