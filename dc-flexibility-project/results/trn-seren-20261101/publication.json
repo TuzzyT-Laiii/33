@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-01T11:39:27.621955+00:00",
+  "shared_output": "/data3/dataset/ljt/global-grid-flexibility-20261023/results/trn-seren-20261101",
+  "summary_artifacts_sha256_verified": 27,
+  "hourly_files_sha256_verified": 696,
+  "all_files_read_back": true,
+  "artifact_manifest_sha256": "2aacd5cbe128e956b5aa6625dbac80109acddb8d90b101835c5b0a694bfcbfda",
+  "raw_data_published_to_Git": false,
+  "MIT_actions": false
+}
