@@ -4,7 +4,7 @@
 
 ## CPU/GPU 逐小时负荷工作包
 
-[典型负荷曲线 v3](results/typical-load-curves-20261101-v3/README.md)覆盖 44 个风冷情境，接入 Alibaba 2018 云通用计算、ASI 185 天推理需求及 MIT 六月 GPU 功率标定；提供年度小时功率、典型形状、v2 对比、迁移敏感性和柔性候选提示。
+[典型负荷曲线 v3：原生窗口](results/typical-load-curves-20261101-v3-native/README.md)按用户要求使用各来源完整原生时长，覆盖 44 个风冷情境，接入 Alibaba 120 小时云通用计算、ASI 185 天推理需求及 MIT 六月 GPU 功率标定。有日期来源按月日小时对应气象；无日期来源采用 12 个月初放置并在年末截断。提供窗口功率、电量、典型形状、平均功率对比、迁移敏感性和柔性提示。本版不能直接作为 8760/8784 小时下游输入；八城市既有柔性价值结果保持原状。之前的[全年 v3](results/typical-load-curves-20261101-v3/README.md)按原字节保留。
 
 [A-CLD「纯 CPU 型·云通用计算」](results/alibaba-cpu-cld-20261031/README.md)补齐 Alibaba 2018 六表的整机 CPU、在线容器和离线实例小时汇总、来源校验、完整日窗口及年度重放。实际业务拆分保留有符号差额，离线执行量作为柔性候选；同一报告核对较新公开 CPU 云数据，并推荐 SAP 2024 年观测及 ByteDance IaaS 2023/PaaS 2024 作为年份对照。
 
@@ -24,11 +24,11 @@
 
 [情境命名与定义](docs/scenario-naming.md)规定全项目统一使用“服务器类型×用途×规模”命名，例如「GPU 主导型·大模型训练/开发·100MW」（D-TRN-100MW）。当前 v3 范围为 11 个组合、四档规模，共 44 个风冷情境。
 
-[20261028-v2 历史配置矩阵](results/server-count-scenarios-20261028-v2/README.md)记录当时五种厂商配置、四档 IT 规模和 52 个设计单元。纯 CPU 型的科研计算采用 Lisa CPU；CPU 主导型、均衡型和 GPU 主导型的科研 AI 采用 MIT Supercloud 明确请求 GPU 的作业及同作业宿主 CPU 分配，已核验 98,176 条作业、237 个完整日时间窗。Lisa 现有作业文件缺少 GPU 卡数和利用率/功率，证据与一周、全年日均占用示意见该版说明；当前功率重放见典型负荷曲线 v3。云通用计算需求见上述 A-CLD 工作包。历史整柜配置及[20261028 原版](results/server-count-scenarios-20261028/README.md)、[20261027 版](results/server-count-scenarios-20261027/README.md)保留其版本范围。
+[20261028-v2 历史配置矩阵](results/server-count-scenarios-20261028-v2/README.md)记录当时五种厂商配置、四档 IT 规模和 52 个设计单元。纯 CPU 型的科研计算采用 Lisa CPU；CPU 主导型、均衡型和 GPU 主导型的科研 AI 采用 MIT Supercloud 明确请求 GPU 的作业及同作业宿主 CPU 分配，已核验 98,176 条作业、237 个完整日时间窗。Lisa 现有作业文件缺少 GPU 卡数和利用率/功率，证据与一周、全年日均占用示意见该版说明；当前功率计算见典型负荷曲线 v3 原生窗口工作包。云通用计算需求见上述 A-CLD 工作包。历史整柜配置及[20261028 原版](results/server-count-scenarios-20261028/README.md)、[20261027 版](results/server-count-scenarios-20261027/README.md)保留其版本范围。
 
-[全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存该版 8760 小时重放方法、16 条参考曲线和相位检查。当前四种风冷服务器类型的功率、设备台数与气象输入见典型负荷曲线 v3；柔性权限分别按来源核实。
+[全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存该版 8760 小时重放方法、16 条参考曲线和相位检查。当前四种风冷服务器类型的原生窗口功率、设备台数与气象对应见典型负荷曲线 v3 原生窗口工作包；柔性权限分别按来源核实。
 
-[任务来源与柔性文献历史报告](results/task-driven-load-report-20261026-v2/README.md)保存来源波动、六组图、四档规模的功率示例和 ASI 柔性文献结果；当前设备定义与年度计算采用上述实际配置说明。[初始报告](results/task-driven-load-report-20261026/README.md)保留。
+[任务来源与柔性文献历史报告](results/task-driven-load-report-20261026-v2/README.md)保存来源波动、六组图、四档规模的功率示例和 ASI 柔性文献结果；当前设备定义和窗口计算采用上述实际配置与原生窗口说明。[初始报告](results/task-driven-load-report-20261026/README.md)保留。
 
 ## 从这里开始
 

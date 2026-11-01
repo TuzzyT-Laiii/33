@@ -154,3 +154,10 @@ dc-flexibility-project/results/typical-load-curves-20261101-v3/** -text whitespa
 dc-flexibility-project/results/typical-load-curves-20261101-v3/**/*.parquet binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3/*.png binary
+
+# 原生窗口工作包保留可复核字节，后台入口采用 LF。
+dc-flexibility-project/analysis/*native*v3.sh text eol=lf
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native/**/*.parquet binary
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.pdf binary
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.png binary
