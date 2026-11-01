@@ -211,3 +211,9 @@ dc-flexibility-project/analysis/requirements-trn-seren.txt text eol=lf
 dc-flexibility-project/results/trn-seren-20261101/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/trn-seren-20261101/*.png binary
 dc-flexibility-project/results/trn-seren-20261101/*.pdf binary
+
+# Seren第四章统计、图件和选日结果保持可核验字节。
+dc-flexibility-project/analysis/*chapter4_trn_seren.py text eol=lf
+dc-flexibility-project/analysis/summarize_seren_jobs_for_brief.py text eol=lf
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v7/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v7/*.png binary

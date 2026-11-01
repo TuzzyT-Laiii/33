@@ -9,7 +9,7 @@ from plot_scenario_typical_days import setup, save
 from plot_scenario_typical_days_v3 import draw, handles
 
 
-def plot_all(output, rule_caption=None, individual_scenarios=None, training_diurnal=False):
+def plot_all(output, rule_caption=None, individual_scenarios=None, training_diurnal=False, training_seren=False):
     output = Path(output)
     setup()
     summary = json.loads((output / 'summary.json').read_text(encoding='utf-8'))
@@ -31,7 +31,12 @@ def plot_all(output, rule_caption=None, individual_scenarios=None, training_diur
         fig.legend(handles=handles(labels), loc='lower left', bbox_to_anchor=(.085, .165), ncol=4, fontsize=8.5)
         count = summary['selections'][use]['complete_days']
         lines = [f'{count}个完整日：{rule_caption}；参考IT 10 MW。' if rule_caption else f'{count}个完整日：日电量最接近中位数，并列时日内RMSE最小；参考IT 10 MW。']
-        if use == 'TRN' and training_diurnal:
+        if use == 'TRN' and training_seren:
+            ax.set_xlabel('源 UTC 小时', fontsize=11, labelpad=1)
+            lines += ['来源#38：Seren同期2057小时，缺口保留；各类GPU同小时共用集群反推功率。',
+                '反推＝[报送均功率×2288−未分配卡数×60 W]/[分配卡数×400 W]；按TDP迁移H100。',
+                '敏感性：源空闲50/70 W、覆盖75%/85%、比例截断0–1；在线库存与缺测代表性为假设。']
+        elif use == 'TRN' and training_diurnal:
             ax.set_xlabel('源 UTC 小时', fontsize=11, labelpad=1)
             lines += ['训练#36：Kalos固定271卡UTC小时形状迁移，GPU小时加权0.80（0.730–0.840）。',
                 '反推＝[集群估计功率−未分配卡数×空闲功率]/分配卡数；覆盖不足，直接标定不可用。',
@@ -66,13 +71,14 @@ def plot_all(output, rule_caption=None, individual_scenarios=None, training_diur
             if scenario is None:
                 ax.axis('off')
                 ax.legend(handles=handles(['基础与空载 IT', '冷却等非 IT']), loc='upper left', fontsize=10)
-                note = ('训练#36：Kalos固定271卡UTC日形状。\nGPU小时加权0.80；比例0.730–0.840。\n幅度0–1.5；固定集合95%–99.9%。\n分配功率反推覆盖不足，无作业映射。\n其余八情境保持v5；全部为10MW。' if training_diurnal else
+                note = ('训练#38：Seren同期小时反推功率。\n2057小时，仅完整24小时日期选日。\nA100按TDP比例迁移H100，均值0.7623。\n源空闲50/70 W、覆盖75%/85%为敏感性。\nMLLM独立分层；其余八情境保持v6。' if training_seren else
+                    '训练#36：Kalos固定271卡UTC日形状。\nGPU小时加权0.80；比例0.730–0.840。\n幅度0–1.5；固定集合95%–99.9%。\n分配功率反推覆盖不足，无作业映射。\n其余八情境保持v5；全部为10MW。' if training_diurnal else
                     '#35请求GPU＋#36 CPU/训练。\n训练GPU/TDP 0.80（0.65–0.95）。\n基础/空闲中央值沿用，敏感性另列。\nAlibaba原始峰值保留，CPU放大效应减弱。')
                 ax.text(.02, .44, note,
                     transform=ax.transAxes, va='top', fontsize=8.8, color='#535B63', linespacing=1.6)
                 continue
             labels = draw(ax, output, rows[scenario], upper, True)
-            if training_diurnal and scenario.endswith('-TRN'):
+            if (training_diurnal or training_seren) and scenario.endswith('-TRN'):
                 ax.set_xlabel('源 UTC 小时', fontsize=9, labelpad=1)
             ax.text(.99, .94, f"最高/最低 {rows[scenario]['peak_valley_ratio']:.3f}", transform=ax.transAxes,
                 ha='right', va='top', fontsize=7.6, color='#35414D')

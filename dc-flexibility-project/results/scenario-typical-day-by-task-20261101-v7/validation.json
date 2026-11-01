@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": {
+    "B_Seren_hourly_upstream_fingerprints_no_imputation": true,
+    "C_Seren_hourly_upstream_fingerprints_no_imputation": true,
+    "D_Seren_hourly_upstream_fingerprints_no_imputation": true,
+    "B-TRN_24h_task_layer_balance_and_energy_scale": true,
+    "C-TRN_24h_task_layer_balance_and_energy_scale": true,
+    "D-TRN_24h_task_layer_balance_and_energy_scale": true,
+    "B-TRN_figure_bounds": true,
+    "C-TRN_figure_bounds": true,
+    "D-TRN_figure_bounds": true,
+    "overview_figure_bounds": true
+  }
+}
