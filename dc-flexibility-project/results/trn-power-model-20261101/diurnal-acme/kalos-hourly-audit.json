@@ -1,0 +1,40 @@
+{
+  "rows": 62413,
+  "gpu_jobs": 19907,
+  "valid_gpu_intervals": 19907,
+  "invalid_or_missing_gpu_intervals": 0,
+  "right_censored_running_gpu_jobs": 3,
+  "right_censor_snapshot_min_utc": "2023-08-16T15:26:22+00:00",
+  "right_censor_snapshot_max_utc": "2023-08-16T15:26:23+00:00",
+  "right_censor_rule": "RUNNING with missing end: submit_time + duration; three inferred export instants agree within one second; no extension beyond that instant.",
+  "start_utc": "2023-05-17T11:01:08+00:00",
+  "end_utc": "2023-08-16T15:26:23+00:00",
+  "job_sha256": "7c5a7845da1d66448fa668342e4ecb622fd9a005118080660ec3ad2788d4c9bf",
+  "maximum_hourly_allocation": 1156.8055555555557,
+  "utc": "2026-11-01T09:00:25.056779+00:00",
+  "physical_gpu_inventory": 2416,
+  "released_gpu_columns": 2344,
+  "gpu_model": "NVIDIA A100 SXM 80GB",
+  "tdp_w": 400.0,
+  "chunk_rows": 512,
+  "monitoring_start_utc": "2023-08-15T07:30:15+00:00",
+  "monitoring_end_utc": "2023-08-31T00:00:00+00:00",
+  "overlapping_hour_bins": 33,
+  "overlap_sample_hours": 31.9375,
+  "complete_overlapping_hours": 31,
+  "zero_util_power_mean_w": 68.12713491769301,
+  "zero_util_samples": 480702,
+  "zero_util_power_median_bin_midpoint_w": 64.5,
+  "fixed_panel_devices_by_threshold": {
+    "0.95": 855,
+    "0.99": 271,
+    "0.999": 269
+  },
+  "zero_util_semantics": "Zero GPU_UTIL and valid POWER_USAGE at identical device/time within job overlap; allocation status unknown without device mapping.",
+  "monitoring_sha256": {
+    "POWER_USAGE.csv": "efba88dd9aac712aaece4ba7575917103a8796afd0292db866c66e25ff61823a",
+    "GPU_UTIL.csv": "995e6a271990e3499afb2c74846e156060bac902e1a618a91b4dd58b96b59b1a"
+  },
+  "missing_devices_assumption": "Each timestamp: observed mean power multiplied by 2416 physical GPUs; missing GPUs assumed exchangeable. Reporting count is not an online inventory.",
+  "time_basis": "All timestamps converted to UTC; allocations evaluated at exact telemetry instants with half-open [start,end) intervals; hourly means do not hold across gaps."
+}

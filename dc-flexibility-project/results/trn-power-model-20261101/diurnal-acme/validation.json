@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-01T09:15:17.262650+00:00",
+  "hourly_files": 2100,
+  "hourly_rows": 4536000,
+  "legacy_static_scenarios": 44,
+  "legacy_static_predictions_unchanged": true,
+  "source_hashes_verified": true,
+  "native_2160h_once": true,
+  "frozen_demand_weather_units_cpu": true,
+  "independent_gpu_formula": true,
+  "it_facility_heat_conservation": true,
+  "constant_080_gpu_hour_mean_preserved": true,
+  "summary_extremes_daily_weekly_recomputed": true,
+  "raw_monitoring_cell_count_and_mean_conservation": true,
+  "direct_scheme_not_imputed": true
+}

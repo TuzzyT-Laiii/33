@@ -1,0 +1,60 @@
+{
+  "HPC": {
+    "resource_hours": 26015989.0625,
+    "candidate_resource_hours": 21805325.020833332,
+    "screen": "非Jupyter且源运行时长至少6小时；积分裁剪到309天窗口",
+    "use": "HPC",
+    "source_days": 309,
+    "source_hours": 7416,
+    "candidate_resource_fraction": 0.8381509143645817,
+    "verified_dispatchable_fraction": 0.0,
+    "input_sha256": "143e1e0ed9dcc92a8bc188f77c5c362a2873d403c9ac344f1f203dda9dcc2e72"
+  },
+  "TRN": {
+    "resource_hours": 1442173.1583333332,
+    "candidate_resource_hours": 1334079.0066666666,
+    "screen": "预训练且源运行时长至少1小时；积分裁剪到90天窗口",
+    "use": "TRN",
+    "source_days": 90,
+    "source_hours": 2160,
+    "candidate_resource_fraction": 0.9250477301965687,
+    "verified_dispatchable_fraction": 0.0,
+    "input_sha256": "d78680201a78e98f8f199a6956555365480f2191c1d1bd0dce411c7d05ff593e"
+  },
+  "SAI": {
+    "resource_hours": 1458668.8119444444,
+    "candidate_resource_hours": 305400.0808333333,
+    "screen": "明确批处理/Map且源运行时长至少6小时；积分裁剪到237天窗口",
+    "use": "SAI",
+    "source_days": 237,
+    "source_hours": 5688,
+    "candidate_resource_fraction": 0.20936903451457692,
+    "verified_dispatchable_fraction": 0.0,
+    "input_sha256": "27259e5b8e6daecd80b7853126af40ba759bc25edc9053fc174ef7a4f186aa01"
+  },
+  "CLD": {
+    "resource_hours": 17583117.773333326,
+    "candidate_resource_hours": 8990855.225458339,
+    "online_resource_share": 0.1979017520304267,
+    "unreconciled_signed_share": 0.29076372007976253,
+    "screen": "120小时窗口的离线实例CPU执行量",
+    "use": "CLD",
+    "source_days": 5,
+    "source_hours": 120,
+    "candidate_resource_fraction": 0.5113345278898108,
+    "verified_dispatchable_fraction": 0.0,
+    "input_sha256": "3ebad70e9abb9fdf96e47c1e579cbdc13f8689e85af8bd2e7f41decb8a5230a0"
+  },
+  "INF": {
+    "resource_hours": 415851928.8772726,
+    "candidate_resource_hours": 110656124.00710683,
+    "offline_share": 0.27921767869337244,
+    "screen": "185天推理子集内离线且LP",
+    "use": "INF",
+    "source_days": 185,
+    "source_hours": 4440,
+    "candidate_resource_fraction": 0.26609501200549673,
+    "verified_dispatchable_fraction": 0.0,
+    "input_sha256": "0c58bac1ea575cd3f14ad05a7f0b88f996d62d6c4e1c2d5f645c61d76e7ac2a6"
+  }
+}

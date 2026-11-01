@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-01T09:17:10.632623+00:00",
+  "state": "calculated_verified_reported",
+  "same_pr": 36,
+  "branch": "codex/trn-power-model-20261101",
+  "completed": [
+    "hourly raw aggregation",
+    "right censor audit",
+    "inverse feasibility",
+    "fixed panel shape",
+    "native TRN recalculation",
+    "verification",
+    "Chinese report"
+  ],
+  "scientific_limits": [
+    "Allocated GPU power unidentifiable at current overlap coverage",
+    "No direct-ratio scheme(b)",
+    "Diurnal transfer is a scenario assumption",
+    "No checkpoint attribution or weekly modifier"
+  ],
+  "code_sha256": {
+    "aggregate_trn_acme_hourly.py": "8588ff33cc09b9ec8560468b7a0af2d7b6a7dc08a82d84cc35d6f9f18ab55783",
+    "prepare_trn_diurnal.py": "91f2e8e861eeb6a96304ad958d76b47b499659d15592dbd23f94cb2fc0cf2969",
+    "build_trn_diurnal.py": "c589455479819bb892f29fd12f7cf62f0d3afa329dcab5493140397ee4491572",
+    "trn_power_models.py": "45317aba4dccbd8848248b22341c5a77e7a3d5548d80de0bbb715ed03a483a85",
+    "report_trn_diurnal.py": "ae44f26fa090393c2d83f134ef4667a38bc6612ed654aba421c620e206ca1ff5"
+  }
+}
