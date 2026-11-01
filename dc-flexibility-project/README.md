@@ -4,6 +4,8 @@
 
 ## CPU/GPU 逐小时负荷工作包
 
+[典型负荷曲线 v3](results/typical-load-curves-20261101-v3/README.md)覆盖 44 个风冷情境，接入 Alibaba 2018 云通用计算、ASI 185 天推理需求及 MIT 六月 GPU 功率标定；提供年度小时功率、典型形状、v2 对比、迁移敏感性和柔性候选提示。
+
 [A-CLD「纯 CPU 型·云通用计算」](results/alibaba-cpu-cld-20261031/README.md)补齐 Alibaba 2018 六表的整机 CPU、在线容器和离线实例小时汇总、来源校验、完整日窗口及年度重放。实际业务拆分保留有符号差额，离线执行量作为柔性候选；同一报告核对较新公开 CPU 云数据，并推荐 SAP 2024 年观测及 ByteDance IaaS 2023/PaaS 2024 作为年份对照。
 
 [20261025-v4 工作包](results/compute-center-data-audit-20261022/coupled-power-weather-20261025-v4/README.md)提供 1、10、100、500 MW 参考 IT 规模的设备参数、IT/散热/冷却/设施总功率、五种气候与 2023—2025 年逐小时曲线说明。仓库保存报告、脚本和汇总，完整小时结果与来源映射已归档到研究服务器。资源到设备功率采用跨数据集代理，冷却模型使用 ESIF 实测数据校准；具体适用范围与核验记录随报告提供。
@@ -22,9 +24,9 @@
 
 [情境命名与定义](docs/scenario-naming.md)规定全项目统一使用“服务器类型×用途×规模”命名，例如「GPU 主导型·大模型训练/开发·100MW」（D-TRN-100MW）。当前 v3 范围为 11 个组合、四档规模，共 44 个风冷情境。
 
-[20261028-v2 历史配置矩阵](results/server-count-scenarios-20261028-v2/README.md)记录当时五种厂商配置、四档 IT 规模和 52 个设计单元。纯 CPU 型的科研计算采用 Lisa CPU；CPU 主导型、均衡型和 GPU 主导型的科研 AI 采用 MIT Supercloud 明确请求 GPU 的作业及同作业宿主 CPU 分配，已核验 98,176 条作业、237 个完整日时间窗。Lisa 现有作业文件缺少 GPU 卡数和利用率/功率，证据与一周、全年日均占用示意见该版说明；典型功率曲线待统一重算。当前云通用计算需求见上述 A-CLD 工作包。历史整柜配置及[20261028 原版](results/server-count-scenarios-20261028/README.md)、[20261027 版](results/server-count-scenarios-20261027/README.md)保留其版本范围。
+[20261028-v2 历史配置矩阵](results/server-count-scenarios-20261028-v2/README.md)记录当时五种厂商配置、四档 IT 规模和 52 个设计单元。纯 CPU 型的科研计算采用 Lisa CPU；CPU 主导型、均衡型和 GPU 主导型的科研 AI 采用 MIT Supercloud 明确请求 GPU 的作业及同作业宿主 CPU 分配，已核验 98,176 条作业、237 个完整日时间窗。Lisa 现有作业文件缺少 GPU 卡数和利用率/功率，证据与一周、全年日均占用示意见该版说明；当前功率重放见典型负荷曲线 v3。云通用计算需求见上述 A-CLD 工作包。历史整柜配置及[20261028 原版](results/server-count-scenarios-20261028/README.md)、[20261027 版](results/server-count-scenarios-20261027/README.md)保留其版本范围。
 
-[全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存 8760 小时重放方法、16 条既有参考曲线和相位检查。当前五种服务器类型的功率与台数/柜数采用新版参数说明中的标定状态；逐小时气象作为外生输入，柔性权限独立成章。
+[全年构造算法与既有参考曲线](results/scenario-load-methods-20261026-v2/README.md)保存该版 8760 小时重放方法、16 条参考曲线和相位检查。当前四种风冷服务器类型的功率、设备台数与气象输入见典型负荷曲线 v3；柔性权限分别按来源核实。
 
 [任务来源与柔性文献历史报告](results/task-driven-load-report-20261026-v2/README.md)保存来源波动、六组图、四档规模的功率示例和 ASI 柔性文献结果；当前设备定义与年度计算采用上述实际配置说明。[初始报告](results/task-driven-load-report-20261026/README.md)保留。
 

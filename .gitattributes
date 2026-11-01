@@ -144,3 +144,13 @@ dc-flexibility-project/analysis/export_asi_summary.py text eol=lf
 dc-flexibility-project/analysis/annotate_asi_quality.py text eol=lf
 dc-flexibility-project/analysis/audit_asi_execution.py text eol=lf
 dc-flexibility-project/analysis/verify_asi_delivery.py text eol=lf
+
+# v3 聚合结果固定跨平台字节，后台脚本采用 LF。
+dc-flexibility-project/analysis/*_v3.py text eol=lf
+dc-flexibility-project/analysis/launch_load_curves_v3.sh text eol=lf
+dc-flexibility-project/analysis/finalize_load_curves_v3.sh text eol=lf
+dc-flexibility-project/analysis/requirements-load-curves-v3.txt text eol=lf
+dc-flexibility-project/results/typical-load-curves-20261101-v3/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/typical-load-curves-20261101-v3/**/*.parquet binary
+dc-flexibility-project/results/typical-load-curves-20261101-v3/*.pdf binary
+dc-flexibility-project/results/typical-load-curves-20261101-v3/*.png binary
