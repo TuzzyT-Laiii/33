@@ -8,6 +8,8 @@ const {
 const OUT = process.argv[2];
 const RESULT_DIR = '../../results/typical-load-curves-20261101-v4-seren';
 const FLEX_DIR = '../../results/flex-class-20261101';
+const CITY_DIR = '../../results/eight-city-native-flex-20261102';
+const CITY = JSON.parse(fs.readFileSync(path.resolve(__dirname, CITY_DIR, 'brief-summary.json'), 'utf8'));
 const FLEX = JSON.parse(fs.readFileSync(path.resolve(__dirname, FLEX_DIR, 'brief-summary.json'), 'utf8'));
 const FACTS = JSON.parse(fs.readFileSync(path.resolve(__dirname, RESULT_DIR, 'selected-days/brief-facts.json'), 'utf8'));
 const NATIVE = JSON.parse(fs.readFileSync(path.resolve(__dirname, RESULT_DIR, 'brief-summary.json'), 'utf8'));
@@ -85,7 +87,7 @@ const taskTable = new Table({
     tableHeader: i === 0, cantSplit: true,
     children: r.map((t, j) => cell(t, W2[j], {
       bold: i === 0,
-      size: 21,
+      size: 20,
       fill: i === 0 ? HEAD_FILL : (j === 0 ? SIDE_FILL : undefined),
       left: false,
     })),
@@ -112,7 +114,7 @@ const dataTable = new Table({
     tableHeader: i === 0, cantSplit: true,
     children: r.map((t, j) => cell(t, W3[j], {
       bold: i === 0,
-      size: 18,
+      size: 17,
       fill: i === 0 ? HEAD_FILL : (j === 0 ? SIDE_FILL : undefined),
       left: i > 0 && j >= 2,
     })),
@@ -126,10 +128,24 @@ const H2 = '二、任务时间柔性分类';
 const H3 = '三、各数据源概况';
 const H4 = '四、各情境典型日负荷曲线';
 const H5 = '五、各情境原生窗口负荷曲线';
+const H6 = '六、八城市气候下的负荷与柔性';
 const FIGURE_DIR = FLEX_DIR + '/selected-days';
 const FIGURE = path.resolve(__dirname, FIGURE_DIR, 'overview.png');
 const NATIVE_FIGURE = path.resolve(__dirname, FLEX_DIR, 'native-overview.png');
 const SHARE_FIGURE = path.resolve(__dirname, FLEX_DIR, 'shares-10MW.png');
+const CITY_PUE = path.resolve(__dirname, CITY_DIR, 'city-pue-heatmap.png');
+const CITY_DAY = path.resolve(__dirname, CITY_DIR, 'city-typical-day-comparison.png');
+const cityTable = (rows, widths) => new Table({
+  width: {size: 14600, type: WidthType.DXA}, columnWidths: widths,
+  rows: rows.map((row, i) => new TableRow({tableHeader: i === 0, cantSplit: true,
+    children: row.map((text, j) => cell(text, widths[j], {bold: i === 0, size: 17,
+      fill: i === 0 ? HEAD_FILL : (i % 2 === 0 ? 'F3F6FA' : undefined)})),
+  })),
+});
+const climateTable = cityTable(CITY.climate_rows, [2200, 2500, 2500, 3700, 3700]);
+const cityFacilityTable = cityTable(CITY.facility_rows, [1600, 2600, 2600, 2600, 2600, 2600]);
+const CITY_NOTE = '主表取五种用途的纯CPU型或GPU主导型代表情境，单位MW；完整8城市×11情境见配套city-summary.csv。设施均值逐年对实际放置取中位数，再平均三年；有日期来源每年一次对应。';
+const CITY_PUE_NOTE = 'PUE为窗口设施/IT电量比，逐年对放置取中位数后平均三年，非全年PUE。';
 const NOTES4 = [
   '选日：先取完整日中位电量±2%内的候选日，少于5天放宽至±5%，再取与全部完整日平均24小时曲线RMSE最小者；GPU需求按GPU主导型筛选，三种规格共用日期。',
   '统一模型：两章同用#38 Seren正文2057个合格小时、#35推理请求GPU、#36 CPU及基础/空闲、cooling-20261028-v2。训练仅55个完整UTC日参选，选中2023-05-31；缺口不填充。',
@@ -172,6 +188,7 @@ const sourceSection = previousReadme.indexOf('## 数字来源与说明');
 const retainedSections = sourceSection >= 0 ? previousReadme.slice(sourceSection).trimEnd() : '';
 const SOURCE4 = '- 第四章图与逐小时分任务汇总：[' + FLEX_DIR.split('/').pop() + '](' + FLEX_DIR + '/README.md)。按确认的四类映射合并原始任务功率层，保留基础与空载IT和冷却等非IT。11个典型日日期、小时功率及选日规则与Seren组合结果保持；native-hourly及selected-days分别保存原生与典型日六层值。全套图统一六项图例与配色。';
 const SOURCE5 = '- 第五章44情境、25组地点年份及原生时序：[' + RESULT_DIR.split('/').pop() + '](' + RESULT_DIR + '/README.md)。训练固定#38 bd6c8cd正文main，推理固定#35 520f68d，CPU及基础空闲沿用#36。native-summary.csv、placement-summary.csv和window-summary-all-locations.csv保留汇总；training-10MW-comparison.csv对照PR #37上一版训练数字，来源、窗口、归一化与模型同时变化，差值为描述性比较。manifest.json记录上游指纹及其余情境原字节保留校验。';
+const SOURCE6 = '- 第六章八城市气候与负荷：[' + CITY_DIR.split('/').pop() + '](' + CITY_DIR + '/README.md)。核验8份冻结气象及1320份10MW城市原生小时，复用#35/#36组合与#38 Seren结果；case-summary.csv、year-summary.csv、city-summary.csv分别保存逐窗口、逐年和三年汇总。facility-composition.csv保留六层功率，冷却非IT单列；典型日采用第五章同日逐小时IT份额。verification.json保存SHA-256及24组冷却复算，brief-audit.json保存文档检查。';
 const SPIKE_SOURCE = '- Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。';
 const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取参考 IT 功率 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
 const LEGEND = '① 刚性：不能推迟、不能拆分，有人在等或持续在线服务。② 可推迟·整体：可以晚点运行，开始后一次完成。③ 可推迟·可拆分：可以晚点运行，也可在存档点暂停后续跑。未知：数据看不出用途，保守处理。';
@@ -193,15 +210,14 @@ const doc = new Document({
       p(NOTE1, { before: 100, size: 18, color: '595959' }),
 
       h(H2, true),
-      p(LEGEND, { size: 19 }),
+      p(LEGEND, { size: 18 }),
       taskTable,
-      p(NOTE2A, { before: 100, size: 18, color: '595959' }),
-      p(NOTE2B, { size: 18, color: '595959' }),
-      p(NOTE2C, { size: 18, color: '595959' }),
+      p(NOTE2A, { before: 60, size: 16, color: '595959' }),
+      p(NOTE2B + NOTE2C, { size: 16, color: '595959' }),
 
-      h(H3, true),
+      h(H3),
       dataTable,
-      p(NOTE3, { before: 100, size: 18, color: '595959' }),
+      p(NOTE3, { before: 60, size: 16, color: '595959' }),
 
       h(H4, true),
       new Paragraph({
@@ -238,6 +254,28 @@ const doc = new Document({
         })],
       }),
       p(NOTE5FIG, { before: 20, size: 17, color: '595959' }),
+
+      h(H6, true),
+      p(CITY.scope + '各城气候指标按三年实际26304小时等权；露点≥20°C表示高水汽含量。', {before: 30, size: 17}),
+      climateTable,
+      p('10MW代表情境的设施平均功率', {before: 80, size: 20}),
+      cityFacilityTable,
+      p(CITY_NOTE, {size: 16, color: '595959'}),
+      p(CITY.conclusion, {size: 17}),
+      p(CITY.comparison, {size: 17}),
+
+      h('八城市 PUE 与典型日构成', true),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(CITY_PUE), transformation: {width: 944, height: 277},
+          altText: {name: '八城市原生窗口PUE', title: '八城市原生窗口PUE', description: '全部8城市与11情境，冻结2023至2025气象，窗口电量比PUE的逐年放置中位数再平均。'}})],
+      }),
+      p(CITY_PUE_NOTE, {before: 10, size: 16, color: '595959'}),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(CITY_DAY), transformation: {width: 944, height: 248},
+          altText: {name: '三城市训练典型日对比', title: '三城市训练典型日对比', description: '吕勒奥、利雅得和新加坡按同一Seren来源日，六层相加为设施功率，冷却非IT单列。'}})],
+      }),
+      p(CITY.composition + CITY.flexibility, {before: 10, size: 16, color: '595959'}),
+      p(CITY.limitations, {size: 16, color: '595959'}),
     ],
   }],
 });
@@ -259,12 +297,17 @@ if (MD_OUT) {
     `## ${H5}`, '', NOTE5A, '', mdTable(NATIVE.rows), '', NOTE5B, '', NOTE5C, '', NOTE5D, '',
     `### ${SHARE_TITLE}`, '', SHARE_NOTE, '', mdTable(FLEX.share_rows), '', `![四类份额](${FLEX_DIR}/shares-10MW.png)`, '', SHARE_LIMIT, '',
     `![原生窗口时序总览](${FLEX_DIR}/native-overview.png)`, '', NOTE5FIG, '',
+    `## ${H6}`, '', CITY.scope, '', mdTable(CITY.climate_rows), '', '### 10MW代表情境设施平均功率（MW）', '',
+    mdTable(CITY.facility_rows), '', CITY_NOTE, '', CITY.conclusion, '', CITY.comparison, '',
+    `![八城市PUE](${CITY_DIR}/city-pue-heatmap.png)`, '', CITY_PUE_NOTE, '',
+    `![三城市典型日](${CITY_DIR}/city-typical-day-comparison.png)`, '', CITY.composition, '', CITY.flexibility, '', CITY.limitations, '',
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
   const sourceUpdated = retainedSections.split('\n').map((line) => line.startsWith('- 第四章图与逐小时分任务汇总：') ? SOURCE4 : line.startsWith('- 第五章44情境、25组地点年份及原生时序：') ? SOURCE5 : line).join('\n');
   let tail = sourceUpdated.includes(SOURCE4) ? sourceUpdated
     : retainedSections.replace('## 重新生成', `${SOURCE4}\n\n## 重新生成`);
   if (!tail.includes(SOURCE5)) tail = tail.replace('## 重新生成', `${SOURCE5}\n\n## 重新生成`);
+  if (!tail.includes(SOURCE6)) tail = tail.replace('## 重新生成', `${SOURCE6}\n\n## 重新生成`);
   if (!tail.includes(SPIKE_SOURCE)) tail = tail.replace('## 重新生成', `${SPIKE_SOURCE}\n\n## 重新生成`);
   fs.writeFileSync(MD_OUT, md + '\n' + tail + '\n', 'utf8');
   console.log('wrote', MD_OUT);

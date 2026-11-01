@@ -236,3 +236,9 @@ dc-flexibility-project/results/flex-class-20261101/** -text whitespace=blank-at-
 dc-flexibility-project/results/flex-class-20261101/**/*.parquet binary
 dc-flexibility-project/results/flex-class-20261101/**/*.png binary
 dc-flexibility-project/results/flex-class-20261101/**/*.pdf binary
+
+dc-flexibility-project/analysis/*eight_city_native*.py text eol=lf
+dc-flexibility-project/analysis/*eight_city_native*.sh text eol=lf
+dc-flexibility-project/results/eight-city-native-flex-20261102/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/eight-city-native-flex-20261102/*.png binary
+dc-flexibility-project/results/eight-city-native-flex-20261102/*.pdf binary
