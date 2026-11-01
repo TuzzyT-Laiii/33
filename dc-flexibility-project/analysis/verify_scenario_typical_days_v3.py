@@ -1,5 +1,6 @@
 import argparse
 from datetime import datetime, timezone
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -189,7 +190,10 @@ def verify(args):
     for name in manifest['code_sha256']:
         manifest['code_sha256'][name] = sha256(args.project / 'analysis' / name)
     manifest['code_sha256'][Path(__file__).name] = sha256(Path(__file__))
-    manifest['document_files_sha256'] = {name: sha256(docs / name) for name in ('build.js', 'README.md', '数据中心任务时间柔性简表.docx')}
+    manifest['document_files_sha256'] = {name: hashlib.sha256((docs / name).read_text(encoding='utf-8').encode('utf-8')).hexdigest()
+        for name in ('build.js', 'README.md')}
+    manifest['document_files_sha256']['数据中心任务时间柔性简表.docx'] = sha256(docs / '数据中心任务时间柔性简表.docx')
+    manifest['document_hash_basis'] = 'build.js与README.md按UTF-8和LF换行计算，避免Git文本换行转换影响；Word按原始二进制字节计算'
     manifest['pdf_visual_QA'] = {'pages': 4, 'pdf_sha256': sha256(args.pdf),
         'visual_qa_confirmed': args.visual_qa_confirmed,
         'status': '四页已逐页目视确认，中文、图例与表格完整，图和表均未跨页' if args.visual_qa_confirmed else '仅完成自动检查，未记录人工逐页检查'}

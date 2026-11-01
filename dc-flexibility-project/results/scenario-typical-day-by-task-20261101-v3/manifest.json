@@ -99,11 +99,11 @@
     "build_scenario_typical_days_v3.py": "9083449d880bdde69287aa8a6ee5dfcdf5ddbea2c4a32471b78ad24f3437ad36",
     "plot_scenario_typical_days_v3.py": "a99f3fc58a7f87c62a16a7ee8f18ce34adb02377f11c9fa321c5c4fb4740c368",
     "load_curve_scenarios_v3.py": "3a686ccf04fb15734733500c6fdd14be367d3ce6c984917a873ead4cc3dbd8a4",
-    "verify_scenario_typical_days_v3.py": "b15d272673f0ff28f9d326a0fdd71b41444deb94bd31e34bfb3dd63e21a6af7a"
+    "verify_scenario_typical_days_v3.py": "f11722878cca18c3e3b8507dda193d1e94fabbdcd87565c06d0bb73843f6a871"
   },
   "document_files_sha256": {
-    "build.js": "bea3b31ead6880a7bc816d2ad568da04c955596fdc8bd3fd09298c68ab8ac0aa",
-    "README.md": "b0c5109e693b75c1e35175cd9ed2a892853cfa3af502a026cfc6c6657318f056",
+    "build.js": "c86ca23aa9fd5a54d9a0a1be53efb99701fe2b77732d7dcb17df6e58871a6b43",
+    "README.md": "624784a902cc20caa4c8c4ac905fc6543bc6b3d636ba649626f12b795226f772",
     "数据中心任务时间柔性简表.docx": "962fc4d9f82e7a1a56b9c83d43fb20d1ad7b23bc1051a32d113c74951bdcc7ce"
   },
   "pdf_visual_QA": {
@@ -171,5 +171,6 @@
     "summary.json": "71144935d92a7b2ce948e9177563761871efc08eea46f50abcc1b77a935fce03",
     "TRN-day-selection.csv": "3bd973d86ae6659f6f82fe65ec563ddc42bf6f29e046c1155cfeb3497acf4a2e",
     "validation.json": "535d2621b2ff3c61d193def9f45b73c818cbf66617c55fee4342cf2edacbf934"
-  }
+  },
+  "document_hash_basis": "build.js与README.md按UTF-8和LF换行计算，避免Git文本换行转换影响；Word按原始二进制字节计算"
 }
