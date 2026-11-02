@@ -1,0 +1,12 @@
+{
+  "source": "out-release",
+  "audit_sha256": "b32c85f6b4adc467922326f4e9a951dd3550c0c28b560a00b2c6f5b4a43ae10a",
+  "refined_case_count": 53,
+  "model_sha256": "7c5793595986aa2414aaaa4f65946d8d17a9803f834046e152f20b318872eab0",
+  "precision": {
+    "FeasTol": 1e-09,
+    "DualTol": 1e-09,
+    "Crossover": 1
+  },
+  "unchanged_case_count": 1243
+}

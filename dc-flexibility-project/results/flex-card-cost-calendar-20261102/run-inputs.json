@@ -1,0 +1,11 @@
+{
+  "code_and_parameters_sha256": {
+    "rerun_training_calendar.py": "2f619282b004f1b3f6c6d96dcf63e27a144c6816516931821603a4aafe432727",
+    "flex_econ_copt.py": "c29facbf4441c774cf140d74ced838fc5c753376d77254e504e2b8c5d1c81fbf",
+    "flex-econ-copt-20261102.json": "0aaf04b8397db4a1fb344b980f65ec904a261a974153c0e198ee4068fa693b43",
+    "eight-city-flex-value-20261029.json": "9170b244eeee2b483629a62521fb4d1c94e142ab3267eb09c61ba772c12a9c55"
+  },
+  "prior": "/data3/dataset/ljt/flex-econ-20261102/out",
+  "scope": "8 cities x B/C/D-TRN; native elapsed-hour deadlines; no execution variables in missing hours",
+  "utc": "2026-11-02T09:01:49.951501+00:00"
+}

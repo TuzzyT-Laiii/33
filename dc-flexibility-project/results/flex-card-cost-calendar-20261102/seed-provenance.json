@@ -1,0 +1,27 @@
+{
+  "source": "/data3/dataset/ljt/existing-compute-capacity-20261102/out-full",
+  "files": [
+    {
+      "file": "runs-cards.csv",
+      "reused_optimal_rows": 864,
+      "pending_nonoptimal_rows": [],
+      "source_sha256": "139da47b8a636ef439d789ca78748188e1015734358c8d508d71bdf8f910d2e2"
+    },
+    {
+      "file": "runs-fixed.csv",
+      "reused_optimal_rows": 204,
+      "pending_nonoptimal_rows": [
+        {
+          "city": "lulea",
+          "scenario": "D-TRN",
+          "alpha": 0.95,
+          "flex": "none",
+          "card_price": "noflex",
+          "status": "not_solved"
+        }
+      ],
+      "source_sha256": "aeac910d2e1b3e9ccdc96c63d552cddbfb74a3bac0b20a3b2ca1b4b489147c07"
+    }
+  ],
+  "constraint_equivalence_required": "source-hour-deadline-equivalence.json"
+}

@@ -1,0 +1,52 @@
+{
+  "utc": "2026-11-02T09:33:53.823007+00:00",
+  "scope": "11 scenarios, original windows; normalized allocation and aggregate-power scheduling kept distinct",
+  "source_sha256": {
+    "results/typical-load-curves-20261101-v4-seren/hourly/A-HPC-10MW-2025-dated.parquet": "413f03e77babb8faf311c6d904769d6ef32f605d373d1d05b5875e0aaf1bbb33",
+    "results/typical-load-curves-20261101-v4-seren/hourly/A-CLD-10MW-2025-m05.parquet": "4700e153d87f29f19af25f38c36bc603892ca853f5b02d0e8396ca357dfda4e4",
+    "results/typical-load-curves-20261101-v4-seren/hourly/B-SAI-10MW-2025-dated.parquet": "9a23bca0cf9d9719ea9b6fc8b75ad32a1bca2b57c72753a35d620eb6e79e2f42",
+    "results/typical-load-curves-20261101-v4-seren/hourly/C-SAI-10MW-2025-dated.parquet": "8c008931166e499e00673e95b3dfe0a4e5559b2832d804d77c091fbb1423ddf6",
+    "results/typical-load-curves-20261101-v4-seren/hourly/D-SAI-10MW-2025-dated.parquet": "c8bc3a515ec38f1fdc073ec88def93ae768fc83b783015a520f4e2db59efb06f",
+    "results/typical-load-curves-20261101-v4-seren/hourly/B-TRN-10MW-2025-dated.parquet": "9e5557d3cb9feb4f562ff6e2ed03f6feef48a3cbbcbaa7a5bdaaaa1d7dc1a104",
+    "results/typical-load-curves-20261101-v4-seren/hourly/C-TRN-10MW-2025-dated.parquet": "026a48907248dae83f6d9ed6d6e7778ac425160159e52b55ae5e377b63f6c96d",
+    "results/typical-load-curves-20261101-v4-seren/hourly/D-TRN-10MW-2025-dated.parquet": "748aa13891227b6ce77030610891a07d7dfc6682a881ab07e6671adcaa92d963",
+    "results/typical-load-curves-20261101-v4-seren/hourly/B-INF-10MW-2025-m02.parquet": "7d98027ff19978a5a9c39a49b435aeee13078b50d1b1c4c987506e11daf420ac",
+    "results/typical-load-curves-20261101-v4-seren/hourly/C-INF-10MW-2025-m02.parquet": "c3687b332f5f296d8f9fdee13359befc8e0a969c2b7b9e16d8aa2b9d6a148228",
+    "results/typical-load-curves-20261101-v4-seren/hourly/D-INF-10MW-2025-m02.parquet": "4d8fd4c14d71f6447536dfcd9b9738ce875b8d59acfe399806ebbcd3f623f281",
+    "results/flex-card-cost-calendar-20261102/runs-cards.csv": "b93bb9f2aea8e1b483d7b89f5a6263800020bbcab6c828626500aa5d32fd7f96",
+    "results/flex-card-cost-calendar-20261102/runs-fixed.csv": "c949fdcb34e004d9e03ccb441cce83dbe910ee678af895b44832c99060bfc5b4"
+  },
+  "paired_results": {
+    "runs-cards.csv": {
+      "total_rows": 3168,
+      "status_counts": {
+        "optimal": 3168
+      },
+      "valid_pairs": 528,
+      "pairs_with_positive_shift_and_no_addition": 528,
+      "max_additional_task_power_mw": 0.0,
+      "max_saved_residual": 5.81103449803777e-06
+    },
+    "runs-fixed.csv": {
+      "total_rows": 1584,
+      "status_counts": {
+        "optimal": 1568,
+        "not_solved": 16
+      },
+      "valid_pairs": 512,
+      "pairs_with_positive_shift_and_no_addition": 512,
+      "max_additional_task_power_mw": 1.0129857602837379e-10,
+      "max_saved_residual": 0.001059142543454
+    }
+  },
+  "hardware_resource_feasibility_verified": false,
+  "unverified_constraints": [
+    "individual GPU assignment",
+    "GPU memory and network topology",
+    "whole-job non-preemption",
+    "CPU/GPU joint resource schedule",
+    "actual service deadlines and pause/resume permissions",
+    "checkpoint overhead"
+  ],
+  "code_sha256": "f7ea1461571f1fbc05027a62f76691250770b605e41e9cc965d486e94642237b"
+}

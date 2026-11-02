@@ -1,0 +1,11 @@
+{
+  "server_run_root": "/data3/dataset/ljt/existing-compute-capacity-20261102",
+  "server_index_root": "/data3/dataset/ljt/existing-compute-capacity-20261102/out-validated",
+  "local_index_root": "D:/codex-runs/existing-compute-capacity-20261102/worktree/.codex-temp/calendar-rerun/out-validated",
+  "input_root": "/data3/dataset/ljt/flex-econ-20261102/out/inputs",
+  "utc_solved_source_archive": "/data3/dataset/ljt/existing-compute-capacity-20261102/source-versions/flex_econ_copt-utc.py",
+  "relative_path_basis": "Resolve input_path and hourly_path relative to server_index_root. Published index bytes are preserved unchanged.",
+  "immutable_hourly_directories": ["out-full/hourly", "out-release/hourly", "out-validated/hourly"],
+  "local_hourly_coverage": "53 precision-refined files and 12 Frankfurt D-TRN planning files used for the selected examples; full case coverage is on the server.",
+  "case_count": 1296
+}

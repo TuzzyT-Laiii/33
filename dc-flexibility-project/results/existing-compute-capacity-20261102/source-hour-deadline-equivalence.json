@@ -1,0 +1,3970 @@
+{
+  "passed": true,
+  "input_count": 88,
+  "array_comparisons": 528,
+  "utc_model_sha256": "b75533ade7e44831df84195398ca2c5de07248bcd0299c51b05b16c5184e862a",
+  "source_hour_model_sha256": "7c5793595986aa2414aaaa4f65946d8d17a9803f834046e152f20b318872eab0",
+  "scope": "仅证明任务时限约束数组一致；源小时轴区分天气年映射与真实经过时间",
+  "inputs": [
+    {
+      "input": "ashburn-A-CLD.parquet",
+      "input_sha256": "6e6db181c16360eec19f6329919cfe10e05401ae8a40d4d11c06f1c83f37da16",
+      "hours": 120,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-A-HPC.parquet",
+      "input_sha256": "2fd828939a86b8fab4acaefa11c1286521c32aff13604c114291b1814cf3f89a",
+      "hours": 7416,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-B-INF.parquet",
+      "input_sha256": "33f7240451f4400fb999ced8c52a229cdd0b8a8bf9f477360fb98c98d8c35b8e",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-B-SAI.parquet",
+      "input_sha256": "c0049710bf8c299313fc9fcc2f1e5fe82af3269b2284c92ca43dbcafdd8b77b2",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-B-TRN.parquet",
+      "input_sha256": "bac274eaeb7ba5b7f36f84f3d1d846f2eff3c5ce68d6313d22c6764f61292b92",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-C-INF.parquet",
+      "input_sha256": "55078e8b9e6ee7813242f82b541a14a06114bee0e54b2eb4e7f114e41a1e41f1",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-C-SAI.parquet",
+      "input_sha256": "2d47709f9e260899e214ee99072bd6a954bdd0fe800d89dc57840867d6848ebd",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-C-TRN.parquet",
+      "input_sha256": "d7911480d432f6cf1da6a4c8bbc0f8d406aaf40ac7dc0bb70b40341963bcf814",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-D-INF.parquet",
+      "input_sha256": "8b0362ca5acb7ac6486ba5b160284546f0c722e82156d6a634b60af56976e620",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-D-SAI.parquet",
+      "input_sha256": "bce69b3dcdf84309148f2edc99f3d35376b816eac59391d9e0696ecdec602065",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ashburn-D-TRN.parquet",
+      "input_sha256": "9482ea204d5c643b82b5b375e58f226d5cbf8a402da73fe268c26e278e68f8d0",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-A-CLD.parquet",
+      "input_sha256": "de0400c03275983e283c006a5e71dd0e56a220eaa86dbad3b86114dd99a19a7b",
+      "hours": 120,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-A-HPC.parquet",
+      "input_sha256": "fb846098047522613a23ef929947b3e65164d5ac629a22871032eb7908f51166",
+      "hours": 7416,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-B-INF.parquet",
+      "input_sha256": "065f1fe1329ee7ed87f9be35ce0bb7a9481400cb521cd5b71eb210f8242bfa63",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-B-SAI.parquet",
+      "input_sha256": "99e691a326f1a69550b584833c941ceea7ef8341d71ed5bef10c5485de0fd47b",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-B-TRN.parquet",
+      "input_sha256": "d0c358fadbac6cfde726eeb4861e5335aa9f7ed42a1d9af8ad3c18a48f789855",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-C-INF.parquet",
+      "input_sha256": "b68caa3ac5b68443f65bb7d08211e8198caa52f6c21af828a5972d7a722be7bb",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-C-SAI.parquet",
+      "input_sha256": "6c87ae23d7beb8bf501932138617b46471d54a5e55752d88a4c3515431977179",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-C-TRN.parquet",
+      "input_sha256": "f47d9e44aec6f5f8ebc0412e5fa6bf8ebcefb6735ae92c19431990ed040e6eef",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-D-INF.parquet",
+      "input_sha256": "d77a72b5704c7a082ea11e531d6795491e84ff1ae589fa4c86fca0b2276b9018",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-D-SAI.parquet",
+      "input_sha256": "74b8923e52d6ef939d3907941a898025617aace382e1a398bc4b9af1464b3c14",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "frankfurt-D-TRN.parquet",
+      "input_sha256": "dbc1c6c18c2e734b76515c60968eac74013ca90bb94ad5012033cb354bf6716b",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-A-CLD.parquet",
+      "input_sha256": "d6e6a717c0b156d70268f73a5f401995bf2aadaab0b9057f6ba1afa5f0111a61",
+      "hours": 120,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-A-HPC.parquet",
+      "input_sha256": "a1491fc12e630fcb3bf9c2d38dde6928c075fc1fcfee009d1fd4019231bab173",
+      "hours": 7416,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-B-INF.parquet",
+      "input_sha256": "07bf19df3e4cf6d2c4f58a993b92da490756a7115b5d1c0da74b7c9eebdc33d1",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-B-SAI.parquet",
+      "input_sha256": "7552e26ea0daa52ae861dd33c98b36edb099a70a3f85652d1e011bf316aba3a9",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-B-TRN.parquet",
+      "input_sha256": "ce1fe2ae29328b9b57bd93cd6ead915e78547c4469d438a392955beecec9ba0c",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-C-INF.parquet",
+      "input_sha256": "8d4b953ee128df13819ae06883938ae2c58981cf30bdc69b5f957e4e6990fb07",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-C-SAI.parquet",
+      "input_sha256": "2219da2e67e96f0242fe77fa07456ea430157b3d95f5ba58ec89f41e7bffb8c4",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-C-TRN.parquet",
+      "input_sha256": "877aab559d20100734f794697385ca07102d673bdef8b6c7f9129442cefdc209",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-D-INF.parquet",
+      "input_sha256": "255b94500681bc70be80a84ec7ed7b272f7c94e51e9410d4627b7c0dd078bb5b",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-D-SAI.parquet",
+      "input_sha256": "4682f1299d6d9ab9e919c803149f90f56b0fbfb5caaaaa28933ea143fd0ad594",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "guiyang-D-TRN.parquet",
+      "input_sha256": "2ce414120c22eebb7f2ec3382d8f8c7a4321332c2ea44b2fde738257e55a82db",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-A-CLD.parquet",
+      "input_sha256": "edda56e024dbf1a499cf9cd98592b173537a78f01b054b655e3cd9baa72dc2e2",
+      "hours": 120,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-A-HPC.parquet",
+      "input_sha256": "a97003bb2081d2756f3b8e96351651a0876f1813e0e1259418a209f6ac8c2eae",
+      "hours": 7416,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-B-INF.parquet",
+      "input_sha256": "4c47757890c99bae010666e7cb0064d67e510db22ecb5b6f1634f969417a9de1",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-B-SAI.parquet",
+      "input_sha256": "652eec839d38ca10ff48478f9bfd87e9bfa7642526eaca35eeef6f156a15adf2",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-B-TRN.parquet",
+      "input_sha256": "01f31f4dfbb5633401424582bd890ec191dd6a4f010337654b4924ab541f50ad",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-C-INF.parquet",
+      "input_sha256": "6df754976fcd07efb9bf13a2c4baea57296a81df16692e64ac8f3049140011b2",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-C-SAI.parquet",
+      "input_sha256": "cef66d8a09c836440ea6896b5478edd5e82a688a34ebbb308f35315f03f38653",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-C-TRN.parquet",
+      "input_sha256": "75f960a06f6d71cac626c9d78e09a3647c5fcc1e879511021f6b252160bbff20",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-D-INF.parquet",
+      "input_sha256": "be5659ba643a58f7fba63775c89ea1241ade8f35d4b4a928c9a2d0dbe75a259b",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-D-SAI.parquet",
+      "input_sha256": "59ea61733e6732e14ca2ad3b505df3580ce02c28bf8d02f167e0258c05af3afa",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "lulea-D-TRN.parquet",
+      "input_sha256": "afc9625ded7b6884111389ead095c0f1b6c20827125263c234903600811e3691",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-A-CLD.parquet",
+      "input_sha256": "da8a70c49644bc846f6c65d024add991525fb47fe622f3a546e2d8371805a6ea",
+      "hours": 120,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-A-HPC.parquet",
+      "input_sha256": "e20a26714af5f7e8d31e4ef390fff8ae038456b5dd319b7a3dead7c2f725a6ef",
+      "hours": 7416,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-B-INF.parquet",
+      "input_sha256": "ea0be5879f6313a67941573808111fa762170691490f6f32c0f1c1df1f531bcf",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-B-SAI.parquet",
+      "input_sha256": "52a0b2988ec7b0197b1449299697049b230e9bc973b3ff840ce9bdb66cbbdddf",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-B-TRN.parquet",
+      "input_sha256": "af4992e9b62939d6ac1e6ebbe1bfe260c295d01cd640d70b6314a9eefd97e46d",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-C-INF.parquet",
+      "input_sha256": "8f30c619cb4f056cb8fa08f45d3c7ccf67467eb13d5c98cc1c108b0c26fed9d3",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-C-SAI.parquet",
+      "input_sha256": "cb6bf2cd1ff9add6adbf745625b3246796b4e37cfa8285d0508634c39e492efe",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-C-TRN.parquet",
+      "input_sha256": "b1518c288f12def55e02873a6fd0a040d9922ea63b47898970d241a54aca6de4",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-D-INF.parquet",
+      "input_sha256": "e80157b9ea2e9441e4c29b5fb27344caae4154a196b6d0f033cdabb36b47ede7",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-D-SAI.parquet",
+      "input_sha256": "30bdf6b6a5e7f90643d80f2375257c2e02b62e9ded1fd6dd801aa952a36095db",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "phoenix-D-TRN.parquet",
+      "input_sha256": "22e07092109e95d39fd41b6be6ab2a1fa6d969533def74ddd43d15deb4b35c4c",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-A-CLD.parquet",
+      "input_sha256": "9248c1555ad489cd492230eba839ab13bbc5e74025e5d10dde0954b8a2c08314",
+      "hours": 120,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-A-HPC.parquet",
+      "input_sha256": "ab9542b942791f01d57b5c438365f607845aea972cadadd38f433f3e1a50efd5",
+      "hours": 7416,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-B-INF.parquet",
+      "input_sha256": "1638312c993c1fee77ec78ce80a4c0c1232ad95ad93b7cefc3e89f9059171587",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-B-SAI.parquet",
+      "input_sha256": "f30a526a737ecbc07ea4184baa9e406244e21146a7920eb7de45a0f2ac797c6e",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-B-TRN.parquet",
+      "input_sha256": "c355d17a3fcbc6ddef9ff4269ce4cba8ad3fec7dec37df8d8d8af79d44c91ec9",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-C-INF.parquet",
+      "input_sha256": "334803d1b22147587355f20636fd5d0caf21e3dc6f5f0ddf19aad7780a159abc",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-C-SAI.parquet",
+      "input_sha256": "17b918096e140ac9e4144a5c2ccd5c09fda6e93b3fcb0acd5604973236b71660",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-C-TRN.parquet",
+      "input_sha256": "c9a60d23cdc18c517041ccbb147a956185813420233e4cd5280c98a5436c420e",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-D-INF.parquet",
+      "input_sha256": "3fb7c529fa299642c19956f0934989f952bcd55ee008b56acd15b8f16e713044",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-D-SAI.parquet",
+      "input_sha256": "26acdfd9b813fc74ca73e82a931568fa6a10f44bc41ea0391facd5e63ae47de1",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "riyadh-D-TRN.parquet",
+      "input_sha256": "3e81ebe7ccc0070a67884625bc166ec297163f650e9400525fc5361e5761fd56",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-A-CLD.parquet",
+      "input_sha256": "cdb8db7013954239a60012aa5561b2893c2d1bb25ef0166fda641f44cb778d9a",
+      "hours": 120,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-A-HPC.parquet",
+      "input_sha256": "c77066b066497be3bd427d1ea3410bb6ba5e9bad2bdb9e0030c4691ca554b556",
+      "hours": 7416,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-B-INF.parquet",
+      "input_sha256": "f1fc221acbde6bbee3613f7653c69b982e401c097f5de0b993ab4a2aeacb12cc",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-B-SAI.parquet",
+      "input_sha256": "c17befedfdcbb7009aa495d1615c168514c75f5eaf1947cd5acbdc109217645e",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-B-TRN.parquet",
+      "input_sha256": "4b306261cd1629c44beb16b70984d1f4768382d1632c750803513795e61b5ec1",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-C-INF.parquet",
+      "input_sha256": "a01d2e6469d6a34972cc17b3dabee387208ff46224ed5cf5cd64dd03c145dc02",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-C-SAI.parquet",
+      "input_sha256": "79ff8beffe5122b4d3ba26e0b51c48a59e602a78c45326b808ce17ac84901e85",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-C-TRN.parquet",
+      "input_sha256": "6d0fb55b82897e8579daa45b442d2f9343338c163fd156a0aa0b11907ec99674",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-D-INF.parquet",
+      "input_sha256": "bd3a8a5d11210e2adb1e29c9a7c4c0a20048c20606206521c3b2e78c00ad6f16",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-D-SAI.parquet",
+      "input_sha256": "34e00feb431e6750d5bae7f9ad1532f24faaf7a72954e5e47a54b92aea0d0c22",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "singapore-D-TRN.parquet",
+      "input_sha256": "29f9b76873196708fd390767262eba3e098de8b1f151fa8122fda2b8cac8e851",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-A-CLD.parquet",
+      "input_sha256": "6fa249fdc7484af861ca57b83bbf5358e62df2dce919d3f2d8699ed26d924bbb",
+      "hours": 120,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-A-HPC.parquet",
+      "input_sha256": "78da144f0887cbf176926958fff1ffb9600ff79e48b8f783d326a5717a779bda",
+      "hours": 7416,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-B-INF.parquet",
+      "input_sha256": "a5dbe1ad901ccc8f31161f1d229912b352e7522dbdd0f1d7098c9b9144a8e8d0",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-B-SAI.parquet",
+      "input_sha256": "f66b1c15ed3734418cd8f210170bbe0ad6a265c46b29262d8901f6ef8b4e2ce1",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-B-TRN.parquet",
+      "input_sha256": "3f5bd7d2b8c5e09aac3a816288af0415b9e4c4ae9f65620dc9ca9aa946c630aa",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-C-INF.parquet",
+      "input_sha256": "d5de01475284d29ce3c2b52c986e49d224f3d14c5d2bfb31d2bb8e4f0638d516",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-C-SAI.parquet",
+      "input_sha256": "a82a019d95b89f1c82e00325a566d5e495a0f1af85c83023e8144caeae7774c0",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-C-TRN.parquet",
+      "input_sha256": "ae0cb0bacec156fd3c79e4859039f0448443a6e1e6a7f459c49b9c913cc4d2fb",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-D-INF.parquet",
+      "input_sha256": "289b6c4a418c5ef084eb57e667e9fb283b293952e163598b1f97ca2d1b7efc92",
+      "hours": 4440,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-D-SAI.parquet",
+      "input_sha256": "b32e1ad25d72e0c79ac61e2d9da3fae8f1a0acfefdcbce1287d48179ac591da6",
+      "hours": 5688,
+      "reference": "original_contiguous_hour_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "input": "ulanqab-D-TRN.parquet",
+      "input_sha256": "a30033f9b87fe97d13630c1712aa5af4b1fc093720c7406ce88a5f073a50b8db",
+      "hours": 2057,
+      "reference": "verified_real_utc_deadline_model",
+      "checks": [
+        {
+          "category": "whole",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "whole",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 0,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 12,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        },
+        {
+          "category": "split",
+          "deadline_hours": 48,
+          "exact_array_equality": true,
+          "maximum_absolute_difference_mwh": 0.0
+        }
+      ],
+      "passed": true
+    }
+  ]
+}
