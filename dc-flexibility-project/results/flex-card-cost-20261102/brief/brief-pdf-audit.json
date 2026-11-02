@@ -1,0 +1,56 @@
+﻿{
+    "pages":  10,
+    "tables":  [
+                   {
+                       "end_page":  1,
+                       "start_page":  1,
+                       "rows":  5,
+                       "index":  1
+                   },
+                   {
+                       "end_page":  2,
+                       "start_page":  2,
+                       "rows":  6,
+                       "index":  2
+                   },
+                   {
+                       "end_page":  2,
+                       "start_page":  2,
+                       "rows":  9,
+                       "index":  3
+                   },
+                   {
+                       "end_page":  4,
+                       "start_page":  4,
+                       "rows":  12,
+                       "index":  4
+                   },
+                   {
+                       "end_page":  5,
+                       "start_page":  5,
+                       "rows":  12,
+                       "index":  5
+                   },
+                   {
+                       "end_page":  7,
+                       "start_page":  7,
+                       "rows":  9,
+                       "index":  6
+                   },
+                   {
+                       "end_page":  7,
+                       "start_page":  7,
+                       "rows":  9,
+                       "index":  7
+                   },
+                   {
+                       "end_page":  9,
+                       "start_page":  9,
+                       "rows":  6,
+                       "index":  8
+                   }
+               ],
+    "docx_sha256":  "72B2893BE06D0D89EC305CF2A38F4F204B4192283808DC51899E7EEB3EBEAD72",
+    "pdf_sha256":  "19F994ABD2F94B3D4B92427C48C55DE8D603449C42B0E5553E16B6E575F7609E",
+    "exporter":  "Microsoft Word native PDF export"
+}
