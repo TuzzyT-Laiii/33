@@ -1,0 +1,66 @@
+{
+  "utc": "2026-11-01T17:24:24.478394+00:00",
+  "status": "passed",
+  "weather_files_verified": 8,
+  "weather_hours_per_city": 26304,
+  "reused_hourly_files_verified": 1320,
+  "reused_hour_rows_verified": 3799368,
+  "city_scenarios": 88,
+  "city_year_scenarios": 264,
+  "six_layer_composition_records": 528,
+  "cooling_recomputations_verified": 24,
+  "Word_pages": 8,
+  "new_chapter_pages": [
+    7,
+    8
+  ],
+  "chapters_2_and_3_same_page": true,
+  "Word_tables": [
+    {
+      "end_page": 1,
+      "start_page": 1,
+      "rows": 5,
+      "index": 1
+    },
+    {
+      "end_page": 2,
+      "start_page": 2,
+      "rows": 6,
+      "index": 2
+    },
+    {
+      "end_page": 2,
+      "start_page": 2,
+      "rows": 9,
+      "index": 3
+    },
+    {
+      "end_page": 4,
+      "start_page": 4,
+      "rows": 12,
+      "index": 4
+    },
+    {
+      "end_page": 5,
+      "start_page": 5,
+      "rows": 12,
+      "index": 5
+    },
+    {
+      "end_page": 7,
+      "start_page": 7,
+      "rows": 9,
+      "index": 6
+    },
+    {
+      "end_page": 7,
+      "start_page": 7,
+      "rows": 9,
+      "index": 7
+    }
+  ],
+  "previous_result_files_unchanged": true,
+  "visual_QA": "八页和两张新图逐一检查；中文、图表、表格与分页正常",
+  "docx_sha256": "69a2262f375d37fb644ef5da70069dd2db698426f6564be0733c2edc3ed27d8c",
+  "pdf_sha256": "c1b388cf6e6669ec4b88724e4e7614866ab2ed5b246605a8166c84eef814a90d"
+}
