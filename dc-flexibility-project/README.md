@@ -6,7 +6,7 @@
 
 [既有算力容量与任务时间柔性](results/existing-compute-capacity-20261102/README.md)核对全部 11 个 CPU/GPU 情境的资源分母、峰值余量及零新增容量的实际移位结果。[按原生经过时间约束的柔性成本结果](results/flex-card-cost-calendar-20261102/README.md)保留来源缺口，提供训练调度的独立期限、服务量与供需验收，以及规划和已建成能源资产两种边界。
 
-[八城市原生窗口负荷与四类任务构成](results/eight-city-native-flex-20261102/README.md)核验并复用冻结2023–2025气象及1320个10MW城市窗口，提供全部8×11情境的设施平均功率、窗口PUE和六层构成。精简版Word新增两页城市章节，比较冷却随气候的变化；第二、三章接排，全文八页。
+[八城市原生窗口负荷与四类任务构成](results/eight-city-native-flex-20261102/README.md)核验并复用冻结2023–2025气象及1320个10MW城市窗口，提供全部8×11情境的设施平均功率、窗口PUE和六层构成。精简版Word的两页城市章节比较冷却随气候的变化；第七章分别报告规划阶段与已建成系统的收益、等效年化金额和新增算力，全文11页。
 
 [按推迟与拆分能力统一的任务时间柔性分类](results/flex-class-20261101/README.md)采用刚性、可推迟·整体、可推迟·可拆分及未知四类，未知保守按刚性处理。11个10MW情境的原生与典型日图共用六层配色，原生IT电量与平均功率份额分别可核查；[精简版Word及说明](docs/job-flexibility-brief/README.md)给出代表名称表、份额表与堆叠条形图。功率与日期沿用[Seren组合结果](results/typical-load-curves-20261101-v4-seren/README.md)，本次不推断可调电量。
 
