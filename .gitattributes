@@ -256,3 +256,15 @@ dc-flexibility-project/analysis/verify_source_hour_deadline_equivalence.py text 
 dc-flexibility-project/analysis/verify_training_calendar_results.py text eol=lf
 dc-flexibility-project/results/existing-compute-capacity-20261102/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/flex-card-cost-calendar-20261102/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# 全球试算的代码采用LF，数值、审计和图件保留生成字节。
+dc-flexibility-project/analysis/*global_flex*.py text eol=lf
+dc-flexibility-project/analysis/audit_global_country_factor.py text eol=lf
+dc-flexibility-project/analysis/launch_global_flex*.sh text eol=lf
+dc-flexibility-project/analysis/global-flex-econ-20261103.json text eol=lf
+dc-flexibility-project/results/global-flex-econ-20261103/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/global-flex-econ-20261103/**/*.png binary
+dc-flexibility-project/results/global-flex-econ-20261103/**/*.pdf binary
+dc-flexibility-project/results/global-flex-econ-20261103/*.parquet binary
+# HTTP响应头以空行结束，保留下载时的原始字节。
+dc-flexibility-project/results/global-flex-econ-20261103/provenance/ember-complete-headers.txt -text whitespace=blank-at-eol,space-before-tab,-blank-at-eof,cr-at-eol

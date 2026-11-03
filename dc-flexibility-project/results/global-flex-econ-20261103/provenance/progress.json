@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-03T22:05:20.690056+00:00",
+  "pid": 548614,
+  "state": "complete",
+  "scope": "all",
+  "workers": 81,
+  "requested_workers": 96,
+  "startup_available_memory_gb": 64.79817962646484,
+  "memory_reserve_gb": 16.0,
+  "worker_memory_budget_gb": 0.6,
+  "completed": 1293600,
+  "total": 1293600,
+  "planned_lps": 970200,
+  "performed_lps": 958716,
+  "reused_baselines": 319572,
+  "status_counts": {
+    "optimal": 1278288,
+    "input_no_land_points": 15312
+  },
+  "failed": 15312,
+  "lp_status_counts": {
+    "optimal": 958716
+  },
+  "failed_lps": 0,
+  "actual_lp_optimal_rate": 1.0,
+  "input_unavailable_rows": 15312,
+  "optimal_rate": 0.9881632653061224,
+  "session_elapsed_seconds": 7566.343768462,
+  "total_solve_seconds": 1438990.9249659686,
+  "mean_lp_seconds": 1.5009564093704169,
+  "worker_peak_rss_mb": 524.46875,
+  "available_memory_gb": 63.671775817871094,
+  "estimated_remaining_seconds": 0.0
+}

@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "mean_definition": "各城市情境MAE按原生小时数加权，即合并所有小时的MAE",
+  "values": [
+    {
+      "coordinate_kind": "baseline_weather_point",
+      "variable": "cf_pv",
+      "city_scenario_cases": 88,
+      "hourly_observations": 352728,
+      "maximum_absolute_difference": 3.8054111750618353e-08,
+      "mean_absolute_difference_hour_weighted": 3.261135912857574e-09,
+      "mean_case_mae": 3.3196770327707085e-09,
+      "maximum_case_mae": 4.310144079752026e-09
+    },
+    {
+      "coordinate_kind": "baseline_weather_point",
+      "variable": "cf_wind",
+      "city_scenario_cases": 88,
+      "hourly_observations": 352728,
+      "maximum_absolute_difference": 2.9657754663237057e-07,
+      "mean_absolute_difference_hour_weighted": 1.7191850100219702e-08,
+      "mean_case_mae": 1.6798130292920994e-08,
+      "maximum_case_mae": 3.4552601994314553e-08
+    },
+    {
+      "coordinate_kind": "baseline_weather_point",
+      "variable": "facility_mw",
+      "city_scenario_cases": 88,
+      "hourly_observations": 352728,
+      "maximum_absolute_difference": 7.105427357601002e-15,
+      "mean_absolute_difference_hour_weighted": 1.6115369026787783e-18,
+      "mean_case_mae": 1.1620185412285771e-18,
+      "maximum_case_mae": 5.2696669992995575e-18
+    },
+    {
+      "coordinate_kind": "baseline_weather_point",
+      "variable": "pue",
+      "city_scenario_cases": 88,
+      "hourly_observations": 352728,
+      "maximum_absolute_difference": 1.1102230246251563e-15,
+      "mean_absolute_difference_hour_weighted": 3.0971724848357773e-19,
+      "mean_case_mae": 2.3181242527518186e-19,
+      "maximum_case_mae": 9.00180830777154e-19
+    },
+    {
+      "coordinate_kind": "geographic_nearest",
+      "variable": "cf_pv",
+      "city_scenario_cases": 88,
+      "hourly_observations": 352728,
+      "maximum_absolute_difference": 0.1905326292234367,
+      "mean_absolute_difference_hour_weighted": 0.001469462391249797,
+      "mean_case_mae": 0.001457374695616282,
+      "maximum_case_mae": 0.013951013208769
+    },
+    {
+      "coordinate_kind": "geographic_nearest",
+      "variable": "cf_wind",
+      "city_scenario_cases": 88,
+      "hourly_observations": 352728,
+      "maximum_absolute_difference": 0.7481327339773189,
+      "mean_absolute_difference_hour_weighted": 0.004841924591197352,
+      "mean_case_mae": 0.004496702049471437,
+      "maximum_case_mae": 0.0428503149617915
+    },
+    {
+      "coordinate_kind": "geographic_nearest",
+      "variable": "facility_mw",
+      "city_scenario_cases": 88,
+      "hourly_observations": 352728,
+      "maximum_absolute_difference": 0.1816677859885107,
+      "mean_absolute_difference_hour_weighted": 0.0030520020858725355,
+      "mean_case_mae": 0.0030069243699585076,
+      "maximum_case_mae": 0.0338511345280174
+    },
+    {
+      "coordinate_kind": "geographic_nearest",
+      "variable": "pue",
+      "city_scenario_cases": 88,
+      "hourly_observations": 352728,
+      "maximum_absolute_difference": 0.0216187631933528,
+      "mean_absolute_difference_hour_weighted": 0.0005881520352807849,
+      "mean_case_mae": 0.00058363498726109,
+      "maximum_case_mae": 0.0048002560707953
+    }
+  ],
+  "source_sha256": "b5bfba1a5ae9cd992e23a0449b60af0f888e16c1c60ea90c27d80ba84c2e0166",
+  "utc": "2026-11-03T19:37:07.769452+00:00",
+  "auditor_sha256": "a1e8c601b705348cd08a72f1afe6878691576f55e4dd77a0a082d04e3d59d573"
+}

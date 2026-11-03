@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-03T21:16:38.268964+00:00",
+  "passed": true,
+  "comparisons": [
+    {
+      "file": "global_flex_inputs.py",
+      "changed_functions": [
+        "city_validation",
+        "select"
+      ],
+      "all_other_functions_and_module_settings_identical": true,
+      "executed_sha256": "7edb2e6648da71cb8712fa53093b3fbc46910115004fd5feeb17a47c890bcebf",
+      "delivery_sha256": "32af94321ff61f9df669255a1be42d01a2b3648e5fa348c946a44bc50fcf3207"
+    },
+    {
+      "file": "global_flex_econ_run.py",
+      "changed_functions": [
+        "main",
+        "run"
+      ],
+      "all_other_functions_and_module_settings_identical": true,
+      "executed_sha256": "3fcf5677fc7193e0ff1e2612a5ecc9c37cf4d4bd3a9e1d9a11fb2cee532b04d2",
+      "delivery_sha256": "7bc9b4239f03c8ffe2371f8901a17370939926d17374afce0865a7e2ee06c585"
+    }
+  ],
+  "unchanged_core_and_config": [
+    "flex_econ_copt.py",
+    "eight_city_physics.py",
+    "global-flex-econ-20261103.json"
+  ],
+  "source_version": {
+    "source_version": "cab883cdea2152a3",
+    "scientific_fingerprint": "436bb10a57d00c356b339b8f3aed5861aa1dea2fd728bdf9f5777ae2f9ce9237"
+  }
+}

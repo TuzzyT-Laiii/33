@@ -1,0 +1,13 @@
+{
+  "fallback_entities": 33,
+  "existing_national_factor_name_matches": [
+    {
+      "iso3": "-99",
+      "country": "Kosovo",
+      "Area": "Kosovo",
+      "ISO 3 code": "XKX",
+      "Emissions intensity (gCO2e/kWh)": 924.9,
+      "Generation (TWh)": 6.751
+    }
+  ]
+}

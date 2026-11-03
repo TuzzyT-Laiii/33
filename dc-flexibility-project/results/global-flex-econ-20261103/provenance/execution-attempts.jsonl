@@ -1,0 +1,6 @@
+{"event": "start", "utc": "2026-11-03T14:13:11.779146+00:00", "pid": 3581925, "workers": 32, "completed_before": 0, "total": 1293600, "source_version": "7726956c13e6d53e"}
+{"event": "start", "utc": "2026-11-03T14:20:39.058182+00:00", "pid": 3611106, "workers": 48, "completed_before": 16488, "total": 1293600, "source_version": "7726956c13e6d53e"}
+{"event": "start", "utc": "2026-11-03T15:06:45.386298+00:00", "pid": 3759906, "workers": 32, "completed_before": 135131, "total": 1293600, "source_version": "7726956c13e6d53e"}
+{"event": "start", "utc": "2026-11-03T17:33:03.734979+00:00", "pid": 115903, "workers": 64, "requested_workers": 64, "startup_available_memory_gb": 54.537349700927734, "memory_reserve_gb": 16.0, "worker_memory_budget_gb": 0.6, "completed_before": 391940, "total": 1293600, "source_version": "cab883cdea2152a3"}
+{"event": "start", "utc": "2026-11-03T19:59:14.382253+00:00", "pid": 548614, "workers": 81, "requested_workers": 96, "startup_available_memory_gb": 64.79817962646484, "memory_reserve_gb": 16.0, "worker_memory_budget_gb": 0.6, "completed_before": 820297, "total": 1293600, "source_version": "cab883cdea2152a3"}
+{"event": "complete", "utc": "2026-11-03T22:05:20.691915+00:00", "pid": 548614, "workers": 81, "completed": 1293600, "session_elapsed_seconds": 7566.345663947999}

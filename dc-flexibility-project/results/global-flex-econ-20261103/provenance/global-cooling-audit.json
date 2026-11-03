@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "high_temperature_grids": [
+    "g05_r113_c449",
+    "g05_r117_c453",
+    "g05_r117_c457"
+  ],
+  "minimum_temperature_grids": [
+    "g05_r053_c645",
+    "g05_r050_c633"
+  ],
+  "real_grid_scenarios": 55,
+  "high_clipped_grid_scenarios": 30,
+  "low_clipped_grid_scenarios": 14,
+  "clipped_observation_hours_sum": 4306,
+  "original_weather_unchanged": true,
+  "utc": "2026-11-03T16:05:30.549037+00:00",
+  "auditor_sha256": "231d0751c04259afcfe094a9f45ed7778a4fff5103423495f564fa7e583d79ea"
+}

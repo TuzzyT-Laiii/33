@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-03T13:00:15.632683+00:00",
+  "passed": true,
+  "parallel_cf_grids": 20,
+  "wind10_values_compared": 3136080,
+  "clipped_real_grid_scenarios": 22,
+  "original_weather_preserved": true
+}

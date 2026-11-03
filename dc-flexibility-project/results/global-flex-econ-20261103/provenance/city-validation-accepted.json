@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "utc": "2026-11-03T12:02:00+00:00",
+  "cases": 88,
+  "same_point_maximum_absolute_difference": {"cf_pv": 3.805411175061835e-8, "cf_wind": 2.9657754663237057e-7, "pue": 1.1102230246251565e-15, "facility_mw": 7.105427357601002e-15},
+  "acceptance_tolerances": {"cf_pv": 1e-6, "cf_wind": 1e-6, "pue": 1e-8, "facility_mw": 1e-8},
+  "source": "同一冻结ECMWF原生点，从完整eligible parquet及其冻结原始空间块构建本运行zarr；原land zarr的2025为空，未使用其空值。",
+  "geographic_nearest_exception": {"city": "singapore", "baseline_point": [1.5, 104.0], "geographic_nearest_point": [1.25, 104.0], "reported_separately": true, "note": "沿用八城市既有陆地主导天气点；最近点为独立空间敏感性，不能要求与不同坐标的旧输入逐值相等。"},
+  "evidence": ["city-hourly-differences.csv", "city-weather-differences.csv", "city-validation-summary.json"],
+  "note": "允许进入小规模LP试算；全量LP仍须小规模验证通过，并处理已提出的国家归属及温度范围问题。"
+}

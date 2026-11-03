@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-03T13:00:07.433834+00:00",
+  "passed": true,
+  "grids": 20,
+  "maximum_differences": {
+    "cf_pv": 0.0,
+    "cf_wind": 0.0,
+    "temperature_c": 0.0,
+    "dew_point_c": 0.0,
+    "pressure_pa": 0.0,
+    "land_points": 0.0,
+    "native_flat_index": 0.0
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "utc": "2026-11-03T13:06:02.992144+00:00",
+  "passed": true,
+  "source": "pilot-confirmed",
+  "grids": 20,
+  "scenarios": 11,
+  "alpha_levels": 6,
+  "summary_rows": 5280,
+  "performed_lps": 3960,
+  "optimal_lps": 3960,
+  "actual_lp_optimal_rate": 1.0,
+  "reused_baselines": 1320,
+  "fixed_asset_errors": 0,
+  "missing_dispatch_audits": 0,
+  "mean_lp_seconds": 1.2838424227086276,
+  "worker_peak_rss_mb": 562.87109375,
+  "measured_workers": 48,
+  "controller_elapsed_seconds": 135.0383514839923,
+  "eight_city_dtrn_economic": [
+    {
+      "city": "ashburn",
+      "boundary": "planning",
+      "city_savings_pct": 9.830248840443122,
+      "savings_pct": 9.909855862702084
+    },
+    {
+      "city": "frankfurt",
+      "boundary": "planning",
+      "city_savings_pct": 11.202885430679068,
+      "savings_pct": 11.456035270111732
+    },
+    {
+      "city": "guiyang",
+      "boundary": "planning",
+      "city_savings_pct": 8.432875649472182,
+      "savings_pct": 7.74017557617306
+    },
+    {
+      "city": "lulea",
+      "boundary": "planning",
+      "city_savings_pct": 15.671952998858446,
+      "savings_pct": 17.96536929026868
+    },
+    {
+      "city": "phoenix",
+      "boundary": "planning",
+      "city_savings_pct": 12.31250163245268,
+      "savings_pct": 16.71143418979033
+    },
+    {
+      "city": "riyadh",
+      "boundary": "planning",
+      "city_savings_pct": 22.036906813239643,
+      "savings_pct": 22.595722349999583
+    },
+    {
+      "city": "singapore",
+      "boundary": "planning",
+      "city_savings_pct": 8.427847319389137,
+      "savings_pct": 8.838315608747836
+    },
+    {
+      "city": "ulanqab",
+      "boundary": "planning",
+      "city_savings_pct": 11.701859442926075,
+      "savings_pct": 14.015912850577129
+    },
+    {
+      "city": "ashburn",
+      "boundary": "fixed",
+      "city_savings_pct": 5.34418826815513,
+      "savings_pct": 5.46804454187537
+    },
+    {
+      "city": "frankfurt",
+      "boundary": "fixed",
+      "city_savings_pct": 5.479663812372528,
+      "savings_pct": 6.422901315561446
+    },
+    {
+      "city": "guiyang",
+      "boundary": "fixed",
+      "city_savings_pct": 4.437757091929688,
+      "savings_pct": 3.9257496988817966
+    },
+    {
+      "city": "lulea",
+      "boundary": "fixed",
+      "city_savings_pct": 6.480899221314143,
+      "savings_pct": 8.613047659450142
+    },
+    {
+      "city": "phoenix",
+      "boundary": "fixed",
+      "city_savings_pct": 6.553947229612424,
+      "savings_pct": 8.329964976250325
+    },
+    {
+      "city": "riyadh",
+      "boundary": "fixed",
+      "city_savings_pct": 13.0860805632933,
+      "savings_pct": 13.95893076981437
+    },
+    {
+      "city": "singapore",
+      "boundary": "fixed",
+      "city_savings_pct": 4.325526420112805,
+      "savings_pct": 5.274178636933553
+    },
+    {
+      "city": "ulanqab",
+      "boundary": "fixed",
+      "city_savings_pct": 5.841658901479915,
+      "savings_pct": 7.188565292006641
+    }
+  ],
+  "cooling_clipped_grid_scenarios": 14,
+  "cooling_clipped_observed_hours_sum": 3052,
+  "evidence_sha256": {
+    "runs-full.parquet": "620945ce556121b59a101a58db3e929b92d1be0358e42392fb713c33d6b388db",
+    "grid-summary.parquet": "d515a80801aa2c23c13eaab12708a1258bcd5f52e8113284c98befe8cc63007f",
+    "eight-city-grid-comparison.csv": "5d75066a826a9136163f8c2e096c97f8defc5181998938890bd15e4223fff1f3",
+    "cooling-input-clipping.csv.gz": "0e122cc113e953ca0bb80f87eba983056b21a87d7ae42f3c7011d1ce4bcd9b7f",
+    "confirmed-input-tests.json": "cafb85f73d2f50760239a67c462f35284d43a987066456df41bdfe255bb10420"
+  }
+}

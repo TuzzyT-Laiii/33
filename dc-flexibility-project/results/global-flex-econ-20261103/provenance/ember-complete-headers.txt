@@ -1,0 +1,24 @@
+HTTP/1.1 200 Connection established
+
+HTTP/1.1 200 OK
+content-type: text/csv;charset=utf-8
+x-guploader-uploadid: AFy3sg1vozNitit2ZIBOU0S7gjphZBiOCrpEP0KUFtVP-KlcWPaqyYn9ozjXEvON7X1QGzM6
+date: Tue, 03 Nov 2026 11:38:28 GMT
+last-modified: Fri, 30 Oct 2026 15:45:34 GMT
+etag: W/"37784152fea89c80ecc80cfdcd72f959"
+vary: Accept-Encoding,Origin
+x-goog-generation: 1793375134126944
+x-goog-metageneration: 2
+x-goog-stored-content-encoding: gzip
+x-goog-stored-content-length: 1925317
+x-goog-hash: crc32c=kMVDqA==
+x-goog-hash: md5=N3hBUv6onIDsyAz9zXL5WQ==
+x-goog-storage-class: STANDARD
+x-guploader-response-body-transformations: gunzipped
+warning: 214 UploadServer gunzipped
+server: UploadServer
+via: 1.1 google
+Cache-Control: public,max-age=3600
+Alt-Svc: h3=":443"; ma=2592000
+Transfer-Encoding: chunked
+

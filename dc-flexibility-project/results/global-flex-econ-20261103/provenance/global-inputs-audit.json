@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "selected_grids": 4900,
+  "ready_grids": 4842,
+  "no_land_grids": 58,
+  "grids_below_minus40": 614,
+  "grids_above50": 3,
+  "raw_min_temperature_c": -55.65306023491752,
+  "raw_max_temperature_c": 51.36573350694448,
+  "national_factor_grids_without_separate_un_m49_entry": 4,
+  "expected_actual_lps": 958716,
+  "requested_summary_rows": 1293600,
+  "input_index_sha256": "7c25972dfa2c12d6c8ed9fb1db5d9589f5de36b91cb4effea4997b0b8045e538",
+  "utc": "2026-11-03T14:11:57.479415+00:00",
+  "auditor_sha256": "4fed0e4d33b1ac0d6caf5b1c14845e464cd72e20436312fdd87119662e666371"
+}

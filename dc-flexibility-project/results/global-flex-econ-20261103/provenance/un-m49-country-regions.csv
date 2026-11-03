@@ -1,0 +1,249 @@
+iso3,m49_region,m49_region_code,m49_continent
+DZA,Northern Africa,15,Africa
+EGY,Northern Africa,15,Africa
+LBY,Northern Africa,15,Africa
+MAR,Northern Africa,15,Africa
+SDN,Northern Africa,15,Africa
+TUN,Northern Africa,15,Africa
+ESH,Northern Africa,15,Africa
+IOT,Eastern Africa,14,Africa
+BDI,Eastern Africa,14,Africa
+COM,Eastern Africa,14,Africa
+DJI,Eastern Africa,14,Africa
+ERI,Eastern Africa,14,Africa
+ETH,Eastern Africa,14,Africa
+ATF,Eastern Africa,14,Africa
+KEN,Eastern Africa,14,Africa
+MDG,Eastern Africa,14,Africa
+MWI,Eastern Africa,14,Africa
+MUS,Eastern Africa,14,Africa
+MYT,Eastern Africa,14,Africa
+MOZ,Eastern Africa,14,Africa
+REU,Eastern Africa,14,Africa
+RWA,Eastern Africa,14,Africa
+SYC,Eastern Africa,14,Africa
+SOM,Eastern Africa,14,Africa
+SSD,Eastern Africa,14,Africa
+UGA,Eastern Africa,14,Africa
+TZA,Eastern Africa,14,Africa
+ZMB,Eastern Africa,14,Africa
+ZWE,Eastern Africa,14,Africa
+AGO,Middle Africa,17,Africa
+CMR,Middle Africa,17,Africa
+CAF,Middle Africa,17,Africa
+TCD,Middle Africa,17,Africa
+COG,Middle Africa,17,Africa
+COD,Middle Africa,17,Africa
+GNQ,Middle Africa,17,Africa
+GAB,Middle Africa,17,Africa
+STP,Middle Africa,17,Africa
+BWA,Southern Africa,18,Africa
+SWZ,Southern Africa,18,Africa
+LSO,Southern Africa,18,Africa
+NAM,Southern Africa,18,Africa
+ZAF,Southern Africa,18,Africa
+BEN,Western Africa,11,Africa
+BFA,Western Africa,11,Africa
+CPV,Western Africa,11,Africa
+CIV,Western Africa,11,Africa
+GMB,Western Africa,11,Africa
+GHA,Western Africa,11,Africa
+GIN,Western Africa,11,Africa
+GNB,Western Africa,11,Africa
+LBR,Western Africa,11,Africa
+MLI,Western Africa,11,Africa
+MRT,Western Africa,11,Africa
+NER,Western Africa,11,Africa
+NGA,Western Africa,11,Africa
+SHN,Western Africa,11,Africa
+SEN,Western Africa,11,Africa
+SLE,Western Africa,11,Africa
+TGO,Western Africa,11,Africa
+AIA,Caribbean,29,Americas
+ATG,Caribbean,29,Americas
+ABW,Caribbean,29,Americas
+BHS,Caribbean,29,Americas
+BRB,Caribbean,29,Americas
+BES,Caribbean,29,Americas
+VGB,Caribbean,29,Americas
+CYM,Caribbean,29,Americas
+CUB,Caribbean,29,Americas
+CUW,Caribbean,29,Americas
+DMA,Caribbean,29,Americas
+DOM,Caribbean,29,Americas
+GRD,Caribbean,29,Americas
+GLP,Caribbean,29,Americas
+HTI,Caribbean,29,Americas
+JAM,Caribbean,29,Americas
+MTQ,Caribbean,29,Americas
+MSR,Caribbean,29,Americas
+PRI,Caribbean,29,Americas
+BLM,Caribbean,29,Americas
+KNA,Caribbean,29,Americas
+LCA,Caribbean,29,Americas
+MAF,Caribbean,29,Americas
+VCT,Caribbean,29,Americas
+SXM,Caribbean,29,Americas
+TTO,Caribbean,29,Americas
+TCA,Caribbean,29,Americas
+VIR,Caribbean,29,Americas
+BLZ,Central America,13,Americas
+CRI,Central America,13,Americas
+SLV,Central America,13,Americas
+GTM,Central America,13,Americas
+HND,Central America,13,Americas
+MEX,Central America,13,Americas
+NIC,Central America,13,Americas
+PAN,Central America,13,Americas
+ARG,South America,5,Americas
+BOL,South America,5,Americas
+BVT,South America,5,Americas
+BRA,South America,5,Americas
+CHL,South America,5,Americas
+COL,South America,5,Americas
+ECU,South America,5,Americas
+FLK,South America,5,Americas
+GUF,South America,5,Americas
+GUY,South America,5,Americas
+PRY,South America,5,Americas
+PER,South America,5,Americas
+SGS,South America,5,Americas
+SUR,South America,5,Americas
+URY,South America,5,Americas
+VEN,South America,5,Americas
+BMU,Northern America,21,Americas
+CAN,Northern America,21,Americas
+GRL,Northern America,21,Americas
+SPM,Northern America,21,Americas
+USA,Northern America,21,Americas
+ATA,Northern America,21,Americas
+KAZ,Central Asia,143,Asia
+KGZ,Central Asia,143,Asia
+TJK,Central Asia,143,Asia
+TKM,Central Asia,143,Asia
+UZB,Central Asia,143,Asia
+CHN,Eastern Asia,30,Asia
+HKG,Eastern Asia,30,Asia
+MAC,Eastern Asia,30,Asia
+PRK,Eastern Asia,30,Asia
+JPN,Eastern Asia,30,Asia
+MNG,Eastern Asia,30,Asia
+KOR,Eastern Asia,30,Asia
+BRN,South-eastern Asia,35,Asia
+KHM,South-eastern Asia,35,Asia
+IDN,South-eastern Asia,35,Asia
+LAO,South-eastern Asia,35,Asia
+MYS,South-eastern Asia,35,Asia
+MMR,South-eastern Asia,35,Asia
+PHL,South-eastern Asia,35,Asia
+SGP,South-eastern Asia,35,Asia
+THA,South-eastern Asia,35,Asia
+TLS,South-eastern Asia,35,Asia
+VNM,South-eastern Asia,35,Asia
+AFG,Southern Asia,34,Asia
+BGD,Southern Asia,34,Asia
+BTN,Southern Asia,34,Asia
+IND,Southern Asia,34,Asia
+IRN,Southern Asia,34,Asia
+MDV,Southern Asia,34,Asia
+NPL,Southern Asia,34,Asia
+PAK,Southern Asia,34,Asia
+LKA,Southern Asia,34,Asia
+ARM,Western Asia,145,Asia
+AZE,Western Asia,145,Asia
+BHR,Western Asia,145,Asia
+CYP,Western Asia,145,Asia
+GEO,Western Asia,145,Asia
+IRQ,Western Asia,145,Asia
+ISR,Western Asia,145,Asia
+JOR,Western Asia,145,Asia
+KWT,Western Asia,145,Asia
+LBN,Western Asia,145,Asia
+OMN,Western Asia,145,Asia
+QAT,Western Asia,145,Asia
+SAU,Western Asia,145,Asia
+PSE,Western Asia,145,Asia
+SYR,Western Asia,145,Asia
+TUR,Western Asia,145,Asia
+ARE,Western Asia,145,Asia
+YEM,Western Asia,145,Asia
+BLR,Eastern Europe,151,Europe
+BGR,Eastern Europe,151,Europe
+CZE,Eastern Europe,151,Europe
+HUN,Eastern Europe,151,Europe
+POL,Eastern Europe,151,Europe
+MDA,Eastern Europe,151,Europe
+ROU,Eastern Europe,151,Europe
+RUS,Eastern Europe,151,Europe
+SVK,Eastern Europe,151,Europe
+UKR,Eastern Europe,151,Europe
+ALA,Northern Europe,154,Europe
+DNK,Northern Europe,154,Europe
+EST,Northern Europe,154,Europe
+FRO,Northern Europe,154,Europe
+FIN,Northern Europe,154,Europe
+GGY,Northern Europe,154,Europe
+ISL,Northern Europe,154,Europe
+IRL,Northern Europe,154,Europe
+IMN,Northern Europe,154,Europe
+JEY,Northern Europe,154,Europe
+LVA,Northern Europe,154,Europe
+LTU,Northern Europe,154,Europe
+NOR,Northern Europe,154,Europe
+SJM,Northern Europe,154,Europe
+SWE,Northern Europe,154,Europe
+GBR,Northern Europe,154,Europe
+ALB,Southern Europe,39,Europe
+AND,Southern Europe,39,Europe
+BIH,Southern Europe,39,Europe
+HRV,Southern Europe,39,Europe
+GIB,Southern Europe,39,Europe
+GRC,Southern Europe,39,Europe
+VAT,Southern Europe,39,Europe
+ITA,Southern Europe,39,Europe
+MLT,Southern Europe,39,Europe
+MNE,Southern Europe,39,Europe
+MKD,Southern Europe,39,Europe
+PRT,Southern Europe,39,Europe
+SMR,Southern Europe,39,Europe
+SRB,Southern Europe,39,Europe
+SVN,Southern Europe,39,Europe
+ESP,Southern Europe,39,Europe
+AUT,Western Europe,155,Europe
+BEL,Western Europe,155,Europe
+FRA,Western Europe,155,Europe
+DEU,Western Europe,155,Europe
+LIE,Western Europe,155,Europe
+LUX,Western Europe,155,Europe
+MCO,Western Europe,155,Europe
+NLD,Western Europe,155,Europe
+CHE,Western Europe,155,Europe
+AUS,Australia and New Zealand,53,Oceania
+CXR,Australia and New Zealand,53,Oceania
+CCK,Australia and New Zealand,53,Oceania
+HMD,Australia and New Zealand,53,Oceania
+NZL,Australia and New Zealand,53,Oceania
+NFK,Australia and New Zealand,53,Oceania
+FJI,Melanesia,54,Oceania
+NCL,Melanesia,54,Oceania
+PNG,Melanesia,54,Oceania
+SLB,Melanesia,54,Oceania
+VUT,Melanesia,54,Oceania
+GUM,Micronesia,57,Oceania
+KIR,Micronesia,57,Oceania
+MHL,Micronesia,57,Oceania
+FSM,Micronesia,57,Oceania
+NRU,Micronesia,57,Oceania
+MNP,Micronesia,57,Oceania
+PLW,Micronesia,57,Oceania
+UMI,Micronesia,57,Oceania
+ASM,Polynesia,61,Oceania
+COK,Polynesia,61,Oceania
+PYF,Polynesia,61,Oceania
+NIU,Polynesia,61,Oceania
+PCN,Polynesia,61,Oceania
+WSM,Polynesia,61,Oceania
+TKL,Polynesia,61,Oceania
+TON,Polynesia,61,Oceania
+TUV,Polynesia,61,Oceania
+WLF,Polynesia,61,Oceania

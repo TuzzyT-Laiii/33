@@ -1,0 +1,67 @@
+{
+  "utc": "2026-11-03T12:01:47.663680+00:00",
+  "cases": 88,
+  "variables": [
+    {
+      "coordinate_kind": "baseline_weather_point",
+      "variable": "cf_pv",
+      "max_abs_difference": 3.8054111750618353e-08,
+      "mean_abs_difference": 3.261135912857574e-09,
+      "hourly_observations": 352728
+    },
+    {
+      "coordinate_kind": "baseline_weather_point",
+      "variable": "cf_wind",
+      "max_abs_difference": 2.9657754663237057e-07,
+      "mean_abs_difference": 1.7191850100219702e-08,
+      "hourly_observations": 352728
+    },
+    {
+      "coordinate_kind": "baseline_weather_point",
+      "variable": "facility_mw",
+      "max_abs_difference": 7.105427357601002e-15,
+      "mean_abs_difference": 1.6115369026787783e-18,
+      "hourly_observations": 352728
+    },
+    {
+      "coordinate_kind": "baseline_weather_point",
+      "variable": "pue",
+      "max_abs_difference": 1.1102230246251563e-15,
+      "mean_abs_difference": 3.0971724848357773e-19,
+      "hourly_observations": 352728
+    },
+    {
+      "coordinate_kind": "geographic_nearest",
+      "variable": "cf_pv",
+      "max_abs_difference": 0.1905326292234367,
+      "mean_abs_difference": 0.001469462391249797,
+      "hourly_observations": 352728
+    },
+    {
+      "coordinate_kind": "geographic_nearest",
+      "variable": "cf_wind",
+      "max_abs_difference": 0.7481327339773189,
+      "mean_abs_difference": 0.004841924591197352,
+      "hourly_observations": 352728
+    },
+    {
+      "coordinate_kind": "geographic_nearest",
+      "variable": "facility_mw",
+      "max_abs_difference": 0.1816677859885107,
+      "mean_abs_difference": 0.0030520020858725355,
+      "hourly_observations": 352728
+    },
+    {
+      "coordinate_kind": "geographic_nearest",
+      "variable": "pue",
+      "max_abs_difference": 0.0216187631933528,
+      "mean_abs_difference": 0.0005881520352807849,
+      "hourly_observations": 352728
+    }
+  ],
+  "source_zarr_2025_missing": true,
+  "reconstructed_zarr": "/data3/dataset/ljt/global-flex-econ-20261103/inputs/weather-pilot.zarr",
+  "automatic_gate_passed": true,
+  "gate_note": "PUE先检验1e-5；风光与天气差异须逐字段解释并由本次运行记录验收。",
+  "mean_definition": "各城市情境MAE按原生小时数加权，即合并所有小时的MAE"
+}

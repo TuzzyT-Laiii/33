@@ -1,0 +1,58 @@
+{
+  "utc": "2026-11-03T14:33:22.911893+00:00",
+  "passed": true,
+  "comparisons": 1056,
+  "numerical_results_unchanged": true,
+  "reference_carbon_year": 2025,
+  "grid_carbon_year": 2024,
+  "city_and_grid_countries": [
+    {
+      "city": "ashburn",
+      "city_country": "United States",
+      "country": "United States of America",
+      "iso3": "USA"
+    },
+    {
+      "city": "frankfurt",
+      "city_country": "Germany",
+      "country": "Germany",
+      "iso3": "DEU"
+    },
+    {
+      "city": "guiyang",
+      "city_country": "China",
+      "country": "China",
+      "iso3": "CHN"
+    },
+    {
+      "city": "lulea",
+      "city_country": "Sweden",
+      "country": "Sweden",
+      "iso3": "SWE"
+    },
+    {
+      "city": "phoenix",
+      "city_country": "United States",
+      "country": "United States of America",
+      "iso3": "USA"
+    },
+    {
+      "city": "riyadh",
+      "city_country": "Saudi Arabia",
+      "country": "Saudi Arabia",
+      "iso3": "SAU"
+    },
+    {
+      "city": "singapore",
+      "city_country": "Singapore",
+      "country": "Indonesia",
+      "iso3": "IDN"
+    },
+    {
+      "city": "ulanqab",
+      "city_country": "China",
+      "country": "China",
+      "iso3": "CHN"
+    }
+  ]
+}

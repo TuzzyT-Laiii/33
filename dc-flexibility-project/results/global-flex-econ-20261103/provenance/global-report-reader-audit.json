@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "real_shards": 91,
+  "rows": 2184,
+  "columns": 102,
+  "all_fields_compared": true,
+  "null_representation_normalized": true,
+  "input_no_land_points_preserved": true,
+  "duckdb_memory_limit": "2GB",
+  "process_peak_rss_mb": 359.640625,
+  "utc": "2026-11-03T19:15:45.538793+00:00",
+  "auditor_sha256": "ad2e5acdeb78d1f76eabe105e8d7d6d3a1bbeb59073f40cc1432a3dd236c6821"
+}

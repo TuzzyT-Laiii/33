@@ -1,0 +1,12 @@
+{
+  "versions": {
+    "physics_sha256": "31f0cd8a2197f80adbe9af319c13823c9ce82bc0159b21c5f64b8906c09d03df",
+    "curve_sha256": "b817b0b0c549fbe1b76ac2054231f980f207adca3c09c6bb557b13aa1fbf0231",
+    "points_sha256": "1f59b106b1c710693c3b6f865fb4c45158cdd805b5d68914fd44969163b8eec9",
+    "extraction_sha256": "7c604e57383de787c24bc230536ac04ee4d72835d718cf119a349e441f3b33df",
+    "wind10_sha256": "34a2a7f22bdd85e785c35f3bb7629878654282ea7706b614d5fa2600e2790976",
+    "weather_function_sha256": "ed597c2cb08f65bdc9c401d1dc71d282e1f354af19aec70db8a965bc31e5cf8a"
+  },
+  "scope": "all",
+  "grid_directory": "grids"
+}

@@ -1,0 +1,21 @@
+{
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "numpy": "2.3.4",
+    "pandas": "3.0.2",
+    "pyarrow": "26.0.0",
+    "coptpy": "8.0.7",
+    "pvlib": "0.16.1",
+    "zarr": "2.18.7",
+    "geopandas": "1.2.0",
+    "shapely": "2.2.0",
+    "pyproj": "3.8.0",
+    "duckdb": "2.0.0",
+    "matplotlib": "3.10.8",
+    "cartopy": "0.26.0",
+    "frykit": "0.8.1"
+  },
+  "utc": "2026-11-03T13:48:18.355959+00:00",
+  "auditor_sha256": "bef07050eaaf63ecf1ecf8a6293afbe0b9062a4bc3eaec72c51ce14bffc55e17"
+}
