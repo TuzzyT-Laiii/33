@@ -103,14 +103,21 @@ def prepare(args):
 
 
 # ---------------------------------------------------------------- solve
-def backlog_limit(arrival, deadline):
-    """积压上界：只允许最近deadline小时内到达的量仍未执行；deadline=0即不可推迟。"""
+def backlog_limit(arrival, deadline, source_hours):
+    # 行末只留下能在下一可观测小时执行且仍未到期的任务，末行必须清空。
     n = len(arrival)
+    times = np.asarray(source_hours, dtype=float)
+    if len(times) != n or not np.isfinite(times).all() or np.any(np.diff(times) <= 0):
+        raise ValueError('原生经过小时轴必须与输入同长、有效且严格递增')
+    if deadline < 0 or int(deadline) != deadline:
+        raise ValueError('推迟时长必须为非负整数小时')
     cumulative = np.r_[0., np.cumsum(arrival)]
-    index = np.arange(n)
-    limit = cumulative[1:] - cumulative[np.maximum(index - deadline + 1, 0)] if deadline > 0 else np.zeros(n)
-    limit = np.maximum(limit, 0.)
-    limit[-1] = 0.
+    limit = np.zeros(n)
+    if deadline > 0 and n > 1:
+        cutoff = times[1:] - deadline
+        first_allowed = np.searchsorted(times, cutoff, side='left')
+        first_allowed = np.minimum(first_allowed, np.arange(1, n))
+        limit[:-1] = np.maximum(cumulative[1:n] - cumulative[first_allowed], 0.)
     return limit
 
 
@@ -139,8 +146,8 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False,
     idx = np.arange(n)
     lb, ub = np.zeros(count), np.full(count, cp.COPT.INFINITY)
     ub[:5] = [p['pv_max_mw'], p['wind_max_mw'], p['battery_power_max_mw'], p['battery_energy_max_mwh'], p['grid_max_mw']]
-    ub[off['b_whole'] + idx] = backlog_limit(arr_w, whole_h)
-    ub[off['b_split'] + idx] = backlog_limit(arr_s, split_h)
+    ub[off['b_whole'] + idx] = backlog_limit(arr_w, whole_h, frame.source_hour_index)
+    ub[off['b_split'] + idx] = backlog_limit(arr_s, split_h, frame.source_hour_index)
     if whole_h == 0:
         lb[off['x_whole'] + idx] = ub[off['x_whole'] + idx] = arr_w
     if split_h == 0:
@@ -203,7 +210,7 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False,
         add(r, off[key] + idx, 1.); add(r, cap, -1.)
         lhs.append(np.full(n, -cp.COPT.INFINITY)); rhs.append(np.zeros(n)); r0 += n
     base_facility = float(np.dot(pue, frame.it_mw.to_numpy()))
-    # 7 逐小时本地匹配比例：Σ市电 ≤ (1-α) Σ设施用电
+    # 7 窗口本地电量匹配比例：Σ市电 ≤ (1-α) Σ设施用电
     if alpha is not None:
         add(r0, off['grid'] + idx, 1.)
         add(r0, off['x_whole'] + idx, -(1 - alpha) * pue); add(r0, off['x_split'] + idx, -(1 - alpha) * pue)
@@ -220,13 +227,18 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False,
     model.setParam('Logging', 0)
     model.setParam('Threads', 1)
     model.setParam('LpMethod', 2)
-    model.setParam('Crossover', 0)
+    model.setParam('Crossover', 1)
+    model.setParam('FeasTol', 1e-9)
+    model.setParam('DualTol', 1e-9)
     model.setParam('TimeLimit', 1800)
     model.loadMatrix(c, A, np.concatenate(lhs), np.concatenate(rhs), lb, ub)
     model.solve()
     status = model.status
     summary = {'city': city, 'scenario': frame.attrs.get('scenario'), 'alpha': alpha, 'design': design,
                'whole_h': whole_h, 'split_h': split_h, 'hours': n, 'status_code': int(status),
+               'deadline_clock': 'source_hour_index_next_observed_slot',
+               'solver_feasibility_tolerance': 1e-9, 'solver_dual_tolerance': 1e-9, 'solver_crossover': 1,
+               'unobserved_hours_have_execution_variables': False,
                'solve_seconds': time.monotonic() - started, 'baseline_facility_mwh': base_facility,
                'baseline_it_mwh': float(frame.it_mw.sum())}
     if status != cp.COPT.OPTIMAL:
@@ -246,6 +258,8 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False,
         'balance': np.max(np.abs(d['direct'] + d['grid'] + d['discharge'] - facility)),
         'bus': np.max(np.abs(generation - d['direct'] - d['charge'] - d['curtail'])),
         'whole_energy': abs(d['x_whole'].sum() - arr_w.sum()), 'split_energy': abs(d['x_split'].sum() - arr_s.sum()),
+        'whole_deadline': max(0., np.max(d['b_whole'] - backlog_limit(arr_w, whole_h, frame.source_hour_index))),
+        'split_deadline': max(0., np.max(d['b_split'] - backlog_limit(arr_s, split_h, frame.source_hour_index))),
         'it_cap': (max(0., np.max(executed - frame.cap_it_mw.to_numpy())) if cards is None
                    else max(0., np.max(executed - idle_extra - frame.base.to_numpy() - peak_task - extra_mw))),
         'grid_cap': max(0., np.max(d['grid'] - gcap)),
@@ -277,6 +291,7 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False,
     if keep_hourly:
         hourly = pd.DataFrame({'time_utc': frame.time_utc, 'fixed_it_mw': fixed, 'whole_arrival_mw': arr_w,
                                'split_arrival_mw': arr_s, 'whole_exec_mw': d['x_whole'], 'split_exec_mw': d['x_split'],
+                               'whole_backlog_mwh': d['b_whole'], 'split_backlog_mwh': d['b_split'],
                                'facility_mw': facility, 'pv_mw': pv * cfp, 'wind_mw': wind * cfw,
                                'grid_mw': d['grid'], 'charge_mw': d['charge'], 'discharge_mw': d['discharge'],
                                'soc_mwh': d['soc'], 'curtail_mw': d['curtail']})

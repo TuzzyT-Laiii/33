@@ -242,3 +242,17 @@ dc-flexibility-project/analysis/*eight_city_native*.sh text eol=lf
 dc-flexibility-project/results/eight-city-native-flex-20261102/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/eight-city-native-flex-20261102/*.png binary
 dc-flexibility-project/results/eight-city-native-flex-20261102/*.pdf binary
+
+# 原生时限与既有容量审查保留可跨系统复核的源码和结果指纹。
+dc-flexibility-project/analysis/flex_econ_copt.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/analysis/audit_existing_compute_capacity.py text eol=lf
+dc-flexibility-project/analysis/audit_native_dispatch_clocks.py text eol=lf
+dc-flexibility-project/analysis/audit_real_time_flex_dispatch.py text eol=lf
+dc-flexibility-project/analysis/combine_dispatch_audits.py text eol=lf
+dc-flexibility-project/analysis/publish_training_calendar.py text eol=lf
+dc-flexibility-project/analysis/refine_calendar_results.py text eol=lf
+dc-flexibility-project/analysis/rerun_training_calendar.py text eol=lf
+dc-flexibility-project/analysis/verify_source_hour_deadline_equivalence.py text eol=lf
+dc-flexibility-project/analysis/verify_training_calendar_results.py text eol=lf
+dc-flexibility-project/results/existing-compute-capacity-20261102/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/flex-card-cost-calendar-20261102/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

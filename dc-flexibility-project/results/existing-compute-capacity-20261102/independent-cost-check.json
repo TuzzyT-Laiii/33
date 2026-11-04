@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "cost_tolerance": "0.02 USD + 2e-6 * max(abs(compared costs), 1 USD)",
+  "checks": {
+    "runs-cards.csv": {
+      "training_rows": 864,
+      "optimal_rows": 864,
+      "comparable_prior_optimal_rows": 864,
+      "same_assets_rows": 864,
+      "baseline_cost_max_abs_difference_usd": 0.0,
+      "minimum_flex_cost_change_usd": 0.5679006762802601,
+      "new_source_sha256": "3fa4e156b212635acc4554d86f33a2047918befa4c29afa88f13d39a9ec6d8e1",
+      "prior_source_sha256": "7f3b6bdff80f5ab16a84edd00c94419d7e63db802dad8f00432b452cefbd956f"
+    },
+    "runs-fixed.csv": {
+      "training_rows": 432,
+      "optimal_rows": 432,
+      "comparable_prior_optimal_rows": 428,
+      "same_assets_rows": 428,
+      "baseline_cost_max_abs_difference_usd": 0.009211379801854491,
+      "minimum_flex_cost_change_usd": 0.011612914502620697,
+      "new_source_sha256": "fdbdfb84aa05a9fc631ff67f15b7b2fcf883cbe7f93a10ba54415f28875b6e78",
+      "prior_source_sha256": "aeb6c3c6d27b88d9f139ffe6aa46299248c6f8e1f1db8c8832538fc119466854"
+    }
+  },
+  "failures": []
+}
