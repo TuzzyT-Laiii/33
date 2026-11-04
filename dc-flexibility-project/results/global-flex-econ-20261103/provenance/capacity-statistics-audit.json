@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-03T16:05:34.449890+00:00",
+  "passed": true,
+  "source": "/data3/dataset/ljt/global-flex-econ-20261103/report-pilot-confirmed/runs-full.parquet",
+  "groups": 132,
+  "optimal_flex_rows": 2640,
+  "maximum_added_capacity_ratio_of_K": 0.0,
+  "added_capacity_above_K_cases": 0
+}

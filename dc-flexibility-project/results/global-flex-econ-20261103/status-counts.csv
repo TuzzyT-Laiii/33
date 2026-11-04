@@ -1,0 +1,9 @@
+﻿boundary,flex,status,lp_performed,reused_baseline,cases
+fixed,both,input_no_land_points,False,False,3828
+fixed,both,optimal,True,False,319572
+fixed,none,input_no_land_points,False,False,3828
+fixed,none,optimal,False,True,319572
+planning,both,input_no_land_points,False,False,3828
+planning,both,optimal,True,False,319572
+planning,none,input_no_land_points,False,False,3828
+planning,none,optimal,True,False,319572

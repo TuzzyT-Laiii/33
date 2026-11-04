@@ -1,0 +1,50 @@
+{
+  "utc": "2026-11-03T18:50:32.185117+00:00",
+  "passed": true,
+  "base_root": "/data3/dataset/ljt/global-flex-econ-20261103",
+  "run_root": "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match",
+  "grid_ids": [
+    "g05_r093_c401"
+  ],
+  "before": [
+    {
+      "grid_id": "g05_r093_c401",
+      "country": "Kosovo",
+      "iso3": "-99",
+      "carbon_gco2_kwh": 246.1338218434,
+      "carbon_source": "regional_fallback"
+    }
+  ],
+  "after": [
+    {
+      "grid_id": "g05_r093_c401",
+      "country": "Kosovo",
+      "iso3": "-99",
+      "carbon_gco2_kwh": 924.9,
+      "carbon_source": "country",
+      "carbon_matched_iso3": "XKX",
+      "carbon_match_method": "country_name_unique"
+    }
+  ],
+  "unaffected_grids_identical": 4899,
+  "pilot_unaffected": true,
+  "core_physics_cost_sha256_identical": [
+    "flex_econ_copt.py",
+    "eight_city_physics.py",
+    "flex-econ-copt-20261102.json",
+    "eight-city-flex-value-20261029.json",
+    "compute_load/model.py",
+    "compute_load/cooling.py",
+    "compute_load/assets/cooling-20261028-v2.json"
+  ],
+  "dispatch_and_cooling_ast_identical": true,
+  "input_index_sha256": "7c25972dfa2c12d6c8ed9fb1db5d9589f5de36b91cb4effea4997b0b8045e538",
+  "base_selected_sha256": "40a064d68830cc66b5586c048adfc998fe16a02d06b6f1d4ffed98da7024232a",
+  "selected_sha256": "3d3fd35f07745ee5976cd4afb8193a33be8d3e26756977b34845172b13d899a3",
+  "carbon_source_counts": {
+    "country": 4800,
+    "regional_fallback": 100
+  },
+  "required_actual_lps": 198,
+  "required_summary_rows": 264
+}

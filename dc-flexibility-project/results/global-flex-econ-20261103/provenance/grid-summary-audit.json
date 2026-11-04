@@ -1,0 +1,233 @@
+{
+  "partial": false,
+  "reporter_sha256": "255f3a154eb142e75cfad06af1b455a55db99cbddf21a42953b82b9dc23ece38",
+  "summary_rows": 1293600,
+  "pairs": 646800,
+  "valid_pairs": 639144,
+  "final_actual_lps": 958716,
+  "final_optimal_lps": 958716,
+  "final_reused_baselines": 319572,
+  "final_input_unavailable_rows": 15312,
+  "fixed_asset_errors": 0,
+  "missing_dispatch_audits": 0,
+  "final_carbon_metadata_mismatches": 0,
+  "artifacts": {
+    "runs-full.parquet": {
+      "sha256": "ed8e5272c01d09b124629d04ea4150dc63cc358ee73b9151dfad4057ef89a6f6",
+      "bytes": 158351149
+    },
+    "grid-summary.parquet": {
+      "sha256": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c",
+      "bytes": 13385072
+    }
+  },
+  "grids": 4900,
+  "compact_columns": [
+    "grid_id",
+    "block_id",
+    "lat",
+    "lon",
+    "block_lat",
+    "block_lon",
+    "iso3",
+    "country",
+    "continent",
+    "country_assignment_method",
+    "nearest_boundary_distance_km",
+    "country_assignment_distance_km",
+    "carbon_source",
+    "carbon_gco2_kwh",
+    "carbon_matched_iso3",
+    "carbon_match_method",
+    "carbon_reference_area",
+    "carbon_year",
+    "m49_region",
+    "scenario",
+    "alpha",
+    "boundary",
+    "baseline_status",
+    "flex_status",
+    "baseline_cost_usd",
+    "flex_cost_usd",
+    "savings_pct",
+    "extra_task_mw",
+    "low_temperature_clipped_hours",
+    "high_temperature_clipped_hours",
+    "temperature_clipped_hours",
+    "raw_min_temperature_c",
+    "raw_max_temperature_c",
+    "land_points"
+  ],
+  "metadata_and_clipping_checks_passed": true,
+  "low_clipped_grid_scenarios": 2622,
+  "high_clipped_grid_scenarios": 30,
+  "low_clipped_grids": 534,
+  "high_clipped_grids": 3,
+  "minimum_observed_temperature_c": -55.65306023491752,
+  "maximum_observed_temperature_c": 51.36573350694448,
+  "added_capacity_cases": 0,
+  "added_capacity_limit_hits": 0,
+  "maximum_added_capacity_ratio_of_K": 0.0,
+  "focus_distributions": [
+    {
+      "scenario": "A-HPC",
+      "alpha": 1.0,
+      "boundary": "fixed",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 0.0003726335,
+      "p25_pct": 0.000219831,
+      "p75_pct": 0.0004906823
+    },
+    {
+      "scenario": "A-HPC",
+      "alpha": 1.0,
+      "boundary": "planning",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 14.3526458258,
+      "p25_pct": 11.0966587105,
+      "p75_pct": 16.9055093414
+    },
+    {
+      "scenario": "A-HPC",
+      "alpha": null,
+      "boundary": "fixed",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 6.4861385869,
+      "p25_pct": 4.909071575,
+      "p75_pct": 8.3208658452
+    },
+    {
+      "scenario": "A-HPC",
+      "alpha": null,
+      "boundary": "planning",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 11.3609970171,
+      "p25_pct": 9.3090147028,
+      "p75_pct": 14.0894985571
+    },
+    {
+      "scenario": "D-INF",
+      "alpha": 1.0,
+      "boundary": "fixed",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 0.0001357593,
+      "p25_pct": 9.25984e-05,
+      "p75_pct": 0.0001829632
+    },
+    {
+      "scenario": "D-INF",
+      "alpha": 1.0,
+      "boundary": "planning",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 2.9855090844,
+      "p25_pct": 2.3994371052,
+      "p75_pct": 3.5572366995
+    },
+    {
+      "scenario": "D-INF",
+      "alpha": null,
+      "boundary": "fixed",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 2.4944457437,
+      "p25_pct": 2.1060679021,
+      "p75_pct": 3.0395365838
+    },
+    {
+      "scenario": "D-INF",
+      "alpha": null,
+      "boundary": "planning",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 3.7392197737,
+      "p25_pct": 3.1943952356,
+      "p75_pct": 4.271004368
+    },
+    {
+      "scenario": "D-SAI",
+      "alpha": 1.0,
+      "boundary": "fixed",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 0.0002211429,
+      "p25_pct": 0.0001794147,
+      "p75_pct": 0.0002773726
+    },
+    {
+      "scenario": "D-SAI",
+      "alpha": 1.0,
+      "boundary": "planning",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 15.3025847166,
+      "p25_pct": 12.16537229,
+      "p75_pct": 18.0050659771
+    },
+    {
+      "scenario": "D-SAI",
+      "alpha": null,
+      "boundary": "fixed",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 4.1016101632,
+      "p25_pct": 3.2340923214,
+      "p75_pct": 5.2451119084
+    },
+    {
+      "scenario": "D-SAI",
+      "alpha": null,
+      "boundary": "planning",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 7.6987537977,
+      "p25_pct": 5.8069374701,
+      "p75_pct": 9.8530053292
+    },
+    {
+      "scenario": "D-TRN",
+      "alpha": 1.0,
+      "boundary": "fixed",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 0.0005674444,
+      "p25_pct": 0.0004636018,
+      "p75_pct": 0.0006621691
+    },
+    {
+      "scenario": "D-TRN",
+      "alpha": 1.0,
+      "boundary": "planning",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 26.6549532062,
+      "p25_pct": 21.9948443285,
+      "p75_pct": 31.6399051441
+    },
+    {
+      "scenario": "D-TRN",
+      "alpha": null,
+      "boundary": "fixed",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 7.3228100341,
+      "p25_pct": 5.3950776639,
+      "p75_pct": 10.5281240893
+    },
+    {
+      "scenario": "D-TRN",
+      "alpha": null,
+      "boundary": "planning",
+      "grids": 4900,
+      "valid_pairs": 4842,
+      "median_pct": 13.8392921338,
+      "p25_pct": 10.3881065554,
+      "p75_pct": 18.139757778
+    }
+  ]
+}

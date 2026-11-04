@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-03T13:05:37.558394+00:00",
+  "passed": true,
+  "real_input": "Phoenix代表网格A-HPC，6alpha×3LP",
+  "peak_worker": {
+    "pss_mb": 516.1318359375,
+    "uss_mb": 469.65625,
+    "rss_mb": 605.14453125
+  },
+  "minimum_system_available_gb": 27.22409439086914,
+  "rss_includes_shared_libraries": true
+}

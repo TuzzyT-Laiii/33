@@ -1,0 +1,116 @@
+{
+  "utc": "2026-11-04T01:50:33.084674+00:00",
+  "partial": false,
+  "projection": "Robinson, central_longitude=0",
+  "renderer_sha256": "7bc1ec8e9a37ee5e5db438f437090176b4bec5dcdb63d3b1f4fb9ec4836f2837",
+  "data_sha256": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c",
+  "font_family": "WenQuanYi Zen Hei",
+  "font_path": "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
+  "font_sha256": "79c18ebe7b811951e8311bad7103ebeae8c337ed9988ea69e8a78a66cfe029b9",
+  "pdf_fonttype": 42,
+  "coordinates": "WGS84",
+  "boundary_source": "Natural Earth 1:10m admin0",
+  "land_clip": "代表网格所在2度区块与国界陆地多边形交集",
+  "color_scale": "每幅图0至本图98分位（取整），超出用三角延伸",
+  "colormap": "viridis",
+  "selected_grids": 4900,
+  "empty_land_intersections": 20,
+  "panels": [
+    {
+      "file": "planning-economic",
+      "title": "规划边界，经济最优",
+      "counts": [
+        {
+          "scenario": "D-TRN",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "D-SAI",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "A-HPC",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "D-INF",
+          "colored_grids": 4832
+        }
+      ],
+      "color_min_pct": 0,
+      "color_max_pct": 25.0
+    },
+    {
+      "file": "planning-alpha100",
+      "title": "规划边界，α = 100%",
+      "counts": [
+        {
+          "scenario": "D-TRN",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "D-SAI",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "A-HPC",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "D-INF",
+          "colored_grids": 4832
+        }
+      ],
+      "color_min_pct": 0,
+      "color_max_pct": 40.0
+    },
+    {
+      "file": "fixed-economic",
+      "title": "已建成边界，经济最优",
+      "counts": [
+        {
+          "scenario": "D-TRN",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "D-SAI",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "A-HPC",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "D-INF",
+          "colored_grids": 4832
+        }
+      ],
+      "color_min_pct": 0,
+      "color_max_pct": 15.0
+    },
+    {
+      "file": "fixed-alpha100",
+      "title": "已建成边界，α = 100%",
+      "counts": [
+        {
+          "scenario": "D-TRN",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "D-SAI",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "A-HPC",
+          "colored_grids": 4832
+        },
+        {
+          "scenario": "D-INF",
+          "colored_grids": 4832
+        }
+      ],
+      "color_min_pct": 0,
+      "color_max_pct": 0.0008
+    }
+  ]
+}

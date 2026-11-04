@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-03T12:35:40.484678+00:00",
+  "boundary_source_sha256": "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6",
+  "completed": 4900,
+  "distance_method": "WGS84中心等距投影；边界按0.01度细分，最近点用Geod复核；同距按ISO3排序"
+}

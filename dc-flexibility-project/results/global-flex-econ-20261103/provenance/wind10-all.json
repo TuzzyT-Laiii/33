@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-03T13:41:41.663619+00:00",
+  "points": 41700,
+  "objects": 21938,
+  "seconds": 2147.146854784005,
+  "metadata_sha256": "683f83541c1e75888dd95b07380335f6946d6452bdab012b751cb0a2a1bd1cf0",
+  "source_url": "https://arco.datastores.ecmwf.int/cadl-arco-geo-002/arco/reanalysis_era5_single_levels/sfc/geoChunked.zarr"
+}

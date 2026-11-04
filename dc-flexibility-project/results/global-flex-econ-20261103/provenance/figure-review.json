@@ -1,0 +1,25 @@
+{
+  "review_date_utc": "2026-11-03",
+  "automatic_checks_passed": true,
+  "visual_review_passed": true,
+  "files_reviewed": [
+    "planning-economic.png", "planning-economic.pdf",
+    "planning-alpha100.png", "planning-alpha100.pdf",
+    "fixed-economic.png", "fixed-economic.pdf",
+    "fixed-alpha100.png", "fixed-alpha100.pdf"
+  ],
+  "png_dimensions": [3780, 2040],
+  "png_dpi": 300,
+  "pdf_pages_per_file": 1,
+  "pdf_qa_renderer": "PyMuPDF 1.26.5, 144 dpi",
+  "required_text_present": true,
+  "text_outside_page": false,
+  "visual_checks": ["Chinese and Latin glyphs", "titles and panel labels", "shared colorbar and units", "page margins and overlaps", "land clipping and blank oceans"],
+  "projection": "Robinson",
+  "shared_color_range_pct": [0, 55],
+  "font_family": "WenQuanYi Zen Hei",
+  "pdf_fonttype": 42,
+  "font_sha256": "79c18ebe7b811951e8311bad7103ebeae8c337ed9988ea69e8a78a66cfe029b9",
+  "renderer_sha256": "ee0c5acac6c88ba9bf96254bed7b9ff1890d38c8e0221f6303f6b76e66e98d94",
+  "data_sha256": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c"
+}

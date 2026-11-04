@@ -1,0 +1,20 @@
+{
+  "ember": {
+    "url": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv",
+    "local_path": "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/sources/ember-yearly-complete.csv",
+    "sha256": "c3bd8b3d18824dd50b2ca23f407665d02c772eff6ab36d727fb8f463b063dcdf",
+    "data_year": 2024,
+    "download_date": "2026-11-03",
+    "last_modified": "2026-10-30 15:45:34 GMT"
+  },
+  "countries": {
+    "url": "https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_0_countries.zip",
+    "local_path": "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/sources/countries-10m.zip",
+    "sha256": "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6"
+  },
+  "weather_receipts": {
+    "records": 32907,
+    "file": "weather-source-receipts.jsonl.gz",
+    "sha256": "9ceaefb5102b59c09169d2b3b6134264ca148170c88433bc0fd7d8e49d7e9fa1"
+  }
+}

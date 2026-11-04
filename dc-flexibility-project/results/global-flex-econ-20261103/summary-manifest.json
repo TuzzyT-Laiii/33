@@ -1,0 +1,417 @@
+{
+  "utc": "2026-11-03T22:22:08.728056+00:00",
+  "partial": false,
+  "scope": "all",
+  "source": "/data3/dataset/ljt/global-flex-econ-20261103/full",
+  "reporter_sha256": "255f3a154eb142e75cfad06af1b455a55db99cbddf21a42953b82b9dc23ece38",
+  "scientific_fingerprint": "436bb10a57d00c356b339b8f3aed5861aa1dea2fd728bdf9f5777ae2f9ce9237",
+  "summary_rows": 1293600,
+  "pairs": 646800,
+  "valid_pairs": 639144,
+  "fixed_asset_errors": 0,
+  "missing_dispatch_audits": 0,
+  "status_counts": [
+    {
+      "boundary": "fixed",
+      "flex": "both",
+      "status": "input_no_land_points",
+      "lp_performed": false,
+      "reused_baseline": false,
+      "cases": 3828
+    },
+    {
+      "boundary": "fixed",
+      "flex": "both",
+      "status": "optimal",
+      "lp_performed": true,
+      "reused_baseline": false,
+      "cases": 319572
+    },
+    {
+      "boundary": "fixed",
+      "flex": "none",
+      "status": "input_no_land_points",
+      "lp_performed": false,
+      "reused_baseline": false,
+      "cases": 3828
+    },
+    {
+      "boundary": "fixed",
+      "flex": "none",
+      "status": "optimal",
+      "lp_performed": false,
+      "reused_baseline": true,
+      "cases": 319572
+    },
+    {
+      "boundary": "planning",
+      "flex": "both",
+      "status": "input_no_land_points",
+      "lp_performed": false,
+      "reused_baseline": false,
+      "cases": 3828
+    },
+    {
+      "boundary": "planning",
+      "flex": "both",
+      "status": "optimal",
+      "lp_performed": true,
+      "reused_baseline": false,
+      "cases": 319572
+    },
+    {
+      "boundary": "planning",
+      "flex": "none",
+      "status": "input_no_land_points",
+      "lp_performed": false,
+      "reused_baseline": false,
+      "cases": 3828
+    },
+    {
+      "boundary": "planning",
+      "flex": "none",
+      "status": "optimal",
+      "lp_performed": true,
+      "reused_baseline": false,
+      "cases": 319572
+    }
+  ],
+  "progress": {
+    "utc": "2026-11-03T22:05:20.690056+00:00",
+    "pid": 548614,
+    "state": "complete",
+    "scope": "all",
+    "workers": 81,
+    "requested_workers": 96,
+    "startup_available_memory_gb": 64.79817962646484,
+    "memory_reserve_gb": 16.0,
+    "worker_memory_budget_gb": 0.6,
+    "completed": 1293600,
+    "total": 1293600,
+    "planned_lps": 970200,
+    "performed_lps": 958716,
+    "reused_baselines": 319572,
+    "status_counts": {
+      "optimal": 1278288,
+      "input_no_land_points": 15312
+    },
+    "failed": 15312,
+    "lp_status_counts": {
+      "optimal": 958716
+    },
+    "failed_lps": 0,
+    "actual_lp_optimal_rate": 1.0,
+    "input_unavailable_rows": 15312,
+    "optimal_rate": 0.9881632653061224,
+    "session_elapsed_seconds": 7566.343768462,
+    "total_solve_seconds": 1438990.9249659686,
+    "mean_lp_seconds": 1.5009564093704169,
+    "worker_peak_rss_mb": 524.46875,
+    "available_memory_gb": 63.671775817871094,
+    "estimated_remaining_seconds": 0.0
+  },
+  "execution_lineage": [
+    {
+      "kind": "base",
+      "path": "/data3/dataset/ljt/global-flex-econ-20261103/full",
+      "manifest": {
+        "utc": "2026-11-03T14:13:10.924756+00:00",
+        "scientific_fingerprint": "436bb10a57d00c356b339b8f3aed5861aa1dea2fd728bdf9f5777ae2f9ce9237",
+        "versions": {
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/global-flex-econ-20261103.json": "c38448458d3411010d205af21b8e4e7d8ebd1a7a849b4ec6f2807be3ba81684e",
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/flex-econ-copt-20261102.json": "0aaf04b8397db4a1fb344b980f65ec904a261a974153c0e198ee4068fa693b43",
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/eight-city-flex-value-20261029.json": "9170b244eeee2b483629a62521fb4d1c94e142ab3267eb09c61ba772c12a9c55",
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/flex_econ_copt.py": "7c5793595986aa2414aaaa4f65946d8d17a9803f834046e152f20b318872eab0",
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/eight_city_physics.py": "31f0cd8a2197f80adbe9af319c13823c9ce82bc0159b21c5f64b8906c09d03df",
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/global_flex_inputs.py": "7edb2e6648da71cb8712fa53093b3fbc46910115004fd5feeb17a47c890bcebf",
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/compute_load/model.py": "1515ec08a71950a2466b739155705bc519c8d6dd41cb81f5d36912bc53d147d0",
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/compute_load/cooling.py": "25c644417f9e7cc5886bb3314b2869614029588e9a64ae092181c3f3f1785275",
+          "/data3/dataset/ljt/global-flex-econ-20261103/project/analysis/compute_load/assets/cooling-20261028-v2.json": "a8957220d99994bd2df6fe6bdc186b370188e408de72670ee79760908f7ddc1c",
+          "/data3/dataset/ljt/global-flex-econ-20261103/inputs/selected-grids.parquet": "40a064d68830cc66b5586c048adfc998fe16a02d06b6f1d4ffed98da7024232a",
+          "/data3/dataset/ljt/global-flex-econ-20261103/inputs/template-index.csv": "d9624e2d95e729be7de52e3348d5e7e2234d064fe3c493f4c51abd02ef543413",
+          "/data3/dataset/ljt/global-flex-econ-20261103/inputs/grid-input-index-all.csv": "7c25972dfa2c12d6c8ed9fb1db5d9589f5de36b91cb4effea4997b0b8045e538"
+        },
+        "runner_sha256": "5716c2da5c6a59c8ba8adafa34ca65bb50a8533c6ccd8c1ce7e4eb8bfd5ee4c3",
+        "config": {
+          "schema_version": 1,
+          "run_id": "global-flex-econ-20261103",
+          "inherits": "analysis/flex-econ-copt-20261102.json",
+          "baseline_commit": "b5052aa5a4eab39c1f9f29165d19860ae2ed4ad4",
+          "paths": {
+            "run_root": "/data3/dataset/ljt/global-flex-econ-20261103",
+            "global_root": "/data3/dataset/ljt/global-grid-flexibility-20261023",
+            "city_input_root": "/data3/dataset/ljt/flex-econ-20261102/out/inputs",
+            "city_weather_root": "/data3/dataset/ljt/eight-city-weather-20261029",
+            "city_supply_root": "/data3/dataset/ljt/eight-city-flex-value-20261029/inputs/phase-a",
+            "city_summary_root": "results/flex-card-cost-calendar-20261102"
+          },
+          "sampling": {
+            "block_degrees": 2,
+            "method": "每个有eligible网格的2°块，选球面距离块中心最近的0.5°网格；距离相同时按grid_id排序",
+            "seed": 20261103
+          },
+          "weather_year": 2025,
+          "scenarios": [
+            "A-HPC",
+            "A-CLD",
+            "B-SAI",
+            "C-SAI",
+            "D-SAI",
+            "B-TRN",
+            "C-TRN",
+            "D-TRN",
+            "B-INF",
+            "C-INF",
+            "D-INF"
+          ],
+          "alpha": [
+            null,
+            0.8,
+            0.9,
+            0.95,
+            0.99,
+            1.0
+          ],
+          "planning": {
+            "design": "opt",
+            "none_card_price": "forced0",
+            "both_card_price": 1.0,
+            "whole_h": 12,
+            "split_h": 48
+          },
+          "fixed": {
+            "assets": "同参数planning none的五项能源资产",
+            "baseline": "复用planning none并逐项核对资产",
+            "both_card_price": 1.0
+          },
+          "country_assignment": {
+            "inside": "center_in_polygon",
+            "outside": "nearest_boundary",
+            "distance": "WGS84中心等距投影内最近边界；Geod复核，单位km",
+            "confirmed_date": "2026-11-03"
+          },
+          "carbon": {
+            "year": 2024,
+            "url": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv",
+            "source_unit": "gCO2e/kWh",
+            "model_unit": "tCO2e/MWh",
+            "conversion": 0.001,
+            "fallback": "所在UN M49最细地理区域内，2024有碳强度数据国家按发电量加权的均值",
+            "source_page": "https://ember-energy.org/data/yearly-electricity-data/",
+            "region_source": "https://unstats.un.org/unsd/methodology/m49/"
+          },
+          "cooling": {
+            "version": "cooling-20261028-v2",
+            "type": "air",
+            "parameter_set": "central",
+            "supported_temperature_c": [
+              -40,
+              50
+            ],
+            "input_temperature_clip_c": [
+              -40,
+              50
+            ],
+            "dewpoint_rule": "夹到不高于处理后的气温",
+            "record": [
+              "low_temperature_clipped_hours",
+              "high_temperature_clipped_hours",
+              "temperature_clipped_hours",
+              "dewpoint_clipped_hours",
+              "raw_min_temperature_c",
+              "raw_max_temperature_c"
+            ],
+            "confirmed_low_temperature_rule": "2026-11-03用户指定输入夹到-40，不外推；风光仍使用原始气象",
+            "high_temperature_decision": "若出现50°C以上，按同样原则夹到模型上限，另行记录并在最终口径决定中报告"
+          },
+          "runtime": {
+            "maximum_workers": 96,
+            "omp_threads": 1,
+            "nice": 10,
+            "save_hourly_representatives": 10,
+            "keep_nonoptimal": true,
+            "resume": true
+          }
+        },
+        "scope": "all"
+      }
+    },
+    {
+      "kind": "country_factor",
+      "path": "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/copt",
+      "grid_ids": [
+        "g05_r093_c401"
+      ],
+      "manifest": {
+        "utc": "2026-11-03T18:51:20.751502+00:00",
+        "scientific_fingerprint": "8d5f9413db40e6369891e3a518e5e8308387826c7e454255953234ea576f9e78",
+        "versions": {
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/global-flex-econ-20261103.json": "d1f2b34c17868f3e2d30c4ce35d6715ae5bfe9fa33ec30e1be52805fdda2a0b1",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/flex-econ-copt-20261102.json": "0aaf04b8397db4a1fb344b980f65ec904a261a974153c0e198ee4068fa693b43",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/eight-city-flex-value-20261029.json": "9170b244eeee2b483629a62521fb4d1c94e142ab3267eb09c61ba772c12a9c55",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/flex_econ_copt.py": "7c5793595986aa2414aaaa4f65946d8d17a9803f834046e152f20b318872eab0",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/eight_city_physics.py": "31f0cd8a2197f80adbe9af319c13823c9ce82bc0159b21c5f64b8906c09d03df",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/global_flex_inputs.py": "31d8632e2087f8a178d163d80a2eefb38ae269cefb0fc9e5399d9edb9a61e29f",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/compute_load/model.py": "1515ec08a71950a2466b739155705bc519c8d6dd41cb81f5d36912bc53d147d0",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/compute_load/cooling.py": "25c644417f9e7cc5886bb3314b2869614029588e9a64ae092181c3f3f1785275",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/project/analysis/compute_load/assets/cooling-20261028-v2.json": "a8957220d99994bd2df6fe6bdc186b370188e408de72670ee79760908f7ddc1c",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/inputs/selected-grids.parquet": "3d3fd35f07745ee5976cd4afb8193a33be8d3e26756977b34845172b13d899a3",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/inputs/template-index.csv": "d9624e2d95e729be7de52e3348d5e7e2234d064fe3c493f4c51abd02ef543413",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/inputs/grid-input-index-all.csv": "7c25972dfa2c12d6c8ed9fb1db5d9589f5de36b91cb4effea4997b0b8045e538",
+          "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match/inputs/carbon-country-grid-ids.json": "b36202bc8826972cd6ab9a7040d0d1fc19281caa8f849b5dfb21850783845daf"
+        },
+        "runner_sha256": "7bc9b4239f03c8ffe2371f8901a17370939926d17374afce0865a7e2ee06c585",
+        "config": {
+          "schema_version": 1,
+          "run_id": "global-flex-econ-20261103",
+          "inherits": "analysis/flex-econ-copt-20261102.json",
+          "baseline_commit": "b5052aa5a4eab39c1f9f29165d19860ae2ed4ad4",
+          "paths": {
+            "run_root": "/data3/dataset/ljt/global-flex-econ-20261103/country-name-match",
+            "global_root": "/data3/dataset/ljt/global-grid-flexibility-20261023",
+            "city_input_root": "/data3/dataset/ljt/flex-econ-20261102/out/inputs",
+            "city_weather_root": "/data3/dataset/ljt/eight-city-weather-20261029",
+            "city_supply_root": "/data3/dataset/ljt/eight-city-flex-value-20261029/inputs/phase-a",
+            "city_summary_root": "results/flex-card-cost-calendar-20261102"
+          },
+          "sampling": {
+            "block_degrees": 2,
+            "method": "每个有eligible网格的2°块，选球面距离块中心最近的0.5°网格；距离相同时按grid_id排序",
+            "seed": 20261103
+          },
+          "weather_year": 2025,
+          "scenarios": [
+            "A-HPC",
+            "A-CLD",
+            "B-SAI",
+            "C-SAI",
+            "D-SAI",
+            "B-TRN",
+            "C-TRN",
+            "D-TRN",
+            "B-INF",
+            "C-INF",
+            "D-INF"
+          ],
+          "alpha": [
+            null,
+            0.8,
+            0.9,
+            0.95,
+            0.99,
+            1.0
+          ],
+          "planning": {
+            "design": "opt",
+            "none_card_price": "forced0",
+            "both_card_price": 1.0,
+            "whole_h": 12,
+            "split_h": 48
+          },
+          "fixed": {
+            "assets": "同参数planning none的五项能源资产",
+            "baseline": "复用planning none并逐项核对资产",
+            "both_card_price": 1.0
+          },
+          "country_assignment": {
+            "inside": "center_in_polygon",
+            "outside": "nearest_boundary",
+            "distance": "WGS84中心等距投影内最近边界；Geod复核，单位km",
+            "confirmed_date": "2026-11-03"
+          },
+          "carbon": {
+            "year": 2024,
+            "url": "https://files.ember-energy.org/public-downloads/generation/outputs/release_generation_yearly_global.csv",
+            "source_unit": "gCO2e/kWh",
+            "model_unit": "tCO2e/MWh",
+            "conversion": 0.001,
+            "fallback": "所在UN M49最细地理区域内，2024有碳强度数据国家按发电量加权的均值",
+            "source_page": "https://ember-energy.org/data/yearly-electricity-data/",
+            "region_source": "https://unstats.un.org/unsd/methodology/m49/"
+          },
+          "cooling": {
+            "version": "cooling-20261028-v2",
+            "type": "air",
+            "parameter_set": "central",
+            "supported_temperature_c": [
+              -40,
+              50
+            ],
+            "input_temperature_clip_c": [
+              -40,
+              50
+            ],
+            "dewpoint_rule": "夹到不高于处理后的气温",
+            "record": [
+              "low_temperature_clipped_hours",
+              "high_temperature_clipped_hours",
+              "temperature_clipped_hours",
+              "dewpoint_clipped_hours",
+              "raw_min_temperature_c",
+              "raw_max_temperature_c"
+            ],
+            "confirmed_low_temperature_rule": "2026-11-03用户指定输入夹到-40，不外推；风光仍使用原始气象",
+            "high_temperature_decision": "若出现50°C以上，按同样原则夹到模型上限，另行记录并在最终口径决定中报告"
+          },
+          "runtime": {
+            "maximum_workers": 96,
+            "omp_threads": 1,
+            "nice": 10,
+            "save_hourly_representatives": 10,
+            "keep_nonoptimal": true,
+            "resume": true
+          }
+        },
+        "scope": "all"
+      },
+      "progress": {
+        "utc": "2026-11-03T18:52:31.646466+00:00",
+        "pid": 376330,
+        "state": "complete",
+        "scope": "all",
+        "workers": 8,
+        "requested_workers": 8,
+        "startup_available_memory_gb": 42.68470001220703,
+        "memory_reserve_gb": 16.0,
+        "worker_memory_budget_gb": 0.6,
+        "completed": 264,
+        "total": 264,
+        "planned_lps": 198,
+        "performed_lps": 198,
+        "reused_baselines": 66,
+        "status_counts": {
+          "optimal": 264
+        },
+        "failed": 0,
+        "lp_status_counts": {
+          "optimal": 198
+        },
+        "failed_lps": 0,
+        "actual_lp_optimal_rate": 1.0,
+        "input_unavailable_rows": 0,
+        "optimal_rate": 1.0,
+        "session_elapsed_seconds": 70.74315550000756,
+        "total_solve_seconds": 301.61435473896563,
+        "mean_lp_seconds": 1.5233048219139678,
+        "worker_peak_rss_mb": 500.01171875,
+        "available_memory_gb": 46.00735092163086,
+        "estimated_remaining_seconds": 0.0
+      }
+    }
+  ],
+  "final_actual_lps": 958716,
+  "final_optimal_lps": 958716,
+  "final_reused_baselines": 319572,
+  "final_input_unavailable_rows": 15312,
+  "final_carbon_metadata_mismatches": 0,
+  "artifacts": {
+    "runs-full.parquet": {
+      "sha256": "ed8e5272c01d09b124629d04ea4150dc63cc358ee73b9151dfad4057ef89a6f6",
+      "bytes": 158351149
+    },
+    "grid-summary.parquet": {
+      "sha256": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c",
+      "bytes": 13385072
+    }
+  }
+}

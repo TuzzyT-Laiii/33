@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-03T18:57:04.252502+00:00",
+  "passed": true,
+  "rows": 264,
+  "actual_lps": 198,
+  "reused_baselines": 66,
+  "status_counts": {
+    "optimal": 264
+  },
+  "dispatch_and_fixed_asset_checks_passed": true,
+  "zero_grid_comparisons": 44,
+  "zero_grid_maximum_cost_difference_usd": 0.0,
+  "maximum_cost_difference_other_alpha_usd": 3129696.9469846115,
+  "auditor_sha256": "b4ebc2e3c6f2a32275d77386ae8049c2ee60683e29e9b9471636e1816c06f88d"
+}

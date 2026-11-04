@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-03T12:28:42.210644+00:00",
+  "scope": "all",
+  "points": 41700,
+  "blocks": 10969,
+  "seconds": 312.66456059498887,
+  "zarr": "/data3/dataset/ljt/global-flex-econ-20261103/inputs/weather-all.zarr"
+}

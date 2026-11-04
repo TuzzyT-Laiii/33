@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "summary_rows": 24,
+  "columns_compared": [
+    "status",
+    "total_cost_usd",
+    "pv_mw",
+    "wind_mw",
+    "battery_mw",
+    "battery_mwh",
+    "grid_cap_mw",
+    "extra_task_mw",
+    "facility_mwh",
+    "grid_mwh"
+  ],
+  "results_exactly_equal": true,
+  "resumed_without_additional_lps": true,
+  "utc": "2026-11-03T17:28:36.042599+00:00",
+  "auditor_sha256": "231d0751c04259afcfe094a9f45ed7778a4fff5103423495f564fa7e583d79ea"
+}
