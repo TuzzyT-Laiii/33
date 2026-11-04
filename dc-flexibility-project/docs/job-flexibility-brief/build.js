@@ -148,11 +148,13 @@ const ATTR_FIGURE = path.resolve(__dirname, GLOBAL_DIR, 'attribution/attribution
 const NOTE8R = '对4,842个有效网格分别回归柔性收益%（经济最优），自变量为2025年风光年均出力系数、风光逐小时相关、风电逐日波动、光伏季节差、年均气温、市电碳因子与纬度，均标准化，系数为每1个标准差对应的百分点。表中列出去掉后R²降幅最大的两个因素。';
 const NOTE8M = '机制：模型中市电全天同价，柔性只能靠让任务对准本地风光出力来省钱。风资源好的网格，无柔性最优方案主要靠本地风光加储能（训练的市电占比中位数' + ATTR.train_wind_high.grid_share_median + '%），柔性可少建储能、少弃电；风弱的网格主要买市电（占比' + ATTR.train_wind_low.grid_share_median + '%），推迟任务省不下电费。训练收益与无柔性方案市电占比的相关系数为' + ATTR.train_grid_share_r.toFixed(2) + '。已建成边界下市电碳因子更重要：碳因子越高市电越贵、本地风光装得越多，柔性越值钱。推理可推迟电量少，主要随光照和碳因子变化。';
 const NOTE8RLIMIT = '局限：OLS未处理空间自相关，t值偏乐观，重要性以R²降幅判断；资源特征取全年，与各来源原生窗口不完全对应，云通用仅120小时窗口，R²只有0.2–0.3；在分时电价下依赖市电的地区也能通过推迟获益，归因会改变。';
-const GLOBAL_THRESHOLD_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct.png');
-const THRESHOLD = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct.json'), 'utf8'));
+const GLOBAL_THRESHOLD_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct-all.png');
+const THRESHOLD = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct-all.json'), 'utf8'));
+const SHARE3 = Object.fromEntries(THRESHOLD.panels.map((row) => [row.scenario, row.share_pct.toFixed(0)]));
 const NOTE8T = '模型未计推迟带来的延误、存档恢复与运营成本，取3%作为柔性“值得做”的下限，给这些成本留出余量。已建成、经济最优下，超过3%的网格占比：'
-  + THRESHOLD.panels.map((row) => ({ 'D-TRN': '训练', 'D-SAI': '科研AI', 'A-HPC': '科研计算', 'D-INF': '推理' })[row.scenario] + row.share_pct.toFixed(0) + '%').join('、')
-  + '。推理只在光照强的干旱区（撒哈拉、阿拉伯半岛、中亚至中国西北、美国西南、澳洲内陆）超过3%；训练与科研计算几乎全球都超过。分母为各情境' + THRESHOLD.panels[0].grids.toLocaleString('en-US') + '个有效网格。';
+  + '科研计算' + SHARE3['A-HPC'] + '%、云通用计算' + SHARE3['A-CLD'] + '%；'
+  + ['SAI', 'TRN', 'INF'].map((use) => ({ SAI: '科研AI', TRN: '大模型训练/开发', INF: '推理服务' })[use] + ' ' + ['B', 'C', 'D'].map((kind) => SHARE3[kind + '-' + use] + '%').join('／')).join('；')
+  + '（依次为CPU主导型／均衡型／GPU主导型）。训练、科研计算及CPU主导型/均衡型科研AI几乎全球都超过，GPU主导型科研AI在亚马孙、南部非洲和中国东南等地不足3%；推理只在光照强的干旱区（撒哈拉、阿拉伯半岛、中亚至中国西北、美国西南、澳洲内陆）超过；云通用的格局主要反映120小时窗口内的天气。分母为各情境' + THRESHOLD.panels[0].grids.toLocaleString('en-US') + '个有效网格。';
 const NOTE8MAP = '首行为纯CPU型科研计算与云通用计算，其余三行依次为科研AI、大模型训练/开发、推理服务，三列为CPU主导型、均衡型、GPU主导型，子图标题给出中位数。同一幅图共用色标，上限取全部子图98分位，超出用三角标示。每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；空白为无可建设网格或无陆地气象点的区块。同一用途的三种规格空间格局几乎相同（相关系数0.97–1.00），差别在数值高低；云通用仅120小时窗口，格局主要反映这几天的天气。';
 const NOTE8LIMIT = '解释边界：2°抽样、成本全球统一、单一气象年与年均碳因子；低于−40°C（534格）与高于50°C（3格）的小时在冷却模型输入端夹到边界值；负荷沿用各来源原生窗口，收益不是完整全年值。完整结果见results/global-flex-econ-20261103。';
 const K_FIGURE = path.resolve(__dirname, FLEX_DIR, 'task-peak-capacity.png');
@@ -400,10 +402,10 @@ const doc = new Document({
       }),
       p(NOTE8MAP, {before: 10, size: 16, color: '595959'}),
 
-      economicHeading('柔性收益是否超过3%：已建成，经济最优'),
+      economicHeading('柔性收益是否超过3%（11个情境）：已建成，经济最优'),
       new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
-        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_THRESHOLD_MAP), transformation: {width: 900, height: 486},
-          altText: {name: '柔性收益超过3%的区域', title: '柔性收益超过3%的区域', description: '已建成边界、经济最优下，训练、科研AI、科研计算、推理四类代表情境柔性收益是否超过3%的二分类地图，2°区块着色。'}})],
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_THRESHOLD_MAP), transformation: {width: 760, height: 599},
+          altText: {name: '柔性收益超过3%的区域', title: '柔性收益超过3%的区域', description: '已建成边界、经济最优下，全部11个情境柔性收益是否超过3%的二分类地图，2°区块着色。'}})],
       }),
       p(NOTE8T, {before: 10, size: 17}),
 
@@ -447,7 +449,7 @@ if (MD_OUT) {
     '### 调度前后对比（法兰克福·GPU 主导型·大模型训练/开发）', '', `![调度前后](${ECON_DIR}/brief/dispatch-week.png)`, '', NOTE7D, '',
     `## ${H8}`, '', NOTE8A, '', mdTable(GLOBAL.table_rows), '', NOTE8B, '', '### 训练（GPU主导型）规划阶段经济最优：各大洲与主要国家中位数', '', mdTable(GLOBAL.region_rows), '', NOTE8C, '', NOTE8LIMIT, '',
     '### 全球柔性收益地图（11个情境）', '', `![规划阶段·经济最优](${GLOBAL_DIR}/figures/all-scenarios-planning-economic.png)`, '', `![已建成·经济最优](${GLOBAL_DIR}/figures/all-scenarios-fixed-economic.png)`, '', NOTE8MAP, '',
-    '### 柔性收益是否超过3%：已建成，经济最优', '', `![超过3%](${GLOBAL_DIR}/figures/threshold-fixed-economic-3pct.png)`, '', NOTE8T, '',
+    '### 柔性收益是否超过3%（11个情境）：已建成，经济最优', '', `![超过3%](${GLOBAL_DIR}/figures/threshold-fixed-economic-3pct-all.png)`, '', NOTE8T, '',
     `### ${ATTR_TITLE}`, '', NOTE8R, '', mdTable(ATTR.rows), '', `![${ATTR_TITLE}](${GLOBAL_DIR}/attribution/attribution.png)`, '', NOTE8M, '', NOTE8RLIMIT, '',
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
