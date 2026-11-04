@@ -4,6 +4,10 @@
 
 ## CPU/GPU 逐小时负荷工作包
 
+[八城市原生窗口负荷与四类任务构成](results/eight-city-native-flex-20261102/README.md)核验并复用冻结2023–2025气象及1320个10MW城市窗口，提供全部8×11情境的设施平均功率、窗口PUE和六层构成。精简版Word新增两页城市章节，比较冷却随气候的变化；第二、三章接排，全文八页。
+
+[按推迟与拆分能力统一的任务时间柔性分类](results/flex-class-20261101/README.md)采用刚性、可推迟·整体、可推迟·可拆分及未知四类，未知保守按刚性处理。11个10MW情境的原生与典型日图共用六层配色，原生IT电量与平均功率份额分别可核查；[精简版Word及说明](docs/job-flexibility-brief/README.md)给出代表名称表、份额表与堆叠条形图。功率与日期沿用[Seren组合结果](results/typical-load-curves-20261101-v4-seren/README.md)，本次不推断可调电量。
+
 [大模型训练/开发：Acme Seren原生窗口](results/trn-seren-20261101/README.md)更新B/C/D-TRN四档规模：正文只保留同期需求与监测通过筛选的真实小时，使用Seren逐小时已分配GPU功率条件反推；完整作业窗口采用观测与日形状补缺作为对照。情境名称保持不变，数据源明确为Acme Seren。提供空闲功率、覆盖率和比例截断敏感性，以及与PR #36的Kalos方案比较；HPC、CLD、SAI、INF结果保留原版本。
 
 [典型负荷曲线 v3：原生窗口](results/typical-load-curves-20261101-v3-native/README.md)按用户要求使用各来源完整原生时长，覆盖 44 个风冷情境，接入 Alibaba 120 小时云通用计算、ASI 185 天推理需求及 MIT 六月 GPU 功率标定。有日期来源按月日小时对应气象；无日期来源采用 12 个月初放置并在年末截断。提供窗口功率、电量、典型形状、平均功率对比、迁移敏感性和柔性提示。本版不能直接作为 8760/8784 小时下游输入；八城市既有柔性价值结果保持原状。之前的[全年 v3](results/typical-load-curves-20261101-v3/README.md)按原字节保留。

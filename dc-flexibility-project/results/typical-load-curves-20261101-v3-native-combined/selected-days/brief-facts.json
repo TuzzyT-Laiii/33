@@ -1,0 +1,81 @@
+{
+  "MIT_OTHER": {
+    "DNN 训练（含推断）": {
+      "pct_mit_gpu_hours": 3.4147798945647003,
+      "pct_other_gpu_hours": 4.6375196819436
+    },
+    "低 GPU 活动占用": {
+      "pct_mit_gpu_hours": 1.40586048897,
+      "pct_other_gpu_hours": 1.9092608862
+    },
+    "其他与无法判断": {
+      "pct_mit_gpu_hours": 3.8477546681591,
+      "pct_other_gpu_hours": 5.2255309436777
+    },
+    "多节点大作业": {
+      "pct_mit_gpu_hours": 11.0552119106,
+      "pct_other_gpu_hours": 15.0137825589
+    },
+    "数组批量": {
+      "pct_mit_gpu_hours": 14.3286398308,
+      "pct_other_gpu_hours": 19.4593359697
+    },
+    "长时单任务": {
+      "pct_mit_gpu_hours": 39.5815085062,
+      "pct_other_gpu_hours": 53.7545699596
+    }
+  },
+  "ASI_all_business_share": {
+    "dev": 0.0345357971721784,
+    "offline_inference": 0.2077701920096958,
+    "online_inference": 0.5363452700984974,
+    "other": 0.0077683814393158,
+    "training": 0.2102011008943377,
+    "unknown": 0.0033792583859748
+  },
+  "CLD": {
+    "source_core_hours": 17583117.773333326,
+    "online_share": 0.1979017520304267,
+    "batch_share": 0.5113345278898108,
+    "unreconciled_signed_share": 0.29076372007976253
+  },
+  "INF": {
+    "source_inference_gpu_hours": 415851928.8772726,
+    "offline_share_of_inference": 0.27921767869337244,
+    "offline_lp_share_of_offline": 0.9530020206840606,
+    "offline_lp_share_of_inference": 0.26609501200549673
+  },
+  "MIT_partial_data": false,
+  "MIT_release_status": "六月窗口完成版",
+  "OTHER_definition": "PR28互斥主类；百分比为各自总体GPU小时，不能当作可调功率",
+  "power": {
+    "TRN_GPU_TDP_ratio": 0.8,
+    "TRN_GPU_TDP_range": [
+      0.65,
+      0.95
+    ],
+    "H100_SXM_training_GPU_kwh_per_card_hour": 0.56,
+    "H100_SXM_training_GPU_kwh_per_card_hour_range": [
+      0.455,
+      0.665
+    ],
+    "inference_source": "BurstGPT119日中央形状；Azure2024两类各7日为敏感性",
+    "commits": {
+      "35": "520f68d57c105d255d867d13e1f7498aa59c1ded",
+      "36": "1594fb77148f3c9307d00230c25e864f6a286625",
+      "28": "d3fd452e6e03b2cd00b74352b91dbdd57f437095",
+      "34": "c836bbaf095dfe4660bad8abe9ab9e0ddee4cd6c",
+      "31": "c7c3df07adc481f6209de418191117734c43ac03"
+    },
+    "TRN_diurnal_GPU_TDP_range": [
+      0.7298182209277067,
+      0.8398154085604568
+    ],
+    "TRN_diurnal_source": "Acme Kalos fixed 271 GPUs; source UTC hourly shape; allocated GPU-hour weighted 0.80",
+    "TRN_diurnal_commit": "1594fb77148f3c9307d00230c25e864f6a286625",
+    "TRN_GPU_TDP_ratio_interpretation": "原生90天分配GPU小时加权均值",
+    "training_profile_sha256": "747bc4d742222d93c176963e8303e8e89bb5053c1e09b4245babced0c5952a99",
+    "power_model_version": "typical-load-curves-20261101-v3-native-combined"
+  },
+  "business_statistics_source_sha256": "4572532394ebf5c6b6539d14cc56a8eba0c2dd52e9c1f8d6a66ffa0f327a948e"
+}

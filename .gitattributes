@@ -192,6 +192,13 @@ dc-flexibility-project/results/typical-load-curves-20261101-v3-native/**/*.parqu
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.pdf binary
 dc-flexibility-project/results/typical-load-curves-20261101-v3-native/*.png binary
 
+# 组合模型原生窗口保留数值、图件和审计的生成字节。
+dc-flexibility-project/analysis/*native_combined*.py text eol=lf
+dc-flexibility-project/analysis/*native_combined.sh text eol=lf
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native-combined/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native-combined/**/*.parquet binary
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native-combined/**/*.pdf binary
+dc-flexibility-project/results/typical-load-curves-20261101-v3-native-combined/**/*.png binary
 # 第四章训练日形状沿用上游小时值，保留图件和汇总指纹。
 dc-flexibility-project/analysis/*chapter4_trn_diurnal.py text eol=lf
 dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v6/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
@@ -212,8 +219,26 @@ dc-flexibility-project/results/trn-seren-20261101/** -text whitespace=blank-at-e
 dc-flexibility-project/results/trn-seren-20261101/*.png binary
 dc-flexibility-project/results/trn-seren-20261101/*.pdf binary
 
+dc-flexibility-project/analysis/*brief_seren*.py text eol=lf
+dc-flexibility-project/results/typical-load-curves-20261101-v4-seren/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/typical-load-curves-20261101-v4-seren/**/*.parquet binary
+dc-flexibility-project/results/typical-load-curves-20261101-v4-seren/**/*.png binary
+dc-flexibility-project/results/typical-load-curves-20261101-v4-seren/**/*.pdf binary
 # Seren第四章统计、图件和选日结果保持可核验字节。
 dc-flexibility-project/analysis/*chapter4_trn_seren.py text eol=lf
 dc-flexibility-project/analysis/summarize_seren_jobs_for_brief.py text eol=lf
 dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v7/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dc-flexibility-project/results/scenario-typical-day-by-task-20261101-v7/*.png binary
+
+# 四类柔性归因的数值与图件保留生成指纹。
+dc-flexibility-project/analysis/*flex_classes.py text eol=lf
+dc-flexibility-project/results/flex-class-20261101/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/flex-class-20261101/**/*.parquet binary
+dc-flexibility-project/results/flex-class-20261101/**/*.png binary
+dc-flexibility-project/results/flex-class-20261101/**/*.pdf binary
+
+dc-flexibility-project/analysis/*eight_city_native*.py text eol=lf
+dc-flexibility-project/analysis/*eight_city_native*.sh text eol=lf
+dc-flexibility-project/results/eight-city-native-flex-20261102/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+dc-flexibility-project/results/eight-city-native-flex-20261102/*.png binary
+dc-flexibility-project/results/eight-city-native-flex-20261102/*.pdf binary
