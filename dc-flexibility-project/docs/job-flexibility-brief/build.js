@@ -142,6 +142,11 @@ const NOTE8A = '把第七章模型从八城市铺到全球：全球' + GLOBAL.gr
   + GLOBAL.grids_valid.toLocaleString('en-US') + '格有效，全部线性规划最优，另' + GLOBAL.grids_no_land + '格无陆地气象点未算。成本、电价、碳价与加卡口径同第七章，市电碳因子按所在国家取Ember 2024年均值。下表为有效网格等权中位数。';
 const NOTE8B = '已建成边界下100%匹配的收益全部约为0（最大' + GLOBAL.fixed_alpha100_max_pct.toPrecision(2) + '%），表中略去；全部柔性最优解均不需新增算力。八城市列取第七章7.1表经济最优中位数，两者口径相同、样本不同。';
 const NOTE8C = '训练（GPU主导型）规划阶段经济最优的全球中位节省为' + TP.median.toFixed(1) + '%，四分位' + TP.p25.toFixed(1) + '–' + TP.p75.toFixed(1) + '%。节省高的是光照好、风电弱的干旱带（北非、中东、澳洲内陆、中亚），可达30%以上；风资源好的高纬与南美南端最低，仅2–4%。推理在各地都在3–4%，地域差别小。';
+const GLOBAL_THRESHOLD_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct.png');
+const THRESHOLD = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct.json'), 'utf8'));
+const NOTE8T = '模型未计推迟带来的延误、存档恢复与运营成本，取3%作为柔性“值得做”的下限，给这些成本留出余量。已建成、经济最优下，超过3%的网格占比：'
+  + THRESHOLD.panels.map((row) => ({ 'D-TRN': '训练', 'D-SAI': '科研AI', 'A-HPC': '科研计算', 'D-INF': '推理' })[row.scenario] + row.share_pct.toFixed(0) + '%').join('、')
+  + '。推理只在光照强的干旱区（撒哈拉、阿拉伯半岛、中亚至中国西北、美国西南、澳洲内陆）超过3%；训练与科研计算几乎全球都超过。分母为各情境' + THRESHOLD.panels[0].grids.toLocaleString('en-US') + '个有效网格。';
 const NOTE8MAP = '每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；每幅图单独色标，上限取该图98分位，超出用三角标示。空白为无可建设网格或无陆地气象点的区块。';
 const NOTE8LIMIT = '解释边界：2°抽样、成本全球统一、单一气象年与年均碳因子；低于−40°C（534格）与高于50°C（3格）的小时在冷却模型输入端夹到边界值；负荷沿用各来源原生窗口，收益不是完整全年值。完整结果见results/global-flex-econ-20261103。';
 const ECON_VALUE = path.resolve(__dirname, ECON_DIR, 'brief/value-summary.png');
@@ -370,6 +375,13 @@ const doc = new Document({
           altText: {name: '全球柔性收益地图·已建成', title: '全球柔性收益地图·已建成', description: '四类代表情境在风光储固定为无柔性最优配置时经济最优目标下的柔性节省百分比，2°区块着色。'}})],
       }),
       p(NOTE8MAP, {before: 10, size: 16, color: '595959'}),
+
+      economicHeading('柔性收益是否超过3%：已建成，经济最优'),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_THRESHOLD_MAP), transformation: {width: 900, height: 486},
+          altText: {name: '柔性收益超过3%的区域', title: '柔性收益超过3%的区域', description: '已建成边界、经济最优下，训练、科研AI、科研计算、推理四类代表情境柔性收益是否超过3%的二分类地图，2°区块着色。'}})],
+      }),
+      p(NOTE8T, {before: 10, size: 17}),
     ],
   }],
 });
@@ -400,6 +412,7 @@ if (MD_OUT) {
     '### 调度前后对比（法兰克福·GPU 主导型·大模型训练/开发）', '', `![调度前后](${ECON_DIR}/brief/dispatch-week.png)`, '', NOTE7D, '',
     `## ${H8}`, '', NOTE8A, '', mdTable(GLOBAL.table_rows), '', NOTE8B, '', '### 训练（GPU主导型）规划阶段经济最优：各大洲与主要国家中位数', '', mdTable(GLOBAL.region_rows), '', NOTE8C, '', NOTE8LIMIT, '',
     '### 全球柔性收益地图', '', `![规划阶段·经济最优](${GLOBAL_DIR}/figures/planning-economic.png)`, '', `![已建成·经济最优](${GLOBAL_DIR}/figures/fixed-economic.png)`, '', NOTE8MAP, '',
+    '### 柔性收益是否超过3%：已建成，经济最优', '', `![超过3%](${GLOBAL_DIR}/figures/threshold-fixed-economic-3pct.png)`, '', NOTE8T, '',
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
   const sourceUpdated = retainedSections.split('\n').map((line) => line.startsWith('- 第四章图与逐小时分任务汇总：') ? SOURCE4 : line.startsWith('- 第五章44情境、25组地点年份及原生时序：') ? SOURCE5 : line).join('\n');
