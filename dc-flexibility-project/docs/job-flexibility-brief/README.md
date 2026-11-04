@@ -186,6 +186,12 @@ IT推迟可能同时改变冷却功率，方向和幅度取决于执行时刻的
 
 GPU主导型训练在100%目标下，规划阶段储能中位数为188→96MWh，模型成本收益为27.0%，年化节省367万美元。固定已建成容量时，同一目标的模型成本收益约为0.0%。该结果取决于本章固定电价、容量固定和成本项目；储能退化、备用与其他服务价值未纳入。
 
+### 算力容量 K 的来源：任务 IT 窗口峰值
+
+![算力容量 K 的来源：任务 IT 窗口峰值](../../results/flex-class-20261101/task-peak-capacity.png)
+
+本章“不加卡”的算力容量 K 取原生窗口内任务 IT 功率（刚性＋未知＋两类可推迟任务，按原到达时刻）的最大值，不含基础与空载 IT 和冷却等非 IT，因此低于第五章时序总览中的设施峰值。纯 CPU 型·科研计算 K＝6.83MW，平均为K的64%，超过95%K仅8小时；纯 CPU 型·云通用计算 K＝3.99MW，平均为K的63%，超过95%K仅3小时；GPU 主导型·科研 AI K＝2.25MW，平均为K的56%，超过95%K仅64小时；GPU 主导型·大模型训练/开发 K＝4.85MW，平均为K的64%，超过95%K仅15小时；GPU 主导型·推理服务 K＝2.04MW，平均为K的67%，超过95%K仅43小时。多数时段离K尚有30–40%空档，两类可推迟任务可在12/48小时内利用这些空档移位，因而柔性最优解不需加卡。K由单一最高时刻决定，对尖峰敏感：科研计算平时约5.5MW，K来自第101天的6.83MW尖峰；若改用较稳健的分位数定容量，空档与柔性收益会相应减小。
+
 ### 柔性收益与单位成本
 
 ![柔性收益与单位成本](../../results/flex-card-cost-calendar-20261102/brief/value-summary.png)
@@ -261,6 +267,7 @@ GPU主导型训练在100%目标下，规划阶段储能中位数为188→96MWh�
 
 
 - 第八章全球网格：[global-flex-econ-20261103](../../results/global-flex-econ-20261103/README.md)。4,900个2°代表网格×11情境×6档目标×两种边界，958,716个COPT线性规划；brief/brief-facts.json由analysis/global_flex_brief_facts.py从grid-summary.parquet生成，地图为figures/planning-economic与fixed-economic。
+
 
 - 第七章柔性调度经济性：[flex-card-cost-calendar-20261102](../../results/flex-card-cost-calendar-20261102/README.md)。COPT规划阶段3168个算例（runs-cards.csv）与固定供给侧1584个算例（runs-fixed.csv）；训练按实际UTC时间约束12/48小时延迟，brief/保存本章图表、输入校验值及核验记录。
 
