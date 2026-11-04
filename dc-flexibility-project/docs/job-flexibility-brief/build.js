@@ -10,6 +10,8 @@ const RESULT_DIR = '../../results/typical-load-curves-20261101-v4-seren';
 const FLEX_DIR = '../../results/flex-class-20261101';
 const CITY_DIR = '../../results/eight-city-native-flex-20261102';
 const ECON_DIR = '../../results/flex-card-cost-calendar-20261102';
+const GLOBAL_DIR = '../../results/global-flex-econ-20261103';
+const GLOBAL = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'brief/brief-facts.json'), 'utf8'));
 const ECON = JSON.parse(fs.readFileSync(path.resolve(__dirname, ECON_DIR, 'brief/brief-facts.json'), 'utf8'));
 const CITY = JSON.parse(fs.readFileSync(path.resolve(__dirname, CITY_DIR, 'brief-summary.json'), 'utf8'));
 const FLEX = JSON.parse(fs.readFileSync(path.resolve(__dirname, FLEX_DIR, 'brief-summary.json'), 'utf8'));
@@ -124,7 +126,7 @@ const dataTable = new Table({
 });
 
 const TITLE = '数据中心任务时间柔性简表';
-const DATE = '2026-11-02';
+const DATE = '2026-11-04';
 const H1 = '一、情境定义：服务器规格 × 需求';
 const H2 = '二、任务时间柔性分类';
 const H3 = '三、各数据源概况';
@@ -132,6 +134,16 @@ const H4 = '四、各情境典型日负荷曲线';
 const H5 = '五、各情境原生窗口负荷曲线';
 const H6 = '六、八城市气候下的负荷与柔性';
 const H7 = '七、柔性调度的经济性（计入加卡，初算）';
+const H8 = '八、全球网格的柔性经济性（2° 抽样试算）';
+const GLOBAL_PLAN_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/planning-economic.png');
+const GLOBAL_FIXED_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/fixed-economic.png');
+const TP = GLOBAL.train_plan_econ;
+const NOTE8A = '把第七章模型从八城市铺到全球：全球' + GLOBAL.grids_sampled.toLocaleString('en-US') + '个2°区块各取一个可建设0.5°网格，用该格ERA5 2025年逐小时气象重算风光出力与PUE，11情境×6档匹配目标×规划/已建成两种边界全部求解；'
+  + GLOBAL.grids_valid.toLocaleString('en-US') + '格有效，全部线性规划最优，另' + GLOBAL.grids_no_land + '格无陆地气象点未算。成本、电价、碳价与加卡口径同第七章，市电碳因子按所在国家取Ember 2024年均值。下表为有效网格等权中位数。';
+const NOTE8B = '已建成边界下100%匹配的收益全部约为0（最大' + GLOBAL.fixed_alpha100_max_pct.toPrecision(2) + '%），表中略去；全部柔性最优解均不需新增算力。八城市列取第七章7.1表经济最优中位数，两者口径相同、样本不同。';
+const NOTE8C = '训练（GPU主导型）规划阶段经济最优的全球中位节省为' + TP.median.toFixed(1) + '%，四分位' + TP.p25.toFixed(1) + '–' + TP.p75.toFixed(1) + '%。节省高的是光照好、风电弱的干旱带（北非、中东、澳洲内陆、中亚），可达30%以上；风资源好的高纬与南美南端最低，仅2–4%。推理在各地都在3–4%，地域差别小。';
+const NOTE8MAP = '每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；每幅图单独色标，上限取该图98分位，超出用三角标示。空白为无可建设网格或无陆地气象点的区块。';
+const NOTE8LIMIT = '解释边界：2°抽样、成本全球统一、单一气象年与年均碳因子；低于−40°C（534格）与高于50°C（3格）的小时在冷却模型输入端夹到边界值；负荷沿用各来源原生窗口，收益不是完整全年值。完整结果见results/global-flex-econ-20261103。';
 const ECON_VALUE = path.resolve(__dirname, ECON_DIR, 'brief/value-summary.png');
 const ECON_DISPATCH = path.resolve(__dirname, ECON_DIR, 'brief/dispatch-week.png');
 const NOTE7A = '参考IT 10MW，杉数COPT求解八城市×11情境原生窗口。两组均允许按基准购置价格情境增加算力。柔性收益＝无柔性模型成本－有柔性模型成本；收益%以无柔性模型成本为分母，仅计能源系统与新增算力，既有机群资本、延误与恢复成本未计入。窗口本地匹配率＝1－窗口市电电量/窗口设施电量；95%约束窗口总量，100%要求各时段市电为0。下表为有效城市配对的中位数，年化金额由原生窗口折算。';
@@ -155,6 +167,8 @@ const tableOf = (rows, widths) => new Table({
       fill: i === 0 ? HEAD_FILL : (i % 2 === 0 ? 'F3F6FA' : undefined) })),
   })),
 });
+const globalTable = tableOf(GLOBAL.table_rows, [3400, 3200, 2400, 2600, 2400]);
+const regionTable = tableOf(GLOBAL.region_rows, [2600, ...Array(12).fill(1000)]);
 const planTable = tableOf(ECON.plan_rows, [3200, 1300, 2800, 2800, 2400, 1800]);
 const builtTable = tableOf(ECON.built_rows, [3000, 2500, 2300, 1500, 1300, 2100, 1600]);
 const sub = (t) => new Paragraph({ keepNext: true, spacing: { before: 80, after: 30 }, children: [new TextRun({ text: t, font: HEI, size: 20, bold: true, color: '000000' })] });
@@ -219,6 +233,7 @@ const retainedSections = sourceSection >= 0 ? previousReadme.slice(sourceSection
 const SOURCE4 = '- 第四章图与逐小时分任务汇总：[' + FLEX_DIR.split('/').pop() + '](' + FLEX_DIR + '/README.md)。按确认的四类映射合并原始任务功率层，保留基础与空载IT和冷却等非IT。11个典型日日期、小时功率及选日规则与Seren组合结果保持；native-hourly及selected-days分别保存原生与典型日六层值。全套图统一六项图例与配色。';
 const SOURCE5 = '- 第五章44情境、25组地点年份及原生时序：[' + RESULT_DIR.split('/').pop() + '](' + RESULT_DIR + '/README.md)。训练固定#38 bd6c8cd正文main，推理固定#35 520f68d，CPU及基础空闲沿用#36。native-summary.csv、placement-summary.csv和window-summary-all-locations.csv保留汇总；training-10MW-comparison.csv对照PR #37上一版训练数字，来源、窗口、归一化与模型同时变化，差值为描述性比较。manifest.json记录上游指纹及其余情境原字节保留校验。';
 const SOURCE6 = '- 第六章八城市气候与负荷：[' + CITY_DIR.split('/').pop() + '](' + CITY_DIR + '/README.md)。核验8份冻结气象及1320份10MW城市原生小时，复用#35/#36组合与#38 Seren结果；case-summary.csv、year-summary.csv、city-summary.csv分别保存逐窗口、逐年和三年汇总。facility-composition.csv保留六层功率，冷却非IT单列；典型日采用第五章同日逐小时IT份额。verification.json保存SHA-256及24组冷却复算，brief-audit.json保存文档检查。';
+const SOURCE8 = '- 第八章全球网格：[' + GLOBAL_DIR.split('/').pop() + '](' + GLOBAL_DIR + '/README.md)。4,900个2°代表网格×11情境×6档目标×两种边界，958,716个COPT线性规划；brief/brief-facts.json由analysis/global_flex_brief_facts.py从grid-summary.parquet生成，地图为figures/planning-economic与fixed-economic。';
 const SOURCE7 = '- 第七章柔性调度经济性：[' + ECON_DIR.split('/').pop() + '](' + ECON_DIR + '/README.md)。COPT规划阶段' + ECON.run_counts.planning + '个算例（runs-cards.csv）与固定供给侧' + ECON.run_counts.built + '个算例（runs-fixed.csv）；训练按实际UTC时间约束12/48小时延迟，brief/保存本章图表、输入校验值及核验记录。';
 const SPIKE_SOURCE = '- Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。';
 const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取参考 IT 功率 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
@@ -332,6 +347,29 @@ const doc = new Document({
           altText: {name: '调度前后负荷与发电曲线', title: '调度前后负荷与发电曲线', description: '法兰克福训练情境一周，经济最优与100%本地无碳下无柔性与有柔性的负荷、风光发电、储能放电与市电。'}})],
       }),
       p(NOTE7D, {before: 10, size: 17}),
+
+      economicHeading(H8),
+      p(NOTE8A, {before: 30, size: 17}),
+      globalTable,
+      p(NOTE8B, {before: 20, size: 16, color: '595959'}),
+      sub('训练（GPU主导型）规划阶段经济最优：各大洲与主要国家中位数'),
+      regionTable,
+      p(NOTE8C, {before: 40, size: 18}),
+      p(NOTE8LIMIT, {before: 30, size: 16, color: '595959'}),
+
+      economicHeading('全球柔性收益地图：规划阶段，经济最优'),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_PLAN_MAP), transformation: {width: 900, height: 486},
+          altText: {name: '全球柔性收益地图·规划阶段', title: '全球柔性收益地图·规划阶段', description: '训练、科研AI、科研计算、推理四类代表情境在规划阶段经济最优目标下的柔性节省百分比，2°区块着色。'}})],
+      }),
+      p(NOTE8MAP, {before: 10, size: 16, color: '595959'}),
+
+      economicHeading('全球柔性收益地图：已建成，经济最优'),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_FIXED_MAP), transformation: {width: 900, height: 486},
+          altText: {name: '全球柔性收益地图·已建成', title: '全球柔性收益地图·已建成', description: '四类代表情境在风光储固定为无柔性最优配置时经济最优目标下的柔性节省百分比，2°区块着色。'}})],
+      }),
+      p(NOTE8MAP, {before: 10, size: 16, color: '595959'}),
     ],
   }],
 });
@@ -360,6 +398,8 @@ if (MD_OUT) {
     `## ${H7}`, '', NOTE7A, '', `### ${SUB7A}`, '', mdTable(ECON.plan_rows), '', NOTE7B1, '', `### ${SUB7B}`, '', mdTable(ECON.built_rows), '', NOTE7B2, '', NOTE7C, '',
     '### 柔性收益与单位成本', '', `![柔性收益与单位成本](${ECON_DIR}/brief/value-summary.png)`, '', NOTE7METHOD, '', NOTE7E, '',
     '### 调度前后对比（法兰克福·GPU 主导型·大模型训练/开发）', '', `![调度前后](${ECON_DIR}/brief/dispatch-week.png)`, '', NOTE7D, '',
+    `## ${H8}`, '', NOTE8A, '', mdTable(GLOBAL.table_rows), '', NOTE8B, '', '### 训练（GPU主导型）规划阶段经济最优：各大洲与主要国家中位数', '', mdTable(GLOBAL.region_rows), '', NOTE8C, '', NOTE8LIMIT, '',
+    '### 全球柔性收益地图', '', `![规划阶段·经济最优](${GLOBAL_DIR}/figures/planning-economic.png)`, '', `![已建成·经济最优](${GLOBAL_DIR}/figures/fixed-economic.png)`, '', NOTE8MAP, '',
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
   const sourceUpdated = retainedSections.split('\n').map((line) => line.startsWith('- 第四章图与逐小时分任务汇总：') ? SOURCE4 : line.startsWith('- 第五章44情境、25组地点年份及原生时序：') ? SOURCE5 : line).join('\n');
@@ -369,6 +409,9 @@ if (MD_OUT) {
   if (!tail.includes(SOURCE6)) tail = tail.replace('## 重新生成', `${SOURCE6}\n\n## 重新生成`);
   tail = tail.split(String.fromCharCode(10)).filter((line) => !line.startsWith('- 第七章') || line === SOURCE7).join(String.fromCharCode(10));
   if (!tail.includes(SOURCE7)) tail = tail.replace('## 重新生成', `${SOURCE7}
+
+## 重新生成`);
+  if (!tail.includes(SOURCE8)) tail = tail.replace('## 重新生成', `${SOURCE8}
 
 ## 重新生成`);
   if (!tail.includes(SPIKE_SOURCE)) tail = tail.replace('## 重新生成', `${SPIKE_SOURCE}\n\n## 重新生成`);
