@@ -1,0 +1,101 @@
+{
+  "utc": "2026-11-04T12:23:25.217936+00:00",
+  "title": "规划边界，经济最优：全部 11 个情境的柔性收益",
+  "boundary": "planning",
+  "alpha": null,
+  "color_min_pct": 0,
+  "color_max_pct": 25.0,
+  "colormap": "viridis",
+  "renderer_sha256": "80a3fe703c9b5b56384dfb4729123e4c3e86929ab06c2716d7cb32122ee1da9d",
+  "data_sha256": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c",
+  "panels": [
+    {
+      "scenario": "A-HPC",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 11.361,
+      "p25_pct": 9.309,
+      "p75_pct": 14.089
+    },
+    {
+      "scenario": "A-CLD",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 9.238,
+      "p25_pct": 6.298,
+      "p75_pct": 12.518
+    },
+    {
+      "scenario": "B-SAI",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 13.217,
+      "p25_pct": 11.128,
+      "p75_pct": 16.481
+    },
+    {
+      "scenario": "C-SAI",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 12.115,
+      "p25_pct": 10.083,
+      "p75_pct": 15.256
+    },
+    {
+      "scenario": "D-SAI",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 7.699,
+      "p25_pct": 5.807,
+      "p75_pct": 9.853
+    },
+    {
+      "scenario": "B-TRN",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 10.909,
+      "p25_pct": 7.964,
+      "p75_pct": 14.654
+    },
+    {
+      "scenario": "C-TRN",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 12.689,
+      "p25_pct": 9.424,
+      "p75_pct": 16.825
+    },
+    {
+      "scenario": "D-TRN",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 13.839,
+      "p25_pct": 10.388,
+      "p75_pct": 18.14
+    },
+    {
+      "scenario": "B-INF",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 3.329,
+      "p25_pct": 2.717,
+      "p75_pct": 3.844
+    },
+    {
+      "scenario": "C-INF",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 3.616,
+      "p25_pct": 3.033,
+      "p75_pct": 4.157
+    },
+    {
+      "scenario": "D-INF",
+      "grids": 4842,
+      "drawn_blocks": 4832,
+      "median_pct": 3.739,
+      "p25_pct": 3.194,
+      "p75_pct": 4.271
+    }
+  ]
+}
