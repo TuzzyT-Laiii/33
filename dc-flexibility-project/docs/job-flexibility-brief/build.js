@@ -9,7 +9,7 @@ const OUT = process.argv[2];
 const RESULT_DIR = '../../results/typical-load-curves-20261101-v4-seren';
 const FLEX_DIR = '../../results/flex-class-20261101';
 const CITY_DIR = '../../results/eight-city-native-flex-20261102';
-const ECON_DIR = '../../results/flex-econ-copt-20261102';
+const ECON_DIR = '../../results/flex-card-cost-20261102';
 const ECON = JSON.parse(fs.readFileSync(path.resolve(__dirname, ECON_DIR, 'brief/brief-facts.json'), 'utf8'));
 const CITY = JSON.parse(fs.readFileSync(path.resolve(__dirname, CITY_DIR, 'brief-summary.json'), 'utf8'));
 const FLEX = JSON.parse(fs.readFileSync(path.resolve(__dirname, FLEX_DIR, 'brief-summary.json'), 'utf8'));
@@ -131,15 +131,15 @@ const H3 = '三、各数据源概况';
 const H4 = '四、各情境典型日负荷曲线';
 const H5 = '五、各情境原生窗口负荷曲线';
 const H6 = '六、八城市气候下的负荷与柔性';
-const H7 = '七、柔性调度的经济价值（初算）';
+const H7 = '七、柔性调度的经济性（计入加卡，初算）';
 const ECON_VALUE = path.resolve(__dirname, ECON_DIR, 'brief/value-summary.png');
 const ECON_DISPATCH = path.resolve(__dirname, ECON_DIR, 'brief/dispatch-week.png');
-const NOTE7A = '调度对象为第二章四类：刚性、未知与基础空载IT不动；可推迟·整体最多推迟12小时，可推迟·可拆分最多推迟48小时，均在原生窗口内完成，执行后不超过IT装机。供电侧配置光伏、风电、储能与市电，容量与逐小时调度一并按成本最小求解（杉数COPT，八城市×11情境原生窗口）。“本地匹配比例”指本地风光（含储能）逐小时覆盖设施用电的比例，从经济最优逐步收紧至100%（不用市电）。成本：风光IRENA 2024，储能ATB 2025，市电100 USD/MWh，碳价100 USD/t，接入费120 USD/kW·年。';
-const NOTE7B = '表中为八城市中位数；度电成本按设施用电计，有、无柔性两种情况都重新优化容量。可推迟IT电量%＝可推迟·整体＋可推迟·可拆分占原生窗口IT电量（第五章）。';
-const NOTE7C = '柔性价值主要取决于可拆分任务：训练可推迟约45%的IT电量，100%本地无碳时省约三成成本，主要来自少建储能；推理只有约9%可推迟，价值约4%。经济最优下，有柔性时最优市电接入容量约为平均设施负荷的0.7–1.0倍；若风光只按平均负荷建设，本地匹配≥99%在所有城市均不可行。';
-const NOTE7D = '法兰克福2025-06-24至06-30（UTC）连续7天。上排无柔性、下排有柔性，四种情况各自重新优化容量（图内标注）；红虚线为调度前设施负荷，黑线为调度后。堆叠面积为光伏、风电、储能放电与市电，高出负荷部分为储能充电或弃电。有柔性后训练负荷集中到光伏时段，夜间由储能或市电供给的电量明显减少。';
-const NOTE7E = '局限：可推迟·整体只按截止期近似，未约束开始后不可中断；存档恢复损耗、分时电价与向电网售电未计；推迟时长为情景假设；Alibaba仅120小时，训练窗口内缺口按连续小时处理。完整结果见results/flex-econ-copt-20261102。';
-const W7 = [3300, 1500, 2200, 1500, 2200, 1500, 2400];
+const NOTE7A = '调度对象为第二章四类：刚性、未知与基础空载IT不动；可推迟·整体最多推迟12小时，可推迟·可拆分最多推迟48小时，均在原生窗口内完成。算力按调度前任务功率峰值配置；柔性若使某小时超过该峰值须加卡，按年化服务器价计费（纯CPU 2万、加1/2张H100 PCIe 4.75/7.5万、DGX H100 35万美元，年化系数0.332），新增卡全时待机耗电计入用电。光伏、风电、储能与市电和调度一并按成本最小求解（杉数COPT，八城市×11情境原生窗口）；本地匹配比例为本地风光（含储能）逐小时覆盖设施用电的比例。成本：风光IRENA 2024，储能ATB 2025，市电100 USD/MWh，碳价100 USD/t，接入费120 USD/kW·年。';
+const NOTE7B = '表中为八城市中位数。柔性收益＝无柔性总成本－有柔性总成本，两者都重新优化风光储，总成本含新增卡；万美元/年按窗口小时折算，参考IT 10MW。后三列为供给侧固定在无柔性成本最优配置时的单位值：峰值内柔性不需新卡，每推迟1MWh换来的能源节省；储能为年化成本÷放电量；加卡柔性按新增卡每天承接8小时推迟负荷计。';
+const NOTE7C = '按卡的市价，所有情境都不加卡：基线机群平均只用到60–75%，峰值以下的空档足够挪负荷，卡的使用时间不增加。峰值内柔性每推迟1MWh节省约75–100美元，这也是推迟本身（排队、存档恢复）可容忍的代价上限；加卡柔性每推迟1MWh需0.58–2.5万美元，是储能（约170–210美元）的30–120倍。训练在100%本地无碳时省约29%，主要来自少建储能；推理可推迟电量少，收益约3%。';
+const NOTE7D = '法兰克福2025-06-24至06-30（UTC）连续7天。上排无柔性、下排有柔性，四种情况各自重新优化容量（图内标注），新增卡均为0。红虚线为调度前设施负荷，黑线为调度后；堆叠面积为光伏、风电、储能放电与市电，高出负荷部分为储能充电或弃电。有柔性后训练负荷集中到光伏时段，但不超过机群峰值（黑线平顶）；100%本地无碳下储能由126 MWh降至69 MWh。';
+const NOTE7E = '局限：服务器价为公开估计与量级假设；新增卡按全时待机计耗电；推迟本身的运营代价无数据，仅以能源节省给出上限；可推迟·整体未约束开始后不可中断；分时电价与售电未计；Alibaba仅120小时。完整结果见results/flex-card-cost-20261102。';
+const W7 = [3300, 1100, 2300, 2300, 1900, 1700, 2000];
 const econTable = new Table({
   width: { size: W7.reduce((a, b) => a + b, 0), type: WidthType.DXA }, columnWidths: W7,
   rows: ECON.table_rows.map((row, i) => new TableRow({ tableHeader: i === 0, cantSplit: true,
@@ -207,7 +207,7 @@ const retainedSections = sourceSection >= 0 ? previousReadme.slice(sourceSection
 const SOURCE4 = '- 第四章图与逐小时分任务汇总：[' + FLEX_DIR.split('/').pop() + '](' + FLEX_DIR + '/README.md)。按确认的四类映射合并原始任务功率层，保留基础与空载IT和冷却等非IT。11个典型日日期、小时功率及选日规则与Seren组合结果保持；native-hourly及selected-days分别保存原生与典型日六层值。全套图统一六项图例与配色。';
 const SOURCE5 = '- 第五章44情境、25组地点年份及原生时序：[' + RESULT_DIR.split('/').pop() + '](' + RESULT_DIR + '/README.md)。训练固定#38 bd6c8cd正文main，推理固定#35 520f68d，CPU及基础空闲沿用#36。native-summary.csv、placement-summary.csv和window-summary-all-locations.csv保留汇总；training-10MW-comparison.csv对照PR #37上一版训练数字，来源、窗口、归一化与模型同时变化，差值为描述性比较。manifest.json记录上游指纹及其余情境原字节保留校验。';
 const SOURCE6 = '- 第六章八城市气候与负荷：[' + CITY_DIR.split('/').pop() + '](' + CITY_DIR + '/README.md)。核验8份冻结气象及1320份10MW城市原生小时，复用#35/#36组合与#38 Seren结果；case-summary.csv、year-summary.csv、city-summary.csv分别保存逐窗口、逐年和三年汇总。facility-composition.csv保留六层功率，冷却非IT单列；典型日采用第五章同日逐小时IT份额。verification.json保存SHA-256及24组冷却复算，brief-audit.json保存文档检查。';
-const SOURCE7 = '- 第七章柔性调度经济价值：[' + ECON_DIR.split('/').pop() + '](' + ECON_DIR + '/README.md)。COPT求解5808个算例（runs.csv），brief/保存本章两张图与表格数据，逐小时调度在服务器out/hourly。';
+const SOURCE7 = '- 第七章柔性调度经济性（计入加卡）：[' + ECON_DIR.split('/').pop() + '](' + ECON_DIR + '/README.md)。COPT边界A 3168个算例（runs-cards.csv）与固定供给侧1584个算例（runs-fixed.csv），brief/保存本章两张图与表格数据；首版不计卡的结果见flex-econ-copt-20261102。';
 const SPIKE_SOURCE = '- Alibaba 第6小时尖峰：[原始数据核查与5分钟/10秒汇总](../../results/scenario-typical-day-by-task-20261031/cld-spike-audit-20261101/README.md)，包含原始包 SHA-256、八天复现、机器覆盖、保持上限敏感性、业务对账及非线性功率映射。';
 const NOTE1 = '格中为该情境使用的需求数据，— 表示不设该组合。11 个组合各取参考 IT 功率 1／10／100／500 MW 四档规模，共 44 个情境，命名为“服务器规格·需求·规模”，例如 GPU 主导型·大模型训练/开发·100MW。括号内为每台服务器的 CPU∶GPU。';
 const LEGEND = '① 刚性：不能推迟、不能拆分，有人在等或持续在线服务。② 可推迟·整体：可以晚点运行，开始后一次完成。③ 可推迟·可拆分：可以晚点运行，也可在存档点暂停后续跑。未知：数据看不出用途，保守处理。';
@@ -302,7 +302,7 @@ const doc = new Document({
       p(NOTE7B, {before: 30, size: 16, color: '595959'}),
       new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 30, after: 10},
         children: [new ImageRun({type: 'png', data: fs.readFileSync(ECON_VALUE), transformation: {width: 944, height: 261},
-          altText: {name: '柔性价值与度电成本构成', title: '柔性价值与度电成本构成', description: '左：五种用途代表情境柔性价值随本地匹配比例变化；右：经济最优与100%本地无碳下有无柔性的度电成本构成。'}})],
+          altText: {name: '柔性收益与单位成本', title: '柔性收益与单位成本', description: '左：五种用途代表情境不加卡时柔性收益随本地匹配比例变化；右：峰值内柔性每推迟1MWh的节省、储能每放1MWh成本与加卡柔性每推迟1MWh成本，对数轴。'}})],
       }),
       p(NOTE7C, {before: 10, size: 17}),
 
@@ -338,7 +338,7 @@ if (MD_OUT) {
     mdTable(CITY.facility_rows), '', CITY_NOTE, '', CITY.conclusion, '', CITY.comparison, '',
     `![八城市PUE](${CITY_DIR}/city-pue-heatmap.png)`, '', CITY_PUE_NOTE, '',
     `![三城市典型日](${CITY_DIR}/city-typical-day-comparison.png)`, '', CITY.composition, '', CITY.flexibility, '', CITY.limitations, '',
-    `## ${H7}`, '', NOTE7A, '', mdTable(ECON.table_rows), '', NOTE7B, '', `![柔性价值](${ECON_DIR}/brief/value-summary.png)`, '', NOTE7C, '',
+    `## ${H7}`, '', NOTE7A, '', mdTable(ECON.table_rows), '', NOTE7B, '', `![柔性收益与单位成本](${ECON_DIR}/brief/value-summary.png)`, '', NOTE7C, '',
     '### 调度前后对比（法兰克福·GPU 主导型·大模型训练/开发）', '', `![调度前后](${ECON_DIR}/brief/dispatch-week.png)`, '', NOTE7D, '', NOTE7E, '',
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
@@ -347,6 +347,7 @@ if (MD_OUT) {
     : retainedSections.replace('## 重新生成', `${SOURCE4}\n\n## 重新生成`);
   if (!tail.includes(SOURCE5)) tail = tail.replace('## 重新生成', `${SOURCE5}\n\n## 重新生成`);
   if (!tail.includes(SOURCE6)) tail = tail.replace('## 重新生成', `${SOURCE6}\n\n## 重新生成`);
+  tail = tail.split(String.fromCharCode(10)).filter((line) => !line.startsWith('- 第七章') || line === SOURCE7).join(String.fromCharCode(10));
   if (!tail.includes(SOURCE7)) tail = tail.replace('## 重新生成', `${SOURCE7}
 
 ## 重新生成`);
