@@ -153,24 +153,25 @@ def city_comparison(pairs, project, run, folder, carbon_year):
     return result
 
 
-def map_cells(run):
+def map_cells(run, pairs):
+    """每个代表网格着色其所在 2° 区块的陆地部分（区块中心 block_lat/block_lon，边长 2°）。"""
     import geopandas as gpd
     import shapely
 
     source = run / 'sources/countries-10m.zip'
     countries = gpd.read_file('zip://' + str(source))
-    cache = run / 'inputs/map-sampled-land-cells.parquet'
+    cache = run / 'inputs/map-block-land-cells.parquet'
     if cache.exists():
         return gpd.read_parquet(cache), countries
-    selected = pd.read_parquet(run / 'inputs/selected-grids.parquet')
+    blocks = pairs[['grid_id', 'block_lat', 'block_lon']].drop_duplicates('grid_id')
     index = countries.sindex
     geometries = []
-    for row in selected.itertuples():
-        cell = shapely.box(row.west, row.south, row.east, row.north)
+    for row in blocks.itertuples():
+        cell = shapely.box(row.block_lon - 1, row.block_lat - 1, row.block_lon + 1, row.block_lat + 1)
         hits = index.query(cell, predicate='intersects')
         parts = [cell.intersection(countries.geometry.iloc[int(hit)]) for hit in hits]
         geometries.append(shapely.union_all(parts) if parts else shapely.GeometryCollection())
-    result = gpd.GeoDataFrame({'grid_id': selected.grid_id.to_numpy()}, geometry=geometries, crs='EPSG:4326')
+    result = gpd.GeoDataFrame({'grid_id': blocks.grid_id.to_numpy()}, geometry=geometries, crs='EPSG:4326')
     result.to_parquet(cache, index=False, compression='zstd')
     return result, countries
 
@@ -198,10 +199,8 @@ def maps(pairs, run, folder, partial):
     values = display.savings_pct.dropna()
     if values.empty:
         raise ValueError('指定地图情境没有最优配对')
-    vmax = max(1., float(np.ceil(values.max() / 5) * 5))
-    norm = mpl.colors.Normalize(0, vmax)
     cmap = mpl.colormaps['viridis']
-    cells, countries = map_cells(run)
+    cells, countries = map_cells(run, pairs)
     geometry_audit = cells[['grid_id']].copy()
     geometry_audit['empty_land_intersection'] = cells.geometry.is_empty
     geometry_audit.drop(columns='geometry', errors='ignore').to_csv(folder / 'map-geometry-audit.csv', index=False)
@@ -211,6 +210,12 @@ def maps(pairs, run, folder, partial):
         for alpha, alpha_label, token in [(None, '经济最优', 'economic'), (1., 'α = 100%', 'alpha100')]:
             fig, axes = plt.subplots(2, 2, figsize=(12.6, 6.8), subplot_kw={'projection': ccrs.Robinson()})
             counts = []
+            panel = display.loc[display.boundary.eq(boundary) & (display.alpha.isna() if alpha is None else display.alpha.eq(alpha))].savings_pct.dropna().clip(lower=0)
+            # 每幅图按本图 98 分位取色标上限，超出部分用三角延伸标示
+            top = float(panel.quantile(.98)) if len(panel) else 1.
+            step = 5. if top > 10 else (1. if top > 1 else 10 ** np.floor(np.log10(max(top, 1e-6))))
+            vmax = max(step, float(np.ceil(top / step) * step))
+            norm = mpl.colors.Normalize(0, vmax)
             for number, (ax, (scenario, label)) in enumerate(zip(axes.flat, scenarios)):
                 current = display.loc[display.boundary.eq(boundary) & display.scenario.eq(scenario) & (display.alpha.isna() if alpha is None else display.alpha.eq(alpha))]
                 current = cells.merge(current[['grid_id', 'savings_pct']], on='grid_id', how='inner', validate='one_to_one')
@@ -219,33 +224,35 @@ def maps(pairs, run, folder, partial):
                 fplt.add_geometries(ax, borders, crs=ccrs.PlateCarree(), facecolor='none', edgecolor='#a8a8a8', linewidth=.22, zorder=1)
                 if len(current):
                     fplt.add_geometries(ax, current.geometry.to_list(), crs=ccrs.PlateCarree(),
-                                       facecolor=cmap(norm(current.savings_pct.clip(lower=0).to_numpy())), edgecolor='none', linewidth=0, zorder=2)
+                                       facecolor=cmap(norm(current.savings_pct.clip(lower=0).to_numpy())), edgecolor='none', linewidth=0, zorder=2,
+                                       rasterized=True)  # 约 4,800 个区块多边形，PDF 中栅格化以控制体积
                 ax.set_title(f'({chr(97 + number)}) {scenario}  {label}', fontsize=9, pad=4)
                 counts.append({'scenario': scenario, 'colored_grids': len(current)})
             title = ('试跑样本：' if partial else '') + f'{boundary_zh}，{alpha_label}'
             fig.suptitle(title, fontsize=12, y=.99)
             fig.subplots_adjust(left=.015, right=.985, top=.91, bottom=.14, hspace=.12, wspace=.025)
             bar = fig.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=cmap), ax=axes.ravel().tolist(),
-                               orientation='horizontal', fraction=.035, pad=.035, shrink=.65, aspect=45)
+                               orientation='horizontal', fraction=.035, pad=.035, shrink=.65, aspect=45,
+                               extend='max' if float(panel.max()) > vmax else 'neither')
             bar.set_label('柔性节省 / 无柔性能源系统成本（%）')
-            fig.text(.5, .022, '每个有合格网格的 2° 区块选取一个代表；着色为代表 0.5° 网格的陆地区域。空白含未抽样、无有效配对及陆地边界分辨率缺口。',
+            fig.text(.5, .022, '每个有合格网格的 2° 区块选取一个代表 0.5° 网格，按其结果为整个区块的陆地着色。空白为无合格网格或无有效配对的区块。',
                      ha='center', va='bottom', fontsize=8)
             stem = f'{boundary}-{token}'
             fig.savefig(folder / (stem + '.png'), dpi=300, facecolor='white')
             fig.savefig(folder / (stem + '.pdf'), facecolor='white')
             plt.close(fig)
-            captions.append({'file': stem, 'title': title, 'counts': counts})
+            captions.append({'file': stem, 'title': title, 'counts': counts, 'color_min_pct': 0, 'color_max_pct': vmax})
     write_json(folder / 'map-manifest.json', {'utc': utc_now(), 'partial': partial, 'projection': 'Robinson, central_longitude=0',
         'renderer_sha256': digest(Path(__file__)), 'data_sha256': digest(folder.parent / 'grid-summary.parquet'),
         'font_family': font_family, 'font_path': str(font_path), 'font_sha256': digest(font_path), 'pdf_fonttype': 42,
-        'coordinates': 'WGS84', 'boundary_source': 'Natural Earth 1:10m admin0', 'land_clip': '代表0.5度网格与国界陆地多边形交集',
-        'color_min_pct': 0, 'color_max_pct': vmax, 'colormap': 'viridis',
+        'coordinates': 'WGS84', 'boundary_source': 'Natural Earth 1:10m admin0', 'land_clip': '代表网格所在2度区块与国界陆地多边形交集',
+        'color_scale': '每幅图0至本图98分位（取整），超出用三角延伸', 'colormap': 'viridis',
         'selected_grids': len(cells), 'empty_land_intersections': int(cells.geometry.is_empty.sum()), 'panels': captions})
     (folder / '图件说明.md').write_text(
         '四幅全球地图分别展示规划和已建成边界下经济最优及 α=100% 目标的结果，每幅依次为 D-TRN、D-SAI、A-HPC、D-INF。'
-        '颜色表示同参数无柔性基线成本的节省百分比，四幅图共用色标。规划阶段允许风光储和市电接入容量重新优化；已建成阶段固定为无柔性最优资产。'
-        '着色仅覆盖抽样代表的合格0.5°网格陆地区域，不代表该网格全部土地可建设。统计单位为等权抽样网格，未按土地面积、人口或算力规模加权。'
-        '无有效最优配对的组合保留在统计表中，地图留空。54格在制图陆地多边形上没有交集，其中39格有ERA5陆地点，继续纳入统计。\n', encoding='utf-8')
+        '颜色表示同参数无柔性基线成本的节省百分比，同一幅图的四个子图共用色标，色标上限取该图 98 分位。规划阶段允许风光储和市电接入容量重新优化；已建成阶段固定为无柔性最优资产。'
+        '每个 2° 区块按其代表 0.5° 网格的结果整体着色（裁到陆地），表示该区块的抽样代表值，不代表区块内全部土地可建设或结果均一。统计单位为等权抽样网格，未按土地面积、人口或算力规模加权。'
+        '无有效最优配对的组合保留在统计表中，地图留空。\n', encoding='utf-8')
 
 
 def report(args):
