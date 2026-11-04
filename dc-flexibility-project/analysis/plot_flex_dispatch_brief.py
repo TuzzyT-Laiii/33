@@ -1,5 +1,6 @@
 """简表第七章图表：调度前后周曲线、柔性价值汇总图与表格数据。"""
 import argparse
+from hashlib import sha256
 import json
 from pathlib import Path
 
@@ -30,7 +31,7 @@ def alpha_label(value):
     return '经济最优' if pd.isna(value) else f'{value:.0%}'
 
 
-def dispatch_figure(hourly_dir, runs, city, scenario, start, days, out):
+def dispatch_figure(hourly_dir, runs, city, scenario, start, days, out, *, indexed=False):
     begin = pd.Timestamp(start, tz='UTC')
     end = begin + pd.Timedelta(days=days)
     fig, axes = plt.subplots(2, 2, figsize=(13, 5.6), sharex=True, sharey=True)
@@ -39,7 +40,18 @@ def dispatch_figure(hourly_dir, runs, city, scenario, start, days, out):
     frames = {}
     for alpha in (None, 1.0):
         for flex in ('none', 'both'):
-            frame = pd.read_parquet(Path(hourly_dir) / f'{city}-{scenario}-opt-a{alpha}-{flex}-main.parquet')
+            if indexed:
+                selected = runs[(runs.city == city) & (runs.scenario == scenario)
+                                & (runs.flex == flex) & (runs.alpha_label == alpha_label(alpha))]
+                if len(selected) != 1:
+                    raise ValueError(f'{city}/{scenario}/{alpha}/{flex} 的小时文件索引不唯一')
+                record = selected.iloc[0]
+                hourly_path = Path(hourly_dir) / record.hourly_path
+                if sha256(hourly_path.read_bytes()).hexdigest() != record.hourly_sha256:
+                    raise ValueError(f'逐小时文件校验值不符：{hourly_path}')
+            else:
+                hourly_path = Path(hourly_dir) / f'{city}-{scenario}-opt-a{alpha}-{flex}-main.parquet'
+            frame = pd.read_parquet(hourly_path)
             frame['time_utc'] = pd.to_datetime(frame.time_utc, utc=True)
             frame = frame[(frame.time_utc >= begin) & (frame.time_utc < end)].set_index('time_utc')
             executed = frame.fixed_it_mw + frame.whole_exec_mw + frame.split_exec_mw
@@ -54,16 +66,21 @@ def dispatch_figure(hourly_dir, runs, city, scenario, start, days, out):
             ax, frame = axes[row, col], frames[(alpha, flex)]
             x = frame.index
             layers = [frame.pv_mw, frame.wind_mw, frame.discharge_mw, frame.grid_mw]
-            ax.stackplot(x, *[layer.fillna(0) for layer in layers], colors=[COLOR[k] for k in ('pv', 'wind', 'discharge', 'grid')],
+            ax.stackplot(x, *layers, colors=[COLOR[k] for k in ('pv', 'wind', 'discharge', 'grid')],
                          alpha=.8, linewidth=0, labels=['光伏发电', '风电发电', '储能放电', '市电'])
             ax.plot(x, frame.facility_mw, color=COLOR['load'], lw=1.3, label='设施负荷（调度后）' if flex == 'both' else '设施负荷')
             if flex == 'both':
                 ax.plot(x, frame.before_mw, color=COLOR['before'], lw=1.0, ls='--', label='设施负荷（调度前）')
-            row_run = runs[(runs.city == city) & (runs.scenario == scenario) & (runs.design == 'opt') & (runs.variant == 'main')
-                           & (runs.flex == flex) & (runs.alpha_label == alpha_label(alpha))].iloc[0]
+            candidates = runs[(runs.city == city) & (runs.scenario == scenario) & (runs.design == 'opt')
+                              & (runs.flex == flex) & (runs.alpha_label == alpha_label(alpha))]
+            if not indexed:
+                candidates = candidates[candidates.variant == 'main']
+            if len(candidates) != 1:
+                raise ValueError(f'{city}/{scenario}/{alpha}/{flex} 的调度汇总不唯一')
+            row_run = candidates.iloc[0]
             cap = f'光伏 {row_run.pv_mw:.0f} MW · 风电 {row_run.wind_mw:.0f} MW · 储能 {row_run.battery_mwh:.0f} MWh'
             if alpha is None:
-                cap += f' · 本地匹配 {row_run.cfe_hourly:.0%}'
+                cap += f' · 窗口本地匹配 {row_run.cfe_hourly:.0%}'
             head = ('无柔性' if flex == 'none' else '有柔性（整体12h＋可拆分48h）') + '｜' + titles[alpha]
             ax.set_title(head, fontsize=9.5, loc='left')
             ax.text(.995, .97, cap, transform=ax.transAxes, ha='right', va='top', fontsize=8,

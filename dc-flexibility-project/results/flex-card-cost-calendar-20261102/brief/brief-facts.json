@@ -1,0 +1,225 @@
+{
+ "plan_rows": [
+  [
+   "代表情境",
+   "可推迟IT\n电量%",
+   "柔性收益%\n经济最优／95%／100%",
+   "等效年化收益 万美元/年\n经济最优／95%／100%",
+   "100%无碳储能MWh\n无柔性→有柔性",
+   "新增算力\nMW任务功率"
+  ],
+  [
+   "纯 CPU 型·科研计算",
+   "58",
+   "10.3／13.3／12.3",
+   "111／215／348",
+   "375→282",
+   "0"
+  ],
+  [
+   "纯 CPU 型·云通用计算",
+   "23",
+   "10.6／11.2／10.4",
+   "61／72／76",
+   "92→72",
+   "0"
+  ],
+  [
+   "GPU 主导型·科研 AI",
+   "24",
+   "6.4／10.7／14.5",
+   "46／104／222",
+   "160→117",
+   "0"
+  ],
+  [
+   "GPU 主导型·大模型训练/开发",
+   "45",
+   "11.5／19.3／27.0",
+   "101／220／367",
+   "188→96",
+   "0"
+  ],
+  [
+   "GPU 主导型·推理服务",
+   "9",
+   "3.5／3.9／2.8",
+   "22／35／35",
+   "136→129",
+   "0"
+  ]
+ ],
+ "built_rows": [
+  [
+   "代表情境",
+   "柔性收益%\n经济最优／95%／100%",
+   "等效年化收益 万美元/年\n经济最优／95%／100%",
+   "每推迟1MWh\n节省 USD",
+   "储能每放\n1MWh USD",
+   "若加卡：每推迟\n1MWh成本 USD",
+   "新增算力\nMW任务功率"
+  ],
+  [
+   "纯 CPU 型·科研计算",
+   "5.6／1.9／0.0",
+   "63／30／0",
+   "76",
+   "201",
+   "5,800",
+   "0"
+  ],
+  [
+   "纯 CPU 型·云通用计算",
+   "4.7／3.6／0.0",
+   "29／28／0",
+   "75",
+   "173",
+   "5,946",
+   "0"
+  ],
+  [
+   "GPU 主导型·科研 AI",
+   "3.5／1.8／0.0",
+   "24／18／0",
+   "80",
+   "206",
+   "22,705",
+   "0"
+  ],
+  [
+   "GPU 主导型·大模型训练/开发",
+   "5.7／3.8／0.0",
+   "50／47／0",
+   "73",
+   "186",
+   "9,701",
+   "0"
+  ],
+  [
+   "GPU 主导型·推理服务",
+   "2.5／0.8／0.0",
+   "16／6／0",
+   "99",
+   "202",
+   "24,904",
+   "0"
+  ]
+ ],
+ "max_extra_cards_mw_market_price": 4.21338400145841e-10,
+ "sample_counts": [
+  {
+   "scenario": "A-HPC",
+   "name": "纯 CPU 型·科研计算",
+   "planning": [
+    8,
+    8,
+    8
+   ],
+   "built": [
+    8,
+    8,
+    8
+   ]
+  },
+  {
+   "scenario": "A-CLD",
+   "name": "纯 CPU 型·云通用计算",
+   "planning": [
+    8,
+    8,
+    8
+   ],
+   "built": [
+    8,
+    7,
+    8
+   ]
+  },
+  {
+   "scenario": "D-SAI",
+   "name": "GPU 主导型·科研 AI",
+   "planning": [
+    8,
+    8,
+    8
+   ],
+   "built": [
+    8,
+    8,
+    8
+   ]
+  },
+  {
+   "scenario": "D-TRN",
+   "name": "GPU 主导型·大模型训练/开发",
+   "planning": [
+    8,
+    8,
+    8
+   ],
+   "built": [
+    8,
+    8,
+    8
+   ]
+  },
+  {
+   "scenario": "D-INF",
+   "name": "GPU 主导型·推理服务",
+   "planning": [
+    8,
+    8,
+    8
+   ],
+   "built": [
+    8,
+    7,
+    8
+   ]
+  }
+ ],
+ "targets": [
+  "经济最优",
+  "95%",
+  "100%"
+ ],
+ "run_counts": {
+  "planning": 3168,
+  "built": 1584
+ },
+ "dispatch_sources": [
+  {
+   "alpha_label": "经济最优",
+   "flex": "both",
+   "hourly_path": "../out-full/hourly/frankfurt_D-TRN_both_1.0_reoptimized_economic.parquet",
+   "hourly_sha256": "77d39f65f926652ecae515c1238fb1e170793c375da19d79e71373b0283e35d7",
+   "deadline_clock": "actual_utc_next_observed_slot"
+  },
+  {
+   "alpha_label": "经济最优",
+   "flex": "none",
+   "hourly_path": "../out-full/hourly/frankfurt_D-TRN_none_forced0_reoptimized_economic.parquet",
+   "hourly_sha256": "c2481e576aa0abf2076e7ac7ea10ce2cb6a552eb8ffffa7dbbf5359b88af93e3",
+   "deadline_clock": "actual_utc_next_observed_slot"
+  },
+  {
+   "alpha_label": "100%",
+   "flex": "both",
+   "hourly_path": "../out-full/hourly/frankfurt_D-TRN_both_1.0_reoptimized_1.0.parquet",
+   "hourly_sha256": "3662595b6e50259fd70edf628842e16084b5286f9adcfdfcc3acc61463879fd8",
+   "deadline_clock": "actual_utc_next_observed_slot"
+  },
+  {
+   "alpha_label": "100%",
+   "flex": "none",
+   "hourly_path": "../out-full/hourly/frankfurt_D-TRN_none_forced0_reoptimized_1.0.parquet",
+   "hourly_sha256": "f6b61ba0c1ab1457b505f6fec3c71404addfa3b233e906b9238e02a677abdd35",
+   "deadline_clock": "actual_utc_next_observed_slot"
+  }
+ ],
+ "dispatch_battery_mwh_100": [
+  126.36554658466444,
+  71.3831735160648
+ ],
+ "dispatch_extra_cards_mw": 1.7458415547564358e-13
+}

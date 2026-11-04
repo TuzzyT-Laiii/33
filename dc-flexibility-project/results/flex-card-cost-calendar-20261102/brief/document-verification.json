@@ -1,0 +1,708 @@
+{
+  "checked_at_utc": "2026-11-02T09:43:16.467568+00:00",
+  "passed": true,
+  "scope": "两组表格的原始求解输出、数字舍入、城市配对、Word一致性及分页；不重复验证求解模型",
+  "pages": 11,
+  "table_pages": [
+    1,
+    2,
+    2,
+    4,
+    5,
+    7,
+    7,
+    9,
+    9
+  ],
+  "first_six_chapters_text_tables_images_unchanged": true,
+  "all_pages_visually_reviewed": true,
+  "docx_sha256": "ffdc603fc737507eb48fad4a7e5489f359eaa048713fafc9a4c3341346e8e789",
+  "pdf_sha256": "8a828b1c55eb1989a8dd10a48a64ffcd5bcb5f173ac6e5a3ad4330dd0a7bdecc",
+  "pdf_exporter": "Microsoft Word native PDF export",
+  "previous_input": {
+    "filename": "数据中心任务时间柔性简表_20261102_v13_柔性计入加卡.docx",
+    "sha256": "0c24b13274a8d08f9ec0537a1902a1a45466380d68dfdd4cb30cbf38185fe34f",
+    "modified_at_utc": "2026-11-02T08:25:31.010509+00:00"
+  },
+  "input_sha256": {
+    "runs-cards.csv": "b93bb9f2aea8e1b483d7b89f5a6263800020bbcab6c828626500aa5d32fd7f96",
+    "runs-fixed.csv": "c949fdcb34e004d9e03ccb441cce83dbe910ee678af895b44832c99060bfc5b4",
+    "fixed-supply-values.csv": "aafefe6f6f209b7e2a55ce96a8e92e1d666afbb377f944f564f88457e7e2240b",
+    "card-unit-cost.csv": "4f310cd0c03b3dcecdf12da3af93b31bb885e4b0b3f8e06c0cdfc0c588694693",
+    "hourly-index.csv": "77be48204b274548c6b110bff7be94c7e550a711e1526e0c6c87888330959a46",
+    "independent-dispatch-audit.json": "2e67b662e2eab62d1e5faaee4b8fb0a21fc8ac34f53d707d948d5cbd3795f814",
+    "economic-consistency-audit.json": "1c8196e82a24bd9ec944404be90117d9c1f0685af93b02d37f63004c775d9d82",
+    "brief/brief-facts.json": "d2efefcb9c57211428ddd1040dddd267f02de53fe3f86a7d142285f1e32f94b4",
+    "brief/value-summary.png": "50ed4bdb1348369f1387097d468ffa6b7d069d92a769e150fd47b4de8a06f93b",
+    "brief/dispatch-week.png": "1c6039a4d2a32929830d76f0455551c8093a5fcb7c2f7bdb3bc0cb41255a7a70"
+  },
+  "classification_shares_sha256": "65f595ed2389863ece6879be9d3c91ffa489094e7a98df407d0d616410414293",
+  "dispatch_sources": [
+    {
+      "alpha_label": "经济最优",
+      "flex": "both",
+      "hourly_path": "../out-full/hourly/frankfurt_D-TRN_both_1.0_reoptimized_economic.parquet",
+      "hourly_sha256": "77d39f65f926652ecae515c1238fb1e170793c375da19d79e71373b0283e35d7",
+      "deadline_clock": "actual_utc_next_observed_slot",
+      "input_path": "inputs/frankfurt-D-TRN.parquet",
+      "input_sha256": "dbc1c6c18c2e734b76515c60968eac74013ca90bb94ad5012033cb354bf6716b"
+    },
+    {
+      "alpha_label": "经济最优",
+      "flex": "none",
+      "hourly_path": "../out-full/hourly/frankfurt_D-TRN_none_forced0_reoptimized_economic.parquet",
+      "hourly_sha256": "c2481e576aa0abf2076e7ac7ea10ce2cb6a552eb8ffffa7dbbf5359b88af93e3",
+      "deadline_clock": "actual_utc_next_observed_slot",
+      "input_path": "inputs/frankfurt-D-TRN.parquet",
+      "input_sha256": "dbc1c6c18c2e734b76515c60968eac74013ca90bb94ad5012033cb354bf6716b"
+    },
+    {
+      "alpha_label": "100%",
+      "flex": "both",
+      "hourly_path": "../out-full/hourly/frankfurt_D-TRN_both_1.0_reoptimized_1.0.parquet",
+      "hourly_sha256": "3662595b6e50259fd70edf628842e16084b5286f9adcfdfcc3acc61463879fd8",
+      "deadline_clock": "actual_utc_next_observed_slot",
+      "input_path": "inputs/frankfurt-D-TRN.parquet",
+      "input_sha256": "dbc1c6c18c2e734b76515c60968eac74013ca90bb94ad5012033cb354bf6716b"
+    },
+    {
+      "alpha_label": "100%",
+      "flex": "none",
+      "hourly_path": "../out-full/hourly/frankfurt_D-TRN_none_forced0_reoptimized_1.0.parquet",
+      "hourly_sha256": "f6b61ba0c1ab1457b505f6fec3c71404addfa3b233e906b9238e02a677abdd35",
+      "deadline_clock": "actual_utc_next_observed_slot",
+      "input_path": "inputs/frankfurt-D-TRN.parquet",
+      "input_sha256": "dbc1c6c18c2e734b76515c60968eac74013ca90bb94ad5012033cb354bf6716b"
+    }
+  ],
+  "audited_rows": [
+    {
+      "scenario": "A-HPC",
+      "targets": [
+        "经济最优",
+        "95%",
+        "100%"
+      ],
+      "planning": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 10.341893688070739,
+          "annual_10k_usd": 111.19766347755188,
+          "battery_baseline": 4.302657944901786,
+          "battery_flexible": 1.1020344330520812e-07,
+          "extra_max_mw": 1.0624703241570473e-11
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 13.310178688450346,
+          "annual_10k_usd": 214.65289043437602,
+          "battery_baseline": 145.33144392497246,
+          "battery_flexible": 101.88359005991572,
+          "extra_max_mw": 2.5496186433662462e-11
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 12.252180744918666,
+          "annual_10k_usd": 347.665437256931,
+          "battery_baseline": 375.2361653358389,
+          "battery_flexible": 282.3988464650348,
+          "extra_max_mw": 2.361912248643879e-10
+        }
+      ],
+      "built": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 5.635537082606069,
+          "annual_10k_usd": 62.8275359566543,
+          "battery_baseline": 4.302657944901786,
+          "battery_flexible": 4.302657944901786,
+          "extra_max_mw": 3.356470996400113e-11,
+          "saving_per_mwh": 75.6366612997967,
+          "storage_per_mwh": 200.61007621686167
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 1.8955299356480309,
+          "annual_10k_usd": 30.217079888660447,
+          "battery_baseline": 145.33144392497246,
+          "battery_flexible": 145.33144392497246,
+          "extra_max_mw": 8.641969689438605e-12,
+          "saving_per_mwh": 31.858878848805837,
+          "storage_per_mwh": 234.97191904015273
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 0.0002931393598376912,
+          "annual_10k_usd": 0.009124325933069003,
+          "battery_baseline": 375.2361653358389,
+          "battery_flexible": 375.2361653358389,
+          "extra_max_mw": 2.1361932470851507e-12,
+          "saving_per_mwh": 0.010766502850409792,
+          "storage_per_mwh": 622.2767985119895
+        }
+      ]
+    },
+    {
+      "scenario": "A-CLD",
+      "targets": [
+        "经济最优",
+        "95%",
+        "100%"
+      ],
+      "planning": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 10.633607785475483,
+          "annual_10k_usd": 60.7084937617371,
+          "battery_baseline": 13.13258714211355,
+          "battery_flexible": 5.289055467000319,
+          "extra_max_mw": 2.1173424283514554e-11
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 11.200827526671308,
+          "annual_10k_usd": 72.38280175392231,
+          "battery_baseline": 70.22905267229893,
+          "battery_flexible": 46.66019809813277,
+          "extra_max_mw": 5.415634471927754e-11
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 10.382800879367384,
+          "annual_10k_usd": 75.501561604292,
+          "battery_baseline": 91.50625020179322,
+          "battery_flexible": 72.11307691761913,
+          "extra_max_mw": 2.6560224724123384e-10
+        }
+      ],
+      "built": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 4.689881564758111,
+          "annual_10k_usd": 29.116337438109383,
+          "battery_baseline": 13.13258714211355,
+          "battery_flexible": 13.13258714211355,
+          "extra_max_mw": 1.850217040950066e-11,
+          "saving_per_mwh": 75.01307135954167,
+          "storage_per_mwh": 172.94168512390934
+        },
+        {
+          "n": 7,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "ulanqab"
+          ],
+          "pct": 3.563352839066865,
+          "annual_10k_usd": 28.45320470661452,
+          "battery_baseline": 64.67086263529734,
+          "battery_flexible": 64.67086263529734,
+          "extra_max_mw": 1.0907548706280362e-12,
+          "saving_per_mwh": 62.22445449256216,
+          "storage_per_mwh": 177.16076423366766
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 0.0005406702085889315,
+          "annual_10k_usd": 0.004341164986138029,
+          "battery_baseline": 91.50625020179322,
+          "battery_flexible": 91.50625020179322,
+          "extra_max_mw": 4.079133829892867e-12,
+          "saving_per_mwh": 0.011387676252334967,
+          "storage_per_mwh": 194.82863773378557
+        }
+      ]
+    },
+    {
+      "scenario": "D-SAI",
+      "targets": [
+        "经济最优",
+        "95%",
+        "100%"
+      ],
+      "planning": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 6.410995576025808,
+          "annual_10k_usd": 46.158540330544554,
+          "battery_baseline": 1.8108647007766936,
+          "battery_flexible": 1.0074745624833872e-06,
+          "extra_max_mw": 2.07248170465694e-12
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 10.716596210080002,
+          "annual_10k_usd": 103.82963308614887,
+          "battery_baseline": 92.79857048596578,
+          "battery_flexible": 79.38536935975375,
+          "extra_max_mw": 7.222488076554907e-12
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 14.453118915254853,
+          "annual_10k_usd": 221.86525807139094,
+          "battery_baseline": 159.81474370149138,
+          "battery_flexible": 116.59475745305046,
+          "extra_max_mw": 1.570106200351701e-10
+        }
+      ],
+      "built": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 3.5081522339032354,
+          "annual_10k_usd": 23.69515370523579,
+          "battery_baseline": 1.8108647007766936,
+          "battery_flexible": 1.8108647007766936,
+          "extra_max_mw": 1.7836911719808918e-11,
+          "saving_per_mwh": 80.31540821896138,
+          "storage_per_mwh": 205.67968971481338
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 1.8187803319307294,
+          "annual_10k_usd": 17.55944577669259,
+          "battery_baseline": 92.79857048596578,
+          "battery_flexible": 92.79857048596578,
+          "extra_max_mw": 3.461355034085237e-11,
+          "saving_per_mwh": 54.56544426589853,
+          "storage_per_mwh": 211.83616972915166
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 0.0001901027887264416,
+          "annual_10k_usd": 0.003304569648576798,
+          "battery_baseline": 159.81474370149138,
+          "battery_flexible": 159.81474370149138,
+          "extra_max_mw": 6.350966417666436e-14,
+          "saving_per_mwh": 0.010840461479527736,
+          "storage_per_mwh": 380.3249074810189
+        }
+      ]
+    },
+    {
+      "scenario": "D-TRN",
+      "targets": [
+        "经济最优",
+        "95%",
+        "100%"
+      ],
+      "planning": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 11.452372436802573,
+          "annual_10k_usd": 100.52692740109214,
+          "battery_baseline": 3.537128641906409,
+          "battery_flexible": 0.6470210099010544,
+          "extra_max_mw": 4.341742931256966e-13
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 19.251701709061003,
+          "annual_10k_usd": 220.4494476246865,
+          "battery_baseline": 115.62975817674008,
+          "battery_flexible": 81.67828172566811,
+          "extra_max_mw": 2.6225858164366988e-11
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 26.9522595903834,
+          "annual_10k_usd": 366.89587395002866,
+          "battery_baseline": 188.27410854412815,
+          "battery_flexible": 95.71421673857557,
+          "extra_max_mw": 3.7819853596824716e-11
+        }
+      ],
+      "built": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 5.660661363654901,
+          "annual_10k_usd": 49.89505054756117,
+          "battery_baseline": 3.537128641906409,
+          "battery_flexible": 3.537128641906409,
+          "extra_max_mw": 8.09367324642808e-12,
+          "saving_per_mwh": 72.62901100913686,
+          "storage_per_mwh": 186.0474252543446
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 3.827761560437145,
+          "annual_10k_usd": 47.46431421038331,
+          "battery_baseline": 115.62975817674008,
+          "battery_flexible": 115.62975817674008,
+          "extra_max_mw": 5.2317823377747856e-11,
+          "saving_per_mwh": 53.81397987432566,
+          "storage_per_mwh": 182.91188490782122
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 0.0005543077366441869,
+          "annual_10k_usd": 0.008748417261349083,
+          "battery_baseline": 188.27410854412815,
+          "battery_flexible": 188.27410854412815,
+          "extra_max_mw": 3.586562214767329e-13,
+          "saving_per_mwh": 0.011190810341446453,
+          "storage_per_mwh": 262.759162464988
+        }
+      ]
+    },
+    {
+      "scenario": "D-INF",
+      "targets": [
+        "经济最优",
+        "95%",
+        "100%"
+      ],
+      "planning": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 3.498163235513546,
+          "annual_10k_usd": 22.027753408829163,
+          "battery_baseline": 1.5488704806219005,
+          "battery_flexible": 0.46332626016225553,
+          "extra_max_mw": 2.76061915871127e-13
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 3.8733183976525756,
+          "annual_10k_usd": 34.57613322884066,
+          "battery_baseline": 77.12239757456119,
+          "battery_flexible": 70.79125727227961,
+          "extra_max_mw": 6.036928250489804e-12
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 2.7867541717086253,
+          "annual_10k_usd": 34.93324975421916,
+          "battery_baseline": 136.33448823643906,
+          "battery_flexible": 129.1778860513348,
+          "extra_max_mw": 4.475341449074538e-11
+        }
+      ],
+      "built": [
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 2.539506351347388,
+          "annual_10k_usd": 15.867312464596251,
+          "battery_baseline": 1.5488704806219005,
+          "battery_flexible": 1.5488704806219005,
+          "extra_max_mw": 2.5678752014974928e-11,
+          "saving_per_mwh": 99.08801093838892,
+          "storage_per_mwh": 202.28738157497608
+        },
+        {
+          "n": 7,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore"
+          ],
+          "pct": 0.8341776231316301,
+          "annual_10k_usd": 6.430432871383386,
+          "battery_baseline": 75.6956958680056,
+          "battery_flexible": 75.6956958680056,
+          "extra_max_mw": 6.331026893126241e-12,
+          "saving_per_mwh": 44.39836197948279,
+          "storage_per_mwh": 220.0265141194524
+        },
+        {
+          "n": 8,
+          "cities": [
+            "ashburn",
+            "frankfurt",
+            "guiyang",
+            "lulea",
+            "phoenix",
+            "riyadh",
+            "singapore",
+            "ulanqab"
+          ],
+          "pct": 0.00014820794078291479,
+          "annual_10k_usd": 0.0017275857344093556,
+          "battery_baseline": 136.33448823643906,
+          "battery_flexible": 136.33448823643906,
+          "extra_max_mw": 1.3806318468405324e-12,
+          "saving_per_mwh": 0.012501734434018301,
+          "storage_per_mwh": 426.8475062533113
+        }
+      ]
+    }
+  ]
+}
