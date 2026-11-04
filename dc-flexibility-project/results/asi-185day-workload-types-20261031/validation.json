@@ -1,0 +1,60 @@
+{
+  "checked_at": "2026-10-31T11:41:51.412793+00:00",
+  "status": "passed",
+  "coverage_days": 185,
+  "coverage_hours": 4440,
+  "members": 8881,
+  "independent_sample_hours": [
+    0,
+    4439
+  ],
+  "baseline_endpoint_hours": 48,
+  "resource_and_count_conservation": true,
+  "type_priority_model_unique_keys": true,
+  "pod_and_workload_scale_histogram_conservation": true,
+  "gpu_model_and_state_cohort_conservation": true,
+  "anomalous_inventory_ratios_preserved": true,
+  "inf_exact_category_filter": true,
+  "annual_8760_integral": true,
+  "actual_source_leap_replays": [
+    {
+      "source": "asi_gpu",
+      "phase_days": 0,
+      "hours": 8784
+    },
+    {
+      "source": "asi_online_gpu",
+      "phase_days": 0,
+      "hours": 8784
+    },
+    {
+      "source": "asi_offline_gpu",
+      "phase_days": 0,
+      "hours": 8784
+    },
+    {
+      "source": "asi_gpu",
+      "phase_days": 184,
+      "hours": 8784
+    },
+    {
+      "source": "asi_online_gpu",
+      "phase_days": 184,
+      "hours": 8784
+    },
+    {
+      "source": "asi_offline_gpu",
+      "phase_days": 184,
+      "hours": 8784
+    }
+  ],
+  "raw_quality_values_preserved": true,
+  "unresolved_source_hours": [
+    126
+  ],
+  "unresolved_annual_target_hours": 2,
+  "code_sha256": "78fa5c76c73ecf061d161d612c29b3b2427208d70eda4e19b1aa9c668ba05b59",
+  "annual_output_sha256": "c7179b862ad72b73284d8fc237a5159f3e6b74c52b8f3ffa34636b65bcb18884",
+  "raw_disk_bytes_written": 0,
+  "scope": "真实原始成员、真实完整观测聚合与资源年度重放；未运行气象、设备功率或优化"
+}

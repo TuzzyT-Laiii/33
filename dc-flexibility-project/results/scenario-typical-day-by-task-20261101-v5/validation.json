@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "checks": {
+    "A-HPC_frozen_v4_hourly_values_and_task_balance": true,
+    "A-CLD_frozen_v4_hourly_values_and_task_balance": true,
+    "B-SAI_frozen_v4_hourly_values_and_task_balance": true,
+    "C-SAI_frozen_v4_hourly_values_and_task_balance": true,
+    "D-SAI_frozen_v4_hourly_values_and_task_balance": true,
+    "B-TRN_frozen_v4_hourly_values_and_task_balance": true,
+    "C-TRN_frozen_v4_hourly_values_and_task_balance": true,
+    "D-TRN_frozen_v4_hourly_values_and_task_balance": true,
+    "B-INF_frozen_v4_hourly_values_and_task_balance": true,
+    "C-INF_frozen_v4_hourly_values_and_task_balance": true,
+    "D-INF_frozen_v4_hourly_values_and_task_balance": true,
+    "A-HPC_figure_bounds": true,
+    "A-CLD_figure_bounds": true,
+    "B-SAI_figure_bounds": true,
+    "C-SAI_figure_bounds": true,
+    "D-SAI_figure_bounds": true,
+    "B-TRN_figure_bounds": true,
+    "C-TRN_figure_bounds": true,
+    "D-TRN_figure_bounds": true,
+    "B-INF_figure_bounds": true,
+    "C-INF_figure_bounds": true,
+    "D-INF_figure_bounds": true,
+    "overview_figure_bounds": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "hour_bins": 168,
+  "daily_bins": 367,
+  "diurnal_request_peak_valley": 1.1851380374505687,
+  "diurnal_peak_hour": 13,
+  "diurnal_valley_hour": 22,
+  "relative_weekday_request_peak_valley": 1.0654405046361224,
+  "daily_request_peak_valley": 21.297561517592676,
+  "daily_token_peak_valley": 18.669860650657053,
+  "daily_request_sum": 6122413756,
+  "basis": "author aggregates; no chronological hourly reconstruction; normalized timestamps"
+}

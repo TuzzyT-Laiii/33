@@ -38,3 +38,8 @@
 **/*.key
 **/id_rsa*
 **/id_ed25519*
+
+# 本次功率模型的逐小时产物留在本地及服务器；Git 保存汇总、图件和哈希。
+/dc-flexibility-project/results/trn-power-model-20261101/hourly/
+/dc-flexibility-project/results/trn-power-model-20261101/diurnal-acme/hourly/
+/dc-flexibility-project/results/trn-seren-20261101/hourly/

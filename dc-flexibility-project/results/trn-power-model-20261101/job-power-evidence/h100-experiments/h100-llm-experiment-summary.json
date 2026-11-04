@@ -1,0 +1,36 @@
+{
+  "h100_llm_csv_paths": 12,
+  "unique_sessions": 9,
+  "duplicate_copies": 3,
+  "gpus_per_session": 8,
+  "reference_tdp_w": 700,
+  "percentage_field_status": "GPU Power_TDP and power_W are not identical at every sample; use power_W / 700 and report mismatch without rewriting either field",
+  "recorded_total_seconds": 8099.819503,
+  "gpu_time_weighted_mean_ratio": 0.6640747987959269,
+  "equal_session_mean_ratio": 0.6640747992590232,
+  "minimum_session_mean_ratio": 0.3816798457623334,
+  "maximum_session_mean_ratio": 0.789827531474912,
+  "scope": "Recorded LLaMA 1B/3B/8B training experiment windows on one 8-H100-SXM node; not whole-lifecycle production pretraining",
+  "training_stage": "Pretraining versus SFT is not declared in the supplied CSV or README; LLaMA-Factory framework is identified in the paper",
+  "diurnal_scope": "Independent short experiment windows with no verified timezone; no 24-hour or weekly shape inferred",
+  "no_gap_holding_beyond_last_sample": true,
+  "duplicate_files": [
+    {
+      "archive_path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/DeepSpeed_parallel_sitting/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "identical_to": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Batch_size/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "sha256": "2da87dca1b1e93bc87b420374fdad4f14c189901643fa92cb885ee937d225082"
+    },
+    {
+      "archive_path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Model_Size/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "identical_to": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Batch_size/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "sha256": "2da87dca1b1e93bc87b420374fdad4f14c189901643fa92cb885ee937d225082"
+    },
+    {
+      "archive_path": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Sequance_length_cut/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "identical_to": "High-resolution-AI-Data-Center-Training-Workloads-Dataset_FigShare/Node_Dataset/Text Generation LLMs/H100/Batch_size/LLM_H100_8GPU_Node_Lamma8B_SeqLength2048_Deepspeedds_z3_BatchSize16.csv",
+      "sha256": "2da87dca1b1e93bc87b420374fdad4f14c189901643fa92cb885ee937d225082"
+    }
+  ],
+  "readme_sha256": "271d9a5018813f865f43098a5b5c7ef097f2071b33b9eaf48ed9c24f48665337",
+  "archive_license_first_line": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0"
+}

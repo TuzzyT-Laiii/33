@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-01T04:24:53.465044+00:00",
+  "files": 9,
+  "complete": true,
+  "chunk_rows": 2048,
+  "scope": "CC BY 4.0 AcmeTrace official monitoring; raw samples and device identifiers remain outside Git",
+  "source_files": {
+    "hf/data/utilization/ipmi/CPU_D_Power.csv": "b6352d8f99beb9733484029f73556623bbcdc3fa57c2718957ff4a747bbcca7e",
+    "hf/data/utilization/ipmi/GPU_AB_Power.csv": "e8e0ccb31d357aab71c62ee2fe886f18ad5525e2feadb6830692f7b31a05fc32",
+    "hf/data/utilization/ipmi/GPU_C_Power.csv": "642a75382ba54cd1e17605a579aa53f022b11898a4d4286f591fd0eb4c91687f",
+    "hf/data/utilization/kalos/FB_USED.csv": "59d90dc68a17eab03cba32453d26959b209c88ef394642c555200c5d8f26de3b",
+    "hf/data/utilization/kalos/GPU_UTIL.csv": "995e6a271990e3499afb2c74846e156060bac902e1a618a91b4dd58b96b59b1a",
+    "hf/data/utilization/kalos/POWER_USAGE.csv": "efba88dd9aac712aaece4ba7575917103a8796afd0292db866c66e25ff61823a",
+    "hf/data/utilization/seren/FB_USED.csv": "79e79aeda8829e8d904be82368f05bdbc187aef1508cb79cda06955d6ebf5204",
+    "hf/data/utilization/seren/GPU_UTIL.csv": "671659a42f9dc3630bbb84eea916ea2bd82b1fad0965c730020c0428ddc32ed9",
+    "hf/data/utilization/seren/POWER_USAGE.csv": "18fd9a458af410891cc17ce2c585721cee73d3f86aa1ed630e7c84431ad0d449"
+  }
+}

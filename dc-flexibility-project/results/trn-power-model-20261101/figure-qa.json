@@ -1,0 +1,46 @@
+{
+  "font": "Microsoft YaHei",
+  "font_path": "C:\\Windows\\Fonts\\msyh.ttc",
+  "figures": [
+    {
+      "figure": "figure1-trn-typical-day",
+      "missing_characters": [],
+      "text_outside_canvas": [],
+      "embedded_pdf_fonts": 1,
+      "png_dpi": 300,
+      "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+    },
+    {
+      "figure": "figure2-power-evidence",
+      "missing_characters": [],
+      "text_outside_canvas": [],
+      "embedded_pdf_fonts": 1,
+      "png_dpi": 300,
+      "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+    },
+    {
+      "figure": "figure3-sensitivity",
+      "missing_characters": [],
+      "text_outside_canvas": [],
+      "embedded_pdf_fonts": 1,
+      "png_dpi": 300,
+      "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+    },
+    {
+      "figure": "figure4-cpu-response",
+      "missing_characters": [],
+      "text_outside_canvas": [],
+      "embedded_pdf_fonts": 1,
+      "png_dpi": 300,
+      "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+    },
+    {
+      "figure": "figure5-acme-diurnal",
+      "missing_characters": [],
+      "text_outside_canvas": [],
+      "embedded_pdf_fonts": 1,
+      "png_dpi": 300,
+      "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+    }
+  ]
+}

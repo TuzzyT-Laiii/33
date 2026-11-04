@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-01T04:03:22.501751+00:00",
+  "reference_scenarios": 44,
+  "reference_hours": 385440,
+  "cpu_50_to_60_dynamic_increment_W": 41.35136632555874,
+  "frozen_demand_weather_units": true,
+  "SAI_INF_GPU_arrays_unchanged": true,
+  "IT_and_facility_energy_conservation": true,
+  "training_formula_independently_checked": true,
+  "sensitivity_ordering": true,
+  "tests_use_real_v3_inputs": true,
+  "all_location_scenarios": 1100,
+  "all_location_hours": 9644448,
+  "all_location_sha256_verified": true
+}

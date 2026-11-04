@@ -1,0 +1,3 @@
+-r compute_load/requirements.txt
+matplotlib>=3.9,<4
+PyMuPDF>=1.25,<2

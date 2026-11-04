@@ -1,0 +1,51 @@
+{
+  "year": 2025,
+  "phase_days": 0,
+  "hours": 8760,
+  "source_hours": 4440,
+  "complete_cycles": 1,
+  "remaining_hours": 4320,
+  "wrap_count": 1,
+  "source_file_sha256": "fcb328ec01f38d53b59b262f35550308f4da3c5dd8be7ae4fde0bf029927a9c9",
+  "output_file": "inf-annual-replay-2025-phase000.parquet",
+  "output_sha256": "c7179b862ad72b73284d8fc237a5159f3e6b74c52b8f3ffa34636b65bcb18884",
+  "resource_integrals": {
+    "online": 589609112.8929982,
+    "offline": 228904465.00582486,
+    "combined": 818513577.898823
+  },
+  "quality_input_sha256": "4b1bb57a7b711d3fed47d616dc116c1dcc930ada24d7e0873c1535c454766f00",
+  "unresolved_target_hours": 2,
+  "provenance": {
+    "source": "asi_gpu",
+    "hardware": "gpu",
+    "days": 185,
+    "source_start": "relative_day=0;hour=00",
+    "source_end_inclusive": "relative_day=184;hour=23",
+    "normalization_basis": "online/offline/combined 共用组合推理的观测最高小时归属 GPU 资源量，形状归一化，非物理利用率",
+    "reference_resource_count": 124677.70416666502,
+    "status": "185_day_inference_replay_proxy",
+    "input_file": "/data3/dataset/ljt/global-grid-flexibility-20261023/results/asi-185day-workload-types-20261031/inf-hourly-quality.csv",
+    "input_sha256": "4b1bb57a7b711d3fed47d616dc116c1dcc930ada24d7e0873c1535c454766f00",
+    "source_mean_fraction": 0.7512196745019143,
+    "source_peak_fraction": 1.0,
+    "boundary_jump_fraction": 0.3105139481467735,
+    "within_window_hourly_change_p95": 0.03630070278869542,
+    "business_scope": "combined_inference_only",
+    "physical_utilization": false,
+    "unresolved_source_hour_indices": [
+      126
+    ],
+    "source_quality_policy": "保留原始零观测并逐小时传递质量标识；不补造需求，不确认真实停机",
+    "gpu_equivalence": "异构 GPU 归属资源代理，未换算指定硬件吞吐；B-INF/C-INF/D-INF 须分别标定",
+    "annualization": "完整连续观测窗口按原顺序循环；不平滑、不调整均值、不添加季节需求",
+    "target_clock": "UTC；源午夜对应目标 UTC 午夜为相位设定，不表示已识别原时区",
+    "source_hours": 4440,
+    "target_hours": 8760,
+    "phase_hours": 0,
+    "complete_cycles": 1,
+    "remaining_hours": 4320,
+    "seasonality": "样本外季节性、增长与节假日需求未识别"
+  },
+  "scope": "资源需求年度重放；不运行气象、设备功率或柔性优化"
+}

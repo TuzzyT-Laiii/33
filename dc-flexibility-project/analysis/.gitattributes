@@ -1,0 +1,4 @@
+# 本次审计脚本统一使用 LF，保证跨平台检出后的 SHA-256 一致。
+.gitattributes text eol=lf
+*inf*diurnal*.py text eol=lf
+inf_request_shapes.py text eol=lf

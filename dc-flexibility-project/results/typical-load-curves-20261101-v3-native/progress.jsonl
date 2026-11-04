@@ -1,0 +1,28 @@
+{"utc": "2026-11-01T07:40:43.879289+00:00", "state": "reading_native_inputs", "input_commit": "ab07a41157442e837659535e1a33579ced5af8fa"}
+{"utc": "2026-11-01T07:42:15.549306+00:00", "state": "reading_native_inputs", "input_commit": "ab07a41157442e837659535e1a33579ced5af8fa"}
+{"utc": "2026-11-01T07:43:48.784890+00:00", "state": "location_complete", "location": "reference-grid", "weather_year": 2025, "placement_rows": 220}
+{"utc": "2026-11-01T07:44:32.480311+00:00", "state": "location_complete", "location": "phoenix", "weather_year": 2023, "placement_rows": 440}
+{"utc": "2026-11-01T07:45:16.749788+00:00", "state": "location_complete", "location": "phoenix", "weather_year": 2024, "placement_rows": 660}
+{"utc": "2026-11-01T07:46:00.002253+00:00", "state": "location_complete", "location": "phoenix", "weather_year": 2025, "placement_rows": 880}
+{"utc": "2026-11-01T07:46:43.304802+00:00", "state": "location_complete", "location": "ashburn", "weather_year": 2023, "placement_rows": 1100}
+{"utc": "2026-11-01T07:47:27.217910+00:00", "state": "location_complete", "location": "ashburn", "weather_year": 2024, "placement_rows": 1320}
+{"utc": "2026-11-01T07:48:10.513512+00:00", "state": "location_complete", "location": "ashburn", "weather_year": 2025, "placement_rows": 1540}
+{"utc": "2026-11-01T07:48:53.034685+00:00", "state": "location_complete", "location": "frankfurt", "weather_year": 2023, "placement_rows": 1760}
+{"utc": "2026-11-01T07:49:36.342022+00:00", "state": "location_complete", "location": "frankfurt", "weather_year": 2024, "placement_rows": 1980}
+{"utc": "2026-11-01T07:50:19.506700+00:00", "state": "location_complete", "location": "frankfurt", "weather_year": 2025, "placement_rows": 2200}
+{"utc": "2026-11-01T07:50:59.701544+00:00", "state": "location_complete", "location": "lulea", "weather_year": 2023, "placement_rows": 2420}
+{"utc": "2026-11-01T07:51:41.329458+00:00", "state": "location_complete", "location": "lulea", "weather_year": 2024, "placement_rows": 2640}
+{"utc": "2026-11-01T07:52:24.678931+00:00", "state": "location_complete", "location": "lulea", "weather_year": 2025, "placement_rows": 2860}
+{"utc": "2026-11-01T07:53:08.413574+00:00", "state": "location_complete", "location": "ulanqab", "weather_year": 2023, "placement_rows": 3080}
+{"utc": "2026-11-01T07:53:53.292397+00:00", "state": "location_complete", "location": "ulanqab", "weather_year": 2024, "placement_rows": 3300}
+{"utc": "2026-11-01T07:54:32.620748+00:00", "state": "location_complete", "location": "ulanqab", "weather_year": 2025, "placement_rows": 3520}
+{"utc": "2026-11-01T07:55:17.033563+00:00", "state": "location_complete", "location": "guiyang", "weather_year": 2023, "placement_rows": 3740}
+{"utc": "2026-11-01T07:56:01.245581+00:00", "state": "location_complete", "location": "guiyang", "weather_year": 2024, "placement_rows": 3960}
+{"utc": "2026-11-01T07:56:45.507405+00:00", "state": "location_complete", "location": "guiyang", "weather_year": 2025, "placement_rows": 4180}
+{"utc": "2026-11-01T07:57:29.135714+00:00", "state": "location_complete", "location": "riyadh", "weather_year": 2023, "placement_rows": 4400}
+{"utc": "2026-11-01T07:58:14.014145+00:00", "state": "location_complete", "location": "riyadh", "weather_year": 2024, "placement_rows": 4620}
+{"utc": "2026-11-01T07:58:57.836084+00:00", "state": "location_complete", "location": "riyadh", "weather_year": 2025, "placement_rows": 4840}
+{"utc": "2026-11-01T07:59:42.262847+00:00", "state": "location_complete", "location": "singapore", "weather_year": 2023, "placement_rows": 5060}
+{"utc": "2026-11-01T08:00:24.765499+00:00", "state": "location_complete", "location": "singapore", "weather_year": 2024, "placement_rows": 5280}
+{"utc": "2026-11-01T08:01:04.981005+00:00", "state": "location_complete", "location": "singapore", "weather_year": 2025, "placement_rows": 5500}
+{"utc": "2026-11-01T08:01:32.336840+00:00", "state": "complete", "scenarios": 44, "location_years": 25, "placement_rows": 5500, "hourly_rows": 15861600}

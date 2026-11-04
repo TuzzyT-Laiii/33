@@ -1,0 +1,83 @@
+{
+  "started_at_utc": "2026-10-31T08:14:14.234733+00:00",
+  "raw_directory": "/data3/dataset/ljt/global-grid-flexibility-20261023/data/raw/alibaba-cpu-2018",
+  "official_schema": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-v2018/schema.txt",
+  "official_checksums": "https://github.com/alibaba/clusterdata/blob/master/cluster-trace-v2018/trace_2018.md",
+  "license": "官方允许 study/research；未发现标准数据许可证，不能推定商业使用或再分发授权",
+  "reserve_gib": 5,
+  "files": {
+    "machine_meta": {
+      "url": "http://aliopentrace.oss-cn-beijing.aliyuncs.com/v2018Traces/machine_meta.tar.gz",
+      "bytes": 92432,
+      "etag": "\"B2742FD5C0B46307E930AFB2076889DA\"",
+      "last_modified": "Wed, 15 Feb 2023 04:11:21 GMT",
+      "sha256": "b5b1b786b22cd413a3674b8f2ebfb2f02fac991c95df537f363ef2797c8f6d55",
+      "official_sha256_matches": true,
+      "download_started_at_utc": "2026-10-31T08:14:14.681179+00:00",
+      "download_completed_at_utc": "2026-10-31T08:14:14.770246+00:00",
+      "minimum_observed_free_bytes": 23478292480
+    },
+    "machine_usage": {
+      "url": "http://aliopentrace.oss-cn-beijing.aliyuncs.com/v2018Traces/machine_usage.tar.gz",
+      "bytes": 1774523160,
+      "etag": "\"1BE889621C3298A883DB11153557831E-170\"",
+      "last_modified": "Wed, 15 Feb 2023 04:36:42 GMT",
+      "sha256": "3e6ee87fd204bb85b9e234c5c75a5096580fdabc8f085b224033080090753a7a",
+      "official_sha256_matches": true,
+      "download_started_at_utc": "2026-10-31T08:14:14.770706+00:00",
+      "download_completed_at_utc": "2026-10-31T08:14:44.833486+00:00",
+      "minimum_observed_free_bytes": 21703745536
+    },
+    "batch_task": {
+      "url": "http://aliopentrace.oss-cn-beijing.aliyuncs.com/v2018Traces/batch_task.tar.gz",
+      "bytes": 130310549,
+      "etag": "\"785BBE67CFF4743AF171C8A3FC166FD5-13\"",
+      "last_modified": "Wed, 15 Feb 2023 04:11:19 GMT",
+      "sha256": "7c4b32361bd1ec2083647a8f52a6854a03bc125ca5c202652316c499fbf978c6",
+      "official_sha256_matches": true,
+      "download_started_at_utc": "2026-10-31T08:14:44.834441+00:00",
+      "download_completed_at_utc": "2026-10-31T08:14:47.119508+00:00",
+      "minimum_observed_free_bytes": 21573431296
+    },
+    "container_meta": {
+      "url": "http://aliopentrace.oss-cn-beijing.aliyuncs.com/v2018Traces/container_meta.tar.gz",
+      "bytes": 2491220,
+      "etag": "\"C8E121DA2F48323DBD1F806F8CFBD5F9\"",
+      "last_modified": "Wed, 15 Feb 2023 04:35:21 GMT",
+      "sha256": "febd75e693d1f208a8941395e7faa7e466e50d21c256eff12a815b7e2fa2053f",
+      "official_sha256_matches": true,
+      "download_started_at_utc": "2026-10-31T08:14:47.119977+00:00",
+      "download_completed_at_utc": "2026-10-31T08:14:47.222966+00:00",
+      "minimum_observed_free_bytes": 21570936832
+    }
+  },
+  "space_checks": [
+    {
+      "at_utc": "2026-10-31T08:14:14.681143+00:00",
+      "stage": "before",
+      "free_bytes": 23478386688,
+      "remaining_bytes": 1907417361
+    },
+    {
+      "at_utc": "2026-10-31T08:14:14.770279+00:00",
+      "stage": "after_machine_meta",
+      "free_bytes": 23478292480
+    },
+    {
+      "at_utc": "2026-10-31T08:14:44.833557+00:00",
+      "stage": "after_machine_usage",
+      "free_bytes": 21703745536
+    },
+    {
+      "at_utc": "2026-10-31T08:14:47.119537+00:00",
+      "stage": "after_batch_task",
+      "free_bytes": 21573431296
+    },
+    {
+      "at_utc": "2026-10-31T08:14:47.222995+00:00",
+      "stage": "after_container_meta",
+      "free_bytes": 21570936832
+    }
+  ],
+  "completed_at_utc": "2026-10-31T08:14:47.223563+00:00"
+}

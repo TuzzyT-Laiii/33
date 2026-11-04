@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-01T11:37:18.682920+00:00",
+  "hourly_files_sha256_verified": 696,
+  "saved_hour_rows_verified": 2055816,
+  "gapped_hourly_files": 396,
+  "all_summary_rows": 3000,
+  "seren_old_audit_reproduced": true,
+  "gpu_and_host_cpu_type_conservation": true,
+  "no_power_imputation_in_body": true,
+  "source_calendar_and_gaps_preserved": true,
+  "pr36_cpu_base_inventory_and_bounded_gpu_formula_match": true,
+  "all_hourly_electric_and_heat_balances": true,
+  "diurnal_and_weekly_group_means_verified": true,
+  "legacy_weather_full_year_power_reproduced": true,
+  "gapped_cooling_equals_full_series_subset": true,
+  "default_continuity_validation_unchanged": true,
+  "software": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3"
+  }
+}

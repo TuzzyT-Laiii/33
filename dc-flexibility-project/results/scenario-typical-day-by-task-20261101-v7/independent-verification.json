@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "utc": "2026-11-01T11:56:28.834504+00:00",
+  "checks": {
+    "upstream_fingerprints_and_eight_v6_scenarios_unchanged": true,
+    "Seren_quality_filter_hourly_inverse_formula_and_weighted_ratio": true,
+    "recalculated_raw_job_statistics_counts_denominators_and_hour_integrals": true,
+    "independent_complete_UTC_days_gap_preservation_window_and_minimum_RMSE": true,
+    "B-TRN_full_main_observation_GPU_CPU_and_thermal_formulas": true,
+    "B-TRN_24_hour_shared_date_MLLM_layer_conservation_and_energy_scale": true,
+    "B-TRN_six_observation_and_sensitivity_cases_match_PR38": true,
+    "C-TRN_full_main_observation_GPU_CPU_and_thermal_formulas": true,
+    "C-TRN_24_hour_shared_date_MLLM_layer_conservation_and_energy_scale": true,
+    "C-TRN_six_observation_and_sensitivity_cases_match_PR38": true,
+    "D-TRN_full_main_observation_GPU_CPU_and_thermal_formulas": true,
+    "D-TRN_24_hour_shared_date_MLLM_layer_conservation_and_energy_scale": true,
+    "D-TRN_six_observation_and_sensitivity_cases_match_PR38": true,
+    "new_days_quality_flags_and_four_300dpi_SVG_figures": true,
+    "Word_four_chapters_Seren_statistics_other_rows_and_four_page_PDF": true,
+    "all_earlier_chapter4_results_preserved": true
+  },
+  "evidence": {
+    "source_date": "2023-05-31",
+    "complete_days": 55,
+    "candidates": 8,
+    "window_pct": 2,
+    "deviation_pct": -1.8697885828790395,
+    "RMSE_mw": 0.28357684045275766,
+    "raw_job_scan_peak_RSS_MiB": 242.70703125,
+    "daily_to_period_mean_range": [
+      0.9526079386690356,
+      1.0852433829733732
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+metric,value,unit
+analysis_elapsed,11.5462963,seconds
+peak_working_set,398598144,bytes
+csv_chunk_rows,20000,rows

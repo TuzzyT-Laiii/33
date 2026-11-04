@@ -29,12 +29,16 @@ def sha256(path):
     return result.hexdigest()
 
 
-def hourly_index(values, full_year=True):
+def hourly_index(values, full_year=True, *, allow_gaps=False):
     times = pd.DatetimeIndex(pd.to_datetime(values, utc=True))
     if len(times) < 2 or times.isna().any() or not times.is_unique:
         raise ValueError("必须提供至少两个无重复的 UTC 小时")
-    if not times.to_series().diff().iloc[1:].eq(pd.Timedelta(hours=1)).all():
-        raise ValueError("UTC 时间必须按小时递增且没有缺口")
+    differences = times.to_series().diff().iloc[1:]
+    if allow_gaps and full_year:
+        raise ValueError("全年输入不能允许时间缺口")
+    valid = differences.ge(pd.Timedelta(hours=1)) if allow_gaps else differences.eq(pd.Timedelta(hours=1))
+    if not valid.all():
+        raise ValueError("UTC 时间必须按小时严格递增，并满足指定的连续性要求")
     if (times != times.floor("h")).any():
         raise ValueError("UTC 时间必须位于整点")
     if full_year:

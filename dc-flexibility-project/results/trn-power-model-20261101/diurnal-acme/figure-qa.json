@@ -1,0 +1,34 @@
+[
+  {
+    "figure": "figure1-monitoring-overlap",
+    "missing_characters": [],
+    "text_outside_canvas": [],
+    "embedded_pdf_fonts": 1,
+    "png_dpi": 300,
+    "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+  },
+  {
+    "figure": "figure2-source-shape",
+    "missing_characters": [],
+    "text_outside_canvas": [],
+    "embedded_pdf_fonts": 1,
+    "png_dpi": 300,
+    "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+  },
+  {
+    "figure": "figure3-trn-day-week",
+    "missing_characters": [],
+    "text_outside_canvas": [],
+    "embedded_pdf_fonts": 1,
+    "png_dpi": 300,
+    "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+  },
+  {
+    "figure": "figure4-sensitivity",
+    "missing_characters": [],
+    "text_outside_canvas": [],
+    "embedded_pdf_fonts": 1,
+    "png_dpi": 300,
+    "verification": "programmatic font coverage, text bounds and PDF font embedding; no visual inspection"
+  }
+]

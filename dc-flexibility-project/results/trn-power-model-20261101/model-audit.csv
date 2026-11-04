@@ -1,0 +1,19 @@
+component,central_value,low_sensitivity,high_sensitivity,evidence,status,change
+TRN_allocated_GPU_power_to_TDP,0.80,0.65,0.95,OLMo2 H100 active training above 600W and checkpoint just above 100W on 700W reference; A100 Acme and Microsoft support workload dependence,literature_informed_scenario_not_measured_H100_allocated_lifecycle_mean,replace_V100_transfer
+SAI_allocated_GPU_power_to_TDP,0.3906974429302795,,,MIT June allocated V100 measured 97.67436073256988W divided by 250W; H100 transfer remains assumption,measured_source_with_hardware_transfer,unchanged
+INF_allocated_GPU_power_to_TDP,v3_mit_transfer_p50,,,v3 MIT transfer distribution; inference diurnal task owns demand changes,unvalidated_inference_transfer,unchanged
+A_no_task_node_W,190,120,320,SPEC whole system idle 76.2W single 6448Y; 122W dual 6448Y; 163W dual 8490H,engineering_assumption_unmatched_BOM,central_unchanged
+B_no_task_node_W,290,195,500,A base plus GPU idle and greater chassis allowance; no matched node measurement,engineering_assumption_unmatched_BOM,central_unchanged
+C_no_task_node_W,390,270,680,A base plus two GPU idle and greater chassis allowance; no matched node measurement,engineering_assumption_unmatched_BOM,central_unchanged
+D_no_task_node_W,2460,1370,4110,HGX H100 different AMD node measured 1860W; DGX official 10200W maximum only,engineering_assumption_unmatched_BOM,central_unchanged
+H100_PCIe_unallocated_GPU_W,50,25,80,A100 Acme idle mode about 60W is only cross generation support; no matched H100 PCIe measurement,engineering_assumption,central_unchanged
+H100_SXM_unallocated_GPU_W,70,40,120,A100 Acme idle mode about 60W is only cross generation support; HGX whole node idle cannot identify GPU idle,engineering_assumption,central_unchanged
+SAI_unallocated_GPU_W,TDP*41.571803815009936/250,,,MIT allocated zero utilization V100 proxy cannot prove unallocated H100 power,measured_proxy_with_hardware_transfer,unchanged
+CPU_dynamic_response,monotone_cubic_Bernstein,,,equal weight normalized curves SPEC 01377 01376 01282; single and dual socket fourth generation Xeon systems,whole_system_shape_transferred_to_CPU_proxy,replace_single_curve
+CPU_idle_and_full_endpoints,original_parameters,,,CPU package full power treated as TDP proxy; idle package power not metered,engineering_assumption,unchanged
+P_base,150_200_250_1800W_for_A_B_C_D,,,memory storage fans network and PSU aggregate; no matched BOM or load dependent fan model,engineering_assumption,unchanged
+air_supply_C,22,,,DOE 2024 thermal guidance and ASHRAE recommended envelope,engineering_scenario_with_public_envelope,unchanged
+chiller_reference_COP,6.5,,,Daikin example rating point is not full load temperature performance map,engineering_scenario,unchanged
+UPS_efficiency,0.96,,,DOE 2024 reports modern double conversion UPS 95 percent or more,engineering_scenario,unchanged
+distribution_efficiency,0.98,,,facility distribution excludes IT internal PSU,engineering_scenario,unchanged
+PUE,annual_facility_energy/annual_IT_energy,,,computed from cooling and other components rather than multiplied again,derived_output,unchanged_method

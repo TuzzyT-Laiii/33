@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-01T05:05:17.974161+00:00",
+  "checks": {
+    "source_and_local_annual_hourly_SHA256": true,
+    "HPC_median_then_RMSE_independent_selection": true,
+    "CLD_median_then_RMSE_independent_selection": true,
+    "SAI_median_then_RMSE_independent_selection": true,
+    "TRN_median_then_RMSE_independent_selection": true,
+    "INF_median_then_RMSE_independent_selection": true,
+    "A-HPC_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "A-CLD_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "B-SAI_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "C-SAI_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "D-SAI_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "B-TRN_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "C-TRN_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "D-TRN_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "B-INF_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "C-INF_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "D-INF_CPU_GPU_provenance_layers_energy_comparison_and_sensitivity": true,
+    "OTHER_original_237_days_conservation_and_new_day_private_interval_check": true,
+    "public_fields_aggregate_only_and_12_PNG_300dpi_SVG": true,
+    "Word_README_energy_scope_sources_embedded_plot_and_four_page_PDF": true,
+    "previous_results_and_spike_audit_unchanged": true
+  },
+  "evidence": {
+    "daily_to_new_annual_mean_ratio_range": [
+      0.8678888400172303,
+      1.1119916023796874
+    ],
+    "maximum_inference_task_formula_error_mw": 2.220446049250313e-16
+  }
+}

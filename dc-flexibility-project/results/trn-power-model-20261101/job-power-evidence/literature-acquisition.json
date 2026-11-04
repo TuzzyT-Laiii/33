@@ -1,0 +1,290 @@
+[
+  {
+    "file": "pm100-metadata.json",
+    "url": "https://zenodo.org/api/records/10127767",
+    "utc": "2026-11-01T11:07:00.178492+00:00",
+    "status": "acquired",
+    "bytes": 5723,
+    "sha256": "34d857be2ce13c592a5c70d65cd118d8e401c66c24b6f2647f842770dc0fc355"
+  },
+  {
+    "file": "pm100.html",
+    "url": "https://zenodo.org/records/10127767",
+    "utc": "2026-11-01T11:07:00.178492+00:00",
+    "status": "acquired",
+    "bytes": 84783,
+    "sha256": "248b1e8233139fae3eb8b486efe541427340551a1130964d8fc8d0c2f07125c4"
+  },
+  {
+    "file": "pm100-readme.md",
+    "url": "https://raw.githubusercontent.com/francescoantici/PM100-data/main/README.md",
+    "utc": "2026-11-01T11:07:00.179492+00:00",
+    "status": "acquired",
+    "bytes": 2587,
+    "sha256": "cc02c1beb5a54c11b5a0413c41a0a09e688589517f79daedad0e06a9ca8e6042"
+  },
+  {
+    "file": "pm100-fields.md",
+    "url": "https://raw.githubusercontent.com/francescoantici/PM100-data/main/documentation/job_features.md",
+    "utc": "2026-11-01T11:07:00.179492+00:00",
+    "status": "acquired",
+    "bytes": 2153,
+    "sha256": "83da2848aaf41798f637065422d3ce9ccd2d2429bf199099e2ea28af81b6ccae"
+  },
+  {
+    "file": "pm100-paper.pdf",
+    "url": "https://cris.unibo.it/retrieve/6fbbd46f-a7e7-4469-b1ab-8adbe6de6d98/3624062.3624263.pdf",
+    "utc": "2026-11-01T11:07:00.180494+00:00",
+    "status": "acquired",
+    "bytes": 757344,
+    "sha256": "8a05c560a3a9580a1169cf7e51603efdea6ef86c43a000b3acae05203c21b290"
+  },
+  {
+    "file": "m100.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10193329/fullTextXML",
+    "utc": "2026-11-01T11:07:00.181115+00:00",
+    "status": "acquired",
+    "bytes": 80427,
+    "sha256": "062b9281778085f0d758fb900ddaee76c194f66562118b8a52592e4b36515d18"
+  },
+  {
+    "file": "pai-readme.md",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2020/README.md",
+    "utc": "2026-11-01T11:07:00.181758+00:00",
+    "status": "acquired",
+    "bytes": 20574,
+    "sha256": "cc13cc69d12ab46c882a1dcc74614cab6956f85ebb0d47d9409ff340bf2e7c08"
+  },
+  {
+    "file": "pai-license.txt",
+    "url": "https://raw.githubusercontent.com/alibaba/clusterdata/master/cluster-trace-gpu-v2020/LICENSE",
+    "utc": "2026-11-01T11:07:00.191943+00:00",
+    "status": "acquired",
+    "bytes": 18653,
+    "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9"
+  },
+  {
+    "file": "philly-readme.md",
+    "url": "https://raw.githubusercontent.com/msr-fiddle/philly-traces/master/README.md",
+    "utc": "2026-11-01T11:07:00.192974+00:00",
+    "status": "acquired",
+    "bytes": 5330,
+    "sha256": "fa91e8da81ee36e9e842f280b32ee06322443dfed97a303932ff25ff3606dc0e"
+  },
+  {
+    "file": "philly-license.txt",
+    "url": "https://raw.githubusercontent.com/msr-fiddle/philly-traces/master/LICENSE",
+    "utc": "2026-11-01T11:07:00.194008+00:00",
+    "status": "acquired",
+    "bytes": 18653,
+    "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9"
+  },
+  {
+    "file": "perlmutter-pearc25.pdf",
+    "url": "https://www.bu.edu/peaclab/files/2025/07/GPU_Utilization_Analysis_PEARC25.pdf",
+    "utc": "2026-11-01T11:07:00.194008+00:00",
+    "status": "acquired",
+    "bytes": 1781747,
+    "sha256": "c3e2b62cc7ef04bdd542dfda21a43b21ee233cb0695f783e5478c6581134ffed"
+  },
+  {
+    "file": "perlmutter-longitudinal.pdf",
+    "url": "https://arxiv.org/pdf/2502.18680",
+    "utc": "2026-11-01T11:07:00.210811+00:00",
+    "status": "acquired",
+    "bytes": 855022,
+    "sha256": "5b4b7837b4720e2f7cc0dce18109aeeddb4f4b7a0e786de7b6052303af221882"
+  },
+  {
+    "file": "nersc-power-capping.html",
+    "url": "https://docs.nersc.gov/jobs/power-capping/",
+    "utc": "2026-11-01T11:07:00.211811+00:00",
+    "status": "acquired",
+    "bytes": 88986,
+    "sha256": "3f655d5bd7d950c69b9728c12ff4d72b5916c77cb8b7dd500f7bda2d5a4a5d17"
+  },
+  {
+    "file": "mlperf-training.html",
+    "url": "https://mlcommons.org/benchmarks/training/",
+    "utc": "2026-11-01T11:07:00.437103+00:00",
+    "status": "acquired",
+    "bytes": 156059,
+    "sha256": "3455cd924fe10d96d92281914317c94dc6d5c628802e72e88b6cb1902e322f10"
+  },
+  {
+    "file": "mlperf-v40-root.json",
+    "url": "https://api.github.com/repos/mlcommons/training_results_v4.0/contents",
+    "utc": "2026-11-01T11:07:00.438103+00:00",
+    "status": "acquired",
+    "bytes": 16685,
+    "sha256": "bcbb1208cb198e37138064fff8e167ea6a0cb924476a078dbbafb16e8f0e8a50"
+  },
+  {
+    "file": "mlperf-v40-smc.json",
+    "url": "https://api.github.com/repos/mlcommons/training_results_v4.0/contents/Supermicro/results",
+    "utc": "2026-11-01T11:07:00.439103+00:00",
+    "status": "acquired",
+    "bytes": 4555,
+    "sha256": "0167e3af52cd39dda681535c8f9da9d283adb09b728ddd88a5689f2da42e3e13"
+  },
+  {
+    "file": "mlperf-ac-results.json",
+    "url": "https://api.github.com/repos/mlcommons/training_results_v4.0/contents/smc-ac-power/results",
+    "utc": "2026-11-01T11:07:00.440104+00:00",
+    "status": "acquired",
+    "bytes": 3647,
+    "sha256": "773197642790ca5097bcfc1839cf48c3791193754d4de72f038270a80e1535b8"
+  },
+  {
+    "file": "mlperf-dc-results.json",
+    "url": "https://api.github.com/repos/mlcommons/training_results_v4.0/contents/smc-dc-power/results",
+    "utc": "2026-11-01T11:07:00.441103+00:00",
+    "status": "acquired",
+    "bytes": 3647,
+    "sha256": "6d62998dd030d499cd29f8bdabd6e462ee82f4169b6a22880186e237a97f3012"
+  },
+  {
+    "file": "mlperf-ac-64nodes-3.json",
+    "url": "https://api.github.com/repos/mlcommons/training_results_v4.0/contents/smc-ac-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2",
+    "utc": "2026-11-01T11:07:00.443456+00:00",
+    "status": "acquired",
+    "bytes": 110423,
+    "sha256": "7b12525eb8aa4fd2660b3bb8913415c5da3e09bf962dddd82ba00878ed1baf0a"
+  },
+  {
+    "file": "mlperf-dc-64nodes-3.json",
+    "url": "https://api.github.com/repos/mlcommons/training_results_v4.0/contents/smc-dc-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2",
+    "utc": "2026-11-01T11:07:00.444459+00:00",
+    "status": "acquired",
+    "bytes": 110423,
+    "sha256": "2ed8d2da5b84e9cdb2c0f24bc83942a4116367d9393efc7ead0fcaae28a8b490"
+  },
+  {
+    "file": "mlperf-ac-node_1.txt",
+    "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-ac-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/node_1.txt",
+    "utc": "2026-11-01T11:07:00.446460+00:00",
+    "status": "acquired",
+    "bytes": 238579,
+    "sha256": "26e2a156cb113931dd922c2ef3a64ed25f825b5c12a484eb758dead23ed6a211"
+  },
+  {
+    "file": "mlperf-ac-total_power.txt",
+    "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-ac-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/total_power.txt",
+    "utc": "2026-11-01T11:07:00.457518+00:00",
+    "status": "acquired",
+    "bytes": 31,
+    "sha256": "1b96f3e6fe64701429b384058d349b22521bd0e55bad2574abe005a94ca9ce7f"
+  },
+  {
+    "file": "mlperf-ac-sw_0.txt",
+    "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-ac-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/sw_0.txt",
+    "utc": "2026-11-01T11:07:00.468508+00:00",
+    "status": "acquired",
+    "bytes": 169,
+    "sha256": "e3992761c0bd7432e5f30033c81ea0bd1875b5b67bbcad85227b4d37b19a8031"
+  },
+  {
+    "file": "mlperf-dc-node_1.txt",
+    "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-dc-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/node_1.txt",
+    "utc": "2026-11-01T11:07:00.472508+00:00",
+    "status": "acquired",
+    "bytes": 238579,
+    "sha256": "8ec1edab8a7dbe9b3ffc52f3e2c24a26e3fed144008c0d55c555648777e417b3"
+  },
+  {
+    "file": "mlperf-dc-total_power.txt",
+    "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-dc-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/total_power.txt",
+    "utc": "2026-11-01T11:07:00.473508+00:00",
+    "status": "acquired",
+    "bytes": 31,
+    "sha256": "896636bb35d3196a94766495c4438dc787e8a0044c0622e92db65a1fc9966947"
+  },
+  {
+    "file": "mlperf-dc-sw_0.txt",
+    "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/smc-dc-power/results/64xSMC-H100-SXM-80GB/gpt3/power/result_5848-240517221859825376616_2/sw_0.txt",
+    "utc": "2026-11-01T11:07:00.478898+00:00",
+    "status": "acquired",
+    "bytes": 169,
+    "sha256": "e3992761c0bd7432e5f30033c81ea0bd1875b5b67bbcad85227b4d37b19a8031"
+  },
+  {
+    "file": "mlperf-license.md",
+    "url": "https://raw.githubusercontent.com/mlcommons/training_results_v4.0/main/LICENSE.md",
+    "utc": "2026-11-01T11:07:00.479931+00:00",
+    "status": "acquired",
+    "bytes": 10174,
+    "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+  },
+  {
+    "file": "mlperf-power-rules.adoc",
+    "url": "https://raw.githubusercontent.com/mlcommons/training_policies/master/training_rules.adoc",
+    "utc": "2026-11-01T11:07:00.479931+00:00",
+    "status": "acquired",
+    "bytes": 143209,
+    "sha256": "5c9353625004bef0d4156afe2c21c99c9352c28b3425fa385fabc937fffabfe8"
+  },
+  {
+    "file": "smc-gpt3.html",
+    "url": "https://smc.co/mlperfv40/results/gpt3",
+    "utc": "2026-11-01T11:07:00.480987+00:00",
+    "status": "acquired",
+    "bytes": 179674,
+    "sha256": "94fd56c7a19d62271f5e3cb52aabbc64df3db7abfa8c65bfea0903e7e71b76de"
+  },
+  {
+    "file": "olmo.html",
+    "url": "https://arxiv.org/html/2503.05804v1",
+    "utc": "2026-11-01T11:07:00.482280+00:00",
+    "status": "acquired",
+    "bytes": 213917,
+    "sha256": "c5ee4fccf363d1b1813dddb268014d8ac1bdd84ea14360ae5168a552a3f4bc5f"
+  },
+  {
+    "file": "llama3.html",
+    "url": "https://arxiv.org/html/2407.21783v3",
+    "utc": "2026-11-01T11:07:00.544108+00:00",
+    "status": "acquired",
+    "bytes": 1072570,
+    "sha256": "30595a452414eb355aa49cb8d93a7f7c7a9ae644c82f04cf749e29e759f2a584"
+  },
+  {
+    "file": "bloom.pdf",
+    "url": "https://arxiv.org/pdf/2211.02001",
+    "utc": "2026-11-01T11:07:00.544108+00:00",
+    "status": "acquired",
+    "bytes": 285035,
+    "sha256": "cd8c3732e179f9a71a8dd42efabf7ffe7ee2bfc6c4ce4d63cfe799609b58dd12"
+  },
+  {
+    "file": "llm-highres.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13538459/fullTextXML",
+    "utc": "2026-11-01T11:07:00.548791+00:00",
+    "status": "acquired",
+    "bytes": 172623,
+    "sha256": "cfc3ab057aef6187231c332b4989050006b8109b0eb16e3583ff28164dbedd5d"
+  },
+  {
+    "file": "llm-highres-figshare.json",
+    "url": "https://api.figshare.com/v2/articles/31654879",
+    "utc": "2026-11-01T11:07:00.579645+00:00",
+    "status": "acquired",
+    "bytes": 6674,
+    "sha256": "b9d8b776926149e37e544924705c8589a1ed340055d57cad7bc28b85b6a8807c"
+  },
+  {
+    "file": "mit-readme.md",
+    "url": "https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/README.md",
+    "utc": "2026-11-01T11:07:00.580157+00:00",
+    "status": "acquired",
+    "bytes": 7616,
+    "sha256": "915b12d2110266fe4cad8a8d0f831f75d3ae08cf9ba42d106ac82a5a5f84c771"
+  },
+  {
+    "file": "mit-license.txt",
+    "url": "https://mit-supercloud-dataset.s3.us-west-2.amazonaws.com/datacenter-challenge/202201/LICENSE",
+    "utc": "2026-11-01T11:07:00.583761+00:00",
+    "status": "acquired",
+    "bytes": 285,
+    "sha256": "a68e8239ee146c3e58c8988b66b176708310d2595095bf8d16ebb65da728dd0f"
+  }
+]

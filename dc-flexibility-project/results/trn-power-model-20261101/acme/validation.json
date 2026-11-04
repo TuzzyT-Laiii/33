@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-01T04:28:45.946404+00:00",
+  "telemetry_files": 9,
+  "gpu_metric_tables": 6,
+  "source_hashes_match_acquisition": true,
+  "histogram_daily_diurnal_count_and_mean_conservation": true,
+  "nonpositive_gpu_time_steps": 0,
+  "public_job_rows": 880740,
+  "job_type_monitoring_join_status": "unknown; allocation mapping absent",
+  "all_checks_passed": true
+}

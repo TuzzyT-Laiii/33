@@ -1,0 +1,45 @@
+﻿scenario_id,scenario_zh,reference_it_mw,source_days,hours,power_method,status
+A-HPC-1MW,纯 CPU 型·科研计算·1MW,1,309,8760,cpu_spec,computed
+A-HPC-10MW,纯 CPU 型·科研计算·10MW,10,309,8760,cpu_spec,computed
+A-HPC-100MW,纯 CPU 型·科研计算·100MW,100,309,8760,cpu_spec,computed
+A-HPC-500MW,纯 CPU 型·科研计算·500MW,500,309,8760,cpu_spec,computed
+A-CLD-1MW,纯 CPU 型·云通用计算·1MW,1,5,8760,cpu_spec,computed
+A-CLD-10MW,纯 CPU 型·云通用计算·10MW,10,5,8760,cpu_spec,computed
+A-CLD-100MW,纯 CPU 型·云通用计算·100MW,100,5,8760,cpu_spec,computed
+A-CLD-500MW,纯 CPU 型·云通用计算·500MW,500,5,8760,cpu_spec,computed
+B-SAI-1MW,CPU 主导型·科研 AI·1MW,1,237,8760,mit_june_mean_scaled_idle,computed
+B-SAI-10MW,CPU 主导型·科研 AI·10MW,10,237,8760,mit_june_mean_scaled_idle,computed
+B-SAI-100MW,CPU 主导型·科研 AI·100MW,100,237,8760,mit_june_mean_scaled_idle,computed
+B-SAI-500MW,CPU 主导型·科研 AI·500MW,500,237,8760,mit_june_mean_scaled_idle,computed
+B-TRN-1MW,CPU 主导型·大模型训练/开发·1MW,1,90,8760,v2_ratio_p50,computed
+B-TRN-10MW,CPU 主导型·大模型训练/开发·10MW,10,90,8760,v2_ratio_p50,computed
+B-TRN-100MW,CPU 主导型·大模型训练/开发·100MW,100,90,8760,v2_ratio_p50,computed
+B-TRN-500MW,CPU 主导型·大模型训练/开发·500MW,500,90,8760,v2_ratio_p50,computed
+B-INF-1MW,CPU 主导型·推理服务·1MW,1,185,8760,v2_ratio_p50,computed
+B-INF-10MW,CPU 主导型·推理服务·10MW,10,185,8760,v2_ratio_p50,computed
+B-INF-100MW,CPU 主导型·推理服务·100MW,100,185,8760,v2_ratio_p50,computed
+B-INF-500MW,CPU 主导型·推理服务·500MW,500,185,8760,v2_ratio_p50,computed
+C-SAI-1MW,均衡型·科研 AI·1MW,1,237,8760,mit_june_mean_scaled_idle,computed
+C-SAI-10MW,均衡型·科研 AI·10MW,10,237,8760,mit_june_mean_scaled_idle,computed
+C-SAI-100MW,均衡型·科研 AI·100MW,100,237,8760,mit_june_mean_scaled_idle,computed
+C-SAI-500MW,均衡型·科研 AI·500MW,500,237,8760,mit_june_mean_scaled_idle,computed
+C-TRN-1MW,均衡型·大模型训练/开发·1MW,1,90,8760,v2_ratio_p50,computed
+C-TRN-10MW,均衡型·大模型训练/开发·10MW,10,90,8760,v2_ratio_p50,computed
+C-TRN-100MW,均衡型·大模型训练/开发·100MW,100,90,8760,v2_ratio_p50,computed
+C-TRN-500MW,均衡型·大模型训练/开发·500MW,500,90,8760,v2_ratio_p50,computed
+C-INF-1MW,均衡型·推理服务·1MW,1,185,8760,v2_ratio_p50,computed
+C-INF-10MW,均衡型·推理服务·10MW,10,185,8760,v2_ratio_p50,computed
+C-INF-100MW,均衡型·推理服务·100MW,100,185,8760,v2_ratio_p50,computed
+C-INF-500MW,均衡型·推理服务·500MW,500,185,8760,v2_ratio_p50,computed
+D-SAI-1MW,GPU 主导型·科研 AI·1MW,1,237,8760,mit_june_mean_scaled_idle,computed
+D-SAI-10MW,GPU 主导型·科研 AI·10MW,10,237,8760,mit_june_mean_scaled_idle,computed
+D-SAI-100MW,GPU 主导型·科研 AI·100MW,100,237,8760,mit_june_mean_scaled_idle,computed
+D-SAI-500MW,GPU 主导型·科研 AI·500MW,500,237,8760,mit_june_mean_scaled_idle,computed
+D-TRN-1MW,GPU 主导型·大模型训练/开发·1MW,1,90,8760,v2_ratio_p50,computed
+D-TRN-10MW,GPU 主导型·大模型训练/开发·10MW,10,90,8760,v2_ratio_p50,computed
+D-TRN-100MW,GPU 主导型·大模型训练/开发·100MW,100,90,8760,v2_ratio_p50,computed
+D-TRN-500MW,GPU 主导型·大模型训练/开发·500MW,500,90,8760,v2_ratio_p50,computed
+D-INF-1MW,GPU 主导型·推理服务·1MW,1,185,8760,v2_ratio_p50,computed
+D-INF-10MW,GPU 主导型·推理服务·10MW,10,185,8760,v2_ratio_p50,computed
+D-INF-100MW,GPU 主导型·推理服务·100MW,100,185,8760,v2_ratio_p50,computed
+D-INF-500MW,GPU 主导型·推理服务·500MW,500,185,8760,v2_ratio_p50,computed

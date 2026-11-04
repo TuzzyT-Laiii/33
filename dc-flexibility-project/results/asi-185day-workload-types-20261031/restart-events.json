@@ -1,0 +1,38 @@
+[
+  {
+    "at": "2026-10-31T10:22:23.204994+00:00",
+    "reason": "worker_count_8_to_16_on_shared_cpu_host",
+    "previous_status": {
+      "run_started_at": "2026-10-31T09:25:50.756684+00:00",
+      "pid": 2736323,
+      "workers": 8,
+      "state": "running",
+      "completed_hours": 2198,
+      "target_hours": 4440,
+      "reused_hours": 1,
+      "pending_this_run": 4439,
+      "raw_disk_bytes_written": 0,
+      "script_sha256": "cd0c5d245c1cf245c9667a712d041619c7a1ee6521783ddc034f0021f4b63596",
+      "volume_free_at_start_bytes": 6488428453888,
+      "last_completed": {
+        "index": 2197,
+        "day": 91,
+        "hour": 13,
+        "finished_at": "2026-10-31T10:22:07.016974+00:00",
+        "seconds": 52.31411190703511,
+        "range_bytes": {
+          "pod_hourly": 103510983,
+          "server_hourly": 627864
+        },
+        "worker_peak_rss_kib": 1132792
+      },
+      "updated_at": "2026-10-31T10:22:07.121654+00:00",
+      "elapsed_this_run_seconds": 3376.36302831606,
+      "jobs_complete": true
+    },
+    "process_group": 2736323,
+    "signal": "SIGTERM",
+    "source_code_commit": "8ce7238",
+    "in_flight_member_bytes": "not measured; uncommitted members may be reread"
+  }
+]
