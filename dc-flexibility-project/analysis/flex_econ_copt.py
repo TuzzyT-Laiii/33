@@ -114,7 +114,9 @@ def backlog_limit(arrival, deadline):
     return limit
 
 
-def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False):
+def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False, cards=None, fixed_assets=None):
+    """cards=None：沿用整机铭牌余量（首版）。cards给出时：算力按调度前任务峰值K配置，
+    超过K需加卡e（MW任务功率），e按年化卡价计费，加的卡全时待机耗电idle_per_mw×e。"""
     import coptpy as cp
     started = time.monotonic()
     n = len(frame)
@@ -127,6 +129,13 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False)
     unit = p['annual_usd_per_mw']
     off = {key: 5 + k * n for k, key in enumerate(HOURLY)}
     count = 5 + len(HOURLY) * n
+    task = frame.rigid.to_numpy() + frame.unknown.to_numpy() + arr_w + arr_s
+    peak_task = float(task.max())
+    if cards is not None:
+        extra = count
+        count += 1
+        headroom = peak_task - frame.rigid.to_numpy() - frame.unknown.to_numpy()
+        idle_per_mw = cards['idle_per_mw']
     idx = np.arange(n)
     lb, ub = np.zeros(count), np.full(count, cp.COPT.INFINITY)
     ub[:5] = [p['pv_max_mw'], p['wind_max_mw'], p['battery_power_max_mw'], p['battery_energy_max_mwh'], p['grid_max_mw']]
@@ -141,6 +150,12 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False)
     grid_unit = p['grid_price_usd_mwh'] + p['carbon_price_usd_t'] * ef
     c[off['grid'] + idx] = grid_unit
     c[off['discharge'] + idx] = p['battery_throughput_usd_mwh']
+    if fixed_assets is not None:
+        # 供给侧固定为给定装机（无柔性成本最优），只优化运行与加卡
+        lb[:5] = ub[:5] = fixed_assets
+    if cards is not None:
+        ub[extra] = cards['extra_max_mw']
+        c[extra] = cards['usd_per_mw_year'] * scale
     rows, cols, vals, lhs, rhs = [], [], [], [], []
     r0 = 0
 
@@ -161,6 +176,8 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False)
     for key in ('direct', 'grid', 'discharge'):
         add(r, off[key] + idx, 1.)
     add(r, off['x_whole'] + idx, -pue); add(r, off['x_split'] + idx, -pue)
+    if cards is not None:
+        add(r, extra, -pue * idle_per_mw)  # 新增卡待机功率
     lhs.append(pue * fixed); rhs.append(pue * fixed); r0 += n
     # 3 储能电量（循环边界）
     eta = np.sqrt(p['battery_roundtrip_efficiency'])
@@ -177,6 +194,8 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False)
     # 5 IT装机上限
     r = r0 + idx
     add(r, off['x_whole'] + idx, 1.); add(r, off['x_split'] + idx, 1.)
+    if cards is not None:
+        add(r, extra, -1.)  # 任务功率 ≤ K + 新增卡
     lhs.append(np.full(n, -cp.COPT.INFINITY)); rhs.append(headroom); r0 += n
     # 6 储能功率/电量与市电接入容量
     for key, cap in (('charge', 2), ('discharge', 2), ('soc', 3), ('grid', 4)):
@@ -188,6 +207,8 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False)
     if alpha is not None:
         add(r0, off['grid'] + idx, 1.)
         add(r0, off['x_whole'] + idx, -(1 - alpha) * pue); add(r0, off['x_split'] + idx, -(1 - alpha) * pue)
+        if cards is not None:
+            add(r0, extra, -(1 - alpha) * idle_per_mw * pue.sum())
         lhs.append(np.array([-cp.COPT.INFINITY])); rhs.append(np.array([(1 - alpha) * float(np.dot(pue, fixed))])); r0 += 1
     # 8 风光按均值：窗口平均风光发电=无柔性基准平均设施负荷
     if design == 're_mean':
@@ -216,21 +237,25 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False)
     model.clear(); env.close()
     d = {key: x[off[key] + idx] for key in HOURLY}
     pv, wind, power, energy, gcap = x[:5]
-    executed = fixed + d['x_whole'] + d['x_split']
+    extra_mw = float(x[extra]) if cards is not None else 0.
+    idle_extra = idle_per_mw * extra_mw if cards is not None else 0.
+    executed = fixed + d['x_whole'] + d['x_split'] + idle_extra
     facility = pue * executed
     generation = pv * cfp + wind * cfw
     residual = {
         'balance': np.max(np.abs(d['direct'] + d['grid'] + d['discharge'] - facility)),
         'bus': np.max(np.abs(generation - d['direct'] - d['charge'] - d['curtail'])),
         'whole_energy': abs(d['x_whole'].sum() - arr_w.sum()), 'split_energy': abs(d['x_split'].sum() - arr_s.sum()),
-        'it_cap': max(0., np.max(executed - frame.cap_it_mw.to_numpy())),
+        'it_cap': (max(0., np.max(executed - frame.cap_it_mw.to_numpy())) if cards is None
+                   else max(0., np.max(executed - idle_extra - frame.base.to_numpy() - peak_task - extra_mw))),
         'grid_cap': max(0., np.max(d['grid'] - gcap)),
         'alpha': max(0., d['grid'].sum() - (1 - alpha) * facility.sum()) if alpha is not None else 0.}
     cost = {'pv': unit['pv'] * scale * pv, 'wind': unit['wind'] * scale * wind,
             'battery_power': unit['battery_power'] * scale * power, 'battery_energy': unit['battery_energy'] * scale * energy,
             'grid_capacity': unit['grid_capacity'] * scale * gcap,
             'grid_energy': p['grid_price_usd_mwh'] * d['grid'].sum(), 'carbon': p['carbon_price_usd_t'] * ef * d['grid'].sum(),
-            'throughput': p['battery_throughput_usd_mwh'] * d['discharge'].sum()}
+            'throughput': p['battery_throughput_usd_mwh'] * d['discharge'].sum(),
+            'cards': cards['usd_per_mw_year'] * scale * extra_mw if cards is not None else 0.}
     total = sum(cost.values())
     moved_w = float(np.maximum(arr_w - d['x_whole'], 0).sum())
     moved_s = float(np.maximum(arr_s - d['x_split'], 0).sum())
@@ -240,6 +265,10 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False)
                    generation_mwh=float(generation.sum()), facility_mwh=float(facility.sum()),
                    cfe_hourly=1 - float(d['grid'].sum() / facility.sum()), emissions_t=float(d['grid'].sum() * ef),
                    facility_peak_mw=float(facility.max()), baseline_facility_peak_mw=float((pue * frame.it_mw).max()),
+                   peak_task_mw=peak_task, extra_task_mw=extra_mw,
+                   above_peak_mwh=float(np.maximum(executed - idle_extra - frame.base.to_numpy() - peak_task, 0).sum()),
+                   discharge_mwh=float(d['discharge'].sum()), extra_idle_mwh=idle_extra * n,
+                   energy_cost_usd=total - cost['cards'],
                    moved_whole_mwh=moved_w, moved_split_mwh=moved_s,
                    arrival_whole_mwh=float(arr_w.sum()), arrival_split_mwh=float(arr_s.sum()),
                    max_residual=float(max(residual.values())),
@@ -323,9 +352,122 @@ def run(args):
                 print('progress', k, len(futures), flush=True)
 
 
+def card_spec(p, own, frame, scenario, multiplier):
+    """把服务器价折成每MW任务功率容量的年化费用与待机功率。"""
+    cards = own['cards']
+    fleet = cards['fleet'][scenario]
+    servers = fleet['unit_count'] * fleet['u_max']          # 无柔性时所需服务器台数
+    peak = float((frame.rigid + frame.unknown + frame.whole + frame.split).max())
+    price = cards['server_price_usd'][scenario[0]]['value']
+    factor = crf(p['discount_rate'], 4) + 0.03
+    idle = float(frame.base.iloc[0]) / fleet['unit_count'] * servers / peak
+    return {'usd_per_mw_year': multiplier * price * servers / peak * factor, 'idle_per_mw': idle,
+            'extra_max_mw': peak if multiplier is not None else 0., 'baseline_fleet_usd_year': price * servers * factor,
+            'servers_per_mw': servers / peak}
+
+
+def card_job(task):
+    project, out, city, scenario, alpha, flex, whole_h, split_h, multiplier = task
+    p, own = load_config(Path(project))
+    frame = pd.read_parquet(Path(out) / 'inputs' / f'{city}-{scenario}.parquet')
+    frame.attrs['scenario'] = scenario
+    spec = card_spec(p, own, frame, scenario, 0. if multiplier == 'forced0' else multiplier)
+    if multiplier == 'forced0':
+        spec['extra_max_mw'] = 0.
+    try:
+        summary, _ = solve(frame, p, city, alpha=alpha, design='opt', whole_h=whole_h, split_h=split_h, cards=spec)
+    except Exception as error:
+        summary = {'city': city, 'scenario': scenario, 'alpha': alpha, 'status': 'error', 'error': repr(error)[:500]}
+    summary.update(flex=flex, card_price=str(multiplier), card_usd_per_mw_year=spec['usd_per_mw_year'],
+                   idle_per_mw=spec['idle_per_mw'], baseline_fleet_usd_year=spec['baseline_fleet_usd_year'],
+                   servers_per_mw=spec['servers_per_mw'])
+    return summary
+
+
+def run_cards(args):
+    project, out = Path(args.project), Path(args.output)
+    p, own = load_config(project)
+    tasks = []
+    for city in CITIES:
+        for scenario in SCENARIOS:
+            for alpha in p['alpha']:
+                tasks.append((str(project), str(out), city, scenario, alpha, 'none', 0, 0, 'forced0'))
+                spec = own['flex_cases']['both']
+                for multiplier in ['forced0', *own['cards']['price_multipliers']['value']]:
+                    tasks.append((str(project), str(out), city, scenario, alpha, 'both', spec['whole_h'], spec['split_h'], multiplier))
+    if args.limit:
+        tasks = tasks[:args.limit]
+    target = out / 'runs-cards.csv'
+    rows = pd.read_csv(target).to_dict('records') if target.exists() else []
+    done = {(r['city'], r['scenario'], None if pd.isna(r['alpha']) else round(float(r['alpha']), 4), r['flex'], str(r['card_price'])) for r in rows}
+    tasks = [t for t in tasks if (t[2], t[3], None if t[4] is None else round(float(t[4]), 4), t[5], str(t[8])) not in done]
+    print('tasks', len(tasks), flush=True)
+    last = time.monotonic()
+    with ProcessPoolExecutor(args.workers) as pool:
+        futures = [pool.submit(card_job, t) for t in tasks]
+        for k, future in enumerate(as_completed(futures), 1):
+            rows.append(future.result())
+            if time.monotonic() - last > 60 or k == len(futures):
+                temporary = target.with_suffix('.tmp')
+                pd.DataFrame(rows).to_csv(temporary, index=False, encoding='utf-8')
+                temporary.replace(target)
+                last = time.monotonic()
+                (out / 'progress-cards.json').write_text(json.dumps({'done': k, 'total': len(futures)}), 'utf-8')
+                print('progress', k, len(futures), flush=True)
+
+
+def fixed_job(task):
+    project, out, city, scenario, alpha, multiplier, assets = task
+    p, own = load_config(Path(project))
+    frame = pd.read_parquet(Path(out) / 'inputs' / f'{city}-{scenario}.parquet')
+    frame.attrs['scenario'] = scenario
+    noflex = multiplier == 'noflex'
+    spec = card_spec(p, own, frame, scenario, 0. if noflex else multiplier)
+    market = card_spec(p, own, frame, scenario, 1.0)['usd_per_mw_year']
+    spec['extra_max_mw'] = 0. if noflex else 2 * spec['extra_max_mw']
+    spec_whole, spec_split = (0, 0) if noflex else (own['flex_cases']['both']['whole_h'], own['flex_cases']['both']['split_h'])
+    try:
+        summary, _ = solve(frame, p, city, alpha=alpha, design='opt', whole_h=spec_whole, split_h=spec_split,
+                           cards=spec, fixed_assets=assets)
+    except Exception as error:
+        summary = {'city': city, 'scenario': scenario, 'alpha': alpha, 'status': 'error', 'error': repr(error)[:500]}
+    summary.update(flex='none' if noflex else 'both', supply='fixed_noflex_opt', card_price=str(multiplier), card_market_usd_per_mw_year=market,
+                   idle_per_mw=spec['idle_per_mw'], baseline_fleet_usd_year=spec['baseline_fleet_usd_year'],
+                   servers_per_mw=spec['servers_per_mw'])
+    return summary
+
+
+def run_fixed(args):
+    project, out = Path(args.project), Path(args.output)
+    p, own = load_config(project)
+    base = pd.read_csv(out / 'runs-cards.csv')
+    base = base[(base.flex == 'none') & (base.status == 'optimal')]
+    tasks = []
+    for row in base.itertuples():
+        alpha = None if pd.isna(row.alpha) else float(row.alpha)
+        assets = [row.pv_mw, row.wind_mw, row.battery_mw, row.battery_mwh, row.grid_cap_mw]
+        for multiplier in ['noflex', 0.0, 1.0]:
+            tasks.append((str(project), str(out), row.city, row.scenario, alpha, multiplier, assets))
+    target = out / 'runs-fixed.csv'
+    rows = []
+    print('tasks', len(tasks), flush=True)
+    last = time.monotonic()
+    with ProcessPoolExecutor(args.workers) as pool:
+        futures = [pool.submit(fixed_job, t) for t in tasks]
+        for k, future in enumerate(as_completed(futures), 1):
+            rows.append(future.result())
+            if time.monotonic() - last > 60 or k == len(futures):
+                temporary = target.with_suffix('.tmp')
+                pd.DataFrame(rows).to_csv(temporary, index=False, encoding='utf-8')
+                temporary.replace(target)
+                last = time.monotonic()
+                (out / 'progress-fixed.json').write_text(json.dumps({'done': k, 'total': len(futures)}), 'utf-8')
+                print('progress', k, len(futures), flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('stage', choices=['prepare', 'run'])
+    parser.add_argument('stage', choices=['prepare', 'run', 'run-cards', 'run-fixed'])
     parser.add_argument('--project', required=True)
     parser.add_argument('--output', required=True)
     parser.add_argument('--flex-hourly')
@@ -334,7 +476,7 @@ def main():
     parser.add_argument('--workers', type=int, default=48)
     parser.add_argument('--limit', type=int, default=0)
     args = parser.parse_args()
-    prepare(args) if args.stage == 'prepare' else run(args)
+    {'prepare': prepare, 'run': run, 'run-cards': run_cards, 'run-fixed': run_fixed}[args.stage](args)
 
 
 if __name__ == '__main__':

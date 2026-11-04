@@ -5,28 +5,202 @@
   "scope": "onsite风光储+市电；城市天气点；四类柔性按第二章；原生窗口不循环，资本费用按窗口小时比例分摊",
   "inherits": "analysis/eight-city-flex-value-20261029.json（风光储成本、寿命、运维、效率、市电价、排放因子沿用）",
   "parameters": {
-    "weather_year": {"value": 2025, "source": "与第五章参考网格同年", "status": "情景假设"},
-    "reference_it_mw": {"value": 10, "source": "用户确认的参考规模", "status": "情景假设"},
-    "deadline_deferrable_whole_h": {"value": 12, "source": "用户2026-11-02确认：可推迟·整体最多推迟12小时", "status": "情景假设"},
-    "deadline_deferrable_split_h": {"value": 48, "source": "用户2026-11-02确认：可推迟·可拆分最多推迟48小时", "status": "情景假设"},
-    "alpha": {"value": [null, 0.8, 0.9, 0.95, 0.99, 1.0], "source": "用户确认：逐小时本地匹配比例扫描；null为纯经济最优", "status": "情景假设"},
-    "carbon_price_usd_t": {"value": 100, "source": "沿用20261029主组合", "status": "情景假设"},
-    "grid_capacity_usd_kw_year": {"value": 120, "source": "按10 USD/kW-月的需量/接入容量费；量级参考NREL/TP-6A20-68963（McLaughlin等2017，美国需量电费调查）", "status": "情景假设；非具体电网公司费率"},
-    "pv_max_mw": {"value": 10000, "source": "数值上限，非土地核验", "status": "情景假设"},
-    "wind_max_mw": {"value": 10000, "source": "数值上限，非土地核验", "status": "情景假设"},
-    "battery_power_max_mw": {"value": 10000, "source": "放宽20261029的100MW上限，避免α=100%被人为卡住", "status": "情景假设"},
-    "battery_energy_max_mwh": {"value": 1000000, "source": "放宽20261029的2000MWh上限", "status": "情景假设"},
-    "grid_max_mw": {"value": 100, "source": "沿用20261029", "status": "情景假设"},
-    "solver": {"value": "COPT 8.0.7 barrier（单线程/算例），无crossover", "source": "杉数科技Cardinal Optimizer，服务器许可至2027-09-30", "status": "运行配置"}
+    "weather_year": {
+      "value": 2025,
+      "source": "与第五章参考网格同年",
+      "status": "情景假设"
+    },
+    "reference_it_mw": {
+      "value": 10,
+      "source": "用户确认的参考规模",
+      "status": "情景假设"
+    },
+    "deadline_deferrable_whole_h": {
+      "value": 12,
+      "source": "用户2026-11-02确认：可推迟·整体最多推迟12小时",
+      "status": "情景假设"
+    },
+    "deadline_deferrable_split_h": {
+      "value": 48,
+      "source": "用户2026-11-02确认：可推迟·可拆分最多推迟48小时",
+      "status": "情景假设"
+    },
+    "alpha": {
+      "value": [
+        null,
+        0.8,
+        0.9,
+        0.95,
+        0.99,
+        1.0
+      ],
+      "source": "用户确认：逐小时本地匹配比例扫描；null为纯经济最优",
+      "status": "情景假设"
+    },
+    "carbon_price_usd_t": {
+      "value": 100,
+      "source": "沿用20261029主组合",
+      "status": "情景假设"
+    },
+    "grid_capacity_usd_kw_year": {
+      "value": 120,
+      "source": "按10 USD/kW-月的需量/接入容量费；量级参考NREL/TP-6A20-68963（McLaughlin等2017，美国需量电费调查）",
+      "status": "情景假设；非具体电网公司费率"
+    },
+    "pv_max_mw": {
+      "value": 10000,
+      "source": "数值上限，非土地核验",
+      "status": "情景假设"
+    },
+    "wind_max_mw": {
+      "value": 10000,
+      "source": "数值上限，非土地核验",
+      "status": "情景假设"
+    },
+    "battery_power_max_mw": {
+      "value": 10000,
+      "source": "放宽20261029的100MW上限，避免α=100%被人为卡住",
+      "status": "情景假设"
+    },
+    "battery_energy_max_mwh": {
+      "value": 1000000,
+      "source": "放宽20261029的2000MWh上限",
+      "status": "情景假设"
+    },
+    "grid_max_mw": {
+      "value": 100,
+      "source": "沿用20261029",
+      "status": "情景假设"
+    },
+    "solver": {
+      "value": "COPT 8.0.7 barrier（单线程/算例），无crossover",
+      "source": "杉数科技Cardinal Optimizer，服务器许可至2027-09-30",
+      "status": "运行配置"
+    }
   },
   "designs": {
     "opt": "风电、光伏、储能功率/电量、市电接入容量全部由成本最优决定",
     "re_mean": "风光装机满足“窗口平均发电=无柔性基准平均设施负荷”，风光比例、储能、市电接入仍优化"
   },
   "flex_cases": {
-    "none": {"whole_h": 0, "split_h": 0},
-    "whole": {"whole_h": 12, "split_h": 0},
-    "split": {"whole_h": 0, "split_h": 48},
-    "both": {"whole_h": 12, "split_h": 48}
+    "none": {
+      "whole_h": 0,
+      "split_h": 0
+    },
+    "whole": {
+      "whole_h": 12,
+      "split_h": 0
+    },
+    "split": {
+      "whole_h": 0,
+      "split_h": 48
+    },
+    "both": {
+      "whole_h": 12,
+      "split_h": 48
+    }
+  },
+  "cards": {
+    "note": "2026-11-02用户要求把为柔性多配的卡计入成本：无柔性时算力按调度前任务峰值K配置；柔性超过K须加卡，按年化卡价计费；新增卡全时待机耗电计入设施用电。",
+    "annual_factor": {
+      "value": "crf(8%,4年)+3%运维=0.3319",
+      "source": "沿用eight-city-flex-value-20261029的compute_life_years=4、compute_fom_fraction=0.03、折现率8%",
+      "status": "情景假设"
+    },
+    "server_price_usd": {
+      "A": {
+        "value": 20000,
+        "range": [
+          12000,
+          30000
+        ],
+        "source": "Lenovo SR650 V3双路Xeon Gold 6448Y整机，未取得报价，按同级双路2U服务器量级假设",
+        "status": "情景假设，待报价核实"
+      },
+      "B": {
+        "value": 47500,
+        "range": [
+          34000,
+          62000
+        ],
+        "source": "A型整机+1张H100 PCIe 80GB（2.75万美元，2025年公开报价区间2.2–3.2万：cyfuture.cloud、intuitionlabs.ai）",
+        "status": "情景假设"
+      },
+      "C": {
+        "value": 75000,
+        "range": [
+          56000,
+          94000
+        ],
+        "source": "A型整机+2张H100 PCIe 80GB",
+        "status": "情景假设"
+      },
+      "D": {
+        "value": 350000,
+        "range": [
+          300000,
+          450000
+        ],
+        "source": "DGX H100整机，2025年公开估计30–45万美元（cyfuture.cloud、gmicloud.ai）；非NVIDIA官方价",
+        "status": "情景假设"
+      }
+    },
+    "price_multipliers": {
+      "value": [
+        0,
+        0.1,
+        0.3,
+        1.0
+      ],
+      "source": "卡价敏感性；0=卡免费但仍计待机耗电；另有forced0=不许加卡",
+      "status": "情景假设"
+    },
+    "fleet": {
+      "source": "法兰克福2025城市小时文件（IT与天气无关）：unit_count、利用率峰值u_max（GPU情境为allocated_gpu_fraction，纯CPU为u_cpu_proxy）；所需机群=unit_count×u_max",
+      "A-HPC": {
+        "unit_count": 16666,
+        "u_max": 1.0
+      },
+      "A-CLD": {
+        "unit_count": 16666,
+        "u_max": 0.5988
+      },
+      "B-SAI": {
+        "unit_count": 10000,
+        "u_max": 1.0
+      },
+      "C-SAI": {
+        "unit_count": 7142,
+        "u_max": 1.0
+      },
+      "D-SAI": {
+        "unit_count": 1234,
+        "u_max": 1.0
+      },
+      "B-TRN": {
+        "unit_count": 10000,
+        "u_max": 0.926
+      },
+      "C-TRN": {
+        "unit_count": 7142,
+        "u_max": 0.926
+      },
+      "D-TRN": {
+        "unit_count": 1234,
+        "u_max": 0.926
+      },
+      "B-INF": {
+        "unit_count": 10000,
+        "u_max": 1.0
+      },
+      "C-INF": {
+        "unit_count": 7142,
+        "u_max": 1.0
+      },
+      "D-INF": {
+        "unit_count": 1234,
+        "u_max": 1.0
+      }
+    }
   }
 }
