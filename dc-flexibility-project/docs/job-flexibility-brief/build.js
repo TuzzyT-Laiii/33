@@ -136,8 +136,8 @@ const H5 = '五、各情境原生窗口负荷曲线';
 const H6 = '六、八城市气候下的负荷与柔性';
 const H7 = '七、柔性调度的经济性（计入加卡，初算）';
 const H8 = '八、全球网格的柔性经济性（2° 抽样试算）';
-const GLOBAL_PLAN_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/planning-economic.png');
-const GLOBAL_FIXED_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/fixed-economic.png');
+const GLOBAL_PLAN_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/all-scenarios-planning-economic.png');
+const GLOBAL_FIXED_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/all-scenarios-fixed-economic.png');
 const TP = GLOBAL.train_plan_econ;
 const NOTE8A = '把第七章模型从八城市铺到全球：全球' + GLOBAL.grids_sampled.toLocaleString('en-US') + '个2°区块各取一个可建设0.5°网格，用该格ERA5 2025年逐小时气象重算风光出力与PUE，11情境×6档匹配目标×规划/已建成两种边界全部求解；'
   + GLOBAL.grids_valid.toLocaleString('en-US') + '格有效，全部线性规划最优，另' + GLOBAL.grids_no_land + '格无陆地气象点未算。成本、电价、碳价与加卡口径同第七章，市电碳因子按所在国家取Ember 2024年均值。下表为有效网格等权中位数。';
@@ -153,7 +153,7 @@ const THRESHOLD = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR,
 const NOTE8T = '模型未计推迟带来的延误、存档恢复与运营成本，取3%作为柔性“值得做”的下限，给这些成本留出余量。已建成、经济最优下，超过3%的网格占比：'
   + THRESHOLD.panels.map((row) => ({ 'D-TRN': '训练', 'D-SAI': '科研AI', 'A-HPC': '科研计算', 'D-INF': '推理' })[row.scenario] + row.share_pct.toFixed(0) + '%').join('、')
   + '。推理只在光照强的干旱区（撒哈拉、阿拉伯半岛、中亚至中国西北、美国西南、澳洲内陆）超过3%；训练与科研计算几乎全球都超过。分母为各情境' + THRESHOLD.panels[0].grids.toLocaleString('en-US') + '个有效网格。';
-const NOTE8MAP = '每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；每幅图单独色标，上限取该图98分位，超出用三角标示。空白为无可建设网格或无陆地气象点的区块。';
+const NOTE8MAP = '首行为纯CPU型科研计算与云通用计算，其余三行依次为科研AI、大模型训练/开发、推理服务，三列为CPU主导型、均衡型、GPU主导型，子图标题给出中位数。同一幅图共用色标，上限取全部子图98分位，超出用三角标示。每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；空白为无可建设网格或无陆地气象点的区块。同一用途的三种规格空间格局几乎相同（相关系数0.97–1.00），差别在数值高低；云通用仅120小时窗口，格局主要反映这几天的天气。';
 const NOTE8LIMIT = '解释边界：2°抽样、成本全球统一、单一气象年与年均碳因子；低于−40°C（534格）与高于50°C（3格）的小时在冷却模型输入端夹到边界值；负荷沿用各来源原生窗口，收益不是完整全年值。完整结果见results/global-flex-econ-20261103。';
 const K_FIGURE = path.resolve(__dirname, FLEX_DIR, 'task-peak-capacity.png');
 const K_ROWS = (() => {
@@ -386,17 +386,17 @@ const doc = new Document({
       p(NOTE8C, {before: 40, size: 18}),
       p(NOTE8LIMIT, {before: 30, size: 16, color: '595959'}),
 
-      economicHeading('全球柔性收益地图：规划阶段，经济最优'),
+      economicHeading('全球柔性收益地图（11个情境）：规划阶段，经济最优'),
       new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
-        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_PLAN_MAP), transformation: {width: 900, height: 486},
-          altText: {name: '全球柔性收益地图·规划阶段', title: '全球柔性收益地图·规划阶段', description: '训练、科研AI、科研计算、推理四类代表情境在规划阶段经济最优目标下的柔性节省百分比，2°区块着色。'}})],
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_PLAN_MAP), transformation: {width: 760, height: 599},
+          altText: {name: '全球柔性收益地图·规划阶段', title: '全球柔性收益地图·规划阶段', description: '全部11个情境在规划阶段经济最优目标下的柔性节省百分比，2°区块着色，共用色标。'}})],
       }),
       p(NOTE8MAP, {before: 10, size: 16, color: '595959'}),
 
-      economicHeading('全球柔性收益地图：已建成，经济最优'),
+      economicHeading('全球柔性收益地图（11个情境）：已建成，经济最优'),
       new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
-        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_FIXED_MAP), transformation: {width: 900, height: 486},
-          altText: {name: '全球柔性收益地图·已建成', title: '全球柔性收益地图·已建成', description: '四类代表情境在风光储固定为无柔性最优配置时经济最优目标下的柔性节省百分比，2°区块着色。'}})],
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_FIXED_MAP), transformation: {width: 760, height: 599},
+          altText: {name: '全球柔性收益地图·已建成', title: '全球柔性收益地图·已建成', description: '全部11个情境在风光储固定为无柔性最优配置时经济最优目标下的柔性节省百分比，2°区块着色，共用色标。'}})],
       }),
       p(NOTE8MAP, {before: 10, size: 16, color: '595959'}),
 
@@ -446,7 +446,7 @@ if (MD_OUT) {
     '### 柔性收益与单位成本', '', `![柔性收益与单位成本](${ECON_DIR}/brief/value-summary.png)`, '', NOTE7METHOD, '', NOTE7E, '',
     '### 调度前后对比（法兰克福·GPU 主导型·大模型训练/开发）', '', `![调度前后](${ECON_DIR}/brief/dispatch-week.png)`, '', NOTE7D, '',
     `## ${H8}`, '', NOTE8A, '', mdTable(GLOBAL.table_rows), '', NOTE8B, '', '### 训练（GPU主导型）规划阶段经济最优：各大洲与主要国家中位数', '', mdTable(GLOBAL.region_rows), '', NOTE8C, '', NOTE8LIMIT, '',
-    '### 全球柔性收益地图', '', `![规划阶段·经济最优](${GLOBAL_DIR}/figures/planning-economic.png)`, '', `![已建成·经济最优](${GLOBAL_DIR}/figures/fixed-economic.png)`, '', NOTE8MAP, '',
+    '### 全球柔性收益地图（11个情境）', '', `![规划阶段·经济最优](${GLOBAL_DIR}/figures/all-scenarios-planning-economic.png)`, '', `![已建成·经济最优](${GLOBAL_DIR}/figures/all-scenarios-fixed-economic.png)`, '', NOTE8MAP, '',
     '### 柔性收益是否超过3%：已建成，经济最优', '', `![超过3%](${GLOBAL_DIR}/figures/threshold-fixed-economic-3pct.png)`, '', NOTE8T, '',
     `### ${ATTR_TITLE}`, '', NOTE8R, '', mdTable(ATTR.rows), '', `![${ATTR_TITLE}](${GLOBAL_DIR}/attribution/attribution.png)`, '', NOTE8M, '', NOTE8RLIMIT, '',
   ].join('\n');

@@ -231,13 +231,13 @@ GPU主导型训练在100%目标下，规划阶段储能中位数为188→96MWh�
 
 解释边界：2°抽样、成本全球统一、单一气象年与年均碳因子；低于−40°C（534格）与高于50°C（3格）的小时在冷却模型输入端夹到边界值；负荷沿用各来源原生窗口，收益不是完整全年值。完整结果见results/global-flex-econ-20261103。
 
-### 全球柔性收益地图
+### 全球柔性收益地图（11个情境）
 
-![规划阶段·经济最优](../../results/global-flex-econ-20261103/figures/planning-economic.png)
+![规划阶段·经济最优](../../results/global-flex-econ-20261103/figures/all-scenarios-planning-economic.png)
 
-![已建成·经济最优](../../results/global-flex-econ-20261103/figures/fixed-economic.png)
+![已建成·经济最优](../../results/global-flex-econ-20261103/figures/all-scenarios-fixed-economic.png)
 
-每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；每幅图单独色标，上限取该图98分位，超出用三角标示。空白为无可建设网格或无陆地气象点的区块。
+首行为纯CPU型科研计算与云通用计算，其余三行依次为科研AI、大模型训练/开发、推理服务，三列为CPU主导型、均衡型、GPU主导型，子图标题给出中位数。同一幅图共用色标，上限取全部子图98分位，超出用三角标示。每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；空白为无可建设网格或无陆地气象点的区块。同一用途的三种规格空间格局几乎相同（相关系数0.97–1.00），差别在数值高低；云通用仅120小时窗口，格局主要反映这几天的天气。
 
 ### 柔性收益是否超过3%：已建成，经济最优
 
@@ -285,6 +285,7 @@ GPU主导型训练在100%目标下，规划阶段储能中位数为188→96MWh�
 
 
 - 第八章全球网格：[global-flex-econ-20261103](../../results/global-flex-econ-20261103/README.md)。4,900个2°代表网格×11情境×6档目标×两种边界，958,716个COPT线性规划；brief/brief-facts.json由analysis/global_flex_brief_facts.py从grid-summary.parquet生成，地图为figures/planning-economic与fixed-economic。
+
 
 
 
