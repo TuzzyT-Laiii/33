@@ -1,0 +1,89 @@
+{
+  "utc": "2026-11-04T12:40:52.403043+00:00",
+  "title": "已建成边界，经济最优：柔性收益是否超过 3%",
+  "boundary": "fixed",
+  "alpha": null,
+  "threshold_pct": 3.0,
+  "rule": "savings_pct > threshold；分母为各情境有效最优配对网格",
+  "renderer_sha256": "52ecd02e0f72419a7e1d9f53fd95ff91857d9112feb9a021dd86bf6879509dd9",
+  "data_sha256": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c",
+  "panels": [
+    {
+      "scenario": "A-HPC",
+      "grids": 4842,
+      "above": 4569,
+      "share_pct": 94.36,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "A-CLD",
+      "grids": 4842,
+      "above": 3682,
+      "share_pct": 76.04,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "B-SAI",
+      "grids": 4842,
+      "above": 4721,
+      "share_pct": 97.5,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "C-SAI",
+      "grids": 4842,
+      "above": 4682,
+      "share_pct": 96.7,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "D-SAI",
+      "grids": 4842,
+      "above": 3913,
+      "share_pct": 80.81,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "B-TRN",
+      "grids": 4842,
+      "above": 4464,
+      "share_pct": 92.19,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "C-TRN",
+      "grids": 4842,
+      "above": 4599,
+      "share_pct": 94.98,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "D-TRN",
+      "grids": 4842,
+      "above": 4646,
+      "share_pct": 95.95,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "B-INF",
+      "grids": 4842,
+      "above": 605,
+      "share_pct": 12.49,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "C-INF",
+      "grids": 4842,
+      "above": 1057,
+      "share_pct": 21.83,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "D-INF",
+      "grids": 4842,
+      "above": 1271,
+      "share_pct": 26.25,
+      "drawn_blocks": 4832
+    }
+  ]
+}
