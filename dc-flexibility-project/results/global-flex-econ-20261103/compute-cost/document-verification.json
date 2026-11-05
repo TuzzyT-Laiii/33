@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "verified_pairs": 639144,
+  "verified_summary_groups": 132,
+  "native_equations": 4,
+  "new_figures_embedded": 4,
+  "first_six_chapters_unchanged": true,
+  "all_existing_tables_preserved": true,
+  "docx_sha256": "ac18841530afbbfe913d752e2db1e9b0e05118467fef0215d338230da32cb1d2",
+  "baseline_docx_sha256": "c187761a6893fa79dd3be2e60e3a359490ce357873ba2b56b5eae0a2d38b08b8",
+  "verifier_sha256": "442b003ba3e5080f25ac58595cc8a164f038acd1bf19daf65058f6933c1373ce"
+}

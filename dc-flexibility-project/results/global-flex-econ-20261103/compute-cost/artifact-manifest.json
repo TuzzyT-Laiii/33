@@ -1,0 +1,21 @@
+{
+  "files": {
+    "brief-facts.json": "468a1d9f6b6ea5cad71ffc0df2da54a86c4402928742032656ace6c9f35c2103",
+    "compute-cost-fixed-economic.pdf": "96dcd3462b876df6f63ee22c3c6b6ed2a2c836b222a96d84ae5f6c01b966dbbc",
+    "compute-cost-fixed-economic.png": "7d8881b81984bb0e065a042d8c3cb8cd5f50e297aab6b7b49f845bb7e363db3f",
+    "compute-cost-planning-alpha100-threshold.pdf": "6fa8b71d165dfbb1eb72a9236788b99986aeae9eef52057ca0bd2a028a059a72",
+    "compute-cost-planning-alpha100-threshold.png": "3646d0f86fa0ef6ff1cfff235ed41541069ad9ba13ef6362c02e17d8ecabd59f",
+    "compute-cost-planning-economic.pdf": "4d5b0a6660ee1a88a4426a69792208bc235f705e485a6bae3bd1031b537a749d",
+    "compute-cost-planning-economic.png": "b49720bcefa9332f44c6fde2ef769f3c3ed1d95b974938f336d7efd0c77118d8",
+    "compute-cost-threshold-shares.pdf": "c63d3e94669494ac4240121ec0a2800a49f432feba8d10a2f58d03eccc0bc1d8",
+    "compute-cost-threshold-shares.png": "2a17ab0e70d0aa98656124166260b7014bc95ec866502916b3ae4efba3653b93",
+    "document-render-verification.json": "17aa36ad27860027ba06c93ab496f4d3d225cdef8bac1d63332866e936e5b890",
+    "document-verification.json": "f9f4288d88a462a92e3e600b1ef47a0ac1309a0cda7b662998de6f19bb63fc3b",
+    "fleet-costs.csv": "7881486f71b0cf21a418eae06c6cbf56142888d62d8ce67f1df004b4a136d8ff",
+    "grid-metrics.parquet": "8780700d8c02185834b9d1ccc1a6f9a3d33ea06f15d821c0a539949d7e4fdd18",
+    "README.md": "3ce7b7c679f6fcd1badcfc98514a581730fe71d70c37ceb26d4feaeb99e6686d",
+    "scenario-summary.csv": "12e4aaaf6bc57effdd8d8b33258056727f78cfabca0a62220c42207f7e04b038",
+    "verification.json": "57f4cb47f7160de2361357ab11d4f7933694782e3fc173c5a296c510b9d3a3e7"
+  },
+  "country_source_sha256": "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6"
+}

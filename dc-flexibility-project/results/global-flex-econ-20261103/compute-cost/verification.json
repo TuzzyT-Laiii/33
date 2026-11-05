@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-05T07:06:52.094898+00:00",
+  "passed": true,
+  "input_sha256": {
+    "results\\global-flex-econ-20261103\\grid-summary.parquet": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c",
+    "analysis\\flex-econ-copt-20261102.json": "0aaf04b8397db4a1fb344b980f65ec904a261a974153c0e198ee4068fa693b43",
+    "analysis\\eight-city-flex-value-20261029.json": "9170b244eeee2b483629a62521fb4d1c94e142ab3267eb09c61ba772c12a9c55",
+    "results\\global-flex-econ-20261103\\provenance\\template-index.csv": "d9624e2d95e729be7de52e3348d5e7e2234d064fe3c493f4c51abd02ef543413"
+  },
+  "checks": [
+    "原全球配对表SHA一致",
+    "与八城市求解器机群年化成本逐情境一致",
+    "全部新增算力为零",
+    "能源侧收益率与原表逐行一致",
+    "窗口分摊与等效年化写法逐行一致",
+    "132组情境目标边界各4842格",
+    "严格大于3%分类",
+    "指标有限且配对唯一"
+  ],
+  "excluded_nonoptimal_pairs": 7656,
+  "valid_pairs": 639144,
+  "denominator_scope": "沿用模型等效机群unit_count×u_max，非真实设备库存；整机资本回收加固定运维",
+  "annualization_scope": "原生窗口节省按8760/有效小时数折算，不代表完整全年实际收益",
+  "renderer_sha256": "8bffccfbfbacedd76c74014e53ec882e0d7816c2245f7b8205c4d252fc721bd6"
+}
