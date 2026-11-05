@@ -3,6 +3,7 @@ const path = require('path');
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType,
   AlignmentType, ShadingType, PageOrientation, VerticalAlign, HeadingLevel, BorderStyle, ImageRun,
+  Math: WordMath, MathRun, MathFraction, MathSubScript,
 } = require('docx');
 
 const OUT = process.argv[2];
@@ -12,6 +13,8 @@ const CITY_DIR = '../../results/eight-city-native-flex-20261102';
 const ECON_DIR = '../../results/flex-card-cost-calendar-20261102';
 const GLOBAL_DIR = '../../results/global-flex-econ-20261103';
 const GLOBAL = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'brief/brief-facts.json'), 'utf8'));
+const COMP_DIR = GLOBAL_DIR + '/compute-cost';
+const COMP = JSON.parse(fs.readFileSync(path.resolve(__dirname, COMP_DIR, 'brief-facts.json'), 'utf8'));
 const ATTR = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'attribution/brief-facts.json'), 'utf8'));
 const ECON = JSON.parse(fs.readFileSync(path.resolve(__dirname, ECON_DIR, 'brief/brief-facts.json'), 'utf8'));
 const CITY = JSON.parse(fs.readFileSync(path.resolve(__dirname, CITY_DIR, 'brief-summary.json'), 'utf8'));
@@ -148,13 +151,15 @@ const ATTR_FIGURE = path.resolve(__dirname, GLOBAL_DIR, 'attribution/attribution
 const NOTE8R = '对4,842个有效网格分别回归柔性收益%（经济最优），自变量为2025年风光年均出力系数、风光逐小时相关、风电逐日波动、光伏季节差、年均气温、市电碳因子与纬度，均标准化，系数为每1个标准差对应的百分点。表中列出去掉后R²降幅最大的两个因素。';
 const NOTE8M = '机制：模型中市电全天同价，柔性只能靠让任务对准本地风光出力来省钱。风资源好的网格，无柔性最优方案主要靠本地风光加储能（训练的市电占比中位数' + ATTR.train_wind_high.grid_share_median + '%），柔性可少建储能、少弃电；风弱的网格主要买市电（占比' + ATTR.train_wind_low.grid_share_median + '%），推迟任务省不下电费。训练收益与无柔性方案市电占比的相关系数为' + ATTR.train_grid_share_r.toFixed(2) + '。已建成边界下市电碳因子更重要：碳因子越高市电越贵、本地风光装得越多，柔性越值钱。推理可推迟电量少，主要随光照和碳因子变化。';
 const NOTE8RLIMIT = '局限：OLS未处理空间自相关，t值偏乐观，重要性以R²降幅判断；资源特征取全年，与各来源原生窗口不完全对应，云通用仅120小时窗口，R²只有0.2–0.3；在分时电价下依赖市电的地区也能通过推迟获益，归因会改变。';
-const GLOBAL_THRESHOLD_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct-all.png');
-const THRESHOLD = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct-all.json'), 'utf8'));
-const SHARE3 = Object.fromEntries(THRESHOLD.panels.map((row) => [row.scenario, row.share_pct.toFixed(0)]));
-const NOTE8T = '模型未计推迟带来的延误、存档恢复与运营成本，取3%作为柔性“值得做”的下限，给这些成本留出余量。已建成、经济最优下，超过3%的网格占比：'
-  + '科研计算' + SHARE3['A-HPC'] + '%、云通用计算' + SHARE3['A-CLD'] + '%；'
-  + ['SAI', 'TRN', 'INF'].map((use) => ({ SAI: '科研AI', TRN: '大模型训练/开发', INF: '推理服务' })[use] + ' ' + ['B', 'C', 'D'].map((kind) => SHARE3[kind + '-' + use] + '%').join('／')).join('；')
-  + '（依次为CPU主导型／均衡型／GPU主导型）。训练、科研计算及CPU主导型/均衡型科研AI几乎全球都超过，GPU主导型科研AI在亚马孙、南部非洲和中国东南等地不足3%；推理只在光照强的干旱区（撒哈拉、阿拉伯半岛、中亚至中国西北、美国西南、澳洲内陆）超过；云通用的格局主要反映120小时窗口内的天气。分母为各情境' + THRESHOLD.panels[0].grids.toLocaleString('en-US') + '个有效网格。';
+const COMP_SHARES = path.resolve(__dirname, COMP_DIR, 'compute-cost-threshold-shares.png');
+const COMP_PLAN = path.resolve(__dirname, COMP_DIR, 'compute-cost-planning-economic.png');
+const COMP_FIXED = path.resolve(__dirname, COMP_DIR, 'compute-cost-fixed-economic.png');
+const COMP_THRESHOLD = path.resolve(__dirname, COMP_DIR, 'compute-cost-planning-alpha100-threshold.png');
+const COMP_TITLE = '柔性收益占机群年化成本的比例与3%阈值';
+const NOTE8T = '上表两项收益指标为经济最优下各情境的网格等权中位数。3%阈值应用于柔性节省金额占机群年化成本的比例；图中每个单元以该情境4,842个有效网格为分母，严格统计比例大于3%的网格。经济最优下，全部11情境、两种边界均为0个网格超过3%，全局最高比例为' + COMP.economic_max_pct.toFixed(2) + '%。已建成系统在六档目标下均未超过3%；规划阶段部分约束目标出现超过3%的网格。该阈值为研究设定的筛选标准，延误、恢复与有效产出损失尚未计价。';
+const NOTE8COMP = '数值为同一窗口模型节省金额按8760/有效小时数折算后，占既有机群年化成本的百分比。两幅经济最优地图共用0–3%色标；当前所有网格均低于3%。各情境分母采用模型等效机群的整机资本年化与固定运维成本，非逐卡实物库存。每个2°区块以代表网格结果着色并裁到陆地，空白为无有效输入的区块。';
+const COMP100 = Object.fromEntries(COMP.summaries.filter((row) => row.boundary === 'planning' && row.target === 'alpha100').map((row) => [row.scenario, row.share_pct]));
+const NOTE8COMP100 = '规划阶段100%本地无碳匹配下，绿色为柔性节省金额超过机群年化成本3%的网格，黄色为小于或等于3%的网格。各情境超过阈值的占比：科研计算' + COMP100['A-HPC'].toFixed(1) + '%，云通用计算' + COMP100['A-CLD'].toFixed(1) + '%；' + ['SAI', 'TRN', 'INF'].map((use) => ({SAI: '科研AI', TRN: '训练', INF: '推理'})[use] + ' ' + ['B', 'C', 'D'].map((kind) => COMP100[kind + '-' + use].toFixed(1) + '%').join('／')).join('；') + '（B／C／D）。分母均为4,842个有效网格；该图仅包括能源侧调度节省，未重新优化既有算力容量。';
 const NOTE8MAP = '首行为纯CPU型科研计算与云通用计算，其余三行依次为科研AI、大模型训练/开发、推理服务，三列为CPU主导型、均衡型、GPU主导型，子图标题给出中位数。同一幅图共用色标，上限取全部子图98分位，超出用三角标示。每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；空白为无可建设网格或无陆地气象点的区块。同一用途的三种规格空间格局几乎相同（相关系数0.97–1.00），差别在数值高低；云通用仅120小时窗口，格局主要反映这几天的天气。';
 const NOTE8LIMIT = '解释边界：2°抽样、成本全球统一、单一气象年与年均碳因子；低于−40°C（534格）与高于50°C（3格）的小时在冷却模型输入端夹到边界值；负荷沿用各来源原生窗口，收益不是完整全年值。完整结果见results/global-flex-econ-20261103。';
 const K_FIGURE = path.resolve(__dirname, FLEX_DIR, 'task-peak-capacity.png');
@@ -180,6 +185,12 @@ const trainPlan = ECON.plan_rows.find((row) => row[0] === 'GPU 主导型·大模
 const trainBuilt = ECON.built_rows.find((row) => row[0] === 'GPU 主导型·大模型训练/开发');
 const NOTE7C = 'GPU主导型训练在100%目标下，规划阶段储能中位数为' + trainPlan[4] + 'MWh，模型成本收益为' + trainPlan[2].split('／')[2] + '%，年化节省' + trainPlan[3].split('／')[2] + '万美元。固定已建成容量时，同一目标的模型成本收益约为' + trainBuilt[1].split('／')[2] + '%。该结果取决于本章固定电价、容量固定和成本项目；储能退化、备用与其他服务价值未纳入。';
 const NOTE7METHOD = '调度固定刚性、未知和基础空载IT；两类可推迟任务的上限分别设为12和48小时，按源记录的真实时间间隔约束，缺测小时不补写任务或执行量。算力容量以调度前任务功率峰值近似，超过时须付新增服务器年化费用并计全时待机耗电。服务器价情景：纯CPU 2万、配置1/2张H100 PCIe为4.75/7.5万、DGX H100为35万美元；年化系数0.332。风光成本取IRENA 2024、储能取ATB 2025；市电100 USD/MWh、碳价100 USD/t、接入费120 USD/kW·年。';
+const METRIC_TITLE = '两个收益指标的计算方法';
+const METRIC_SAVINGS = '在同一网格、情境、目标和供能边界内配对：C_E,0为无柔性能源系统成本，C_E,1为有柔性能源系统成本，C_add为新增算力费用，ΔC为模型节省金额；当前全部最优解C_add为零。能源费用含风光储、市电及碳成本，延误、检查点恢复和有效产出损失未计入。';
+const METRIC_ENERGY = '指标一为能源侧柔性收益率η_E，表示柔性节省占无柔性能源系统成本的比例。';
+const METRIC_COMPUTE = '指标二为柔性收益占机群年化成本的比例ρ_K。T为实际参与优化的原生窗口小时数；ΔC×8760/T为等效年化节省，缺测小时不补齐，折算值不代表完整全年实际收益。';
+const METRIC_FLEET = '机群年化成本沿用当前设备计价：折现率r=8%、寿命L=4年、固定运维比例f=3%，CRF为资本回收系数，合计年化系数' + COMP.annual_factor.toFixed(6) + '。N_eff为参考服务器台数乘原生窗口峰值利用率的等效台数，P为整机价；两者为模型参数，未核实完整实物库存。下表列出各情境分母。';
+const METRIC_THRESHOLD = '严格采用ρ_K>3%作为经济意义筛选条件，即等效年化节省覆盖机群年化成本的3%以上。该比例用于衡量节省规模，有效产出损失的盈亏平衡判断另需产出价值假设。';
 const NOTE7D = '法兰克福2025-06-24至06-30（UTC）。上排无柔性、下排有柔性，四种情况各自重新优化容量。红虚线为调度前设施负荷，黑线为调度后；面积为光伏、风电、储能放电和市电，高出负荷部分为储能充电或弃电。100%本地无碳下储能为' + ECON.dispatch_battery_mwh_100.map((value) => value.toFixed(0)).join('→') + 'MWh；这是单城示例，与两表的跨城市中位数分别报告。';
 const NOTE7E = '解释边界：任务用途与利用率不提供业务调度权限；12/48小时为情景设定。容量尚无逐卡约束；可推迟·整体尚未约束启动后连续执行。服务器价为公开估计与量级假设，推迟和存档恢复的运营成本未知；分时电价与售电未计，Alibaba窗口仅120小时。等效年化收益按观测窗口小时折算，缺测小时未计算，不能视为完整全年收益。三个单位指标的分母分别为推迟电量、储能放电量和假设新增卡承接电量。完整结果见results/flex-card-cost-calendar-20261102。';
 const tableOf = (rows, widths) => new Table({
@@ -195,6 +206,10 @@ const regionTable = tableOf(GLOBAL.region_rows, [2600, ...Array(12).fill(1000)])
 const attrTable = tableOf(ATTR.rows, [3200, 1900, 4400, 4400]);
 const planTable = tableOf(ECON.plan_rows, [3200, 1300, 2800, 2800, 2400, 1800]);
 const builtTable = tableOf(ECON.built_rows, [3000, 2500, 2300, 1500, 1300, 2100, 1600]);
+const fleetTable = tableOf(COMP.fleet_rows, [2200, 3200, 3400, 4200]);
+const metricResultsTable = tableOf(COMP.economic_rows, [2200, 3600, 3800, 3400]);
+const mathSub = (base, index) => new MathSubScript({children: [new MathRun(base)], subScript: [new MathRun(index)]});
+const mathLine = (children) => new Paragraph({alignment: AlignmentType.CENTER, spacing: {before: 20, after: 30}, children: [new WordMath({children})]});
 const sub = (t) => new Paragraph({ keepNext: true, spacing: { before: 80, after: 30 }, children: [new TextRun({ text: t, font: HEI, size: 20, bold: true, color: '000000' })] });
 const economicHeading = (t) => new Paragraph({ heading: HeadingLevel.HEADING_1, pageBreakBefore: true, spacing: { before: 160, after: 80 }, children: [new TextRun({ text: t, font: HEI, size: 26, bold: true, color: '000000' })] });
 const FIGURE_DIR = FLEX_DIR + '/selected-days';
@@ -357,6 +372,18 @@ const doc = new Document({
       p(NOTE7B2, {before: 20, size: 16, color: '595959'}),
       p(NOTE7C, {before: 30, size: 18}),
 
+      economicHeading(METRIC_TITLE),
+      p(METRIC_SAVINGS, {before: 10, size: 17}),
+      mathLine([new MathRun('ΔC = '), mathSub('C', 'E,0'), new MathRun(' − '), mathSub('C', 'E,1'), new MathRun(' − '), mathSub('C', 'add')]),
+      p(METRIC_ENERGY, {before: 10, size: 18}),
+      mathLine([mathSub('η', 'E'), new MathRun(' = '), new MathFraction({numerator: [new MathRun('ΔC')], denominator: [mathSub('C', 'E,0')]}), new MathRun(' × 100%')]),
+      p(METRIC_COMPUTE, {before: 10, size: 18}),
+      mathLine([mathSub('ρ', 'K'), new MathRun(' = '), new MathFraction({numerator: [new MathRun('ΔC × (8760/T)')], denominator: [mathSub('A', 'K')]}), new MathRun(' × 100%')]),
+      p(METRIC_FLEET, {before: 10, size: 17}),
+      mathLine([mathSub('A', 'K'), new MathRun(' = '), mathSub('N', 'eff'), new MathRun(' × P × [CRF(r,L) + f]')]),
+      fleetTable,
+      p(METRIC_THRESHOLD, {before: 20, size: 17}),
+
       economicHeading(K_TITLE),
       new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
         children: [new ImageRun({type: 'png', data: fs.readFileSync(K_FIGURE), transformation: {width: 760, height: 605},
@@ -402,12 +429,34 @@ const doc = new Document({
       }),
       p(NOTE8MAP, {before: 10, size: 16, color: '595959'}),
 
-      economicHeading('柔性收益是否超过3%（11个情境）：已建成，经济最优'),
+      economicHeading(COMP_TITLE),
+      metricResultsTable,
       new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
-        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_THRESHOLD_MAP), transformation: {width: 760, height: 599},
-          altText: {name: '柔性收益超过3%的区域', title: '柔性收益超过3%的区域', description: '已建成边界、经济最优下，全部11个情境柔性收益是否超过3%的二分类地图，2°区块着色。'}})],
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(COMP_SHARES), transformation: {width: 760, height: 332},
+          altText: {name: COMP_TITLE, title: COMP_TITLE, description: '全部11情境、六档目标和两种边界下，柔性节省占机群年化成本严格超过3%的有效网格占比。'}})],
       }),
       p(NOTE8T, {before: 10, size: 17}),
+
+      economicHeading('机群年化成本比例全球地图 规划阶段 经济最优'),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(COMP_PLAN), transformation: {width: 760, height: 599},
+          altText: {name: '机群年化成本比例 规划阶段', title: '机群年化成本比例 规划阶段', description: '全部11情境经济最优的柔性收益占机群年化成本比例，统一0至3%色标。'}})],
+      }),
+      p(NOTE8COMP, {before: 10, size: 16, color: '595959'}),
+
+      economicHeading('机群年化成本比例全球地图 已建成系统 经济最优'),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(COMP_FIXED), transformation: {width: 760, height: 599},
+          altText: {name: '机群年化成本比例 已建成系统', title: '机群年化成本比例 已建成系统', description: '全部11情境已建成系统经济最优的柔性收益占机群年化成本比例，统一0至3%色标。'}})],
+      }),
+      p(NOTE8COMP, {before: 10, size: 16, color: '595959'}),
+
+      economicHeading('机群年化成本比例超过3%的区域 规划阶段 100%本地无碳匹配'),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(COMP_THRESHOLD), transformation: {width: 760, height: 599},
+          altText: {name: '机群年化成本比例超过3%的区域', title: '机群年化成本比例超过3%的区域', description: '规划阶段100%本地无碳匹配下，全部11情境柔性收益是否超过机群年化成本3%的分类地图。'}})],
+      }),
+      p(NOTE8COMP100, {before: 10, size: 16}),
 
       economicHeading(ATTR_TITLE),
       p(NOTE8R, {before: 20, size: 16}),
@@ -444,12 +493,15 @@ if (MD_OUT) {
     `![八城市PUE](${CITY_DIR}/city-pue-heatmap.png)`, '', CITY_PUE_NOTE, '',
     `![三城市典型日](${CITY_DIR}/city-typical-day-comparison.png)`, '', CITY.composition, '', CITY.flexibility, '', CITY.limitations, '',
     `## ${H7}`, '', NOTE7A, '', `### ${SUB7A}`, '', mdTable(ECON.plan_rows), '', NOTE7B1, '', `### ${SUB7B}`, '', mdTable(ECON.built_rows), '', NOTE7B2, '', NOTE7C, '',
+    `### ${METRIC_TITLE}`, '', METRIC_SAVINGS, '', 'ΔC = C_E,0 − C_E,1 − C_add。', '', METRIC_ENERGY, '', 'η_E = ΔC / C_E,0 × 100%。', '', METRIC_COMPUTE, '', 'ρ_K = [ΔC × (8760/T)] / A_K × 100%。', '', METRIC_FLEET, '', 'A_K = N_eff × P × [CRF(r,L) + f]。', '', mdTable(COMP.fleet_rows), '', METRIC_THRESHOLD, '',
     `### ${K_TITLE}`, '', `![${K_TITLE}](${FLEX_DIR}/task-peak-capacity.png)`, '', NOTE7K, '',
     '### 柔性收益与单位成本', '', `![柔性收益与单位成本](${ECON_DIR}/brief/value-summary.png)`, '', NOTE7METHOD, '', NOTE7E, '',
     '### 调度前后对比（法兰克福·GPU 主导型·大模型训练/开发）', '', `![调度前后](${ECON_DIR}/brief/dispatch-week.png)`, '', NOTE7D, '',
     `## ${H8}`, '', NOTE8A, '', mdTable(GLOBAL.table_rows), '', NOTE8B, '', '### 训练（GPU主导型）规划阶段经济最优：各大洲与主要国家中位数', '', mdTable(GLOBAL.region_rows), '', NOTE8C, '', NOTE8LIMIT, '',
     '### 全球柔性收益地图（11个情境）', '', `![规划阶段·经济最优](${GLOBAL_DIR}/figures/all-scenarios-planning-economic.png)`, '', `![已建成·经济最优](${GLOBAL_DIR}/figures/all-scenarios-fixed-economic.png)`, '', NOTE8MAP, '',
-    '### 柔性收益是否超过3%（11个情境）：已建成，经济最优', '', `![超过3%](${GLOBAL_DIR}/figures/threshold-fixed-economic-3pct-all.png)`, '', NOTE8T, '',
+    `### ${COMP_TITLE}`, '', mdTable(COMP.economic_rows), '', `![超过机群年化成本3%的网格占比](${COMP_DIR}/compute-cost-threshold-shares.png)`, '', NOTE8T, '',
+    '### 机群年化成本比例全球地图 经济最优', '', `![规划阶段](${COMP_DIR}/compute-cost-planning-economic.png)`, '', `![已建成系统](${COMP_DIR}/compute-cost-fixed-economic.png)`, '', NOTE8COMP, '',
+    '### 机群年化成本比例超过3%的区域 规划阶段 100%本地无碳匹配', '', `![超过3%的区域](${COMP_DIR}/compute-cost-planning-alpha100-threshold.png)`, '', NOTE8COMP100, '',
     `### ${ATTR_TITLE}`, '', NOTE8R, '', mdTable(ATTR.rows), '', `![${ATTR_TITLE}](${GLOBAL_DIR}/attribution/attribution.png)`, '', NOTE8M, '', NOTE8RLIMIT, '',
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
