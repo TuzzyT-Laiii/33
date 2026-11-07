@@ -12,6 +12,7 @@ const CITY_DIR = '../../results/eight-city-native-flex-20261102';
 const ECON_DIR = '../../results/flex-card-cost-calendar-20261102';
 const GLOBAL_DIR = '../../results/global-flex-econ-20261103';
 const GLOBAL = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'brief/brief-facts.json'), 'utf8'));
+const ATTR = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'attribution/brief-facts.json'), 'utf8'));
 const ECON = JSON.parse(fs.readFileSync(path.resolve(__dirname, ECON_DIR, 'brief/brief-facts.json'), 'utf8'));
 const CITY = JSON.parse(fs.readFileSync(path.resolve(__dirname, CITY_DIR, 'brief-summary.json'), 'utf8'));
 const FLEX = JSON.parse(fs.readFileSync(path.resolve(__dirname, FLEX_DIR, 'brief-summary.json'), 'utf8'));
@@ -141,9 +142,29 @@ const TP = GLOBAL.train_plan_econ;
 const NOTE8A = '把第七章模型从八城市铺到全球：全球' + GLOBAL.grids_sampled.toLocaleString('en-US') + '个2°区块各取一个可建设0.5°网格，用该格ERA5 2025年逐小时气象重算风光出力与PUE，11情境×6档匹配目标×规划/已建成两种边界全部求解；'
   + GLOBAL.grids_valid.toLocaleString('en-US') + '格有效，全部线性规划最优，另' + GLOBAL.grids_no_land + '格无陆地气象点未算。成本、电价、碳价与加卡口径同第七章，市电碳因子按所在国家取Ember 2024年均值。下表为有效网格等权中位数。';
 const NOTE8B = '已建成边界下100%匹配的收益全部约为0（最大' + GLOBAL.fixed_alpha100_max_pct.toPrecision(2) + '%），表中略去；全部柔性最优解均不需新增算力。八城市列取第七章7.1表经济最优中位数，两者口径相同、样本不同。';
-const NOTE8C = '训练（GPU主导型）规划阶段经济最优的全球中位节省为' + TP.median.toFixed(1) + '%，四分位' + TP.p25.toFixed(1) + '–' + TP.p75.toFixed(1) + '%。节省高的是光照好、风电弱的干旱带（北非、中东、澳洲内陆、中亚），可达30%以上；风资源好的高纬与南美南端最低，仅2–4%。推理在各地都在3–4%，地域差别小。';
+const NOTE8C = '训练（GPU主导型）规划阶段经济最优的全球中位节省为' + TP.median.toFixed(1) + '%，四分位' + TP.p25.toFixed(1) + '–' + TP.p75.toFixed(1) + '%。收益高低主要取决于本地风电资源：风电年均出力系数低于0.05的网格中位收益' + ATTR.train_wind_low.savings_median.toFixed(1) + '%，高于0.45的为' + ATTR.train_wind_high.savings_median.toFixed(1) + '%；风光都好的地区（北非、中东、澳洲内陆、中亚等）可达30%以上，风弱、主要依赖市电的地区（亚马孙、刚果盆地等）最低。推理在各地都在3–4%，地域差别小。归因见本章末页。';
+const ATTR_TITLE = '收益差异归因：风电资源与市电依赖';
+const ATTR_FIGURE = path.resolve(__dirname, GLOBAL_DIR, 'attribution/attribution.png');
+const NOTE8R = '对4,842个有效网格分别回归柔性收益%（经济最优），自变量为2025年风光年均出力系数、风光逐小时相关、风电逐日波动、光伏季节差、年均气温、市电碳因子与纬度，均标准化，系数为每1个标准差对应的百分点。表中列出去掉后R²降幅最大的两个因素。';
+const NOTE8M = '机制：模型中市电全天同价，柔性只能靠让任务对准本地风光出力来省钱。风资源好的网格，无柔性最优方案主要靠本地风光加储能（训练的市电占比中位数' + ATTR.train_wind_high.grid_share_median + '%），柔性可少建储能、少弃电；风弱的网格主要买市电（占比' + ATTR.train_wind_low.grid_share_median + '%），推迟任务省不下电费。训练收益与无柔性方案市电占比的相关系数为' + ATTR.train_grid_share_r.toFixed(2) + '。已建成边界下市电碳因子更重要：碳因子越高市电越贵、本地风光装得越多，柔性越值钱。推理可推迟电量少，主要随光照和碳因子变化。';
+const NOTE8RLIMIT = '局限：OLS未处理空间自相关，t值偏乐观，重要性以R²降幅判断；资源特征取全年，与各来源原生窗口不完全对应，云通用仅120小时窗口，R²只有0.2–0.3；在分时电价下依赖市电的地区也能通过推迟获益，归因会改变。';
+const GLOBAL_THRESHOLD_MAP = path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct.png');
+const THRESHOLD = JSON.parse(fs.readFileSync(path.resolve(__dirname, GLOBAL_DIR, 'figures/threshold-fixed-economic-3pct.json'), 'utf8'));
+const NOTE8T = '模型未计推迟带来的延误、存档恢复与运营成本，取3%作为柔性“值得做”的下限，给这些成本留出余量。已建成、经济最优下，超过3%的网格占比：'
+  + THRESHOLD.panels.map((row) => ({ 'D-TRN': '训练', 'D-SAI': '科研AI', 'A-HPC': '科研计算', 'D-INF': '推理' })[row.scenario] + row.share_pct.toFixed(0) + '%').join('、')
+  + '。推理只在光照强的干旱区（撒哈拉、阿拉伯半岛、中亚至中国西北、美国西南、澳洲内陆）超过3%；训练与科研计算几乎全球都超过。分母为各情境' + THRESHOLD.panels[0].grids.toLocaleString('en-US') + '个有效网格。';
 const NOTE8MAP = '每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；每幅图单独色标，上限取该图98分位，超出用三角标示。空白为无可建设网格或无陆地气象点的区块。';
 const NOTE8LIMIT = '解释边界：2°抽样、成本全球统一、单一气象年与年均碳因子；低于−40°C（534格）与高于50°C（3格）的小时在冷却模型输入端夹到边界值；负荷沿用各来源原生窗口，收益不是完整全年值。完整结果见results/global-flex-econ-20261103。';
+const K_FIGURE = path.resolve(__dirname, FLEX_DIR, 'task-peak-capacity.png');
+const K_ROWS = (() => {
+  const lines = fs.readFileSync(path.resolve(__dirname, FLEX_DIR, 'task-peak-capacity.csv'), 'utf8').replace(/^\uFEFF/, '').trim().split(/\r?\n/);
+  const head = lines[0].split(',');
+  return lines.slice(1).map((line) => Object.fromEntries(line.split(',').map((value, i) => [head[i], value])));
+})();
+const K_TITLE = '算力容量 K 的来源：任务 IT 窗口峰值';
+const NOTE7K = '本章“不加卡”的算力容量 K 取原生窗口内任务 IT 功率（刚性＋未知＋两类可推迟任务，按原到达时刻）的最大值，不含基础与空载 IT 和冷却等非 IT，因此低于第五章时序总览中的设施峰值。'
+  + K_ROWS.map((row) => row.scenario_name + ' K＝' + Number(row.K_mw).toFixed(2) + 'MW，平均为K的' + Number(row.mean_pct_of_K).toFixed(0) + '%，超过95%K仅' + row.hours_above_95pct_K + '小时').join('；') + '。'
+  + '多数时段离K尚有30–40%空档，两类可推迟任务可在12/48小时内利用这些空档移位，因而柔性最优解不需加卡。K由单一最高时刻决定，对尖峰敏感：科研计算平时约5.5MW，K来自第101天的6.83MW尖峰；若改用较稳健的分位数定容量，空档与柔性收益会相应减小。';
 const ECON_VALUE = path.resolve(__dirname, ECON_DIR, 'brief/value-summary.png');
 const ECON_DISPATCH = path.resolve(__dirname, ECON_DIR, 'brief/dispatch-week.png');
 const NOTE7A = '参考IT 10MW，杉数COPT求解八城市×11情境原生窗口。两组均允许按基准购置价格情境增加算力。柔性收益＝无柔性模型成本－有柔性模型成本；收益%以无柔性模型成本为分母，仅计能源系统与新增算力，既有机群资本、延误与恢复成本未计入。窗口本地匹配率＝1－窗口市电电量/窗口设施电量；95%约束窗口总量，100%要求各时段市电为0。下表为有效城市配对的中位数，年化金额由原生窗口折算。';
@@ -169,6 +190,7 @@ const tableOf = (rows, widths) => new Table({
 });
 const globalTable = tableOf(GLOBAL.table_rows, [3400, 3200, 2400, 2600, 2400]);
 const regionTable = tableOf(GLOBAL.region_rows, [2600, ...Array(12).fill(1000)]);
+const attrTable = tableOf(ATTR.rows, [3200, 1900, 4400, 4400]);
 const planTable = tableOf(ECON.plan_rows, [3200, 1300, 2800, 2800, 2400, 1800]);
 const builtTable = tableOf(ECON.built_rows, [3000, 2500, 2300, 1500, 1300, 2100, 1600]);
 const sub = (t) => new Paragraph({ keepNext: true, spacing: { before: 80, after: 30 }, children: [new TextRun({ text: t, font: HEI, size: 20, bold: true, color: '000000' })] });
@@ -333,6 +355,13 @@ const doc = new Document({
       p(NOTE7B2, {before: 20, size: 16, color: '595959'}),
       p(NOTE7C, {before: 30, size: 18}),
 
+      economicHeading(K_TITLE),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(K_FIGURE), transformation: {width: 760, height: 605},
+          altText: {name: K_TITLE, title: K_TITLE, description: '五类代表情境原生窗口任务IT四类堆叠时序及K（窗口峰值），右侧为任务IT持续曲线。'}})],
+      }),
+      p(NOTE7K, {before: 10, size: 16, color: '595959'}),
+
       economicHeading('柔性收益与单位成本'),
       new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 30, after: 10},
         children: [new ImageRun({type: 'png', data: fs.readFileSync(ECON_VALUE), transformation: {width: 944, height: 261},
@@ -370,6 +399,23 @@ const doc = new Document({
           altText: {name: '全球柔性收益地图·已建成', title: '全球柔性收益地图·已建成', description: '四类代表情境在风光储固定为无柔性最优配置时经济最优目标下的柔性节省百分比，2°区块着色。'}})],
       }),
       p(NOTE8MAP, {before: 10, size: 16, color: '595959'}),
+
+      economicHeading('柔性收益是否超过3%：已建成，经济最优'),
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 20, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(GLOBAL_THRESHOLD_MAP), transformation: {width: 900, height: 486},
+          altText: {name: '柔性收益超过3%的区域', title: '柔性收益超过3%的区域', description: '已建成边界、经济最优下，训练、科研AI、科研计算、推理四类代表情境柔性收益是否超过3%的二分类地图，2°区块着色。'}})],
+      }),
+      p(NOTE8T, {before: 10, size: 17}),
+
+      economicHeading(ATTR_TITLE),
+      p(NOTE8R, {before: 20, size: 16}),
+      attrTable,
+      new Paragraph({alignment: AlignmentType.CENTER, keepNext: true, spacing: {before: 40, after: 10},
+        children: [new ImageRun({type: 'png', data: fs.readFileSync(ATTR_FIGURE), transformation: {width: 860, height: 357},
+          altText: {name: ATTR_TITLE, title: ATTR_TITLE, description: '左：五类代表情境柔性收益中位数随风电年均出力系数分档上升，及训练无柔性方案市电占比；右：标准化回归系数热图。'}})],
+      }),
+      p(NOTE8M, {before: 10, size: 17}),
+      p(NOTE8RLIMIT, {before: 20, size: 16, color: '595959'}),
     ],
   }],
 });
@@ -396,10 +442,13 @@ if (MD_OUT) {
     `![八城市PUE](${CITY_DIR}/city-pue-heatmap.png)`, '', CITY_PUE_NOTE, '',
     `![三城市典型日](${CITY_DIR}/city-typical-day-comparison.png)`, '', CITY.composition, '', CITY.flexibility, '', CITY.limitations, '',
     `## ${H7}`, '', NOTE7A, '', `### ${SUB7A}`, '', mdTable(ECON.plan_rows), '', NOTE7B1, '', `### ${SUB7B}`, '', mdTable(ECON.built_rows), '', NOTE7B2, '', NOTE7C, '',
+    `### ${K_TITLE}`, '', `![${K_TITLE}](${FLEX_DIR}/task-peak-capacity.png)`, '', NOTE7K, '',
     '### 柔性收益与单位成本', '', `![柔性收益与单位成本](${ECON_DIR}/brief/value-summary.png)`, '', NOTE7METHOD, '', NOTE7E, '',
     '### 调度前后对比（法兰克福·GPU 主导型·大模型训练/开发）', '', `![调度前后](${ECON_DIR}/brief/dispatch-week.png)`, '', NOTE7D, '',
     `## ${H8}`, '', NOTE8A, '', mdTable(GLOBAL.table_rows), '', NOTE8B, '', '### 训练（GPU主导型）规划阶段经济最优：各大洲与主要国家中位数', '', mdTable(GLOBAL.region_rows), '', NOTE8C, '', NOTE8LIMIT, '',
     '### 全球柔性收益地图', '', `![规划阶段·经济最优](${GLOBAL_DIR}/figures/planning-economic.png)`, '', `![已建成·经济最优](${GLOBAL_DIR}/figures/fixed-economic.png)`, '', NOTE8MAP, '',
+    '### 柔性收益是否超过3%：已建成，经济最优', '', `![超过3%](${GLOBAL_DIR}/figures/threshold-fixed-economic-3pct.png)`, '', NOTE8T, '',
+    `### ${ATTR_TITLE}`, '', NOTE8R, '', mdTable(ATTR.rows), '', `![${ATTR_TITLE}](${GLOBAL_DIR}/attribution/attribution.png)`, '', NOTE8M, '', NOTE8RLIMIT, '',
   ].join('\n');
   if (!retainedSections) throw new Error('README 缺少需要保留的数字来源与说明、重新生成章节');
   const sourceUpdated = retainedSections.split('\n').map((line) => line.startsWith('- 第四章图与逐小时分任务汇总：') ? SOURCE4 : line.startsWith('- 第五章44情境、25组地点年份及原生时序：') ? SOURCE5 : line).join('\n');
