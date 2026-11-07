@@ -1,0 +1,25 @@
+{
+ "target": "savings_pct（经济最优目标，规划/已建成两种边界，有效最优配对）",
+ "method": "OLS，自变量标准化（系数为每 1 个标准差对应的百分点），HC1 稳健标准误；未处理空间自相关，t 值偏乐观，重要性以去掉该变量后的 R² 降幅为主",
+ "feature_year": "2025 年全年逐小时（与各情境原生窗口对应的气象小时不完全相同）",
+ "grids": 4842,
+ "exogenous": {
+  "cf_wind": "风电年均出力系数",
+  "cf_pv": "光伏年均出力系数",
+  "carbon": "市电碳因子",
+  "pv_wind_corr": "风光逐小时相关",
+  "wind_daily_cv": "风电逐日波动",
+  "pv_season": "光伏季节差",
+  "temp_mean": "年均气温",
+  "abs_lat": "纬度绝对值"
+ },
+ "mechanism": {
+  "grid_share": "无柔性方案市电占比",
+  "pv_gen_share": "无柔性方案光伏发电占比",
+  "battery_h": "无柔性方案储能时长",
+  "curtail_share": "无柔性方案弃电率"
+ },
+ "inputs": {
+  "grid-summary.parquet": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c"
+ }
+}

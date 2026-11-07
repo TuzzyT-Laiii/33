@@ -1,0 +1,40 @@
+{
+  "utc": "2026-11-04T07:34:21.521738+00:00",
+  "title": "已建成边界，经济最优：柔性收益是否超过 3%",
+  "boundary": "fixed",
+  "alpha": null,
+  "threshold_pct": 3.0,
+  "rule": "savings_pct > threshold；分母为各情境有效最优配对网格",
+  "renderer_sha256": "067a7bf17099a705740bb4b991d97a453fd37f7394d4b48f98dcbd7018475f4d",
+  "data_sha256": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c",
+  "panels": [
+    {
+      "scenario": "D-TRN",
+      "grids": 4842,
+      "above": 4646,
+      "share_pct": 95.95,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "D-SAI",
+      "grids": 4842,
+      "above": 3913,
+      "share_pct": 80.81,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "A-HPC",
+      "grids": 4842,
+      "above": 4569,
+      "share_pct": 94.36,
+      "drawn_blocks": 4832
+    },
+    {
+      "scenario": "D-INF",
+      "grids": 4842,
+      "above": 1271,
+      "share_pct": 26.25,
+      "drawn_blocks": 4832
+    }
+  ]
+}

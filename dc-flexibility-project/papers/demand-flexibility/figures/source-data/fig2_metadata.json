@@ -1,0 +1,11 @@
+{
+  "font": "Arial",
+  "n_per_fit": 4842,
+  "correlation": -0.8772818668516361,
+  "regression": "OLS with eight z-scored predictors; outcome is not standardized",
+  "bold": "R-squared loss after dropping predictor >= 0.02; no significance test",
+  "feature_year": 2025,
+  "spatial_autocorrelation_adjustment": false,
+  "wind_bins": "Right-closed; first bin includes zero; equal-spaced categorical bin positions",
+  "shading": "25th to 75th grid percentiles for GPU-heavy LLM training only"
+}
