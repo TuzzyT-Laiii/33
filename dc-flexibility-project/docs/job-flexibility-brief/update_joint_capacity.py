@@ -121,11 +121,15 @@ def update(doc, report):
         base_gpus = span([row['A_gpus'] for row in base]) if base else '待计算'
         units = span([row['servers_avoided'] for row in paired]) if paired else '待计算'
         gpus = span([row['gpus_avoided'] for row in paired]) if paired else '待计算'
-        saving = span([row['joint_annual_saving_usd'] / 10000 for row in paired], 1) if paired else '待计算'
+        bounded = [row for row in paired if row['joint_saving_solver_bounds_available']]
+        saving_bounds = [row[key] / 10000 for row in bounded
+                         for key in ('joint_annual_saving_lower_bound_usd', 'joint_annual_saving_upper_bound_usd')]
+        saving = span(saving_bounds, 1) if saving_bounds else ('界限待收敛' if paired else '待计算')
         rows.append((scenario, base_units, base_gpus, f'{len(paired)} / 8', units, gpus, saving))
     table(doc, ('情境', 'A 服务器（台）', 'A GPU（张）', '配对城市', '少配服务器（台）',
-                '少配 GPU（张）', '净节省（万美元/年）'), rows, [26, 36, 32, 31, 42, 39, 48])
-    paragraph(doc, '表中节省为已配对城市的可行解范围。达到求解时限的算例另记录最优值界限，覆盖率按经界限确认的净节省统计。'
+                '少配 GPU（张）', '净节省界限（万美元/年）'), rows, [26, 36, 32, 28, 40, 35, 57])
+    paragraph(doc, '设备减配为已配对城市的可行解范围，净节省列有有效求解界限的配对。'
+              '覆盖率按经界限确认的净节省统计。'
               '在目前输入中，云通用计算和推理的可整体推迟小时负荷保持原时序。', size=10)
 
 
