@@ -8,3 +8,4 @@
 /capacity/B-SAI-w*-s*.npz
 /capacity/B-TRN-w*-s*.npz
 /capacity/D-TRN-w*-s*.npz
+/cross-validation/hourly-highs/*.npz

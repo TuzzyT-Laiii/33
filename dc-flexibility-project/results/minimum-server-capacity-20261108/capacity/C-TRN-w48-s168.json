@@ -36,7 +36,7 @@
   "resource_scale": 0.7142,
   "reused_resource_model": "B-TRN",
   "reference_sha256": "85e63f8609c27fe6e449469be46df13f50d5577f40058e1337ce645c6c70e711",
-  "base_capacity_sha256": "c59a5ac1bcf188b5e5f4fd60be63404cd27818371761729d37f28eb5483b1b26",
+  "base_capacity_sha256": "63720c71e96dd67366f304b25ab9b73645877c2bb35cdbddbc90dd4b55ac79b2",
   "base_model_audit": {
     "capacity_servers": 0.0,
     "batch_conservation": 1.1324274851176597e-14,
