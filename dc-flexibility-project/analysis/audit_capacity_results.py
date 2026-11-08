@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 from flex_econ_copt import SCENARIOS, CITIES
-from joint_capacity_inputs import atomic_json
+from joint_capacity_inputs import atomic_json, sha256
 from joint_capacity_copt import make_resource_schedule
 from minimum_server_capacity import DEADLINES, audit, resource_dispatch
 
@@ -54,7 +54,10 @@ def main():
                 raise ValueError(f'{stem.name} 整数下界不符')
             if 'reused_resource_model' in result and 'grouped_lp_lower_servers' in result:
                 base=result['reused_resource_model']
-                parent=json.loads((args.capacities/f'{base}-w{whole_h}-s{split_h}.json').read_text('utf-8'))
+                parent_path=args.capacities/f'{base}-w{whole_h}-s{split_h}.json'
+                parent=json.loads(parent_path.read_text('utf-8'))
+                if 'base_capacity_sha256' in result and result['base_capacity_sha256']!=sha256(parent_path):
+                    raise ValueError(f'{stem.name} 引用的基础容量证书版本不一致')
                 factor=fleet['reference_units']/manifest[base]['reference_units']
                 np.testing.assert_allclose(result['grouped_lp_lower_servers'],parent['grouped_lp_lower_servers']*factor,rtol=0,atol=1e-7)
             checked.append({'case':stem.name,'gpus_per_server':result['gpus_per_server'],

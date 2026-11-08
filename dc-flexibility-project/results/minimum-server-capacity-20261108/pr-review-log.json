@@ -1,0 +1,83 @@
+{
+  "snapshots": [
+    {
+      "number": 61,
+      "checked_at": "2026-11-08T10:04:51.439110+00:00",
+      "issue-comments": 0,
+      "inline-comments": 0,
+      "reviews": 0,
+      "threads": 0,
+      "comment_ids": []
+    },
+    {
+      "number": 62,
+      "checked_at": "2026-11-08T10:04:51.439110+00:00",
+      "issue-comments": 8,
+      "inline-comments": 0,
+      "reviews": 0,
+      "threads": 0,
+      "comment_ids": [
+        6705697678,
+        6718014654,
+        6718846759,
+        6719112086,
+        6720103645,
+        6720104050,
+        6720104433,
+        6720104806
+      ]
+    },
+    {
+      "number": 65,
+      "checked_at": "2026-11-08T10:04:51.439110+00:00",
+      "issue-comments": 0,
+      "inline-comments": 0,
+      "reviews": 0,
+      "threads": 0,
+      "comment_ids": []
+    },
+    {
+      "number": 66,
+      "checked_at": "2026-11-08T10:04:51.439110+00:00",
+      "issue-comments": 0,
+      "inline-comments": 0,
+      "reviews": 0,
+      "threads": 0,
+      "comment_ids": []
+    },
+    {
+      "number": 67,
+      "checked_at": "2026-11-08T10:04:51.439110+00:00",
+      "issue-comments": 0,
+      "inline-comments": 0,
+      "reviews": 0,
+      "threads": 0,
+      "comment_ids": []
+    }
+  ],
+  "responses": [
+    {
+      "original_id": 6705697678,
+      "reply_url": "https://github.com/TuzzyT-Laiii/33/pull/62#issuecomment-6720103645"
+    },
+    {
+      "original_id": 6718014654,
+      "reply_url": "https://github.com/TuzzyT-Laiii/33/pull/62#issuecomment-6720104050"
+    },
+    {
+      "original_id": 6718846759,
+      "reply_url": "https://github.com/TuzzyT-Laiii/33/pull/62#issuecomment-6720104433"
+    },
+    {
+      "original_id": 6719112086,
+      "reply_url": "https://github.com/TuzzyT-Laiii/33/pull/62#issuecomment-6720104806"
+    }
+  ],
+  "pending_scientific_items": [
+    "A-HPC 三档最少台数证明",
+    "整体作业情境能源最优费用精度",
+    "旧 B 未保存逐作业时序的等待分布"
+  ],
+  "merged": false,
+  "state": "四条原始意见逐条回复；未解决的科学问题保留，不标为完成"
+}

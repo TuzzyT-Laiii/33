@@ -64,4 +64,6 @@ python dc-flexibility-project/analysis/report_minimum_server_capacity.py `
 
 `INPUTS` 代表服务器保留的冻结输入目录。`resource-manifest.json` 也随结果交付。临时检查点和过期试算方案不纳入交付；全局旧 MIP 原始记录继续保留在原位置。
 
+容量证书、城市记录和 CSV 按存档原字节保存，目录属性关闭自动换行转换，支持 Windows 与 Linux 文件 SHA-256 核对。`delivery-verification.json` 记录 22 行主表、33 项期限、176 项城市与功率核查、12 项 COPT／HiGHS 小时模型交叉检查。HPC 最后单进程分段任务在 17:39:48–17:46:43 运行，journal 记录 CPU 412.474 秒、内存峰值约 4.6G；区间保持 13,195–13,620，证据见 `hpc-final-segmented-service.json`。
+
 代码需要 NumPy、pandas、PyArrow、SciPy、HiGHS 和 COPT，以及有效 COPT 许可。服务器本次使用独立 Python 3.12 环境，避免修改原 Conda 环境。完整原始逐作业输入保留在研究服务器；结果中的输入 SHA-256、编译清单和参数用于确认版本。
