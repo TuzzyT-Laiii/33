@@ -387,3 +387,17 @@ node build.js 数据中心任务时间柔性简表.docx README.md
 新增指标的复现与检查使用 `analysis/plot_global_compute_cost.py --geography-run <地图缓存目录>` 和 `analysis/verify_global_compute_cost.py --baseline-docx <更新前简表>`。独立复核覆盖639,144组配对和132组情境目标边界统计，检查原有数据表、前六章文字与图片、四个可编辑公式和四张新增图；记录见 `results/global-flex-econ-20261103/compute-cost/document-verification.json`。设备年化成本与既有八城市求解记录逐情境一致。
 
 第七章依赖审阅顺序：#41→#42→#43→本次分表。既有章节依赖：#27；#30→#32、#33；#34、#35、#36→#38；#31；#37。保持待审，不合并。
+
+## 第九章：任务容量与八城市费用复核（2026-11-08）
+
+输入文档为 PR #61 的 `6848def73a3910bbb393f157b12aee9d3a89a13d`。第九章替换为四张三线表：11 情境的设备减少量、经济供能、100% 本地无碳、期限与余量敏感性。此前的 111 个正文元素与 15 个图片文件保持原有字节。主文件和日期归档文件内容相同。
+
+数据来自本次独立任务容量与八城市能源复核，快照为 `minimum-capacity-summary-20261108.json`。主期限 10／11 个情境已证明最优；三档期限中有 30／33 项达到上下界相差不超过一台。A-HPC 三项仍保留有效区间，表内以星号标记，费用采用完整可行方案的台数上界。整体作业能源最优费用保留上下界，不能将固定调度的供能收敛解释为联合时序最优。
+
+复现命令：
+
+```powershell
+python update_minimum_capacity.py --source 数据中心任务时间柔性简表_联合规划八城市_20261107.docx --report minimum-capacity-summary-20261108.json --output 数据中心任务时间柔性简表_最少机群与八城市复核_20261108.docx
+```
+
+第九章单独导出为 `第九章_最少机群与八城市复核_20261108.pdf`，四页的 44 个情境表行齐全、文字边界位于页面内。`minimum-capacity-document-audit-20261108.json` 保存正文前缀、图片和表宽检查；`minimum-capacity-pdf-audit-20261108.json` 保存 PDF 文字与页面边界检查。整份文档 PDF 导出调用未完成。遵循用户要求，没有进行图像视觉检查。
