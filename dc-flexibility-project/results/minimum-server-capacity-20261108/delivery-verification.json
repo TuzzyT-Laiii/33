@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "verified_at": "2026-11-08T09:58:25.812423+00:00",
+  "main_rows": 22,
+  "deadline_cases": 33,
+  "city_cases": 176,
+  "power_lower_bound_checks": 176,
+  "hourly_solver_cross_checks": [
+    {
+      "case": "A-CLD-w12-s48",
+      "servers": 6825,
+      "lower_servers": 6825
+    },
+    {
+      "case": "A-CLD-w24-s96",
+      "servers": 6825,
+      "lower_servers": 6825
+    },
+    {
+      "case": "A-CLD-w48-s168",
+      "servers": 6825,
+      "lower_servers": 6825
+    },
+    {
+      "case": "B-INF-w12-s48",
+      "servers": 9083,
+      "lower_servers": 9083
+    },
+    {
+      "case": "B-INF-w24-s96",
+      "servers": 9083,
+      "lower_servers": 9083
+    },
+    {
+      "case": "B-INF-w48-s168",
+      "servers": 9083,
+      "lower_servers": 9083
+    },
+    {
+      "case": "C-INF-w12-s48",
+      "servers": 6487,
+      "lower_servers": 6487
+    },
+    {
+      "case": "C-INF-w24-s96",
+      "servers": 6487,
+      "lower_servers": 6487
+    },
+    {
+      "case": "C-INF-w48-s168",
+      "servers": 6487,
+      "lower_servers": 6487
+    },
+    {
+      "case": "D-INF-w12-s48",
+      "servers": 1121,
+      "lower_servers": 1121
+    },
+    {
+      "case": "D-INF-w24-s96",
+      "servers": 1121,
+      "lower_servers": 1121
+    },
+    {
+      "case": "D-INF-w48-s168",
+      "servers": 1121,
+      "lower_servers": 1121
+    }
+  ],
+  "proof_exact": 29,
+  "proof_within_one": 30,
+  "open_capacity_cases": [
+    {
+      "scenario": "A-HPC",
+      "whole_h": 12,
+      "split_h": 48,
+      "lower_servers": 13195,
+      "servers": 13620
+    },
+    {
+      "scenario": "A-HPC",
+      "whole_h": 24,
+      "split_h": 96,
+      "lower_servers": 12904,
+      "servers": 13403
+    },
+    {
+      "scenario": "A-HPC",
+      "whole_h": 48,
+      "split_h": 168,
+      "lower_servers": 12420,
+      "servers": 13620
+    }
+  ],
+  "scope": "检查已求解真实记录的完整性、费用区间、无碳用电、独立求解器一致性及证明状态；不替代 HPC 最优证明"
+}

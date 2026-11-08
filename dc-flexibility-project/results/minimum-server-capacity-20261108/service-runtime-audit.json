@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-11-08T09:42:19.996975+00:00",
+  "captured_at": "2026-11-08T09:55:52.506744+00:00",
   "server": "pku-solar-pro",
   "units": [
     {
@@ -122,17 +122,6 @@
       "MemoryMax": "3221225472",
       "ActiveState": "failed",
       "SubState": "failed"
-    },
-    {
-      "unit": "min-servers-finish-segmented-single-20261108.service",
-      "Result": "success",
-      "ExecMainStartTimestamp": "Sun 2026-11-08 17:39:48 CST",
-      "ExecMainExitTimestamp": "",
-      "MemoryPeak": "4290527232",
-      "CPUUsageNSec": "149220325000",
-      "MemoryMax": "8589934592",
-      "ActiveState": "active",
-      "SubState": "running"
     },
     {
       "unit": "min-servers-full-relaxation-20261108.service",
