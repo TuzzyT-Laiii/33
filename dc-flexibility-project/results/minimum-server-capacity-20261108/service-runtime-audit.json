@@ -1,0 +1,205 @@
+{
+  "captured_at": "2026-11-08T09:55:52.506744+00:00",
+  "server": "pku-solar-pro",
+  "units": [
+    {
+      "unit": "min-servers-bounded-integer-20261108.service",
+      "Result": "oom-kill",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 16:08:48 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 16:12:10 CST",
+      "MemoryPeak": "8589934592",
+      "CPUUsageNSec": "203720408000",
+      "MemoryMax": "8589934592",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-capacity-aggregate-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 14:22:32 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 14:42:36 CST",
+      "MemoryPeak": "1541296128",
+      "CPUUsageNSec": "1201963479000",
+      "MemoryMax": "5368709120",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-compact-normalized-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 15:26:40 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 15:47:52 CST",
+      "MemoryPeak": "4665081856",
+      "CPUUsageNSec": "1269736093000",
+      "MemoryMax": "5368709120",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-compact-relaxation-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 15:25:07 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 15:25:15 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "5290693000",
+      "MemoryMax": "5368709120",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-energy-bounded-validation-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 14:24:44 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 14:35:03 CST",
+      "MemoryPeak": "355737600",
+      "CPUUsageNSec": "618111385000",
+      "MemoryMax": "3221225472",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-energy-copt-start-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 15:44:21 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 15:47:36 CST",
+      "MemoryPeak": "565874688",
+      "CPUUsageNSec": "193109188000",
+      "MemoryMax": "3221225472",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-energy-feasible-start-20261108.service",
+      "Result": "core-dump",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 15:32:11 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 15:32:20 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "4741897000",
+      "MemoryMax": "3221225472",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-energy-ipm-validation-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 14:00:19 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 14:05:25 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "305800592000",
+      "MemoryMax": "3221225472",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-energy-scaled-validation-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 14:07:34 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 14:08:40 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "66168058000",
+      "MemoryMax": "3221225472",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-energy-validation-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 13:51:39 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 13:57:56 CST",
+      "MemoryPeak": "733544448",
+      "CPUUsageNSec": "376420656000",
+      "MemoryMax": "2147483648",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-energy-volume-validation-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 15:10:08 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 15:15:19 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "309812930000",
+      "MemoryMax": "3221225472",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-full-relaxation-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 15:18:04 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 15:18:20 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "6298848000",
+      "MemoryMax": "5368709120",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-hpc-energy-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 15:45:15 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 16:04:58 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "2892716000",
+      "MemoryMax": "2147483648",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-hpc-integer-20261108.service",
+      "Result": "oom-kill",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 15:58:29 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 16:00:23 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "113972716000",
+      "MemoryMax": "8589934592",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-hpc-sensitivity-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 16:02:44 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 16:34:11 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "1883484787000",
+      "MemoryMax": "8589934592",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-refined-segmented-hpc-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 16:43:26 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 17:20:34 CST",
+      "MemoryPeak": "8587149312",
+      "CPUUsageNSec": "4120773650000",
+      "MemoryMax": "8589934592",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-sai-integer-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 16:01:36 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 16:03:55 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "136497192000",
+      "MemoryMax": "8589934592",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    },
+    {
+      "unit": "min-servers-stationary-sai-20261108.service",
+      "Result": "exit-code",
+      "ExecMainStartTimestamp": "Sun 2026-11-08 16:28:57 CST",
+      "ExecMainExitTimestamp": "Sun 2026-11-08 16:30:59 CST",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "118613043000",
+      "MemoryMax": "4294967296",
+      "ActiveState": "failed",
+      "SubState": "failed"
+    }
+  ],
+  "scope": "仅本任务 min-servers 用户服务；已被用户管理器清理的早期成功服务不在此快照，不能据此推算全部历史耗时"
+}

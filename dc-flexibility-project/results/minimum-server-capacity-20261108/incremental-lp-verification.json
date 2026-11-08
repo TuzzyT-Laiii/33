@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "real_case": "A-HPC 实际 336 小时作业窗口",
+  "stages": [
+    {
+      "stage": "original",
+      "primal": 13833.613383754153,
+      "global_lower": 2245.6438680628116,
+      "seconds": 0.030999999959021807
+    },
+    {
+      "stage": "coarse",
+      "primal": 13592.067607385748,
+      "global_lower": 8339.396284896602,
+      "seconds": 0.0470000000204891
+    },
+    {
+      "stage": "complete",
+      "primal": 13587.96708100374,
+      "global_lower": 13587.967081000683,
+      "seconds": 0.3130000000819564
+    }
+  ],
+  "highspy_version": "1.15.1",
+  "pricing_check": {
+    "real_groups": 55,
+    "choices_checked": 713,
+    "maximum_error": 0.0
+  }
+}

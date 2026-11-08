@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_rows": 72,
+  "derived_price_share_rows": 1080,
+  "source_sha256": "561f928169d356b7d3641151907df05642bb12db1459c932263add7bbb3e490b",
+  "source_summary_sha256": "3c6e1a5b3952a9fe8189579d0827ce099a0e40694b5617d1e4a5dd62b1fbe32f",
+  "source_directory": "/data3/dataset/ljt/claude-sell-idle-20261108",
+  "part2_table_sha256": "aeb5dbf6756f012c3f36c71e0fbb4d156ec3ac53a07fb673d6b9b08b2442050f",
+  "generated_at": "2026-11-08T10:08:02.572632+00:00",
+  "energy_assumption": "窗口任务动态功率除以已分配 GPU 小时，乘原时序闲置 GPU 加权 PUE 和含碳市电价格",
+  "dispatch_recomputed": false,
+  "baseline_target": "economic"
+}

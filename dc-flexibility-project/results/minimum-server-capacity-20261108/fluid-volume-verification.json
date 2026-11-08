@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "actual_cases": [
+    {
+      "scenario": "A-CLD",
+      "peak": 6824.224785448083,
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "audit": {
+        "capacity_servers": 0.0,
+        "batch_conservation": 8.881784197001252e-16,
+        "work_conservation": 1.3969838619232178e-09,
+        "nonnegative": 0.0,
+        "whole_integrality": 0.0
+      }
+    },
+    {
+      "scenario": "B-INF",
+      "peak": 9082.099704687838,
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "audit": {
+        "capacity_servers": 0.0,
+        "batch_conservation": 6.439293542825908e-15,
+        "work_conservation": 1.385807991027832e-06,
+        "nonnegative": 0.0,
+        "whole_integrality": 0.0
+      }
+    }
+  ]
+}
