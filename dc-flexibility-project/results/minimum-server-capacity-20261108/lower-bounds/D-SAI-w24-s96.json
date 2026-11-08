@@ -1,0 +1,9 @@
+{
+  "scenario": "D-SAI",
+  "whole_h": 24,
+  "split_h": 96,
+  "resource_lower_servers": 979.2602815131484,
+  "integer_lower_servers": 980,
+  "resource_lower_over_A": 0.7935658683250797,
+  "seconds": 3.280999999959022
+}

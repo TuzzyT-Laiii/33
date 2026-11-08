@@ -1,0 +1,9 @@
+{
+  "scenario": "D-INF",
+  "whole_h": 48,
+  "split_h": 168,
+  "resource_lower_servers": 1120.7311035584778,
+  "integer_lower_servers": 1121,
+  "resource_lower_over_A": 0.9082099704687826,
+  "seconds": 0.125
+}

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "real_case": "A-HPC 实际 336 小时作业窗口",
+  "options": 97730,
+  "maximum_matrix_difference": 0.0,
+  "energy_or_city_input_required": false
+}

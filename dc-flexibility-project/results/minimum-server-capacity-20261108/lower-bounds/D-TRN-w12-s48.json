@@ -1,0 +1,9 @@
+{
+  "scenario": "D-TRN",
+  "whole_h": 12,
+  "split_h": 48,
+  "resource_lower_servers": 882.8978631204805,
+  "integer_lower_servers": 883,
+  "resource_lower_over_A": 0.7724390753460021,
+  "seconds": 0.17199999990407377
+}

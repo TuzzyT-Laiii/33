@@ -1,0 +1,9 @@
+{
+  "scenario": "C-INF",
+  "whole_h": 24,
+  "split_h": 96,
+  "resource_lower_servers": 6486.435609088046,
+  "integer_lower_servers": 6487,
+  "resource_lower_over_A": 0.9082099704687826,
+  "seconds": 0.125
+}

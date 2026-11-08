@@ -1,0 +1,302 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "A-HPC-w12-s48",
+      "gpus_per_server": 0,
+      "lower_servers": 13195,
+      "servers": 13620,
+      "grouped_lp_lower_servers": null,
+      "continuous_lower_servers": 13195.0,
+      "certified_within_one": false
+    },
+    {
+      "case": "A-HPC-w24-s96",
+      "gpus_per_server": 0,
+      "lower_servers": 12904,
+      "servers": 13403,
+      "grouped_lp_lower_servers": 12903.007538709693,
+      "continuous_lower_servers": 12903.007538709693,
+      "certified_within_one": false
+    },
+    {
+      "case": "A-HPC-w48-s168",
+      "gpus_per_server": 0,
+      "lower_servers": 12420,
+      "servers": 13620,
+      "grouped_lp_lower_servers": null,
+      "continuous_lower_servers": 12419.525805484951,
+      "certified_within_one": false
+    },
+    {
+      "case": "A-CLD-w12-s48",
+      "gpus_per_server": 0,
+      "lower_servers": 6825,
+      "servers": 6825,
+      "grouped_lp_lower_servers": 6824.224785448078,
+      "continuous_lower_servers": 6824.224785448078,
+      "certified_within_one": true
+    },
+    {
+      "case": "A-CLD-w24-s96",
+      "gpus_per_server": 0,
+      "lower_servers": 6825,
+      "servers": 6825,
+      "grouped_lp_lower_servers": 6824.224785448081,
+      "continuous_lower_servers": 6824.224785448081,
+      "certified_within_one": true
+    },
+    {
+      "case": "A-CLD-w48-s168",
+      "gpus_per_server": 0,
+      "lower_servers": 6825,
+      "servers": 6825,
+      "grouped_lp_lower_servers": 6824.224785448078,
+      "continuous_lower_servers": 6824.224785448078,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-SAI-w12-s48",
+      "gpus_per_server": 1,
+      "lower_servers": 8422,
+      "servers": 8422,
+      "grouped_lp_lower_servers": 8421.195830469613,
+      "continuous_lower_servers": 8421.195830469613,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-SAI-w24-s96",
+      "gpus_per_server": 1,
+      "lower_servers": 7936,
+      "servers": 7937,
+      "grouped_lp_lower_servers": 7935.658683250775,
+      "continuous_lower_servers": 7935.658683250775,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-SAI-w48-s168",
+      "gpus_per_server": 1,
+      "lower_servers": 7758,
+      "servers": 7758,
+      "grouped_lp_lower_servers": null,
+      "continuous_lower_servers": 7757.406508272084,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-SAI-w12-s48",
+      "gpus_per_server": 2,
+      "lower_servers": 6015,
+      "servers": 6015,
+      "grouped_lp_lower_servers": 6014.418062121397,
+      "continuous_lower_servers": 6014.418062121397,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-SAI-w24-s96",
+      "gpus_per_server": 2,
+      "lower_servers": 5668,
+      "servers": 5668,
+      "grouped_lp_lower_servers": 5667.647431577703,
+      "continuous_lower_servers": 5667.647431577703,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-SAI-w48-s168",
+      "gpus_per_server": 2,
+      "lower_servers": 5541,
+      "servers": 5541,
+      "grouped_lp_lower_servers": null,
+      "continuous_lower_servers": 5540.339728207921,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-SAI-w12-s48",
+      "gpus_per_server": 8,
+      "lower_servers": 1040,
+      "servers": 1040,
+      "grouped_lp_lower_servers": 1039.1755654799501,
+      "continuous_lower_servers": 1039.1755654799501,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-SAI-w24-s96",
+      "gpus_per_server": 8,
+      "lower_servers": 980,
+      "servers": 980,
+      "grouped_lp_lower_servers": 979.2602815131455,
+      "continuous_lower_servers": 979.2602815131455,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-SAI-w48-s168",
+      "gpus_per_server": 8,
+      "lower_servers": 958,
+      "servers": 958,
+      "grouped_lp_lower_servers": null,
+      "continuous_lower_servers": 957.2639631207751,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-TRN-w12-s48",
+      "gpus_per_server": 1,
+      "lower_servers": 7164,
+      "servers": 7164,
+      "grouped_lp_lower_servers": 7163.363657751184,
+      "continuous_lower_servers": 7163.363657751184,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-TRN-w24-s96",
+      "gpus_per_server": 1,
+      "lower_servers": 6758,
+      "servers": 6758,
+      "grouped_lp_lower_servers": 6757.365624011096,
+      "continuous_lower_servers": 6757.365624011096,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-TRN-w48-s168",
+      "gpus_per_server": 1,
+      "lower_servers": 6703,
+      "servers": 6703,
+      "grouped_lp_lower_servers": 6702.297543368234,
+      "continuous_lower_servers": 6702.297543368234,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-TRN-w12-s48",
+      "gpus_per_server": 2,
+      "lower_servers": 5117,
+      "servers": 5117,
+      "grouped_lp_lower_servers": 5116.074324365895,
+      "continuous_lower_servers": 5116.074324365895,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-TRN-w24-s96",
+      "gpus_per_server": 2,
+      "lower_servers": 4827,
+      "servers": 4827,
+      "grouped_lp_lower_servers": 4826.110528668724,
+      "continuous_lower_servers": 4826.110528668724,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-TRN-w48-s168",
+      "gpus_per_server": 2,
+      "lower_servers": 4787,
+      "servers": 4787,
+      "grouped_lp_lower_servers": 4786.780905473593,
+      "continuous_lower_servers": 4786.780905473593,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-TRN-w12-s48",
+      "gpus_per_server": 8,
+      "lower_servers": 884,
+      "servers": 884,
+      "grouped_lp_lower_servers": 883.9590753664961,
+      "continuous_lower_servers": 883.9590753664961,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-TRN-w24-s96",
+      "gpus_per_server": 8,
+      "lower_servers": 834,
+      "servers": 834,
+      "grouped_lp_lower_servers": 833.8589180029692,
+      "continuous_lower_servers": 833.8589180029692,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-TRN-w48-s168",
+      "gpus_per_server": 8,
+      "lower_servers": 828,
+      "servers": 828,
+      "grouped_lp_lower_servers": 827.0635168516401,
+      "continuous_lower_servers": 827.0635168516401,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-INF-w12-s48",
+      "gpus_per_server": 1,
+      "lower_servers": 9083,
+      "servers": 9083,
+      "grouped_lp_lower_servers": 9082.099704687824,
+      "continuous_lower_servers": 9082.099704687824,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-INF-w24-s96",
+      "gpus_per_server": 1,
+      "lower_servers": 9083,
+      "servers": 9083,
+      "grouped_lp_lower_servers": 9082.099704687826,
+      "continuous_lower_servers": 9082.099704687826,
+      "certified_within_one": true
+    },
+    {
+      "case": "B-INF-w48-s168",
+      "gpus_per_server": 1,
+      "lower_servers": 9083,
+      "servers": 9083,
+      "grouped_lp_lower_servers": 9082.099704687824,
+      "continuous_lower_servers": 9082.099704687824,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-INF-w12-s48",
+      "gpus_per_server": 2,
+      "lower_servers": 6487,
+      "servers": 6487,
+      "grouped_lp_lower_servers": 6486.435609088043,
+      "continuous_lower_servers": 6486.435609088043,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-INF-w24-s96",
+      "gpus_per_server": 2,
+      "lower_servers": 6487,
+      "servers": 6487,
+      "grouped_lp_lower_servers": 6486.435609088045,
+      "continuous_lower_servers": 6486.435609088045,
+      "certified_within_one": true
+    },
+    {
+      "case": "C-INF-w48-s168",
+      "gpus_per_server": 2,
+      "lower_servers": 6487,
+      "servers": 6487,
+      "grouped_lp_lower_servers": 6486.435609088043,
+      "continuous_lower_servers": 6486.435609088043,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-INF-w12-s48",
+      "gpus_per_server": 8,
+      "lower_servers": 1121,
+      "servers": 1121,
+      "grouped_lp_lower_servers": 1120.7311035584773,
+      "continuous_lower_servers": 1120.7311035584773,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-INF-w24-s96",
+      "gpus_per_server": 8,
+      "lower_servers": 1121,
+      "servers": 1121,
+      "grouped_lp_lower_servers": 1120.7311035584776,
+      "continuous_lower_servers": 1120.7311035584776,
+      "certified_within_one": true
+    },
+    {
+      "case": "D-INF-w48-s168",
+      "gpus_per_server": 8,
+      "lower_servers": 1121,
+      "servers": 1121,
+      "grouped_lp_lower_servers": 1120.7311035584773,
+      "continuous_lower_servers": 1120.7311035584773,
+      "certified_within_one": true
+    }
+  ]
+}
