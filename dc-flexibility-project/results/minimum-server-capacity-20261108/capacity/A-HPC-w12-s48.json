@@ -1,0 +1,21 @@
+{
+  "scenario": "A-HPC",
+  "whole_h": 12,
+  "split_h": 48,
+  "servers": 13620,
+  "lower_servers": 13195,
+  "gap_servers": 425,
+  "continuous_lower_servers": 13195.0,
+  "continuous_upper_servers": 13619.440585884318,
+  "status": "feasible_with_gap",
+  "baseline_servers": 16666,
+  "gpus_per_server": 0,
+  "seconds": 24.252848871983588,
+  "method": "分段整数可行上界与删除窗口外作业的整数下界，原始作业全局拼接复核",
+  "whole_jobs_sha256": "4e2d523e24566a74303d4ff5662a05c4092d4492d6f702c95bcf24607a9a2486",
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "audit": {
+    "capacity_servers": 0.0,
+    "work_conservation": 5.960464477539063e-08
+  }
+}

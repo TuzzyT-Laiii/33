@@ -1,0 +1,37 @@
+{
+  "status": "certified_within_one",
+  "servers": 6487,
+  "lower_servers": 6487,
+  "gap_servers": 0,
+  "grouped_lp_lower_servers": 6486.435609088043,
+  "continuous_lower_servers": 6486.435609088043,
+  "continuous_upper_servers": 6486.4356090880465,
+  "lp_seconds": 4.7354109619918745,
+  "solve_seconds": 0.0,
+  "options": 216335,
+  "whole_groups": 0,
+  "hours": 4440,
+  "audit": {
+    "capacity_servers": 0.0,
+    "batch_conservation": 2.0650148258027912e-14,
+    "work_conservation": 5.997717380523682e-07,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "lp_audit": {
+    "capacity_servers": 1.8189894035458565e-12,
+    "batch_conservation": 2.0650148258027912e-14,
+    "work_conservation": 1.214444637298584e-06,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "scenario": "C-INF",
+  "whole_h": 48,
+  "split_h": 168,
+  "baseline_servers": 7142,
+  "gpus_per_server": 2,
+  "hourly_whole": true,
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "reused_resource_model": "B-INF",
+  "resource_scale": 0.7142
+}
