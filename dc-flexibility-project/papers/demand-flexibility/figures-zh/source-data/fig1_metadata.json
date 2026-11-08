@@ -1,0 +1,14 @@
+{
+  "grids_per_scenario_boundary": 4842,
+  "mapped_blocks": 4832,
+  "map": "Robinson；WGS84；2°陆地相交区块；未作空间插值",
+  "max_fleet_savings_pct": 1.86664117723427,
+  "input": "PR #63 面板源数据；科学内容保持一致",
+  "width_mm": 180.0,
+  "height_mm": 162.0,
+  "png_dpi": 600,
+  "latin_font": "Arial",
+  "chinese_font": "Microsoft YaHei",
+  "minimum_text_pt": 6.0,
+  "map_rasterized_only": true
+}

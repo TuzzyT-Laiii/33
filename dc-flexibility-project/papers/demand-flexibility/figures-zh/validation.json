@@ -1,0 +1,197 @@
+{
+  "figures": {
+    "fig1": {
+      "width_mm": 179.99999491373697,
+      "png_pixels": [
+        4251,
+        3826
+      ],
+      "dpi": 600,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei",
+        "ELUGPM+Arial-BoldMT",
+        "ELUGPM+ArialMT"
+      ],
+      "raster_images": 2,
+      "minimum_text_pt": 6.0,
+      "panel_letters": "abcd",
+      "text_inside_canvas": true,
+      "pdf_sha256": "16b265c2cc7ef444f9887d07532edb083a7678224916532b7366e60d6143cb63",
+      "png_sha256": "440aca95cfa36d99d9e05a0874877d758aff6f6d299147d78eea6ffef339ff3d"
+    },
+    "fig2": {
+      "width_mm": 179.99999491373697,
+      "png_pixels": [
+        4251,
+        3543
+      ],
+      "dpi": 600,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei",
+        "ELUGPM+Arial-BoldMT",
+        "ELUGPM+ArialMT"
+      ],
+      "raster_images": 0,
+      "minimum_text_pt": 6.0,
+      "panel_letters": "abc",
+      "text_inside_canvas": true,
+      "pdf_sha256": "8983ed74f73db1a08cb33ca57c9ae3b6b3ef4de5e98d9b11ce5bb49f7ea5fb20",
+      "png_sha256": "84089c6431f8846a5f44689b70e5f7927e6cae07d92f3fe9da6ba79faddec879"
+    },
+    "fig3": {
+      "width_mm": 179.99999491373697,
+      "png_pixels": [
+        4251,
+        4110
+      ],
+      "dpi": 600,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei",
+        "ELUGPM+Arial-BoldMT",
+        "ELUGPM+ArialMT"
+      ],
+      "raster_images": 0,
+      "minimum_text_pt": 6.0,
+      "panel_letters": "abcd",
+      "text_inside_canvas": true,
+      "pdf_sha256": "1f17f9b46d2765fe47f2f32a6ffe9dea202cfb8a54ca3557526c3a8d144167ae",
+      "png_sha256": "9199eae5df27a186e6fb05ad2fcfacc150282775db67f902299b3acfb35aa419"
+    },
+    "fig4": {
+      "width_mm": 179.99999491373697,
+      "png_pixels": [
+        4251,
+        4440
+      ],
+      "dpi": 600,
+      "fonts": [
+        "DFIMHP+MicrosoftYaHei",
+        "ELUGPM+Arial-BoldMT",
+        "ELUGPM+ArialMT"
+      ],
+      "raster_images": 0,
+      "minimum_text_pt": 6.0,
+      "panel_letters": "abc",
+      "text_inside_canvas": true,
+      "pdf_sha256": "e2fc0acc49a3db9cc9f95ca74cab7a125aeb39915b940a41e3563c8defe6f7af",
+      "png_sha256": "0b31f2267324149be63c24a56a07b01d433a38a7dab25b16989607fb29323856"
+    }
+  },
+  "inputs": {
+    "PR60": {
+      "ref": "origin/codex/part1-headroom-cost-figure-20261106",
+      "commit": "ab7254543184ba1e55a4de5b26174e57e3099a9e"
+    },
+    "PR63": {
+      "ref": "origin/codex/paper-results1-figures-20261107",
+      "commit": "312022e2adb023d04e35e139e646e606f5f256f4"
+    },
+    "PR65": {
+      "ref": "origin/feat/minimum-server-capacity-20261108",
+      "commit": "25a494f0054974cecd81381ffcc88d56792b94fa"
+    },
+    "PR67": {
+      "ref": "origin/feat/idle-gpu-resale-import-20261108",
+      "commit": "08abb1fc96942e341a33ca31728f54ecbc80ce21"
+    }
+  },
+  "numbers": {
+    "峰值余量范围_pct": [
+      27.3298369498244,
+      51.9546645474055
+    ],
+    "能源侧节省中位数范围_planning_pct": [
+      3.32922911936211,
+      13.8392921338122
+    ],
+    "能源侧节省中位数范围_fixed_pct": [
+      2.17101848200765,
+      7.32281003409935
+    ],
+    "节省占机群成本最高_pct": 1.86664117723427,
+    "训练首末风电档节省_pct": [
+      9.3598218030337,
+      20.352627402297
+    ],
+    "训练市电依赖相关系数": -0.8772818668516361,
+    "主期限减配率_pct": {
+      "A-HPC": 18.2767310692428,
+      "A-CLD": 31.6132264529058,
+      "B-SAI": 15.78,
+      "C-SAI": 15.7798935872305,
+      "D-SAI": 15.7212317666126,
+      "B-TRN": 22.6433430515063,
+      "C-TRN": 22.6338070758996,
+      "D-TRN": 22.6596675415573,
+      "B-INF": 9.17,
+      "C-INF": 9.17110053206385,
+      "D-INF": 9.15721231766613
+    },
+    "科研计算减配率区间_pct": [
+      18.2767310692428,
+      20.8268330733229
+    ],
+    "48_168小时减配率_pct": {
+      "A-HPC": 18.2767310692428,
+      "A-CLD": 31.6132264529058,
+      "D-SAI": 22.3662884927066,
+      "D-TRN": 27.5590551181102,
+      "D-INF": 9.15721231766613
+    },
+    "训练可推迟电量加权平均推迟_h": 17.2242560385013,
+    "训练缩减后资源平均占用率_pct": 90.5604543378098,
+    "训练冗余设备节省_百万美元": {
+      "0.0": 30.0886209237586,
+      "0.05": 24.8608682536075,
+      "0.1": 19.7492878650153
+    },
+    "联合规划净节省占机群成本范围_pct": [
+      9.44619902105413,
+      32.9781763024635
+    ],
+    "联合规划能源节省范围_百万美元": [
+      0.48910689889464803,
+      1.39824246921183
+    ],
+    "训练价格1_2倍净节省_百万美元": [
+      31.4868633929705,
+      61.575484316729096
+    ],
+    "出租比例50_价格1_净收入范围_百万美元": [
+      10.376250063553318,
+      24.006019156581186
+    ],
+    "出租比例50_价格2.2_净收入范围_百万美元": [
+      23.284772529708015,
+      54.19516194554261
+    ],
+    "持平售价_美元每GPU小时": {
+      "D-TRN": 2.60501521740346,
+      "D-SAI": 1.33793124792024,
+      "D-INF": 1.25575826449394
+    }
+  },
+  "fig1_fig2_numeric_identity": true,
+  "input_sha256": {
+    "papers/demand-flexibility/figures/source-data/fig1a.csv": "8df73745448a6bdb05c916f7d3999317fb6215b304ea7ff73cd338849096fed4",
+    "papers/demand-flexibility/figures/source-data/fig1a_continents.csv": "e85e396ebce378dc07aea2190ab2a4aac020ad48287d618cb7acb08f0665f5f0",
+    "papers/demand-flexibility/figures/source-data/fig1a_geometry_audit.csv": "3d56523c22633883875f6136d995516cf946e476b0f0bfcba8def9d5e9538d9d",
+    "papers/demand-flexibility/figures/source-data/fig1b.csv": "cfc4b8faa79a133e36f9debc5ef40ed694ed652f89fe0d4de52e8a958a56d1b3",
+    "papers/demand-flexibility/figures/source-data/fig1c.csv": "8c6854fd337c74c66719893c4dc6d32f7aad4f2fb270908f5691f5b54b3848d7",
+    "papers/demand-flexibility/figures/source-data/fig1d.csv": "7cbb6c24ed53916ad0f7b4d9210710782cc34adb5762eaa4e65f6e42030f3a74",
+    "papers/demand-flexibility/figures/source-data/fig1d_summary.csv": "6f3fafcb556d7a5f76faea8bc41926195c3786a8adaae7185fa5b2f643a65555",
+    "papers/demand-flexibility/figures/source-data/fig2a.csv": "c464acff0166baa91b276c17ca89a9bf749ed8842617be6256d46079c67d7e85",
+    "papers/demand-flexibility/figures/source-data/fig2a_gridvalues.csv": "5a6dfb2da796eec99d65588d6c6746dae0007195dbd75910a2367f3a518d42bb",
+    "papers/demand-flexibility/figures/source-data/fig2b.csv": "9310502477c2a427b5f2ccdb49bc2fe726137d44ea9ee6a5c85123c496f0dcd2",
+    "papers/demand-flexibility/figures/source-data/fig2c.csv": "98b844a9c3c43d2788a449606ef07ed89a5c962d0df3f23ddfca13db60a7f0a4",
+    "papers/demand-flexibility/figures/map-assets/countries-10m.zip": "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6",
+    "papers/demand-flexibility/figures/map-assets/map-block-land-cells.parquet": "51f76d598f7245bda1f9fdf5e18048006f356d73db7abafb51ae9f7660ae7775",
+    "results/minimum-server-capacity-20261108/part2-main-table.csv": "aeb5dbf6756f012c3f36c71e0fbb4d156ec3ac53a07fb673d6b9b08b2442050f",
+    "results/minimum-server-capacity-20261108/capacity-sensitivity.csv": "c8c475aa6d610b0e7e983ccd226f0fa02309d7e61283557e6c54d35b79ba6917",
+    "results/minimum-server-capacity-20261108/waiting-and-utilization.csv": "960793a1d58fac65730cf55ac4532d979ee1912ea523ccf11e2a4c4b383f7a9d",
+    "results/minimum-server-capacity-20261108/equipment-reserve-sensitivity.csv": "d7db0aed276a30aa602aad7abf80575fc2f179a68f1f09a824b30d8148a6f2d1",
+    "results/minimum-server-capacity-20261108/equipment-price-sensitivity.csv": "9e70f421ce48aef12d8c7b890c216d7e9e490827bb51fea6dd7a99b5bef6cdd2",
+    "results/idle-gpu-resale-import-20261108/resale-price-share-city.csv": "b5d19e507a757b45e8ed12f9e185ae3601ab8efcd88c1a2b738a06c3d3ea73f0",
+    "results/global-flex-econ-20261103/part1/part1-summary.csv": "02c2d7f4ccff9022c7cf27e95df06bf336a94bc62ff02d6d13aecfbc222b1cf4"
+  }
+}
