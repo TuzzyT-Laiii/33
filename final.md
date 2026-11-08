@@ -60,3 +60,5 @@
 ## 版本、提交与PR
 
 分支：`codex/paper-figures-zh-20261108`；由`origin/main`的`12a52412fdeb9aa3473758889a6138a226c46d25`创建，PR目标为`main`。数据依赖[#60](https://github.com/TuzzyT-Laiii/33/pull/60)、[#63](https://github.com/TuzzyT-Laiii/33/pull/63)、[#65](https://github.com/TuzzyT-Laiii/33/pull/65)、[#67](https://github.com/TuzzyT-Laiii/33/pull/67)，固定输入提交见[图件README](dc-flexibility-project/papers/demand-flexibility/figures-zh/README.md)。本分支仅读取这些来源文件，未执行上游PR合并。
+
+交付PR：[#70｜论文结果中文主图：图1–图4与面板源数据](https://github.com/TuzzyT-Laiii/33/pull/70)，保持待审、未合并。图件与验证提交为`09befc4`，本报告随同分支推送。
