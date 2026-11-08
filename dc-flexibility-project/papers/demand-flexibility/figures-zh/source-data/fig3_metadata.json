@@ -1,0 +1,19 @@
+{
+  "capacity_scope": "主期限12/48小时；11情境；科研计算未证明唯一最优台数",
+  "hpc_interval_servers": [
+    13195,
+    13620
+  ],
+  "hpc_money_servers": 13620,
+  "delay": "可推迟电量加权，包含零推迟工作量；非逐作业平均等待",
+  "occupancy": "mean_bottleneck_fraction；CPU/GPU瓶颈资源平均占用比例",
+  "reserve": "ceil(最少台数×(1+冗余比例))；能源费用未重新优化",
+  "input": "PR #65；未重新运行科研求解",
+  "width_mm": 180.0,
+  "height_mm": 174.0,
+  "png_dpi": 600,
+  "latin_font": "Arial",
+  "chinese_font": "Microsoft YaHei",
+  "minimum_text_pt": 6.0,
+  "map_rasterized_only": false
+}

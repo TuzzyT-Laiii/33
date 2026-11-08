@@ -1,0 +1,43 @@
+{
+  "part2_scope": "八城市经济最优目标下的容量可行策略；整体作业能源费用最优性未证明",
+  "part1_scope": "4842个全球有效网格中位数；未与八城市作配对因果比较",
+  "price_scope": "仅调整设备费用与机群分母；未重新优化容量和供能",
+  "resale_scope": "保留A机群与A供能；扣除新增能源费用；三种用法收益不能直接相加",
+  "break_even": [
+    {
+      "scenario": "D-TRN",
+      "equipment_annual_saving_usd": 30088620.92375865,
+      "break_even_usd_gpu_h_s50": 2.605015217403462
+    },
+    {
+      "scenario": "D-SAI",
+      "equipment_annual_saving_usd": 22537422.62242926,
+      "break_even_usd_gpu_h_s50": 1.337931247920241
+    },
+    {
+      "scenario": "D-INF",
+      "equipment_annual_saving_usd": 13127467.816157248,
+      "break_even_usd_gpu_h_s50": 1.2557582644939367
+    }
+  ],
+  "price_references": [
+    {
+      "price_usd_gpu_h": 2.2,
+      "label": "2026-07 第三方历史零售价",
+      "url": "https://www.usagepricing.com/blueprint/activity/deepinfra-2026-07-14-gpu-hour-token-hike"
+    },
+    {
+      "price_usd_gpu_h": 2.9,
+      "label": "2026-11-08 官方当前零售价",
+      "url": "https://deepinfra.com/pricing"
+    }
+  ],
+  "input": "PR #60、#65、#67；未重新运行科研求解",
+  "width_mm": 180.0,
+  "height_mm": 188.0,
+  "png_dpi": 600,
+  "latin_font": "Arial",
+  "chinese_font": "Microsoft YaHei",
+  "minimum_text_pt": 6.0,
+  "map_rasterized_only": false
+}
