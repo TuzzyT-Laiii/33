@@ -1,0 +1,43 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "width_pt": 841.9199829101562,
+      "height_pt": 595.3200073242188,
+      "characters": 1070
+    },
+    {
+      "page": 2,
+      "width_pt": 841.9199829101562,
+      "height_pt": 595.3200073242188,
+      "characters": 1255
+    },
+    {
+      "page": 3,
+      "width_pt": 841.9199829101562,
+      "height_pt": 595.3200073242188,
+      "characters": 1269
+    },
+    {
+      "page": 4,
+      "width_pt": 841.9199829101562,
+      "height_pt": 595.3200073242188,
+      "characters": 923
+    }
+  ],
+  "scenario_occurrences": {
+    "A-HPC": 4,
+    "A-CLD": 4,
+    "B-SAI": 4,
+    "C-SAI": 4,
+    "D-SAI": 4,
+    "B-TRN": 4,
+    "C-TRN": 4,
+    "D-TRN": 4,
+    "B-INF": 4,
+    "C-INF": 4,
+    "D-INF": 4
+  },
+  "text_within_page": true,
+  "inspection": "按用户要求，检查 PDF 文字与边界；未使用图像视觉检查"
+}

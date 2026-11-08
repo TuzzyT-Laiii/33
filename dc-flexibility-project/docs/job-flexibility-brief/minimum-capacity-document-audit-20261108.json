@@ -1,0 +1,27 @@
+{
+  "prefix_elements_unchanged": 111,
+  "original_media_unchanged": 15,
+  "chapter_tables": [
+    {
+      "columns": 8,
+      "width_twips": 14399,
+      "available_twips": 14638.0
+    },
+    {
+      "columns": 6,
+      "width_twips": 14401,
+      "available_twips": 14638.0
+    },
+    {
+      "columns": 6,
+      "width_twips": 14401,
+      "available_twips": 14638.0
+    },
+    {
+      "columns": 8,
+      "width_twips": 14399,
+      "available_twips": 14638.0
+    }
+  ],
+  "full_document_pdf_export": "Word 导出调用未完成，已关闭本任务打开的只读文档并恢复提示设置"
+}
