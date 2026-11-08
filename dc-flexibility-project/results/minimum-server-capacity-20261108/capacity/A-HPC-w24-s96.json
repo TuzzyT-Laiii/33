@@ -1,0 +1,46 @@
+{
+  "status": "feasible_with_gap",
+  "servers": 13403,
+  "lower_servers": 12904,
+  "gap_servers": 499,
+  "continuous_lower_servers": 12903.007538709693,
+  "continuous_upper_servers": 13402.827881566905,
+  "grouped_lp_lower_servers": 12903.007538709693,
+  "solve_seconds": 333.79171817199676,
+  "options": 788349,
+  "whole_groups": 432947,
+  "hours": 7416,
+  "audit": {
+    "capacity_servers": 0.0,
+    "batch_conservation": 0.0,
+    "work_conservation": 4.470348358154297e-08,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "lp_audit": {
+    "capacity_servers": 0.0,
+    "batch_conservation": 2.220446049250313e-16,
+    "work_conservation": 1.043081283569336e-06,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "solver": "HiGHS",
+  "task_power_peak_mw": null,
+  "task_power_peak_ratio": null,
+  "scenario": "A-HPC",
+  "whole_h": 24,
+  "split_h": 96,
+  "baseline_servers": 16666,
+  "gpus_per_server": 0,
+  "method": "归一化占用曲线合并 LP、原始作业完整价格下界与原始整数作业修复",
+  "original_whole_groups": 432970,
+  "lp_cohorts": 217805,
+  "whole_jobs_sha256": "4e2d523e24566a74303d4ff5662a05c4092d4492d6f702c95bcf24607a9a2486",
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "direct_pricing_check": {
+    "real_groups": 56,
+    "choices_checked": 1400,
+    "maximum_error": 4.050093593832571e-13
+  },
+  "seconds": 1148.8831150600163
+}

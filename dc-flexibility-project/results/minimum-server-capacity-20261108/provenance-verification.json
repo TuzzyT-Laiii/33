@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "derived_certificate_version_mismatches": [],
+  "city_certificate_version_mismatches": [],
+  "scope": "核对所有已保存的派生基础容量证书 SHA-256 和主期限城市容量证书 SHA-256"
+}

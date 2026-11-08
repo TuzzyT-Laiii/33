@@ -1,0 +1,48 @@
+{
+  "status": "certified_within_one",
+  "servers": 6703,
+  "lower_servers": 6703,
+  "gap_servers": 0,
+  "grouped_lp_lower_servers": 6702.297543368234,
+  "continuous_lower_servers": 6702.297543368234,
+  "continuous_upper_servers": 6702.297543368292,
+  "lp_seconds": 21.681959831010317,
+  "solve_seconds": 25.64111411201884,
+  "options": 412835,
+  "whole_groups": 105664,
+  "task_power_peak_mw": 2.5466378384003807,
+  "task_power_peak_ratio": 0.8227073968384119,
+  "hours": 2057,
+  "audit": {
+    "capacity_servers": 0.0,
+    "batch_conservation": 1.1324274851176597e-14,
+    "work_conservation": 5.904585123062134e-07,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "lp_audit": {
+    "capacity_servers": 5.820766091346741e-11,
+    "batch_conservation": 1.1324274851176597e-14,
+    "work_conservation": 5.904585123062134e-07,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "scenario": "B-TRN",
+  "whole_h": 48,
+  "split_h": 168,
+  "baseline_servers": 9261,
+  "method": "受限模式列生成与全部模式对偶校验、整数修复",
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "whole_jobs_sha256": "a56b3ffd8257423bfce44a923dd32d791b2ad5844ec6644adb5418c62579047a",
+  "seconds": 61.999371092999354,
+  "pricing_history": [
+    {
+      "iteration": 0,
+      "global_lower": 6702.297543368234,
+      "restricted_lp": 6702.297543368234,
+      "options": 412835,
+      "seconds": 36.18534996098606
+    }
+  ],
+  "gpus_per_server": 1
+}

@@ -1,0 +1,9 @@
+{
+  "scenario": "B-INF",
+  "whole_h": 48,
+  "split_h": 168,
+  "resource_lower_servers": 9082.099704687826,
+  "integer_lower_servers": 9083,
+  "resource_lower_over_A": 0.9082099704687826,
+  "seconds": 0.10900000005494803
+}
