@@ -1,0 +1,2121 @@
+{
+  "checked_utc": "2026-11-01T04:06:48.923094+00:00",
+  "status": "passed",
+  "files": 300,
+  "hourly_rows": 2630304,
+  "location_years": 25,
+  "real_input_only": true,
+  "checks": [
+    "input/output SHA-256",
+    "full-year and leap-year indices",
+    "unchanged allocation/CPU/base/weather/units",
+    "independent bounded GPU formula",
+    "online and total IT annual energy conservation",
+    "unchanged offline energy",
+    "power/heat balance",
+    "annual integration and diurnal/weekly summary recomputation",
+    "Burst counts and normalization"
+  ],
+  "verified": [
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "d6bd74136b38004be20e91b112fc086c9ad7158f833e2adea686d385286250ba"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "9b93fc214d95eba6758da1c9760c9d3f90b92a40fe2ec97f4edcb24494642f18"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "a45f459979dcc80516174953f560ce514ea7bac03b1b22f6c3207382b29a8980"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "3a6134f4b978df24243e5d8252872b94e61f331e23dbe2c3c6d35b2a5f150dfd"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "6ba6d5e6873ac76ce2d7294b619fcd1acec7d2a22cdf0ce19830984d0f4daf08"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "9fd138d501c700d92162b8b8d89e4a3a7a984c94255cb665ab422c5bb6a3f4d4"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "fc6ea197a2323afa8037715e96c26370c6414d686c1518e78909b65fa9ea9d68"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "c7fee3983642fda533cbd5f8b894ecb66402641d25936f2a9ea5c4b750d02727"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "f7c7e688888c12cbae053baab4dec7f8c87783d94438baa37019ab02ae48de17"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "8f001a40f370d15750b35458bcd8587932e2b3fe72b27f35a087b89eb125ece9"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "8e3d82c48ae2cc6e82ec8dceede71a3f77984166f86c1d1e37ba9b07665a1439"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "reference-grid",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "c7173f743beed71f22f646e9c9f9981b0b94d418dbb4272ee414f2a60bd8c3a4"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "541fe31a36155e164ad9b8a600374632a5f59d17f9bec85b35ac370d71318efc"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "ea5b43940f50b006ed36737dbd78ee94f305e6cca9a575dd71deda0f1216412d"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "98ba9d431edea1aee4274537ab7be0815bbc7203bfa5c01933ef85c1dc275476"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "7678e7546e0ac539f50ecf8782501581614d6f8e173ca8d58174c0e11d50b847"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "2f499102e82e9cacd077ccf53dad60baefd2340324a544a68b20eec91bb1a4f7"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "b7122e91ff1430ba0ec816e990c18bbf00b91a085184622bc2a5f17f6ebc5691"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "e029e03c73307b41bc71f229264815e9b71765876e7ad2fbfd27db2b1aea072b"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "1f877498047865fbaf9eb9af80f206ba9faef065408136f56f8f44acce6a95d7"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "e8ae7850577ae02f2fba87f92e07d9c4d83cfdf7dc000c0798204270d6f0bb42"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "37bc9f90e0ca0516595bdd30eccbfac588756b234e274de01ac2ec99ac511313"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "c6c54b6c26714194504d8148e3de95fb4066a6bcd8ca09765989ca7f1feec850"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "phoenix",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "cdc2946c4b6c82417da1a0dc0e40e97c05933922967629b3132f8335d9fb39d3"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "dacc0107e6ad34f16d69522d15c43dec2b272300deaeec58f0ffb597e6d60265"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "39ce37e66cd113ab03b1a744e7ac0b6b05e2f532fa2476cd2cb1981b0e3a7220"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "6a56eabd26c4168b394f05a6c3c248c5b77eef6834c3a626304db09373901292"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "a92718edf0c360670b6bb16b3179d1b60d045c03ff77ed52f1b7360f28e09c92"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "7a38b995126c9a7f5b4d865e37ed5acff6f99f40059a38abaf0dcdc493cdde68"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "7d5483026e0dd6000f5e66974060f5e093488f9de4575dcd8d76f4c95ac1a8a0"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "03482a4b2897ed1bc8e2779b60c4ae0de26dfd2739b4cbba859517534861b627"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "47b9a223013397f4fc9604afaee9be4fdf374b0b3f68bdcd3ceb699fe8b7d961"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "1513fd41f94eb5f1ce12b9c2ddd4eefa6a9fd3b461aebcc7ee96d24c14ce808b"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "00aac3f51a73fc1c829a6524b4d14042f209809fc03c5bf7fe867f9e0da57728"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "12ec790867298ace10c7311693aa04b50635b16727becf87d6f32427244cfe8c"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "phoenix",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "fdfb2b5629485e3cfaeb4f7876ae63fe774c82691b0c7c94e19670537a11f62f"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "59e94c5c71a941311a53ee357c0c52ee34e9d9fe09870162da2adee8b16234e8"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "5fc622ea1eb941776437349531265b0600e8e570649dde7e43589e9029157b3b"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "7538765030a72146a4805974655b6c87b17416cdd1157fce0473ab38c3780a70"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "5c1597324f3533e869c5bff414241047f04d58624e71f06ea604f88043a43909"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "d7080150b274c80ddce2ffb54e26628e35a4720363098cb57bf4ffcb18084295"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "b249c598cc89baab34a6c88d883b2bda9581e838119fc8594255541002ce31bf"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "f1863229b4b7ea8f7a34f215562b90fb1a04d12924f93ceae89ceffe3dea8895"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "d8baf0afb16d94e0a77bcf3016f25c9e291d010481ac58876d0037ef055fc250"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "449835477fc3b19e2d908f4eb2faf408a81b4e6be9ab70fda069b3575e065b61"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "810969b785012e812744d277115b8b51a814cfd94f4ab2890b71fece448e4006"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "3801d492e27143b404413bb5590fe6241f10ff256149e9ea06e82b467b9eb0bb"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "phoenix",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "37f7c132ce694d01124490408cb3e0e609c6721f6ba331fe2d2748e70dda0bdd"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "17f68ff046e6fcfa2b0189a27b8c14aa03283720453f990c4c9533f4701d8ce9"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "4811e9bb95773a2b57fc9714fbea4ff91ce90e92a0b6769fdb235a35fe69940a"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "e2fdc7799627a112077946f083a10c90c13b6b9d9c1402624f5c2526e038f5c3"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "abdb88b013bba41bb434a1d5ce408698068ba20687494a843e68477b31d925db"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "a54a5b3962829d02de6df64b7d0a245da272e54fe56abad0b7c26bd60edadbdb"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "70d966514da159c84d14964bb40c7c6d835cd9906cc488cda9ff949b82f1c0a0"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "fb264bf1ddb5f6a030d124c31ad251570c42fc8dfd32e71e1e1c395d4b2fbf66"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "86057907f6ec9e4c8154a31688897d048801b901a383381b603787955b298410"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "dcfb993b5cfa0843294ac54f8ec26ee841bcfccff0f26bbf732ba2aa64ce0823"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "8fe044da99417fdcd63a610e0b6efd8ff7d688baf847bd802f8f015badea4492"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "6bee7e0d7325e94bfcdbf2fca825f2fe6580dc8e2148c319de41536a9f15cc6e"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "ashburn",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "fb514474641e34fb67f89c9ca8eca9b0dc632c7b0832aec0cec2eb781827f6b2"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "48a68ed057434bd96827a2db4075e11d57764f32b52848b2994141def3198059"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "49fb9c35b2f21b4fc9c48f76c586dd833cdb0eab26d740c5ec7c2d2a3e60f9b2"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "b468965f3e0e443bfe7ff0013a45c0ac7877dcfdccac3134d082a9d2e9b25762"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "3a3166a86ec1ab8e5d2b7c8fe875b041f0682cd61de83b64daa3e603011c9244"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "8284024eb63b1c856ef79d0003267bf979dbce6e9363111b68f85069867d4f2a"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "fe55af223b50a7f5bfbd2b8c3f4e30a22049a695743e8c740d16789d0648e268"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "cb736a830c04b2c010ddce377ef24732fae7100b35ed8c0b21918473eb7bb8ba"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "89fb9bd9dfd6a8ffb679aa45f88bd67e77af3f55499cf7c4ef356c66fc98ce6c"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "d3773c5b777700c0a48c5d7da678f048b28d39c8c9ff2208ac92a044edebaefd"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "6a4b5ace8bbd0850876df78f4b25368ea7de7948779c0e04738a829f0b959bed"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "10089a181710b47daf1165fbba90ddf624026dbfc7bde28eb45bedb6de221bb2"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "ashburn",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "e25f5a770d4bc0333fa9d025ada623288bbd629280ffc76eaeba3d296d5005a8"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "a86e251af87e6af75fb21410d894055a67bf3ea4ea291a32fd636a4a14c94d4f"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "d61b03482bcd96019087125db73f2e2a2a0eec3b40e96b9ec177e38384f47381"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "3664d25f7cec720d252b3c3b841714e752de85abf152d950df4dadb2cb0ee17e"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "0e3dd2ff17a15df9484a0b1bff14b92a766832079fb856017f33229bd4175cbf"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "049b5ad4f87039f4190f7b2a25355ba9cac55bc264fb7c3d94a3be024f2cd776"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "f1254f0555504aab72af63c6db209adebbafe50108f1571d0417e1827f39eee9"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "f0c095304d4046729c907073525864c4932efa77f03f94efac0d81479e772706"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "c9abbd7de2a409d1fc5e073d8b2af38175d91d08a935bc2e4d11a2d71417c76b"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "63a108d8fb48dff4fef941adc0b3a8ad63909c66ed8c36b163aa1b8afe6804b7"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "60b82a2df4ee73de35d038a65b05b2e154679f4d9d27c4debce381e246c21202"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "4f85693f4c52e6d4aa3c26d22cf892176e8af77ce961a034c763234c51693d0c"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "ashburn",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "cb88cdf06a6edd7fda8451c2215df7e7a8eebb8287b1d8e0d191a7dcd06462e7"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "a1bc1c597513233bd04e47c3b0309973d12f4f0fafc129abee9b3ac5decba525"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "9c1254d78cff8afa9fea55766a497952041eb2eb1c7bf513def6c2a21f27f8ee"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "d7c7797b8431ba9626060d54d066eeefbbe606c37cf716c36304b6ecc8495915"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "73e1262591e9eb46a6dc78f043a47f5a289676665be6e4aa4cf72a0df455373a"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "7987c0f8bbd2bafaab8b8b9ace56a826af92476ecc6e5893085f708ed620ad2e"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "bc250a6ed573be88452ddb9a245615c9df62dd249976f624056c49a9741a412e"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "de74c1ecbb0f4dc5d1b4d596033f1ad28f269171cc16101394837641ad4ddafc"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "4f702b75ca87413d2b35944e01970c7f0f195d774e41384fa8aacfd3774b69b8"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "17ef8e3e8573b986caf49f328ae88875864f21adb7559f01a3d553f54ddad174"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "bea914825dd08271cb6409055df8ad9cce638602b09bcaf3a0c4a3e374eac994"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "6fb87beee027ff230113a70fbb9a386ca976f7da059908e47de15fb2ba9c3578"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "frankfurt",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "856216e5af0e3c5cb6591a30d80e76442849e311d4aac9316392fef9323d15b7"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "a7ad94ae6fed366ec144b6f233e1bb5ff8e4f56a3d9c0a32916df5ada5d05070"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "bf93e340560790b252c22f6837e46b8cc862da769a0a945832765408d8879143"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "6cf8b8e74196cf1336adec604eae1c10196002f7fb5756b642ee720566c35280"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "6f0eca91e55ee5b7225d075c4c9bff1544aa7854b2729d00fc42519d898d0623"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "4c7f92f07ecc7cd3dcd58a1e867ae476232cd824e15c6ae203350d1f172818da"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "8c6e1eee0aa85fb8ff187004dfaf1f1e4c16550edd7f9ffe64a54d8ccc65e5bc"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "507b208a9cba3051446b9ca7eaca4299b1b94a6d8804deab53b18ae18d34c239"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "ab9ce6438cd74699ba499d90398a2af71f21a87bc5960ea6ddb8aa4370f1c995"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "e8008ac340384e5215778fc270e453dddd77ca34f7824797d9d1132eaadff272"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "decc4fe78680e5a1cd53019545c515c1232a02966d83e4098ec9266e7a47077c"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "e281deb829afec047efe237d1513011de9aa29456990182b1d2b66a3ed414119"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "frankfurt",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "07f284f4665ad06c9217d0fc0a11a0197e42698645f88eba42634fef916357c8"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "9ed8b9aa568d18199ce2522f5e21f3bdedf354609eb0da7e826a84a2e3d426e1"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "5c22b7380c16c2c4a451afd10e3a3973d8a54ca9c95eb384e16073c826d7b27f"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "5f2f0e6a892c172d20cf0e85b48f68db5540a2949d7d620805de0757ce8403f4"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "8a7dd1ae454d58907325912236630283c06a7e8b0f0f741c779e28976de31e81"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "2d5575f39e7e39d818d9321de34f4b101279522c8e5462254ab9c72806e366e9"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "2d13d5ea6725ee52210d570ca6471853e959be0f7a91f56d8415d043ba0d4cb6"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "46eea1f2b5b5c5d863ba3693e399f761bb9a127521f85fd3d63f6835ee396d1d"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "8998c49675385e9e8dc06049a81e4ef9ddc96a62210f9fca93bb9b6340bc7b61"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "eeb3bbabae558da3d69a34bb415a8b116ef006cc11b554eef7f853af567f1629"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "dc995885c5a5d87cd77098ff40f6470121bfbaf3ac4891b5be4e058879e2bc46"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "6d23f41d27fc31e0c1ee2a9d5b94e1320d600e156bf7a24a626b1c63801d75b1"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "frankfurt",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "1aa035259546e814706ba2d1da454cebb8650c52d651338db9ed9ca312436f6e"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "550f272984dca302917ce530fecd79477733584d8049a65261c42b6d78679654"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "184bd95be709efbdd4dce575cb772ea9b2036b4369bf4ffba7e0e57048322ed6"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "64129ac22268f9dde68d42b84773cb1b3b3d7d039f5e650d3e578a6a3f344035"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "26d4c625ed8a006b03916a4dbbdd8a81d37aaf3719b5f3bc4c1cefd15fad0e8a"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "af9a7163813bea92c8c3e8586fc014af1b2cbe12ee792806f962a6cb8e177910"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "24f1a9d970f1502edcd78074466b4e5ec547c809e380c6d4be36ff4c980bd7f2"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "d440772dc885847a4199fc72714a93f611456873df1d7351ea054c1022276d0b"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "85185ec233fb0451f1a6ba50975759adeb5bc76108d7fdad25c1d18f1604eb83"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "f885d1f97927284cf0bf17aef6e946df8d0a7f8bdc072f2b0a8e03814194728f"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "6819c22dc3fb47f771990daee395ad96dbf451b1544c691c55e137c6f3e23a4b"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "7d252bf493714f902409695014f36a33f19e5944b86c805aa18ba9668ea9d707"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "lulea",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "c4b7f8e87cca0972b6042e6d959a74284715119bda3e73b974e2e5a8ef7695f0"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "0dc2ef43f22e0db1b1e49013ba8f731cef4e03bb99cf90391aa42bb16ea8e425"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "dad54c1b0d685895929126d7e237b798d3818167b4d7db018e926ff2d696c148"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "9a1dcb3cf6bfb964ce6a7164305d58b539db4469b97fbe56f4ec4f0af20e2525"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "ac66385cc7babceff2a695b3b0c7c0bf65d8097be4e1b269200bc779f9edc13b"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "8e5a3deff9ce2b3e72e0a6741c8575212ba6b9071bb6dea29b222c272843e593"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "f35d4b9b01114730ab0510a0c9b6330c0c86702b9913f1a2b4bb7d36dbc9f005"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "2e2e7a2af58fe9f5fd2c4c0c198c1991cd95b44e503592b914e5f7f17117ba7c"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "000e107880c452073d61c8cd024f48213a56831aa254222e71b4a730979e912f"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "9591d0b91913ca554d3615cb05f8ec3358e3ff04305aef65f6369a9f9ba8d150"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "97c1cdf7f6adca96719575c640c048fe373c35008b561b611de74b49c4aab834"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "403f94e0e8dcbdef1127bdc29ef5e543cdd99658ae977117f36025e376922093"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "lulea",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "000b659066bfd42b26344ee34b715e5a8419c8de3b098887d2a7dc288a505d74"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "1726fa2ee57625ced7153fc860cc7e131759259aae5f0bdccc09f00e0834d343"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "65fefa659ee16a89da787a957e8415cb169ac32c79cf59dfe4621163cab098c2"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "a738134bac708c6b0879f6c5e0eef389a4b96623ea919c39d66b8cdaa71267ce"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "390bb4df005fbce84389f6122b01e52789649eb4512af7dca06fd33858b2d33e"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "3f838a17db5bfce3275b88f70eec4221aa5ceb09798cfcd2823c47b26d0d410f"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "a1a0bb66b4ce76988243285c4d7be5e884b70df70818608c76a10418dbabe6fd"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "ea6a8246b19a3b3005758aea58a1792f5a858275fb38d2f15592b97c6fbcc6b0"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "7b84c464afd4d655c7ade61fec05fb16bac7a5c45aedbf46bcdb00bf2088593e"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "c9b4f7ed2df429f6f94be88136173d71137d27ba1b37b11f2c13554d64ba3922"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "83c42bff4b488728922c4817598c69394e16bf6458bcdf6460e23bb0fdcd1990"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "07b806bf990ddd7d79915cbbcac8ebd806e23a79ca47f365d8f9bd811a3b38e9"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "lulea",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "edb347563ccc63782bdba8d7e236047dcfa39c71d0f2d92fb23aa545dc10a968"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "2b741fece45ca670e9431dff5aca17683e2728810c50b0cb2b83f24c9fbeffe3"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "0b26684937d6e73b6065c43ee4baf68b41b44733bad2fc9c7994d91a5c54e757"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "e1537f3c9a8e4e068ba0863e0e34fb66ccf9e81bb3edf1305d480263017340be"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "7e30bf1e1e828b6c987731898ca9b58c716bbab61fc6580e3e63aaf5f1611211"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "3d250b7390af2c798401b37dc441a3b5db29774ff90559533d5cecbfc1c5cf8d"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "a614861c8cbeb1faf08d1d8c9f1e4f8f7bac82f9bd5a9f8b4217b37ae169982b"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "b2f8b5b93fb1eed423918e344551c3213e4b09ac79bd6f1b44da5125f5c0c601"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "bb5c82ebbad24011971ae32f99c9ca258d3534828d19ee8add46d9d39a7bf3c9"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "12c2501c91e7e353247f960145bba85c0465460c102f39eb8edb8b8a76abbed6"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "1dfb225dea5ebb9e54dbc443879f53f8dd17ec9ad3477869e8fcc6066ca5539b"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "d76ad082e0a442c301a55c76ef7723a06f5a17585ae0b41d440671fd5a5007bf"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "ulanqab",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "93c8bf951128e6b5d1b146d072535dbcc4aa982b6c8435c2c65cf405b97c6943"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "0e57e3891b37c3f125c48dec3c4c7c486bef8a15d7cd02248fecccbd21461e29"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "dfe4da14f1196e401c72de014453ccc8b7135a00504554207d2405e0348c451f"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "6c24096a23e9e354d53bce3a863ccea6875281ca6921c3acbc0caf182fc2359b"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "e1cfe2b1640a9407502e4e1321a392c423cae13b1a4e187c9aba16bf4343bda8"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "b1ff44fc1ca2ea9ecbe102c5885cc2a1e14b327be5c8a994572723ca71d61bc2"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "445758ad128c6c679a6936abaf9390bd084fc12769adc62f68d861db05e6ce06"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "0d01250ee9ddeefa3ebfe21cab59b31e22572f2b1c6c3c4c5571fd8a81e286da"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "13a7e9141411e915d3f32e7f14107d07c30afde84f16a873468dc112abaac5a8"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "66c6390c048dcdc5143fcda35450c09b6e66c2f44c5a8ee68077488471479b30"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "baee01be8673f0f8b0575fe024a92c25b8691522af7e29c797d6b4fb699b4bab"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "bcebf014bd3c77d2a53a81c11875554fbfbebc29e0b3db14632332d847677ae8"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "ulanqab",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "53261eee3a0d0880f7b2933584d3bd7bc8a29fd80d2c8540aae1875c93d7b877"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "e6a1600336c726a38addb9ad627265841ded3daa2357a3a13944bc0b71d2d961"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "f472a5b97227ca02021b482f6f10deaa4661b51174f2ce2296266c36cf25c9c7"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "d793068411463326a410c02e028be8509de64628bf84bc81689a0cd3ce530537"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "9b470bd5202e818e079165063aca61a29e65ac5d7e3fbab4f47600d68bd55c4d"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "7b1b1545d9d56fdd1362670a3dd7af4ca3ca3de75a6d1fd56f8b96be3a19e5fa"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "3b7b79e2484a38772330d60a160c6edd210e7bafac197078bf7032cb19b952fc"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "1317cc32ded352452b9f3cbab06a6d93fc0a9f03041df05b24dbc7cbc0a156bd"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "e51481aa4f42b8465d917fa93d93a5748affc0086181f04c458e275269f9920f"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "07a761daee33e2c2b75d99834818776ab94be609be7a31f92f5aed27094733d1"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "dd60f81b1c82dae07b1238293f12c51c730930839f1f008cbd119b19b4bf67bd"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "5938d6d2e02501a5ab663320f6f714440225750e0dce4ebe2386e851cfc94f40"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "ulanqab",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "a52ddd616287169ce2904a8f573daed7f220337683afffe7ce0eeb2bbe3a6546"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "a627c0215f447daeb319eefbeeac83691f317ff5d241ec47b3f18c9258640537"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "fe5d6a0ed6d52181c68502f99d571d9a1cdc80679e609ccc57d6ffdbc1607b93"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "b4b3a9b091b44092cbc8237dc0c6fa0a4f2fdd2f08cb9483263e134b0fb7265b"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "6d717168b5bb27be62a09c8f44a09d64269ea9f040f64afe22e3ecd0cc38557a"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "f251e2d117d0ad1bed3596c2e7cdb37efbc95656e582aa25b2e705a433f5b41e"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "32769fa3282b65cf0259c63e6cabf9480d0d5c6ffa05d69a8a84b751d51913b9"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "4092f97b2824f7435cf4f1840dc1748634405ae09f5dbc0e4cb5ef166e2a5b38"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "3ba7bb293e3ed7c51efef695c2694f7a18373456571b323529fe9dc76a87d92e"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "d58e5db9624fa4a7a8ab37359443f2fe71fe3bdf5f0020536e7be38ab623ca08"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "727b7d0f119d2611a492395afe98e2bb66f5ace8193744a75e49a9fb463b4e15"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "27f935f55bd456e7c6432303550e3a58ab4174f0225f71e933143fd37bbb82b6"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "guiyang",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "282fecff09a5721c8b7b4d379376eff645df1d8c425b7d90a22917eacbaa61a0"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "25ad107b09bdcea6917e38253afaea4b072d020dd3d1548d0a37952d09c2086e"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "e779937e2c94f3f80fd800ae4339b8e93e0d2f7fc437edbb6462ec10a87d9e12"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "ffe84c684538dda1cde5f7256b75388c8e8d4eb2fbc9b45a6b733055832c0fdb"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "c6ab9bcde6d130c156d756e98f96ba7475ec7f4b59fd9f41cc58e0883f99afc5"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "01db1340789c7a5c2f7c16b4c1c873479d254c1ca45f3d24f72aa659f349928d"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "c3f2dcc71e597d1b0e02c0470b3528e4f668495710b4b0b5ce87cd9f6e3e0398"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "18428bc1b97d289b10dda48b47e6bc538504dbb68d6a77b1b65457cca9dfd88d"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "5b3847f351976f371dfc7f31d1521de29977656e8780b99c26188516f96fa5b7"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "a7a3e095d922f64359c1f2b9689be1354c9cd116448124eaca3326e6a49b8659"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "311a7bce0dd97d4fc9e7e27acd0f49feda9da49ac258dd69efb8ae4b86e3fdb3"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "61641a6594c3f9bdddeecb064bbad4cc0d6c7bdf53bd8c0974f9fa74152f7c66"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "guiyang",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "e4d7e5ee8ef012d83f150e3e23c9d1f3714ab80711065d3bf54677aa68c898ee"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "e00bf2ce3a175ea9a01c59f70eab02284dd3cb59637b5891a8b35edd6f552e75"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "1901ba2395039b8c28c727d18967ff5114146e01a91d86a0af0457ae6e23fdac"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "15f4726d7b074011badcd9c35302f80a338b0cdc981d14490b490db940499743"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "ecc5102f31ecc7118bb06e1de84656087dcfae67b18afa43625ab67ff66cea42"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "57e78b437ea06de47a7744e60cc00b788dfebd3b0679e58eadb64f73f009b59d"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "5841892411b0c51ea07f7efa1b89bd296614bb6d6db0c0b97c26b055a7758490"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "bcc218aee90fcc87643c11a0026a39cd56486cfc7cf6889fe68f1595b985a091"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "390f8eaab8abda65ae5ad3715918f44c6b96b76b6c033430d0c4adb152fc5517"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "8063de53d8c0054203680592944f9af0b1ed737107fb3fa1420d71078647754f"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "4631fb62a3503aec93056c4dd8bc2d26bd91dc69286710013bfa2243ee70680d"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "ed0bdaee2f0869a8188e4c7b4456e473df8a5b24f8ae67f9ee5eb48f40fd37a2"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "guiyang",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "803c383a49565b4c25dc961950b35b3fec7dce575d3feaf19c3aa719d5b9268a"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "1d8c8afdf4e377fb3059050e4de5cd71927fa2d651e2817f29441db8ad336f09"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "e3ba8c93c22bc8699cd1e551aa2313d3aa97f647dc243ba4abe04c298b7d3e00"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "dbb82e414640ed06210d23ffde5418bfc083bab606248eaba12059927cf97a37"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "73b1e82493a4d995bad45da6fa8e2e5ea5387816a80e24f0859be81a73904111"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "93c0087ffb7cf3db8b287a3530f8db3d3a7312eb243ad3488c23c8c77370db09"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "bfc7d69d48b4a22c7ea380bcd19d03543ad66fd8570d3efd01887c2d05543f0b"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "8c988dc50f1dba926ff2838942cdd4ecc91997be6eb586122d43560d5a2286e7"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "9b505c7821c84bb84cf6b56ce22d5415ccdecd74a52eec376fee803a7efc4ba6"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "b44f4c2106294fc601d2caffc2720afa68a16341da0bc8eb23815a25f67b4a1f"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "f65a878fbb0428a55ee3addb1802736048ced484f92df1302062801a8b0d38eb"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "c8428000541319faa2b36e5c8202dc6ed2466a9898daecb27c7ae3a233c6d0ef"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "riyadh",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "edeadec79279c5b0d4c5b50191130b01430b8c7a634b54bc8e1d0261bf780278"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "41cbb2e4b6cb4ac6ef02883490ccb01139aedffd1e6709bf19d39b6876344fdb"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "11e0fb3735df33d1a326c74ebe85ea23d816c35915ef9181c48f73e3201d74dc"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "145672b3ac1c687db0c95b608f3b57218dd25ca752ab70a141c94a8529a2376f"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "e4990a314e436feb89d07a7e3de7ef2d8cb9d27d8239cc243c78196aad85bee2"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "0ec3ea1d157195af150a98ea33d7f66402ef78dffa518af7f96cba1d73139750"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "f3394ec7d08622142cc2b8a9123616b0c60e829cde2e9060ec164aefdffb429c"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "8be24ff594c6e9021e791ef50900d441ab06e8b1a5a13d976ee9e88c26790972"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "bbf546f7a1c2a86be3625aa65d0eb4351154995e28f5fa25769bb2bd47a57eb0"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "d02e7b552dd491b401a5b16baddd1326813aec2a9dd19f37328609a45530de7c"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "14ffeac4e30a6397d81ba56535a99b98d12c009a9237a0249c60b6c6958963e0"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "d1a0a5c592aaa942e7ecc33ed1559cef0cd61aa44f573fce1717f336094b2f75"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "riyadh",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "1bc9c39845d161fac2c349f4d17fb671b122c07ce247d2afe5fc43bf9a501811"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "062af94c9f903e6010fa5005f9fba900742ae80a9b92b51928e3f733bad0d0bf"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "a8a6194be2262bc7c2c074079b72b7d2f191ee593a7a2f571164cf4b75573149"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "1d78a6ba0c09527aee36dd1a39350d71b6277445848f8328a255e986dfd8dfc9"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "3d037db201960ca038dafd1f7928e14e58c3772c5b98d3c1245825150e1fecd6"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "cca6aaf2339604ee34ebc63c35bac1d6e6d692fcde3b49dfdd68d8521e6e662c"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "079b56fc47dfe42ca7bef2fdb44f3114d67a701cfc869d59cff7b29280018e64"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "f9314859ad9ee36161aec05773f387feae73c2da91c6750c991ec3adf5f82535"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "7692c9c883c0ef2e5e83cc9c54390ee28b8dd445b4e0511723d8f676a5021387"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "358dfb45c9c72c84511ca95ba74239f2feb28ad87c9c9a0a20ad40214cb0967c"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "d9d9920f190606d5e94f53666fb9c53db95d8170b27f4c8ec2ca6e4571ce46fa"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "2333e315abea3c25ab3230c14e4c298c2a78cd147874dbe573638925abd0f25a"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "riyadh",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "386cb2af2857b8b39f94d62c2261cb331dd2ccbcfa96832d1b04f4fcd9a3af14"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "21721e93158c23819cbbf99da876dbf5799f5cdc03071376a3d5c22e8a6b0af6"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "cace16f6f9e58393468070202ed6aeb2400160321ea1488a0a13ba68c0f25ef5"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "d94d3a11c8354b75261301c8e902eb92b768f6cda4bcd9f07db9fb98575eff17"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "4da8df158261b22ecb2e0fdd5b61b489e29255c4aa9e22e25abf49b500a06b5f"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "ad04e90a3ebdcb19db8538b07cd0eb21812bb7ac9ed2c2445952c2c2759a9d62"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "264ab23ec8c967f81368f1199c551dd1effea431bccc4dd2db6d901c645c48ef"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "75a1755746958c7cfbe45c51a65bdc3a182fe23e95fd2e7a1fde73ecbdaadd20"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "67d8cd17cdb91bef54aa5d095f67309767257f1e840b92988cde8d568576a347"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "8d4adf329dc3f495c13796422348667007ee1cd4e40c84198b404e3610fa09ee"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "8f2dfb7fc94bb905a5a7c521d1fe74de3ce0d5ff6a3f1ad1d85b57ace8c6fce6"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "f9e29634616a8bdf1233482a98765ce7c17e657ab2dd33af49a2e2d9cbbc97ac"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "singapore",
+      "year": 2023,
+      "hours": 8760,
+      "sha256": "bac126baabb7efaa702490511501dc601530d17a57774e7f609e54e558a15b12"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "449f2a29ce4092c2383a8aa6527f0157f7a9335f6866183a8dff4d08f5f17239"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "c4b968545811d332797959f815fde78111067d5b4e6f656670f433f15dd443e7"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "0a1d2faec03b685d5d9cfca4858213120267cb3af053949205855e993e34e997"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "ee76393dfbdcbc6b5e4d7f7ae09c54ae768198eb595777485759882109014557"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "34f6c1beedb05488fb75ca9f933cfca2a25777145a0cc546841c0eb39d0fadf9"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "6cd5b0ec72a765046099ac8d3ce64cd9d70961e9e5400ee0a18ce610e38ae9d4"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "3ae5badf49b5a7f39de625955b07b742f4efe2574e0eee0771435cf583e5a46e"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "9b2597f18efaa07c0688e88c39934c4ebf960ac369aad0de5f338af2b47f3d6f"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "4c82d6d4bd732aee47a4afef8bc353f39fda62afbf2817bd592b6628e5cc0642"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "d76de7d7488e0839578fd57c5fedb8e47b29124d1a6fa8eb2644d6b0ed1553cc"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "26f9bd6860c0ed013f4025aac4ce57d73d26e203a4fb3c30cdc0f19453c06474"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "singapore",
+      "year": 2024,
+      "hours": 8784,
+      "sha256": "d940ab81f791fc748dcb3ff15f73128859cd05016f3b1ddfbd231c91ea76d466"
+    },
+    {
+      "scenario_id": "B-INF-1MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "8b83a59be22e90ca238c04bcf862a40a3ebb8f508c8b7f679ff4b4fb067ca2fb"
+    },
+    {
+      "scenario_id": "B-INF-10MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "d96e579a830be0b16a2947078d698efe5c1601948e0a48d1407d028a7f199b7b"
+    },
+    {
+      "scenario_id": "B-INF-100MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "f2209fe73f008cc835795f075f627c9a0025991e808bcabde1dfbf017d20bfe9"
+    },
+    {
+      "scenario_id": "B-INF-500MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "dab5b3f012881d081fd7481b55e53616d1cb32ef766515a8558fc7fa7eb2be14"
+    },
+    {
+      "scenario_id": "C-INF-1MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "6556db4d722241105397d0cb07a2de27d9a998dcb41243940cbc7d9964e758c9"
+    },
+    {
+      "scenario_id": "C-INF-10MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "c5303eb7079a31aa970f763956d96ad5bd785595f70a01fc32cd1e189c7f0fd3"
+    },
+    {
+      "scenario_id": "C-INF-100MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "563e93339b55c7b9f216887d315acd9a80339f7d581c90ee1c6a5f36f22d8487"
+    },
+    {
+      "scenario_id": "C-INF-500MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "c07985c52a222a42811200e75c792f9b896c2eb7f4bacb6f0d320e5c955cd0eb"
+    },
+    {
+      "scenario_id": "D-INF-1MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "2331f5fa51d96cb59bdaa6c94eed839b994f7d99644da286daa70d0570ee3f86"
+    },
+    {
+      "scenario_id": "D-INF-10MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "119ff35e1ecc48908d7962eb76ad4dce729a1200f431ba23974f18d42b3f97dd"
+    },
+    {
+      "scenario_id": "D-INF-100MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "dfa7bee029020d13ae6d5fd62bc24e8700cc5b0531fca5d81e6e161ae6b3b4d6"
+    },
+    {
+      "scenario_id": "D-INF-500MW",
+      "location": "singapore",
+      "year": 2025,
+      "hours": 8760,
+      "sha256": "4c70e62fc56201f610fdac92039e72e4a72067566507c3017f29fb39254999a8"
+    }
+  ]
+}
