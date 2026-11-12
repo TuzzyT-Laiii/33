@@ -33,6 +33,7 @@ D-TRN 经济最优下的四分位区间为规划 **10.39%–18.14%**、已建成
 - [逐格汇总](grid-summary.parquet)：**13.39 MB**，646,800 组配对，其中 639,144 组有效；34 列保留块编号、坐标、国家归属方法/距离、碳因子来源及温度夹取记录。`alpha` 为空表示经济最优。
 - [全球](global-distributions.csv)、[大洲](continent-distributions.csv)、[国家](country-distributions.csv)分布：有效数量、中位数、25/75 分位数；[八城市对照](eight-city-grid-comparison.csv)、[状态计数](status-counts.csv)、[新增计算容量](additional-compute-capacity.csv)、[温度夹取](cooling-input-clipping.csv.gz)。
 - [运行来源与文件校验和](summary-manifest.json)，以及 `provenance/` 内的网格元数据、输入索引、源文件版本和验证记录。
+- [复现材料与详细结果索引](REPRODUCTION.md)，含阿什本代表网格 D-TRN 的原输入、逐时序列和固定任务时间的成本复算口径。
 
 | 全球地图 | 经济最优 | α=100% |
 |---|---|---|
