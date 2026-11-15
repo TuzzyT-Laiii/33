@@ -28,7 +28,7 @@ def setup_paths(project):
     sys.path.insert(1, str(HERE))
 
 
-def initialize(config, project, asi_path, fee, intensities, max_table=None):
+def initialize(config, project, asi_path, fee, intensities, max_table=None, tiers=None):
     setup_paths(project)
     from flex_econ_copt import load_config
     from global_flex_inputs import settings
@@ -41,6 +41,7 @@ def initialize(config, project, asi_path, fee, intensities, max_table=None):
                    templates={s: pd.read_parquet(run / 'inputs/templates' / (s + '.parquet')) for s in own['scenarios']},
                    meta=grids.astype(object).where(grids.notna(), None).set_index('grid_id').to_dict('index'),
                    asi=asi_inference(asi_path),
+                   tiers=tiers,
                    max_intensity=pd.read_csv(max_table).set_index('scenario').max_intensity.to_dict() if max_table else None)
 
 
@@ -90,6 +91,24 @@ def run_group(task):
     base.update(hours=len(frame), hours_dropped_outside_asi=dropped, asi_shift_days=shift, idle_mean_mw=idle_mean, K_mw=float(task0.max()))
     rows = []
     cap = CONTEXT['max_intensity'][scenario] if CONTEXT['max_intensity'] else None
+    if CONTEXT.get('tiers'):
+        # 第二节卖推理：只算不协同（顺序调度）。max = 卖到可承接上限；ideal = 每小时闲置全部作在线负荷售出
+        for tier in CONTEXT['tiers']:
+            if tier == 'ideal':
+                on, off = np.clip(task0.max() - task0, 0, None), np.zeros(len(frame))
+                intensity = float(on.mean() / idle_mean)
+            else:
+                intensity = cap * 0.999  # 上限表保留 4 位小数，四舍五入可能略超可行边界
+                c = intensity * idle_mean / total_mean
+                on, off = c * on_raw, c * off_raw
+            key = dict(base, tier=tier, intensity=intensity, max_intensity=cap, inf_online_mwh=float(on.sum()), inf_offline_mwh=float(off.sum()))
+            a, xs = solve(frame, p, grid, on, off, fee=CONTEXT['fee'], mode='asap', solver='copt')
+            if xs is None:
+                seq = dict(a)
+            else:
+                seq, _ = solve(frame, p, grid, on, off, fee=CONTEXT['fee'], mode='cost', fixed_x=xs, solver='copt')
+            rows.append(dict(key, mode='seq', **seq))
+        return rows
     for level in CONTEXT['intensities']:
         intensity = level * cap if cap is not None else level
         c = intensity * idle_mean / total_mean
@@ -119,11 +138,13 @@ def main():
     ap.add_argument('--workers', type=int, default=32)
     ap.add_argument('--grid-ids', type=Path, help='JSON {"grid_ids": [...]}，用于试跑')
     ap.add_argument('--scenarios', default='')
+    ap.add_argument('--tiers', default='', help='如 ideal,max：第二节三层补算，只算顺序调度')
     ap.add_argument('--max-table', help='max_intensity.py 输出；给出时 --intensities 解释为上限的比例')
     args = ap.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     intensities = [float(v) for v in args.intensities.split(',')]
-    initialize(args.config, args.project, args.asi, args.fee, intensities, args.max_table)
+    tiers = args.tiers.split(',') if args.tiers else None
+    initialize(args.config, args.project, args.asi, args.fee, intensities, args.max_table, tiers)
     scenarios = args.scenarios.split(',') if args.scenarios else CONTEXT['own']['scenarios']
     grids = json.loads(args.grid_ids.read_text('utf-8'))['grid_ids'] if args.grid_ids else list(CONTEXT['meta'])
     runs = args.out / 'runs.jsonl'
@@ -137,7 +158,7 @@ def main():
     (args.out / 'run-config.json').write_text(json.dumps({k: str(v) for k, v in vars(args).items()}, ensure_ascii=False, indent=2), 'utf-8')
     started, finished, errors = time.time(), len(done), 0
     with runs.open('a', encoding='utf-8') as sink, ProcessPoolExecutor(
-            args.workers, initializer=initialize, initargs=(args.config, args.project, args.asi, args.fee, intensities, args.max_table)) as ex:
+            args.workers, initializer=initialize, initargs=(args.config, args.project, args.asi, args.fee, intensities, args.max_table, tiers)) as ex:
         queue, pending = iter(tasks), {}
         for task in queue:
             pending[ex.submit(run_group, task)] = task
