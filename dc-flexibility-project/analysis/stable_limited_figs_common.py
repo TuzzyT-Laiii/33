@@ -76,10 +76,45 @@ def setup():
     return family
 
 
-def panel(fig, letter, x, y, title=None):
+def panel(fig, letter, x, y):
     fig.text(x, y, letter, fontsize=8, fontweight='bold', va='top', ha='left')
-    if title:
-        fig.text(x + .022, y - .001, title, fontsize=6.5, va='top', ha='left')
+
+
+GROUP = {'HPC': 'Sci. computing', 'CLD': 'Cloud', 'SAI': 'Scientific AI', 'TRN': 'LLM training', 'INF': 'Inference'}
+INNER = {'A': 'CPU-only', 'B': 'CPU-heavy', 'C': 'Balanced', 'D': 'GPU-heavy'}
+
+
+def scenario_axis(ax, scenarios, pos, axis='y', outer=-.42, fontsize=5.8):
+    """两级情境标签：内层为配置（CPU-heavy 等），外层为用途（Scientific AI 等），外层带括线。"""
+    import matplotlib.transforms as mtransforms
+    inner = [INNER[s[0]] for s in scenarios]
+    if axis == 'y':
+        ax.set_yticks(pos, inner, fontsize=fontsize)
+        ax.tick_params(axis='y', length=0, pad=2)
+        tr = mtransforms.blended_transform_factory(ax.transAxes, ax.transData)
+    else:
+        ax.set_xticks(pos, inner, fontsize=fontsize, rotation=90)
+        ax.tick_params(axis='x', length=0, pad=2)
+        tr = mtransforms.blended_transform_factory(ax.transData, ax.transAxes)
+    groups = []
+    for s, p in zip(scenarios, pos):
+        u = use(s)
+        if groups and groups[-1][0] == u:
+            groups[-1][1].append(p)
+        else:
+            groups.append((u, [p]))
+    for u, ps in groups:
+        lo, hi, mid = min(ps), max(ps), (min(ps) + max(ps)) / 2
+        if axis == 'y':
+            ax.text(outer, mid, GROUP[u], transform=tr, ha='right', va='center', fontsize=fontsize + .3,
+                    fontweight='bold', color=COLORS[u], clip_on=False)
+            ax.plot([outer + .025] * 2, [lo - .3, hi + .3], transform=tr, color=COLORS[u], lw=.8, clip_on=False,
+                    solid_capstyle='butt')
+        else:
+            ax.text(mid, outer, GROUP[u], transform=tr, ha='center', va='top', fontsize=fontsize + .3,
+                    fontweight='bold', color=COLORS[u], clip_on=False)
+            ax.plot([lo - .3, hi + .3], [outer + .03] * 2, transform=tr, color=COLORS[u], lw=.8, clip_on=False,
+                    solid_capstyle='butt')
 
 
 def csv(frame, name):
@@ -157,17 +192,21 @@ def map_layers():
     return _CELLS, _COUNTRIES
 
 
-def draw_map(fig, rect, values, cmap, norm):
+def draw_map(fig, rect, values, cmap=None, norm=None, projection=None, colors=None, lon_labels=True):
     """2° 代表区块（裁切到陆地）着色；values 为以 grid_id 为索引的 Series。"""
     cells, countries = map_layers()
-    ax = fig.add_axes(rect, projection=ccrs.Robinson())
+    ax = fig.add_axes(rect, projection=projection or ccrs.Robinson())
     ax.set_anchor('NW')
-    ax.set_extent(EXTENT, crs=ccrs.PlateCarree())
+    if projection is None or isinstance(projection, ccrs.Robinson):
+        ax.set_extent(EXTENT, crs=ccrs.PlateCarree())
+    else:
+        ax.set_global()
     cells = cells.merge(values.rename('value'), left_on='grid_id', right_index=True, validate='one_to_one')
     cells = cells.loc[~cells.geometry.is_empty & cells.value.notna()]
     pc = ccrs.PlateCarree()
     ax.add_geometries(countries.geometry, crs=pc, facecolor=LAND, edgecolor='none', zorder=0, rasterized=True)
-    ax.add_geometries(cells.geometry, crs=pc, facecolor=cmap(norm(cells.value.to_numpy())), edgecolor='none',
+    face = colors.reindex(cells.grid_id).tolist() if colors is not None else cmap(norm(cells.value.to_numpy()))
+    ax.add_geometries(cells.geometry, crs=pc, facecolor=face, edgecolor='none',
                       linewidth=0, antialiased=False, zorder=1, rasterized=True)
     ax.add_geometries(countries.geometry, crs=pc, facecolor='none', edgecolor=BORDER, linewidth=.15, zorder=2,
                       rasterized=True)
@@ -175,7 +214,7 @@ def draw_map(fig, rect, values, cmap, norm):
                       xlocs=range(-180, 181, 60), ylocs=[-30, 0, 30, 60], zorder=0.5)
     ax.spines['geo'].set_linewidth(.4)
     ax.spines['geo'].set_edgecolor('#8C8C8C')
-    for lon in (-120, -60, 0, 60, 120):
+    for lon in ((-120, -60, 0, 60, 120) if lon_labels else ()):
         x, y = ax.projection.transform_point(lon, EXTENT[2], pc)
         ax.text(x, y, f'{abs(lon)}°{"W" if lon < 0 else "E" if lon > 0 else ""}', ha='center', va='top',
                 fontsize=5, color=NOTE, transform=ax.transData)
@@ -239,3 +278,46 @@ def colorbar(fig, rect, cmap, norm, ticks, text, extend='neither'):
     cax.tick_params(labelsize=5.5, length=1.8, width=.4, pad=1)
     bar.set_label(text, fontsize=6, labelpad=2)
     return bar
+
+
+def land_axes(fig, rect, projection=None):
+    """只画陆地底图与国界的地图轴（供六边形格网等叠加）。"""
+    _, countries = map_layers()
+    ax = fig.add_axes(rect, projection=projection or ccrs.Robinson())
+    ax.set_anchor('NW')
+    ax.set_extent(EXTENT, crs=ccrs.PlateCarree())
+    pc = ccrs.PlateCarree()
+    ax.add_geometries(countries.geometry, crs=pc, facecolor='#F0F0F0', edgecolor='none', zorder=0, rasterized=True)
+    ax.add_geometries(countries.geometry, crs=pc, facecolor='none', edgecolor='#9A9A9A', linewidth=.2, zorder=3,
+                      rasterized=True)
+    ax.spines['geo'].set_linewidth(.4)
+    ax.spines['geo'].set_edgecolor('#8C8C8C')
+    return ax
+
+
+def longitude_strip(fig, ax_map, height, frames, ylabel, ylim=None, gap=.004, band=6):
+    """地图上方与经度对齐的经度统计条（Robinson 赤道处经度线性）。"""
+    fig.canvas.draw()
+    pos = ax_map.get_position()
+    ax = fig.add_axes([pos.x0, pos.y1 + gap, pos.width, height])
+    x0, x1 = ax_map.get_xlim()
+    ax.set_xlim(x0, x1)
+    edges = np.arange(-180, 181, band)
+    mids = (edges[:-1] + edges[1:]) / 2
+    xs = np.array([ccrs.Robinson().transform_point(float(m), 0, ccrs.PlateCarree())[0] for m in mids])
+    for name, col, frame, iqr in frames:
+        cut = pd.cut(frame.lon, edges, labels=mids)
+        g = frame.groupby(cut, observed=False).value
+        q = pd.DataFrame({'q25': g.quantile(.25), 'median': g.median(), 'q75': g.quantile(.75), 'n': g.size()})
+        ok = (q.n >= 3).to_numpy()
+        if iqr:
+            ax.fill_between(xs[ok], q.q25[ok], q.q75[ok], color=col, alpha=.18, lw=0)
+        ax.plot(xs[ok], q['median'][ok], color=col, lw=.9)
+    ax.set_xticks([])
+    ax.spines['bottom'].set_visible(False)
+    ax.tick_params(axis='y', labelsize=5)
+    if ylim:
+        ax.set_ylim(*ylim)
+    ax.set_ylabel(ylabel, fontsize=5.5, labelpad=1)
+    ax.grid(axis='y', color='#EBEBEB', lw=.4)
+    return ax

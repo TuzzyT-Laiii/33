@@ -25,11 +25,17 @@ def main():
     args = ap.parse_args()
     INPUT.mkdir(parents=True, exist_ok=True)
     r = pd.read_parquet(args.runs, columns=['grid_id', 'scenario', 'mode', 'status', 'intensity_of_max', 'hours',
-                                            'facility_mwh', 'total_cost_usd'])
+                                            'facility_mwh', 'total_cost_usd', 'grid_mwh', 'moved_whole_mwh',
+                                            'moved_split_mwh', 'moved_off_mwh'])
     b = r[(r['mode'] == 'seq') & (r.intensity_of_max == 0)]
     assert (b.status == 'optimal').all() and len(b) == 4842 * 11
-    b = b.rename(columns={'hours': 'hours0', 'facility_mwh': 'facility_mwh0', 'total_cost_usd': 'supply_cost0_usd'})
-    b = b[['grid_id', 'scenario', 'hours0', 'facility_mwh0', 'supply_cost0_usd']].sort_values(['scenario', 'grid_id'])
+    b = b.rename(columns={'hours': 'hours0', 'facility_mwh': 'facility_mwh0', 'total_cost_usd': 'supply_cost0_usd',
+                          'grid_mwh': 'grid_mwh0'})
+    b = b[['grid_id', 'scenario', 'hours0', 'facility_mwh0', 'supply_cost0_usd', 'grid_mwh0']].sort_values(['scenario', 'grid_id'])
+    # 联合调度转移的电量：原任务（整体 + 可拆分）与离线推理
+    j = r[r['mode'] == 'joint'].assign(moved_task_mwh=lambda d: d.moved_whole_mwh + d.moved_split_mwh)
+    j[['grid_id', 'scenario', 'intensity_of_max', 'moved_task_mwh', 'moved_off_mwh']].sort_values(
+        ['scenario', 'grid_id', 'intensity_of_max']).to_parquet(INPUT / 'moved-energy.parquet', index=False)
     b.to_parquet(INPUT / 'baseline-energy.parquet', index=False)
     shutil.copyfile(args.part1, INPUT / 'part1-summary.csv')
     print(b.groupby('scenario').agg(hours=('hours0', 'first'),
