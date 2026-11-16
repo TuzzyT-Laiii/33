@@ -366,3 +366,20 @@ def hex_mosaic(ax, lon, lat, values, cmap, norm, width_km=260, max_km=320):
                         rasterized=True)
     ax.add_collection(pc)
     return len(hexes)
+
+
+def downsizing_usd_mwh():
+    """协同上限（减配）：按最少台数减配的设备年化节省（与地点无关）÷ 全球基准年用电中位数。"""
+    d = pd.read_csv(INPUT / 'downsizing-part2-main.csv', encoding='utf-8-sig')
+    d = d[d.target.eq('economic')].set_index('scenario')
+    b = baseline()
+    annual = (b.facility_mwh0 * 8760 / b.hours0).groupby(b.scenario).median()
+    return (d.equipment_annual_saving_usd / annual).dropna()
+
+
+def task_layers(scenario):
+    """原生小时层：不可推迟（刚性 + 未知）与可推迟（整体 + 可拆分）任务功率，以及任务功率峰值 K。"""
+    f = pd.read_parquet(ROOT / f'results/flex-class-20261101/native-hourly/{scenario}.parquet')
+    rigid = f[['刚性', '未知']].sum(axis=1)
+    defer = f[['可推迟·整体', '可推迟·可拆分']].sum(axis=1)
+    return rigid, defer, (rigid + defer).max()

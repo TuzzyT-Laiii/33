@@ -16,7 +16,7 @@ from scipy.stats import gaussian_kde
 
 from residual_flex_pilot import asi_inference
 from stable_limited_figs_common import (COLORS, DARK, DIV, GPU_SCENARIOS, GROUP, INNER, INPUT, NEUTRAL, ROOT, SELL,
-                                        SEQ, baseline, colorbar, csv, export, guides, paired, panel, scenario_axis,
+                                        SEQ, baseline, colorbar, csv, downsizing_usd_mwh, export, guides, paired, panel, scenario_axis,
                                         sell, setup, shade, use)
 
 PRICE = 2.9
@@ -45,9 +45,7 @@ def main():
     m['coord'] = coord
     b0 = baseline()
     annual = (b0.facility_mwh0 * 8760 / b0.hours0).groupby(b0.scenario).median()
-    down = pd.read_csv(INPUT / 'downsizing-part2-main.csv', encoding='utf-8-sig')
-    down = down[down.target.eq('economic')].set_index('scenario')
-    m['down'] = (down.net_annual_saving_vs_A_usd_median / annual).loc[GPU_SCENARIOS]
+    m['down'] = downsizing_usd_mwh().loc[GPU_SCENARIOS]
     m['p_coord'] = (m.coord + m.cost) / m.slope
     m['p_down'] = (m.down + m.cost) / m.slope
 

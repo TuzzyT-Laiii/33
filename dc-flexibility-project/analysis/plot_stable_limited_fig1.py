@@ -14,7 +14,7 @@ import pandas as pd
 from scipy.stats import gaussian_kde, spearmanr
 
 from stable_limited_figs_common import (COLORS, DARK, GROUP, INNER, LAND, NEUTRAL, REPRESENTATIVES, SCENARIOS, SECTION1,
-                                        SEQ, INPUT, baseline, colorbar, csv, draw_map, export, guides, latitude_strip,
+                                        SEQ, INPUT, baseline, colorbar, downsizing_usd_mwh, task_layers, csv, draw_map, export, guides, latitude_strip,
                                         paired, panel, part1_summary, scenario_axis, setup, shade, use)
 
 
@@ -64,21 +64,29 @@ def main():
     # ---------------- b 堆叠条 + c 山脊图（共用行）
     y = np.arange(len(SCENARIOS))[::-1].astype(float)
     ax_b = fig.add_axes([.21, .395, .2, .235])
+    potential = []
     ax_c = fig.add_axes([.46, .395, .26, .235])
     for yi, s in zip(y, SCENARIOS):
-        u = head.loc[s, 'mean_over_K_pct']
-        ax_b.barh(yi, u, height=.66, color=shade(s), lw=0)
+        rigid, defer, k = task_layers(s)
+        r_pct, d_pct = rigid.mean() / k * 100, defer.mean() / k * 100
+        u = r_pct + d_pct
+        ax_b.barh(yi, r_pct, height=.66, color=tuple(np.array(mpl.colors.to_rgb(shade(s))) * .7), lw=0)
+        ax_b.barh(yi, d_pct, left=r_pct, height=.66, color=shade(s), lw=0)
         ax_b.barh(yi, 100 - u, left=u, height=.66, color='#F1F1F1', edgecolor='#B5B5B5', lw=.35)
-        ax_b.text((100 + u) / 2, yi, f'{100 - u:.0f}', ha='center', va='center', fontsize=5.6)
+        ax_b.text(r_pct + d_pct / 2, yi, f'{d_pct:.0f}', ha='center', va='center', fontsize=5.4, color='white')
+        ax_b.text((100 + u) / 2, yi, f'{100 - u:.0f}', ha='center', va='center', fontsize=5.4)
+        potential.append({'scenario': s, 'non_deferrable_pct_K': r_pct, 'deferrable_pct_K': d_pct,
+                          'headroom_pct_K': 100 - u})
     ax_b.set_xlim(0, 100)
     ax_b.set_xticks([0, 25, 50, 75, 100])
     ax_b.set_ylim(-.6, len(y) + .5)
     ax_b.spines['left'].set_visible(False)
     scenario_axis(ax_b, SCENARIOS, y, outer=-.36)
     ax_b.set_xlabel('Share of task-power peak (%)')
-    ax_b.legend(handles=[Patch(facecolor='#8C8C8C', label='Mean task power'),
+    ax_b.legend(handles=[Patch(facecolor='#5A5A5A', label='Non-deferrable'),
+                         Patch(facecolor='#8C8C8C', label='Deferrable'),
                          Patch(facecolor='#F1F1F1', edgecolor='#B5B5B5', label='Headroom')],
-                loc='upper center', bbox_to_anchor=(.5, -.16), ncol=2, handlelength=.9, columnspacing=.8)
+                loc='upper center', bbox_to_anchor=(.42, -.16), ncol=3, handlelength=.9, columnspacing=.6, fontsize=5.4)
     panel(fig, 'b', .012, .655)
 
     xs = np.linspace(0, 32, 400)
@@ -102,11 +110,7 @@ def main():
     panel(fig, 'c', .44, .655)
 
     # ---------------- f 现有协同 vs 减配上限（与 b、c 共用行）
-    down = pd.read_csv(INPUT / 'downsizing-part2-main.csv', encoding='utf-8-sig')
-    down = down[down.target.eq('economic')].set_index('scenario')
-    b0 = baseline()
-    annual = (b0.facility_mwh0 * 8760 / b0.hours0).groupby(b0.scenario).median()
-    up = (down.net_annual_saving_vs_A_usd_median / annual).loc[SCENARIOS]
+    up = downsizing_usd_mwh().loc[SCENARIOS]
     now = p0.groupby('scenario').saving_usd_mwh.median().loc[SCENARIOS]
     ax_f = fig.add_axes([.765, .395, .19, .235])
     for yi, s in zip(y, SCENARIOS):
@@ -127,14 +131,15 @@ def main():
 
     # ---------------- d 嵌套方块
     med = shares.groupby('scenario')[['share_supply_pct', 'share_total_pct', 'supply_of_total_pct']].median()
-    ax_d = fig.add_axes([.015, .03, .43, .24])
-    ax_d.set_xlim(0, 5 * 1.25)
+    ax_d = fig.add_axes([.015, .06, .53, .2])
+    ax_d.set_anchor('C')
+    ax_d.set_xlim(0, 4 * 1.15 + 1)
     ax_d.set_ylim(-.3, 1.32)
     ax_d.set_aspect('equal')
     ax_d.axis('off')
     rows = []
     for k, s in enumerate(REPRESENTATIVES):
-        x0 = k * 1.25
+        x0 = k * 1.15
         sup = med.loc[s, 'supply_of_total_pct'] / 100
         sav = med.loc[s, 'share_total_pct'] / 100
         ax_d.add_patch(Rectangle((x0, 0), 1, 1, facecolor='#E6E6E6', edgecolor='white', lw=.5))
@@ -155,7 +160,7 @@ def main():
 
     # ---------------- e 散点：节省 vs 市电占比，点色为风电占比
     d = p0[p0.scenario.eq('D-TRN')]
-    ax_e = fig.add_axes([.53, .07, .17, .19])
+    ax_e = fig.add_axes([.64, .07, .25, .2])
     wnorm = mpl.colors.Normalize(0, 100)
     order = np.argsort(d.wind_share.to_numpy())
     ax_e.scatter(d.grid_share.to_numpy()[order], d.saving_usd_mwh.to_numpy()[order], s=1.6, lw=0,
@@ -166,52 +171,29 @@ def main():
     ax_e.plot([i.mid for i in b.index], b['median'], color=DARK, lw=1.1)
     ax_e.set_xlim(0, 100)
     ax_e.set_ylim(0, 36)
-    ax_e.set_xlabel('Grid share without coordination (%)')
+    ax_e.set_xlabel('Grid electricity share without coordination (%)')
     ax_e.set_ylabel('Saving (USD/MWh)')
     rho_g = spearmanr(d.grid_share, d.saving_usd_mwh)[0]
     rho_w = spearmanr(d.wind_share, d.saving_usd_mwh)[0]
     ax_e.text(.97, .95, f'ρ = {rho_g:.2f}', transform=ax_e.transAxes, ha='right', va='top', fontsize=6)
     guides(ax_e, 'both')
-    cax = fig.add_axes([.71, .07, .006, .19])
+    cax = fig.add_axes([.9, .07, .007, .2])
     cb = fig.colorbar(mpl.cm.ScalarMappable(norm=wnorm, cmap=SEQ), cax=cax)
     cb.outline.set_linewidth(.3)
     cax.tick_params(labelsize=5, length=1.5, width=.4, pad=1)
-    cb.set_label('Wind share (%)', fontsize=5.5, labelpad=2)
-    panel(fig, 'e', .46, .3)
+    cb.set_label('Wind share of optimal wind + PV (%)', fontsize=5.5, labelpad=2)
+    panel(fig, 'e', .57, .3)
 
-    # ---------------- g 加卡（完全协同）：卡价 × 闲置卡待机功耗下会加卡的算例比例
-    ac = pd.read_csv(INPUT / 'add-cards-share.csv')
-    piv = ac.pivot(index='idle_scale', columns='m', values='share_adding_cards').sort_index(ascending=False)
-    ax_g = fig.add_axes([.835, .085, .155, .15])
-    gnorm = mpl.colors.Normalize(0, 1)
-    ax_g.imshow(piv.to_numpy(), cmap=SEQ, norm=gnorm, aspect='auto')
-    for i in range(piv.shape[0]):
-        for j in range(piv.shape[1]):
-            v = piv.iat[i, j]
-            ax_g.text(j, i, f'{v * 100:.0f}', ha='center', va='center', fontsize=5,
-                      color='white' if v > .55 else '#333333')
-    ax_g.set_xticks(range(piv.shape[1]), [f'{m * 100:g}' for m in piv.columns], fontsize=5)
-    ax_g.set_yticks(range(piv.shape[0]), [f'{v * 100:g}%' for v in piv.index], fontsize=5.2)
-    j_mkt = list(piv.columns).index(1.0)
-    ax_g.add_patch(Rectangle((j_mkt - .5, -.5), 1, piv.shape[0], fill=False, edgecolor=DARK, lw=.8))
-    ax_g.tick_params(length=0, pad=2)
-    for sp in ax_g.spines.values():
-        sp.set_visible(False)
-    ax_g.set_xlabel('Card price (% of market)', fontsize=6)
-    ax_g.set_ylabel('Idle-card standby', fontsize=5.6, labelpad=1)
-    ax_g.set_title('Cases adding cards (%)', fontsize=5.8, pad=3)
-    panel(fig, 'g', .765, .3)
 
     export(fig, 'fig1')
 
     csv(dtrn.reset_index()[['grid_id', 'lat', 'lon', 'iso3', 'continent', 'saving_usd_mwh']], 'fig1a')
     csv(lat_rows, 'fig1a_latitude')
-    csv(head.reset_index()[['scenario', 'mean_over_K_pct']].assign(headroom_pct=lambda x: 100 - x.mean_over_K_pct), 'fig1b')
+    csv(pd.DataFrame(potential), 'fig1b')
     csv(pd.concat(ridge), 'fig1c')
     csv(pd.DataFrame(rows), 'fig1d')
     csv(d[['grid_id', 'lat', 'lon', 'grid_share', 'wind_share', 'saving_usd_mwh']], 'fig1e')
     csv(pd.DataFrame({'scenario': SCENARIOS, 'current_coordination_usd_mwh': now.values, 'downsizing_usd_mwh': up.values, 'ratio': (up / now).values}), 'fig1f')
-    csv(ac, 'fig1g')
     return pd.DataFrame(rows), rho_g, rho_w
 
 
