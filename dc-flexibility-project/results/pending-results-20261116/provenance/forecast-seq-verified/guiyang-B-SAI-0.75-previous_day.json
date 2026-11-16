@@ -1,0 +1,40 @@
+{
+  "name": "guiyang-B-SAI-0.75.json",
+  "forecast": "previous_day",
+  "reference_sha256": "3adbb31c7f27f1ddb28f59c593f98149278e79ce1d755f1bab3ee903277fb17f",
+  "terminal_result_sha256": "65365bb20dcc23508d61703cb90a167f277ffb910724e456bd6e58bdf9657177",
+  "difference_usd": 0.0,
+  "case": {
+    "mode": "seq",
+    "forecast": "previous_day",
+    "cost_usd": 5289235.814244905,
+    "grid_mwh": 24351.446608153758,
+    "discharge_mwh": 9.467253762501864,
+    "grid_peak_mw": 11.171296281992651,
+    "extra_grid_capacity_mw": 0.032860492913942,
+    "deadline_missed_mwh": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "unserved_mwh": [
+      0,
+      0,
+      0
+    ],
+    "executed_mwh": [
+      3251.7492193642993,
+      4821.500426092777,
+      698.0614352313977
+    ],
+    "conservation_residual_mwh": 4.547473508864641e-12,
+    "max_backlog_mwh": 8.314921459666273,
+    "max_residual": 4.218847493575595e-14,
+    "forecast_wape": [
+      0.14928003600091064,
+      0.45543229243611233,
+      1.254948356993063
+    ]
+  },
+  "seconds": 613.9055191080552
+}

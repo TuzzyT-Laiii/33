@@ -1,0 +1,74 @@
+{
+  "source_commit": "1e524fb",
+  "tables": [
+    {
+      "file": "fig1a.csv",
+      "rows": 4842,
+      "sha256": "c483a35f56cf89d89c6a13dbcfaeba5a061bf7de796a4346cb21b2700f048f12"
+    },
+    {
+      "file": "fig1a_latitude.csv",
+      "rows": 175,
+      "sha256": "27112601e38d54c67d0b81d2dd80b4265fd9ef23097968cc702cde2e9f64804c"
+    },
+    {
+      "file": "fig1b.csv",
+      "rows": 11,
+      "sha256": "f6878784dc1dbe400875a541d2b889ffaa3927184b9acc0b40a23c7c56c443f8"
+    },
+    {
+      "file": "fig1c.csv",
+      "rows": 4400,
+      "sha256": "7fccccd61defb0c90333c8824ec1297fefd0a75abb97934b10ff0c51326a9a8b"
+    },
+    {
+      "file": "fig1d.csv",
+      "rows": 5,
+      "sha256": "31bc3ff1e87b86049809eb6adf55e37d7a3f5f8983a056a9f3776d35ecdb3a23"
+    },
+    {
+      "file": "fig1e.csv",
+      "rows": 4842,
+      "sha256": "4cc8483d1076c05bd606b1fa2d14f66ae2c16196b7a5c23043749bb2255bc318"
+    },
+    {
+      "file": "fig1f.csv",
+      "rows": 11,
+      "sha256": "816b4a5087f0ee00dc7ca8afb914298ab6601823f4dc4d393619e6a055271500"
+    },
+    {
+      "file": "fig1g.csv",
+      "rows": 36,
+      "sha256": "7e599893b478e3fcafa7d5ba02810291e59f61655e3abce7119e5b8973a3ef54"
+    },
+    {
+      "file": "fig2a_b.csv",
+      "rows": 9,
+      "sha256": "8a706fd6ef7b46280718e643d0877f004edda0eb83b38e17d173df91be6f3232"
+    },
+    {
+      "file": "fig2b.csv",
+      "rows": 900,
+      "sha256": "2b6e782f24b7b50b0a0069cba5731258ab29bccfca244719ddfb138ff9c9ba8a"
+    },
+    {
+      "file": "fig2c.csv",
+      "rows": 72,
+      "sha256": "8d07a880ea2bba6bb5d5dc875df54bcbf5867cb042b58540552eafcb494d2cca"
+    },
+    {
+      "file": "fig2d.csv",
+      "rows": 9,
+      "sha256": "8f6bd36495b8e3b8e97d35de6c345904af3771cef00944821d8ff27bac3c0b97"
+    },
+    {
+      "file": "fig2e.csv",
+      "rows": 9,
+      "sha256": "10ababffa7d22e503e6be5070023ec1ed08faaf32d0bb80aa3b216245d9f5833"
+    }
+  ],
+  "figures": {
+    "fig1.png": "005d5f42d053929147bc5c4005193062416a1189a13b99c1596223c1ba13b0f4",
+    "fig2.png": "518347a81a6768b8ed0d1b1efe5b4fb1f306a02a35b38ad6ad2fae3b26671a59"
+  }
+}

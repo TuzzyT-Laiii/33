@@ -1,0 +1,243 @@
+{
+  "clock_checks": [
+    {
+      "scenario": "A-HPC",
+      "layer": "whole",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "A-HPC",
+      "layer": "split",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "A-HPC",
+      "layer": "off",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "A-CLD",
+      "layer": "whole",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "A-CLD",
+      "layer": "split",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "A-CLD",
+      "layer": "off",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "B-SAI",
+      "layer": "whole",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "B-SAI",
+      "layer": "split",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "B-SAI",
+      "layer": "off",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "C-SAI",
+      "layer": "whole",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "C-SAI",
+      "layer": "split",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "C-SAI",
+      "layer": "off",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "D-SAI",
+      "layer": "whole",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "D-SAI",
+      "layer": "split",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "D-SAI",
+      "layer": "off",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "B-TRN",
+      "layer": "whole",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 48
+    },
+    {
+      "scenario": "B-TRN",
+      "layer": "split",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 46
+    },
+    {
+      "scenario": "B-TRN",
+      "layer": "off",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 47
+    },
+    {
+      "scenario": "C-TRN",
+      "layer": "whole",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 48
+    },
+    {
+      "scenario": "C-TRN",
+      "layer": "split",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 46
+    },
+    {
+      "scenario": "C-TRN",
+      "layer": "off",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 47
+    },
+    {
+      "scenario": "D-TRN",
+      "layer": "whole",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 48
+    },
+    {
+      "scenario": "D-TRN",
+      "layer": "split",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 46
+    },
+    {
+      "scenario": "D-TRN",
+      "layer": "off",
+      "gaps": 53,
+      "reference_difference": 0.0,
+      "affected_hours": 47
+    },
+    {
+      "scenario": "B-INF",
+      "layer": "whole",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "B-INF",
+      "layer": "split",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "B-INF",
+      "layer": "off",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "C-INF",
+      "layer": "whole",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "C-INF",
+      "layer": "split",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "C-INF",
+      "layer": "off",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "D-INF",
+      "layer": "whole",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "D-INF",
+      "layer": "split",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    },
+    {
+      "scenario": "D-INF",
+      "layer": "off",
+      "gaps": 0,
+      "reference_difference": 0.0,
+      "affected_hours": 0
+    }
+  ],
+  "continuous_real_replays": 4,
+  "continuous_cost_max_difference_usd": 0.0,
+  "recalculation_scenarios": [
+    "B-TRN",
+    "C-TRN",
+    "D-TRN"
+  ],
+  "recalculation_groups": 48
+}

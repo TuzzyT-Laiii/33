@@ -1,0 +1,104 @@
+{
+  "physical": [
+    {
+      "scenario": "A-CLD",
+      "start": 0,
+      "duration": 4,
+      "max_difference": 4.163336342344337e-17
+    },
+    {
+      "scenario": "A-CLD",
+      "start": 12,
+      "duration": 12,
+      "max_difference": 2.7755575615628914e-17
+    },
+    {
+      "scenario": "A-CLD",
+      "start": 24,
+      "duration": 24,
+      "max_difference": 1.1102230246251565e-16
+    },
+    {
+      "scenario": "D-TRN",
+      "start": 0,
+      "duration": 4,
+      "max_difference": 8.326672684688674e-17
+    },
+    {
+      "scenario": "D-TRN",
+      "start": 12,
+      "duration": 12,
+      "max_difference": 7.993605777301127e-15
+    },
+    {
+      "scenario": "D-INF",
+      "start": 0,
+      "duration": 4,
+      "max_difference": 6.938893903907228e-18
+    },
+    {
+      "scenario": "D-INF",
+      "start": 12,
+      "duration": 12,
+      "max_difference": 6.938893903907228e-18
+    },
+    {
+      "scenario": "D-INF",
+      "start": 24,
+      "duration": 24,
+      "max_difference": 2.7755575615628914e-17
+    }
+  ],
+  "price_algorithm_pairs": 93,
+  "price_algorithm_max_difference_usd": 9.313225746154785e-09,
+  "price_independent": [
+    {
+      "scenario": "A-CLD",
+      "mode": "baseline",
+      "multiplier": 0.5,
+      "difference_usd": 2.9103830456733704e-11
+    },
+    {
+      "scenario": "A-CLD",
+      "mode": "baseline",
+      "multiplier": 1.5,
+      "difference_usd": 0.0
+    },
+    {
+      "scenario": "A-CLD",
+      "mode": "coordination",
+      "multiplier": 0.5,
+      "difference_usd": 7.275957614183426e-12
+    },
+    {
+      "scenario": "A-CLD",
+      "mode": "coordination",
+      "multiplier": 1.5,
+      "difference_usd": 0.0
+    },
+    {
+      "scenario": "D-INF",
+      "mode": "baseline",
+      "multiplier": 0.5,
+      "difference_usd": 0.0
+    },
+    {
+      "scenario": "D-INF",
+      "mode": "baseline",
+      "multiplier": 1.5,
+      "difference_usd": 4.656612873077393e-10
+    },
+    {
+      "scenario": "D-INF",
+      "mode": "coordination",
+      "multiplier": 0.5,
+      "difference_usd": 2.3283064365386963e-10
+    },
+    {
+      "scenario": "D-INF",
+      "mode": "coordination",
+      "multiplier": 1.5,
+      "difference_usd": 9.313225746154785e-10
+    }
+  ]
+}

@@ -121,7 +121,8 @@ def backlog_limit(arrival, deadline, source_hours):
     return limit
 
 
-def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False, cards=None, fixed_assets=None):
+def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False, cards=None, fixed_assets=None,
+          grid_price_multipliers=None):
     """cards=None：沿用整机铭牌余量（首版）。cards给出时：算力按调度前任务峰值K配置，
     超过K需加卡e（MW任务功率），e按年化卡价计费，加的卡全时待机耗电idle_per_mw×e。"""
     import coptpy as cp
@@ -243,10 +244,48 @@ def solve(frame, p, city, *, alpha, design, whole_h, split_h, keep_hourly=False,
                'baseline_it_mwh': float(frame.it_mw.sum())}
     if status != cp.COPT.OPTIMAL:
         summary['status'] = 'infeasible' if status == cp.COPT.INFEASIBLE else 'not_solved'
-        model.clear(); env.close()
+        model.dispose()
+        env.dispose()
         return summary, None
     x = np.asarray(model.getValues(), float)
-    model.clear(); env.close()
+    if grid_price_multipliers is not None:
+        scan = []
+        variables = model.getVars()
+        grid_variables = [variables[j] for j in off['grid'] + idx]
+        left, right = np.concatenate(lhs), np.concatenate(rhs)
+        for multiplier in grid_price_multipliers:
+            if multiplier <= 0 or not np.isfinite(multiplier):
+                raise ValueError('电价倍数必须为有限正数')
+            objective = c.copy()
+            objective[off['grid'] + idx] = (multiplier * p['grid_price_usd_mwh'] +
+                                           p['carbon_price_usd_t'] * ef)
+            if multiplier == 1.:
+                selected = x
+            else:
+                # 保持同一组约束，仅更新电价并重新求解。
+                model.setInfo('Obj', grid_variables,
+                              float(objective[off['grid']]))
+                model.setParam('LpMethod', 2)
+                model.solve()
+                if model.status != cp.COPT.OPTIMAL:
+                    raise RuntimeError(f'电价扫描未达到最优：{city} {multiplier} {model.status}')
+                selected = np.asarray(model.getValues(), float)
+            activity = A @ selected
+            violation = max(float(np.maximum(left - activity, 0).max()),
+                            float(np.maximum(activity - right, 0).max()),
+                            float(np.maximum(lb - selected, 0).max()),
+                            float(np.maximum(selected - ub, 0).max()))
+            if violation > 1e-5:
+                raise RuntimeError(f'电价扫描约束残差超限：{violation}')
+            scan.append(dict(multiplier=float(multiplier), total_cost_usd=float(objective @ selected),
+                             grid_mwh=float(selected[off['grid'] + idx].sum()),
+                             pv_mw=float(selected[0]), wind_mw=float(selected[1]),
+                             battery_mw=float(selected[2]), battery_mwh=float(selected[3]),
+                             grid_cap_mw=float(selected[4]), max_residual=violation))
+        summary['grid_price_scan'] = scan
+        del grid_variables, variables
+    model.dispose()
+    env.dispose()
     d = {key: x[off[key] + idx] for key in HOURLY}
     pv, wind, power, energy, gcap = x[:5]
     extra_mw = float(x[extra]) if cards is not None else 0.

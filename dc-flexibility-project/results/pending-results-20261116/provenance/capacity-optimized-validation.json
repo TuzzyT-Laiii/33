@@ -1,0 +1,14 @@
+{
+  "grid": "g05_r014_c197",
+  "scenario": "D-INF",
+  "difference": {
+    "E0_mwh_year": 0.0,
+    "A_facility_mwh_year": 7.275957614183426e-12,
+    "baseline_energy_usd_year": 0.0,
+    "feasible_energy_usd_year": 0.0,
+    "relaxed_energy_usd_year": 0.0,
+    "net_saving_lower_usd_mwh": 0.0,
+    "net_saving_upper_usd_mwh": 0.0
+  },
+  "max_residual": 5.924150059399835e-13
+}

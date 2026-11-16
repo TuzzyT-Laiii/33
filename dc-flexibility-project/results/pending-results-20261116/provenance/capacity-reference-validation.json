@@ -1,0 +1,14 @@
+{
+  "eligible_scenarios": [
+    "A-HPC",
+    "B-SAI",
+    "C-SAI",
+    "D-SAI",
+    "B-INF",
+    "C-INF",
+    "D-INF"
+  ],
+  "independently_recomputed_pairs": 5598,
+  "maximum_difference_usd": 3.725290298461914e-09,
+  "reference_sha256": "87b7168b79f05a09485119b6350716d6d0c6bfab7c6e16531711453fd79c8eb7"
+}
