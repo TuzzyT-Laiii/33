@@ -127,7 +127,7 @@ def main():
     ax_f.legend(handles=[Patch(facecolor=DARK, label='Current coordination'),
                          Patch(facecolor='#C8C8C8', label='Upper bound: downsizing')],
                 loc='upper center', bbox_to_anchor=(.45, -.16), ncol=1, handlelength=.9, fontsize=5.4)
-    panel(fig, 'f', .74, .655)
+    panel(fig, 'd', .74, .655)
 
     # ---------------- d 嵌套方块
     med = shares.groupby('scenario')[['share_supply_pct', 'share_total_pct', 'supply_of_total_pct']].median()
@@ -156,7 +156,7 @@ def main():
                   va='bottom', fontsize=5.6, color=COLORS[use(s)], fontweight='bold')
         rows.append({'scenario': s, 'supply_of_total_pct': sup * 100, 'saving_of_total_pct': sav * 100,
                      'saving_of_supply_pct': med.loc[s, 'share_supply_pct']})
-    panel(fig, 'd', .012, .3)
+    panel(fig, 'e', .012, .3)
 
     # ---------------- e 散点：节省 vs 市电占比，点色为风电占比
     d = p0[p0.scenario.eq('D-TRN')]
@@ -182,51 +182,50 @@ def main():
     cb.outline.set_linewidth(.3)
     cax.tick_params(labelsize=5, length=1.5, width=.4, pad=1)
     cb.set_label('Wind share of optimal wind + PV (%)', fontsize=5.5, labelpad=2)
-    panel(fig, 'e', .57, .3)
+    panel(fig, 'f', .57, .3)
 
-    # ---------------- g 机制曲线：减配随可推迟时长（上限）与加卡随卡价（完全协同）
-    cap = pd.read_csv(INPUT / 'min-fleet-vs-deadline.csv')
-    ax_g1 = fig.add_axes([.07, .045, .2, .1])
-    xpos = [0, 1, 2, 3]
+    # ---------------- g 上下限从何而来：节省比例 × 成本基数（背景为等节省额线）
+    b1 = baseline()
+    annual_mwh = (b1.facility_mwh0 * 8760 / b1.hours0).groupby(b1.scenario).median()
+    energy_base = (b1.supply_cost0_usd / b1.facility_mwh0).groupby(b1.scenario).median()
+    p0b = p[p.intensity_of_max.eq(0)]
+    energy_share = (p0b.V_usd / p0b.seq_cost_usd * 100).groupby(p0b.scenario).median()
+    dn = pd.read_csv(INPUT / 'downsizing-part2-main.csv', encoding='utf-8-sig')
+    dn = dn[dn.target.eq('economic')].set_index('scenario')
+    fleet_base = dn.annual_fleet_equipment_cost_usd / annual_mwh
+    fleet_share = dn.equipment_annual_saving_usd / dn.annual_fleet_equipment_cost_usd * 100
+    ax_g = fig.add_axes([.085, .045, .42, .125])
+    X, Y = np.meshgrid(np.linspace(0, 36, 200), np.logspace(np.log10(60), np.log10(6000), 200))
+    Z = X / 100 * Y
+    levels = [1, 3, 10, 30, 100, 300, 1000]
+    ax_g.contourf(X, Y, Z, levels=levels, cmap=SEQ, norm=mpl.colors.LogNorm(1, 1000), alpha=.45, extend='both')
+    cs = ax_g.contour(X, Y, Z, levels=levels, colors='white', linewidths=.5)
+    ax_g.clabel(cs, fmt=lambda v: f'{v:g}', fontsize=4.6, inline=True)
     rows_g = []
-    for sc in REPRESENTATIVES:
-        q = cap[cap.scenario.eq(sc)].sort_values('whole_h')
-        yv = [100] + list(np.minimum.accumulate(q.C_over_A.to_numpy()) * 100)
-        ax_g1.plot(xpos, yv, color=COLORS[use(sc)], lw=1.1, marker='o', markersize=2.2)
-        rows_g.append(pd.DataFrame({'panel': 'fleet', 'scenario': sc, 'deadline': ['none', '12/48 h', '24/96 h', '48/168 h'],
-                                    'value_pct': yv}))
-    ax_g1.set_xticks(xpos, ['None', '12/48', '24/96', '48/168'], fontsize=5.2)
-    ax_g1.set_xlim(-.2, 3.2)
-    ax_g1.set_ylim(60, 103)
-    ax_g1.set_yticks([60, 70, 80, 90, 100])
-    ax_g1.tick_params(labelsize=5.2)
-    ax_g1.set_xlabel('Deferral window, whole/split jobs (h)', fontsize=5.6)
-    ax_g1.set_ylabel('Fleet needed (%)', fontsize=5.6)
-    guides(ax_g1, 'y')
-
-    ac = pd.read_csv(INPUT / 'add-cards-global-sample.csv')
-    ax_g2 = fig.add_axes([.35, .045, .19, .1])
-    for idle, ls in [(0.0, '-'), (0.1, (0, (3, 1.5)))]:
-        q = ac[ac.idle_scale.eq(idle)].sort_values('m')
-        xv = list(q.m * 100) + [100]
-        yv = list(q.share_adding_cards * 100) + [0]
-        ax_g2.plot(xv[:-1], yv[:-1], color=DARK, lw=1.1, ls=ls, marker='o', markersize=2.2)
-        ax_g2.plot(xv[-2:], yv[-2:], color=DARK, lw=.6, ls=(0, (1, 1.5)))
-        rows_g.append(pd.DataFrame({'panel': 'add_cards', 'scenario': f'idle_standby_{idle:g}', 'deadline': xv,
-                                    'value_pct': yv}))
-    ax_g2.axvline(100, color='#BBBBBB', lw=.6)
-    ax_g2.set_xscale('log')
-    ax_g2.set_xlim(.4, 130)
-    ax_g2.set_xticks([.5, 1, 3, 10, 100], ['0.5', '1', '3', '10', '100'])
-    ax_g2.minorticks_off()
-    ax_g2.set_ylim(-3, 100)
-    ax_g2.tick_params(labelsize=5.2)
-    ax_g2.set_xlabel('Card price (% of market)', fontsize=5.6)
-    ax_g2.set_ylabel('Cases adding cards (%)', fontsize=5.6)
-    ax_g2.legend(handles=[Line2D([], [], color=DARK, lw=1.1, label='Idle cards off'),
-                          Line2D([], [], color=DARK, lw=1.1, ls=(0, (3, 1.5)), label='10% standby')],
-                 loc='upper right', fontsize=5, handlelength=1.6, borderaxespad=.2)
-    guides(ax_g2, 'y')
+    for sc in SCENARIOS:
+        c = COLORS[use(sc)]
+        x0_, y0_ = energy_share[sc], energy_base[sc]
+        x1_, y1_ = fleet_share[sc], fleet_base[sc]
+        ax_g.plot([x0_, x1_], [y0_, y1_], color=shade(sc), lw=.6, zorder=3)
+        ax_g.scatter(x0_, y0_, marker='o', s=12, facecolors='white', edgecolors=c, lw=.7, zorder=4)
+        ax_g.scatter(x1_, y1_, marker='s', s=13, color=shade(sc), edgecolors='white', lw=.4, zorder=4)
+        rows_g.append({'scenario': sc, 'energy_share_pct': x0_, 'energy_base_usd_mwh': y0_,
+                       'current_usd_mwh': x0_ / 100 * y0_, 'fleet_share_pct': x1_, 'fleet_base_usd_mwh': y1_,
+                       'upper_usd_mwh': x1_ / 100 * y1_})
+    ax_g.set_yscale('log')
+    ax_g.set_xlim(0, 36)
+    ax_g.set_ylim(60, 6000)
+    ax_g.set_yticks([100, 1000], ['100', '1,000'])
+    ax_g.minorticks_off()
+    ax_g.tick_params(labelsize=5.2)
+    ax_g.set_xlabel('Share of the cost base saved (%)', fontsize=5.8)
+    ax_g.set_ylabel('Cost base (USD/MWh)', fontsize=5.8)
+    ax_g.legend(handles=[Line2D([], [], marker='o', ls='none', markerfacecolor='white', markeredgecolor='#666666',
+                                markersize=3.2, label='Current coordination (energy supply)'),
+                         Line2D([], [], marker='s', ls='none', color='#888888', markersize=3.2,
+                                label='Upper bound: downsizing (fleet equipment)')],
+                loc='lower right', fontsize=5, handletextpad=.3, borderaxespad=.3, frameon=True, framealpha=.85,
+                edgecolor='none')
     panel(fig, 'g', .012, .175)
 
 
@@ -236,10 +235,10 @@ def main():
     csv(lat_rows, 'fig1a_latitude')
     csv(pd.DataFrame(potential), 'fig1b')
     csv(pd.concat(ridge), 'fig1c')
-    csv(pd.DataFrame(rows), 'fig1d')
-    csv(d[['grid_id', 'lat', 'lon', 'grid_share', 'wind_share', 'saving_usd_mwh']], 'fig1e')
-    csv(pd.DataFrame({'scenario': SCENARIOS, 'current_coordination_usd_mwh': now.values, 'downsizing_usd_mwh': up.values, 'ratio': (up / now).values}), 'fig1f')
-    csv(pd.concat(rows_g), 'fig1g')
+    csv(pd.DataFrame(rows), 'fig1e')
+    csv(d[['grid_id', 'lat', 'lon', 'grid_share', 'wind_share', 'saving_usd_mwh']], 'fig1f')
+    csv(pd.DataFrame({'scenario': SCENARIOS, 'current_coordination_usd_mwh': now.values, 'downsizing_usd_mwh': up.values, 'ratio': (up / now).values}), 'fig1d')
+    csv(pd.DataFrame(rows_g), 'fig1g')
     return pd.DataFrame(rows), rho_g, rho_w
 
 

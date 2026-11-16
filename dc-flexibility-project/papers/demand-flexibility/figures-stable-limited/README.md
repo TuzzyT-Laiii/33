@@ -8,7 +8,7 @@
 
 | 图 | 面板 | 对应子论点 |
 | --- | --- | --- |
-| [图1](fig1.pdf) | a 训练·GPU 主导协同节省地图 + 纬度条；b 不可推迟/可推迟功率与峰值余量；c 节省分布（山脊图）；d 成本嵌套方块；e 节省 vs 市电占比（点色风电占比）；f 现有协同 vs 减配上限 | 1.1 b；1.2 a、c、e；1.3 d；1.4 f |
+| [图1](fig1.pdf) | a 训练·GPU 主导协同节省地图 + 纬度条；b 不可推迟/可推迟功率与峰值余量；c 节省分布（山脊图）；d 现有协同 vs 减配上限；e 成本嵌套方块；f 节省 vs 市电占比（点色风电占比）；g 上下限分解：节省比例 × 成本基数（等节省额线） | 1.1 b；1.2 a、c、f；1.3 e；1.4 d、g |
 | [图2](fig2.pdf) | a 现有协同、减配上限、真实需求下卖推理、全卖四档（对数轴）；b 盈亏平衡售价；c 日内热条（推理需求与三类机群闲置）；d 闲置 GPU 比例 × 每 MWh GPU 小时（等收益分区）；e 跨地点偏离（半边小提琴：协同 vs 全卖） | 2.1 a、b、c；2.2 d；2.3 e |
 | [图3](fig3.pdf) | a 上限 75% 时节省地图 + 直方图色标；b 协同节省占“卖推理净收入 + 协同节省”（环形图）；c 争用与互补（占用闲置 vs 保留率，虚线为完全争用）；d 保留率 vs 风电占比；e 转移电量与每 MWh 价值变化 | 3.1 a、b；3.2 c、e；3.3 d |
 
@@ -17,7 +17,7 @@
 ## 输入
 
 - `results/residual-flex-global-20261115/paired.parquet`、`results/sell-inference-tiers-20261115/`（PR #77、#78）。
-- `results/paper-figs-stable-limited-20261115/`：`baseline-energy.parquet`、`moved-energy.parquet`（由 `prepare_stable_limited_figs.py` 从第三节 runs-compact 生成）；`part1-summary.csv`（PR #60）；`downsizing-part2-main.csv`（PR #67 减配主表，只取与地点无关的设备年化节省）。
+- `results/paper-figs-stable-limited-20261115/`：`baseline-energy.parquet`、`moved-energy.parquet`（由 `prepare_stable_limited_figs.py` 从第三节 runs-compact 生成）；`part1-summary.csv`（PR #60）；`downsizing-part2-main.csv`（PR #67 减配主表，只取与地点无关的设备年化节省与机群年化设备成本）。
 - `results/global-flex-econ-20261103/grid-summary.parquet`（图 1d）；`results/flex-class-20261101/native-hourly/`（图 2c）。
 
 ## 口径与提示
