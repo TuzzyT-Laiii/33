@@ -131,8 +131,8 @@ def main():
 
     # ---------------- d 嵌套方块
     med = shares.groupby('scenario')[['share_supply_pct', 'share_total_pct', 'supply_of_total_pct']].median()
-    ax_d = fig.add_axes([.015, .06, .53, .2])
-    ax_d.set_anchor('C')
+    ax_d = fig.add_axes([.015, .195, .53, .105])
+    ax_d.set_anchor('N')
     ax_d.set_xlim(0, 4 * 1.15 + 1)
     ax_d.set_ylim(-.3, 1.32)
     ax_d.set_aspect('equal')
@@ -184,6 +184,51 @@ def main():
     cb.set_label('Wind share of optimal wind + PV (%)', fontsize=5.5, labelpad=2)
     panel(fig, 'e', .57, .3)
 
+    # ---------------- g 机制曲线：减配随可推迟时长（上限）与加卡随卡价（完全协同）
+    cap = pd.read_csv(INPUT / 'min-fleet-vs-deadline.csv')
+    ax_g1 = fig.add_axes([.07, .045, .2, .1])
+    xpos = [0, 1, 2, 3]
+    rows_g = []
+    for sc in REPRESENTATIVES:
+        q = cap[cap.scenario.eq(sc)].sort_values('whole_h')
+        yv = [100] + list(np.minimum.accumulate(q.C_over_A.to_numpy()) * 100)
+        ax_g1.plot(xpos, yv, color=COLORS[use(sc)], lw=1.1, marker='o', markersize=2.2)
+        rows_g.append(pd.DataFrame({'panel': 'fleet', 'scenario': sc, 'deadline': ['none', '12/48 h', '24/96 h', '48/168 h'],
+                                    'value_pct': yv}))
+    ax_g1.set_xticks(xpos, ['None', '12/48', '24/96', '48/168'], fontsize=5.2)
+    ax_g1.set_xlim(-.2, 3.2)
+    ax_g1.set_ylim(60, 103)
+    ax_g1.set_yticks([60, 70, 80, 90, 100])
+    ax_g1.tick_params(labelsize=5.2)
+    ax_g1.set_xlabel('Deferral window, whole/split jobs (h)', fontsize=5.6)
+    ax_g1.set_ylabel('Fleet needed (%)', fontsize=5.6)
+    guides(ax_g1, 'y')
+
+    ac = pd.read_csv(INPUT / 'add-cards-global-sample.csv')
+    ax_g2 = fig.add_axes([.35, .045, .19, .1])
+    for idle, ls in [(0.0, '-'), (0.1, (0, (3, 1.5)))]:
+        q = ac[ac.idle_scale.eq(idle)].sort_values('m')
+        xv = list(q.m * 100) + [100]
+        yv = list(q.share_adding_cards * 100) + [0]
+        ax_g2.plot(xv[:-1], yv[:-1], color=DARK, lw=1.1, ls=ls, marker='o', markersize=2.2)
+        ax_g2.plot(xv[-2:], yv[-2:], color=DARK, lw=.6, ls=(0, (1, 1.5)))
+        rows_g.append(pd.DataFrame({'panel': 'add_cards', 'scenario': f'idle_standby_{idle:g}', 'deadline': xv,
+                                    'value_pct': yv}))
+    ax_g2.axvline(100, color='#BBBBBB', lw=.6)
+    ax_g2.set_xscale('log')
+    ax_g2.set_xlim(.4, 130)
+    ax_g2.set_xticks([.5, 1, 3, 10, 100], ['0.5', '1', '3', '10', '100'])
+    ax_g2.minorticks_off()
+    ax_g2.set_ylim(-3, 100)
+    ax_g2.tick_params(labelsize=5.2)
+    ax_g2.set_xlabel('Card price (% of market)', fontsize=5.6)
+    ax_g2.set_ylabel('Cases adding cards (%)', fontsize=5.6)
+    ax_g2.legend(handles=[Line2D([], [], color=DARK, lw=1.1, label='Idle cards off'),
+                          Line2D([], [], color=DARK, lw=1.1, ls=(0, (3, 1.5)), label='10% standby')],
+                 loc='upper right', fontsize=5, handlelength=1.6, borderaxespad=.2)
+    guides(ax_g2, 'y')
+    panel(fig, 'g', .012, .175)
+
 
     export(fig, 'fig1')
 
@@ -194,6 +239,7 @@ def main():
     csv(pd.DataFrame(rows), 'fig1d')
     csv(d[['grid_id', 'lat', 'lon', 'grid_share', 'wind_share', 'saving_usd_mwh']], 'fig1e')
     csv(pd.DataFrame({'scenario': SCENARIOS, 'current_coordination_usd_mwh': now.values, 'downsizing_usd_mwh': up.values, 'ratio': (up / now).values}), 'fig1f')
+    csv(pd.concat(rows_g), 'fig1g')
     return pd.DataFrame(rows), rho_g, rho_w
 
 

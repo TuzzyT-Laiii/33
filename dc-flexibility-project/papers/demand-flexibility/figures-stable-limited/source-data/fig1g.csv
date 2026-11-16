@@ -1,0 +1,31 @@
+﻿panel,scenario,deadline,value_pct
+fleet,A-HPC,none,100
+fleet,A-HPC,12/48 h,81.72326893
+fleet,A-HPC,24/96 h,80.42121685
+fleet,A-HPC,48/168 h,80.42121685
+fleet,A-CLD,none,100
+fleet,A-CLD,12/48 h,68.38677355
+fleet,A-CLD,24/96 h,68.38677355
+fleet,A-CLD,48/168 h,68.38677355
+fleet,D-SAI,none,100
+fleet,D-SAI,12/48 h,84.27876823
+fleet,D-SAI,24/96 h,79.4165316
+fleet,D-SAI,48/168 h,77.63371151
+fleet,D-TRN,none,100
+fleet,D-TRN,12/48 h,77.34033246
+fleet,D-TRN,24/96 h,72.96587927
+fleet,D-TRN,48/168 h,72.44094488
+fleet,D-INF,none,100
+fleet,D-INF,12/48 h,90.84278768
+fleet,D-INF,24/96 h,90.84278768
+fleet,D-INF,48/168 h,90.84278768
+add_cards,idle_standby_0,0.5,90.2676399
+add_cards,idle_standby_0,1.0,24.5825603
+add_cards,idle_standby_0,2.0,20.4379562
+add_cards,idle_standby_0,3.0,0.4019789734
+add_cards,idle_standby_0,100.0,0
+add_cards,idle_standby_0.1,0.5,66.90997567
+add_cards,idle_standby_0.1,1.0,15.67717996
+add_cards,idle_standby_0.1,2.0,11.92214112
+add_cards,idle_standby_0.1,3.0,0
+add_cards,idle_standby_0.1,100.0,0
