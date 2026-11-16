@@ -36,6 +36,13 @@ LAND = '#E4E4E4'
 BORDER = '#A6A6A6'
 NOTE = '#555555'
 EXTENT = (-180, 180, -58, 84)
+# 三张图统一的数值色带（米色 → 青绿 → 深蓝）与发散色带（赤陶红 ↔ 浅灰 ↔ 深青）
+SEQ = mpl.colors.LinearSegmentedColormap.from_list(
+    'seq', ['#F7F1DC', '#D7E9C5', '#93CDB9', '#46A6B5', '#1F6F9F', '#1B3F70'])
+DIV = mpl.colors.LinearSegmentedColormap.from_list(
+    'div', ['#9C3F22', '#D58A62', '#F0D3C3', '#F3F3F3', '#C3E1E0', '#5BA5AA', '#17646C'])
+NEUTRAL = '#9A9A9A'   # 机群设备成本等对照项
+DARK = '#3A3A3A'      # 协同节省
 
 
 def use(scenario):
@@ -321,3 +328,41 @@ def longitude_strip(fig, ax_map, height, frames, ylabel, ylim=None, gap=.004, ba
     ax.set_ylabel(ylabel, fontsize=5.5, labelpad=1)
     ax.grid(axis='y', color='#EBEBEB', lw=.4)
     return ax
+
+
+def hex_mosaic(ax, lon, lat, values, cmap, norm, width_km=260, max_km=320):
+    """在地图投影坐标中铺规则六边形（只保留中心落在陆地上的格），每格取最近抽样网格的值。"""
+    from matplotlib.collections import PolyCollection
+    from scipy.spatial import cKDTree
+    from shapely import prepared, vectorized
+    from shapely.ops import unary_union
+    _, countries = map_layers()
+    land = prepared.prep(unary_union(countries.geometry.buffer(0)))
+    proj = ax.projection
+    pts = proj.transform_points(ccrs.PlateCarree(), np.asarray(lon), np.asarray(lat))[:, :2]
+    tree = cKDTree(pts)
+    w = width_km * 1e3
+    r = w / np.sqrt(3)
+    x0, x1 = ax.get_xlim()
+    y0, y1 = ax.get_ylim()
+    ys = np.arange(y0, y1 + 1.5 * r, 1.5 * r)
+    centers = []
+    for i, yv in enumerate(ys):
+        xs = np.arange(x0 + (w / 2 if i % 2 else 0), x1 + w, w)
+        centers.append(np.column_stack([xs, np.full_like(xs, yv)]))
+    c = np.vstack(centers)
+    ll = ccrs.PlateCarree().transform_points(proj, c[:, 0], c[:, 1])
+    ok = np.isfinite(ll[:, 0]) & np.isfinite(ll[:, 1])
+    c, ll = c[ok], ll[ok]
+    on_land = vectorized.contains(unary_union(countries.geometry.buffer(0)), ll[:, 0], ll[:, 1])
+    c = c[on_land]
+    dist, idx = tree.query(c)
+    keep = dist <= max_km * 1e3
+    c, idx = c[keep], idx[keep]
+    ang = np.deg2rad(np.arange(6) * 60 + 30)
+    hexes = [np.column_stack([cx + r * np.cos(ang), cy + r * np.sin(ang)]) for cx, cy in c]
+    vals = np.asarray(values)[idx]
+    pc = PolyCollection(hexes, facecolors=cmap(norm(vals)), edgecolors='white', linewidths=.12, zorder=2,
+                        rasterized=True)
+    ax.add_collection(pc)
+    return len(hexes)

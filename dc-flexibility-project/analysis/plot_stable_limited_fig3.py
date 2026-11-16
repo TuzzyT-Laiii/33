@@ -1,226 +1,181 @@
-"""图3：算电协同在真实推理需求下仍能产生稳定收益提升（第三节）。
+"""图3：真实推理需求下，算电协同仍带来稳定收益（第三节）。
 
-a 保留率随推理需求强度变化（可承接上限的 0/25/50/75%）；
-b 双变量地图（Mollweide）：训练机群强度 75% 保留率 × 不接推理时风电装机占比（各三分位）；
-c 箭头图：转移电量（原任务 + 离线推理）与每 MWh 转移电量价值相对 I=0 的变化；
-d 热图（三城市试算）：离线推理可推迟带来的补充、需求波动放大对保留率的影响；
-e 强度 75% 时协同节省的累积分布（对数轴），全部为正；
-f 协同节省占卖推理净收入（25/50/75%）。
+a 推理加到上限 75% 时训练机群（GPU-heavy）协同节省地图（USD/MWh，配色同图 1a），色标上方为网格直方图；
+b 环形图：上限 75% 时“卖推理净收入 + 协同节省”中协同节省所占比例；
+c 争用与互补：被推理占用的闲置比例 vs 协同保留率，虚线为完全争用（保留率 = 1 − 占用比例）；
+d 剩余收益的地区差异：训练机群保留率 vs 风电装机占比，点色为不做协同时的市电占比；
+e 上限 75% 时相对不接推理：协同转移电量变化与每 MWh 转移电量价值变化（发散柱）。
 """
-import cartopy.crs as ccrs
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.patches import Patch
+from matplotlib.patches import Patch, Wedge
 import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from stable_limited_figs_common import (COLORS, GPU_SCENARIOS, GROUP, INPUT, REPRESENTATIVES, ROOT, SCENARIOS, csv,
-                                        draw_map, export, guides, label, paired, panel, scenario_axis, sell, setup,
-                                        shade, use)
+from stable_limited_figs_common import (COLORS, DARK, GPU_SCENARIOS, GROUP, INNER, INPUT, LAND, NEUTRAL, RESIDUAL,
+                                        SCENARIOS, SEQ, baseline, csv, draw_map, export, guides, paired, panel,
+                                        scenario_axis, sell, setup, shade, use)
 
 LEVELS = [0, .25, .5, .75]
-# 3×3 双变量色板（行：风电占比低→高；列：保留率低→高）
-BIVAR = [['#F4E3A1', '#A8D5A0', '#4AB39C'],
-         ['#E7A9B6', '#A7A6BD', '#5891A8'],
-         ['#C9609A', '#8B5C9E', '#3B4994']]
-PILOT = ROOT / 'results/residual-flex-pilot-20261114'
-CITY = {'riyadh': 'Riyadh', 'frankfurt': 'Frankfurt', 'singapore': 'Singapore'}
 
 
-def pilot_tables():
-    p = pd.read_csv(PILOT / 'paired.csv')
-    p = p[p.grid_fee_usd_kw_year.eq(120)]
-    real = p[p['shape'].eq('real')].set_index(['city', 'scenario', 'intensity'])
-    off = pd.read_csv(PILOT / 'offline-not-deferrable.csv').set_index(['city', 'scenario', 'intensity'])
-    off_v = off.seq - off.joint
-    contrib = ((real.V.reindex(off_v.index) - off_v) / real.V.reindex(off_v.index) * 100).unstack()
-    r = p.pivot_table(index=['city', 'scenario', 'intensity'], columns='shape', values='R')
-    vol = ((r.amp2 - r.flat) * 100).unstack()
-    vol_real = ((r.amp2 - r.real) * 100).unstack()
-    return contrib, vol, vol_real
-
-
-def color_of(sc):
-    return COLORS[use(sc)]
+def lighten(c, f):
+    return tuple(np.array(mpl.colors.to_rgb(c)) * (1 - f) + f)
 
 
 def main():
     setup()
     p = paired()
-    g = p.groupby(['scenario', 'intensity_of_max']).retention
-    ret = pd.DataFrame({'p10': g.quantile(.1), 'median': g.median(), 'p90': g.quantile(.9)}).reset_index()
+    q75 = p[p.intensity_of_max.eq(.75)]
+    fig = plt.figure(figsize=(180 / 25.4, 195 / 25.4))
 
-    fig = plt.figure(figsize=(180 / 25.4, 215 / 25.4))
-
-    # ---------------- a 保留率曲线
-    ax_a = fig.add_axes([.075, .7, .21, .265])
-    x = np.array(LEVELS) * 100
-    for sc in SCENARIOS:
-        r = ret[ret.scenario.eq(sc)].set_index('intensity_of_max').loc[LEVELS]
-        rep = sc in REPRESENTATIVES
-        if rep:
-            ax_a.fill_between(x, r.p10, r.p90, color=color_of(sc), alpha=.13, lw=0)
-        ax_a.plot(x, r['median'], color=shade(sc), lw=1.1 if rep else .6, ls='-' if rep else (0, (2, 1.5)),
-                  marker='o' if rep else None, markersize=2.2, zorder=3 if rep else 2)
-    ax_a.axhline(1, color='#999999', lw=.4, ls=(0, (3, 2)))
-    ax_a.set_xlim(-3, 78)
-    ax_a.set_ylim(.2, 1.12)
-    ax_a.set_xticks(x)
-    ax_a.set_xlabel('External inference demand\n(% of absorbable cap)')
-    ax_a.set_ylabel('Retention of coordination saving')
-    guides(ax_a, 'y')
-    handles = [Line2D([], [], color=COLORS[use(sc)], lw=1.1,
-                      label=GROUP[use(sc)] + ('' if sc[0] == 'A' else ' (GPU-heavy)')) for sc in REPRESENTATIVES]
-    handles += [Line2D([], [], color='#999999', lw=.6, ls=(0, (2, 1.5)), label='CPU-heavy, balanced'),
-                Patch(facecolor='#999999', alpha=.25, label='P10–P90')]
-    ax_a.legend(handles=handles, loc='lower left', fontsize=5.1, handlelength=1.4, labelspacing=.25)
+    # ---------------- a 地图 + 直方图色标
+    dtrn = q75[q75.scenario.eq('D-TRN')].set_index('grid_id')
+    norm = mpl.colors.Normalize(0, 30)
+    draw_map(fig, [.02, .655, .64, .325], dtrn.saving_usd_mwh, SEQ, norm, lon_labels=False)
+    axh = fig.add_axes([.17, .64, .34, .035])
+    bins = np.linspace(0, 30, 61)
+    cnt, edges = np.histogram(dtrn.saving_usd_mwh.clip(upper=30), bins)
+    axh.bar(edges[:-1], cnt, width=np.diff(edges), align='edge', color=SEQ(norm(edges[:-1] + .25)), lw=0)
+    axh.set_xlim(0, 30)
+    axh.axis('off')
+    vmin = dtrn.saving_usd_mwh.min()
+    axh.annotate(f'min {vmin:.2f}', (vmin, 0), xytext=(1.0, cnt.max() * .8), fontsize=5.3,
+                 arrowprops=dict(arrowstyle='-', lw=.4, color=DARK))
+    cax = fig.add_axes([.17, .635, .34, .006])
+    cb = fig.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=SEQ), cax=cax, orientation='horizontal',
+                      ticks=[0, 5, 10, 15, 20, 25, 30], extend='max', extendfrac=.04)
+    cb.outline.set_linewidth(.3)
+    cax.tick_params(labelsize=5.5, length=1.5, width=.4, pad=1)
+    cb.set_label('Coordination saving with inference at 75% of cap, LLM training · GPU-heavy (USD/MWh)',
+                 fontsize=6, labelpad=2)
     panel(fig, 'a', .012, .99)
 
-    # ---------------- b 双变量地图
-    q75 = p[p.intensity_of_max.eq(.75)]
-    dtrn = q75[q75.scenario.eq('D-TRN')].set_index('grid_id')
-    rc = pd.qcut(dtrn.retention, 3, labels=False)
-    wc = pd.qcut(dtrn.wind_share, 3, labels=False)
-    colors = pd.Series([BIVAR[w][r] for r, w in zip(rc, wc)], index=dtrn.index)
-    draw_map(fig, [.34, .69, .64, .285], dtrn.retention, colors=colors, projection=ccrs.Mollweide(),
-             lon_labels=False)
-    lg = fig.add_axes([.375, .705, .06, .06])
-    for i in range(3):
-        for j in range(3):
-            lg.add_patch(plt.Rectangle((j, i), 1, 1, facecolor=BIVAR[i][j], edgecolor='white', lw=.4))
-    lg.set_xlim(0, 3)
-    lg.set_ylim(0, 3)
-    lg.set_aspect('equal')
-    lg.set_xticks([])
-    lg.set_yticks([])
-    for side in lg.spines.values():
-        side.set_visible(False)
-    lg.set_xlabel('Retention →', fontsize=5.3, labelpad=1)
-    lg.set_ylabel('Wind share →', fontsize=5.3, labelpad=1)
-    rq = dtrn.retention.quantile([1 / 3, 2 / 3]).to_numpy()
-    wq = dtrn.wind_share.quantile([1 / 3, 2 / 3]).to_numpy() * 100
-    rho = spearmanr(dtrn.wind_share, dtrn.retention)[0]
-    panel(fig, 'b', .33, .99)
+    # ---------------- b 环形图：协同节省占净收入
+    sl = sell()
+    m = sl[sl.tier.eq('real_75')].groupby('scenario')[['coord_usd_mwh', 'net_usd_mwh']].median()
+    share = m.coord_usd_mwh / (m.coord_usd_mwh + m.net_usd_mwh) * 100
+    ax_b = fig.add_axes([.7, .62, .28, .36])
+    ax_b.set_xlim(-1.3, 1.3)
+    ax_b.set_ylim(-.5, 3.6)
+    ax_b.set_aspect('equal')
+    ax_b.axis('off')
+    groups = [('SAI', ['B-SAI', 'C-SAI', 'D-SAI']), ('TRN', ['B-TRN', 'C-TRN', 'D-TRN']), ('INF', ['B-INF', 'C-INF', 'D-INF'])]
+    for i, (u, scs) in enumerate(groups):
+        cy = 2.95 - i * 1.25
+        cx = -.55
+        sv = share[scs]
+        mid = sv.loc[scs[2]]
+        ax_b.add_patch(Wedge((cx, cy), .5, 90, 90 + 360 * (1 - mid / 100), width=.17, facecolor=lighten(COLORS[u], .35),
+                             edgecolor='none'))
+        ax_b.add_patch(Wedge((cx, cy), .5, 90 - 360 * mid / 100, 90, width=.17, facecolor=DARK, edgecolor='none'))
+        ax_b.text(cx, cy, f'{mid:.1f}%', ha='center', va='center', fontsize=7, fontweight='bold', color=DARK)
+        ax_b.text(.1, cy + .15, GROUP[u], ha='left', va='center', fontsize=6, fontweight='bold', color=COLORS[u])
+        ax_b.text(.1, cy - .14, f'all configs {sv.min():.1f}–{sv.max():.1f}%', ha='left', va='center', fontsize=5.3)
+    ax_b.legend(handles=[Patch(facecolor=DARK, label='Coordination saving'),
+                         Patch(facecolor='#BFBFBF', label='Net inference revenue')],
+                loc='lower left', bbox_to_anchor=(0, -.02), fontsize=5.2, handlelength=.9)
+    panel(fig, 'b', .67, .99)
 
-    # ---------------- c 箭头图：转移电量 vs 每 MWh 价值
+    # ---------------- c 争用与互补
+    cap = pd.read_csv(RESIDUAL / 'max-intensity.csv').set_index('scenario').max_intensity
+    ret = p.groupby(['scenario', 'intensity_of_max']).retention.median().unstack()
+    ax_c = fig.add_axes([.075, .335, .36, .23])
+    xx = np.linspace(0, .7, 50)
+    ax_c.fill_between(xx, 1 - xx, 1.1, color='#EEF6F4', lw=0, zorder=0)
+    ax_c.plot(xx, 1 - xx, color=DARK, lw=.8, ls=(0, (3, 2)))
+    marks = {'A': 'D', 'B': 'o', 'C': 's', 'D': '^'}
+    rows_c = []
+    for sc in SCENARIOS:
+        occ = np.array(LEVELS) * cap[sc]
+        r = ret.loc[sc, LEVELS].to_numpy()
+        c = COLORS[use(sc)]
+        ax_c.plot(occ, r, color=shade(sc), lw=.8, zorder=3)
+        ax_c.scatter(occ[-1], r[-1], marker=marks[sc[0]], s=22, color=c, edgecolors='white', lw=.5, zorder=4)
+        rows_c.append(pd.DataFrame({'scenario': sc, 'intensity_of_cap': LEVELS, 'idle_occupied': occ, 'retention': r}))
+    ax_c.set_xlim(0, .7)
+    ax_c.set_ylim(.3, 1.1)
+    ax_c.set_xlabel('Idle capacity occupied by inference (× mean idle)', fontsize=6)
+    ax_c.set_ylabel('Retention of coordination saving', fontsize=6)
+    guides(ax_c, 'both')
+    h1 = [Line2D([], [], marker='o', ls='none', color=COLORS[u], markersize=3.5, label=GROUP[u]) for u in GROUP]
+    h2 = [Line2D([], [], marker=mk, ls='none', color='#777777', markersize=3.5, label=INNER[k]) for k, mk in marks.items()]
+    h3 = [Line2D([], [], color=DARK, lw=.8, ls=(0, (3, 2)), label='Full competition'),
+          Patch(facecolor='#EEF6F4', label='Complementarity')]
+    ax_c.legend(handles=h1 + h2 + h3, loc='upper left', bbox_to_anchor=(1.01, 1.0), fontsize=5, handletextpad=.2,
+                labelspacing=.35, borderaxespad=0)
+    panel(fig, 'c', .012, .6)
+
+    # ---------------- d 保留率 vs 风电占比
+    b0 = baseline()[['grid_id', 'scenario', 'grid_mwh0']]
+    dd = dtrn.reset_index().merge(b0[b0.scenario.eq('D-TRN')].drop(columns='scenario'), on='grid_id')
+    gshare = 100 * dd.grid_mwh0 / dd.facility_mwh0
+    ax_d = fig.add_axes([.64, .335, .24, .23])
+    gnorm = mpl.colors.Normalize(0, 80)
+    order = np.argsort(-gshare.to_numpy())
+    ax_d.scatter(dd.wind_share.to_numpy()[order] * 100, dd.retention.to_numpy()[order], s=1.6, lw=0,
+                 c=gshare.to_numpy()[order], cmap=SEQ.reversed(), norm=gnorm, rasterized=True)
+    cut = pd.cut(dd.wind_share * 100, np.arange(0, 101, 5))
+    bm = dd.groupby(cut, observed=True).retention.agg(['median', 'size'])
+    bm = bm[bm['size'] >= 60]
+    ax_d.plot([i.mid for i in bm.index], bm['median'], color=DARK, lw=1.1)
+    rho = spearmanr(dd.wind_share, dd.retention)[0]
+    ax_d.text(.04, .95, f'ρ = {rho:.2f}', transform=ax_d.transAxes, va='top', fontsize=6)
+    ax_d.set_xlim(0, 100)
+    ax_d.set_ylim(.1, 1.0)
+    ax_d.set_xlabel('Wind share of optimal wind + PV (%)', fontsize=6)
+    ax_d.set_ylabel('Retention, training · GPU-heavy', fontsize=6)
+    guides(ax_d, 'both')
+    cax = fig.add_axes([.89, .335, .006, .23])
+    cbd = fig.colorbar(mpl.cm.ScalarMappable(norm=gnorm, cmap=SEQ.reversed()), cax=cax)
+    cbd.outline.set_linewidth(.3)
+    cax.tick_params(labelsize=5, length=1.5, width=.4, pad=1)
+    cbd.set_label('Grid share (%)', fontsize=5.5, labelpad=2)
+    panel(fig, 'd', .57, .6)
+
+    # ---------------- e 发散柱：转移电量 vs 每 MWh 价值
     mv = pd.read_parquet(INPUT / 'moved-energy.parquet')
     mv['moved'] = mv.moved_task_mwh + mv.moved_off_mwh
     mv = mv.merge(p[['grid_id', 'scenario', 'intensity_of_max', 'V_usd']], on=['grid_id', 'scenario', 'intensity_of_max'])
     base = mv[mv.intensity_of_max.eq(0)].set_index(['grid_id', 'scenario'])[['moved', 'V_usd']]
     mv = mv.join(base, on=['grid_id', 'scenario'], rsuffix='0')
-    mv['moved_ratio'] = mv.moved / mv.moved0
-    mv['value_ratio'] = (mv.V_usd / mv.moved) / (mv.V_usd0 / mv.moved0)
-    path = mv.groupby(['scenario', 'intensity_of_max'])[['moved_ratio', 'value_ratio']].median().reset_index()
-    ax_c = fig.add_axes([.085, .385, .24, .225])
-    ax_c.axhline(1, color='#BBBBBB', lw=.5)
-    ax_c.axvline(1, color='#BBBBBB', lw=.5)
-    for sc in SCENARIOS:
-        q = path[path.scenario.eq(sc)].set_index('intensity_of_max').loc[LEVELS]
-        c = shade(sc)
-        ax_c.plot(q.moved_ratio.iloc[:-1], q.value_ratio.iloc[:-1], color=c, lw=.8, marker='o', markersize=1.8)
-        ax_c.annotate('', xy=(q.moved_ratio.iloc[-1], q.value_ratio.iloc[-1]),
-                      xytext=(q.moved_ratio.iloc[-2], q.value_ratio.iloc[-2]),
-                      arrowprops=dict(arrowstyle='-|>,head_length=.35,head_width=.18', color=c, lw=.8,
-                                      shrinkA=0, shrinkB=0))
-    ax_c.set_xlim(.85, 1.15)
-    ax_c.set_ylim(.45, 1.15)
-    ax_c.set_xlabel('Energy shifted by coordination\n(relative to no inference)')
-    ax_c.set_ylabel('Value per shifted MWh\n(relative to no inference)')
-    ax_c.legend(handles=[Line2D([], [], color=COLORS[u], lw=1, label=GROUP[u]) for u in GROUP],
-                loc='lower left', fontsize=5, handlelength=1.2, labelspacing=.25)
-    guides(ax_c, 'both')
-    panel(fig, 'c', .012, .65)
-
-    # ---------------- d 热图：离线推理可推迟、需求波动（三城市试算）
-    contrib, vol, vol_real = pilot_tables()
-    order = [(c, s) for c in CITY for s in ('B-TRN', 'D-TRN')]
-    contrib = contrib.loc[order, [.25, .5, .75]]
-    vol = vol.loc[order, [.25, .5]]
-    ax_d1 = fig.add_axes([.555, .385, .15, .2])
-    ax_d2 = fig.add_axes([.765, .385, .1, .2])
-    cm1 = mpl.colormaps['Purples']
-    cm2 = mpl.colormaps['Oranges']
-    ax_d1.imshow(contrib.to_numpy(), cmap=cm1, vmin=0, vmax=15, aspect='auto')
-    ax_d2.imshow(vol.to_numpy(), cmap=cm2, vmin=0, vmax=15, aspect='auto')
-    for axh, tab in [(ax_d1, contrib), (ax_d2, vol)]:
-        for i in range(tab.shape[0]):
-            for j in range(tab.shape[1]):
-                v = tab.iat[i, j]
-                axh.text(j, i, '–' if pd.isna(v) else f'{v:.1f}', ha='center', va='center', fontsize=5.3,
-                         color='white' if (not pd.isna(v) and v > 9) else '#222222')
-        axh.set_xticks(range(tab.shape[1]), [f'{c:.2f}' for c in tab.columns], fontsize=5.5)
-        axh.tick_params(length=0, pad=2)
-        for side in axh.spines.values():
-            side.set_visible(False)
-        axh.set_xlabel('Inference demand\n(× mean idle power)')
-    ax_d1.set_yticks(range(len(order)), [('CPU-heavy' if s[0] == 'B' else 'GPU-heavy') for _, s in order],
-                     fontsize=5.4)
-    ax_d2.set_yticks([])
-    for k, c in enumerate(CITY.values()):
-        ax_d1.text(-1.75, 2 * k + .5, c, ha='right', va='center', fontsize=5.8, fontweight='bold')
-        if k:
-            for axh in (ax_d1, ax_d2):
-                axh.axhline(2 * k - .5, color='white', lw=1.5)
-    ax_d1.set_title('Saving lost if offline inference\ncannot be deferred (%)', fontsize=5.6, pad=3)
-    ax_d2.set_title('Retention gain when\nvolatility doubles (pp)', fontsize=5.6, pad=3)
-    fig.text(.43, .385 + .1, 'LLM training', rotation=90, ha='center', va='center', fontsize=5.8,
-             color=COLORS['TRN'], fontweight='bold')
-    panel(fig, 'd', .4, .65)
-
-    # ---------------- e 累积分布：强度 75% 全部为正
-    ax_e = fig.add_axes([.085, .07, .29, .2])
-    for sc in SCENARIOS:
-        v = np.sort(q75.loc[q75.scenario.eq(sc), 'saving_usd_mwh'].to_numpy())
-        ax_e.plot(v, np.arange(1, len(v) + 1) / len(v), color=shade(sc), lw=.9 if sc in REPRESENTATIVES else .6)
-    ax_e.set_xscale('log')
-    ax_e.set_xlim(.02, 40)
-    ax_e.set_xticks([.1, 1, 10], ['0.1', '1', '10'])
-    ax_e.set_ylim(0, 1)
-    ax_e.axhline(.1, color='#8B253E', lw=.5, ls=(0, (3, 2)))
-    ax_e.set_xlabel('Coordination saving at 75% of cap (USD/MWh)')
-    ax_e.set_ylabel('Cumulative share of grid cells')
-    ax_e.text(.025, .12, 'P10', color='#8B253E', fontsize=5.3, va='bottom')
-    ax_e.legend(handles=[Line2D([], [], color=COLORS[u], lw=1, label=GROUP[u]) for u in GROUP],
-                loc='upper left', fontsize=5, handlelength=1.2, labelspacing=.25)
-    guides(ax_e, 'both')
-    panel(fig, 'e', .012, .31)
-
-    # ---------------- f 协同节省 / 卖推理净收入
-    sl = sell()
-    sl = sl[sl.tier.isin(['real_25', 'real_50', 'real_75'])]
-    m = sl.groupby(['scenario', 'tier'])[['coord_usd_mwh', 'net_usd_mwh']].median()
-    share = (m.coord_usd_mwh / m.net_usd_mwh * 100).unstack().loc[GPU_SCENARIOS]
-    ax_f = fig.add_axes([.53, .115, .45, .16])
-    xs = np.arange(len(GPU_SCENARIOS))
-    for k, (t, alpha) in enumerate([('real_25', .35), ('real_50', .65), ('real_75', 1.)]):
-        ax_f.bar(xs + (k - 1) * .27, share[t], width=.25, color=[shade(sc) for sc in GPU_SCENARIOS], alpha=alpha,
-                 lw=0)
-    ax_f.set_xlim(-.6, len(xs) - .4)
-    ax_f.set_ylabel('Coordination saving /\nnet inference revenue (%)')
-    scenario_axis(ax_f, GPU_SCENARIOS, xs, axis='x', outer=-.42)
-    ax_f.legend(handles=[Patch(facecolor='#555555', alpha=a, label=t) for a, t in
-                         [(.35, 'Sell 25% of cap'), (.65, '50%'), (1., '75%')]], loc='upper right', ncol=3,
-                fontsize=5.2, handlelength=1, columnspacing=.8)
-    guides(ax_f, 'y')
-    panel(fig, 'f', .45, .31)
+    mv = mv[mv.intensity_of_max.eq(.75)]
+    mv['d_energy'] = (mv.moved / mv.moved0 - 1) * 100
+    mv['d_value'] = ((mv.V_usd / mv.moved) / (mv.V_usd0 / mv.moved0) - 1) * 100
+    dm = mv.groupby('scenario')[['d_energy', 'd_value']].median().loc[SCENARIOS]
+    ax_e = fig.add_axes([.12, .08, .85, .14])
+    xs = np.arange(len(SCENARIOS)).astype(float)
+    for x0, sc in zip(xs, SCENARIOS):
+        ax_e.bar(x0 - .19, dm.loc[sc, 'd_energy'], width=.36, color=NEUTRAL, lw=0)
+        ax_e.bar(x0 + .19, dm.loc[sc, 'd_value'], width=.36, color=shade(sc), lw=0)
+    ax_e.axhline(0, color=DARK, lw=.6)
+    ax_e.set_xlim(-.6, len(xs) - .4)
+    ax_e.set_ylim(-55, 15)
+    ax_e.set_yticks([-50, -25, 0])
+    ax_e.set_ylabel('Change at 75% of cap\nvs no inference (%)', fontsize=6)
+    scenario_axis(ax_e, SCENARIOS, xs, axis='x', outer=-.3)
+    for lab in ax_e.get_xticklabels():
+        lab.set_rotation(0)
+    ax_e.legend(handles=[Patch(facecolor=NEUTRAL, label='Energy shifted by coordination'),
+                         Patch(facecolor='#5E9E8C', label='Value per shifted MWh')],
+                loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=2, fontsize=5.4, handlelength=.9)
+    guides(ax_e, 'y')
+    panel(fig, 'e', .012, .27)
 
     export(fig, 'fig3')
 
-    csv(ret.assign(label=ret.scenario.map(label)), 'fig3a')
-    csv(dtrn.reset_index()[['grid_id', 'lat', 'lon', 'retention', 'wind_share']].assign(
-        retention_class=rc.values, wind_class=wc.values), 'fig3b')
-    csv(path, 'fig3c')
-    csv(contrib.stack().rename('offline_contrib_pct').reset_index().merge(
-        vol.stack().rename('amp2_minus_flat_pp').reset_index(), how='left'), 'fig3d')
-    csv(q75.groupby('scenario').saving_usd_mwh.describe(percentiles=[.1, .5]).reset_index(), 'fig3e')
-    csv(share.reset_index(), 'fig3f')
-    return path, contrib, vol, vol_real, rho, share
+    csv(dtrn.reset_index()[['grid_id', 'lat', 'lon', 'saving_usd_mwh', 'retention']], 'fig3a')
+    csv(pd.DataFrame({'scenario': share.index, 'coord_usd_mwh': m.coord_usd_mwh.values,
+                      'net_inference_usd_mwh': m.net_usd_mwh.values, 'coord_share_pct': share.values}), 'fig3b')
+    csv(pd.concat(rows_c), 'fig3c')
+    csv(dd[['grid_id', 'wind_share', 'retention']].assign(grid_share_pct=gshare.values), 'fig3d')
+    csv(dm.reset_index(), 'fig3e')
+    return share, pd.concat(rows_c), dm, rho
 
 
 if __name__ == '__main__':
-    path, contrib, vol, vol_real, rho, share = main()
-    print(path[path.intensity_of_max.eq(.75)].round(2).to_string())
-    print(contrib.round(1).to_string()); print(vol.round(1).to_string()); print(vol_real.round(1).to_string())
-    print(rho)
+    share, c, dm, rho = main()
+    print(share.round(2).to_dict())
+    print(c[c.intensity_of_cap.eq(.75)].round(3).to_string())
