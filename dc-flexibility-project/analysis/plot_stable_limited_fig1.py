@@ -184,47 +184,56 @@ def main():
     cb.set_label('Wind share of optimal wind + PV (%)', fontsize=5.5, labelpad=2)
     panel(fig, 'f', .57, .3)
 
-    # ---------------- g 减配曲线：从现有协同（不减配）到最少机群，节省随少买的服务器比例上升
+    # ---------------- g 上下限从何而来：节省比例 × 成本基数（背景为等节省额线）
+    # 每条曲线从现有协同（只作用于供能成本）走到减配上限，每点多少买 2.5% 的服务器；被优化的成本基数随减配程度
+    # 从供能成本线性扩大到“供能 + 机群设备成本”，横坐标 = 总节省 ÷ 成本基数，因此点所在等值线即该点的总节省额。
     b1 = baseline()
     annual_mwh = (b1.facility_mwh0 * 8760 / b1.hours0).groupby(b1.scenario).median()
+    energy_base = (b1.supply_cost0_usd / b1.facility_mwh0).groupby(b1.scenario).median()
+    p0b = p[p.intensity_of_max.eq(0)]
+    energy_share = (p0b.V_usd / p0b.seq_cost_usd * 100).groupby(p0b.scenario).median()
     dn = pd.read_csv(INPUT / 'downsizing-part2-main.csv', encoding='utf-8-sig')
     dn = dn[dn.target.eq('economic')].set_index('scenario')
     fleet_base = dn.annual_fleet_equipment_cost_usd / annual_mwh
-    capd = pd.read_csv(INPUT / 'min-fleet-vs-deadline.csv')
-    now_g = p[p.intensity_of_max.eq(0)].groupby('scenario').saving_usd_mwh.median()
-    ax_g = fig.add_axes([.085, .045, .42, .125])
-    dl_marks = {12: ('s', '12/48 h'), 24: ('D', '24/96 h'), 48: ('^', '48/168 h')}
+    fleet_share = dn.equipment_annual_saving_usd / dn.annual_fleet_equipment_cost_usd * 100
+    ax_g = fig.add_axes([.085, .045, .33, .125])
+    X, Y = np.meshgrid(np.linspace(0, 36, 200), np.logspace(np.log10(60), np.log10(6000), 200))
+    Z = X / 100 * Y
+    levels = [1, 3, 10, 30, 100, 300, 1000]
+    ax_g.contourf(X, Y, Z, levels=levels, cmap=SEQ, norm=mpl.colors.LogNorm(1, 1000), alpha=.45, extend='both')
+    cs = ax_g.contour(X, Y, Z, levels=levels, colors='white', linewidths=.5)
+    ax_g.clabel(cs, fmt=lambda v: f'{v:g}', fontsize=4.6, inline=True)
     rows_g = []
     for sc in SCENARIOS:
-        c = shade(sc)
-        q = capd[capd.scenario.eq(sc)].sort_values('whole_h')
-        red = (1 - np.minimum.accumulate(q.C_over_A.to_numpy())) * 100
-        xmax = red.max()
-        xs_ = np.unique(np.r_[np.arange(0, xmax, 2.5), red])
-        ys_ = now_g[sc] + xs_ / 100 * fleet_base[sc]
-        ax_g.plot(xs_, ys_, color=c, lw=.9, zorder=3)
-        ax_g.scatter(xs_[1:], ys_[1:], s=3.5, color=c, lw=0, zorder=4)
-        ax_g.scatter(0, now_g[sc], s=14, marker='o', facecolors='white', edgecolors=COLORS[use(sc)], lw=.7, zorder=5)
-        for wh, r_ in zip(q.whole_h, red):
-            mk, _ = dl_marks[int(wh)]
-            ax_g.scatter(r_, now_g[sc] + r_ / 100 * fleet_base[sc], s=15, marker=mk, color=c, edgecolors='white',
-                         lw=.4, zorder=6)
-        rows_g.append(pd.DataFrame({'scenario': sc, 'servers_avoided_pct': xs_, 'saving_usd_mwh': ys_}))
+        c = COLORS[use(sc)]
+        lower = energy_share[sc] / 100 * energy_base[sc]
+        r_max = fleet_share[sc]
+        r = np.unique(np.r_[np.arange(0, r_max, 2.5), r_max])
+        w = r / r_max
+        base_r = energy_base[sc] + w * fleet_base[sc]
+        save_r = lower + r / 100 * fleet_base[sc]
+        x_r = save_r / base_r * 100
+        ax_g.plot(x_r, base_r, color=shade(sc), lw=.8, zorder=3)
+        ax_g.scatter(x_r[1:-1], base_r[1:-1], s=5, color=shade(sc), lw=0, zorder=4)
+        ax_g.scatter(x_r[0], base_r[0], marker='o', s=12, facecolors='white', edgecolors=c, lw=.7, zorder=5)
+        ax_g.scatter(x_r[-1], base_r[-1], marker='s', s=13, color=shade(sc), edgecolors='white', lw=.4, zorder=5)
+        rows_g.append(pd.DataFrame({'scenario': sc, 'servers_avoided_pct': r, 'cost_base_usd_mwh': base_r,
+                                    'saving_usd_mwh': save_r, 'share_of_base_pct': x_r}))
     ax_g.set_yscale('log')
-    ax_g.set_xlim(-1, 36)
-    ax_g.set_ylim(2, 1000)
-    ax_g.set_yticks([3, 10, 30, 100, 300, 1000], ['3', '10', '30', '100', '300', '1,000'])
+    ax_g.set_xlim(0, 36)
+    ax_g.set_ylim(60, 6000)
+    ax_g.set_yticks([100, 1000], ['100', '1,000'])
     ax_g.minorticks_off()
     ax_g.tick_params(labelsize=5.2)
-    ax_g.set_xlabel('Servers avoided (% of original fleet)', fontsize=5.8)
-    ax_g.set_ylabel('Saving (USD/MWh)', fontsize=5.8)
-    guides(ax_g, 'both')
-    hg = [Line2D([], [], marker='o', ls='none', markerfacecolor='white', markeredgecolor='#666666', markersize=3.2,
-                 label='Current coordination')]
-    hg += [Line2D([], [], marker=mk, ls='none', color='#888888', markersize=3.2, label=f'Minimum fleet, {lab}')
-           for mk, lab in dl_marks.values()]
-    ax_g.legend(handles=hg, loc='lower right', fontsize=4.9, handletextpad=.3, borderaxespad=.3, frameon=True,
-                framealpha=.85, edgecolor='none', ncol=2, columnspacing=.8)
+    ax_g.set_xlabel('Share of the cost base saved (%)', fontsize=5.8)
+    ax_g.set_ylabel('Cost base (USD/MWh)', fontsize=5.8)
+    ax_g.legend(handles=[Line2D([], [], marker='o', ls='none', markerfacecolor='white', markeredgecolor='#666666',
+                                markersize=3.2, label='Current coordination\n(energy supply)'),
+                         Line2D([], [], marker='o', ls='-', lw=.8, color='#888888', markersize=1.8,
+                                label='Each dot: 2.5% more\nservers avoided'),
+                         Line2D([], [], marker='s', ls='none', color='#888888', markersize=3.2,
+                                label='Upper bound: downsizing\n(fleet + energy)')],
+                loc='upper left', bbox_to_anchor=(1.02, 1.0), fontsize=5, handletextpad=.3, borderaxespad=0)
     panel(fig, 'g', .012, .175)
 
 
