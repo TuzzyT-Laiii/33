@@ -53,34 +53,41 @@ def main():
     panel(fig, 'a', .012, .99)
 
     # ---------------- b 实施成本存活曲线
-    ax_b = fig.add_axes([.74, .695, .24, .27])
-    cost = np.linspace(0, 8, 161)
+    ax_b = fig.add_axes([.735, .695, .18, .27])
+    XMAX = 8
+    cost = np.linspace(0, XMAX, 161)
     rows_b = []
+    allv = q75.saving_usd_mwh.to_numpy()
+    surv_all = (allv[None, :] > cost[:, None]).mean(axis=1) * 100
+    ax_b.fill_between(cost, 0, surv_all, color='#EDEDED', lw=0, zorder=0)
+    ends = []
     for u in USES:
         v = q75.loc[q75.scenario.str.endswith(u), 'saving_usd_mwh'].to_numpy()
         surv = (v[None, :] > cost[:, None]).mean(axis=1) * 100
-        ax_b.plot(cost, surv, color=COLORS[u], lw=1.0)
+        ax_b.plot(cost, surv, color=COLORS[u], lw=.9, zorder=2)
+        ends.append([surv[-1], GROUP[u], COLORS[u], 'normal'])
         rows_b.append(pd.DataFrame({'group': u, 'cost_usd_mwh': cost, 'share_net_positive_pct': surv}))
-    allv = q75.saving_usd_mwh.to_numpy()
-    surv_all = (allv[None, :] > cost[:, None]).mean(axis=1) * 100
-    ax_b.plot(cost, surv_all, color='black', lw=1.6)
+    ax_b.plot(cost, surv_all, color='black', lw=1.6, zorder=3)
+    ends.append([surv_all[-1], 'All fleets', 'black', 'bold'])
     rows_b.append(pd.DataFrame({'group': 'all', 'cost_usd_mwh': cost, 'share_net_positive_pct': surv_all}))
+    ends.sort(key=lambda e: -e[0])
+    for i in range(1, len(ends)):
+        ends[i][0] = min(ends[i][0], ends[i - 1][0] - 7.5)
+    for yv, lab, col, wt in ends:
+        ax_b.text(XMAX + .2, yv, lab, color=col, fontsize=5.3, fontweight=wt, va='center', ha='left', clip_on=False)
+    lines_b = ['All fleets still net positive']
     for c0 in (2, 3):
         s0 = (allv > c0).mean() * 100
-        ax_b.plot([c0, c0], [0, s0], color='#8C8C8C', lw=.5, ls=(0, (2, 2)))
-        ax_b.scatter(c0, s0, s=14, color='black', zorder=5)
-        ax_b.text(c0 - .2, s0 - 3, f'{s0:.0f}%', fontsize=5.6, fontweight='bold', ha='right', va='top')
-    ax_b.set_xlim(0, 8)
+        ax_b.scatter(c0, s0, s=16, color='black', edgecolors='white', lw=.5, zorder=5)
+        lines_b.append(f'{s0:.0f}% at {c0} USD/MWh')
+    ax_b.text(.2, 8, '\n'.join(lines_b), fontsize=5.4, ha='left', va='bottom', linespacing=1.3)
+    ax_b.set_xlim(0, XMAX)
     ax_b.set_ylim(0, 103)
     ax_b.set_yticks([0, 25, 50, 75, 100])
     ax_b.tick_params(labelsize=5.4)
     ax_b.set_xlabel('Implementation cost (USD/MWh)', fontsize=6)
     ax_b.set_ylabel('Cases still net positive (%)', fontsize=6)
-    guides(ax_b, 'both')
-    ax_b.legend(handles=[Line2D([], [], color='black', lw=1.6, label='All fleets')] +
-                [Line2D([], [], color=COLORS[u], lw=1.0, label=GROUP[u]) for u in USES],
-                loc='lower left', fontsize=5, handlelength=1.3, labelspacing=.25, borderaxespad=.3,
-                frameon=True, framealpha=.85, edgecolor='none')
+    guides(ax_b, 'y')
     panel(fig, 'b', .68, .99)
 
     # ---------------- c 争用与互补（线尾直接标注）
