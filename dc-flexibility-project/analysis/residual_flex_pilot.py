@@ -104,7 +104,29 @@ class LP:
         return out
 
 
-def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mode='joint', fixed_x=None):
+def solve_copt(c, Aeq, beq, Aub, bub, lb, ub):
+    """与 flex_econ_copt.solve 相同的 COPT 设置（内点、crossover、1e-9 容差、单线程）。"""
+    import coptpy as cp
+    inf = cp.COPT.INFINITY
+    A = sparse.vstack([m for m in (Aeq, Aub) if m is not None]).tocsc()
+    lhs = np.concatenate([beq] + ([np.full(len(bub), -inf)] if Aub is not None else []))
+    rhs = np.concatenate([beq] + ([bub] if Aub is not None else []))
+    env = cp.Envr()
+    model = env.createModel('residual-flex')
+    for key, value in (('Logging', 0), ('Threads', 1), ('LpMethod', 2), ('Crossover', 1),
+                       ('FeasTol', 1e-9), ('DualTol', 1e-9), ('TimeLimit', 1800)):
+        model.setParam(key, value)
+    model.loadMatrix(c, A, lhs, rhs, lb, np.where(np.isinf(ub), inf, ub))
+    model.solve()
+    status = model.status
+    x = np.asarray(model.getValues(), float) if status == cp.COPT.OPTIMAL else None
+    label = 'optimal' if x is not None else ('infeasible' if status == cp.COPT.INFEASIBLE else f'copt_{status}')
+    model.clear()
+    env.close()
+    return x, label
+
+
+def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mode='joint', fixed_x=None, solver='highs'):
     """mode='asap'：只排算力，最小化积压；mode='cost'：给定（或不给定）算力执行，最小化供能成本。"""
     n = len(frame)
     idx = np.arange(n)
@@ -155,12 +177,18 @@ def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mod
             lp.block('ub', [(idx, o[key] + idx, 1.), (idx, cap, -1.)], np.zeros(n))
     Aeq, beq, Aub, bub = lp.matrices()
     t0 = time.monotonic()
-    res = linprog(c, A_ub=Aub, b_ub=bub, A_eq=Aeq, b_eq=beq, bounds=np.c_[lb, ub], method='highs-ipm',
-                  options={'primal_feasibility_tolerance': 1e-9, 'dual_feasibility_tolerance': 1e-9, 'time_limit': 1800})
-    secs = time.monotonic() - t0
-    if res.status != 0:
-        return {'status': f'highs_{res.status}', 'message': res.message, 'solve_seconds': secs}, None
-    x = res.x
+    if solver == 'copt':
+        x, status = solve_copt(c, Aeq, beq, Aub, bub, lb, ub)
+        secs = time.monotonic() - t0
+        if x is None:
+            return {'status': status, 'solve_seconds': secs}, None
+    else:
+        res = linprog(c, A_ub=Aub, b_ub=bub, A_eq=Aeq, b_eq=beq, bounds=np.c_[lb, ub], method='highs-ipm',
+                      options={'primal_feasibility_tolerance': 1e-9, 'dual_feasibility_tolerance': 1e-9, 'time_limit': 1800})
+        secs = time.monotonic() - t0
+        if res.status != 0:
+            return {'status': f'highs_{res.status}', 'message': res.message, 'solve_seconds': secs}, None
+        x = res.x
     d = {k: x[o[k] + idx] for k in HOURLY}
     out = {'status': 'optimal', 'solve_seconds': secs, 'K_mw': K}
     if mode == 'asap':
