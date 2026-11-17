@@ -1,0 +1,38 @@
+{
+  "checked": "2026-11-17T01:41:33",
+  "source_filename": "结果框架_算力中心算电协同收益稳定但有限_20261116_v17_已填结果.docx",
+  "source_sha256": "01860d1fef52642e4346511ef5739782688f511c103e3df9ca6e7f89c1a9aefa",
+  "output_filename": "结果框架_算力中心算电协同收益稳定但有限_20261117_v18_计算结果.docx",
+  "output_sha256": "582e7e9aa5faade59ca402088f2dfdd6c2d2c4ab6d55f249adf3f1b3854309d0",
+  "pages": 9,
+  "paragraphs": 78,
+  "figures": 4,
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "complete_report_hashes_verified": true,
+  "original_figures_3_4_preserved": true,
+  "code_sha256_lf": {
+    "flex_econ_copt.py": "5034b7505f9fdc88abf8da4e2efe7b78b4674fa2241b222ffa6360795ecbdc6c",
+    "audit_inference_schedules.py": "3774ab34d8ab73b8f2d6dd474cb19cd83bd57ac4c7c9268c9c72304a6e51eeb3",
+    "audit_sequential_forecast_controls.py": "df564272735cb48138bdb2444e08a0bb417090aeb153c572d14658652ca4a1db",
+    "audit_token_equivalent.py": "d09b4be05e0522b33f52f1798e9875f57aa61cbde794bb322c385efe83bc4e24",
+    "finalize_forecast_results.py": "b0e45c15f9e99ed3edac8dacdc5bea5a0805ace31efe75d068bc597ff7aabc23",
+    "global_electricity_price.py": "7f64380cd042431d7f3311e0dbb56ef36246bf57095149e93b899a5a0feb99c4",
+    "global_pending_capacity.py": "0fe9353c12536365e9048892a23adcd2265bbc7f8a7e86898ab4b5f6b70bf4a8",
+    "prepare_price_reference.py": "0edaf97258db58f4961071323f4870e91354ab09f770bfd85a4d3e0f530c7e72",
+    "report_pending_results.py": "8ff34a8cfd56d415ca819040f17ce8d112bf343f82aeca444c21f8a0b595d390",
+    "resource_inference_capacity.py": "22e86ed87ffc1d3a3db41e14c051e2b6ddd65f45a8c3f5c4f9444fd2a765b75f",
+    "resource_inference_whole.py": "4f0514bb408a84c142c4ab49554a4e7b11c137bed0377c5e30f9a29734778454",
+    "rolling_forecast_validation.py": "6bcb3cfa2d00f6711d93d3179e490b8a5e6d621d600a4fe774c6083966512341",
+    "sustained_flexibility.py": "fdd38211d0bbaa971f515595d35a75dfb8a90970067a75175b3ec39afa8a1776"
+  }
+}

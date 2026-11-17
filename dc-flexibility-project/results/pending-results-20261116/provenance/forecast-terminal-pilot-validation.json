@@ -1,0 +1,128 @@
+{
+  "groups": 4,
+  "replays": 16,
+  "perfect_on_time_replays": 8,
+  "maximum_residual": 9.059419880941277e-14,
+  "maximum_conservation": 1.000444171950221e-11,
+  "maximum_sequential_cost_difference_usd": 0.0,
+  "cases": [
+    {
+      "case": "frankfurt-D-SAI-0.5.json",
+      "mode": "seq",
+      "forecast": "previous_day",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-SAI-0.5.json",
+      "mode": "seq",
+      "forecast": "perfect",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-SAI-0.5.json",
+      "mode": "joint",
+      "forecast": "previous_day",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-SAI-0.5.json",
+      "mode": "joint",
+      "forecast": "perfect",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-SAI-0.75.json",
+      "mode": "seq",
+      "forecast": "previous_day",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-SAI-0.75.json",
+      "mode": "seq",
+      "forecast": "perfect",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-SAI-0.75.json",
+      "mode": "joint",
+      "forecast": "previous_day",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-SAI-0.75.json",
+      "mode": "joint",
+      "forecast": "perfect",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-TRN-0.5.json",
+      "mode": "seq",
+      "forecast": "previous_day",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-TRN-0.5.json",
+      "mode": "seq",
+      "forecast": "perfect",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-TRN-0.5.json",
+      "mode": "joint",
+      "forecast": "previous_day",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-TRN-0.5.json",
+      "mode": "joint",
+      "forecast": "perfect",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-TRN-0.75.json",
+      "mode": "seq",
+      "forecast": "previous_day",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-TRN-0.75.json",
+      "mode": "seq",
+      "forecast": "perfect",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-TRN-0.75.json",
+      "mode": "joint",
+      "forecast": "previous_day",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    },
+    {
+      "case": "frankfurt-D-TRN-0.75.json",
+      "mode": "joint",
+      "forecast": "perfect",
+      "missed_mwh": 0.0,
+      "unserved_mwh": 0
+    }
+  ],
+  "case_hashes": {
+    "frankfurt-D-SAI-0.5.json": "23c9447a6ffdf77b30609f5e68e5e348c42575004172a6faa92c0dfa7bc0a638",
+    "frankfurt-D-SAI-0.75.json": "00c32aaae43894cbe4c923974955362857be299edce47e12d9e6db27f19574d8",
+    "frankfurt-D-TRN-0.5.json": "ac90ac9e616eaea1be7c406d3fd912dfbe05fae47d1da2ef697e47e76e5025a1",
+    "frankfurt-D-TRN-0.75.json": "2e83b94c137da3613fd50ed8d48377e1eef92132dff3773b0394068588c61142"
+  }
+}

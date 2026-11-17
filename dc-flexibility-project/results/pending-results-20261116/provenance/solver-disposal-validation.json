@@ -1,0 +1,11 @@
+{
+  "real_pairs": 54,
+  "worker_generations": 2,
+  "maximum_difference_usd": 0.0,
+  "maximum_residual": 1.6342482922482304e-13,
+  "release_api": [
+    "Model.dispose",
+    "Envr.dispose"
+  ],
+  "documentation": "https://guide.coap.online/copt/en-doc/pythoninterface.html#release-environments-and-models"
+}

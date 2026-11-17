@@ -1,0 +1,182 @@
+{
+  "input_hashes": {
+    "capacity": "b7e10f0b20c9175add9544d2b2d3831ce1b1e3e64abbda87bfc087873f6a905d",
+    "price": "a669adba918d74e0977ad8132a807692c34d6d1f1e79ed85668b6503ce078f8a",
+    "physical": "9d1dda6cf2d5719824c7dfdd6c6dd25a4ff3c644e0edf51a41ddab3b87e4616d",
+    "gpu": "58d6010a2c11c1c292aa8228ceea39eac699b07e14b0f5f8cf87b0b5802e0ebd",
+    "gpu_audit": "44df4c684bc38e219fbe7013246932845d452c8aeae03ed74f9258e62ff28d8b",
+    "forecast_clock_review": "8abb3980eadaf94e412519e1535ad0cf441c4280ca2f86c78ec92831a4e2436a",
+    "sequential_forecast_audit": "64b54403bcf62398cde7050c99e77b4bbe56f3e70a2507ae1852a7cf2cfa8e4c"
+  },
+  "physical_events": 170284,
+  "capacity_groups": 53262,
+  "price_rows": 450306,
+  "gpu_rows": 162,
+  "forecast_groups": 176,
+  "gpu_proven_rows": 162,
+  "forecast": [
+    {
+      "intensity": 0.5,
+      "total": 88,
+      "complete_pairs": 49,
+      "deadline_feasible_pairs": 40,
+      "perfect_deadline_feasible_pairs": 88,
+      "positive_deadline_feasible_pairs": 39,
+      "deadline_feasible_saving": {
+        "count": 40,
+        "minimum": -0.6602507066892779,
+        "p10": 2.7799154691982486,
+        "median": 4.851837208198241,
+        "p90": 9.23178814154607,
+        "maximum": 13.252119938445507
+      },
+      "deadline_missed_fraction": {
+        "count": 88,
+        "minimum": 0.0,
+        "p10": 0.0,
+        "median": 3.2386034501229674e-06,
+        "p90": 0.00032875354743738756,
+        "maximum": 0.02282457351331207
+      },
+      "unfinished_fraction": {
+        "count": 88,
+        "minimum": 0.0,
+        "p10": 0.0,
+        "median": 0.0,
+        "p90": 0.0002820340398387861,
+        "maximum": 0.02282457351331207
+      },
+      "additional_grid_mw": {
+        "count": 88,
+        "minimum": 0.09974296766139279,
+        "p10": 0.5147114195568913,
+        "median": 1.6583460451216943,
+        "p90": 3.621457903827581,
+        "maximum": 5.241680757210529
+      },
+      "demand_wape": {
+        "count": 88,
+        "minimum": 0.02471590649590383,
+        "p10": 0.02486025376735052,
+        "median": 0.1607384229581444,
+        "p90": 0.1771305346018015,
+        "maximum": 0.2492128143514722
+      },
+      "solar_wape": {
+        "count": 88,
+        "minimum": 0.07682250826112817,
+        "p10": 0.07952132958631329,
+        "median": 0.32278883589966667,
+        "p90": 0.45826284700446757,
+        "maximum": 0.6577899848531183
+      },
+      "wind_wape": {
+        "count": 88,
+        "minimum": 0.5541178883018054,
+        "p10": 0.715093095734435,
+        "median": 1.009341730666931,
+        "p90": 1.1595192363625213,
+        "maximum": 1.3242669528209647
+      },
+      "matched_forecast_extra_cost": {
+        "count": 40,
+        "minimum": 0.12526047351373237,
+        "p10": 0.7801847855411547,
+        "median": 1.9217764936049941,
+        "p90": 5.2095041776634625,
+        "maximum": 7.268669860767932
+      }
+    },
+    {
+      "intensity": 0.75,
+      "total": 88,
+      "complete_pairs": 41,
+      "deadline_feasible_pairs": 31,
+      "perfect_deadline_feasible_pairs": 88,
+      "positive_deadline_feasible_pairs": 31,
+      "deadline_feasible_saving": {
+        "count": 31,
+        "minimum": 1.3391313177396862,
+        "p10": 1.8853358903903963,
+        "median": 4.157953177103322,
+        "p90": 8.959190338340843,
+        "maximum": 11.521122156607497
+      },
+      "deadline_missed_fraction": {
+        "count": 88,
+        "minimum": 0.0,
+        "p10": 0.0,
+        "median": 6.941987461118073e-05,
+        "p90": 0.00043163113673890256,
+        "maximum": 0.03872887364630304
+      },
+      "unfinished_fraction": {
+        "count": 88,
+        "minimum": 0.0,
+        "p10": 0.0,
+        "median": 1.9829580274136287e-05,
+        "p90": 0.0004046182493954072,
+        "maximum": 0.038728873646303036
+      },
+      "additional_grid_mw": {
+        "count": 88,
+        "minimum": 0.0973910593694507,
+        "p10": 0.4207440619244593,
+        "median": 1.3767229173230362,
+        "p90": 3.2260619556093655,
+        "maximum": 5.970226214409684
+      },
+      "demand_wape": {
+        "count": 88,
+        "minimum": 0.024718445798605514,
+        "p10": 0.024861888996196724,
+        "median": 0.14945531384149363,
+        "p90": 0.16217434535134415,
+        "maximum": 0.2382556390214902
+      },
+      "solar_wape": {
+        "count": 88,
+        "minimum": 0.07682250826112817,
+        "p10": 0.07952132958631329,
+        "median": 0.32278883589966667,
+        "p90": 0.45826284700446757,
+        "maximum": 0.6577899848531183
+      },
+      "wind_wape": {
+        "count": 88,
+        "minimum": 0.5541178883018054,
+        "p10": 0.715093095734435,
+        "median": 1.009341730666931,
+        "p90": 1.1595192363625213,
+        "maximum": 1.3242669528209647
+      },
+      "matched_forecast_extra_cost": {
+        "count": 31,
+        "minimum": 0.3223872211438172,
+        "p10": 0.6087609691247055,
+        "median": 1.9830271094519079,
+        "p90": 4.550504578641487,
+        "maximum": 8.77811422853523
+      }
+    }
+  ],
+  "capacity_positive_lower_groups": 53262,
+  "selling_above_joint_upper_groups": 43578,
+  "residuals": {
+    "physical": 9.252984489727111e-10,
+    "capacity": 5.093170329928398e-11,
+    "price": 1.9902657887119648e-10,
+    "gpu": 5.0862647427152297e-11
+  },
+  "output_hashes": {
+    "physical-summary.csv": "9d1dda6cf2d5719824c7dfdd6c6dd25a4ff3c644e0edf51a41ddab3b87e4616d",
+    "global-capacity-summary.csv": "f69f49a337fbe14126e2e184bf4d57d202574e62dccfa4edf2210e9297e5a6d5",
+    "electricity-price-paired.parquet": "1b151384c800b3a7136c1c0a4ec774a3f8767a25e13387cf5892bff119388544",
+    "electricity-price-summary.csv": "9d5a8fa84639493ba0e2cb30a63c8cfffd0ba69135cbdc4ad65750d5b2e27974",
+    "strategy-comparison.csv": "159b52382cdd36a202536befb21ce539224db2877da8d47115e070e5867ef3d1",
+    "gpu-service-capacity.csv": "58d6010a2c11c1c292aa8228ceea39eac699b07e14b0f5f8cf87b0b5802e0ebd",
+    "sale-distribution.csv": "866e405a32f1eee3d294d046cb2cff20f6c72549585a5858c5dde4c31dbaff20",
+    "forecast-cases.csv": "13b056d07116cf65ef9b84c70a3c6127b3c8d254d8ff6ea8e31c9385815deee7",
+    "forecast-summary.csv": "bf5ed6a745c1a1bd20fab46fbb4ae386dcee1244289852c0e7e9ba3010634969"
+  }
+}

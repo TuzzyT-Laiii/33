@@ -1,0 +1,118 @@
+{
+  "groups": 53262,
+  "sha256": "b7e10f0b20c9175add9544d2b2d3831ce1b1e3e64abbda87bfc087873f6a905d",
+  "positive_groups": 53262,
+  "max_residual": 5.093170329928398e-11,
+  "summary": [
+    {
+      "scenario": "A-CLD",
+      "lower_median": 329.827893620067,
+      "upper_median": 340.79050275826864,
+      "width_median": 11.326983958011596,
+      "width_max": 21.611072315866863,
+      "minimum": 294.07205449683187,
+      "equipment_share_median": 0.9697397292682259,
+      "energy_saving_median": 9.824030283128508
+    },
+    {
+      "scenario": "A-HPC",
+      "lower_median": 242.00317089538387,
+      "upper_median": 296.923410907181,
+      "width_median": 53.73190248640536,
+      "width_max": 78.41358072743898,
+      "minimum": 222.4914101085194,
+      "equipment_share_median": 0.9585242103723977,
+      "energy_saving_median": 9.928658983907468
+    },
+    {
+      "scenario": "B-INF",
+      "lower_median": 303.4048671033779,
+      "upper_median": 308.90014648677464,
+      "width_median": 4.800662208517849,
+      "width_max": 7.768889113187299,
+      "minimum": 278.2111149240235,
+      "equipment_share_median": 0.9779163372466457,
+      "energy_saving_median": 6.724344161717313
+    },
+    {
+      "scenario": "B-SAI",
+      "lower_median": 408.63501465827875,
+      "upper_median": 432.71701367279957,
+      "width_median": 22.079544727253932,
+      "width_max": 39.403751348608296,
+      "minimum": 375.89435528248043,
+      "equipment_share_median": 0.9740214475409583,
+      "energy_saving_median": 10.688465930009155
+    },
+    {
+      "scenario": "B-TRN",
+      "lower_median": 574.6632246717822,
+      "upper_median": 599.0634130157076,
+      "width_median": 22.216344487081358,
+      "width_max": 37.827156297875604,
+      "minimum": 535.1890198571859,
+      "equipment_share_median": 0.9759599688887068,
+      "energy_saving_median": 13.820369390985237
+    },
+    {
+      "scenario": "C-INF",
+      "lower_median": 349.738937616591,
+      "upper_median": 355.35866302175157,
+      "width_median": 4.937379545908186,
+      "width_max": 8.030406032705002,
+      "minimum": 321.32259277815996,
+      "equipment_share_median": 0.9812108201125742,
+      "energy_saving_median": 6.59528648209932
+    },
+    {
+      "scenario": "C-SAI",
+      "lower_median": 496.66291319924386,
+      "upper_median": 519.807280136721,
+      "width_median": 20.89197843534359,
+      "width_max": 36.59936783270189,
+      "minimum": 458.00641041519094,
+      "equipment_share_median": 0.9777464913787188,
+      "energy_saving_median": 11.110042529632775
+    },
+    {
+      "scenario": "C-TRN",
+      "lower_median": 608.678135573663,
+      "upper_median": 635.7269399008401,
+      "width_median": 24.626341378671952,
+      "width_max": 41.952840967129646,
+      "minimum": 567.1100081848143,
+      "equipment_share_median": 0.9792748637383393,
+      "energy_saving_median": 12.622722409542131
+    },
+    {
+      "scenario": "D-INF",
+      "lower_median": 260.8150773989703,
+      "upper_median": 266.4943126318036,
+      "width_median": 4.927154782284987,
+      "width_max": 8.028042597979947,
+      "minimum": 238.48080980950107,
+      "equipment_share_median": 0.9749106924919366,
+      "energy_saving_median": 6.56908991131921
+    },
+    {
+      "scenario": "D-SAI",
+      "lower_median": 415.44503695797187,
+      "upper_median": 431.8537836911759,
+      "width_median": 15.021928072459673,
+      "width_max": 25.37009682974167,
+      "minimum": 381.3071687312398,
+      "equipment_share_median": 0.9682201326892408,
+      "energy_saving_median": 13.133965843605402
+    },
+    {
+      "scenario": "D-TRN",
+      "lower_median": 426.06085645572784,
+      "upper_median": 454.7681775902199,
+      "width_median": 26.100748843395536,
+      "width_max": 44.42182923874458,
+      "minimum": 395.6290554864862,
+      "equipment_share_median": 0.9720641907934171,
+      "energy_saving_median": 11.914032151091517
+    }
+  ]
+}

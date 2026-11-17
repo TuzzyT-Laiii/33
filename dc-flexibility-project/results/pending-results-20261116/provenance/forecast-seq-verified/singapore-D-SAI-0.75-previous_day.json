@@ -1,0 +1,40 @@
+{
+  "name": "singapore-D-SAI-0.75.json",
+  "forecast": "previous_day",
+  "reference_sha256": "b13582d33b38412ae9789adecd9ad0ab49dd31ea15c61ba4c0f093872abbe0ea",
+  "terminal_result_sha256": "024c9b8b166303f260f791c225b5139b8f46b835b01921624dc429a8f2de0e12",
+  "difference_usd": 0.0,
+  "case": {
+    "mode": "seq",
+    "forecast": "previous_day",
+    "cost_usd": 4501200.022299229,
+    "grid_mwh": 14451.116303442115,
+    "discharge_mwh": 1630.278979294841,
+    "grid_peak_mw": 8.218301805420948,
+    "extra_grid_capacity_mw": 0.9692281536449334,
+    "deadline_missed_mwh": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "unserved_mwh": [
+      0,
+      0,
+      0
+    ],
+    "executed_mwh": [
+      1744.8613349108136,
+      2725.5271416296787,
+      229.60411773328514
+    ],
+    "conservation_residual_mwh": 2.9558577807620168e-12,
+    "max_backlog_mwh": 3.297993345299739,
+    "max_residual": 2.1316282072803006e-14,
+    "forecast_wape": [
+      0.15337786614642057,
+      0.19792573651999926,
+      0.7660332924449242
+    ]
+  },
+  "seconds": 608.0627196240239
+}

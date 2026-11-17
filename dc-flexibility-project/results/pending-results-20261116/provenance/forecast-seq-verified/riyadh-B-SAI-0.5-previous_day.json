@@ -1,0 +1,40 @@
+{
+  "name": "riyadh-B-SAI-0.5.json",
+  "forecast": "previous_day",
+  "reference_sha256": "27d23ede903524b8f6684227a5ee32323de378b005f2ffff30f02f8e347ecbfc",
+  "terminal_result_sha256": "22945df57424b7fd4eff24c5db9250616ec9389f9b2254804e219b99620db798",
+  "difference_usd": 0.0,
+  "case": {
+    "mode": "seq",
+    "forecast": "previous_day",
+    "cost_usd": 3683353.3372111525,
+    "grid_mwh": 7497.815652324132,
+    "discharge_mwh": 846.5701603735682,
+    "grid_peak_mw": 10.369991349809625,
+    "extra_grid_capacity_mw": 1.527585558798192,
+    "deadline_missed_mwh": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "unserved_mwh": [
+      0,
+      0,
+      0
+    ],
+    "executed_mwh": [
+      3251.7492193642993,
+      4821.500426092778,
+      465.3742901542663
+    ],
+    "conservation_residual_mwh": 4.547473508864641e-12,
+    "max_backlog_mwh": 4.239931838274094,
+    "max_residual": 4.973799150320701e-14,
+    "forecast_wape": [
+      0.1607384229581444,
+      0.07682250826112817,
+      0.7832049116775136
+    ]
+  },
+  "seconds": 713.4863677499816
+}

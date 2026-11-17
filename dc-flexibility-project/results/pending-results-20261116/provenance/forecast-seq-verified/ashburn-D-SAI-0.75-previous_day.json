@@ -1,0 +1,40 @@
+{
+  "name": "ashburn-D-SAI-0.75.json",
+  "forecast": "previous_day",
+  "reference_sha256": "60ac18ced640a11c4cc7ca911fbfe9aa6fa77947b8ca93784518e8ceaf011978",
+  "terminal_result_sha256": "7bd46c26e97bb02bc10a83f686815a1c05d6a75f6d2e06a47471b7ccdfb7cd42",
+  "difference_usd": 0.0,
+  "case": {
+    "mode": "seq",
+    "forecast": "previous_day",
+    "cost_usd": 3491705.317218778,
+    "grid_mwh": 13888.255411216329,
+    "discharge_mwh": 38.940368181094314,
+    "grid_peak_mw": 8.144603955358058,
+    "extra_grid_capacity_mw": 0.044124503640215806,
+    "deadline_missed_mwh": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "unserved_mwh": [
+      0,
+      0,
+      0
+    ],
+    "executed_mwh": [
+      1744.8613349108136,
+      2725.5271416296787,
+      229.60411773328514
+    ],
+    "conservation_residual_mwh": 2.9558577807620168e-12,
+    "max_backlog_mwh": 3.297993345299739,
+    "max_residual": 2.1316282072803006e-14,
+    "forecast_wape": [
+      0.15337786614642057,
+      0.41485831981168153,
+      1.0201581676796407
+    ]
+  },
+  "seconds": 695.738836479024
+}

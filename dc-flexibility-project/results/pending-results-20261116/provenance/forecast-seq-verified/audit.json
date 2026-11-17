@@ -1,0 +1,28 @@
+{
+  "total_controls": 352,
+  "fresh_replays": 20,
+  "max_difference_usd": 0.0,
+  "max_residual": 4.973799150320701e-14,
+  "case_hashes": {
+    "ashburn-C-SAI-0.5-previous_day.json": "03469935b259fae5546fee81df5ce8435304bd65e819bf94e1d6bc763ae5a132",
+    "ashburn-C-SAI-0.75-previous_day.json": "938b2e3bb9083964b0c64f048b7ca48c7e9229caf77d405ac88c8e6ce117f07a",
+    "ashburn-D-SAI-0.5-previous_day.json": "9351724b0e10bfe860da8214dac6af21ccbc13fa6226fa2ac2e96a80562f6bb9",
+    "ashburn-D-SAI-0.75-previous_day.json": "dd631ca85e65aabe5722275a94f26c2e4e98aa6f564511b2c07b2a4c65bc4fc2",
+    "guiyang-B-SAI-0.5-previous_day.json": "15eb0ab69348b07b9f6b0079cb85952966c1300202717054e7a12763f5db73ad",
+    "guiyang-B-SAI-0.75-previous_day.json": "94a00fed8edd2cac4432bd0529b672a5c0d8f7f22e77c2b67f15a1a6aa877148",
+    "guiyang-C-SAI-0.75-previous_day.json": "06483f89a230b174f18a3aa78a5b4fac84a7adb2126ce3b1515431f2b93be9d1",
+    "riyadh-B-SAI-0.5-previous_day.json": "73852aca58179088e99950aca2f4c3c03efb42d2aed5ea25954df228bdb0c3ca",
+    "riyadh-B-SAI-0.75-previous_day.json": "21d4e9197120a4419e5610c9df569e1eaaf7a0902d76e3f8d7452187f3ecc418",
+    "riyadh-C-SAI-0.5-previous_day.json": "410ccf19b4e61ba4721cef0e2b05a7013894319623629ba112c882dc418f909d",
+    "riyadh-C-SAI-0.75-previous_day.json": "ffdeecf164e4977a7b7f0fdf1330ad5a35182f5acf3c0c7331e50b112fc14f5b",
+    "singapore-B-SAI-0.5-previous_day.json": "f740e61a9a4f10c80b6e15ec2ace38905bbb254dc93aa6fa3fdaf23640e94f1e",
+    "singapore-B-SAI-0.75-previous_day.json": "550b77ac35a5092ffa8e18f657db9cf52073021be5d59751bae3e26417d6941e",
+    "singapore-C-SAI-0.5-previous_day.json": "1654842c757ebfc0d4473f94049c9120b26727778de1dd61e19025a906ca1d17",
+    "singapore-C-SAI-0.75-previous_day.json": "3e5bbb9e9e327fc5a5c1db5775a46454dedc06415af14ce82e3b5ae808da68a9",
+    "singapore-D-SAI-0.5-previous_day.json": "192e0b16b689ba547857a0864bf2f5195be256636b619cdcea1aad124eb11eb4",
+    "singapore-D-SAI-0.75-previous_day.json": "8c1b9e61d2029b731ead0e57ff0c7c5b52018814b740e1666f416511676a3f7d",
+    "ulanqab-B-SAI-0.5-previous_day.json": "6628e9f2e9113d726931c6b1e09c319c01ce051d5c00d923e061ae562af4d094",
+    "ulanqab-B-SAI-0.75-previous_day.json": "01cb739bfe42a8c297bdcaa82fa318bf56471f6448a37faef1dff263c2ac1948",
+    "ulanqab-C-SAI-0.5-previous_day.json": "75f311fdaa6ee0f73976b625b468bc94d0fad2c18d2c76b8ffbfa966952a1ce8"
+  }
+}

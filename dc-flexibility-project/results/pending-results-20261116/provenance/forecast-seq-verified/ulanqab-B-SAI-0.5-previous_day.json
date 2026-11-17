@@ -1,0 +1,40 @@
+{
+  "name": "ulanqab-B-SAI-0.5.json",
+  "forecast": "previous_day",
+  "reference_sha256": "1d5118e6f2c7d7e11a9bfb98514f4b19627c9e427115bd5e9f67ef5788ade562",
+  "terminal_result_sha256": "3992661f3baa84d5ca3bc00a08a579e1065336760e5fa45e54e044f50b3890be",
+  "difference_usd": 0.0,
+  "case": {
+    "mode": "seq",
+    "forecast": "previous_day",
+    "cost_usd": 3794213.9674155256,
+    "grid_mwh": 11961.26313136573,
+    "discharge_mwh": 119.00832381299212,
+    "grid_peak_mw": 10.656057084392508,
+    "extra_grid_capacity_mw": 0.3298091212368348,
+    "deadline_missed_mwh": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "unserved_mwh": [
+      0,
+      0,
+      0
+    ],
+    "executed_mwh": [
+      3251.7492193642993,
+      4821.500426092778,
+      465.3742901542663
+    ],
+    "conservation_residual_mwh": 4.547473508864641e-12,
+    "max_backlog_mwh": 4.239931838274094,
+    "max_residual": 4.973799150320701e-14,
+    "forecast_wape": [
+      0.1607384229581444,
+      0.24419120446197132,
+      0.7661601503908345
+    ]
+  },
+  "seconds": 581.6923016950022
+}
