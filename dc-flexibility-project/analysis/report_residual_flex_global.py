@@ -78,8 +78,7 @@ def curves(t, out):
     axes[0].set_xlabel('Inference demand, % of scenario absorbable maximum')
     axes[0].set_ylabel('Retention (median, band = P10–P90)')
     axes[1].set_xlabel('Inference demand, % of scenario absorbable maximum')
-    axes[1].set_ylabel('Joint-dispatch saving,
-% of sequential energy cost (median)')
+    axes[1].set_ylabel('Joint-dispatch saving,\n% of sequential energy cost (median)')
     axes[1].legend(fontsize=8, ncol=2)
     fig.tight_layout()
     for ext in ('png', 'pdf'):
