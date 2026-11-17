@@ -19,6 +19,9 @@ import xarray as xr
 from acquire_buildability_protection import sha, utc_now, write_json
 from trial_era5_landuse_download import CachedHTTPStore, SOURCE_URL, VARIABLES
 
+# 共享盘写入前保留的最小可用空间；默认100 GiB，可用环境变量为单次定向补跑临时下调。
+MIN_FREE_BYTES = int(float(os.environ.get("ERA5_MIN_FREE_GIB", "100")) * 1024 ** 3)
+
 
 class SourceNaNError(ValueError):
     def __init__(self, label, variable, values, native, times, selection_sha, metadata_sha):
@@ -136,8 +139,8 @@ def process_locked_block(root, label, points, selection_sha, metadata_sha, times
                 fields = event["key"].split("/")[1].split(".")
                 if len(fields) != 3 or (int(fields[1]), int(fields[2])) not in pairs:
                     raise ValueError("ERA5获取对象超出合格网格需要的空间块")
-            if shutil.disk_usage(root).free < 100 * 1024 ** 3 + table.memory_usage(index=True, deep=True).sum() * 2:
-                raise OSError("ERA5获取可用磁盘不足，须保留100 GiB")
+            if shutil.disk_usage(root).free < MIN_FREE_BYTES + table.memory_usage(index=True, deep=True).sum() * 2:
+                raise OSError(f"ERA5获取可用磁盘不足，须保留{MIN_FREE_BYTES / 1024 ** 3:g} GiB")
             output.parent.mkdir(parents=True, exist_ok=True)
             temporary = output.with_suffix(".parquet.part")
             table.to_parquet(temporary, index=False, compression="zstd")
