@@ -311,7 +311,7 @@ def longitude_strip(fig, ax_map, height, frames, ylabel, ylim=None, gap=.004, ba
     ax.set_xlim(x0, x1)
     edges = np.arange(-180, 181, band)
     mids = (edges[:-1] + edges[1:]) / 2
-    xs = np.array([ccrs.Robinson().transform_point(float(m), 0, ccrs.PlateCarree())[0] for m in mids])
+    xs = np.array([ax_map.projection.transform_point(float(m), 0, ccrs.PlateCarree())[0] for m in mids])
     for name, col, frame, iqr in frames:
         cut = pd.cut(frame.lon, edges, labels=mids)
         g = frame.groupby(cut, observed=False).value

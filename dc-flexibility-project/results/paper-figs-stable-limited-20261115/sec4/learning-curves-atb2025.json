@@ -1,0 +1,85 @@
+{
+  "note": "相对 2024 技术年的装机成本倍数；年化费用（含按资本开支比例的固定运维）同比例缩放。光伏、风电取 ATB 2025 降幅乘到项目现有 IRENA 2024 成本上；储能直接取 ATB 2025 电量、功率费用比值。卡按每 MW 任务功率成本不变处理（GPU 每美元算力约 2.5 年翻倍、每瓦算力每年约 +40%，二者相除每 MW 卡价基本不降）。",
+  "sources": {
+    "atb": "NREL ATB 2025 v1 workbook, https://data.openei.org/files/8759/2025_v1_Workbook_08-27-2026.xlsx (sha256 fa0a2b95efb85ba4...), sheets 'Solar - Utility PV - R&D' Class 5, 'Land-Based Wind - R&D' Class 4 Technology 1, 'Utility-Scale Battery - R&D' 4-hour; R&D cost drivers without tax credits",
+    "gpu_price_performance": "Epoch AI 2022-06-27, Trends in GPU price-performance: FLOP/s per $ doubles every ~2.5 years",
+    "gpu_energy_efficiency": "Epoch AI 2024-10-23: leading ML hardware becomes 40% more energy-efficient each year",
+    "standby_lbnl": "LBNL 2024 United States Data Center Energy Usage Report (Shehabi et al., 2024-12), p.26: AI servers idle = 20% of rated power over the entire study period (Brookhaven 8-GPU H100 node measured ~18%); conventional servers 51% (2014) -> 36% (2023) -> 27% (2028); SPEC trend 20-25% in recent years, possibly a functional lower bound",
+    "standby_specpower": "SPECpower_ssj2008 full results CSV (1,165 servers): median active-idle/100%-load watts 0.66 (2007) -> 0.14 (2017) -> 0.22-0.25 (2020-2026)"
+  },
+  "scenarios": {
+    "2030-conservative": {
+      "pv": 0.893,
+      "wind": 0.939,
+      "battery_energy": 0.9772,
+      "battery_power": 0.9934
+    },
+    "2030-moderate": {
+      "pv": 0.763,
+      "wind": 0.849,
+      "battery_energy": 0.795,
+      "battery_power": 0.941
+    },
+    "2030-advanced": {
+      "pv": 0.59,
+      "wind": 0.833,
+      "battery_energy": 0.5278,
+      "battery_power": 0.8641
+    },
+    "2035-conservative": {
+      "pv": 0.877,
+      "wind": 0.888,
+      "battery_energy": 0.9582,
+      "battery_power": 0.988
+    },
+    "2035-moderate": {
+      "pv": 0.657,
+      "wind": 0.724,
+      "battery_energy": 0.6604,
+      "battery_power": 0.9022
+    },
+    "2035-advanced": {
+      "pv": 0.529,
+      "wind": 0.693,
+      "battery_energy": 0.3035,
+      "battery_power": 0.7995
+    }
+  },
+  "card_paths": {
+    "note": "能加卡模型（card_learning_curve.py）中的卡价倍数 m（每 MW 任务功率，相对 2024 市价）与新增卡待机比例；网格 m=0.2/0.5/1/2、待机 1/0.5/0 覆盖各路径，按路径取值报告。'空闲卡可关机'（待机 0）为单独运行策略敏感性，不入年份路径。",
+    "card_price_per_mw": {
+      "conservative": {
+        "2030": 1.43,
+        "2035": 1.92,
+        "basis": "FLOP/$ 2.5 年翻倍，FLOP/W 每年 +40%：每年 +6.1%"
+      },
+      "moderate": {
+        "2030": 0.76,
+        "2035": 0.6,
+        "basis": "FLOP/$ 2.5 年翻倍，FLOP/W 3 年翻倍：每年 -4.5%"
+      },
+      "advanced": {
+        "2030": 0.44,
+        "2035": 0.22,
+        "basis": "ML GPU FLOP/$ 2.07 年翻倍，FLOP/W 3.5 年翻倍：每年 -12.7%"
+      }
+    },
+    "standby_scale": {
+      "conservative": {
+        "2030": 1.0,
+        "2035": 1.0,
+        "basis": "LBNL 2024：AI 服务器空闲 20% 额定功率全期不变"
+      },
+      "moderate": {
+        "2030": 1.0,
+        "2035": 1.0,
+        "basis": "同上"
+      },
+      "advanced": {
+        "2030": 0.75,
+        "2035": 0.6,
+        "basis": "借用 LBNL 普通服务器 2023-2028 降速（36%->27%，约每年 -5.6%）"
+      }
+    }
+  }
+}
