@@ -233,6 +233,12 @@ GPU主导型训练在100%目标下，规划阶段储能中位数为188→96MWh�
 
 每个2°区块按其代表网格的结果整体着色（裁到陆地），表示抽样代表值；每幅图单独色标，上限取该图98分位，超出用三角标示。空白为无可建设网格或无陆地气象点的区块。
 
+### 柔性收益是否超过3%：已建成，经济最优
+
+![超过3%](../../results/global-flex-econ-20261103/figures/threshold-fixed-economic-3pct.png)
+
+模型未计推迟带来的延误、存档恢复与运营成本，取3%作为柔性“值得做”的下限，给这些成本留出余量。已建成、经济最优下，超过3%的网格占比：训练96%、科研AI81%、科研计算94%、推理26%。推理只在光照强的干旱区（撒哈拉、阿拉伯半岛、中亚至中国西北、美国西南、澳洲内陆）超过3%；训练与科研计算几乎全球都超过。分母为各情境4,842个有效网格。
+
 ## 数字来源与说明
 
 - 原始任务标签来自PR #26分类结果、#28 MIT细分及#31 c16ac75的[Seren统计](../../results/scenario-typical-day-by-task-20261101-v7/seren-job-statistics.json)。第二章采用用户确认的三类加未知代表名称表；完整计算映射见[task-class-mapping.csv](../../results/flex-class-20261101/task-class-mapping.csv)，未知默认按刚性处理。
@@ -253,9 +259,10 @@ GPU主导型训练在100%目标下，规划阶段储能中位数为188→96MWh�
 
 
 
-- 第七章柔性调度经济性：[flex-card-cost-calendar-20261102](../../results/flex-card-cost-calendar-20261102/README.md)。COPT规划阶段3168个算例（runs-cards.csv）与固定供给侧1584个算例（runs-fixed.csv）；训练按实际UTC时间约束12/48小时延迟，brief/保存本章图表、输入校验值及核验记录。
 
 - 第八章全球网格：[global-flex-econ-20261103](../../results/global-flex-econ-20261103/README.md)。4,900个2°代表网格×11情境×6档目标×两种边界，958,716个COPT线性规划；brief/brief-facts.json由analysis/global_flex_brief_facts.py从grid-summary.parquet生成，地图为figures/planning-economic与fixed-economic。
+
+- 第七章柔性调度经济性：[flex-card-cost-calendar-20261102](../../results/flex-card-cost-calendar-20261102/README.md)。COPT规划阶段3168个算例（runs-cards.csv）与固定供给侧1584个算例（runs-fixed.csv）；训练按实际UTC时间约束12/48小时延迟，brief/保存本章图表、输入校验值及核验记录。
 
 ## 重新生成
 
