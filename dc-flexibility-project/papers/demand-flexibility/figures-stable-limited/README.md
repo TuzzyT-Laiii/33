@@ -11,13 +11,13 @@
 | [图1](fig1.pdf) | a 训练·GPU 主导协同节省地图 + 纬度条；b 不可推迟/可推迟功率与峰值余量；c 节省分布（山脊图）；d 现有协同 vs 减配上限；e 成本嵌套方块；f 节省 vs 市电占比（点色风电占比）；g 上下限分解：节省比例 × 成本基数（等节省额线），曲线上每点多减 2.5% 服务器 | 1.1 b；1.2 a、c、f；1.3 e；1.4 d、g |
 | [图2](fig2.pdf) | a 环形分组柱：现有协同、减配上限、真实需求下卖推理、全卖四档（径向对数）；b 盈亏平衡售价区间条，标出市场价带与市场价 ÷ 减配盈亏平衡价；c 2025-06-02 至 06-15 逐时曲线（闲置 GPU vs 同均值外部需求，红区为需求超过闲置）；d 闲置 GPU 比例 × 每 MWh GPU 小时（等收益分区）；e 电价梯度：协同节省偏离的六边形密度与中位线 vs 全卖收入，右侧放大全卖 | 2.1 a、b、c；2.2 d；2.3 e |
 | [图3](fig3.pdf) | a 上限 75% 时每个网格 11 类机群中最低的协同节省（六边形格网）+ 直方图色标；b 实施成本存活曲线（2、3 美元/MWh 处 97%、90%）；c 争用与互补（占用闲置 vs 保留率，线尾直接标注）；d 保留率分解：转移电量比 × 每 MWh 价值比，背景为等保留率线；e 训练机群保留率 vs 风电占比 + 11 类机群秩相关 | 3.1 a、b；3.2 c、d；3.3 e |
-| [图4](fig4.pdf) | a 碳价 0/100/200 下 11 类机群协同节省中位数（斜率图）与购电减排；b 碳价 200 ÷ 0 的放大倍数（机群 × 推理强度热图）；c 卡价倍数 × 新增卡待机比例的加卡检验（全部 0）叠加学习曲线路径；d 供能学习曲线下供能成本与协同节省相对 2024 的倍数 | 4.1 a；4.2 b；4.3 c；4.4 d |
+| [图4](fig4.pdf) | a 双变量地图：电网碳因子 × 碳价 0→200 放大倍数（Equal Earth，3×3 分位）；b 云雨图：推理 75% 时五类用途在碳价 0/100/200 下的节省分布；c 2035 乐观路径协同节省倍数地图 + 经度统计条（三条路径）；d 六边形密度：顺序调度储能时长 vs 协同节省倍数 | 4.1 a；4.2 b；4.4 c、d；4.3 见正文（八城市） |
 
 `source-data/` 为各面板数据（UTF-8 BOM CSV）。
 
 ## 输入
 
-- 图 4 使用第四节汇总表（PR #80 `results/sec4-carbon-learning-20261116/` 与 `analysis/learning-curves-atb2025.json`），原样复制到 `results/paper-figs-stable-limited-20261115/sec4/`。
+- 图 4 使用第四节汇总表（PR #80 `results/sec4-carbon-learning-20261116/` 与 `analysis/learning-curves-atb2025.json`），原样复制到 `results/paper-figs-stable-limited-20261115/sec4/`；逐网格小表 `fig4-grid-carbon.parquet`、`fig4-grid-lc.parquet` 由 `plot_stable_limited_fig4.py` 的 prepare() 从 #80 服务器结果的本地副本提取。
 
 - `results/residual-flex-global-20261115/paired.parquet`、`results/sell-inference-tiers-20261115/`（PR #77、#78）。
 - `results/paper-figs-stable-limited-20261115/`：`baseline-energy.parquet`、`moved-energy.parquet`（由 `prepare_stable_limited_figs.py` 从第三节 runs-compact 生成）；`part1-summary.csv`（PR #60）；`downsizing-part2-main.csv`（PR #67 减配主表，只取与地点无关的设备年化节省与机群年化设备成本）。
