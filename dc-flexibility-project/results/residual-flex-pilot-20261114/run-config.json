@@ -1,0 +1,12 @@
+{
+  "inputs": "D:/codex-runs/existing-compute-capacity-20261102/worktree/.codex-temp/calendar-rerun/out-validated/inputs",
+  "asi": "D:/codex-runs/brief-ch7-card-cost-20261102/worktree/dc-flexibility-project/results/flex-class-20261101/native-hourly/D-INF.parquet",
+  "project": "D:\\codex-runs\\residual-flex-pilot-20261114\\worktree\\dc-flexibility-project",
+  "out": "results/residual-flex-pilot-20261114",
+  "cities": "riyadh,frankfurt,singapore",
+  "scenarios": "B-TRN,D-TRN",
+  "intensities": "0,0.1,0.25,0.5,0.75,0.9",
+  "shapes": "flat,real,amp2",
+  "fees": "120,0",
+  "workers": 14
+}
