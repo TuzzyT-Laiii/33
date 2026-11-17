@@ -1,0 +1,9 @@
+target,card_price,cases,added_cases,max_extra_task_mw
+alpha100,0,72,0,5.53683787e-09
+alpha100,0.1,72,0,1.91984404e-09
+alpha100,0.3,72,0,2.000236e-09
+alpha100,1.0,72,0,4.213384e-10
+economic,0,72,0,1.36939728e-10
+economic,0.1,72,0,8.94662255e-11
+economic,0.3,72,0,1.32819054e-10
+economic,1.0,72,0,1.03724612e-11
