@@ -1,7 +1,7 @@
 """第三节全球计算：在第一节全球抽样网格上重复 residual_flex_pilot 的配对比较。
 
 每个（网格，情境）：按第一节全球输入构建逐小时帧（模板 + 网格气象/风光 + 冷却 PUE），叠加 ASI 推理需求（real 形状），
-需求强度取各情境可承接上限（max_intensity.py，与网格无关）的 0/25%/50%/75%；供能为规划边界、经济最优（α 不设）、接入容量费 120 美元/kW·年；求解器 COPT。
+可选碳价扫描（--carbon）；需求强度取各情境可承接上限（max_intensity.py，与网格无关）的 0/25%/50%/75%；供能为规划边界、经济最优（α 不设）、接入容量费 120 美元/kW·年；求解器 COPT。
 
 ASI 曲线与情境窗口按 UTC 对齐：训练窗口整周平移 14 天；推理、云计算窗口原位；科研 AI 与 HPC 窗口长于 ASI，
 只保留与 ASI 重叠的小时（不循环重放需求），I=0 在同一截断窗口上重算，保留率分子分母同窗口。
@@ -28,7 +28,7 @@ def setup_paths(project):
     sys.path.insert(1, str(HERE))
 
 
-def initialize(config, project, asi_path, fee, intensities, max_table=None, tiers=None):
+def initialize(config, project, asi_path, fee, intensities, max_table=None, tiers=None, carbon=None, cost_scenarios=None):
     setup_paths(project)
     from flex_econ_copt import load_config
     from global_flex_inputs import settings
@@ -41,7 +41,8 @@ def initialize(config, project, asi_path, fee, intensities, max_table=None, tier
                    templates={s: pd.read_parquet(run / 'inputs/templates' / (s + '.parquet')) for s in own['scenarios']},
                    meta=grids.astype(object).where(grids.notna(), None).set_index('grid_id').to_dict('index'),
                    asi=asi_inference(asi_path),
-                   tiers=tiers,
+                   tiers=tiers, carbon=carbon,
+                   cost_scenarios=json.loads(Path(cost_scenarios).read_text('utf-8'))['scenarios'] if cost_scenarios else None,
                    max_intensity=pd.read_csv(max_table).set_index('scenario').max_intensity.to_dict() if max_table else None)
 
 
@@ -109,13 +110,22 @@ def run_group(task):
                 seq, _ = solve(frame, p, grid, on, off, fee=CONTEXT['fee'], mode='cost', fixed_x=xs, solver='copt')
             rows.append(dict(key, mode='seq', **seq))
         return rows
-    for level in CONTEXT['intensities']:
+    carbons = CONTEXT.get('carbon') or [p['carbon_price_usd_t']]
+    costs = CONTEXT.get('cost_scenarios') or {'base-2024': None}
+    base_unit = dict(p['annual_usd_per_mw'])
+    asap = {}  # 顺序调度的算力排程与碳价、供能成本无关，按强度复用
+    for cost_name, carbon, level in [(cn, cp_, lv) for cn in costs for cp_ in carbons for lv in CONTEXT['intensities']]:
+        p['carbon_price_usd_t'] = carbon
+        mult = costs[cost_name] or {}
+        p['annual_usd_per_mw'] = {k: v * mult.get(k, 1.0) for k, v in base_unit.items()}
         intensity = level * cap if cap is not None else level
         c = intensity * idle_mean / total_mean
         on, off = c * on_raw, c * off_raw
-        key = dict(base, intensity=intensity, intensity_of_max=level if cap is not None else None, max_intensity=cap,
-                   inf_online_mwh=float(on.sum()), inf_offline_mwh=float(off.sum()))
-        a, xs = solve(frame, p, grid, on, off, fee=CONTEXT['fee'], mode='asap', solver='copt')
+        key = dict(base, cost_scenario=cost_name, carbon_price_usd_t=carbon, intensity=intensity, intensity_of_max=level if cap is not None else None,
+                   max_intensity=cap, inf_online_mwh=float(on.sum()), inf_offline_mwh=float(off.sum()))
+        if level not in asap:
+            asap[level] = solve(frame, p, grid, on, off, fee=CONTEXT['fee'], mode='asap', solver='copt')
+        a, xs = asap[level]
         if xs is None:
             seq = dict(a)
         else:
@@ -138,13 +148,16 @@ def main():
     ap.add_argument('--workers', type=int, default=32)
     ap.add_argument('--grid-ids', type=Path, help='JSON {"grid_ids": [...]}，用于试跑')
     ap.add_argument('--scenarios', default='')
+    ap.add_argument('--cost-scenarios', help='学习曲线成本倍数 JSON（learning-curves-atb2025.json）')
+    ap.add_argument('--carbon', default='', help='碳价扫描，如 0,200（美元/吨）；缺省沿用配置的 100')
     ap.add_argument('--tiers', default='', help='如 ideal,max：第二节三层补算，只算顺序调度')
     ap.add_argument('--max-table', help='max_intensity.py 输出；给出时 --intensities 解释为上限的比例')
     args = ap.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     intensities = [float(v) for v in args.intensities.split(',')]
     tiers = args.tiers.split(',') if args.tiers else None
-    initialize(args.config, args.project, args.asi, args.fee, intensities, args.max_table, tiers)
+    carbon = [float(v) for v in args.carbon.split(',')] if args.carbon else None
+    initialize(args.config, args.project, args.asi, args.fee, intensities, args.max_table, tiers, carbon, args.cost_scenarios)
     scenarios = args.scenarios.split(',') if args.scenarios else CONTEXT['own']['scenarios']
     grids = json.loads(args.grid_ids.read_text('utf-8'))['grid_ids'] if args.grid_ids else list(CONTEXT['meta'])
     runs = args.out / 'runs.jsonl'
@@ -158,7 +171,7 @@ def main():
     (args.out / 'run-config.json').write_text(json.dumps({k: str(v) for k, v in vars(args).items()}, ensure_ascii=False, indent=2), 'utf-8')
     started, finished, errors = time.time(), len(done), 0
     with runs.open('a', encoding='utf-8') as sink, ProcessPoolExecutor(
-            args.workers, initializer=initialize, initargs=(args.config, args.project, args.asi, args.fee, intensities, args.max_table, tiers)) as ex:
+            args.workers, initializer=initialize, initargs=(args.config, args.project, args.asi, args.fee, intensities, args.max_table, tiers, carbon, args.cost_scenarios)) as ex:
         queue, pending = iter(tasks), {}
         for task in queue:
             pending[ex.submit(run_group, task)] = task
