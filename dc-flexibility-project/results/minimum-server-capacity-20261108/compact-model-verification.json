@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "real_case": "A-HPC 实际 336 小时窗口",
+  "hourly_lp": 13587.967081003742,
+  "compact_lp": 13587.967081003728,
+  "random_feasible_schedule_difference": 1.0507786741414948e-10,
+  "compact_nonzeros": 254547,
+  "hourly_resource_entries": 368277
+}

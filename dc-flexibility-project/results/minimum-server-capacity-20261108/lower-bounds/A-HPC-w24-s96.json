@@ -1,0 +1,9 @@
+{
+  "scenario": "A-HPC",
+  "whole_h": 24,
+  "split_h": 96,
+  "resource_lower_servers": 12903.007538709693,
+  "integer_lower_servers": 12904,
+  "resource_lower_over_A": 0.7742114207794127,
+  "seconds": 0.5160000000614673
+}

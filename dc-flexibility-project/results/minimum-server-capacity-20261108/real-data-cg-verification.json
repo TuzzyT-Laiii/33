@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "real_case": "A-HPC 实际 336 小时作业窗口",
+  "complete_pattern_lp": 13587.967081003742,
+  "all_pattern_dual_bound": 13587.96708100373,
+  "absolute_difference": 1.2732925824820995e-11,
+  "pricing_check": {
+    "real_groups": 55,
+    "choices_checked": 655,
+    "maximum_error": 5.684341886080802e-14
+  },
+  "audit": {
+    "capacity_servers": 4.547473508864641e-11,
+    "batch_conservation": 2.5708324358220125e-12,
+    "work_conservation": 8.847564458847046e-09,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "jobs_sha256": "2aaef319cf60fddb8c735d67ffcf019957937125806bfdaf64f908a5452ca1f5"
+}

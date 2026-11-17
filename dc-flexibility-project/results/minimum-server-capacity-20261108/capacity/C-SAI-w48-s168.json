@@ -1,0 +1,35 @@
+{
+  "scenario": "C-SAI",
+  "whole_h": 48,
+  "split_h": 168,
+  "servers": 5541,
+  "lower_servers": 5541,
+  "gap_servers": 0,
+  "status": "certified_within_one",
+  "continuous_lower_servers": 5540.339728207921,
+  "continuous_upper_servers": 5540.763600000007,
+  "baseline_servers": 7142,
+  "gpus_per_server": 2,
+  "whole_jobs_sha256": "7d94df31eb5b459b85fb8824dac483bb1a66ae0134fb526138fbe83b0f95583c",
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "method": "整体作业全部保留原时序，连续工作量满足资源下界，原始任务完整核验",
+  "seconds": 0.0,
+  "audit": {
+    "capacity_servers": 0.0,
+    "work_conservation": 2.0563602447509766e-06
+  },
+  "task_power_peak_mw": null,
+  "task_power_peak_ratio": null,
+  "resource_scale": 0.7142,
+  "reused_resource_model": "B-SAI",
+  "reference_sha256": "ca0a17579e3039b7074e93d3a882abf9647e147944985a412877786d59687ae7",
+  "base_capacity_sha256": "f9292ea1d46d3261855230a8359971493941484e61533517e08f3dfe4b56a201",
+  "base_model_audit": {
+    "capacity_servers": 1.000444171950221e-11,
+    "batch_conservation": 1.7763568394002505e-15,
+    "work_conservation": 1.7881393432617188e-07,
+    "nonnegative": 2.992466508223194e-19,
+    "whole_integrality": 1.7763568394002505e-15
+  },
+  "solve_seconds": 0.0
+}

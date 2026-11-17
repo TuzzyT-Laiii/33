@@ -12,7 +12,7 @@ from task_trace_inputs import interval_resource_hours
 HOUR_NS = 3_600_000_000_000
 
 
-def whole_profile(jobs, source, power, expected):
+def whole_profile(jobs, source, power, expected, *, exact_groups=False):
     hours = pd.Index(source.source_hour_index)
     utc = pd.DatetimeIndex(pd.to_datetime(source.source_clock, utc=True))
     timestamps = utc.as_unit('ns').asi8
@@ -41,18 +41,39 @@ def whole_profile(jobs, source, power, expected):
     start_in_slot = np.maximum(starts[job_ids], slots * HOUR_NS)
     end_in_slot = np.minimum(ends[job_ids], (slots + 1) * HOUR_NS)
     work = ((end_in_slot - start_in_slot) / HOUR_NS)[:, None] * counts[job_ids] * factors
-    # 同一起止小时的作业采用相同平移量，保留组内作业原有连续运行区间。
-    groups, _ = pd.factorize(pd.MultiIndex.from_arrays([start_hours[job_ids], end_hours[job_ids]]))
+    multiplicities = None
+    if exact_groups:
+        if np.any(starts % 1_000_000_000) or np.any(ends % 1_000_000_000):
+            raise ValueError('原始作业时间精度超过秒，须保留其完整时间精度')
+        np.testing.assert_array_equal(counts[:, 0] * 4, np.rint(counts[:, 0] * 4))
+        np.testing.assert_array_equal(counts[:, 1], np.rint(counts[:, 1]))
+        cpu = np.rint(counts[ids, 0] * 4).astype(np.int64)
+        gpu = np.rint(counts[ids, 1]).astype(np.int64)
+        first_seconds = (np.minimum(ends[ids], (start_hours[ids] + 1) * HOUR_NS) - starts[ids]) // 1_000_000_000
+        last_seconds = np.where(widths > 1, (ends[ids] - end_hours[ids] * HOUR_NS) // 1_000_000_000, 0)
+        interior = np.where(widths > 2, 3600, 0)
+        keys = (start_hours[ids], end_hours[ids], cpu * first_seconds, gpu * first_seconds,
+                cpu * interior, gpu * interior, cpu * last_seconds, gpu * last_seconds)
+        job_groups, _ = pd.factorize(pd.MultiIndex.from_arrays(keys))
+        multiplicities = np.bincount(job_groups)
+        groups = np.repeat(job_groups, widths)
+    else:
+        # 同一起止小时的作业采用共同平移，形成原模型的保守可行域。
+        groups, _ = pd.factorize(pd.MultiIndex.from_arrays([start_hours[job_ids], end_hours[job_ids]]))
     grouped = pd.DataFrame({'job': groups, 'source_hour_index': slots, 'cpu_units': work[:, 0], 'gpu_units': work[:, 1]})
     grouped = grouped.groupby(['job', 'source_hour_index'], sort=True, as_index=False).sum()
     index = hours.get_indexer(grouped.source_hour_index)
     denominator = expected[index].sum(axis=1)
     grouped['mw'] = grouped[['cpu_units', 'gpu_units']].sum(axis=1).to_numpy() / denominator * power[index]
     eligible = grouped[['cpu_units', 'gpu_units']].sum(axis=0)
+    if exact_groups:
+        grouped['job_count'] = multiplicities[grouped.job.to_numpy()]
+        grouped[['cpu_units', 'gpu_units', 'mw']] = grouped[['cpu_units', 'gpu_units', 'mw']].div(grouped.job_count, axis=0)
     details = {'source_jobs': len(jobs), 'eligible_jobs': len(ids), 'groups': int(grouped.job.nunique()),
                'eligible_cpu_unit_hours': float(eligible.iloc[0]), 'eligible_gpu_unit_hours': float(eligible.iloc[1]),
                'total_cpu_unit_hours': float(expected[:, 0].sum()), 'total_gpu_unit_hours': float(expected[:, 1].sum()),
-               'fixed_when_incomplete': True, 'common_shift_for_same_start_and_end_hour': True}
+               'fixed_when_incomplete': True, 'common_shift_for_same_start_and_end_hour': not exact_groups,
+               'exact_hourly_resource_shape_groups': exact_groups}
     return grouped, details
 
 
@@ -106,6 +127,7 @@ def main():
     for name in ('jobs', 'source-audit', 'reference', 'resources', 'layers', 'output', 'resource-audit',
                  'lisa-jobs', 'mit-slurm', 'mit-categories'):
         parser.add_argument('--' + name, type=Path, required=True)
+    parser.add_argument('--exact-groups', action='store_true')
     args = parser.parse_args()
     audit = json.loads(args.source_audit.read_text('utf-8'))
     if sha256(args.jobs) != audit['job_sha256']:
@@ -135,7 +157,7 @@ def main():
             np.testing.assert_array_equal(source.source_hour_index, layers.source_hour_index)
             power = layers['可推迟·整体'].to_numpy()
             expected = expected_units(source, args.resources, scenario)
-            frame, details = whole_profile(jobs, source, power, expected)
+            frame, details = whole_profile(jobs, source, power, expected, exact_groups=args.exact_groups)
             path = args.output / f'{scenario}.parquet'
             frame.to_parquet(path, index=False)
             manifest[scenario] = {**details, 'input_sha256': hashes, 'output_sha256': sha256(path)}

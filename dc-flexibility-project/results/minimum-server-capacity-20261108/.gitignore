@@ -1,0 +1,11 @@
+/capacity/windows/
+/capacity/*.lock
+/capacity/*.progress.json
+/capacity/*.checkpoint.npz
+/capacity/*.first-dual.npz
+/capacity/*.seed.npz
+/capacity/A-HPC-w*-s*.npz
+/capacity/B-SAI-w*-s*.npz
+/capacity/B-TRN-w*-s*.npz
+/capacity/D-TRN-w*-s*.npz
+/cross-validation/hourly-highs/*.npz

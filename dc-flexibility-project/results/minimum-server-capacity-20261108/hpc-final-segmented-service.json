@@ -1,0 +1,17 @@
+{
+  "server": "pku-solar-pro",
+  "unit": "min-servers-finish-segmented-single-20261108.service",
+  "started_at": "2026-11-08T17:39:48+08:00",
+  "finished_at": "2026-11-08T17:46:43+08:00",
+  "cpu_seconds_from_journal": 412.474,
+  "memory_peak_from_journal": "4.6G",
+  "memory_limit": "8 GiB",
+  "swap_peak_from_journal": "0B",
+  "workers": 1,
+  "last_integer_model_solve_seconds": 307.70,
+  "last_integer_model_reported_bound": "-inf",
+  "effective_global_lower_servers_from_resource_certificate": 13195,
+  "feasible_global_servers": 13620,
+  "proven_optimal": false,
+  "evidence": "用户级 journalctl 记录服务开始、结束、CPU 和内存；finish-segmented-single.log 的末次 GLOBAL 记录 13195 13620。无有效整数根节点界时，保留独立资源 LP 下界。"
+}

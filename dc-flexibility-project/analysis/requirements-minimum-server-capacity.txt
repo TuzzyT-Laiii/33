@@ -1,0 +1,6 @@
+numpy>=1.26
+pandas>=2.0
+scipy>=1.13
+pyarrow>=14
+highspy>=1.15
+coptpy>=8.0.7

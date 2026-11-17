@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "real_case": "A-HPC 实际 336 小时作业窗口",
+  "original_groups": 8790,
+  "lp_cohorts": 5465,
+  "original_lp": 13587.967081003742,
+  "aggregate_lp": 13587.96708100373,
+  "original_job_dual_bound": 13587.967081003751,
+  "integer_audit": {
+    "capacity_servers": 0.0,
+    "batch_conservation": 0.0,
+    "work_conservation": 4.656612873077393e-10,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  }
+}

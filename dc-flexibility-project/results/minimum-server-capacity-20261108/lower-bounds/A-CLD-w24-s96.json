@@ -1,0 +1,9 @@
+{
+  "scenario": "A-CLD",
+  "whole_h": 24,
+  "split_h": 96,
+  "resource_lower_servers": 6824.224785448079,
+  "integer_lower_servers": 6825,
+  "resource_lower_over_A": 0.6837900586621322,
+  "seconds": 0.0
+}

@@ -1,0 +1,24 @@
+{
+  "scenario": "B-SAI",
+  "whole_h": 48,
+  "split_h": 168,
+  "servers": 7758,
+  "lower_servers": 7758,
+  "gap_servers": 0,
+  "status": "certified_within_one",
+  "continuous_lower_servers": 7757.406508272084,
+  "continuous_upper_servers": 7758.00000000001,
+  "baseline_servers": 10000,
+  "gpus_per_server": 1,
+  "whole_jobs_sha256": "95985d6f43be4d4e259fe8bdd7b1114c9849c6ebec8f29ce714d3bc5bede3bf6",
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "method": "整体作业全部保留原时序，连续工作量满足资源下界，原始任务完整核验",
+  "seconds": 77.71271264200914,
+  "audit": {
+    "capacity_servers": 1.000444171950221e-11,
+    "batch_conservation": 1.7763568394002505e-15,
+    "work_conservation": 1.7881393432617188e-07,
+    "nonnegative": 2.992466508223194e-19,
+    "whole_integrality": 1.7763568394002505e-15
+  }
+}

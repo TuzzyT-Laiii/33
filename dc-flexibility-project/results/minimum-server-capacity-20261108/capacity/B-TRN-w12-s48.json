@@ -1,0 +1,38 @@
+{
+  "status": "certified_within_one",
+  "servers": 7164,
+  "lower_servers": 7164,
+  "gap_servers": 0,
+  "grouped_lp_lower_servers": 7163.363657751184,
+  "continuous_lower_servers": 7163.363657751184,
+  "continuous_upper_servers": 7163.363657751579,
+  "lp_seconds": 190.15822116000345,
+  "solve_seconds": 219.006286696007,
+  "options": 1419468,
+  "whole_groups": 105429,
+  "task_power_peak_mw": 2.7328541288061086,
+  "task_power_peak_ratio": 0.8828657425672387,
+  "hours": 2057,
+  "audit": {
+    "capacity_servers": 0.0,
+    "batch_conservation": 3.774758283725532e-14,
+    "work_conservation": 3.4086406230926514e-07,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "lp_audit": {
+    "capacity_servers": 3.8562575355172157e-10,
+    "batch_conservation": 1.3700152123874432e-13,
+    "work_conservation": 4.116445779800415e-07,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "scenario": "B-TRN",
+  "whole_h": 12,
+  "split_h": 48,
+  "baseline_servers": 9261,
+  "gpus_per_server": 1,
+  "hourly_whole": true,
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "method": "完整作业模式 LP 下界与整数修复可行上界"
+}

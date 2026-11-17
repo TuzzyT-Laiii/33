@@ -1,0 +1,48 @@
+{
+  "status": "certified_within_one",
+  "servers": 1040,
+  "lower_servers": 1040,
+  "gap_servers": 0,
+  "grouped_lp_lower_servers": 1039.1755654799501,
+  "continuous_lower_servers": 1039.1755654799501,
+  "continuous_upper_servers": 1039.175565480088,
+  "lp_seconds": 167.43152102199383,
+  "solve_seconds": 0.0,
+  "options": 767615,
+  "whole_groups": 38452,
+  "task_power_peak_mw": null,
+  "task_power_peak_ratio": null,
+  "hours": 5688,
+  "audit": {
+    "capacity_servers": 0.0,
+    "work_conservation": 2.076849341392517e-07
+  },
+  "lp_audit": {
+    "capacity_servers": 2.9103830456733704e-11,
+    "batch_conservation": 1.5571988143392446e-12,
+    "work_conservation": 2.1830201148986816e-06,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "scenario": "D-SAI",
+  "whole_h": 12,
+  "split_h": 48,
+  "baseline_servers": 1234,
+  "gpus_per_server": 8,
+  "hourly_whole": true,
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "method": "完整作业模式 LP 下界与整数修复可行上界",
+  "resource_scale": 0.1234,
+  "reused_resource_model": "B-SAI",
+  "whole_jobs_sha256": "c12a86f47ae9fc113e4cdae66629f84febd6f7e8c2a3ff31fdb7803afd5a0542",
+  "reference_sha256": "80a9814e8c683d4ffc40e9e22f0bb4521d8db1a81f58810e0fed6ba02af3b3d2",
+  "base_capacity_sha256": "af2c7ea0c65f94647eaa6c257d938df933fe480cd31b6e3e51b1fb8fbc9f3fa9",
+  "base_model_audit": {
+    "capacity_servers": 0.0,
+    "batch_conservation": 2.58792987040124e-13,
+    "work_conservation": 2.1457672119140625e-06,
+    "nonnegative": 0.0,
+    "whole_integrality": 0.0
+  },
+  "seconds": 0.0
+}

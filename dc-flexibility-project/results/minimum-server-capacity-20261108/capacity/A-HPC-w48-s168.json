@@ -1,0 +1,22 @@
+{
+  "scenario": "A-HPC",
+  "whole_h": 48,
+  "split_h": 168,
+  "servers": 13620,
+  "lower_servers": 12420,
+  "gap_servers": 1200,
+  "continuous_lower_servers": 12419.525805484951,
+  "continuous_upper_servers": 13619.440585884318,
+  "status": "feasible_with_gap",
+  "baseline_servers": 16666,
+  "gpus_per_server": 0,
+  "seconds": 24.680362258979585,
+  "method": "可行上界沿用已核验的更严格期限方案，下界按本期限单独计算",
+  "whole_jobs_sha256": "4e2d523e24566a74303d4ff5662a05c4092d4492d6f702c95bcf24607a9a2486",
+  "source_manifest_sha256": "e53bf3c4810989f697bc3eafd3c0d41c5288874d41ed332180b4f85b4fc33874",
+  "audit": {
+    "capacity_servers": 0.0,
+    "work_conservation": 5.960464477539063e-08
+  },
+  "inherited_from_capacity_sha256": "dd8a7a2001020480b12f259b4f844e47db5cc0089d02a6d2e8f02e2f0e692c45"
+}
