@@ -1,0 +1,130 @@
+{
+  "checks_passed": true,
+  "metrics": {
+    "valid_grids": 4842,
+    "scenario_boundary_pairs": 22,
+    "economic_optimum_grid_rows": 106524,
+    "headroom_pct_range": [
+      27.32983694982436,
+      51.95466454740547
+    ],
+    "hours_above_90pct_K_range": [
+      6,
+      383
+    ],
+    "planning_median_energy_savings_pct_range": [
+      3.3292291193621053,
+      13.83929213381224
+    ],
+    "as_built_median_energy_savings_pct_range": [
+      2.171018482007655,
+      7.322810034099351
+    ],
+    "D_TRN_planning_savings_pct_q25_median_q75": [
+      10.388106555367003,
+      13.83929213381224,
+      18.13975777802579
+    ],
+    "fleet_annual_cost_million_usd_range": [
+      66.24874251332345,
+      177.79337890580607
+    ],
+    "baseline_energy_annual_cost_million_usd_range": [
+      5.245178302379483,
+      10.02603184751417
+    ],
+    "annual_savings_million_usd_range": [
+      0.11637924967627387,
+      1.1364651389461742
+    ],
+    "planning_median_fleet_savings_pct_range": [
+      0.1036528340319329,
+      1.0272124411480097
+    ],
+    "as_built_median_fleet_savings_pct_range": [
+      0.07050597478527715,
+      0.5770756326673503
+    ],
+    "maximum_grid_fleet_savings_pct": 1.86664117723427,
+    "D_TRN_low_wind_savings_median_pct": 9.359821803033704,
+    "D_TRN_high_wind_savings_median_pct": 20.352627402297053,
+    "D_TRN_grid_share_pearson_r": -0.8772818668516361,
+    "representative_non_cloud_r2_range": [
+      0.6521834149190454,
+      0.8432811747645308
+    ],
+    "cloud_r2_range": [
+      0.2033719078822518,
+      0.3067317363604714
+    ],
+    "annualization_factor": 0.33192080445403915,
+    "mapped_blocks": 4832,
+    "valid_grids_without_land_geometry": 10
+  },
+  "formats": {
+    "fig1": {
+      "width_mm": 180,
+      "height_mm": 160,
+      "pages": 1,
+      "minimum_font_pt": 6.0,
+      "embedded_fonts": [
+        "ELUGPM+Arial-BoldMT",
+        "ELUGPM+ArialMT"
+      ],
+      "raster_images": 2,
+      "all_text_inside_page": true,
+      "png_pixels": [
+        4251,
+        3779
+      ],
+      "png_dpi": 599.9988
+    },
+    "fig2": {
+      "width_mm": 180,
+      "height_mm": 154,
+      "pages": 1,
+      "minimum_font_pt": 6.0,
+      "embedded_fonts": [
+        "ELUGPM+Arial-BoldMT",
+        "ELUGPM+ArialMT"
+      ],
+      "raster_images": 0,
+      "all_text_inside_page": true,
+      "png_pixels": [
+        4251,
+        3637
+      ],
+      "png_dpi": 599.9988
+    }
+  },
+  "input_sha256": {
+    "results/global-flex-econ-20261103/grid-summary.parquet": "37e235ac2a99be457fc82d995ebb8292004c0f0d7b262ae4f42dada54571c76c",
+    "results/global-flex-econ-20261103/part1/part1-summary.csv": "02c2d7f4ccff9022c7cf27e95df06bf336a94bc62ff02d6d13aecfbc222b1cf4",
+    "analysis/flex-econ-copt-20261102.json": "0aaf04b8397db4a1fb344b980f65ec904a261a974153c0e198ee4068fa693b43",
+    "results/global-flex-econ-20261103/attribution/attribution-table.parquet": "7ccdb5ab378d880349d0451bcf42e079ec4ad11207461b5976433b42f14d62ea",
+    "results/global-flex-econ-20261103/attribution/regression.csv": "e1b6fcb364cbb316577fac3fefc5f442b1e5083af47a55e2090a9854b34df81e",
+    "results/global-flex-econ-20261103/attribution/fit.csv": "6dffdfa26ae6807392c1463a35badcf3467890910c777280049a7fd7c7027f86",
+    "results/global-flex-econ-20261103/attribution/wind-bins.csv": "0f31c11dfa2cc830bfa44bc65b703373fe061da916c479955bb0f2bc94eaecac",
+    "results/flex-class-20261101/native-hourly/A-HPC.parquet": "d3d2fa42abc4a3e9e0c1f11481219c306c8de127b98e22704a0d6eadb0bab83e",
+    "results/flex-class-20261101/native-hourly/A-CLD.parquet": "ca17390c0eb0ba34fa23c7764131db5efbb0bd133a8ff5e978c0ae5064a8d6e3",
+    "results/flex-class-20261101/native-hourly/B-SAI.parquet": "89a5a16eda47027c895daf90e41394725be709cf8392c04951bb218587fade12",
+    "results/flex-class-20261101/native-hourly/C-SAI.parquet": "de5a2449857d42dfb0d4c1fc35a69bc8c782710269a4b77aac198043a559d1ab",
+    "results/flex-class-20261101/native-hourly/D-SAI.parquet": "c2dcabff80ae6b758d41d4ab4438e9fe16094d64b811d3429d5939dcdb72d744",
+    "results/flex-class-20261101/native-hourly/B-TRN.parquet": "56d456a5410a18fbfb4c33b63edee04d82c9e988929cc9ddb851434323a17058",
+    "results/flex-class-20261101/native-hourly/C-TRN.parquet": "731ebbf0432dd59dd61c2da4d9d1c38d95c39a45e10a3cfad0b01c3884d85cdb",
+    "results/flex-class-20261101/native-hourly/D-TRN.parquet": "dd2a687d7c9e0e8384fec02dd90d64704f0297b90ab548c6e58248889ebbaf9f",
+    "results/flex-class-20261101/native-hourly/B-INF.parquet": "b2013121dddf3f2620d46f84214739fe371d413a1abdad425009a4828c09898f",
+    "results/flex-class-20261101/native-hourly/C-INF.parquet": "dba7bcb206e9066e4b45baa4d128e907b0cc7d0547f1c8f7b46026b06edf9d70",
+    "results/flex-class-20261101/native-hourly/D-INF.parquet": "76707ec21c55a8663349367c602a7732a68259aa846bff07f836b0396bb58a42",
+    "papers/demand-flexibility/figures/map-assets/countries-10m.zip": "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6",
+    "papers/demand-flexibility/figures/map-assets/map-block-land-cells.parquet": "51f76d598f7245bda1f9fdf5e18048006f356d73db7abafb51ae9f7660ae7775"
+  },
+  "scope": "Existing results only; no optimization or source-data changes",
+  "checks": [
+    "Native peak-load reconstruction and PR60 summary agreement",
+    "Economic-optimum statuses, costs and zero added task capacity",
+    "Attribution target agreement and all 10 displayed OLS fits / predictor omission losses",
+    "All wind-bin medians, quartiles and counts against PR51",
+    "Map asset hashes / coverage, PDF text bounds / embedded fonts / images, PNG resolution"
+  ]
+}

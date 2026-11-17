@@ -1,0 +1,11 @@
+{
+  "font": "Arial",
+  "annualization_factor": 0.33192080445403915,
+  "annualization": "Native-window energy costs and savings multiplied by 8760 / window hours",
+  "map": "Robinson; WGS84 cached 2-degree land intersections; no spatial interpolation",
+  "box_whiskers": "minimum and maximum; boxes: 25th to 75th percentiles; line: median",
+  "grids_per_scenario_boundary": 4842,
+  "mapped_blocks": 4832,
+  "empty_land_intersections": 10,
+  "economic_optimum": "alpha is null; both solves optimal"
+}
