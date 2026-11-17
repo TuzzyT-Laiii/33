@@ -1,6 +1,6 @@
 # 《算力中心算电协同收益稳定但有限》结果图 1–3（英文版，2026-11-15）
 
-对应 OneDrive《结果框架_算力中心算电协同收益稳定但有限_20261115_v15》的结论一至三；版式参照 GeoSciPlot 图库（https://geosciplot.zbhgis.com/）的多类型组图。三张图共用一套配色：五类用途色（同用途内 CPU 主导/均衡/GPU 主导由浅到深），数值色带米色→青绿→深蓝，发散色带赤陶红↔深青。子图只标字母，标题与说明见图注；情境标签分两级（左用途、右配置）。碳价图（图 4）待数据。
+对应 OneDrive《结果框架_算力中心算电协同收益稳定但有限_20261115_v15》的结论一至三；版式参照 GeoSciPlot 图库（https://geosciplot.zbhgis.com/）的多类型组图。三张图共用一套配色：五类用途色（同用途内 CPU 主导/均衡/GPU 主导由浅到深），数值色带米色→青绿→深蓝，发散色带赤陶红↔深青。子图只标字母，标题与说明见图注；情境标签分两级（左用途、右配置）。图 4 对应结论四（碳价与技术成本）。
 
 180 mm 双栏宽，高 215/205/195 mm；PDF（地图、热图、散点栅格化，其余矢量）与 600 dpi PNG。字体 Arial。
 
@@ -11,10 +11,13 @@
 | [图1](fig1.pdf) | a 训练·GPU 主导协同节省地图 + 纬度条；b 不可推迟/可推迟功率与峰值余量；c 节省分布（山脊图）；d 现有协同 vs 减配上限；e 成本嵌套方块；f 节省 vs 市电占比（点色风电占比）；g 上下限分解：节省比例 × 成本基数（等节省额线），曲线上每点多减 2.5% 服务器 | 1.1 b；1.2 a、c、f；1.3 e；1.4 d、g |
 | [图2](fig2.pdf) | a 环形分组柱：现有协同、减配上限、真实需求下卖推理、全卖四档（径向对数）；b 盈亏平衡售价区间条，标出市场价带与市场价 ÷ 减配盈亏平衡价；c 2025-06-02 至 06-15 逐时曲线（闲置 GPU vs 同均值外部需求，红区为需求超过闲置）；d 闲置 GPU 比例 × 每 MWh GPU 小时（等收益分区）；e 电价梯度：协同节省偏离的六边形密度与中位线 vs 全卖收入，右侧放大全卖 | 2.1 a、b、c；2.2 d；2.3 e |
 | [图3](fig3.pdf) | a 上限 75% 时每个网格 11 类机群中最低的协同节省（六边形格网）+ 直方图色标；b 实施成本存活曲线（2、3 美元/MWh 处 97%、90%）；c 争用与互补（占用闲置 vs 保留率，线尾直接标注）；d 保留率分解：转移电量比 × 每 MWh 价值比，背景为等保留率线；e 训练机群保留率 vs 风电占比 + 11 类机群秩相关 | 3.1 a、b；3.2 c、d；3.3 e |
+| [图4](fig4.pdf) | a 碳价 0/100/200 下 11 类机群协同节省中位数（斜率图）与购电减排；b 碳价 200 ÷ 0 的放大倍数（机群 × 推理强度热图）；c 卡价倍数 × 新增卡待机比例的加卡检验（全部 0）叠加学习曲线路径；d 供能学习曲线下供能成本与协同节省相对 2024 的倍数 | 4.1 a；4.2 b；4.3 c；4.4 d |
 
 `source-data/` 为各面板数据（UTF-8 BOM CSV）。
 
 ## 输入
+
+- 图 4 使用第四节汇总表（PR #80 `results/sec4-carbon-learning-20261116/` 与 `analysis/learning-curves-atb2025.json`），原样复制到 `results/paper-figs-stable-limited-20261115/sec4/`。
 
 - `results/residual-flex-global-20261115/paired.parquet`、`results/sell-inference-tiers-20261115/`（PR #77、#78）。
 - `results/paper-figs-stable-limited-20261115/`：`baseline-energy.parquet`、`moved-energy.parquet`（由 `prepare_stable_limited_figs.py` 从第三节 runs-compact 生成）；`part1-summary.csv`（PR #60）；`downsizing-part2-main.csv`（PR #67 减配主表，只取与地点无关的设备年化节省与机群年化设备成本）。
@@ -35,7 +38,7 @@
 git archive origin/codex/paper-results1-figures-20261107 dc-flexibility-project/papers/demand-flexibility/figures/map-assets | tar -x -C dc-flexibility-project/.codex-temp/figs-en --strip-components=4
 python dc-flexibility-project/analysis/prepare_stable_limited_figs.py --runs <第三节 runs-compact.parquet> --part1 <PR #60 part1-summary.csv>
 cd dc-flexibility-project/analysis
-python plot_stable_limited_fig1.py; python plot_stable_limited_fig2.py; python plot_stable_limited_fig3.py
+python plot_stable_limited_fig1.py; python plot_stable_limited_fig2.py; python plot_stable_limited_fig3.py; python plot_stable_limited_fig4.py
 ```
 
 需要 matplotlib、cartopy、geopandas、shapely、pandas、scipy、pyarrow。
