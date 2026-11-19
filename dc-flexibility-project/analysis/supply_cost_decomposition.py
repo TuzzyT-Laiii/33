@@ -110,13 +110,15 @@ def summarize(p, by):
     for k in GROUPS:
         out[f'{k}_baseline_cost_mean_usd_mwh'] = mean['base_' + k]
     total = p.fleet_usd_mwh + p.base_total
-    q = p.assign(total=total, share_total=p.V / total * 100, supply_share=p.base_total / total * 100)
+    q = p.assign(total=total, share_total=p.V / total * 100, supply_share=p.base_total / total * 100,
+                 share_supply=p.V / p.base_total * 100)
     if 'fleet_usd_mwh_cardpath' in p:
         q['share_total_cardpath'] = p.V / (p.fleet_usd_mwh_cardpath + p.base_total) * 100
     g = q.groupby(by)
     out['fleet_cost_median_usd_mwh'] = g.fleet_usd_mwh.median()
     out['total_cost_median_usd_mwh'] = g.total.median()
     out['supply_share_of_total_cost_median_pct'] = g.supply_share.median()
+    out['saving_share_of_supply_cost_median_pct'] = g.share_supply.median()
     out['saving_share_of_total_cost_median_pct'] = g.share_total.median()
     out['saving_share_of_total_cost_p90_pct'] = g.share_total.quantile(.9)
     out['saving_share_of_total_cost_max_pct'] = g.share_total.max()

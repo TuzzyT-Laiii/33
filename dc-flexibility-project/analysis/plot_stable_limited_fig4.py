@@ -161,7 +161,7 @@ COMPS = [('grid_energy', 'Grid energy', '#1B3F70'), ('grid_capacity', 'Grid capa
 
 
 def panel_i(fig):
-    """i：碳价与成本路径下协同省钱方式的转变（毛节省构成，不接推理）与协同节省占总成本的比例。"""
+    """i：碳价与成本路径下协同省钱方式的转变（毛节省构成，不接推理）与协同节省占供能成本、占总成本的比例。"""
     ca = pd.read_csv(DECOMP / 'sec4-carbon-all.csv')
     ca = ca[ca.intensity_of_max.eq(0)].set_index('carbon_price_usd_t')
     la = pd.read_csv(DECOMP / 'sec4-learning-all.csv')
@@ -178,8 +178,9 @@ def panel_i(fig):
     y = np.arange(len(cases))[::-1].astype(float)
     y[:3] += 1.0
     y[3:6] += .5
-    ax1 = fig.add_axes([.17, 7 / H, .44, (EXTRA - 15) / H])
-    ax2 = fig.add_axes([.74, 7 / H, .23, (EXTRA - 15) / H])
+    ax1 = fig.add_axes([.17, 7 / H, .37, (EXTRA - 15) / H])
+    axs = fig.add_axes([.63, 7 / H, .15, (EXTRA - 15) / H])
+    ax2 = fig.add_axes([.83, 7 / H, .14, (EXTRA - 15) / H])
     rows = []
     for yi, (name, a, u, key) in zip(y, cases):
         v = {k: max(a[f'{k}_saving_mean_usd_mwh'], 0) for k, _, _ in COMPS}
@@ -197,6 +198,8 @@ def panel_i(fig):
                  color='#2B2B2B')
         for _, r in u.iterrows():
             c = COLORS[r.use]
+            axs.scatter(r.saving_share_of_supply_cost_median_pct, yi, s=13, color=c, edgecolors='white', lw=.4,
+                        zorder=3)
             ax2.scatter(r.saving_share_of_total_cost_median_pct, yi + (.13 if key else 0), s=13, color=c,
                         edgecolors='white', lw=.4, zorder=3)
             if key:
@@ -206,6 +209,14 @@ def panel_i(fig):
                   u.saving_share_of_total_cost_cardpath_median_pct.max() if key else 0)
         ax2.text(top + .1, yi, f'≤ {top:.1f}%', ha='left', va='center', fontsize=5.6, fontweight='bold',
                  color='#1B3F70')
+        sup = u.saving_share_of_supply_cost_median_pct
+        axs.text(sup.max() + .4, yi, f'{sup.min():.1f}–{sup.max():.1f}%', ha='left', va='center', fontsize=5.4,
+                 fontweight='bold', color='#2B2B2B')
+        for _, r in u.iterrows():
+            rows.append({'case': name, 'component': 'pct_' + r.use, 'share_of_supply_cost_median_pct':
+                         r.saving_share_of_supply_cost_median_pct, 'share_of_total_cost_median_pct':
+                         r.saving_share_of_total_cost_median_pct, 'share_of_total_cost_cardpath_median_pct':
+                         r.get('saving_share_of_total_cost_cardpath_median_pct', np.nan)})
     ax1.set_yticks(y, [c[0] for c in cases], fontsize=5.8)
     ax1.tick_params(axis='y', length=0)
     ax1.spines['left'].set_visible(False)
@@ -215,16 +226,26 @@ def panel_i(fig):
     ax1.text(101.5, y[0] + .75, 'Net\nUSD/MWh', ha='left', va='bottom', fontsize=5.2)
     ax1.legend(handles=[Patch(color=col, label=lab) for _, lab, col in COMPS], loc='lower center',
                bbox_to_anchor=(.5, 1.0), ncol=4, fontsize=5.6, handlelength=1, columnspacing=1.2, borderaxespad=.2)
+    axs.set_ylim(ax1.get_ylim())
+    axs.set_yticks([])
+    axs.spines['left'].set_visible(False)
+    axs.set_xlim(0, 24)
+    axs.set_xticks([0, 5, 10, 15])
+    axs.set_xlabel('Saving (% of supply cost)', fontsize=6, labelpad=1, fontweight='bold')
+    guides(axs)
+    axs.legend(handles=[Line2D([], [], marker='o', ls='none', color=COLORS[u_], ms=3.2, label=GROUP[u_])
+                        for u_ in ('HPC', 'CLD', 'SAI', 'TRN', 'INF')], loc='lower center', bbox_to_anchor=(.5, 1.0),
+               ncol=3, fontsize=5, handletextpad=.1, columnspacing=.5, borderaxespad=.2)
     ax2.set_ylim(ax1.get_ylim())
     ax2.set_yticks([])
     ax2.spines['left'].set_visible(False)
     ax2.set_facecolor('#E3EEF6')
-    ax2.set_xlim(0, 3.2)
-    ax2.set_xlabel('Saving (% of fleet + supply cost)', fontsize=6, labelpad=1, fontweight='bold', color='#1B3F70')
+    ax2.set_xlim(0, 3.6)
+    ax2.set_xlabel('Saving (% of total cost)', fontsize=6, labelpad=1, fontweight='bold', color='#1B3F70')
     guides(ax2)
-    ax2.legend(handles=[Line2D([], [], marker='o', ls='none', color='#666666', ms=3.4, label='Fleet cost, 2024 prices'),
+    ax2.legend(handles=[Line2D([], [], marker='o', ls='none', color='#666666', ms=3.4, label='Fleet at 2024 prices'),
                         Line2D([], [], marker='o', ls='none', mfc='white', mec='#666666', ms=3.4,
-                               label='Fleet cost, card-price path')],
+                               label='Fleet on card-price path')],
                loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=1, fontsize=5.4, handletextpad=.2, borderaxespad=.2)
     return pd.DataFrame(rows)
 
