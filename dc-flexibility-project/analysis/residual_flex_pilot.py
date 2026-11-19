@@ -126,8 +126,13 @@ def solve_copt(c, Aeq, beq, Aub, bub, lb, ub):
     return x, label
 
 
-def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mode='joint', fixed_x=None, solver='highs'):
-    """mode='asap'：只排算力，最小化积压；mode='cost'：给定（或不给定）算力执行，最小化供能成本。"""
+def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mode='joint', fixed_x=None, solver='highs', cards=None):
+    """mode='asap'：只排算力，最小化积压；mode='cost'：给定（或不给定）算力执行，最小化供能成本。
+
+    cards（第四节加卡检验，只用于 mode='cost'）：{'usd_per_mw_year', 'idle_per_mw', 'min_mw', 'max_mw'}。
+    加一个增减卡变量 e（MW 任务功率，min_mw ≤ e ≤ max_mw）：任务容量 K + e，按年化卡价计费，
+    增减卡的待机功率 idle_per_mw × e 全时计入设施负荷（与 flex_econ_copt.solve 的 cards 口径一致）。"""
+    assert cards is None or mode != 'asap', 'asap 不含加卡变量'
     n = len(frame)
     idx = np.arange(n)
     hours = frame.source_hour_index
@@ -144,17 +149,20 @@ def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mod
     unit = dict(p['annual_usd_per_mw'])
     unit['grid_capacity'] = fee * 1000.
     ef = p['emission_factor'][city]
-    lp = LP(n, len(CAPS))
+    lp = LP(n, len(CAPS) + (cards is not None))
     o = lp.off
+    E = len(CAPS)  # 增减卡变量位置（仅 cards 给出时存在）
     lb, ub = np.zeros(lp.count), np.full(lp.count, np.inf)
     ub[:5] = [p['pv_max_mw'], p['wind_max_mw'], p['battery_power_max_mw'], p['battery_energy_max_mwh'], p['grid_max_mw']]
+    if cards is not None:
+        lb[E], ub[E] = cards['min_mw'], cards['max_mw']
     for k in arr:
         ub[o['b_' + k] + idx] = backlog_limit(arr[k], dl[k], hours)
     c = np.zeros(lp.count)
     # 算力：积压递推与容量
     for k in arr:
         lp.block('eq', [(idx, o['b_' + k] + idx, 1.), (idx[1:], o['b_' + k] + idx[:-1], -1.), (idx, o['x_' + k] + idx, 1.)], arr[k])
-    lp.block('ub', [(idx, o[x] + idx, 1.) for x in X], headroom)
+    lp.block('ub', [(idx, o[x] + idx, 1.) for x in X] + ([(idx, E, -1.)] if cards is not None else []), headroom)
     if mode == 'asap':
         for k in arr:
             c[o['b_' + k] + idx] = 1.
@@ -169,7 +177,12 @@ def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mod
         c[o['grid'] + idx] = p['grid_price_usd_mwh'] + p['carbon_price_usd_t'] * ef
         c[o['discharge'] + idx] = p['battery_throughput_usd_mwh']
         lp.block('eq', [(idx, 0, cfp), (idx, 1, cfw)] + [(idx, o[k] + idx, -1.) for k in ('direct', 'charge', 'curtail')], np.zeros(n))
-        lp.block('eq', [(idx, o[k] + idx, 1.) for k in ('direct', 'grid', 'discharge')] + [(idx, o[x] + idx, -pue) for x in X], pue * fixed)
+        card_terms = []
+        if cards is not None:
+            c[E] = cards['usd_per_mw_year'] * scale
+            card_terms = [(idx, E, -pue * cards['idle_per_mw'])]
+        lp.block('eq', [(idx, o[k] + idx, 1.) for k in ('direct', 'grid', 'discharge')] + [(idx, o[x] + idx, -pue) for x in X] + card_terms,
+                 pue * fixed)
         eta = np.sqrt(p['battery_roundtrip_efficiency'])
         lp.block('eq', [(idx, o['soc'] + idx, 1.), (idx, o['soc'] + (idx - 1) % n, -1.),
                         (idx, o['charge'] + idx, -eta), (idx, o['discharge'] + idx, 1 / eta)], np.zeros(n))
@@ -194,14 +207,19 @@ def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mod
     if mode == 'asap':
         return out, {k: d[k] for k in X}
     pv, wind, power, energy, gcap = x[:5]
-    executed = fixed + sum(d[x_] for x_ in X)
+    extra = float(x[E]) if cards is not None else 0.
+    idle_extra = cards['idle_per_mw'] * extra if cards is not None else 0.
+    executed = fixed + sum(d[x_] for x_ in X) + idle_extra
     facility = pue * executed
     cost = {k: unit[k] * scale * v for k, v in zip(CAPS, x[:5])}
     cost.update(grid_energy=p['grid_price_usd_mwh'] * d['grid'].sum(), carbon=p['carbon_price_usd_t'] * ef * d['grid'].sum(),
                 throughput=p['battery_throughput_usd_mwh'] * d['discharge'].sum())
+    if cards is not None:
+        cost['cards'] = cards['usd_per_mw_year'] * scale * extra
+        out.update(extra_task_mw=extra, extra_idle_mwh=idle_extra * n)
     resid = max(np.max(np.abs(d['direct'] + d['grid'] + d['discharge'] - facility)),
                 *(abs(d['x_' + k].sum() - arr[k].sum()) for k in arr),
-                np.max(sum(d[x_] for x_ in X) - headroom))
+                np.max(sum(d[x_] for x_ in X) - headroom - extra))
     out.update(total_cost_usd=sum(cost.values()), **{'cost_' + k: v for k, v in cost.items()},
                pv_mw=pv, wind_mw=wind, battery_mw=power, battery_mwh=energy, grid_cap_mw=gcap,
                grid_mwh=float(d['grid'].sum()), emissions_t=float(d['grid'].sum() * ef),
@@ -210,7 +228,7 @@ def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mod
                moved_whole_mwh=float(np.maximum(arr['whole'] - d['x_whole'], 0).sum()),
                moved_split_mwh=float(np.maximum(arr['split'] - d['x_split'], 0).sum()),
                moved_off_mwh=float(np.maximum(arr['off'] - d['x_off'], 0).sum()),
-               it_utilization=float((executed - frame.base.to_numpy()).sum() / (K * n)),
+               it_utilization=float((executed - idle_extra - frame.base.to_numpy()).sum() / ((K + extra) * n)),
                max_residual=float(resid))
     return out, {k: d[k] for k in X + ['grid', 'discharge', 'charge']} | {'facility': facility}
 
