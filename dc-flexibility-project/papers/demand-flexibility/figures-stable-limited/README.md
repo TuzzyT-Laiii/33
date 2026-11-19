@@ -11,13 +11,14 @@
 | [图1](fig1.pdf) | a 训练·GPU 主导协同节省地图 + 纬度条；b 不可推迟/可推迟功率与峰值余量；c 节省分布（山脊图）；d 现有协同 vs 减配上限；e 成本嵌套方块；f 节省 vs 市电占比（点色风电占比）；g 上下限分解：节省比例 × 成本基数（等节省额线），曲线上每点多减 2.5% 服务器 | 1.1 b；1.2 a、c、f；1.3 e；1.4 d、g |
 | [图2](fig2.pdf) | a 环形分组柱：现有协同、减配上限、真实需求下卖推理、全卖四档（径向对数）；b 盈亏平衡售价区间条，标出市场价带与市场价 ÷ 减配盈亏平衡价；c 2025-06-02 至 06-15 逐时曲线（闲置 GPU vs 同均值外部需求，红区为需求超过闲置）；d 闲置 GPU 比例 × 每 MWh GPU 小时（等收益分区）；e 电价梯度：协同节省偏离的六边形密度与中位线 vs 全卖收入，右侧放大全卖 | 2.1 a、b、c；2.2 d；2.3 e |
 | [图3](fig3.pdf) | a 上限 75% 时每个网格 11 类机群中最低的协同节省（六边形格网）+ 直方图色标；b 实施成本存活曲线（2、3 美元/MWh 处 97%、90%）；c 争用与互补（占用闲置 vs 保留率，线尾直接标注）；d 保留率分解：转移电量比 × 每 MWh 价值比，背景为等保留率线；e 训练机群保留率 vs 风电占比 + 11 类机群秩相关 | 3.1 a、b；3.2 c、d；3.3 e |
-| [图4](fig4.pdf) | a 双变量地图：电网碳因子 × 碳价 0→200 放大倍数（Equal Earth，3×3 分位）；b 云雨图：推理 75% 时五类用途在碳价 0/100/200 下的节省分布；c 2035 乐观路径协同节省倍数地图 + 经度统计条（三条路径）；d 六边形密度：顺序调度储能时长 vs 协同节省倍数 | 4.1 a；4.2 b；4.4 c、d；4.3 见正文（八城市） |
+| [图4](fig4.pdf) | 按子论点排布 9 个子图。4.1：a 双变量地图（电网碳因子 × 碳价 0→200 放大倍数，图例在海域）、b 碳价下各用途协同节省与协同减排的中位数；4.2：c 碳价下四档推理强度的节省下十分位；4.3：d 卡价 × 新增卡待机比例检验网格（格内为加卡算例数，叠加学习曲线路径）、e 允许增减卡时减卡比例随推理强度的变化（虚线为 ×(1−强度)）；4.4：f 2035 乐观路径协同节省倍数地图（离散分级）+ 经度统计条、g 三条路径协同节省倍数（色带为碳价 0–200）与占供能成本比例随年份、h 储能时长 vs 协同节省倍数二维直方图、i 供能成本中位数 vs 碳价放大倍数气泡图 | 4.1 a、b；4.2 c；4.3 d、e；4.4 f–i |
 
 `source-data/` 为各面板数据（UTF-8 BOM CSV）。
 
 ## 输入
 
 - 图 4 使用第四节汇总表（PR #80 `results/sec4-carbon-learning-20261116/` 与 `analysis/learning-curves-atb2025.json`），原样复制到 `results/paper-figs-stable-limited-20261115/sec4/`；逐网格小表 `fig4-grid-carbon.parquet`、`fig4-grid-lc.parquet` 由 `plot_stable_limited_fig4.py` 的 prepare() 从 #80 服务器结果的本地副本提取。
+- 图 4 的 d、e、g、i 另用 PR #83 的 `results/sec4-supplement-20261118/`（`card-city/` 加卡检验接入推理、`learning-ratio-all.csv` 与 `carbon-amplification-all.csv` 碳价 × 学习曲线交叉）；g 的占供能成本比例 `sec4/learning-pct-all.csv` 由 prepare() 从 #80 `lc-paired.parquet` 汇总（V ÷ 顺序调度供能成本的逐对中位数）。
 
 - `results/residual-flex-global-20261115/paired.parquet`、`results/sell-inference-tiers-20261115/`（PR #77、#78）。
 - `results/paper-figs-stable-limited-20261115/`：`baseline-energy.parquet`、`moved-energy.parquet`（由 `prepare_stable_limited_figs.py` 从第三节 runs-compact 生成）；`part1-summary.csv`（PR #60）；`downsizing-part2-main.csv`（PR #67 减配主表，只取与地点无关的设备年化节省与机群年化设备成本）。
