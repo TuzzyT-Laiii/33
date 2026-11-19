@@ -185,33 +185,50 @@ def main():
     guides(ax_p, 'x')
     panel(fig, 'b', .68, 1 - 3 / H)
 
-    # ---------------- c 争用与互补（线尾直接标注）
+    # ---------------- c 争用与互补：每条线在 0/25/50/75% 打点，左上拥挤处另放局部放大
     cap = pd.read_csv(RESIDUAL / 'max-intensity.csv').set_index('scenario').max_intensity
     ret = p.groupby(['scenario', 'intensity_of_max']).retention.median().unstack()
     ax_c = fig.add_axes(low(.085, .355, .38, .225))
+    ZOOM = (0, .3, .77, 1.035)
+    ax_z = ax_c.inset_axes([.45, .63, .36, .35])
     xx = np.linspace(0, .75, 50)
-    ax_c.fill_between(xx, 1 - xx, 1.12, color='#EEF6F4', lw=0, zorder=0)
-    ax_c.plot(xx, 1 - xx, color=DARK, lw=.8, ls=(0, (3, 2)))
     rows_c = []
-    ends = {}
+    for ax in (ax_c, ax_z):
+        ax.fill_between(xx, 1 - xx, 1.12, color='#EEF6F4', lw=0, zorder=0)
+        ax.plot(xx, 1 - xx, color=DARK, lw=.8 if ax is ax_c else .6, ls=(0, (3, 2)))
     for sc in SCENARIOS:
         occ = np.array(LEVELS) * cap[sc]
         r = ret.loc[sc, LEVELS].to_numpy()
-        ax_c.plot(occ, r, color=shade(sc), lw=.8, zorder=3)
-        ax_c.scatter(occ[-1], r[-1], marker=MARKS[sc[0]], s=22, color=COLORS[use(sc)], edgecolors='white', lw=.5,
-                     zorder=4)
-        ends.setdefault(use(sc), []).append((occ[-1], r[-1]))
+        for ax, s_mid, s_end in ((ax_c, 5, 22), (ax_z, 4, 16)):
+            ax.plot(occ, r, color=shade(sc), lw=.8, zorder=3)
+            ax.scatter(occ[1:-1], r[1:-1], s=s_mid, color=shade(sc), lw=0, zorder=4)
+            ax.scatter(occ[-1], r[-1], marker=MARKS[sc[0]], s=s_end, color=COLORS[use(sc)], edgecolors='white',
+                       lw=.5, zorder=5)
         rows_c.append(pd.DataFrame({'scenario': sc, 'intensity_of_cap': LEVELS, 'idle_occupied': occ, 'retention': r}))
-    offsets = {'INF': (0, .045, 'center', 'bottom'), 'SAI': (-.01, -.05, 'right', 'top'),
-               'HPC': (.025, .015, 'left', 'center'), 'TRN': (0, -.045, 'center', 'top'),
-               'CLD': (.0, .05, 'center', 'bottom')}
-    for u, pts in ends.items():
-        x_, y_ = np.mean(pts, axis=0)
-        dx, dy, ha, va = offsets[u]
-        ax_c.text(x_ + dx, y_ + dy, GROUP[u], color=COLORS[u], fontsize=5.8, fontweight='bold', ha=ha, va=va)
+    # 用云计算一条线标出四档强度
+    occ = np.array(LEVELS) * cap['A-CLD']
+    rc = ret.loc['A-CLD', LEVELS].to_numpy()
+    for x_, y_, lab in zip(occ[1:], rc[1:], ['25%', '50%', '75% of cap']):
+        ax_c.text(x_ + .012, y_ + .022, lab, fontsize=5, color=COLORS['CLD'], ha='left', va='bottom')
+    ax_c.text(.555, .675, 'Cloud', color=COLORS['CLD'], fontsize=5.8, fontweight='bold', ha='left', va='top')
+    ax_c.text(.47, .495, 'LLM training', color=COLORS['TRN'], fontsize=5.8, fontweight='bold', ha='left', va='top')
+    for u, (x_, y_, ha) in {'INF': (.155, 1.02, 'left'), 'HPC': (.295, .80, 'right'),
+                            'SAI': (.135, .805, 'right')}.items():
+        ax_z.text(x_, y_, GROUP[u], color=COLORS[u], fontsize=5, fontweight='bold', ha=ha, va='center')
+    ax_c.add_patch(mpl.patches.Rectangle((ZOOM[0], ZOOM[2]), ZOOM[1] - ZOOM[0], ZOOM[3] - ZOOM[2], fill=False,
+                                         ec='#8C8C8C', lw=.5, ls=(0, (2, 1.5)), zorder=6))
+    ax_z.set_xlim(*ZOOM[:2])
+    ax_z.set_ylim(*ZOOM[2:])
+    ax_z.set_xticks([0, .1, .2, .3])
+    ax_z.set_yticks([.8, .9, 1.0])
+    ax_z.tick_params(labelsize=4.6, length=1.5, pad=1)
+    for s_ in ax_z.spines.values():
+        s_.set_visible(True)
+        s_.set_edgecolor('#8C8C8C')
+        s_.set_linewidth(.5)
     ax_c.text(.36, 1 - .36 - .035, 'Full competition', rotation=-31, fontsize=5.4, color=DARK, ha='center', va='top',
               rotation_mode='anchor')
-    ax_c.text(.72, 1.08, 'Complementarity', fontsize=5.6, color='#3F7F72', ha='right', va='top', style='italic')
+    ax_c.text(.74, .7, 'Complementarity', fontsize=5.6, color='#3F7F72', ha='right', va='bottom', style='italic')
     ax_c.set_xlim(0, .75)
     ax_c.set_ylim(.3, 1.12)
     ax_c.tick_params(labelsize=5.4)
@@ -224,7 +241,7 @@ def main():
                 framealpha=.85, edgecolor='none')
     panel(fig, 'c', .012, .605 * K)
 
-    # ---------------- d 保留率分解：转移电量比 × 每 MWh 价值比
+    # ---------------- d 保留率分解：转移电量比 × 每 MWh 价值比（按用途直接标注）
     mv = pd.read_parquet(INPUT / 'moved-energy.parquet')
     mv['moved'] = mv.moved_task_mwh + mv.moved_off_mwh
     mv = mv.merge(p[['grid_id', 'scenario', 'intensity_of_max', 'V_usd']], on=['grid_id', 'scenario', 'intensity_of_max'])
@@ -237,12 +254,13 @@ def main():
     dm = pd.DataFrame({'r_energy': g.r_energy.median(), 'r_value': g.r_value.median(),
                        'e25': g.r_energy.quantile(.25), 'e75': g.r_energy.quantile(.75),
                        'v25': g.r_value.quantile(.25), 'v75': g.r_value.quantile(.75)}).loc[SCENARIOS]
-    ax_d = fig.add_axes(low(.61, .355, .26, .225))
-    X, Y = np.meshgrid(np.linspace(.8, 1.25, 200), np.linspace(.3, 1.15, 200))
+    ax_d = fig.add_axes(low(.6, .355, .37, .225))
+    XL, YL = (.85, 1.13), (.38, 1.08)
+    X, Y = np.meshgrid(np.linspace(*XL, 200), np.linspace(*YL, 200))
     lv = [.4, .5, .6, .7, .8, .9, 1.0, 1.1]
     cs = ax_d.contour(X, Y, X * Y, levels=lv, colors='#BDBDBD', linewidths=.5, linestyles='-')
     ax_d.clabel(cs, fmt=lambda v: f'{v:.1f}', fontsize=4.8, inline=True,
-                manual=[(1.215, v / 1.215) for v in lv if .32 < v / 1.215 < 1.13])
+                manual=[(1.11, v / 1.11) for v in lv if YL[0] + .02 < v / 1.11 < YL[1] - .02])
     ax_d.axvline(1, color=DARK, lw=.6, ls=(0, (3, 2)))
     for sc in SCENARIOS:
         c = COLORS[use(sc)]
@@ -250,66 +268,61 @@ def main():
         ax_d.plot([r.e25, r.e75], [r.r_value] * 2, color=shade(sc), lw=.6, zorder=3)
         ax_d.plot([r.r_energy] * 2, [r.v25, r.v75], color=shade(sc), lw=.6, zorder=3)
         ax_d.scatter(r.r_energy, r.r_value, marker=MARKS[sc[0]], s=22, color=c, edgecolors='white', lw=.5, zorder=4)
-    ax_d.set_xlim(.8, 1.25)
-    ax_d.set_ylim(.3, 1.15)
+    lab_d = {'INF': (1.0, 1.035, 'center'), 'HPC': (.935, .93, 'right'), 'SAI': (1.09, .86, 'left'),
+             'CLD': (.955, .67, 'right'), 'TRN': (.995, .43, 'right')}
+    for u, (x_, y_, ha) in lab_d.items():
+        ax_d.text(x_, y_, GROUP[u], color=COLORS[u], fontsize=5.8, fontweight='bold', ha=ha, va='center')
+    ax_d.set_xlim(*XL)
+    ax_d.set_ylim(*YL)
     ax_d.tick_params(labelsize=5.4)
     ax_d.set_xlabel('Energy shifted, 75% of cap ÷ no inference', fontsize=6)
     ax_d.set_ylabel('Value per shifted MWh,\n75% of cap ÷ no inference', fontsize=6)
-    ax_d.legend(handles=[Line2D([], [], marker='o', ls='none', color=COLORS[u], markersize=3.5, label=GROUP[u])
-                         for u in USES],
-                loc='upper left', bbox_to_anchor=(1.02, 1.0), fontsize=5, handletextpad=.2, labelspacing=.35,
-                borderaxespad=0)
     panel(fig, 'd', .53, .605 * K)
 
-    # ---------------- e 保留率 vs 风电占比（训练 GPU-heavy）+ 各机群秩相关
-    dtrn = q75[q75.scenario.eq('D-TRN')]
-    b0 = baseline()[['grid_id', 'scenario', 'grid_mwh0']]
-    dd = dtrn.merge(b0[b0.scenario.eq('D-TRN')].drop(columns='scenario'), on='grid_id')
-    gshare = 100 * dd.grid_mwh0 / dd.facility_mwh0
-    ax_e = fig.add_axes(low(.085, .065, .42, .2))
-    gnorm = mpl.colors.Normalize(0, 80)
-    order = np.argsort(-gshare.to_numpy())
-    ax_e.scatter(dd.wind_share.to_numpy()[order] * 100, dd.retention.to_numpy()[order], s=1.6, lw=0,
-                 c=gshare.to_numpy()[order], cmap=SEQ.reversed(), norm=gnorm, rasterized=True)
-    cut = pd.cut(dd.wind_share * 100, np.arange(0, 101, 5))
-    bm = dd.groupby(cut, observed=True).retention.agg(['median', 'size'])
-    bm = bm[bm['size'] >= 60]
-    ax_e.plot([i.mid for i in bm.index], bm['median'], color=DARK, lw=1.1)
+    # ---------------- e 保留率随风电占比的变化：五个用途的分档中位数线 + 四分位带，背景为算例分布（参照 NCC 2022 Rainfall gradients）
+    ax_e = fig.add_axes(low(.085, .065, .7, .2))
+    edges = np.arange(0, 101, 5)
+    mids = (edges[:-1] + edges[1:]) / 2
+    ws = q75.wind_share * 100
+    ax_h = ax_e.twinx()
+    cnt, _ = np.histogram(ws, edges)
+    ax_h.bar(mids, cnt / cnt.sum() * 100, width=4.4, color='#EDEDED', lw=0, zorder=0)
+    ax_h.set_ylim(0, 60)
+    ax_h.set_yticks([0, 10, 20])
+    ax_h.tick_params(labelsize=5, colors='#8C8C8C')
+    ax_h.spines['right'].set_visible(True)
+    ax_h.spines['right'].set_color('#BDBDBD')
+    ax_h.set_ylabel('Cases (%)', fontsize=5.6, color='#8C8C8C', labelpad=2)
+    ax_h.yaxis.set_label_coords(1.05, .17)
+    ax_e.set_zorder(ax_h.get_zorder() + 1)
+    ax_e.patch.set_visible(False)
+    rho = {sc: spearmanr(gq.wind_share, gq.retention)[0] for sc, gq in q75.groupby('scenario')}
+    rows_e = []
+    ends = []
+    for u in USES:
+        gu = q75[q75.scenario.str.endswith(u)]
+        cut = pd.cut(gu.wind_share * 100, edges, labels=mids)
+        st = gu.groupby(cut, observed=True).retention.agg(q25=lambda s: s.quantile(.25), median='median',
+                                                         q75=lambda s: s.quantile(.75), n='size')
+        st = st[st.n >= 60]
+        xs = st.index.astype(float)
+        ax_e.fill_between(xs, st.q25, st.q75, color=COLORS[u], alpha=.15, lw=0, zorder=2)
+        ax_e.plot(xs, st['median'], color=COLORS[u], lw=1.2, zorder=3)
+        vals = [rho[s] for s in SCENARIOS if s.endswith(u)]
+        lab = f'{min(vals):.2f}' if len(vals) == 1 else f'{min(vals):.2f}–{max(vals):.2f}'
+        ends.append([st['median'].iloc[-1], xs[-1], f'{GROUP[u]}  ρ = {lab}', COLORS[u]])
+        rows_e.append(st.reset_index(names='wind_share_mid_pct').assign(group=u))
+    ends.sort(key=lambda e: -e[0])
+    for i in range(1, len(ends)):
+        ends[i][0] = min(ends[i][0], ends[i - 1][0] - .065)
+    for yv, xv, lab, col in ends:
+        ax_e.text(101.5, yv, lab, color=col, fontsize=5.4, fontweight='bold', va='center', ha='left', clip_on=False)
     ax_e.set_xlim(0, 100)
-    ax_e.set_ylim(.1, 1.0)
+    ax_e.set_ylim(.3, 1.05)
     ax_e.tick_params(labelsize=5.4)
     ax_e.set_xlabel('Wind share of optimal wind + PV (%)', fontsize=6)
-    ax_e.set_ylabel('Retention, LLM training · GPU-heavy', fontsize=6)
-    guides(ax_e, 'both')
-    cax = fig.add_axes(low(.515, .065, .006, .2))
-    cbd = fig.colorbar(mpl.cm.ScalarMappable(norm=gnorm, cmap=SEQ.reversed()), cax=cax)
-    cbd.outline.set_linewidth(.3)
-    cax.tick_params(labelsize=5, length=1.5, width=.4, pad=1)
-    cbd.set_label('Grid share without coordination (%)', fontsize=5.5, labelpad=2)
-
-    rho = {sc: spearmanr(gq.wind_share, gq.retention)[0] for sc, gq in q75.groupby('scenario')}
-    ax_r = fig.add_axes(low(.7, .065, .27, .2))
-    order_u = sorted(USES, key=lambda u: -max(v for k, v in rho.items() if k.endswith(u)))
-    rows_e = []
-    for i, u in enumerate(order_u):
-        vals = [rho[s] for s in SCENARIOS if s.endswith(u)]
-        y0 = len(order_u) - 1 - i
-        ax_r.barh(y0, max(vals), height=.55, color=COLORS[u], alpha=.35, lw=0)
-        for s in [s for s in SCENARIOS if s.endswith(u)]:
-            ax_r.scatter(rho[s], y0, marker=MARKS[s[0]], s=18, color=COLORS[u], edgecolors='white', lw=.4, zorder=3)
-            rows_e.append({'scenario': s, 'rho_wind_retention': rho[s]})
-        lab = f'{min(vals):.2f}' if len(vals) == 1 else f'{min(vals):.2f}–{max(vals):.2f}'
-        ax_r.text(max(vals) + .03, y0, lab, va='center', fontsize=5.3)
-    ax_r.set_yticks(range(len(order_u))[::-1], [GROUP[u] for u in order_u], fontsize=5.6)
-    for t, u in zip(ax_r.get_yticklabels(), order_u):
-        t.set_color(COLORS[u])
-    ax_r.set_xlim(0, 1)
-    ax_r.set_ylim(-.6, len(order_u) - .4)
-    ax_r.tick_params(axis='x', labelsize=5.4)
-    ax_r.tick_params(axis='y', length=0)
-    ax_r.spines['left'].set_visible(False)
-    ax_r.set_xlabel('Spearman ρ, wind share vs retention', fontsize=6)
-    guides(ax_r)
+    ax_e.set_ylabel('Retention of coordination saving', fontsize=6)
+    guides(ax_e, 'y')
     panel(fig, 'e', .012, .295 * K)
 
     export(fig, 'fig3')
@@ -320,8 +333,8 @@ def main():
     csv(pd.concat(rows_b), 'fig3b')
     csv(pd.concat(rows_c), 'fig3c')
     csv(dm.reset_index(), 'fig3d')
-    csv(pd.concat([dd[['grid_id', 'wind_share', 'retention']].assign(grid_share_pct=gshare.values, scenario='D-TRN'),
-                   pd.DataFrame(rows_e)]), 'fig3e')
+    csv(pd.concat(rows_e + [pd.DataFrame({'scenario': list(rho), 'rho_wind_retention': list(rho.values())})]),
+        'fig3e')
     return worst, stats, dm, rho
 
 
