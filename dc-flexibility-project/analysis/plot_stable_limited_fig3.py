@@ -2,7 +2,7 @@
 
 a 推理加到上限 75% 时，每个网格 11 类机群中最低的协同节省（六边形格网地图，USD/MWh，0.5 一档离散色），
   海域内嵌直方图兼色标，下方为 14 个合并分区的箱线图；
-b 实施成本存活曲线：实施成本为横轴时仍有净收益的网格–机群组合占比；
+b 实施成本存活曲线：实施成本为横轴时仍有净收益的网格–机群组合占比；下方为节省占供能成本与占总成本（机群设备 + 供能）的比例；
 c 争用与互补：被推理占用的闲置比例 vs 协同保留率，虚线为完全争用（保留率 = 1 − 占用比例）；
 d 保留率分解：转移电量比 × 每 MWh 转移电量价值比，背景为等保留率线；
 e 剩余收益的地区差异：训练机群保留率 vs 风电装机占比（点色为不做协同时的市电占比），右侧为各机群的秩相关系数。
@@ -162,7 +162,7 @@ def main():
     guides(ax_b, 'y')
 
     # 下：各用途四档的节省占不做协同时供能成本的比例（中位数；点色同上）
-    ax_p = fig.add_axes([.81, 131 / H, .175, 28 / H])
+    ax_p = fig.add_axes([.8, 131 / H, .08, 28 / H])
     groups = ['all'] + USES
     for i, u in enumerate(groups):
         g = p if u == 'all' else p[p.scenario.str.endswith(u)]
@@ -177,12 +177,34 @@ def main():
         t.set_fontweight('bold' if u == 'all' else 'normal')
     ax_p.set_ylim(len(groups) - .5, -.5)
     ax_p.set_xlim(0, 14)
-    ax_p.set_xticks(range(0, 15, 4))
+    ax_p.set_xticks([0, 5, 10])
     ax_p.tick_params(axis='x', labelsize=5.4)
     ax_p.tick_params(axis='y', length=0, pad=2)
     ax_p.spines['left'].set_visible(False)
-    ax_p.set_xlabel('Saving (% of supply cost)', fontsize=6, labelpad=1)
+    ax_p.set_xlabel('% of supply\ncost', fontsize=6, labelpad=1)
     guides(ax_p, 'x')
+
+    # 右：节省占总成本（机群年化设备成本 + 供能成本）的比例（逐格比值的中位数），浅蓝底突出
+    dec = RESIDUAL.parent / 'supply-cost-decomposition-20261119'
+    tu = pd.read_csv(dec / 'sec1-3-by-use.csv').set_index(['use', 'intensity_of_max'])
+    ta = pd.read_csv(dec / 'sec1-3-all.csv').set_index('intensity_of_max')
+    ax_q = fig.add_axes([.895, 131 / H, .065, 28 / H])
+    ax_q.set_facecolor('#E3EEF6')
+    for i, u in enumerate(groups):
+        md = (ta if u == 'all' else tu.loc[u]).loc[LEVELS, 'saving_share_of_total_cost_median_pct'].to_numpy()
+        ax_q.plot([md.min(), md.max()], [i, i], color='#B9CCDD', lw=2.2, solid_capstyle='round', zorder=1)
+        ax_q.scatter(md, [i] * len(md), s=14, color=GRAYS, edgecolors='white', lw=.4, zorder=3)
+        ax_q.text(1.02, i, f'{md.max():.2f}', transform=ax_q.get_yaxis_transform(), ha='left', va='center',
+                  fontsize=5, fontweight='bold', color='#1B3F70', clip_on=False)
+        rows_b.append(pd.DataFrame({'kind': 'pct_of_total_cost_median', 'group': u, 'intensity_of_cap': LEVELS,
+                                    'median_pct': md}))
+    ax_q.set_ylim(len(groups) - .5, -.5)
+    ax_q.set_yticks([])
+    ax_q.set_xlim(0, 1)
+    ax_q.set_xticks([0, .5, 1], ['0', '0.5', '1'])
+    ax_q.tick_params(axis='x', labelsize=5.4)
+    ax_q.spines['left'].set_visible(False)
+    ax_q.set_xlabel('% of total\ncost', fontsize=6, labelpad=1, fontweight='bold', color='#1B3F70')
     panel(fig, 'b', .68, 1 - 3 / H)
 
     # ---------------- c 争用与互补：每条线在 0/25/50/75% 打点，左上拥挤处另放局部放大
