@@ -4,7 +4,8 @@ a 训练机群（GPU-heavy）协同节省全球地图（USD/MWh，I=0，规划�
 b 11 情境平均任务功率与峰值余量（堆叠条）；c 同一行的协同节省网格分布（山脊图）；
 d 5 个代表情境的成本嵌套方块：机群+供能总成本 ⊃ 供能成本 ⊃ 协同节省（面积按比例）；
 e 训练机群逐网格节省 vs 不做协同时的市电占比，点色为风电装机占比；
-h 能源侧节省从哪里来（桑基图，全部机群均值，不接推理、碳价 100）：省下的各项供能成本 → 毛节省 → 净节省与多建风光。
+h 能源侧节省从哪里来（桑基图，全部机群均值，不接推理、碳价 100）：上为现有协同，省下的各项供能成本 → 毛节省 → 净节省与多建风光；
+  下为减配上限，少买设备与供能侧少花的钱 → 上限。
 """
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -36,7 +37,7 @@ def section1_shares():
         ['grid_id', 'scenario', 'share_supply_pct', 'share_total_pct', 'supply_of_total_pct']]
 
 
-EXTRA = 52            # 为底部桑基图加高的 mm
+EXTRA = 102           # 为底部两个桑基图（现有协同、减配上限）加高的 mm
 H = 215 + EXTRA
 DECOMP = SECTION1.parent / 'supply-cost-decomposition-20261119'
 FLOW = [('grid_energy', 'Grid energy', '#1B3F70'), ('grid_capacity', 'Grid connection capacity', '#46A6B5'),
@@ -113,7 +114,65 @@ def sankey(ax):
     rows = [{'node': k, 'usd_mwh': v[k], 'share_of_net_pct': pct[k]} for k, _, _ in FLOW]
     rows += [{'node': 'gross', 'usd_mwh': gross}, {'node': 'renewables', 'usd_mwh': -re,
              'share_of_net_pct': a.renewables_share_of_net_pct}, {'node': 'net', 'usd_mwh': net, 'share_of_net_pct': 100}]
-    return pd.DataFrame(rows)
+    ax.text(-.62, top + 1.2, 'Current coordination', ha='left', va='top', fontsize=7, fontweight='bold', color=DARK)
+    return pd.DataFrame(rows).assign(sankey='current'), net
+
+
+def sankey_upper(ax, current):
+    """减配上限：少买设备 + 供能侧少花的钱 → 上限（全部机群逐格均值，USD/MWh；供能侧取可行调度，放松解为上界）。"""
+    cap = pd.read_parquet(SECTION1.parent / 'pending-results-20261116/global-capacity.parquet')
+    fleet = part1_summary().fleet_annual_musd * 1e6
+    E = cap.E0_mwh_year
+    supply0 = cap.baseline_energy_usd_year
+    c = pd.DataFrame({'scenario': cap.scenario,
+                      'equip': cap.equipment_saving_feasible_usd_year / E,
+                      'sup': (supply0 - cap.feasible_energy_usd_year) / E,
+                      'sup_hi': (supply0 - cap.relaxed_energy_usd_year) / E,
+                      'supply0': supply0 / E,
+                      'avoided': (1 - cap.servers_C_feasible / cap.servers_A) * 100})
+    c['sup_pct'] = c.sup / c.supply0 * 100
+    c['sup_hi_pct'] = c.sup_hi / c.supply0 * 100
+    tot = cap.scenario.map(fleet) + supply0
+    c['tot_pct'] = (cap.equipment_saving_feasible_usd_year + supply0 - cap.feasible_energy_usd_year) / tot * 100
+    c['sup_tot_pct'] = (supply0 - cap.feasible_energy_usd_year) / tot * 100
+    m, md = c.mean(numeric_only=True), c.groupby('scenario').median(numeric_only=True)
+    rng = lambda k, f='.0f': f'{md[k].min():{f}}–{md[k].max():{f}}'
+    equip, sup = m.equip, m.sup
+    net = equip + sup
+    gap, w = net * .1, .035
+    top = net + gap
+    ax.add_patch(Rectangle((-w, top - equip), w, equip, color='#8C8C8C', lw=0, zorder=3))
+    band(ax, 0, 1, top - equip, top, net - equip, net, '#8C8C8C', alpha=.45)
+    ax.add_patch(Rectangle((-w, top - equip - gap - sup), w, sup, color='#1B3F70', lw=0, zorder=3))
+    band(ax, 0, 1, top - equip - gap - sup, top - equip - gap, 0, sup, '#1B3F70', alpha=.75)
+    ax.add_patch(Rectangle((1, 0), w, net, color='#5A5A5A', lw=0, zorder=3))
+    ax.text(-w - .015, top - equip / 2 + net * .01, f'Fewer servers  {equip:.0f}  ({equip / net * 100:.0f}%)',
+            ha='right', va='bottom', fontsize=6.6, fontweight='bold', color='#5A5A5A')
+    ax.text(-w - .015, top - equip / 2 - net * .005, f'{rng("avoided")}% of servers avoided', ha='right', va='top',
+            fontsize=5.8, color='#5A5A5A')
+    ys = top - equip - gap - sup / 2
+    ax.text(-w - .015, ys + net * .012, f'Supply side  {sup:.1f}  ({sup / net * 100:.1f}%)', ha='right', va='bottom',
+            fontsize=6.6, fontweight='bold', color='#1B3F70')
+    ax.text(-w - .015, ys - net * .004,
+            f'= {rng("sup_pct", ".1f")}% of supply cost (relaxed bound {rng("sup_hi_pct")}%)\n'
+            f'Current coordination alone: {current:.1f}',
+            ha='right', va='top', fontsize=5.8, color='#1B3F70')
+    ax.text(1 + w + .015, net / 2 + net * .02, f'Upper bound {net:.0f} USD/MWh',
+            ha='left', va='bottom', fontsize=7.2, fontweight='bold', color=DARK)
+    ax.text(1 + w + .015, net / 2 + net * .005,
+            f'= ×{net / current:.0f} current coordination\n'
+            f'= {rng("tot_pct", ".1f")}% of fleet + supply cost\n'
+            f'Supply side alone {rng("sup_tot_pct", ".2f")}% of total cost',
+            ha='left', va='top', fontsize=6, fontweight='bold', color='#9C3F22')
+    ax.set_xlim(-.62, 1.62)
+    ax.set_ylim(-net * .1, top + net * .09)
+    ax.axis('off')
+    ax.text(-.62, top + net * .085, 'Upper bound: downsizing to the minimum fleet', ha='left', va='top', fontsize=7,
+            fontweight='bold', color=DARK)
+    return pd.DataFrame([{'sankey': 'upper', 'node': 'fewer_servers', 'usd_mwh': equip},
+                         {'sankey': 'upper', 'node': 'supply_side', 'usd_mwh': sup},
+                         {'sankey': 'upper', 'node': 'supply_side_relaxed', 'usd_mwh': m.sup_hi},
+                         {'sankey': 'upper', 'node': 'upper_bound', 'usd_mwh': net}])
 
 
 def main():
@@ -318,8 +377,10 @@ def main():
     panel(fig, 'g', .012, FY(.175))
 
     # ---------------- h 桑基图：能源侧节省从哪里来
-    ax_h = fig.add_axes([.03, 4 / H, .94, (EXTRA - 10) / H])
-    flows = sankey(ax_h)
+    ax_h = fig.add_axes([.03, 53 / H, .94, 44 / H])
+    flows, current = sankey(ax_h)
+    ax_u = fig.add_axes([.03, 4 / H, .94, 44 / H])
+    flows = pd.concat([flows, sankey_upper(ax_u, current)])
     panel(fig, 'h', .012, (EXTRA - 3) / H)
 
     export(fig, 'fig1')
