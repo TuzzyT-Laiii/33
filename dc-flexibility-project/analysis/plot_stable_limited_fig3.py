@@ -25,6 +25,7 @@ from stable_limited_figs_common import (COLORS, DARK, GROUP, INNER, INPUT, RESID
 LEVELS = [0, .25, .5, .75]
 USES = ['HPC', 'CLD', 'SAI', 'TRN', 'INF']
 MARKS = {'A': 'D', 'B': 'o', 'C': 's', 'D': '^'}
+GRAYS = ['#C4C4C4', '#8F8F8F', '#555555', '#000000']   # b 中推理 0、25%、50%、75% 四档
 
 H = 212                      # 画布高度（mm）；c–e 保持原 200 mm 版的绝对尺寸
 K = 200 / H
@@ -120,42 +121,68 @@ def main():
     guides(axr, 'y')
     panel(fig, 'a', .012, 1 - 3 / H)
 
-    # ---------------- b 实施成本存活曲线
-    ax_b = fig.add_axes([.735, 128 / H, .18, 78 / H])
-    XMAX = 8
-    cost = np.linspace(0, XMAX, 161)
+    # ---------------- b 四档推理强度（灰阶由浅到深为 0→75%）。上：实施成本下仍有净收益的比例；下：节省占供能成本的比例
+    ax_b = fig.add_axes([.735, 172 / H, .215, 34 / H])
+    XMAX = 12
+    cost = np.linspace(0, XMAX, 241)
+    ax_b.axvspan(2, 3, color='#F0F0F0', lw=0, zorder=0)
     rows_b = []
-    allv = q75.saving_usd_mwh.to_numpy()
-    surv_all = (allv[None, :] > cost[:, None]).mean(axis=1) * 100
-    ax_b.fill_between(cost, 0, surv_all, color='#EDEDED', lw=0, zorder=0)
+    at = {2: [], 3: []}
     ends = []
-    for u in USES:
-        v = q75.loc[q75.scenario.str.endswith(u), 'saving_usd_mwh'].to_numpy()
+    for lv, gc in zip(LEVELS, GRAYS):
+        v = p.loc[p.intensity_of_max.eq(lv), 'saving_usd_mwh'].to_numpy()
         surv = (v[None, :] > cost[:, None]).mean(axis=1) * 100
-        ax_b.plot(cost, surv, color=COLORS[u], lw=.9, zorder=2)
-        ends.append([surv[-1], GROUP[u], COLORS[u], 'normal'])
-        rows_b.append(pd.DataFrame({'group': u, 'cost_usd_mwh': cost, 'share_net_positive_pct': surv}))
-    ax_b.plot(cost, surv_all, color='black', lw=1.6, zorder=3)
-    ends.append([surv_all[-1], 'All fleets', 'black', 'bold'])
-    rows_b.append(pd.DataFrame({'group': 'all', 'cost_usd_mwh': cost, 'share_net_positive_pct': surv_all}))
-    ends.sort(key=lambda e: -e[0])
+        ax_b.plot(cost, surv, color=gc, lw=1.2, zorder=3)
+        ends.append([surv[-1], f'{lv:.0%}', gc])
+        for c0 in at:
+            s0 = (v > c0).mean() * 100
+            at[c0].append(s0)
+            ax_b.scatter(c0, s0, s=8, color=gc, edgecolors='white', lw=.3, zorder=4)
+        rows_b.append(pd.DataFrame({'kind': 'net_positive', 'intensity_of_cap': lv, 'cost_usd_mwh': cost,
+                                    'share_net_positive_pct': surv}))
+    for c0, ss in at.items():
+        lab = f'{min(ss):.0f}–{max(ss):.0f}%'
+        if c0 == 2:   # 2 的标注放在灰带左下（曲线仍在 100% 附近，下方空白）
+            ax_b.text(c0 - .15, 90, lab, fontsize=5.2, ha='right', va='top')
+        else:         # 3 的标注放在灰带右上（曲线已降到 94% 以下）
+            ax_b.text(c0 + .15, 101, lab, fontsize=5.2, ha='left', va='top')
     for i in range(1, len(ends)):
-        ends[i][0] = min(ends[i][0], ends[i - 1][0] - 7.5)
-    for yv, lab, col, wt in ends:
-        ax_b.text(XMAX + .2, yv, lab, color=col, fontsize=5.3, fontweight=wt, va='center', ha='left', clip_on=False)
-    lines_b = ['All fleets still net positive']
-    for c0 in (2, 3):
-        s0 = (allv > c0).mean() * 100
-        ax_b.scatter(c0, s0, s=16, color='black', edgecolors='white', lw=.5, zorder=5)
-        lines_b.append(f'{s0:.0f}% at {c0} USD/MWh')
-    ax_b.text(.2, 8, '\n'.join(lines_b), fontsize=5.4, ha='left', va='bottom', linespacing=1.3)
+        ends[i][0] = min(ends[i][0], ends[i - 1][0] - 7)
+    for yv, lab, gc in ends:
+        ax_b.text(XMAX + .25, yv, lab, color=gc, fontsize=5.2, va='center', ha='left', clip_on=False,
+                  fontweight='bold')
+    ax_b.text(XMAX + .25, ends[0][0] + 9, 'Inference\n(% of cap)', fontsize=4.8, va='bottom', ha='left',
+              color=DARK, linespacing=1.05, clip_on=False)
     ax_b.set_xlim(0, XMAX)
     ax_b.set_ylim(0, 103)
-    ax_b.set_yticks([0, 25, 50, 75, 100])
+    ax_b.set_yticks([0, 50, 100])
     ax_b.tick_params(labelsize=5.4)
-    ax_b.set_xlabel('Implementation cost (USD/MWh)', fontsize=6)
-    ax_b.set_ylabel('Cases still net positive (%)', fontsize=6)
+    ax_b.set_xlabel('Implementation cost (USD/MWh)', fontsize=6, labelpad=1)
+    ax_b.set_ylabel('Still net positive (%)', fontsize=6)
     guides(ax_b, 'y')
+
+    # 下：各用途四档的节省占不做协同时供能成本的比例（中位数；点色同上）
+    ax_p = fig.add_axes([.81, 131 / H, .175, 28 / H])
+    groups = ['all'] + USES
+    for i, u in enumerate(groups):
+        g = p if u == 'all' else p[p.scenario.str.endswith(u)]
+        md = g.groupby('intensity_of_max').V_pct_of_seq.median().loc[LEVELS].to_numpy()
+        ax_p.plot([md.min(), md.max()], [i, i], color='#D0D0D0', lw=2.2, solid_capstyle='round', zorder=1)
+        ax_p.scatter(md, [i] * len(md), s=14, color=GRAYS, edgecolors='white', lw=.4, zorder=3)
+        rows_b.append(pd.DataFrame({'kind': 'pct_of_supply_cost_median', 'group': u, 'intensity_of_cap': LEVELS,
+                                    'median_pct': md}))
+    ax_p.set_yticks(range(len(groups)), ['All fleets'] + [GROUP[u] for u in USES], fontsize=5.4)
+    for t, u in zip(ax_p.get_yticklabels(), groups):
+        t.set_color('black' if u == 'all' else COLORS[u])
+        t.set_fontweight('bold' if u == 'all' else 'normal')
+    ax_p.set_ylim(len(groups) - .5, -.5)
+    ax_p.set_xlim(0, 14)
+    ax_p.set_xticks(range(0, 15, 4))
+    ax_p.tick_params(axis='x', labelsize=5.4)
+    ax_p.tick_params(axis='y', length=0, pad=2)
+    ax_p.spines['left'].set_visible(False)
+    ax_p.set_xlabel('Saving (% of supply cost)', fontsize=6, labelpad=1)
+    guides(ax_p, 'x')
     panel(fig, 'b', .68, 1 - 3 / H)
 
     # ---------------- c 争用与互补（线尾直接标注）
