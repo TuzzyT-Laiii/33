@@ -32,6 +32,23 @@
 
 **结论四**：省钱方式随情景变化。碳价 0 时市电电费占 107%（风光 −55%）；碳价 200 时市电电费 44%、碳成本 30%、储能 26%；2035 年乐观路径（储能电量成本下降 70%）下储能占 57%、市电电费只占 19%。碳价越高、储能越便宜，系统本来就会多建储能，协同从"少买市电"转为"少建储能"，节省因此封顶。
 
+## 占总成本
+
+总成本 = 机群年化设备成本 + 供能成本，两者都是等年值（全寿命）口径：机群为 CRF(8%, 4 年) + 3% 运维（10 MW 参考机群，`results/global-flex-econ-20261103/part1/part1-summary.csv`），供能见上。机群成本按窗口小时分摊后除以窗口基准用电。每 MWh 总成本约 1,010–3,850 美元，其中供能成本占 3–9%。各表 `saving_share_of_total_cost_*` 为逐格比值的中位数、P90 与最大值。
+
+| 结论 | 情景 | 占总成本（各机群中位数范围） |
+|---|---|---|
+| 一 | 碳价 100，不接推理 | 0.10–0.91%（单格最高 1.78%） |
+| 三 | 推理 25/50/75% | 0.10–0.87% / 0.10–0.81% / 0.10–0.75% |
+| 四 | 碳价 0 / 200 | 0.08–0.64% / 0.14–1.16% |
+| 四 | 2030、2035 六条路径（机群成本按 2024） | 0.07–0.98% |
+| 四 | 同上，机群成本按卡价路径 | 2035 保守 0.06–0.52%，中性 0.18–1.53%，乐观 0.29–2.54% |
+| 二 | 减配总节省 / 其中供能部分 | 9.0–30.3% / 0.17–0.91% |
+| 二 | 全卖净收入 / 其中额外供能成本 | 38–88% / 0.26–1.15% |
+| 二 | 真实上限卖推理净收入 / 其中额外供能成本 | 5.9–45.4% / 0.05–0.87% |
+
+第一节框架稿 1.3 节的 0.10%–0.94% 用第一节原生窗口；本表用第三节窗口（科研 AI 与 HPC 为与推理曲线重叠的窗口），差别来自窗口。卖推理来自 `results/sell-inference-tiers-20261115/sell-inference-global.parquet`（2.9 美元/GPU·时），表 `sec2-selling-supply.csv`。
+
 ## 排放口径检验（`lifecycle-emissions-check.csv`）
 
 Ember 的电网强度采用 IPCC AR5 Annex III 的生命周期排放因子，而模型中自建风光储的排放记为 0。为检验这一不一致，在现有最优解上补算风光储的制造与建设隐含排放，按寿命摊到每年，不重新优化。取值分低/中/高三档，均为情景假设：
@@ -48,7 +65,7 @@ Ember 的电网强度采用 IPCC AR5 Annex III 的生命周期排放因子，而
 
 - `sec1-3-{all,by-use,by-scenario}.csv`：结论一、三，按推理强度分档。
 - `sec4-carbon-*.csv`、`sec4-learning-*.csv`、`sec4-cross-all.csv`：结论四。
-- `sec2-downsizing-supply.csv`、`sec2-inference-marginal-supply-cost.csv`：结论二。
+- `sec2-downsizing-supply.csv`、`sec2-selling-supply.csv`、`sec2-inference-marginal-supply-cost.csv`：结论二。
 - `lifecycle-emissions-check.csv`：排放口径检验。
 - 附录图：`papers/demand-flexibility/figures-stable-limited/figS1-supply-cost.{pdf,png}`，源数据在同目录 `source-data/figS1*.csv`。
 
