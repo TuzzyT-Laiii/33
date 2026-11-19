@@ -23,6 +23,8 @@
 - `results/paper-figs-stable-limited-20261115/`：`baseline-energy.parquet`、`moved-energy.parquet`（由 `prepare_stable_limited_figs.py` 从第三节 runs-compact 生成）；`part1-summary.csv`（PR #60）；`downsizing-part2-main.csv`（PR #67 减配主表，只取与地点无关的设备年化节省与机群年化设备成本）。
 - `results/global-flex-econ-20261103/grid-summary.parquet`（图 1d）；`results/flex-class-20261101/native-hourly/`（图 2c）。
 
+- 附录图 S1（供能侧节省分项）使用 `results/supply-cost-decomposition-20261119/`（`analysis/supply_cost_decomposition.py` 由第三、四节服务器结果的本地压缩表生成），作图脚本 `plot_supply_cost_decomposition.py`。
+
 ## 口径与提示
 
 1. 减配上限 = 按最少台数少买设备的年化节省（与地点无关）÷ 全球基准年用电中位数，未计供能侧的额外节省（占减配净节省 2%–4%）。
@@ -39,6 +41,7 @@ git archive origin/codex/paper-results1-figures-20261107 dc-flexibility-project/
 python dc-flexibility-project/analysis/prepare_stable_limited_figs.py --runs <第三节 runs-compact.parquet> --part1 <PR #60 part1-summary.csv>
 cd dc-flexibility-project/analysis
 python plot_stable_limited_fig1.py; python plot_stable_limited_fig2.py; python plot_stable_limited_fig3.py; python plot_stable_limited_fig4.py
+python plot_supply_cost_decomposition.py   # 附录图 S1
 ```
 
 需要 matplotlib、cartopy、geopandas、shapely、pandas、scipy、pyarrow。
