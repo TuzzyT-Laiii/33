@@ -1,0 +1,37 @@
+﻿case,component,share_of_gross_pct,usd_mwh
+Carbon 0 USD/t,grid_energy,69.21702047,7.64457
+Carbon 0 USD/t,grid_capacity,27.36231648,3.02199
+Carbon 0 USD/t,carbon,0,0
+Carbon 0 USD/t,storage,3.420663054,0.37779
+Carbon 100 USD/t,grid_energy,50.55884695,6.84586
+Carbon 100 USD/t,grid_capacity,21.71962678,2.94092
+Carbon 100 USD/t,carbon,19.3050712,2.61398
+Carbon 100 USD/t,storage,8.416455077,1.13962
+Carbon 200 USD/t,grid_energy,36.28784419,5.41153
+Carbon 200 USD/t,grid_capacity,17.84729752,2.66153
+Carbon 200 USD/t,carbon,24.54859218,3.66088
+Carbon 200 USD/t,storage,21.3162661,3.17885
+2030 conservative,grid_energy,49.73810108,6.70679
+2030 conservative,grid_capacity,21.67186658,2.92228
+2030 conservative,carbon,18.77655421,2.53187
+2030 conservative,storage,9.813478135,1.32327
+2030 moderate,grid_energy,43.86154029,5.55813
+2030 moderate,grid_capacity,20.72563189,2.62635
+2030 moderate,carbon,15.48044151,1.96168
+2030 moderate,storage,19.93238631,2.52583
+2030 advanced,grid_energy,26.26066421,2.66172
+2030 advanced,grid_capacity,16.89886746,1.71283
+2030 advanced,carbon,8.570322446,0.868668
+2030 advanced,storage,48.27014588,4.89255
+2035 conservative,grid_energy,49.27696131,6.61012
+2035 conservative,grid_capacity,21.80559138,2.92505
+2035 conservative,carbon,18.53287034,2.48604
+2035 conservative,storage,10.38457696,1.39301
+2035 moderate,grid_energy,35.51382957,4.10656
+2035 moderate,grid_capacity,19.53971498,2.25943
+2035 moderate,carbon,11.83177423,1.36814
+2035 moderate,storage,33.11468123,3.82914
+2035 advanced,grid_energy,18.93940099,1.42491
+2035 advanced,grid_capacity,17.38999368,1.30834
+2035 advanced,carbon,6.98133135,0.525242
+2035 advanced,storage,56.68927399,4.26503
