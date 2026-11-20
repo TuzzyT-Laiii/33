@@ -4,7 +4,8 @@ a 9 个 GPU 情境：现有协同、减配上限、真实需求下卖推理、�
 b 盈亏平衡：全卖净收入随售价变化，与现有协同、减配上限的交点；
 c 日内热条：外部推理需求与三类机群闲置（相对日均偏离），解释真实需求下收入为何收窄；
 d 归因（仿 Whittaker 图）：闲置 GPU 比例 × 单位用电对应的 GPU 小时，背景为等收益分区；
-e 稳健性：各网格相对全球中位数的偏离，左半为协同节省，右半为全卖收入（半边小提琴）。
+e 稳健性：各网格相对全球中位数的偏离，左半为协同节省，右半为全卖收入（半边小提琴）；
+f 能源侧在各种用法中的分量：左为能源侧占该用法价值的比例，右为各用法与其中能源侧部分占总成本（机群设备 + 供能）的比例。
 """
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -30,6 +31,89 @@ def lighten(c, f):
     return tuple(np.array(mpl.colors.to_rgb(c)) * (1 - f) + f)
 
 
+EXTRA = 50            # 为底部面板 f 加高的 mm
+H = 220 + EXTRA
+DECOMP = ROOT / 'results/supply-cost-decomposition-20261119'
+ENERGY = '#1B3F70'
+
+
+def R(x, y, w, h):
+    """原 220 mm 画布上的位置换算到加高后的画布（原内容整体上移，底部留给面板 f）。"""
+    return [x, (y * 220 + EXTRA) / H, w, h * 220 / H]
+
+
+def FY(y):
+    return (y * 220 + EXTRA) / H
+
+
+def energy_side(fig):
+    """f：能源侧在现有协同、减配、卖推理中的分量，以及各用法占总成本的比例（9 个 GPU 情境）。"""
+    co = pd.read_csv(DECOMP / 'sec1-3-by-scenario.csv')
+    co = co[co.intensity_of_max.eq(0)].set_index('scenario').loc[GPU_SCENARIOS]
+    dn = pd.read_csv(DECOMP / 'sec2-downsizing-supply.csv').set_index('scenario').loc[GPU_SCENARIOS]
+    se = pd.read_csv(DECOMP / 'sec2-selling-supply.csv').set_index(['tier', 'scenario'])
+    real, full = se.loc['real_max'].loc[GPU_SCENARIOS], se.loc['ideal'].loc[GPU_SCENARIOS]
+    rows = [('Current coordination', pd.Series(100., index=GPU_SCENARIOS), 'Energy supply',
+             co.saving_share_of_total_cost_median_pct, co.saving_share_of_total_cost_median_pct),
+            ('Upper bound: downsizing', dn.supply_share_of_total_pct_median, 'Fewer servers',
+             dn.downsizing_share_of_total_cost_pct_median, dn.supply_saving_share_of_total_cost_pct_median),
+            ('Sell inference, real demand', real.extra_supply_share_of_revenue_pct_median, 'Revenue',
+             real.net_share_of_total_cost_pct_median, real.extra_supply_share_of_total_cost_pct_median),
+            ('Sell all idle GPU-hours', full.extra_supply_share_of_revenue_pct_median, 'Revenue',
+             full.net_share_of_total_cost_pct_median, full.extra_supply_share_of_total_cost_pct_median)]
+    y = np.arange(len(rows))[::-1].astype(float)
+    ax1 = fig.add_axes([.215, 12 / H, .25, (EXTRA - 24) / H])
+    ax2 = fig.add_axes([.68, 12 / H, .29, (EXTRA - 24) / H])
+    out = []
+    for yi, (name, share, rest, total, part) in zip(y, rows):
+        sh = share.median()
+        ax1.barh(yi, sh, height=.6, color=ENERGY, lw=0, zorder=3)
+        ax1.barh(yi, 100 - sh, left=sh, height=.6, color='#DADADA', lw=0, zorder=2)
+        if sh < 99:
+            ax1.text(sh + 1.5, yi, rest, ha='left', va='center', fontsize=5.6, color='#4A4A4A', zorder=4)
+            lab = f'Energy side {share.min():.1f}–{share.max():.1f}%'
+            if name.startswith('Sell'):
+                lab = f'Energy cost {share.min():.1f}–{share.max():.1f}%\nof revenue'
+            ax1.text(101.5, yi, lab, ha='left', va='center', fontsize=6, fontweight='bold', color=ENERGY)
+        else:
+            ax1.text(50, yi, 'Energy side 100%', ha='center', va='center', fontsize=6, fontweight='bold', color='white',
+                     zorder=4)
+        for sc in GPU_SCENARIOS:
+            c = COLORS[use(sc)]
+            ax2.scatter(total[sc], yi + .14, s=16, color=c, edgecolors='white', lw=.4, zorder=4)
+            if not name.startswith('Current'):
+                ax2.scatter(part[sc], yi - .14, s=14, facecolor='white', edgecolors=c, lw=.8, zorder=4)
+        ax2.text(total.max() * 1.35, yi + .14, f'{total.min():.1f}–{total.max():.0f}%' if total.max() >= 5
+                 else f'{total.min():.2f}–{total.max():.2f}%', ha='left', va='center', fontsize=6, fontweight='bold',
+                 color=DARK)
+        for sc in GPU_SCENARIOS:
+            out.append({'strategy': name, 'scenario': sc, 'energy_side_share_pct': share[sc],
+                        'share_of_total_cost_pct': total[sc], 'energy_side_share_of_total_cost_pct': part[sc]})
+    ax2.axvspan(.03, 1.2, color='#E3EEF6', lw=0, zorder=0)
+    ax2.text(.035, len(rows) - .45, 'Energy side ≤ 1.2% of total cost', ha='left', va='bottom', fontsize=6,
+             fontweight='bold', color=ENERGY)
+    for ax in (ax1, ax2):
+        ax.set_ylim(-.6, len(rows) - .2)
+        ax.spines['left'].set_visible(False)
+        ax.tick_params(axis='y', length=0)
+    ax1.set_yticks(y, [r[0] for r in rows], fontsize=6)
+    ax1.set_xlim(0, 100)
+    ax1.set_xticks([0, 25, 50, 75, 100])
+    ax1.set_xlabel('Share of each value (%)', fontsize=6)
+    ax2.set_yticks([])
+    ax2.set_xscale('log')
+    ax2.set_xlim(.03, 300)
+    ax2.set_xticks([.1, 1, 10, 100], ['0.1', '1', '10', '100'])
+    ax2.xaxis.set_minor_locator(mpl.ticker.NullLocator())
+    ax2.set_xlabel('Share of fleet + supply cost (%)', fontsize=6)
+    guides(ax2)
+    ax2.legend(handles=[Line2D([], [], marker='o', ls='none', color='#666666', markersize=3.6, label='Whole value'),
+                        Line2D([], [], marker='o', ls='none', markerfacecolor='white', markeredgecolor='#666666',
+                               markersize=3.4, label='Energy-side part')],
+               loc='upper right', fontsize=5.4, handletextpad=.2, borderaxespad=.2)
+    return pd.DataFrame(out)
+
+
 def main():
     setup()
     p = paired()
@@ -49,10 +133,10 @@ def main():
     m['p_coord'] = (m.coord + m.cost) / m.slope
     m['p_down'] = (m.down + m.cost) / m.slope
 
-    fig = plt.figure(figsize=(180 / 25.4, 220 / 25.4))
+    fig = plt.figure(figsize=(180 / 25.4, H / 25.4))
 
     # ---------------- a 四档量级（仿环形分组柱状图）：三个用途各占一段扇区，每个情境四根径向柱，半径取对数
-    ax = fig.add_axes([.0, .585, .56, .405], projection='polar')
+    ax = fig.add_axes(R(.0, .585, .56, .405), projection='polar')
     ax.set_theta_zero_location('N')
     ax.set_theta_direction(-1)
     R0, RMAX = 1.25, np.log10(3500)
@@ -99,12 +183,12 @@ def main():
                         Patch(facecolor=NEUTRAL, label='Upper bound: downsizing'),
                         Patch(facecolor='#8C8C8C', label='Sell inference, real demand'),
                         Patch(facecolor='#DDDDDD', edgecolor='#8C8C8C', lw=.35, label='Sell all idle GPU-hours')],
-               loc='upper center', bbox_to_anchor=(.28, .585), ncol=2, fontsize=5.4, handlelength=.9,
+               loc='upper center', bbox_to_anchor=(.28, FY(.585)), ncol=2, fontsize=5.4, handlelength=.9,
                columnspacing=1.2, frameon=False)
-    panel(fig, 'a', .012, .995)
+    panel(fig, 'a', .012, FY(.995))
 
     # ---------------- b 盈亏平衡售价（仿悬浮阈值区间条）：区间从胜过现有协同到胜过减配上限，右侧为市场价相对盈亏平衡价的倍数
-    ax_b = fig.add_axes([.71, .6, .27, .36])
+    ax_b = fig.add_axes(R(.71, .6, .27, .36))
     y = np.arange(len(GPU_SCENARIOS))[::-1].astype(float)
     MKT_FACE, MKT_EDGE = '#F2E2B3', '#B08A2E'
     ax_b.axvspan(*MARKET, color=MKT_FACE, lw=0, zorder=0)
@@ -144,7 +228,7 @@ def main():
     ax_b.text(hi0, y0, 'Beats\ndownsizing', ha='center', va='bottom', fontsize=4.8, linespacing=.95)
     ax_b.text(np.sqrt(MARKET[1] * TOKEN), y0, 'Market ÷\nbreak-even', ha='center', va='bottom', fontsize=4.8,
               color=MKT_EDGE, linespacing=.95)
-    panel(fig, 'b', .56, .995)
+    panel(fig, 'b', .56, FY(.995))
 
     # ---------------- c 日 × 时日历热图：外部推理需求与三类机群闲置，取三者共同覆盖的整段窗口（训练平移 14 天，与第二节口径一致）
     asi = asi_inference(HOURLY / 'D-INF.parquet').set_index('time_utc')
@@ -171,7 +255,7 @@ def main():
         idle_full = idle_s[sc].reindex(hours)
         idle_w = idle_s[sc].reindex(win).to_numpy()
         dem_w = (d_full.reindex(win) / d_full.mean() * idle_full.mean()).to_numpy()
-        axk = fig.add_axes([.165, .418 - k * .062, .37, .052])
+        axk = fig.add_axes(R(.165, .418 - k * .062, .37, .052))
         axk.fill_between(tt, 0, idle_w, color=lighten(c, .55), lw=0, zorder=1)
         axk.plot(tt, idle_w, color=c, lw=.6, zorder=2)
         over = np.nan_to_num(dem_w) > np.nan_to_num(idle_w, nan=np.inf)
@@ -196,15 +280,15 @@ def main():
     fig.legend(handles=[Patch(facecolor='#C9C9C9', edgecolor='#7A7A7A', lw=.5, label='Idle GPUs'),
                         Line2D([], [], color=DARK, lw=.7, label='External inference demand, same mean'),
                         Patch(facecolor='#9C3F22', alpha=.55, label='Demand above idle')],
-               loc='lower center', bbox_to_anchor=(.33, .472), ncol=3, fontsize=5.3, handlelength=1.1,
+               loc='lower center', bbox_to_anchor=(.33, FY(.472)), ncol=3, fontsize=5.3, handlelength=1.1,
                columnspacing=.9, frameon=False)
-    panel(fig, 'c', .012, 0.503)
+    panel(fig, 'c', .012, FY(0.503))
 
     # ---------------- d 归因：闲置比例 × 单位用电 GPU 小时（等收益分区）
     city = pd.read_csv(SELL / 'sell-inference-tiers-median.csv').set_index('scenario').loc[GPU_SCENARIOS]
     idle_share = city.mean_idle_share * 100
     gpu_h = city.gpus_A * 8760 / annual.loc[GPU_SCENARIOS]
-    ax_d = fig.add_axes([0.66, 0.307, 0.25, 0.177])
+    ax_d = fig.add_axes(R(0.66, 0.307, 0.25, 0.177))
     X, Y = np.meshgrid(np.linspace(20, 50, 200), np.linspace(1000, 2800, 200))
     Z = PRICE * X / 100 * Y
     levels = [500, 1000, 1500, 2000, 2500, 3000, 3500]
@@ -225,7 +309,7 @@ def main():
     h2 = [Line2D([], [], marker=mk, ls='none', color='#777777', markersize=3.5, label=INNER[k]) for k, mk in marks.items()]
     ax_d.legend(handles=h1 + h2, loc='upper left', bbox_to_anchor=(1.02, 1.0), fontsize=5, handletextpad=.2,
                 labelspacing=.35, borderaxespad=0)
-    panel(fig, 'd', .6, 0.503)
+    panel(fig, 'd', .6, FY(0.503))
 
     # ---------------- e 电价梯度：横轴为当地市电价格（100 美元/MWh + 碳价 100 美元/t × 当地碳因子），纵轴为相对全球中位数的偏离
     p0y = p0.assign(vy=p0.V_usd * 8760 / p0.hours, price=100 + 100 * p0.carbon_t_mwh)
@@ -241,7 +325,7 @@ def main():
         g = frame.groupby(pd.cut(frame.price, edges, include_lowest=True), observed=False).dev
         return g.median().to_numpy(), g.quantile(.1).to_numpy(), g.quantile(.9).to_numpy()
 
-    ax_e = fig.add_axes([0.075, 0.07, 0.6, 0.15])
+    ax_e = fig.add_axes(R(0.075, 0.07, 0.6, 0.15))
     hb_ = ax_e.hexbin(p0y.price, p0y.dev, gridsize=(26, 11), extent=(pr_lo, pr_hi, -70, 110), cmap=SEQ, bins='log',
                       mincnt=1, lw=.1, edgecolors='white', zorder=1)
     rows_e = []
@@ -267,12 +351,12 @@ def main():
                          Line2D([], [], color='black', lw=1.6, label='Sell all idle GPU-hours')],
                 loc='upper left', fontsize=5.1, ncol=1, handlelength=1.3, labelspacing=.25, borderaxespad=.3,
                 frameon=True, framealpha=.85, edgecolor='none')
-    cb_ax = fig.add_axes([0.685, 0.08, 0.006, 0.13])
+    cb_ax = fig.add_axes(R(0.685, 0.08, 0.006, 0.13))
     cb = fig.colorbar(hb_, cax=cb_ax)
     cb.ax.tick_params(labelsize=5, length=1.5, pad=1)
     cb.set_label('Grid cells', fontsize=5.4, labelpad=1)
 
-    ax_z = fig.add_axes([0.8, 0.07, 0.18, 0.15])
+    ax_z = fig.add_axes(R(0.8, 0.07, 0.18, 0.15))
     for u, frame in zip(('SAI', 'TRN', 'INF'), rows_e):
         ax_z.fill_between(mids, frame.sell_p10, frame.sell_p90, color=COLORS[u], alpha=.18, lw=0)
         ax_z.plot(mids, frame.sell_median, color=COLORS[u], lw=1.1)
@@ -284,7 +368,10 @@ def main():
     ax_z.set_xlabel('Grid price (USD/MWh)', fontsize=6)
     ax_z.set_ylabel('Sell all idle,\ndeviation (%)', fontsize=6)
     guides(ax_z, 'y')
-    panel(fig, 'e', .012, 0.233)
+    panel(fig, 'e', .012, FY(0.233))
+
+    rows_f = energy_side(fig)
+    panel(fig, 'f', .012, (EXTRA - 2) / H)
 
     export(fig, 'fig2')
 
@@ -294,6 +381,7 @@ def main():
     csv(pd.DataFrame({'scenario': GPU_SCENARIOS, 'idle_gpu_share_pct': idle_share.values,
                       'gpu_hours_per_mwh': gpu_h.values, 'sell_all_usd_mwh': m.net_usd_mwh.values}), 'fig2d')
     csv(pd.concat(rows_e), 'fig2e')
+    csv(rows_f, 'fig2f')
     return m, pd.concat(rows_e)
 
 

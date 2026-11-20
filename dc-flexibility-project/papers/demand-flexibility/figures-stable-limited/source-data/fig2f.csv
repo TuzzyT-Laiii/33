@@ -1,0 +1,37 @@
+﻿strategy,scenario,energy_side_share_pct,share_of_total_cost_pct,energy_side_share_of_total_cost_pct
+Current coordination,B-SAI,100,0.497245,0.497245
+Current coordination,C-SAI,100,0.378437,0.378437
+Current coordination,D-SAI,100,0.284653,0.284653
+Current coordination,B-TRN,100,0.457105,0.457105
+Current coordination,C-TRN,100,0.504376,0.504376
+Current coordination,D-TRN,100,0.782468,0.782468
+Current coordination,B-INF,100,0.105995,0.105995
+Current coordination,C-INF,100,0.100692,0.100692
+Current coordination,D-INF,100,0.139786,0.139786
+Upper bound: downsizing,B-SAI,2.59786,15.4817,0.402124
+Upper bound: downsizing,C-SAI,2.22535,15.5523,0.346098
+Upper bound: downsizing,D-SAI,3.17799,15.5484,0.493971
+Upper bound: downsizing,B-TRN,2.404,22.2526,0.53501
+Upper bound: downsizing,C-TRN,2.07251,22.213,0.460367
+Upper bound: downsizing,D-TRN,2.79358,22.0199,0.615052
+Upper bound: downsizing,B-INF,2.20837,9.0695,0.20025
+Upper bound: downsizing,C-INF,1.87892,9.0801,0.170548
+Upper bound: downsizing,D-INF,2.50893,9.03527,0.226617
+"Sell inference, real demand",B-SAI,1.83809,18.895,0.353723
+"Sell inference, real demand",C-SAI,1.11509,23.5157,0.265222
+"Sell inference, real demand",D-SAI,1.03426,17.2971,0.180634
+"Sell inference, real demand",B-TRN,1.48745,35.5335,0.536225
+"Sell inference, real demand",C-TRN,1.2456,45.3565,0.571935
+"Sell inference, real demand",D-TRN,2.23417,37.9216,0.867545
+"Sell inference, real demand",B-INF,0.876824,5.87551,0.0519556
+"Sell inference, real demand",C-INF,0.619678,8.35721,0.0521111
+"Sell inference, real demand",D-INF,0.975038,7.5728,0.0745242
+Sell all idle GPU-hours,B-SAI,1.66212,68.067,1.15055
+Sell all idle GPU-hours,C-SAI,1.00644,87.5175,0.890252
+Sell all idle GPU-hours,D-SAI,0.936455,74.6033,0.705614
+Sell all idle GPU-hours,B-TRN,1.47869,45.6083,0.68466
+Sell all idle GPU-hours,C-TRN,1.23931,58.0243,0.727928
+Sell all idle GPU-hours,D-TRN,2.22767,48.4221,1.10307
+Sell all idle GPU-hours,B-INF,0.756218,38.4685,0.293112
+Sell all idle GPU-hours,C-INF,0.533128,49.0513,0.262636
+Sell all idle GPU-hours,D-INF,0.834914,41.4965,0.349796

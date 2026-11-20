@@ -1,0 +1,12 @@
+﻿node,usd_mwh,share_of_net_pct,sankey
+grid_energy,6.84586,68.4625,current
+grid_capacity,2.94092,29.4109,current
+carbon,2.61398,26.1414,current
+storage,1.13962,11.3968,current
+gross,13.54038,,current
+renewables,-3.54096,-35.4116,current
+net,9.99942,100,current
+fewer_servers,390.5398998,,upper
+supply_side,10.26959627,,upper
+supply_side_relaxed,26.77198115,,upper
+upper_bound,400.8094961,,upper
