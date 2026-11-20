@@ -21,6 +21,7 @@ import cartopy.crs as ccrs
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
 
@@ -33,7 +34,8 @@ RAW = Path('D:/codex-runs/sec4-20261116')
 USES = ['HPC', 'CLD', 'SAI', 'TRN', 'INF']
 PATHS = {'conservative': '#93CDB9', 'moderate': '#3F93A8', 'advanced': '#1B3F70'}
 LEVELS = [0, .25, .5, .75]
-H = 252
+EXTRA = 50            # 为底部面板 i 加高的 mm
+H = 252 + EXTRA
 EXT = (-180, 180, -58, 84)
 REGIONS = ['Asia', 'Africa', 'Oceania', 'Europe', 'North America', 'South America']
 TEAL, TERRA = '#2E8FA3', '#C0623F'
@@ -153,6 +155,101 @@ def marginal_map(fig, rect, values, cmap, norm, bar_lim, bar_ticks, unit, hist_l
     return ax, pos, lon, lat
 
 
+DECOMP = ROOT / 'results/supply-cost-decomposition-20261119'
+COMPS = [('grid_energy', 'Grid energy', '#1B3F70'), ('grid_capacity', 'Grid capacity', '#46A6B5'),
+         ('carbon', 'Carbon cost', '#7FC3AE'), ('storage', 'Storage', '#C9A646')]
+
+
+def panel_i(fig):
+    """i：碳价与成本路径下协同省钱方式的转变（毛节省构成，不接推理）与协同节省占供能成本、占总成本的比例。"""
+    ca = pd.read_csv(DECOMP / 'sec4-carbon-all.csv')
+    ca = ca[ca.intensity_of_max.eq(0)].set_index('carbon_price_usd_t')
+    la = pd.read_csv(DECOMP / 'sec4-learning-all.csv')
+    la = la[la.intensity_of_max.eq(0)].set_index('cost_scenario')
+    cu = pd.read_csv(DECOMP / 'sec4-carbon-by-use.csv')
+    cu = cu[cu.intensity_of_max.eq(0)]
+    lu = pd.read_csv(DECOMP / 'sec4-learning-by-use.csv')
+    lu = lu[lu.intensity_of_max.eq(0)]
+    cases = [(f'Carbon {c} USD/t', ca.loc[c], cu[cu.carbon_price_usd_t.eq(c)], None) for c in (0, 100, 200)]
+    for yr in (2030, 2035):
+        for path in ('conservative', 'moderate', 'advanced'):
+            k = f'{yr}-{path}'
+            cases.append((f'{yr} {path}', la.loc[k], lu[lu.cost_scenario.eq(k)], k))
+    y = np.arange(len(cases))[::-1].astype(float)
+    y[:3] += 1.0
+    y[3:6] += .5
+    ax1 = fig.add_axes([.17, 7 / H, .37, (EXTRA - 15) / H])
+    axs = fig.add_axes([.63, 7 / H, .15, (EXTRA - 15) / H])
+    ax2 = fig.add_axes([.83, 7 / H, .14, (EXTRA - 15) / H])
+    rows = []
+    for yi, (name, a, u, key) in zip(y, cases):
+        v = {k: max(a[f'{k}_saving_mean_usd_mwh'], 0) for k, _, _ in COMPS}
+        gross = sum(v.values())
+        left = 0
+        for k, lab, col in COMPS:
+            w = v[k] / gross * 100
+            ax1.barh(yi, w, left=left, height=.62, color=col, lw=0, zorder=2)
+            if k in ('grid_energy', 'storage') and w >= 9:
+                ax1.text(left + w / 2, yi, f'{w:.0f}%', ha='center', va='center', fontsize=5.8, fontweight='bold',
+                         color='white' if k == 'grid_energy' else '#2B2B2B', zorder=3)
+            left += w
+            rows.append({'case': name, 'component': k, 'share_of_gross_pct': w, 'usd_mwh': v[k]})
+        ax1.text(101.5, yi, f'{a.saving_mean_usd_mwh:.1f}', ha='left', va='center', fontsize=5.6, fontweight='bold',
+                 color='#2B2B2B')
+        for _, r in u.iterrows():
+            c = COLORS[r.use]
+            axs.scatter(r.saving_share_of_supply_cost_median_pct, yi, s=13, color=c, edgecolors='white', lw=.4,
+                        zorder=3)
+            ax2.scatter(r.saving_share_of_total_cost_median_pct, yi + (.13 if key else 0), s=13, color=c,
+                        edgecolors='white', lw=.4, zorder=3)
+            if key:
+                ax2.scatter(r.saving_share_of_total_cost_cardpath_median_pct, yi - .13, s=12, facecolor='white',
+                            edgecolors=c, lw=.8, zorder=3)
+        top = max(u.saving_share_of_total_cost_median_pct.max(),
+                  u.saving_share_of_total_cost_cardpath_median_pct.max() if key else 0)
+        ax2.text(top + .1, yi, f'≤ {top:.1f}%', ha='left', va='center', fontsize=5.6, fontweight='bold',
+                 color='#1B3F70')
+        sup = u.saving_share_of_supply_cost_median_pct
+        axs.text(sup.max() + .4, yi, f'{sup.min():.1f}–{sup.max():.1f}%', ha='left', va='center', fontsize=5.4,
+                 fontweight='bold', color='#2B2B2B')
+        for _, r in u.iterrows():
+            rows.append({'case': name, 'component': 'pct_' + r.use, 'share_of_supply_cost_median_pct':
+                         r.saving_share_of_supply_cost_median_pct, 'share_of_total_cost_median_pct':
+                         r.saving_share_of_total_cost_median_pct, 'share_of_total_cost_cardpath_median_pct':
+                         r.get('saving_share_of_total_cost_cardpath_median_pct', np.nan)})
+    ax1.set_yticks(y, [c[0] for c in cases], fontsize=5.8)
+    ax1.tick_params(axis='y', length=0)
+    ax1.spines['left'].set_visible(False)
+    ax1.set_xlim(0, 100)
+    ax1.set_xticks([0, 25, 50, 75, 100])
+    ax1.set_xlabel('Share of gross coordination saving (%)', fontsize=6, labelpad=1)
+    ax1.text(101.5, y[0] + .75, 'Net\nUSD/MWh', ha='left', va='bottom', fontsize=5.2)
+    ax1.legend(handles=[Patch(color=col, label=lab) for _, lab, col in COMPS], loc='lower center',
+               bbox_to_anchor=(.5, 1.0), ncol=4, fontsize=5.6, handlelength=1, columnspacing=1.2, borderaxespad=.2)
+    axs.set_ylim(ax1.get_ylim())
+    axs.set_yticks([])
+    axs.spines['left'].set_visible(False)
+    axs.set_xlim(0, 24)
+    axs.set_xticks([0, 5, 10, 15])
+    axs.set_xlabel('Saving (% of supply cost)', fontsize=6, labelpad=1, fontweight='bold')
+    guides(axs)
+    axs.legend(handles=[Line2D([], [], marker='o', ls='none', color=COLORS[u_], ms=3.2, label=GROUP[u_])
+                        for u_ in ('HPC', 'CLD', 'SAI', 'TRN', 'INF')], loc='lower center', bbox_to_anchor=(.5, 1.0),
+               ncol=3, fontsize=5, handletextpad=.1, columnspacing=.5, borderaxespad=.2)
+    ax2.set_ylim(ax1.get_ylim())
+    ax2.set_yticks([])
+    ax2.spines['left'].set_visible(False)
+    ax2.set_facecolor('#E3EEF6')
+    ax2.set_xlim(0, 3.6)
+    ax2.set_xlabel('Saving (% of total cost)', fontsize=6, labelpad=1, fontweight='bold', color='#1B3F70')
+    guides(ax2)
+    ax2.legend(handles=[Line2D([], [], marker='o', ls='none', color='#666666', ms=3.4, label='Fleet at 2024 prices'),
+                        Line2D([], [], marker='o', ls='none', mfc='white', mec='#666666', ms=3.4,
+                               label='Fleet on card-price path')],
+               loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=1, fontsize=5.4, handletextpad=.2, borderaxespad=.2)
+    return pd.DataFrame(rows)
+
+
 def main():
     setup()
     prepare()
@@ -172,7 +269,7 @@ def main():
     cmap_a = mpl.colors.ListedColormap(SEQ(np.linspace(0, 1, len(bounds_a) - 1)))
     cmap_a.set_over(SEQ(1.0))
     norm_a = mpl.colors.BoundaryNorm(bounds_a, cmap_a.N)
-    ax_a, pos_a, lon_a, lat_a = marginal_map(fig, [.07, 188 / H, .68, 48 / H], dv, cmap_a, norm_a, (0, 12),
+    ax_a, pos_a, lon_a, lat_a = marginal_map(fig, [.07, (188 + EXTRA) / H, .68, 48 / H], dv, cmap_a, norm_a, (0, 12),
                                              [0, 6, 12], 'USD/MWh', 'Extra saving at 200 USD/t (USD/MWh)',
                                              hist_ticks=range(0, 13, 3), top_h=.052, side_w=.12)
     panel(fig, 'a', .012, 1 - 2 / H)
@@ -183,8 +280,8 @@ def main():
     pair['region'] = pair.index.map(cont)
     rows_b = [('Global', pair)] + [(r, pair[pair.region.eq(r)]) for r in REGIONS]
     ys = np.arange(len(rows_b))[::-1]
-    axl = fig.add_axes([.15, 132 / H, .16, 36 / H])     # 左：协同减排的变化（kg/MWh，向左为减少）
-    axr = fig.add_axes([.315, 132 / H, .17, 36 / H])    # 右：多省的钱（USD/MWh）
+    axl = fig.add_axes([.15, (132 + EXTRA) / H, .16, 36 / H])     # 左：协同减排的变化（kg/MWh，向左为减少）
+    axr = fig.add_axes([.315, (132 + EXTRA) / H, .17, 36 / H])    # 右：多省的钱（USD/MWh）
     tab_b = []
     for y, (name, g) in zip(ys, rows_b):
         v, e = g.dv.median(), g.de.median()
@@ -210,11 +307,11 @@ def main():
     axl.set_xlabel('Emission cut lost (kg CO$_2$/MWh)', fontsize=5.8, labelpad=1, color=TERRA)
     axr.set_xlabel('Extra saving (USD/MWh)', fontsize=5.8, labelpad=1, color=TEAL)
     out['b'] = pd.DataFrame(tab_b)
-    panel(fig, 'b', .012, 177 / H)
+    panel(fig, 'b', .012, (177 + EXTRA) / H)
 
     # ================= 4.2 =================
     # c 各用途下十分位：碳价 0（空心）→ 200（实心），上为不接推理，下为推理 75%
-    axc = fig.add_axes([.64, 132 / H, .33, 36 / H])
+    axc = fig.add_axes([.64, (132 + EXTRA) / H, .33, 36 / H])
     rows_c = []
     yl = []
     groups = ['All'] + USES
@@ -250,13 +347,13 @@ def main():
                loc='lower right', fontsize=4.8, ncol=2, handlelength=1.1, columnspacing=.6, labelspacing=.25,
                borderaxespad=.2, frameon=True, framealpha=.9, edgecolor='none')
     out['c'] = pd.DataFrame(rows_c)
-    panel(fig, 'c', .53, 177 / H)
+    panel(fig, 'c', .53, (177 + EXTRA) / H)
 
     # ================= 4.3 =================
     # d 允许增减卡时的减卡比例：每个用途一条中位数线 + 配置范围色带，线头直接标注
     cut = pd.read_csv(SUPP / 'card-city/free-cut-share.csv')
     cs = cut.groupby(['scenario', 'intensity_of_max']).cut_share_median.median().unstack() * 100
-    axd = fig.add_axes([.12, 74 / H, .2, 38 / H])
+    axd = fig.add_axes([.12, (74 + EXTRA) / H, .2, 38 / H])
     xx = np.array(LEVELS) * 100
     rows_d = []
     for u in USES:
@@ -281,7 +378,7 @@ def main():
     axd.set_xlabel('Inference (% of cap)', fontsize=6, labelpad=1)
     axd.set_ylabel('Cards cut (% of fleet)', fontsize=6, labelpad=2)
     guides(axd, 'y')
-    panel(fig, 'd', .012, 122 / H)
+    panel(fig, 'd', .012, (122 + EXTRA) / H)
 
     # ================= 4.4 =================
     # e 2035 乐观路径下协同节省相对 2024 的倍数（版式同 a，柱以 1 为基线）
@@ -293,18 +390,18 @@ def main():
     cmap_e.set_over(DIV(1.0))
     cmap_e.set_under(DIV(0.))
     norm_e = mpl.colors.BoundaryNorm(bounds_e, cmap_e.N)
-    ax_e, pos_e, lon_e, lat_e = marginal_map(fig, [.41, 74 / H, .46, 34 / H], rmap, cmap_e, norm_e, (.5, 1.2),
+    ax_e, pos_e, lon_e, lat_e = marginal_map(fig, [.41, (74 + EXTRA) / H, .46, 34 / H], rmap, cmap_e, norm_e, (.5, 1.2),
                                              [.6, .8, 1.0, 1.2], '× 2024', '× 2024', base=1.,
                                              hist_ticks=[.4, .8, 1.2], med_fmt='{:.2f}', top_h=.04,
                                              side_w=.09)
-    panel(fig, 'e', .36, 122 / H)
+    panel(fig, 'e', .36, (122 + EXTRA) / H)
 
     # f 三条路径的轨迹：横为协同节省倍数（误差线为碳价 0–200），纵为占供能成本的比例（不接推理）
     lr = pd.read_csv(SUPP / 'learning-ratio-all.csv')
     lr = lr[lr.intensity_of_max.eq(0)].set_index(['cost_scenario', 'carbon_price_usd_t']).ratio_median
     pct = pd.read_csv(SEC4 / 'learning-pct-all.csv')
     pct0 = pct[pct.intensity_of_max.eq(0)].set_index('cost_scenario')
-    axf = fig.add_axes([.07, 9 / H, .25, 40 / H])
+    axf = fig.add_axes([.07, (9 + EXTRA) / H, .25, 40 / H])
     rows_f = []
     for path, pc in PATHS.items():
         cs_ = ['base-2024', f'2030-{path}', f'2035-{path}']
@@ -337,7 +434,7 @@ def main():
     axf.set_xlabel('Coordination saving (× 2024)', fontsize=6, labelpad=1)
     axf.set_ylabel('Saving (% of supply cost)', fontsize=6, labelpad=1)
     guides(axf, 'both')
-    panel(fig, 'f', .012, 58 / H)
+    panel(fig, 'f', .012, (58 + EXTRA) / H)
 
     # g 二维直方图：不做协同时的储能时长 vs 协同节省倍数（六条路径合并）
     lg['store_h'] = lg.batt_seq / (lg.E0 / 8760)
@@ -347,7 +444,7 @@ def main():
     ys = ratio[paths6].to_numpy().ravel()
     ok = np.isfinite(xs) & np.isfinite(ys)
     xs, ys = xs[ok], ys[ok]
-    axg = fig.add_axes([.41, 9 / H, .24, 40 / H])
+    axg = fig.add_axes([.41, (9 + EXTRA) / H, .24, 40 / H])
     hh = axg.hist2d(xs, ys, bins=[np.linspace(0, 16, 33), np.linspace(0, 1.6, 33)], cmap=SEQ,
                     norm=mpl.colors.LogNorm(1, 3e4), cmin=1, rasterized=True)
     edges = np.linspace(0, 16, 17)
@@ -374,16 +471,16 @@ def main():
                         Line2D([], [], color='black', lw=1.3, label='Binned median')],
                loc='lower left', fontsize=4.8, handletextpad=.3, labelspacing=.25, borderaxespad=.3, frameon=True,
                framealpha=.85, edgecolor='none')
-    cax = fig.add_axes([.655, 9 / H, .005, 40 / H])
+    cax = fig.add_axes([.655, (9 + EXTRA) / H, .005, 40 / H])
     cbh = fig.colorbar(hh[3], cax=cax)
     cbh.ax.tick_params(labelsize=4.6, length=1.5, pad=1)
     cbh.set_label('Cases', fontsize=5.2, labelpad=1)
-    panel(fig, 'g', .35, 58 / H)
+    panel(fig, 'g', .35, (58 + EXTRA) / H)
 
     # h 气泡图：各成本情景的供能成本中位数 vs 碳价 0→200 放大倍数（气泡大小 = 单调上升比例）
     ca = pd.read_csv(SUPP / 'carbon-amplification-all.csv')
     ca = ca[ca.intensity_of_max.eq(0)].merge(pct0.reset_index(), on='cost_scenario')
-    axh = fig.add_axes([.76, 9 / H, .22, 40 / H])
+    axh = fig.add_axes([.76, (9 + EXTRA) / H, .22, 40 / H])
     for _, r in ca.iterrows():
         cs_ = r.cost_scenario
         colr = 'black' if cs_ == 'base-2024' else PATHS[cs_.split('-')[1]]
@@ -403,7 +500,10 @@ def main():
     axh.legend(handles=[Line2D([], [], color=pc, lw=0, marker='o', ms=3.4, label=p.capitalize())
                         for p, pc in PATHS.items()],
                loc='upper left', fontsize=4.8, handletextpad=.2, labelspacing=.25, borderaxespad=.3)
-    panel(fig, 'h', .7, 58 / H)
+    panel(fig, 'h', .7, (58 + EXTRA) / H)
+
+    rows_i = panel_i(fig)
+    panel(fig, 'i', .012, (EXTRA - 1) / H)
 
     export(fig, 'fig4')
     csv(pd.DataFrame({'grid_id': dv.index, 'extra_saving_c200_vs_c0_usd_mwh': dv.values}), 'fig4a')
@@ -414,6 +514,7 @@ def main():
     csv(pd.concat(rows_f), 'fig4f')
     csv(pd.DataFrame(rows_g), 'fig4g')
     csv(ca[['cost_scenario', 'supply_cost_median', 'amp_median', 'monotone_share']], 'fig4h')
+    csv(rows_i, 'fig4i')
     out['a'] = dv.describe()
     out['e'] = rmap.describe()
     return out

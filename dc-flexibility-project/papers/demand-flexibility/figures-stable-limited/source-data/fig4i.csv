@@ -1,0 +1,82 @@
+﻿case,component,share_of_gross_pct,usd_mwh,share_of_supply_cost_median_pct,share_of_total_cost_median_pct,share_of_total_cost_cardpath_median_pct
+Carbon 0 USD/t,grid_energy,69.21702047,7.64457,,,
+Carbon 0 USD/t,grid_capacity,27.36231648,3.02199,,,
+Carbon 0 USD/t,carbon,0,0,,,
+Carbon 0 USD/t,storage,3.420663054,0.37779,,,
+Carbon 0 USD/t,pct_CLD,,,8.56082,0.641958,
+Carbon 0 USD/t,pct_HPC,,,8.73269,0.611684,
+Carbon 0 USD/t,pct_INF,,,3.03719,0.081249,
+Carbon 0 USD/t,pct_SAI,,,8.22023,0.269667,
+Carbon 0 USD/t,pct_TRN,,,10.2252,0.407065,
+Carbon 100 USD/t,grid_energy,50.55884695,6.84586,,,
+Carbon 100 USD/t,grid_capacity,21.71962678,2.94092,,,
+Carbon 100 USD/t,carbon,19.3050712,2.61398,,,
+Carbon 100 USD/t,storage,8.416455077,1.13962,,,
+Carbon 100 USD/t,pct_CLD,,,9.2377,0.80231,
+Carbon 100 USD/t,pct_HPC,,,11.295,0.90818,
+Carbon 100 USD/t,pct_INF,,,3.56096,0.112644,
+Carbon 100 USD/t,pct_SAI,,,9.83383,0.380215,
+Carbon 100 USD/t,pct_TRN,,,12.3968,0.559896,
+Carbon 200 USD/t,grid_energy,36.28784419,5.41153,,,
+Carbon 200 USD/t,grid_capacity,17.84729752,2.66153,,,
+Carbon 200 USD/t,carbon,24.54859218,3.66088,,,
+Carbon 200 USD/t,storage,21.3162661,3.17885,,,
+Carbon 200 USD/t,pct_CLD,,,9.51667,0.889265,
+Carbon 200 USD/t,pct_HPC,,,12.4977,1.16036,
+Carbon 200 USD/t,pct_INF,,,3.77579,0.136496,
+Carbon 200 USD/t,pct_SAI,,,10.984,0.465982,
+Carbon 200 USD/t,pct_TRN,,,13.9641,0.68688,
+2030 conservative,grid_energy,49.73810108,6.70679,,,
+2030 conservative,grid_capacity,21.67186658,2.92228,,,
+2030 conservative,carbon,18.77655421,2.53187,,,
+2030 conservative,storage,9.813478135,1.32327,,,
+2030 conservative,pct_CLD,,,9.69857,0.81688,0.585723
+2030 conservative,pct_HPC,,,12.0724,0.948369,0.679169
+2030 conservative,pct_INF,,,3.77342,0.116334,0.0821429
+2030 conservative,pct_SAI,,,10.4811,0.393785,0.278469
+2030 conservative,pct_TRN,,,13.3066,0.578402,0.409467
+2030 moderate,grid_energy,43.86154029,5.55813,,,
+2030 moderate,grid_capacity,20.72563189,2.62635,,,
+2030 moderate,carbon,15.48044151,1.96168,,,
+2030 moderate,storage,19.93238631,2.52583,,,
+2030 moderate,pct_CLD,,,9.83103,0.767118,0.984016
+2030 moderate,pct_HPC,,,12.7279,0.977396,1.25642
+2030 moderate,pct_INF,,,3.9443,0.116796,0.152197
+2030 moderate,pct_SAI,,,11.355,0.401261,0.522479
+2030 moderate,pct_TRN,,,14.4584,0.58647,0.762453
+2030 advanced,grid_energy,26.26066421,2.66172,,,
+2030 advanced,grid_capacity,16.89886746,1.71283,,,
+2030 advanced,carbon,8.570322446,0.868668,,,
+2030 advanced,storage,48.27014588,4.89255,,,
+2030 advanced,pct_CLD,,,9.31875,0.61607,1.288
+2030 advanced,pct_HPC,,,12.4034,0.871785,1.82051
+2030 advanced,pct_INF,,,3.66095,0.0969463,0.213328
+2030 advanced,pct_SAI,,,11.775,0.369579,0.808949
+2030 advanced,pct_TRN,,,14.8427,0.537195,1.1712
+2035 conservative,grid_energy,49.27696131,6.61012,,,
+2035 conservative,grid_capacity,21.80559138,2.92505,,,
+2035 conservative,carbon,18.53287034,2.48604,,,
+2035 conservative,storage,10.38457696,1.39301,,,
+2035 conservative,pct_CLD,,,9.83071,0.814659,0.441811
+2035 conservative,pct_HPC,,,12.3203,0.957791,0.518549
+2035 conservative,pct_INF,,,3.82469,0.116388,0.061519
+2035 conservative,pct_SAI,,,10.6824,0.396422,0.21013
+2035 conservative,pct_TRN,,,13.6721,0.583728,0.310207
+2035 moderate,grid_energy,35.51382957,4.10656,,,
+2035 moderate,grid_capacity,19.53971498,2.25943,,,
+2035 moderate,carbon,11.83177423,1.36814,,,
+2035 moderate,storage,33.11468123,3.82914,,,
+2035 moderate,pct_CLD,,,10.0351,0.70312,1.11739
+2035 moderate,pct_HPC,,,13.1843,0.958746,1.52507
+2035 moderate,pct_INF,,,3.98946,0.110039,0.180017
+2035 moderate,pct_SAI,,,12.0713,0.400165,0.653148
+2035 moderate,pct_TRN,,,15.5138,0.582347,0.947835
+2035 advanced,grid_energy,18.93940099,1.42491,,,
+2035 advanced,grid_capacity,17.38999368,1.30834,,,
+2035 advanced,carbon,6.98133135,0.525242,,,
+2035 advanced,storage,56.68927399,4.26503,,,
+2035 advanced,pct_CLD,,,8.16087,0.436736,1.65485
+2035 advanced,pct_HPC,,,11.4631,0.67794,2.5389
+2035 advanced,pct_INF,,,3.05637,0.0677109,0.285653
+2035 advanced,pct_SAI,,,11.0477,0.298827,1.24175
+2035 advanced,pct_TRN,,,15.0002,0.454269,1.87363
