@@ -1,0 +1,2 @@
+rows 1495802, optimal 1491336, max residual 2.09e-11
+add cases 1491336, adding cards 0
