@@ -110,6 +110,8 @@ def main():
     ap.add_argument('--scenarios', default='')
     ap.add_argument('--city-inputs', default=str(CITY_INPUTS))
     ap.add_argument('--workers', type=int, default=32)
+    ap.add_argument('--modes', default='', help='2026-11-21：覆盖 global 的模式，如 free')
+    ap.add_argument('--costs', default='', help='2026-11-21：只算这些成本路径，如 base-2024')
     args = ap.parse_args()
     city = args.kind == 'city'
     m_grid = [float(v) for v in (args.m or ('0.2,0.5,1,2' if city else '0.2')).split(',')]
@@ -117,8 +119,12 @@ def main():
     init = dict(config=args.config, project=args.project, asi=args.asi, fee=args.fee, max_table=args.max_table,
                 intensities=[float(v) for v in args.intensities.split(',')], cost_scenarios=args.cost_scenarios,
                 kind=args.kind, cases=cases(args.kind, m_grid, s_grid, args.with_flat), city_inputs=args.city_inputs)
+    if args.modes:
+        init['cases'] = [c for c in init['cases'] if c[0] == 'flat'] + [(md, m, s) for md in args.modes.split(',') for m in m_grid for s in s_grid]
     initialize(init)
     costs = ['base-2024'] + list(G.CONTEXT['cost_scenarios'])
+    if args.costs:
+        costs = [c for c in costs if c in args.costs.split(',')]
     G.CONTEXT['cost_scenarios'] = {'base-2024': None, **G.CONTEXT['cost_scenarios']}
     scenarios = args.scenarios.split(',') if args.scenarios else G.CONTEXT['own']['scenarios']
     if args.regions:
