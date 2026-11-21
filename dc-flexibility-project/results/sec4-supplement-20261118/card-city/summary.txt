@@ -1,0 +1,4 @@
+rows 61600, optimal 61600, max residual 9.43e-12
+add cases 29568, adding cards 0
+free cases 29568, reducing 29568
+linear approx |cut - cut0*(1-level)|: median 0.0000, p99 0.0067, max 0.0067

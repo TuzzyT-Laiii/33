@@ -129,7 +129,12 @@ def solve_one(task):
                                                      (fleet['baseline_units'] - cert['servers'])),
                 net_saving_lower_usd_mwh=low, net_saving_upper_usd_mwh=high,
                 max_residual=max(baseline['max_residual'], feasible['max_residual'], relaxed['max_residual']),
-                seconds=time.monotonic() - started, status='verified_bounds')
+                seconds=time.monotonic() - started, status='verified_bounds',
+                # 2026-11-21 追加：减配上限的减排与接入容量（排放 = 购电 × 当地碳因子，事后计算）
+                carbon_t_mwh=float(meta.carbon_t_mwh),
+                **{f'{k}_{f}': float(row[f]) * (annual if f.endswith('mwh') else 1.)
+                   for k, row in (('A', baseline), ('C', feasible), ('L', relaxed))
+                   for f in ('grid_mwh', 'grid_cap_mw')})
 
 
 def main():
