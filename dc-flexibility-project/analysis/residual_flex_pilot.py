@@ -197,14 +197,14 @@ def solve(frame, p, city, on, off, *, fee, whole_h=12, split_h=48, off_h=24, mod
     executed = fixed + sum(d[x_] for x_ in X)
     facility = pue * executed
     cost = {k: unit[k] * scale * v for k, v in zip(CAPS, x[:5])}
-    cost.update(grid_energy=p['grid_price_usd_mwh'] * d['grid'].sum(), carbon=p['carbon_price_usd_t'] * ef * d['grid'].sum(),
+    cost.update(grid_energy=p['grid_price_usd_mwh'] * d['grid'].sum(), carbon=p['carbon_price_usd_t'] * float(np.sum(ef * d['grid'])),
                 throughput=p['battery_throughput_usd_mwh'] * d['discharge'].sum())
     resid = max(np.max(np.abs(d['direct'] + d['grid'] + d['discharge'] - facility)),
                 *(abs(d['x_' + k].sum() - arr[k].sum()) for k in arr),
                 np.max(sum(d[x_] for x_ in X) - headroom))
     out.update(total_cost_usd=sum(cost.values()), **{'cost_' + k: v for k, v in cost.items()},
                pv_mw=pv, wind_mw=wind, battery_mw=power, battery_mwh=energy, grid_cap_mw=gcap,
-               grid_mwh=float(d['grid'].sum()), emissions_t=float(d['grid'].sum() * ef),
+               grid_mwh=float(d['grid'].sum()), emissions_t=float(np.sum(d['grid'] * ef)),
                facility_mwh=float(facility.sum()), facility_peak_mw=float(facility.max()),
                cfe_hourly=1 - float(d['grid'].sum() / facility.sum()),
                moved_whole_mwh=float(np.maximum(arr['whole'] - d['x_whole'], 0).sum()),
